@@ -2,27 +2,29 @@
 
 import { useState, useRef, FormEvent } from "react";
 
+const SPOTIFY_ARTIST = "https://open.spotify.com/artist/1UpcgaCHBwic2IqUQ3hHdp";
+
 const catalog = [
   {
     id: "latest",
-    title: "Latest Release",
-    subtitle: "Erik Sjøholm · 2025",
-    link: "https://www.instagram.com/p/DV15E62iOnd/",
-    mood: ["new", "latest", "recent", "fresh", "now"],
+    title: "Lycka",
+    subtitle: "Latest release · 2025",
+    link: SPOTIFY_ARTIST,
+    mood: ["new", "latest", "recent", "fresh", "now", "happy", "joy", "light", "warm", "summer"],
   },
   {
     id: "played",
-    title: "Most Played",
-    subtitle: "Erik Sjøholm · 2024",
-    link: "#",
-    mood: ["popular", "known", "familiar", "best", "top", "played", "loved", "favourite", "favorite"],
+    title: "Wake Up",
+    subtitle: "Most played · 14k streams",
+    link: SPOTIFY_ARTIST,
+    mood: ["popular", "known", "familiar", "best", "top", "played", "loved", "favourite", "favorite", "wake", "morning", "start", "energy", "upbeat"],
   },
   {
     id: "unexpected",
-    title: "Unexpected",
-    subtitle: "Erik Sjøholm · 2024",
-    link: "#",
-    mood: ["unexpected", "surprise", "random", "different", "weird", "dark", "deep", "hidden", "rare"],
+    title: "The Night Is Long",
+    subtitle: "That Never Finds The Day · 2024",
+    link: SPOTIFY_ARTIST,
+    mood: ["unexpected", "surprise", "random", "different", "dark", "deep", "hidden", "rare", "night", "sad", "melanchol", "lonely", "slow", "quiet", "calm", "still", "soft", "late"],
   },
 ];
 
@@ -31,9 +33,8 @@ function matchFromText(input: string) {
   for (const track of catalog) {
     if (track.mood.some((word) => lower.includes(word))) return track;
   }
-  // fallback: mood heuristics
-  if (/sad|melanchol|lonely|night|slow|quiet|calm|still|soft/.test(lower)) return catalog[2];
-  if (/happ|danc|energy|upbeat|fast|loud|hype|fun/.test(lower)) return catalog[1];
+  if (/sad|melanchol|lonely|night|slow|quiet|calm|still|soft|dark|long/.test(lower)) return catalog[2];
+  if (/happ|danc|energy|upbeat|fast|loud|hype|fun|wake|morn/.test(lower)) return catalog[1];
   return catalog[0];
 }
 
@@ -44,7 +45,6 @@ function ResultCard({ track, onClose }: { track: Track; onClose: () => void }) {
     <div className="mt-6 animate-[fadeSlideUp_0.4s_ease_forwards]">
       <div className="border border-white/10 hover:border-[#F59E0B]/40 transition-colors duration-500 p-5 flex items-center justify-between gap-6 group">
         <div className="flex items-center gap-5">
-          {/* Play icon */}
           <div className="w-10 h-10 rounded-full border border-white/20 group-hover:border-[#F59E0B]/60 flex items-center justify-center shrink-0 transition-colors duration-300">
             <svg
               width="12"
@@ -70,9 +70,12 @@ function ResultCard({ track, onClose }: { track: Track; onClose: () => void }) {
             href={track.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[0.6rem] tracking-[0.25em] uppercase text-[#888888] hover:text-[#F59E0B] transition-colors duration-300"
+            className="flex items-center gap-2 text-[0.6rem] tracking-[0.25em] uppercase text-[#888888] hover:text-[#1DB954] transition-colors duration-300"
           >
-            Listen →
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z" />
+            </svg>
+            Listen
           </a>
           <button
             onClick={onClose}
@@ -123,7 +126,6 @@ export default function Discover() {
   return (
     <section className="py-32 border-t border-white/5">
       <div className="px-6 md:px-10 max-w-3xl mx-auto">
-        {/* Section header */}
         <div className="flex items-center gap-6 mb-14">
           <span className="block w-10 h-px bg-[#F59E0B]" />
           <span className="text-[0.6rem] tracking-[0.35em] uppercase text-[#888888]">
@@ -135,7 +137,6 @@ export default function Discover() {
           What are you<br />looking for?
         </h2>
 
-        {/* Chat input */}
         <form onSubmit={handleSubmit} className="relative">
           <input
             ref={inputRef}
@@ -154,23 +155,13 @@ export default function Discover() {
             aria-label="Send"
             className="absolute right-4 top-1/2 -translate-y-1/2 text-[#555555] hover:text-[#F59E0B] transition-colors duration-300"
           >
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
               <line x1="22" y1="2" x2="11" y2="13" />
               <polygon points="22 2 15 22 11 13 2 9 22 2" />
             </svg>
           </button>
         </form>
 
-        {/* Chips */}
         <div className="flex flex-wrap gap-3 mt-5">
           <span className="text-[0.6rem] tracking-[0.2em] uppercase text-[#444444] self-center mr-1">
             or
@@ -190,7 +181,6 @@ export default function Discover() {
           ))}
         </div>
 
-        {/* Result card */}
         {result && <ResultCard track={result} onClose={handleClose} />}
       </div>
 

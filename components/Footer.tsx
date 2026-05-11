@@ -19,7 +19,16 @@ export default function Footer() {
           </a>
           <span className="w-px h-3 bg-white/10" />
           <a
-            href="mailto:hello@eriksjoholm.com"
+            href="https://open.spotify.com/artist/1UpcgaCHBwic2IqUQ3hHdp"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[0.6rem] tracking-[0.25em] uppercase text-[#444444] hover:text-[#1DB954] transition-colors duration-300"
+          >
+            Spotify
+          </a>
+          <span className="w-px h-3 bg-white/10" />
+          <a
+            href="mailto:erik@eriksjoholm.com"
             className="text-[0.6rem] tracking-[0.25em] uppercase text-[#444444] hover:text-white transition-colors duration-300"
           >
             Contact
