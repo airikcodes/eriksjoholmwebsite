@@ -13,10 +13,7 @@ export default function Home() {
         ERIK SJ<span className="text-[#F59E0B]">Ø</span>HOLM
       </h1>
 
-      {/* Tagline */}
-      <p className="text-[0.6rem] tracking-[0.35em] uppercase text-[#AAAAAA] mb-12">
-        New music coming
-      </p>
+      <div className="mb-10" />
 
       {/* Beehiiv form */}
       <div className="w-full max-w-sm">
