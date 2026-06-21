@@ -48,7 +48,7 @@ export default function About() {
       {/* Amber rule */}
       <span className="block w-6 h-px bg-[#F59E0B] mt-12 mb-10" />
 
-      {/* Links */}
+      {/* Social links */}
       <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-8">
         <a
           href="https://www.instagram.com/eriksjoholmofficial"
@@ -78,8 +78,27 @@ export default function About() {
         </a>
         <span className="hidden sm:block w-px h-3 bg-black/10" />
         <a
-          href="mailto:erik@eriksjoholm.com"
+          href="https://eriksjoholm-newsletter.beehiiv.com"
+          target="_blank"
+          rel="noopener noreferrer"
           className="text-[0.6rem] tracking-[0.25em] uppercase text-[#AAAAAA] hover:text-[#0A0A0A] transition-colors duration-300"
+        >
+          Artistic Travelogue
+        </a>
+      </div>
+
+      {/* Footer — pinned bottom */}
+      <div className="fixed bottom-0 left-0 right-0 flex items-center justify-center gap-8 py-6">
+        <Link
+          href="/"
+          className="text-[0.6rem] tracking-[0.25em] uppercase text-[#CCCCCC] hover:text-[#0A0A0A] transition-colors duration-300"
+        >
+          Home
+        </Link>
+        <span className="w-px h-3 bg-black/10" />
+        <a
+          href="mailto:erik@eriksjoholm.com"
+          className="text-[0.6rem] tracking-[0.25em] uppercase text-[#CCCCCC] hover:text-[#0A0A0A] transition-colors duration-300"
         >
           Contact
         </a>
