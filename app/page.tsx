@@ -3,14 +3,17 @@ export default function Home() {
     <main className="min-h-screen flex flex-col items-center justify-center px-6 bg-white">
       {/* Name */}
       <h1
-        className="font-[family-name:var(--font-cormorant)] font-light text-[#0A0A0A] text-center mb-8"
+        className="font-[family-name:var(--font-cormorant)] font-light text-[#0A0A0A] text-center"
         style={{ fontSize: "clamp(2rem, 6vw, 4.5rem)", letterSpacing: "0.1em" }}
       >
         ERIK SJ<span className="text-[#F59E0B]">Ø</span>HOLM
       </h1>
 
+      {/* Divider */}
+      <span className="block w-6 h-px bg-[#F59E0B] mt-10 mb-10" />
+
       {/* Social links */}
-      <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-8 mt-10">
+      <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-8">
         <a
           href="https://www.instagram.com/eriksjoholmofficial"
           target="_blank"
