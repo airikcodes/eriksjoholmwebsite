@@ -46,6 +46,13 @@ export default function Home() {
         >
           Artistic Travelogue
         </a>
+        <span className="w-px h-3 bg-black/10" />
+        <a
+          href="mailto:erik@eriksjoholm.com"
+          className="text-[0.6rem] tracking-[0.25em] uppercase text-[#AAAAAA] hover:text-[#0A0A0A] transition-colors duration-300"
+        >
+          Contact
+        </a>
       </div>
     </main>
   );
