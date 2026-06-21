@@ -66,14 +66,14 @@ export default function Home() {
       <div className="fixed bottom-0 left-0 right-0 flex items-center justify-center gap-8 py-6">
         <Link
           href="/about"
-          className="text-[0.6rem] tracking-[0.25em] uppercase text-[#CCCCCC] hover:text-[#0A0A0A] transition-colors duration-300"
+          className="text-[0.6rem] tracking-[0.25em] uppercase text-[#888888] hover:text-[#0A0A0A] transition-colors duration-300"
         >
           About
         </Link>
         <span className="w-px h-3 bg-black/10" />
         <a
           href="mailto:erik@eriksjoholm.com"
-          className="text-[0.6rem] tracking-[0.25em] uppercase text-[#CCCCCC] hover:text-[#0A0A0A] transition-colors duration-300"
+          className="text-[0.6rem] tracking-[0.25em] uppercase text-[#888888] hover:text-[#0A0A0A] transition-colors duration-300"
         >
           Contact
         </a>
