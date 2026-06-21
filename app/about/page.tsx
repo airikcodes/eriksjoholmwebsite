@@ -85,6 +85,15 @@ export default function About() {
         >
           Artistic Travelogue
         </a>
+        <span className="hidden sm:block w-px h-3 bg-black/10" />
+        <a
+          href="https://erik-sjoeholm-shop.fourthwall.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[0.6rem] tracking-[0.25em] uppercase text-[#AAAAAA] hover:text-[#0A0A0A] transition-colors duration-300"
+        >
+          Shop
+        </a>
       </div>
 
       {/* Footer — pinned bottom */}
