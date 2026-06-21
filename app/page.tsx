@@ -9,18 +9,8 @@ export default function Home() {
         ERIK SJ<span className="text-[#F59E0B]">Ø</span>HOLM
       </h1>
 
-      {/* Newsletter link */}
-      <a
-        href="https://eriksjoholm-newsletter.beehiiv.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-[0.65rem] tracking-[0.3em] uppercase text-[#AAAAAA] hover:text-[#0A0A0A] transition-colors duration-300"
-      >
-        Artistic Travelogue
-      </a>
-
       {/* Social links */}
-      <div className="flex items-center gap-8 mt-16">
+      <div className="flex items-center gap-8 mt-10">
         <a
           href="https://www.instagram.com/eriksjoholmofficial"
           target="_blank"
@@ -46,6 +36,15 @@ export default function Home() {
           className="text-[0.6rem] tracking-[0.25em] uppercase text-[#AAAAAA] hover:text-[#0A0A0A] transition-colors duration-300"
         >
           Tidal
+        </a>
+        <span className="w-px h-3 bg-black/10" />
+        <a
+          href="https://eriksjoholm-newsletter.beehiiv.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[0.6rem] tracking-[0.25em] uppercase text-[#AAAAAA] hover:text-[#0A0A0A] transition-colors duration-300"
+        >
+          Artistic Travelogue
         </a>
       </div>
     </main>
