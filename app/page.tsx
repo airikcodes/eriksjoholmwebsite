@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <main className="min-h-screen flex flex-col items-center justify-center px-6 bg-white">
@@ -12,8 +14,15 @@ export default function Home() {
       {/* Divider */}
       <span className="block w-6 h-px bg-[#F59E0B] mt-10 mb-10" />
 
-      {/* Social links */}
+      {/* Links */}
       <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-8">
+        <Link
+          href="/about"
+          className="text-[0.6rem] tracking-[0.25em] uppercase text-[#AAAAAA] hover:text-[#0A0A0A] transition-colors duration-300"
+        >
+          About
+        </Link>
+        <span className="hidden sm:block w-px h-3 bg-black/10" />
         <a
           href="https://www.instagram.com/eriksjoholmofficial"
           target="_blank"
