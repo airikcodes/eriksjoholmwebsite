@@ -10,7 +10,7 @@ export default function Home() {
       </h1>
 
       {/* Social links */}
-      <div className="flex items-center gap-8 mt-10">
+      <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-8 mt-10">
         <a
           href="https://www.instagram.com/eriksjoholmofficial"
           target="_blank"
@@ -19,7 +19,7 @@ export default function Home() {
         >
           Instagram
         </a>
-        <span className="w-px h-3 bg-black/10" />
+        <span className="hidden sm:block w-px h-3 bg-black/10" />
         <a
           href="https://open.spotify.com/artist/1UpcgaCHBwic2IqUQ3hHdp"
           target="_blank"
@@ -28,7 +28,7 @@ export default function Home() {
         >
           Spotify
         </a>
-        <span className="w-px h-3 bg-black/10" />
+        <span className="hidden sm:block w-px h-3 bg-black/10" />
         <a
           href="https://tidal.com/artist/47687355"
           target="_blank"
@@ -37,7 +37,7 @@ export default function Home() {
         >
           Tidal
         </a>
-        <span className="w-px h-3 bg-black/10" />
+        <span className="hidden sm:block w-px h-3 bg-black/10" />
         <a
           href="https://eriksjoholm-newsletter.beehiiv.com"
           target="_blank"
@@ -46,7 +46,7 @@ export default function Home() {
         >
           Artistic Travelogue
         </a>
-        <span className="w-px h-3 bg-black/10" />
+        <span className="hidden sm:block w-px h-3 bg-black/10" />
         <a
           href="mailto:erik@eriksjoholm.com"
           className="text-[0.6rem] tracking-[0.25em] uppercase text-[#AAAAAA] hover:text-[#0A0A0A] transition-colors duration-300"
