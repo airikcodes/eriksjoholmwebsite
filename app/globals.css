@@ -1,19 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  --color-amber: #F59E0B;
-  --color-amber-light: #FCD34D;
-  --color-amber-dark: #B45309;
-  --color-neutral-900: #111111;
-  --color-neutral-800: #1A1A1A;
-
   --font-display: var(--font-cormorant), "Georgia", serif;
   --font-body: var(--font-inter), "system-ui", sans-serif;
 }
 
 :root {
-  --background: #0A0A0A;
-  --foreground: #FAFAFA;
+  --color-bg:      #0D0B09;
+  --color-surface: #1A1610;
+  --color-border:  #2E2820;
+  --color-text:    #E8E0D4;
+  --color-muted:   #7A6F62;
+  --color-accent:  #C8922A;
 }
 
 * {
@@ -24,34 +22,104 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: #0A0A0A;
+  background-color: var(--color-bg);
 }
 
 body {
-  background: #0A0A0A;
-  color: #FAFAFA;
+  background: var(--color-bg);
+  color: var(--color-text);
   font-family: var(--font-inter), system-ui, sans-serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
-::-webkit-scrollbar {
-  width: 3px;
+::-webkit-scrollbar { width: 2px; }
+::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-thumb { background: var(--color-accent); }
+
+::selection { background: var(--color-accent); color: var(--color-bg); }
+
+/* Scroll-triggered reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 400ms cubic-bezier(0.4, 0, 0.2, 1),
+              transform 400ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-::-webkit-scrollbar-track {
-  background: #0A0A0A;
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
-::-webkit-scrollbar-thumb {
-  background: #F59E0B;
-  border-radius: 2px;
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
-::selection {
-  background: #F59E0B;
-  color: #0A0A0A;
+/* Card settle animation */
+@keyframes cardSettle {
+  from { opacity: 0; transform: scale(0.97); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.card-settle {
+  animation: cardSettle 300ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .card-settle { animation: none; opacity: 1; transform: none; }
 }
 
-/* Center the Beehiiv embed and any iframe/form it injects */
+/* Scroll indicator pulse */
+@keyframes breathe {
+  0%, 100% { opacity: 0.25; }
+  50%       { opacity: 0.6; }
+}
+.scroll-indicator {
+  animation: breathe 2s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-indicator { animation: none; opacity: 0.4; }
+}
+
+/* Navigation room links */
+.room-link {
+  position: relative;
+  display: inline-block;
+}
+.room-link::before {
+  content: '—';
+  position: absolute;
+  right: calc(100% + 0.75rem);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-accent);
+  opacity: 0;
+  transition: opacity 200ms ease;
+  font-style: normal;
+  font-size: 0.7em;
+}
+.room-link:hover::before {
+  opacity: 1;
+}
+.room-link::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-accent);
+  transition: width 300ms ease;
+}
+.room-link:hover::after {
+  width: 100%;
+}
+.room-link:hover {
+  color: var(--color-accent);
+}
+
+/* Beehiiv embed centering */
 [data-beehiiv-form],
 [data-beehiiv-form] > *,
 [data-beehiiv-form] iframe,

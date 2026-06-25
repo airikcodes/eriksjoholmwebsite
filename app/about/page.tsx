@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "About — Erik Sjøholm",
@@ -7,75 +8,86 @@ export const metadata: Metadata = {
 
 export default function About() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center px-6 py-20 bg-[#0A0A0A]">
-      {/* Amber rule */}
-      <span className="block w-6 h-px bg-[#F59E0B] mb-12" />
+    <main
+      className="min-h-screen flex flex-col items-center justify-center px-6 py-24"
+      style={{ background: "var(--color-bg)" }}
+    >
+      <span className="block w-6 h-px mb-14" style={{ background: "var(--color-accent)" }} />
 
-      {/* Bio */}
-      <div className="max-w-md text-center space-y-6">
+      <div className="max-w-md text-center space-y-7">
         <p
-          className="font-[family-name:var(--font-cormorant)] font-light text-[#FAFAFA] leading-relaxed"
-          style={{ fontSize: "clamp(1.2rem, 3vw, 1.6rem)" }}
+          className="font-[family-name:var(--font-cormorant)] font-light leading-relaxed"
+          style={{ fontSize: "clamp(1.2rem, 3vw, 1.6rem)", color: "var(--color-text)" }}
         >
           Singer-songwriter and storyteller who converts daily experiences into
           musical compositions.
         </p>
 
-        <p className="text-[#666666] text-sm leading-relaxed">
+        <p className="leading-relaxed text-sm" style={{ color: "var(--color-muted)" }}>
           Shaped by John Lennon, Jeff Buckley, Joni Mitchell, and Damian Rice —
           music that doesn&apos;t rush. Each release built from real moments,
           written for real people.
         </p>
 
         <p
-          className="font-[family-name:var(--font-cormorant)] font-light text-[#555555] italic"
-          style={{ fontSize: "clamp(1rem, 2.5vw, 1.3rem)" }}
+          className="font-[family-name:var(--font-cormorant)] font-light italic"
+          style={{ fontSize: "clamp(1rem, 2.5vw, 1.3rem)", color: "var(--color-muted)" }}
         >
           &ldquo;I think you deserve to be respected and loved for who you are.&rdquo;
         </p>
       </div>
 
-      {/* Amber rule */}
-      <span className="block w-6 h-px bg-[#F59E0B] mt-12 mb-10" />
+      <span className="block w-6 h-px mt-14 mb-12" style={{ background: "var(--color-accent)" }} />
 
-      {/* Platform links */}
       <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-8">
         <a
           href="https://www.instagram.com/eriksjoholmofficial"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[0.6rem] tracking-[0.25em] uppercase text-[#666666] hover:text-[#FAFAFA] transition-colors duration-300"
+          style={{ fontSize: "0.6rem", letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--color-muted)" }}
+          className="hover:text-[var(--color-text)] transition-colors duration-200"
         >
           Instagram
         </a>
-        <span className="hidden sm:block w-px h-3 bg-white/10" />
+        <span className="hidden sm:block w-px h-3" style={{ background: "var(--color-border)" }} />
         <a
           href="https://open.spotify.com/artist/1UpcgaCHBwic2IqUQ3hHdp"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[0.6rem] tracking-[0.25em] uppercase text-[#666666] hover:text-[#1DB954] transition-colors duration-300"
+          style={{ fontSize: "0.6rem", letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--color-muted)" }}
+          className="hover:text-[#1DB954] transition-colors duration-200"
         >
           Spotify
         </a>
-        <span className="hidden sm:block w-px h-3 bg-white/10" />
+        <span className="hidden sm:block w-px h-3" style={{ background: "var(--color-border)" }} />
         <a
           href="https://tidal.com/artist/47687355"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[0.6rem] tracking-[0.25em] uppercase text-[#666666] hover:text-[#FAFAFA] transition-colors duration-300"
+          style={{ fontSize: "0.6rem", letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--color-muted)" }}
+          className="hover:text-[var(--color-text)] transition-colors duration-200"
         >
           Tidal
         </a>
-        <span className="hidden sm:block w-px h-3 bg-white/10" />
+        <span className="hidden sm:block w-px h-3" style={{ background: "var(--color-border)" }} />
         <a
           href="https://eriksjoholm-newsletter.beehiiv.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[0.6rem] tracking-[0.25em] uppercase text-[#666666] hover:text-[#FAFAFA] transition-colors duration-300"
+          style={{ fontSize: "0.6rem", letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--color-muted)" }}
+          className="hover:text-[var(--color-text)] transition-colors duration-200"
         >
           Artistic Travelogue
         </a>
       </div>
+
+      <Link
+        href="/"
+        style={{ fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--color-muted)", marginTop: "3rem" }}
+        className="hover:text-[var(--color-text)] transition-colors duration-200"
+      >
+        ← Back
+      </Link>
     </main>
   );
 }
