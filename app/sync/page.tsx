@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import SyncCatalog from "@/components/SyncCatalog";
 
 export const metadata: Metadata = {
   title: "Sync Licensing — Erik Sjøholm",
@@ -68,49 +69,38 @@ export default function Sync() {
             publishing rights.
           </p>
 
-          {/* 3. Catalog CTA block */}
-          <div
-            style={{
-              marginTop: "3.5rem",
-              borderLeft: "3px solid #C8922A",
-              paddingLeft: "1.5rem",
-              paddingTop: "0.5rem",
-              paddingBottom: "0.5rem",
-            }}
-          >
-            <p
-              className="font-[family-name:var(--font-cormorant)] font-light"
-              style={{ fontSize: "1.4rem", color: "#E8E0D4" }}
-            >
-              Browse the full catalog
-            </p>
-            <p
-              style={{
-                fontFamily: "var(--font-inter)",
-                fontSize: "0.75rem",
-                color: "#7A6F62",
-                marginTop: "0.25rem",
-              }}
-            >
-              Stream, preview, and download stems on Disco.
-            </p>
-            <a
-              href="https://eriksjoholmofficial.disco.ac/cat/1272966979"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:underline"
-              style={{
-                display: "inline-block",
-                fontFamily: "var(--font-inter)",
-                fontSize: "0.55rem",
-                letterSpacing: "0.15em",
-                textTransform: "uppercase",
-                color: "#C8922A",
-                marginTop: "1rem",
-              }}
-            >
-              Open catalog on Disco →
-            </a>
+          {/* 3. Catalog */}
+          <div style={{ marginTop: "3.5rem" }}>
+            <div className="flex items-baseline justify-between gap-4" style={{ marginBottom: "2rem" }}>
+              <p
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontSize: "0.45rem",
+                  letterSpacing: "0.35em",
+                  textTransform: "uppercase",
+                  color: "#7A6F62",
+                }}
+              >
+                Catalogue
+              </p>
+              <a
+                href="https://eriksjoholmofficial.disco.ac/cat/1272966979"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontSize: "0.48rem",
+                  letterSpacing: "0.15em",
+                  textTransform: "uppercase",
+                  color: "#C8922A",
+                  flexShrink: 0,
+                }}
+              >
+                Open on Disco →
+              </a>
+            </div>
+            <SyncCatalog />
           </div>
 
           {/* 4. What's available */}
