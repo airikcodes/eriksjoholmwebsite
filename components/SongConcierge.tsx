@@ -3,28 +3,64 @@
 import { useState, useRef, FormEvent } from "react";
 
 const SPOTIFY_ARTIST = "https://open.spotify.com/artist/1UpcgaCHBwic2IqUQ3hHdp";
+const TIDAL_ARTIST   = "https://tidal.com/artist/47687355";
 
 const catalog = [
   {
-    id: "latest",
+    id: "lycka",
     title: "Lycka",
     subtitle: "Latest release · 2025",
-    link: SPOTIFY_ARTIST,
-    mood: ["new", "latest", "recent", "fresh", "now", "happy", "joy", "light", "warm", "summer"],
+    spotifyLink: SPOTIFY_ARTIST,
+    tidalLink: TIDAL_ARTIST,
+    mood: ["new", "latest", "recent", "fresh", "now", "happy", "joy", "joyful", "light", "warm", "summer", "lycka", "swedish", "glad"],
   },
   {
-    id: "played",
+    id: "wake-up",
     title: "Wake Up",
     subtitle: "Most played · 14k streams",
-    link: SPOTIFY_ARTIST,
-    mood: ["popular", "known", "familiar", "best", "top", "played", "loved", "favourite", "favorite", "wake", "morning", "start", "energy", "upbeat"],
+    spotifyLink: "https://open.spotify.com/track/5QKRx4B5ToIdKAcmaw093P",
+    tidalLink: "https://tidal.com/search?q=Wake+Up+Erik+Sj%C3%B8holm",
+    mood: ["popular", "known", "familiar", "best", "top", "played", "loved", "favourite", "favorite", "wake", "morning", "start", "energy", "upbeat", "motivat", "drive", "focus"],
   },
   {
-    id: "unexpected",
+    id: "night",
     title: "The Night Is Long",
     subtitle: "That Never Finds The Day · 2024",
-    link: SPOTIFY_ARTIST,
-    mood: ["unexpected", "surprise", "random", "different", "dark", "deep", "hidden", "rare", "night", "sad", "melanchol", "lonely", "slow", "quiet", "calm", "still", "soft", "late"],
+    spotifyLink: "https://open.spotify.com/track/2hApCQl0DQfhkEutJFOxVV",
+    tidalLink: "https://tidal.com/search?q=The+Night+Is+Long+Erik+Sj%C3%B8holm",
+    mood: ["unexpected", "surprise", "different", "dark", "deep", "hidden", "rare", "night", "sad", "melanchol", "lonely", "slow", "quiet", "calm", "still", "soft", "late", "insomniac", "sleepless", "long", "brooding"],
+  },
+  {
+    id: "magari",
+    title: "Magari",
+    subtitle: "with Mistasy",
+    spotifyLink: "https://open.spotify.com/track/37US5z8tYa3VWQoqiRAjRF",
+    tidalLink: "https://tidal.com/search?q=Magari+Erik+Sj%C3%B8holm",
+    mood: ["italian", "bittersweet", "longing", "nostalgic", "romantic", "maybe", "distant", "wistful", "tender", "dream", "wish", "hopeful", "desire", "yearning"],
+  },
+  {
+    id: "gone",
+    title: "Gone",
+    subtitle: "with Mistasy",
+    spotifyLink: "https://open.spotify.com/track/0Ii1bB6sc3ZyXUE5QGzqgB",
+    tidalLink: "https://tidal.com/search?q=Gone+Erik+Sj%C3%B8holm",
+    mood: ["gone", "loss", "missing", "absent", "empty", "leaving", "goodbye", "end", "over", "away", "breakup", "separation", "departed", "farewell"],
+  },
+  {
+    id: "välkommen",
+    title: "Välkommen hem",
+    subtitle: "with The Sjöholm Family Band",
+    spotifyLink: "https://open.spotify.com/track/5NGZlytj1yXPqCZp9zexhr",
+    tidalLink: "https://tidal.com/search?q=V%C3%A4lkommen+hem+Erik+Sj%C3%B8holm",
+    mood: ["home", "family", "welcome", "return", "belonging", "together", "reunion", "roots", "cozy", "hearth", "swedish", "coming home", "hygge"],
+  },
+  {
+    id: "barndomsåren",
+    title: "Barndomsåren",
+    subtitle: "Pargas 98 · with Emil Nordström",
+    spotifyLink: "https://open.spotify.com/track/2x00pPFmK8lgkyPeW401Gu",
+    tidalLink: "https://tidal.com/search?q=Barndomsaren+Pargas+Erik+Sj%C3%B8holm",
+    mood: ["childhood", "memory", "memories", "past", "growing up", "youth", "finland", "pargas", "old", "remember", "innocen", "school", "friend", "nineties", "98", "nostalgia"],
   },
 ];
 
@@ -33,8 +69,11 @@ function matchFromText(input: string) {
   for (const track of catalog) {
     if (track.mood.some((word) => lower.includes(word))) return track;
   }
-  if (/sad|melanchol|lonely|night|slow|quiet|calm|still|soft|dark|long/.test(lower)) return catalog[2];
-  if (/happ|danc|energy|upbeat|fast|loud|hype|fun|wake|morn/.test(lower)) return catalog[1];
+  if (/sad|melanchol|lonely|night|dark|slow|quiet|still|soft|late|long|broken/.test(lower)) return catalog[2];
+  if (/happ|danc|energy|upbeat|fast|loud|hype|fun|wake|morn|go/.test(lower))                return catalog[1];
+  if (/miss|gone|leav|away|end|over|apart/.test(lower))                                      return catalog[4];
+  if (/home|family|belong|safe|cozy/.test(lower))                                             return catalog[5];
+  if (/child|young|past|memor|old|90/.test(lower))                                            return catalog[6];
   return catalog[0];
 }
 
@@ -42,8 +81,11 @@ type Track = (typeof catalog)[0];
 
 function ResultCard({ track, onClose }: { track: Track; onClose: () => void }) {
   return (
-    <div className="mt-8 card-settle" style={{ background: "rgba(20,16,10,0.75)", border: "1px solid rgba(255,255,255,0.12)", padding: "1.5rem 1.75rem", backdropFilter: "blur(8px)" }}>
-      <div className="flex items-center justify-between gap-6">
+    <div
+      className="mt-8 card-settle"
+      style={{ background: "rgba(20,16,10,0.75)", border: "1px solid rgba(255,255,255,0.12)", padding: "1.5rem 1.75rem", backdropFilter: "blur(8px)" }}
+    >
+      <div className="flex items-start justify-between gap-6">
         <div className="flex items-center gap-4">
           <div
             className="w-9 h-9 rounded-full flex items-center justify-center shrink-0"
@@ -65,16 +107,28 @@ function ResultCard({ track, onClose }: { track: Track; onClose: () => void }) {
             </p>
           </div>
         </div>
-        <div className="flex items-center gap-4">
-          <a
-            href={track.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#7A6F62" }}
-            className="hover:text-[var(--color-accent)] transition-colors duration-200"
-          >
-            Listen →
-          </a>
+
+        <div className="flex items-center gap-4 shrink-0">
+          <div className="flex flex-col items-end gap-1.5">
+            <a
+              href={track.spotifyLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ fontSize: "0.55rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#7A6F62" }}
+              className="hover:text-[#1DB954] transition-colors duration-200"
+            >
+              Spotify →
+            </a>
+            <a
+              href={track.tidalLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ fontSize: "0.55rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#7A6F62" }}
+              className="hover:text-[#00FFFF] transition-colors duration-200"
+            >
+              Tidal →
+            </a>
+          </div>
           <button
             onClick={onClose}
             aria-label="Dismiss"
@@ -96,9 +150,9 @@ export default function SongConcierge() {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const chips = [
-    { label: "Latest Release", id: "latest" },
-    { label: "Most Played",    id: "played" },
-    { label: "Unexpected",     id: "unexpected" },
+    { label: "Latest Release", id: "lycka" },
+    { label: "Most Played",    id: "wake-up" },
+    { label: "Unexpected",     id: "night" },
   ];
 
   function handleSubmit(e: FormEvent) {
@@ -160,9 +214,9 @@ export default function SongConcierge() {
           type="submit"
           aria-label="Send"
           className="absolute right-4 top-1/2 -translate-y-1/2 transition-colors duration-200"
-          style={{ color: "var(--color-muted)" }}
+          style={{ color: "#7A6F62" }}
           onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "var(--color-accent)")}
-          onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "var(--color-muted)")}
+          onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "#7A6F62")}
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
             <line x1="22" y1="2" x2="11" y2="13" />
