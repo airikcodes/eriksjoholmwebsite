@@ -5,13 +5,18 @@ import { useState, useRef, FormEvent } from "react";
 const SPOTIFY_ARTIST = "https://open.spotify.com/artist/1UpcgaCHBwic2IqUQ3hHdp";
 const TIDAL_ARTIST   = "https://tidal.com/artist/47687355";
 
+function tidalSearch(q: string) {
+  return `https://tidal.com/search?q=${encodeURIComponent(q + " Erik Sjøholm")}`;
+}
+
 const catalog = [
+  // ── Released / confirmed on Spotify ───────────────────────────────
   {
     id: "lycka",
     title: "Lycka",
     subtitle: "Latest release · 2025",
     spotifyLink: SPOTIFY_ARTIST,
-    tidalLink: TIDAL_ARTIST,
+    tidalLink: tidalSearch("Lycka"),
     mood: ["new", "latest", "recent", "fresh", "now", "happy", "joy", "joyful", "light", "warm", "summer", "lycka", "swedish", "glad"],
   },
   {
@@ -19,23 +24,47 @@ const catalog = [
     title: "Wake Up",
     subtitle: "Most played · 14k streams",
     spotifyLink: "https://open.spotify.com/track/5QKRx4B5ToIdKAcmaw093P",
-    tidalLink: "https://tidal.com/search?q=Wake+Up+Erik+Sj%C3%B8holm",
-    mood: ["popular", "known", "familiar", "best", "top", "played", "loved", "favourite", "favorite", "wake", "morning", "start", "energy", "upbeat", "motivat", "drive", "focus"],
+    tidalLink: tidalSearch("Wake Up"),
+    mood: ["popular", "known", "familiar", "best", "top", "played", "loved", "favourite", "favorite", "wake", "morning", "start", "energy", "upbeat", "motivat", "drive", "focus", "get up"],
   },
   {
     id: "night",
     title: "The Night Is Long",
     subtitle: "That Never Finds The Day · 2024",
     spotifyLink: "https://open.spotify.com/track/2hApCQl0DQfhkEutJFOxVV",
-    tidalLink: "https://tidal.com/search?q=The+Night+Is+Long+Erik+Sj%C3%B8holm",
-    mood: ["unexpected", "surprise", "different", "dark", "deep", "hidden", "rare", "night", "sad", "melanchol", "lonely", "slow", "quiet", "calm", "still", "soft", "late", "insomniac", "sleepless", "long", "brooding"],
+    tidalLink: tidalSearch("The Night Is Long"),
+    mood: ["unexpected", "different", "dark", "deep", "hidden", "rare", "night", "sad", "melanchol", "lonely", "slow", "quiet", "calm", "still", "soft", "late", "insomniac", "sleepless", "long", "brooding", "3am", "can't sleep"],
+  },
+  {
+    id: "ashes",
+    title: "Ashes",
+    subtitle: "Erik Sjøholm",
+    spotifyLink: "https://open.spotify.com/track/6tcU3CmHiLKfbRNyTL5Evo",
+    tidalLink: tidalSearch("Ashes"),
+    mood: ["ashes", "loss", "grief", "burned", "end", "aftermath", "remains", "sorrow", "heavy", "destruction", "fire", "ruins", "weight"],
+  },
+  {
+    id: "midnight-sun",
+    title: "Midnight Sun",
+    subtitle: "with Mistasy",
+    spotifyLink: "https://open.spotify.com/track/7KAFu2ouup81IBB6AnQZkM",
+    tidalLink: tidalSearch("Midnight Sun"),
+    mood: ["midnight sun", "scandinavia", "nordic", "summer night", "bright", "arctic", "white night", "endless day", "northern", "majestic", "wonder"],
+  },
+  {
+    id: "matsawana",
+    title: "Matsawana",
+    subtitle: "Erik Sjøholm",
+    spotifyLink: "https://open.spotify.com/track/0ap55kADfSNkisbVEWJWrr",
+    tidalLink: tidalSearch("Matsawana"),
+    mood: ["matsawana", "world", "global", "unique", "different", "unexpected", "surprise", "exotic", "african", "intercultural", "journey", "travel"],
   },
   {
     id: "magari",
     title: "Magari",
     subtitle: "with Mistasy",
     spotifyLink: "https://open.spotify.com/track/37US5z8tYa3VWQoqiRAjRF",
-    tidalLink: "https://tidal.com/search?q=Magari+Erik+Sj%C3%B8holm",
+    tidalLink: tidalSearch("Magari"),
     mood: ["italian", "bittersweet", "longing", "nostalgic", "romantic", "maybe", "distant", "wistful", "tender", "dream", "wish", "hopeful", "desire", "yearning"],
   },
   {
@@ -43,15 +72,15 @@ const catalog = [
     title: "Gone",
     subtitle: "with Mistasy",
     spotifyLink: "https://open.spotify.com/track/0Ii1bB6sc3ZyXUE5QGzqgB",
-    tidalLink: "https://tidal.com/search?q=Gone+Erik+Sj%C3%B8holm",
-    mood: ["gone", "loss", "missing", "absent", "empty", "leaving", "goodbye", "end", "over", "away", "breakup", "separation", "departed", "farewell"],
+    tidalLink: tidalSearch("Gone"),
+    mood: ["gone", "loss", "missing", "absent", "empty", "leaving", "goodbye", "end", "over", "away", "breakup", "separation", "departed", "farewell", "vanish"],
   },
   {
     id: "välkommen",
     title: "Välkommen hem",
     subtitle: "with The Sjöholm Family Band",
     spotifyLink: "https://open.spotify.com/track/5NGZlytj1yXPqCZp9zexhr",
-    tidalLink: "https://tidal.com/search?q=V%C3%A4lkommen+hem+Erik+Sj%C3%B8holm",
+    tidalLink: tidalSearch("Välkommen hem"),
     mood: ["home", "family", "welcome", "return", "belonging", "together", "reunion", "roots", "cozy", "hearth", "swedish", "coming home", "hygge"],
   },
   {
@@ -59,21 +88,131 @@ const catalog = [
     title: "Barndomsåren",
     subtitle: "Pargas 98 · with Emil Nordström",
     spotifyLink: "https://open.spotify.com/track/2x00pPFmK8lgkyPeW401Gu",
-    tidalLink: "https://tidal.com/search?q=Barndomsaren+Pargas+Erik+Sj%C3%B8holm",
+    tidalLink: tidalSearch("Barndomsåren Pargas"),
     mood: ["childhood", "memory", "memories", "past", "growing up", "youth", "finland", "pargas", "old", "remember", "innocen", "school", "friend", "nineties", "98", "nostalgia"],
+  },
+
+  // ── Not yet on Spotify — link to artist page ───────────────────────
+  {
+    id: "guardian-angel",
+    title: "Guardian Angel",
+    subtitle: "Erik Sjøholm",
+    spotifyLink: SPOTIFY_ARTIST,
+    tidalLink: TIDAL_ARTIST,
+    mood: ["guardian", "angel", "protect", "divine", "safe", "sacred", "spiritual", "watching over", "comfort", "heaven", "blessed", "tender", "care"],
+  },
+  {
+    id: "one-last-waltz",
+    title: "One Last Waltz",
+    subtitle: "Erik Sjøholm",
+    spotifyLink: SPOTIFY_ARTIST,
+    tidalLink: TIDAL_ARTIST,
+    mood: ["waltz", "dance", "last dance", "final", "slow dance", "ballroom", "tender farewell", "last time", "ending", "graceful", "bittersweet", "farewell"],
+  },
+  {
+    id: "origin-of-love",
+    title: "The Origin Of Love",
+    subtitle: "Erik Sjøholm",
+    spotifyLink: SPOTIFY_ARTIST,
+    tidalLink: TIDAL_ARTIST,
+    mood: ["love", "origin", "beginning of love", "where love comes from", "deep love", "profound", "source", "foundation", "root", "pure love", "heartfelt"],
+  },
+  {
+    id: "the-letter",
+    title: "The Letter",
+    subtitle: "Erik Sjøholm",
+    spotifyLink: SPOTIFY_ARTIST,
+    tidalLink: TIDAL_ARTIST,
+    mood: ["letter", "writing", "words", "message", "correspondence", "distance", "longing by letter", "handwritten", "pen", "send", "wrote", "read"],
+  },
+  {
+    id: "if-you-believe",
+    title: "If You Believe",
+    subtitle: "Erik Sjøholm",
+    spotifyLink: SPOTIFY_ARTIST,
+    tidalLink: TIDAL_ARTIST,
+    mood: ["believe", "faith", "hope", "conviction", "trust", "question", "doubt", "possibility", "what if", "inspiration", "spiritual", "uplifting"],
+  },
+  {
+    id: "ray-of-light",
+    title: "Ray Of Light",
+    subtitle: "Erik Sjøholm",
+    spotifyLink: SPOTIFY_ARTIST,
+    tidalLink: TIDAL_ARTIST,
+    mood: ["light", "ray", "hope", "brightness", "emerging", "dawn", "optimism", "lifting", "relief", "shining", "breakthrough", "sun", "beam"],
+  },
+  {
+    id: "compromise",
+    title: "Compromise",
+    subtitle: "Erik Sjøholm",
+    spotifyLink: SPOTIFY_ARTIST,
+    tidalLink: TIDAL_ARTIST,
+    mood: ["compromise", "tension", "middle ground", "relationship", "difficult", "negotiation", "between", "give and take", "struggle", "decision", "balance", "conflict"],
+  },
+  {
+    id: "sanden",
+    title: "Sanden I Min Hand",
+    subtitle: "Erik Sjøholm",
+    spotifyLink: SPOTIFY_ARTIST,
+    tidalLink: TIDAL_ARTIST,
+    mood: ["sand", "hand", "fleeting", "time", "impermanent", "slipping away", "letting go", "momentary", "transient", "swedish", "poetic", "fragile"],
+  },
+  {
+    id: "langs-med-vagen",
+    title: "Längs Med Vägen",
+    subtitle: "Erik Sjøholm",
+    spotifyLink: SPOTIFY_ARTIST,
+    tidalLink: TIDAL_ARTIST,
+    mood: ["road", "journey", "along the way", "travel", "reflection", "swedish", "path", "wander", "life journey", "passing", "scenic", "contemplative"],
+  },
+  {
+    id: "la-latina",
+    title: "La Latina",
+    subtitle: "Erik Sjøholm",
+    spotifyLink: SPOTIFY_ARTIST,
+    tidalLink: TIDAL_ARTIST,
+    mood: ["latin", "latina", "spain", "madrid", "neighbourhood", "rhythm", "warm", "mediterranean", "dance", "vibrant", "street", "culture", "spanish"],
+  },
+  {
+    id: "in-the-beginning",
+    title: "In The Beginning",
+    subtitle: "Erik Sjøholm",
+    spotifyLink: SPOTIFY_ARTIST,
+    tidalLink: TIDAL_ARTIST,
+    mood: ["beginning", "origin", "start", "creation", "first", "genesis", "story", "birth", "initial", "once upon", "primordial", "founding"],
+  },
+  {
+    id: "sooner-or-later",
+    title: "Sooner Or Later",
+    subtitle: "Erik Sjøholm",
+    spotifyLink: SPOTIFY_ARTIST,
+    tidalLink: TIDAL_ARTIST,
+    mood: ["sooner or later", "waiting", "inevitability", "patience", "time", "eventual", "will happen", "destiny", "fate", "coming", "anticipation", "resigned"],
   },
 ];
 
 function matchFromText(input: string) {
   const lower = input.toLowerCase();
+
+  // First pass: exact keyword match on any track's mood list
   for (const track of catalog) {
     if (track.mood.some((word) => lower.includes(word))) return track;
   }
+
+  // Regex fallback for common themes not covered above
+  if (/ashes?|grief|grief|ruin|burn/.test(lower))                         return catalog.find(t => t.id === "ashes")!;
+  if (/waltz|slow danc|last danc/.test(lower))                            return catalog.find(t => t.id === "one-last-waltz")!;
+  if (/guardia|angel|protect|heaven/.test(lower))                         return catalog.find(t => t.id === "guardian-angel")!;
+  if (/ligh|ray|dawn|sun|bright|hope/.test(lower))                       return catalog.find(t => t.id === "ray-of-light")!;
   if (/sad|melanchol|lonely|night|dark|slow|quiet|still|soft|late|long|broken/.test(lower)) return catalog[2];
   if (/happ|danc|energy|upbeat|fast|loud|hype|fun|wake|morn|go/.test(lower))                return catalog[1];
-  if (/miss|gone|leav|away|end|over|apart/.test(lower))                                      return catalog[4];
-  if (/home|family|belong|safe|cozy/.test(lower))                                             return catalog[5];
-  if (/child|young|past|memor|old|90/.test(lower))                                            return catalog[6];
+  if (/miss|gone|leav|away|end|over|apart/.test(lower))                   return catalog[7];
+  if (/home|family|belong|safe|cozy/.test(lower))                         return catalog[8];
+  if (/child|young|past|memor|old|90/.test(lower))                        return catalog[9];
+  if (/latin|spain|rhythm|street/.test(lower))                            return catalog.find(t => t.id === "la-latina")!;
+  if (/sand|slip|fleeting|passing/.test(lower))                           return catalog.find(t => t.id === "sanden")!;
+
+  // Default: suggest latest
   return catalog[0];
 }
 
