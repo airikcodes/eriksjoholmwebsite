@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import BackNav from "@/components/BackNav";
 
 export const metadata: Metadata = {
@@ -109,6 +110,11 @@ export default function Work() {
               className="hover:text-[#C8922A] hover:border-[#C8922A] transition-colors duration-200">
               Full catalogue on Tidal →
             </a>
+            <Link href="/sync"
+              style={{ fontSize: "0.55rem", letterSpacing: "0.25em", textTransform: "uppercase", color: "#7A6F62", borderBottom: "1px solid rgba(200,146,42,0.3)", paddingBottom: "2px" }}
+              className="hover:text-[#C8922A] hover:border-[#C8922A] transition-colors duration-200">
+              Sync licensing →
+            </Link>
           </div>
 
         </div>

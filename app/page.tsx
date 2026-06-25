@@ -7,7 +7,6 @@ import BackgroundSlideshow from "@/components/BackgroundSlideshow";
 const navItems = [
   { label: "About",           href: "/about" },
   { label: "Music & Work",    href: "/work" },
-  { label: "Sync Licensing",  href: "/sync" },
   { label: "The Storyteller", href: "/storyteller" },
   { label: "The Resonators",  href: "/resonators" },
   { label: "Contact",         href: "/contact" },
