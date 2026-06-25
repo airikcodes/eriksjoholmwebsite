@@ -3,7 +3,6 @@ import Image from "next/image";
 import RevealSection from "@/components/RevealSection";
 import ScrollIndicator from "@/components/ScrollIndicator";
 import SongConcierge from "@/components/SongConcierge";
-import ResonatorsForm from "@/components/ResonatorsForm";
 import BackgroundSlideshow from "@/components/BackgroundSlideshow";
 
 const navItems = [
@@ -76,12 +75,28 @@ export default function Home() {
               fontSize: "0.8rem",
               letterSpacing: "0.08em",
               color: "#7A6F62",
-              marginBottom: "2rem",
+              marginBottom: "1.75rem",
             }}
           >
-            Stay in the room. Join The Resonators.
+            Stay in the room.
           </p>
-          <ResonatorsForm />
+          <a
+            href="https://eriksjoholm-newsletter.beehiiv.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              fontSize: "0.65rem",
+              letterSpacing: "0.28em",
+              textTransform: "uppercase",
+              color: "#E8E0D4",
+              borderBottom: "1px solid rgba(200,146,42,0.4)",
+              paddingBottom: "2px",
+              transition: "border-color 200ms, color 200ms",
+            }}
+            className="hover:text-[var(--color-accent)] hover:border-[var(--color-accent)]"
+          >
+            Join The Resonators
+          </a>
         </section>
       </RevealSection>
 
