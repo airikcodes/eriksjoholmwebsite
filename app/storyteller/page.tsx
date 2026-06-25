@@ -1,150 +1,682 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import RevealSection from "@/components/RevealSection";
 import BackNav from "@/components/BackNav";
 
 export const metadata: Metadata = {
-  title: "The Storyteller — Erik Sjøholm",
-  description: "Erik Sjøholm as storyteller — concerts, narrative performances, and the art of the song-story.",
+  title: "GLENN — Erik Sjøholm",
+  description:
+    "GLENN: The Things We Don't Speak About — a storytelling concert by Erik Sjøholm. Book for festivals, theatres, and cultural venues.",
 };
 
-const stages = [
-  { name: "Mezrab",                          location: "Amsterdam, NL",  note: "Storytelling house" },
-  { name: "Amsterdam Storytelling Festival", location: "Amsterdam, NL",  note: "Annual festival" },
-  { name: "Arbogast Festival",               location: "Sweden",         note: "Music & arts festival" },
-  { name: "Croatia Storying",                location: "Croatia",        note: "International gathering" },
-];
+const container: React.CSSProperties = {
+  maxWidth: "720px",
+  margin: "0 auto",
+  padding: "0 1.5rem",
+  width: "100%",
+};
+
+const sectionPad: React.CSSProperties = {
+  paddingTop: "5rem",
+  paddingBottom: "5rem",
+};
+
+const eyebrow: React.CSSProperties = {
+  fontFamily: "var(--font-inter)",
+  fontSize: "0.48rem",
+  letterSpacing: "0.35em",
+  textTransform: "uppercase" as const,
+  color: "#7A6F62",
+  marginBottom: "1rem",
+};
+
+const sectionHeading: React.CSSProperties = {
+  fontFamily: "var(--font-cormorant)",
+  fontWeight: 300,
+  fontSize: "clamp(2rem, 5vw, 3.5rem)",
+  color: "#E8E0D4",
+  letterSpacing: "0.03em",
+  lineHeight: 1.05,
+  marginBottom: "2rem",
+};
+
+const bodyText: React.CSSProperties = {
+  fontFamily: "var(--font-inter)",
+  fontSize: "0.875rem",
+  color: "#7A6F62",
+  lineHeight: 1.8,
+};
+
+const divider: React.CSSProperties = {
+  borderTop: "1px solid rgba(255,255,255,0.07)",
+};
 
 export default function Storyteller() {
   return (
-    <main className="min-h-screen" style={{ background: "#0D0B09", color: "#E8E0D4" }}>
+    <main style={{ background: "#0D0B09", color: "#E8E0D4" }}>
 
-      {/* Static background — Mezrab performance */}
+      {/* Fixed background — Mezrab storytelling house */}
       <div style={{ position: "fixed", inset: 0, zIndex: 0 }}>
-        <div style={{
-          position: "absolute", inset: 0,
-          backgroundImage: "url(/images/bg/bg-02.jpg)",
-          backgroundSize: "cover", backgroundPosition: "center",
-          opacity: 0.13,
-        }} />
+        <div
+          style={{
+            position: "absolute", inset: 0,
+            backgroundImage: "url(/images/bg/bg-02.jpg)",
+            backgroundSize: "cover", backgroundPosition: "center",
+            opacity: 0.08,
+          }}
+        />
       </div>
 
-      <div className="relative px-6 pt-20 pb-24" style={{ zIndex: 1 }}>
-        <div style={{ maxWidth: "720px", margin: "0 auto" }}>
-          <BackNav />
+      <div style={{ position: "relative", zIndex: 1 }}>
 
-          {/* Title */}
-          <div className="mb-14">
-            <p style={{ fontSize: "0.5rem", letterSpacing: "0.35em", textTransform: "uppercase", color: "#C8922A", marginBottom: "1.25rem" }}>
-              Song · Narrative · Presence
-            </p>
-            <h1
-              className="font-[family-name:var(--font-cormorant)] font-light"
-              style={{ fontSize: "clamp(2.5rem, 7vw, 5rem)", color: "#E8E0D4", letterSpacing: "0.03em", lineHeight: 1.05 }}
-            >
-              The Storyteller
-            </h1>
-          </div>
+        {/* ── 1. HERO ──────────────────────────────────────── */}
+        <section
+          style={{
+            minHeight: "100svh",
+            display: "flex",
+            flexDirection: "column",
+            paddingTop: "4.5rem",
+            paddingBottom: "5rem",
+          }}
+        >
+          <div style={{ ...container, display: "flex", flexDirection: "column", flex: 1 }}>
 
-          {/* Opening */}
-          <p
-            className="font-[family-name:var(--font-cormorant)] font-light leading-relaxed"
-            style={{ fontSize: "clamp(1.2rem, 2.8vw, 1.55rem)", color: "#E8E0D4" }}
-          >
-            Every song Erik writes is a story that needed to become music
-            before it could be told.
-          </p>
+            <BackNav />
 
-          {/* Divider */}
-          <span className="block w-6 h-px my-10" style={{ background: "#C8922A" }} />
+            {/* Centered hero content */}
+            <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center" }}>
 
-          {/* Body */}
-          <div className="space-y-6">
-            <p className="text-sm leading-relaxed" style={{ color: "#7A6F62", lineHeight: 1.9 }}>
-              A performance is never just a set list. It is a room being built in
-              real time — through voice, guitar, and the particular silence between
-              the two. Erik places each song the way a storyteller places a sentence:
-              with intention, with weight, with room to breathe.
-            </p>
+              <p style={{ ...eyebrow, color: "#7A6F62", marginBottom: "2rem" }}>
+                A Storytelling Concert
+              </p>
 
-            <p className="text-sm leading-relaxed" style={{ color: "#7A6F62", lineHeight: 1.9 }}>
-              He has performed in storytelling houses, festival stages, and intimate
-              gatherings across Europe. Whether at Mezrab in Amsterdam or a festival
-              square in Croatia, the form is the same: one person, one story, one guitar.
-              What changes is only the room.
-            </p>
+              <h1
+                className="font-[family-name:var(--font-cormorant)] font-light"
+                style={{
+                  fontSize: "clamp(5rem, 16vw, 9rem)",
+                  color: "#E8E0D4",
+                  letterSpacing: "0.04em",
+                  lineHeight: 0.92,
+                  marginBottom: "1.5rem",
+                }}
+              >
+                GLENN
+              </h1>
 
-            <p className="text-sm leading-relaxed" style={{ color: "#7A6F62", lineHeight: 1.9 }}>
-              The songs arrive from the same place stories always do — from the
-              details most people notice but never say out loud. A conversation
-              that ended too soon. A face remembered on a train. The particular
-              colour of grief on a Tuesday morning. Erik says it plainly so you
-              don&apos;t have to.
-            </p>
-          </div>
+              <p
+                className="font-[family-name:var(--font-cormorant)]"
+                style={{
+                  fontStyle: "italic",
+                  fontWeight: 300,
+                  fontSize: "clamp(1.1rem, 2.8vw, 1.6rem)",
+                  color: "rgba(232,224,212,0.7)",
+                  letterSpacing: "0.02em",
+                  lineHeight: 1.4,
+                  marginBottom: "1.25rem",
+                }}
+              >
+                &ldquo;The Things We Don&apos;t Speak About&rdquo;
+              </p>
 
-          {/* Pull quote */}
-          <blockquote
-            className="font-[family-name:var(--font-cormorant)] font-light italic my-14"
-            style={{
-              fontSize: "clamp(1.1rem, 2.5vw, 1.45rem)",
-              color: "#C8922A",
-              borderLeft: "1px solid rgba(200,146,42,0.35)",
-              paddingLeft: "1.5rem",
-              lineHeight: 1.6,
-            }}
-          >
-            &ldquo;A song is a story that found its rhythm before it found its words.&rdquo;
-          </blockquote>
+              <p
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontSize: "0.8rem",
+                  color: "#7A6F62",
+                  lineHeight: 1.7,
+                  maxWidth: "42ch",
+                  marginBottom: "2.5rem",
+                }}
+              >
+                A storytelling concert born on the day Erik Sjøholm came into
+                the world — and his uncle Glenn left it.
+              </p>
 
-          {/* Stages */}
-          <div>
-            <p style={{ fontSize: "0.5rem", letterSpacing: "0.35em", textTransform: "uppercase", color: "#7A6F62", marginBottom: "1.25rem" }}>
-              Stages
-            </p>
-            <ul style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}>
-              {stages.map((s) => (
-                <li
-                  key={s.name}
-                  className="py-5 flex items-start justify-between gap-4"
-                  style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}
+              <div>
+                <a
+                  href="#trailer"
+                  className="hover:bg-[#C8922A] hover:text-[#0D0B09] transition-all duration-200"
+                  style={{
+                    display: "inline-block",
+                    border: "1px solid #C8922A",
+                    color: "#C8922A",
+                    padding: "0.7rem 2rem",
+                    fontFamily: "var(--font-inter)",
+                    fontSize: "0.5rem",
+                    letterSpacing: "0.3em",
+                    textTransform: "uppercase",
+                  }}
                 >
-                  <div>
+                  Watch Trailer
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        {/* ── 2. ABOUT THE SHOW ────────────────────────────── */}
+        <RevealSection>
+          <section style={{ ...sectionPad, ...divider }}>
+            <div style={container}>
+
+              <p style={eyebrow}>The Show</p>
+              <h2
+                className="font-[family-name:var(--font-cormorant)] font-light"
+                style={sectionHeading}
+              >
+                The Show
+              </h2>
+
+              <div style={{ maxWidth: "60ch" }}>
+                <p style={{ ...bodyText, marginBottom: "1.5rem" }}>
+                  Imagine a world blanketed in snow, where light and darkness
+                  dance on the edge of silence. That is where Erik Sjøholm was
+                  born — and on that very day, his uncle Glenn took his own
+                  life, leaving behind a legacy of grief, questions, and
+                  unspoken stories.
+                </p>
+                <p style={bodyText}>
+                  In this storytelling concert, Erik digs beneath the snow and
+                  ice, uncovering fragments of his family&apos;s unspoken
+                  mythology. Through raw personal stories and original songs —
+                  in the tradition of Damien Rice, Glen Hansard, and Jeff
+                  Buckley — he takes you on a journey into the heart of loss,
+                  self-discovery, and the search for meaning.
+                </p>
+              </div>
+
+              {/* Four themes */}
+              <div
+                className="grid grid-cols-2 sm:grid-cols-4 gap-8"
+                style={{ marginTop: "3.5rem" }}
+              >
+                {[
+                  {
+                    title: "Grief and Loss",
+                    sub: "Unspoken stories, family mythology",
+                  },
+                  {
+                    title: "Resilience",
+                    sub: "Rising from the ashes of pain",
+                  },
+                  {
+                    title: "Transformation",
+                    sub: "Turning darkness into art",
+                  },
+                  {
+                    title: "Human Connection",
+                    sub: "The universality of silent struggles",
+                  },
+                ].map(({ title, sub }) => (
+                  <div key={title}>
                     <p
                       className="font-[family-name:var(--font-cormorant)] font-light"
-                      style={{ fontSize: "1.1rem", color: "#E8E0D4" }}
+                      style={{ fontSize: "1.05rem", color: "#E8E0D4", lineHeight: 1.3, marginBottom: "0.4rem" }}
                     >
-                      {s.name}
+                      {title}
                     </p>
-                    <p style={{ fontSize: "0.5rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#7A6F62", marginTop: "0.2rem" }}>
-                      {s.note}
+                    <p
+                      style={{
+                        fontFamily: "var(--font-inter)",
+                        fontSize: "0.65rem",
+                        color: "#7A6F62",
+                        lineHeight: 1.5,
+                      }}
+                    >
+                      {sub}
                     </p>
                   </div>
-                  <span style={{ fontSize: "0.5rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#7A6F62", paddingTop: "0.15rem", flexShrink: 0 }}>
-                    {s.location}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
+                ))}
+              </div>
 
-          {/* Booking */}
-          <div className="mt-14 p-6" style={{ border: "1px solid rgba(255,255,255,0.07)", background: "rgba(255,255,255,0.02)" }}>
-            <p style={{ fontSize: "0.5rem", letterSpacing: "0.35em", textTransform: "uppercase", color: "#7A6F62", marginBottom: "1rem" }}>
-              Booking &amp; enquiries
-            </p>
-            <p className="text-sm" style={{ color: "#7A6F62", lineHeight: 1.8, marginBottom: "1.25rem" }}>
-              For concerts, storytelling events, or collaborative work,
-              reach out directly.
-            </p>
-            <a
-              href="mailto:erik@eriksjoholm.com"
-              style={{ fontSize: "0.6rem", letterSpacing: "0.2em", color: "#C8922A" }}
-              className="hover:text-[#E8E0D4] transition-colors duration-200"
+            </div>
+          </section>
+        </RevealSection>
+
+        {/* ── 3. TESTIMONIALS ──────────────────────────────── */}
+        <RevealSection>
+          <section style={{ ...sectionPad, ...divider }}>
+            <div style={container}>
+
+              <p style={eyebrow}>Audience</p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
+                {[
+                  {
+                    name: "Marielle Dúgdam",
+                    location: "Amsterdam",
+                    quote:
+                      "Goose bumps from beginning to end. Your openness is such a gift.",
+                  },
+                  {
+                    name: "Femke",
+                    location: "Tüssenland Festival, Zwolle, NL",
+                    quote:
+                      "It was really impressive. Your voice as well as the show are so beautiful. I'm truly speechless.",
+                  },
+                  {
+                    name: "Evelyn",
+                    location: "Währinge Wohnzimmer, Vienna",
+                    quote:
+                      "Your show was the best end of this day. Thank you for your courage and your honesty. Your beautiful songs touched my heart.",
+                  },
+                ].map(({ name, quote, location }) => (
+                  <div key={name}>
+                    <blockquote
+                      className="font-[family-name:var(--font-cormorant)]"
+                      style={{
+                        fontStyle: "italic",
+                        fontWeight: 300,
+                        fontSize: "clamp(1rem, 2vw, 1.2rem)",
+                        color: "#E8E0D4",
+                        lineHeight: 1.6,
+                        marginBottom: "1rem",
+                      }}
+                    >
+                      &ldquo;{quote}&rdquo;
+                    </blockquote>
+                    <p
+                      style={{
+                        fontFamily: "var(--font-inter)",
+                        fontSize: "0.55rem",
+                        letterSpacing: "0.2em",
+                        textTransform: "uppercase",
+                        color: "#C8922A",
+                        marginBottom: "0.15rem",
+                      }}
+                    >
+                      {name}
+                    </p>
+                    <p
+                      style={{
+                        fontFamily: "var(--font-inter)",
+                        fontSize: "0.6rem",
+                        color: "#7A6F62",
+                      }}
+                    >
+                      {location}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+            </div>
+          </section>
+        </RevealSection>
+
+        {/* ── 4. TRAILER ───────────────────────────────────── */}
+        <RevealSection>
+          <section id="trailer" style={{ ...sectionPad, ...divider }}>
+            <div style={container}>
+
+              <p style={eyebrow}>Watch</p>
+              <h2
+                className="font-[family-name:var(--font-cormorant)] font-light"
+                style={{ ...sectionHeading, marginBottom: "2rem" }}
+              >
+                Watch
+              </h2>
+
+              {/* 16:9 placeholder */}
+              <div
+                style={{
+                  position: "relative",
+                  width: "100%",
+                  paddingBottom: "56.25%",
+                  border: "1px solid rgba(200,146,42,0.25)",
+                  background: "rgba(200,146,42,0.02)",
+                  borderRadius: "2px",
+                }}
+              >
+                <div
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <p
+                    style={{
+                      fontFamily: "var(--font-inter)",
+                      fontSize: "0.5rem",
+                      letterSpacing: "0.3em",
+                      textTransform: "uppercase",
+                      color: "rgba(200,146,42,0.4)",
+                    }}
+                  >
+                    Trailer coming soon
+                  </p>
+                </div>
+              </div>
+
+              <p
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontSize: "0.65rem",
+                  color: "#7A6F62",
+                  marginTop: "1rem",
+                  letterSpacing: "0.05em",
+                }}
+              >
+                {/* TODO: replace with actual trailer embed when available */}
+                Performed at GLÖD Storytelling Festival, Vasa, Finland — March 2022
+              </p>
+
+            </div>
+          </section>
+        </RevealSection>
+
+        {/* ── 5. THE TEAM ──────────────────────────────────── */}
+        <RevealSection>
+          <section style={{ ...sectionPad, ...divider }}>
+            <div style={container}>
+
+              <p style={eyebrow}>The Team</p>
+              <h2
+                className="font-[family-name:var(--font-cormorant)] font-light"
+                style={{ ...sectionHeading, marginBottom: "2.5rem" }}
+              >
+                The Team
+              </h2>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
+                {[
+                  {
+                    name: "Erik Sjøholm",
+                    role: "Performer & Writer",
+                    bio: "Singer-songwriter and storyteller, Erik brings a raw personal narrative to the stage, blending music and storytelling in a way that moves audiences deeply.",
+                  },
+                  {
+                    name: "Raphael Rodan",
+                    role: "Co-writer & Director",
+                    bio: "An award-winning storyteller and theatre director based in the Netherlands. His work focuses on personal mythology and the universal stories that connect us.",
+                  },
+                  {
+                    name: "Mey Rahimi",
+                    role: "Visual Designer & Writer",
+                    bio: "A multidisciplinary artist specialising in visual storytelling and stage design. Her visual aesthetics elevate the emotional depth of the show.",
+                  },
+                ].map(({ name, role, bio }) => (
+                  <div key={name}>
+                    <p
+                      className="font-[family-name:var(--font-cormorant)] font-light"
+                      style={{ fontSize: "1.15rem", color: "#E8E0D4", marginBottom: "0.35rem" }}
+                    >
+                      {name}
+                    </p>
+                    <p
+                      style={{
+                        fontFamily: "var(--font-inter)",
+                        fontSize: "0.48rem",
+                        letterSpacing: "0.25em",
+                        textTransform: "uppercase",
+                        color: "#C8922A",
+                        marginBottom: "0.85rem",
+                      }}
+                    >
+                      {role}
+                    </p>
+                    <p
+                      style={{
+                        fontFamily: "var(--font-inter)",
+                        fontSize: "0.75rem",
+                        color: "#7A6F62",
+                        lineHeight: 1.7,
+                      }}
+                    >
+                      {bio}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <p
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontSize: "0.65rem",
+                  color: "#7A6F62",
+                  marginTop: "3rem",
+                  paddingTop: "2rem",
+                  borderTop: "1px solid rgba(255,255,255,0.07)",
+                }}
+              >
+                This storytelling concert has been partly funded by Svenska
+                Kulturfonden.
+              </p>
+
+            </div>
+          </section>
+        </RevealSection>
+
+        {/* ── 6. PRACTICAL INFO (bookers) ──────────────────── */}
+        <section
+          style={{
+            ...sectionPad,
+            borderTop: "3px solid #C8922A",
+            background: "rgba(200,146,42,0.02)",
+          }}
+        >
+          <div style={container}>
+
+            <p style={eyebrow}>For Programmers &amp; Festivals</p>
+            <h2
+              className="font-[family-name:var(--font-cormorant)] font-light"
+              style={{ ...sectionHeading }}
             >
-              erik@eriksjoholm.com →
-            </a>
-          </div>
+              For Programmers &amp; Festivals
+            </h2>
 
-        </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
+
+              {/* Left: The Show */}
+              <div>
+                <p
+                  style={{
+                    fontFamily: "var(--font-inter)",
+                    fontSize: "0.48rem",
+                    letterSpacing: "0.3em",
+                    textTransform: "uppercase",
+                    color: "#C8922A",
+                    marginBottom: "1.25rem",
+                  }}
+                >
+                  The Show
+                </p>
+                <dl style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+                  {[
+                    { term: "Duration", desc: "60 minutes" },
+                    { term: "Language", desc: "English or Swedish (specified at booking)" },
+                    {
+                      term: "Target audience",
+                      desc: "Age 16+, storytelling festivals, cultural festivals, theatres, mental health awareness programmes, universities, corporate wellness",
+                    },
+                  ].map(({ term, desc }) => (
+                    <div key={term}>
+                      <dt
+                        style={{
+                          fontFamily: "var(--font-inter)",
+                          fontSize: "0.45rem",
+                          letterSpacing: "0.25em",
+                          textTransform: "uppercase",
+                          color: "#7A6F62",
+                          marginBottom: "0.25rem",
+                        }}
+                      >
+                        {term}
+                      </dt>
+                      <dd
+                        style={{
+                          fontFamily: "var(--font-inter)",
+                          fontSize: "0.8rem",
+                          color: "#E8E0D4",
+                          lineHeight: 1.6,
+                          margin: 0,
+                        }}
+                      >
+                        {desc}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+
+              {/* Right: Stage Requirements */}
+              <div>
+                <p
+                  style={{
+                    fontFamily: "var(--font-inter)",
+                    fontSize: "0.48rem",
+                    letterSpacing: "0.3em",
+                    textTransform: "uppercase",
+                    color: "#C8922A",
+                    marginBottom: "1.25rem",
+                  }}
+                >
+                  Stage Requirements
+                </p>
+                <dl style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+                  {[
+                    { term: "Stage size", desc: "Minimum 4m × 4m" },
+                    { term: "Lighting", desc: "Basic stage lighting with spotlight capability" },
+                    { term: "Sound", desc: "PA system for vocals and acoustic guitar" },
+                    { term: "Tech rider", desc: "Full tech rider and press kit available on request" },
+                  ].map(({ term, desc }) => (
+                    <div key={term}>
+                      <dt
+                        style={{
+                          fontFamily: "var(--font-inter)",
+                          fontSize: "0.45rem",
+                          letterSpacing: "0.25em",
+                          textTransform: "uppercase",
+                          color: "#7A6F62",
+                          marginBottom: "0.25rem",
+                        }}
+                      >
+                        {term}
+                      </dt>
+                      <dd
+                        style={{
+                          fontFamily: "var(--font-inter)",
+                          fontSize: "0.8rem",
+                          color: "#E8E0D4",
+                          lineHeight: 1.6,
+                          margin: 0,
+                        }}
+                      >
+                        {desc}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        {/* ── 7. CLOSING CTAs ──────────────────────────────── */}
+        <RevealSection>
+          <section style={{ ...sectionPad, ...divider }}>
+            <div style={container}>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
+
+                {/* See the Show — fans */}
+                <div
+                  style={{
+                    padding: "2rem",
+                    border: "1px solid rgba(255,255,255,0.07)",
+                  }}
+                >
+                  <h3
+                    className="font-[family-name:var(--font-cormorant)] font-light"
+                    style={{ fontSize: "1.5rem", color: "#E8E0D4", marginBottom: "0.75rem" }}
+                  >
+                    See the Show
+                  </h3>
+                  <p
+                    style={{
+                      fontFamily: "var(--font-inter)",
+                      fontSize: "0.78rem",
+                      color: "#7A6F62",
+                      lineHeight: 1.7,
+                      marginBottom: "1.5rem",
+                    }}
+                  >
+                    Upcoming dates will be announced in The Resonators — Erik&apos;s
+                    mailing list.
+                  </p>
+                  <Link
+                    href="/resonators"
+                    className="hover:bg-[#E8E0D4] hover:text-[#0D0B09] transition-all duration-200"
+                    style={{
+                      display: "inline-block",
+                      border: "1px solid #E8E0D4",
+                      color: "#E8E0D4",
+                      padding: "0.6rem 1.5rem",
+                      fontFamily: "var(--font-inter)",
+                      fontSize: "0.48rem",
+                      letterSpacing: "0.28em",
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    Stay in touch
+                  </Link>
+                </div>
+
+                {/* Book GLENN — bookers */}
+                <div
+                  style={{
+                    padding: "2rem",
+                    border: "1px solid rgba(200,146,42,0.25)",
+                    background: "rgba(200,146,42,0.02)",
+                  }}
+                >
+                  <h3
+                    className="font-[family-name:var(--font-cormorant)] font-light"
+                    style={{ fontSize: "1.5rem", color: "#E8E0D4", marginBottom: "0.75rem" }}
+                  >
+                    Book GLENN
+                  </h3>
+                  <p
+                    style={{
+                      fontFamily: "var(--font-inter)",
+                      fontSize: "0.78rem",
+                      color: "#7A6F62",
+                      lineHeight: 1.7,
+                      marginBottom: "1.5rem",
+                    }}
+                  >
+                    To discuss availability, fees, and technical requirements,
+                    reach out directly.
+                  </p>
+                  <Link
+                    href="/contact"
+                    className="hover:bg-[#C8922A] hover:text-[#0D0B09] transition-all duration-200"
+                    style={{
+                      display: "inline-block",
+                      border: "1px solid #C8922A",
+                      color: "#C8922A",
+                      padding: "0.6rem 1.5rem",
+                      fontFamily: "var(--font-inter)",
+                      fontSize: "0.48rem",
+                      letterSpacing: "0.28em",
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    Get in touch
+                  </Link>
+                </div>
+
+              </div>
+
+            </div>
+          </section>
+        </RevealSection>
+
       </div>
     </main>
   );
