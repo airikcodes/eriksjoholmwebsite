@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import BackNav from "@/components/BackNav";
 
 export const metadata: Metadata = {
   title: "Music & Work — Erik Sjøholm",
@@ -39,8 +40,9 @@ export default function Work() {
         }} />
       </div>
 
-      <div className="relative px-6 pt-28 pb-24" style={{ zIndex: 1 }}>
-        <div className="max-w-xl mx-auto">
+      <div className="relative px-6 pt-20 pb-24" style={{ zIndex: 1 }}>
+        <div style={{ maxWidth: "720px", margin: "0 auto" }}>
+          <BackNav />
 
           <h1
             className="font-[family-name:var(--font-cormorant)] font-light"

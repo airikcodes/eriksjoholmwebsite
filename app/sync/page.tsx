@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import BackNav from "@/components/BackNav";
 import SyncCatalog from "@/components/SyncCatalog";
 
 export const metadata: Metadata = {
@@ -20,8 +21,9 @@ export default function Sync() {
         }} />
       </div>
 
-      <div className="relative px-6 pt-28 pb-24" style={{ zIndex: 1 }}>
-        <div className="max-w-2xl mx-auto">
+      <div className="relative px-6 pt-20 pb-24" style={{ zIndex: 1 }}>
+        <div style={{ maxWidth: "720px", margin: "0 auto" }}>
+          <BackNav />
 
           {/* ── Hero ──────────────────────────────────────────── */}
           <div className="mb-16">

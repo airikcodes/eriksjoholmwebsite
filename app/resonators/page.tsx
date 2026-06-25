@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import BackNav from "@/components/BackNav";
 
 export const metadata: Metadata = {
   title: "The Resonators — Erik Sjøholm",
@@ -42,8 +43,9 @@ export default function Resonators() {
         }} />
       </div>
 
-      <div className="relative px-6 pt-28 pb-24" style={{ zIndex: 1 }}>
-        <div className="max-w-xl mx-auto">
+      <div className="relative px-6 pt-20 pb-24" style={{ zIndex: 1 }}>
+        <div style={{ maxWidth: "720px", margin: "0 auto" }}>
+          <BackNav />
 
           {/* Title */}
           <div className="mb-14">

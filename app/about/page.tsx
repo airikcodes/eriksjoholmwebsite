@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import BackNav from "@/components/BackNav";
 
 export const metadata: Metadata = {
   title: "About — Erik Sjøholm",
@@ -21,8 +22,9 @@ export default function About() {
         }} />
       </div>
 
-      <div className="relative px-6 pt-28 pb-24" style={{ zIndex: 1 }}>
-        <div className="max-w-xl mx-auto">
+      <div className="relative px-6 pt-20 pb-24" style={{ zIndex: 1 }}>
+        <div style={{ maxWidth: "720px", margin: "0 auto" }}>
+          <BackNav />
 
           {/* Portrait */}
           <div className="flex flex-col items-center text-center mb-16">
