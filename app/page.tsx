@@ -37,10 +37,21 @@ export default function Home() {
               letterSpacing: "0.35em",
               textTransform: "uppercase",
               color: "var(--color-muted)",
-              marginTop: "1.5rem",
+              marginTop: "1.25rem",
             }}
           >
             Singer-songwriter · Storyteller
+          </p>
+          <p
+            className="font-[family-name:var(--font-cormorant)] font-light"
+            style={{
+              fontSize: "clamp(1rem, 2.5vw, 1.5rem)",
+              letterSpacing: "0.02em",
+              color: "var(--color-muted)",
+              marginTop: "1.75rem",
+            }}
+          >
+            What song can I play for you?
           </p>
         </div>
         <ScrollIndicator />

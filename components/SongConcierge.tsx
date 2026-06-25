@@ -123,13 +123,6 @@ export default function SongConcierge() {
 
   return (
     <div className="w-full max-w-lg mx-auto">
-      <h2
-        className="font-[family-name:var(--font-cormorant)] font-light text-center mb-10"
-        style={{ fontSize: "clamp(1.6rem, 4vw, 2.6rem)", color: "var(--color-text)", letterSpacing: "0.02em" }}
-      >
-        What song can I play for you?
-      </h2>
-
       {/* Input */}
       <form onSubmit={handleSubmit} className="relative">
         <input

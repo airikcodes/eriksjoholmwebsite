@@ -6,11 +6,11 @@
 }
 
 :root {
-  --color-bg:      #0D0B09;
-  --color-surface: #1A1610;
-  --color-border:  #2E2820;
-  --color-text:    #E8E0D4;
-  --color-muted:   #7A6F62;
+  --color-bg:      #FAFAF8;
+  --color-surface: #F0EDE8;
+  --color-border:  #DDD9D3;
+  --color-text:    #1C1A17;
+  --color-muted:   #8C8076;
   --color-accent:  #C8922A;
 }
 
@@ -22,7 +22,7 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: var(--color-bg);
+  background-color: #FAFAF8;
 }
 
 body {
@@ -37,7 +37,7 @@ body {
 ::-webkit-scrollbar-track { background: var(--color-bg); }
 ::-webkit-scrollbar-thumb { background: var(--color-accent); }
 
-::selection { background: var(--color-accent); color: var(--color-bg); }
+::selection { background: var(--color-accent); color: #FAFAF8; }
 
 /* Scroll-triggered reveal */
 .reveal {
