@@ -15,63 +15,32 @@ const navItems = [
 export default function Home() {
   return (
     <main>
-      {/* ── Section 1: Threshold ─────────────────────────── */}
+      {/* ── Hero: Concierge ──────────────────────────────── */}
       <section
         className="relative flex flex-col items-center justify-center px-6"
         style={{ minHeight: "100svh" }}
       >
-        <div className="text-center">
-          <h1
-            className="font-[family-name:var(--font-cormorant)] font-light"
-            style={{
-              fontSize: "clamp(3rem, 9vw, 7.5rem)",
-              letterSpacing: "0.04em",
-              color: "var(--color-text)",
-            }}
-          >
-            Erik Sjøholm
-          </h1>
-          <p
-            style={{
-              fontSize: "0.6rem",
-              letterSpacing: "0.35em",
-              textTransform: "uppercase",
-              color: "var(--color-muted)",
-              marginTop: "1.25rem",
-            }}
-          >
-            Singer-songwriter · Storyteller
-          </p>
-          <p
-            className="font-[family-name:var(--font-cormorant)] font-light"
-            style={{
-              fontSize: "clamp(1rem, 2.5vw, 1.5rem)",
-              letterSpacing: "0.02em",
-              color: "var(--color-muted)",
-              marginTop: "1.75rem",
-            }}
-          >
-            What song can I play for you?
-          </p>
-        </div>
+        {/* Name in top-left corner */}
+        <p
+          className="absolute top-7 left-7 font-[family-name:var(--font-cormorant)] font-light"
+          style={{
+            fontSize: "0.9rem",
+            letterSpacing: "0.12em",
+            color: "var(--color-muted)",
+          }}
+        >
+          Erik Sjøholm
+        </p>
+
+        <SongConcierge />
         <ScrollIndicator />
       </section>
 
-      {/* ── Section 2: Song Concierge ────────────────────── */}
+      {/* ── Navigation as Rooms ──────────────────────────── */}
       <RevealSection>
         <section
           className="flex flex-col items-center justify-center px-6 py-32"
-          style={{ minHeight: "100svh" }}
-        >
-          <SongConcierge />
-        </section>
-      </RevealSection>
-
-      {/* ── Section 3: Navigation as Rooms ───────────────── */}
-      <RevealSection>
-        <section
-          className="flex flex-col items-center justify-center px-6 py-32"
-          style={{ minHeight: "80vh" }}
+          style={{ minHeight: "80vh", borderTop: "1px solid var(--color-border)" }}
         >
           <nav className="flex flex-col gap-6 md:gap-7 pl-10">
             {navItems.map((item) => (
@@ -93,9 +62,12 @@ export default function Home() {
         </section>
       </RevealSection>
 
-      {/* ── Section 4: The Resonators ────────────────────── */}
+      {/* ── The Resonators ───────────────────────────────── */}
       <RevealSection>
-        <section className="py-32 px-6 text-center" style={{ borderTop: "1px solid var(--color-border)" }}>
+        <section
+          className="py-32 px-6 text-center"
+          style={{ borderTop: "1px solid var(--color-border)" }}
+        >
           <p
             style={{
               fontSize: "0.8rem",
