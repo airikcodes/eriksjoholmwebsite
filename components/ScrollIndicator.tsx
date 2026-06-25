@@ -8,7 +8,7 @@ export default function ScrollIndicator() {
         height="11"
         viewBox="0 0 18 11"
         fill="none"
-        style={{ color: "var(--color-muted)" }}
+        style={{ color: "#7A6F62" }}
       >
         <path
           d="M1 1L9 9L17 1"

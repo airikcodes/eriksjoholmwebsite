@@ -42,12 +42,12 @@ type Track = (typeof catalog)[0];
 
 function ResultCard({ track, onClose }: { track: Track; onClose: () => void }) {
   return (
-    <div className="mt-8 card-settle" style={{ background: "var(--color-surface)", border: "1px solid var(--color-border)", padding: "1.5rem 1.75rem" }}>
+    <div className="mt-8 card-settle" style={{ background: "rgba(20,16,10,0.75)", border: "1px solid rgba(255,255,255,0.12)", padding: "1.5rem 1.75rem", backdropFilter: "blur(8px)" }}>
       <div className="flex items-center justify-between gap-6">
         <div className="flex items-center gap-4">
           <div
             className="w-9 h-9 rounded-full flex items-center justify-center shrink-0"
-            style={{ border: "1px solid var(--color-border)" }}
+            style={{ border: "1px solid rgba(255,255,255,0.15)" }}
           >
             <svg width="11" height="11" viewBox="0 0 12 12" fill="var(--color-accent)" style={{ transform: "translateX(1px)" }}>
               <polygon points="1,0 11,6 1,12" />
@@ -56,11 +56,11 @@ function ResultCard({ track, onClose }: { track: Track; onClose: () => void }) {
           <div>
             <p
               className="font-[family-name:var(--font-cormorant)] font-light"
-              style={{ fontSize: "1.25rem", color: "var(--color-text)" }}
+              style={{ fontSize: "1.25rem", color: "#E8E0D4" }}
             >
               {track.title}
             </p>
-            <p style={{ fontSize: "0.6rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--color-muted)", marginTop: "0.2rem" }}>
+            <p style={{ fontSize: "0.6rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#7A6F62", marginTop: "0.2rem" }}>
               {track.subtitle}
             </p>
           </div>
@@ -70,7 +70,7 @@ function ResultCard({ track, onClose }: { track: Track; onClose: () => void }) {
             href={track.link}
             target="_blank"
             rel="noopener noreferrer"
-            style={{ fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--color-muted)" }}
+            style={{ fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#7A6F62" }}
             className="hover:text-[var(--color-accent)] transition-colors duration-200"
           >
             Listen →
@@ -78,8 +78,8 @@ function ResultCard({ track, onClose }: { track: Track; onClose: () => void }) {
           <button
             onClick={onClose}
             aria-label="Dismiss"
-            style={{ color: "var(--color-border)", fontSize: "1.2rem", lineHeight: 1 }}
-            className="hover:text-[var(--color-muted)] transition-colors duration-200"
+            style={{ color: "rgba(255,255,255,0.2)", fontSize: "1.2rem", lineHeight: 1 }}
+            className="hover:text-[#7A6F62] transition-colors duration-200"
           >
             ×
           </button>
@@ -125,7 +125,7 @@ export default function SongConcierge() {
     <div className="w-full max-w-lg mx-auto">
       <h2
         className="font-[family-name:var(--font-cormorant)] font-light text-center mb-10"
-        style={{ fontSize: "clamp(1.6rem, 4vw, 2.6rem)", color: "var(--color-text)", letterSpacing: "0.02em" }}
+        style={{ fontSize: "clamp(1.6rem, 4vw, 2.6rem)", color: "#E8E0D4", letterSpacing: "0.02em" }}
       >
         What song can I play for you?
       </h2>
@@ -143,9 +143,9 @@ export default function SongConcierge() {
           placeholder="Something quiet for late at night…"
           style={{
             width: "100%",
-            background: "transparent",
-            border: "1px solid var(--color-border)",
-            color: "var(--color-text)",
+            background: "rgba(255,255,255,0.06)",
+            border: "1px solid rgba(255,255,255,0.15)",
+            color: "#E8E0D4",
             padding: "1rem 3rem 1rem 1.25rem",
             fontSize: "0.875rem",
             letterSpacing: "0.02em",
@@ -154,7 +154,7 @@ export default function SongConcierge() {
             fontFamily: "var(--font-inter)",
           }}
           onFocus={(e) => (e.target.style.borderColor = "var(--color-accent)")}
-          onBlur={(e) => (e.target.style.borderColor = "var(--color-border)")}
+          onBlur={(e) => (e.target.style.borderColor = "rgba(255,255,255,0.15)")}
         />
         <button
           type="submit"
@@ -173,7 +173,7 @@ export default function SongConcierge() {
 
       {/* Chips */}
       <div className="flex flex-wrap gap-3 mt-4">
-        <span style={{ fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--color-muted)", alignSelf: "center" }}>
+        <span style={{ fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#7A6F62", alignSelf: "center" }}>
           or
         </span>
         {chips.map((chip) => (
@@ -185,9 +185,9 @@ export default function SongConcierge() {
               letterSpacing: "0.2em",
               textTransform: "uppercase",
               padding: "0.5rem 1.1rem",
-              border: `1px solid ${activeChip === chip.id ? "var(--color-accent)" : "var(--color-border)"}`,
-              color: activeChip === chip.id ? "var(--color-accent)" : "var(--color-muted)",
-              background: "transparent",
+              border: `1px solid ${activeChip === chip.id ? "var(--color-accent)" : "rgba(255,255,255,0.12)"}`,
+              color: activeChip === chip.id ? "var(--color-accent)" : "#7A6F62",
+              background: activeChip === chip.id ? "transparent" : "rgba(255,255,255,0.04)",
               transition: "border-color 200ms, color 200ms",
               cursor: "pointer",
             }}

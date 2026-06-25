@@ -1,8 +1,10 @@
 import Link from "next/link";
+import Image from "next/image";
 import RevealSection from "@/components/RevealSection";
 import ScrollIndicator from "@/components/ScrollIndicator";
 import SongConcierge from "@/components/SongConcierge";
 import ResonatorsForm from "@/components/ResonatorsForm";
+import BackgroundSlideshow from "@/components/BackgroundSlideshow";
 
 const navItems = [
   { label: "About",           href: "/about" },
@@ -15,23 +17,24 @@ const navItems = [
 export default function Home() {
   return (
     <main>
+      <BackgroundSlideshow />
+
+      {/* Portrait mark — fixed top-left */}
+      <div className="portrait-mark">
+        <Image
+          src="/images/portrait.jpg"
+          alt="Erik Sjøholm"
+          width={52}
+          height={52}
+          priority
+        />
+      </div>
+
       {/* ── Hero: Concierge ──────────────────────────────── */}
       <section
         className="relative flex flex-col items-center justify-center px-6"
-        style={{ minHeight: "100svh" }}
+        style={{ minHeight: "100svh", zIndex: 2, position: "relative" }}
       >
-        {/* Name in top-left corner */}
-        <p
-          className="absolute top-7 left-7 font-[family-name:var(--font-cormorant)] font-light"
-          style={{
-            fontSize: "0.9rem",
-            letterSpacing: "0.12em",
-            color: "var(--color-muted)",
-          }}
-        >
-          Erik Sjøholm
-        </p>
-
         <SongConcierge />
         <ScrollIndicator />
       </section>
@@ -40,7 +43,7 @@ export default function Home() {
       <RevealSection>
         <section
           className="flex flex-col items-center justify-center px-6 py-32"
-          style={{ minHeight: "80vh", borderTop: "1px solid var(--color-border)" }}
+          style={{ minHeight: "80vh", borderTop: "1px solid rgba(255,255,255,0.08)", zIndex: 2, position: "relative" }}
         >
           <nav className="flex flex-col gap-6 md:gap-7 pl-10">
             {navItems.map((item) => (
@@ -51,7 +54,7 @@ export default function Home() {
                 style={{
                   fontSize: "clamp(1.8rem, 4vw, 3.5rem)",
                   letterSpacing: "0.02em",
-                  color: "var(--color-text)",
+                  color: "#E8E0D4",
                   transition: "color 200ms ease",
                 }}
               >
@@ -66,13 +69,13 @@ export default function Home() {
       <RevealSection>
         <section
           className="py-32 px-6 text-center"
-          style={{ borderTop: "1px solid var(--color-border)" }}
+          style={{ borderTop: "1px solid rgba(255,255,255,0.08)", zIndex: 2, position: "relative" }}
         >
           <p
             style={{
               fontSize: "0.8rem",
               letterSpacing: "0.08em",
-              color: "var(--color-muted)",
+              color: "#7A6F62",
               marginBottom: "2rem",
             }}
           >
@@ -85,17 +88,17 @@ export default function Home() {
       {/* ── Footer ───────────────────────────────────────── */}
       <footer
         className="flex items-center justify-between px-6 md:px-10 py-8"
-        style={{ borderTop: "1px solid var(--color-border)" }}
+        style={{ borderTop: "1px solid rgba(255,255,255,0.08)", zIndex: 2, position: "relative" }}
       >
-        <p style={{ fontSize: "0.6rem", letterSpacing: "0.15em", color: "var(--color-muted)" }}>
+        <p style={{ fontSize: "0.6rem", letterSpacing: "0.15em", color: "#7A6F62" }}>
           © {new Date().getFullYear()} Erik Sjøholm
         </p>
         <a
           href="https://www.instagram.com/eriksjoholmofficial"
           target="_blank"
           rel="noopener noreferrer"
-          style={{ fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--color-muted)" }}
-          className="hover:text-[var(--color-text)] transition-colors duration-200"
+          style={{ fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#7A6F62" }}
+          className="hover:text-[#E8E0D4] transition-colors duration-200"
         >
           @eriksjoholmofficial
         </a>
