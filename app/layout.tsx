@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
+import Image from "next/image";
+import Link from "next/link";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -30,7 +32,20 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${cormorant.variable} ${inter.variable}`}>
-      <body>{children}</body>
+      <body>
+        {/* Portrait mark — global home link, fixed top-left */}
+        <Link href="/" className="portrait-mark" aria-label="Erik Sjøholm — Home">
+          <Image
+            src="/images/portrait.jpg"
+            alt="Erik Sjøholm"
+            width={52}
+            height={52}
+            priority
+          />
+        </Link>
+
+        {children}
+      </body>
     </html>
   );
 }

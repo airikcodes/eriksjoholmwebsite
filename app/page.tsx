@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import RevealSection from "@/components/RevealSection";
 import ScrollIndicator from "@/components/ScrollIndicator";
 import SongConcierge from "@/components/SongConcierge";
@@ -17,17 +16,6 @@ export default function Home() {
   return (
     <main>
       <BackgroundSlideshow />
-
-      {/* Portrait mark — fixed top-left */}
-      <div className="portrait-mark">
-        <Image
-          src="/images/portrait.jpg"
-          alt="Erik Sjøholm"
-          width={52}
-          height={52}
-          priority
-        />
-      </div>
 
       {/* ── Hero: Concierge ──────────────────────────────── */}
       <section
