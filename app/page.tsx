@@ -56,8 +56,8 @@ export default function Home() {
 
       {/* ── Footer ───────────────────────────────────────── */}
       <footer
-        className="flex flex-col items-center gap-3 px-6 pt-8"
-        style={{ borderTop: "1px solid rgba(255,255,255,0.08)", zIndex: 2, position: "relative", paddingBottom: "50vh" }}
+        className="flex items-end justify-center gap-8 px-6 pb-10"
+        style={{ borderTop: "1px solid rgba(255,255,255,0.08)", zIndex: 2, position: "relative", minHeight: "50vh" }}
       >
         <p style={{ fontSize: "0.6rem", letterSpacing: "0.15em", color: "#7A6F62" }}>
           © {new Date().getFullYear()} Erik Sjøholm
