@@ -3,7 +3,7 @@ import Link from "next/link";
 import BackNav from "@/components/BackNav";
 
 export const metadata: Metadata = {
-  title: "Music & Work — Erik Sjøholm",
+  title: "Music — Erik Sjøholm",
   description: "Releases, collaborations and recorded work by Erik Sjøholm.",
 };
 
@@ -49,7 +49,7 @@ export default function Work() {
             className="font-[family-name:var(--font-cormorant)] font-light"
             style={{ fontSize: "clamp(2.5rem, 7vw, 5rem)", color: "#E8E0D4", letterSpacing: "0.03em", lineHeight: 1.05 }}
           >
-            Music &amp; Work
+            Music
           </h1>
           <p style={{ fontSize: "0.55rem", letterSpacing: "0.35em", textTransform: "uppercase", color: "#7A6F62", marginTop: "0.85rem" }}>
             Releases &amp; Recordings
