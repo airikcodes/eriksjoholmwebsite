@@ -123,6 +123,14 @@ export default function About() {
                   className="block text-xs hover:text-[#E8E0D4] transition-colors duration-200" style={{ color: "#7A6F62", letterSpacing: "0.05em" }}>
                   Instagram →
                 </a>
+                <a href="https://facebook.com/eriksjoholmffofficial/" target="_blank" rel="noopener noreferrer"
+                  className="block text-xs hover:text-[#1877F2] transition-colors duration-200" style={{ color: "#7A6F62", letterSpacing: "0.05em" }}>
+                  Facebook →
+                </a>
+                <a href="https://www.youtube.com/eriksjoholmofficial" target="_blank" rel="noopener noreferrer"
+                  className="block text-xs hover:text-[#FF0000] transition-colors duration-200" style={{ color: "#7A6F62", letterSpacing: "0.05em" }}>
+                  YouTube →
+                </a>
                 <a href="https://eriksjoholm-newsletter.beehiiv.com" target="_blank" rel="noopener noreferrer"
                   className="block text-xs hover:text-[#C8922A] transition-colors duration-200" style={{ color: "#7A6F62", letterSpacing: "0.05em" }}>
                   Artistic Travelogue →

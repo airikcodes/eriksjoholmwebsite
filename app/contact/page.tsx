@@ -87,9 +87,12 @@ export default function Contact() {
             </p>
             <div className="flex flex-wrap gap-x-8 gap-y-3">
               {[
-                { label: "Instagram", href: "https://www.instagram.com/eriksjoholmofficial", hoverClass: "hover:text-[#E8E0D4]" },
+                { label: "Instagram", href: "https://www.instagram.com/eriksjoholmofficial",       hoverClass: "hover:text-[#E8E0D4]" },
+                { label: "Facebook",  href: "https://facebook.com/eriksjoholmffofficial/",          hoverClass: "hover:text-[#1877F2]" },
+                { label: "YouTube",   href: "https://www.youtube.com/eriksjoholmofficial",          hoverClass: "hover:text-[#FF0000]" },
+                { label: "LinkedIn",  href: "https://www.linkedin.com/in/eriksjoholmofficial1717/", hoverClass: "hover:text-[#0A66C2]" },
                 { label: "Spotify",   href: "https://open.spotify.com/artist/1UpcgaCHBwic2IqUQ3hHdp", hoverClass: "hover:text-[#1DB954]" },
-                { label: "Tidal",     href: "https://tidal.com/artist/47687355", hoverClass: "hover:text-[#00FFFF]" },
+                { label: "Tidal",     href: "https://tidal.com/artist/47687355",                   hoverClass: "hover:text-[#00FFFF]" },
               ].map(({ label, href, hoverClass }) => (
                 <a
                   key={label}
