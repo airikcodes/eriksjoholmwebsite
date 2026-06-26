@@ -27,7 +27,7 @@ export default function Contact() {
         }} />
       </div>
 
-      <div className="relative px-6 pt-20 pb-24" style={{ zIndex: 1 }}>
+      <div className="relative px-6 pt-20 pb-48" style={{ zIndex: 1 }}>
         <div style={{ maxWidth: "720px", margin: "0 auto" }}>
           <BackNav />
 
