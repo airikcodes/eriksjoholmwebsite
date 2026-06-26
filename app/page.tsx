@@ -56,7 +56,7 @@ export default function Home() {
 
       {/* ── Footer ───────────────────────────────────────── */}
       <footer
-        className="flex items-center justify-between px-6 md:px-10 py-8"
+        className="flex items-center justify-between px-6 md:px-10 pt-8 pb-48"
         style={{ borderTop: "1px solid rgba(255,255,255,0.08)", zIndex: 2, position: "relative" }}
       >
         <p style={{ fontSize: "0.6rem", letterSpacing: "0.15em", color: "#7A6F62" }}>
