@@ -191,37 +191,53 @@ const catalog = [
   },
 ];
 
-function matchFromText(input: string) {
+function matchFromText(input: string): Track[] {
   const lower = input.toLowerCase();
 
-  // First pass: exact keyword match on any track's mood list
-  for (const track of catalog) {
-    if (track.mood.some((word) => lower.includes(word))) return track;
-  }
+  // Score every track: longer mood phrases score higher (more specific match)
+  const scored = catalog.map((track) => ({
+    track,
+    score: track.mood.reduce(
+      (sum, phrase) => (lower.includes(phrase) ? sum + phrase.split(" ").length : sum),
+      0
+    ),
+  }));
 
-  // Regex fallback for common themes not covered above
-  if (/ashes?|grief|grief|ruin|burn/.test(lower))                         return catalog.find(t => t.id === "ashes")!;
-  if (/waltz|slow danc|last danc/.test(lower))                            return catalog.find(t => t.id === "one-last-waltz")!;
-  if (/guardia|angel|protect|heaven/.test(lower))                         return catalog.find(t => t.id === "guardian-angel")!;
-  if (/ligh|ray|dawn|sun|bright|hope/.test(lower))                       return catalog.find(t => t.id === "ray-of-light")!;
-  if (/sad|melanchol|lonely|night|dark|slow|quiet|still|soft|late|long|broken/.test(lower)) return catalog[2];
-  if (/happ|danc|energy|upbeat|fast|loud|hype|fun|wake|morn|go/.test(lower))                return catalog[1];
-  if (/miss|gone|leav|away|end|over|apart/.test(lower))                   return catalog[7];
-  if (/home|family|belong|safe|cozy/.test(lower))                         return catalog[8];
-  if (/child|young|past|memor|old|90/.test(lower))                        return catalog[9];
-  if (/latin|spain|rhythm|street/.test(lower))                            return catalog.find(t => t.id === "la-latina")!;
-  if (/sand|slip|fleeting|passing/.test(lower))                           return catalog.find(t => t.id === "sanden")!;
+  const hits = scored
+    .filter((s) => s.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 3)
+    .map((s) => s.track);
 
-  // Default: suggest latest
-  return catalog[0];
+  if (hits.length > 0) return hits;
+
+  // Thematic fallbacks returning 3 varied tracks
+  const by = (id: string) => catalog.find((t) => t.id === id)!;
+  if (/sad|melanchol|lone|dark|night|slow|quiet|still|late|broken|3am/.test(lower))
+    return [by("night"), by("ashes"), by("gone")];
+  if (/happ|joy|danc|energy|upbeat|fast|fun|wake|morn|motivat/.test(lower))
+    return [by("wake-up"), by("lycka"), by("ray-of-light")];
+  if (/love|roman|heart|tender|intimate/.test(lower))
+    return [by("origin-of-love"), by("magari"), by("one-last-waltz")];
+  if (/home|famil|belong|cozy|return|root/.test(lower))
+    return [by("välkommen"), by("barndomsåren"), by("langs-med-vagen")];
+  if (/travel|journey|road|wander|abroad/.test(lower))
+    return [by("matsawana"), by("langs-med-vagen"), by("la-latina")];
+  if (/hope|light|faith|inspir|bright/.test(lower))
+    return [by("ray-of-light"), by("if-you-believe"), by("wake-up")];
+  if (/loss|grief|miss|gone|end|over/.test(lower))
+    return [by("gone"), by("ashes"), by("night")];
+
+  // Generic default — three different moods
+  return [by("lycka"), by("night"), by("magari")];
 }
 
 type Track = (typeof catalog)[0];
 
-function ResultCard({ track, onClose }: { track: Track; onClose: () => void }) {
+function ResultCard({ track, onDismiss }: { track: Track; onDismiss: (id: string) => void }) {
   return (
     <div
-      className="mt-8 card-settle"
+      className="card-settle"
       style={{ background: "rgba(20,16,10,0.75)", border: "1px solid rgba(255,255,255,0.12)", padding: "1.5rem 1.75rem", backdropFilter: "blur(8px)" }}
     >
       <div className="flex items-start justify-between gap-6">
@@ -269,7 +285,7 @@ function ResultCard({ track, onClose }: { track: Track; onClose: () => void }) {
             </a>
           </div>
           <button
-            onClick={onClose}
+            onClick={() => onDismiss(track.id)}
             aria-label="Dismiss"
             style={{ color: "rgba(255,255,255,0.2)", fontSize: "1.2rem", lineHeight: 1 }}
             className="hover:text-[#7A6F62] transition-colors duration-200"
@@ -284,7 +300,7 @@ function ResultCard({ track, onClose }: { track: Track; onClose: () => void }) {
 
 export default function SongConcierge() {
   const [input, setInput] = useState("");
-  const [result, setResult] = useState<Track | null>(null);
+  const [results, setResults] = useState<Track[]>([]);
   const [activeChip, setActiveChip] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -298,20 +314,22 @@ export default function SongConcierge() {
     e.preventDefault();
     if (!input.trim()) return;
     setActiveChip(null);
-    setResult(matchFromText(input));
+    setResults(matchFromText(input));
   }
 
   function handleChip(id: string) {
     setActiveChip(id);
     setInput("");
-    setResult(catalog.find((t) => t.id === id) ?? catalog[0]);
+    setResults([catalog.find((t) => t.id === id) ?? catalog[0]]);
     inputRef.current?.blur();
   }
 
-  function handleClose() {
-    setResult(null);
-    setActiveChip(null);
-    setInput("");
+  function handleDismiss(id: string) {
+    setResults((prev) => {
+      const next = prev.filter((t) => t.id !== id);
+      if (next.length === 0) { setActiveChip(null); setInput(""); }
+      return next;
+    });
   }
 
   return (
@@ -331,7 +349,7 @@ export default function SongConcierge() {
           value={input}
           onChange={(e) => {
             setInput(e.target.value);
-            if (result && !activeChip) setResult(null);
+            if (results.length > 0 && !activeChip) setResults([]);
           }}
           placeholder="Something quiet for late at night…"
           style={{
@@ -390,7 +408,13 @@ export default function SongConcierge() {
         ))}
       </div>
 
-      {result && <ResultCard track={result} onClose={handleClose} />}
+      {results.length > 0 && (
+        <div className="flex flex-col gap-3 mt-8">
+          {results.map((track) => (
+            <ResultCard key={track.id} track={track} onDismiss={handleDismiss} />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
