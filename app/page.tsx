@@ -54,42 +54,6 @@ export default function Home() {
         </section>
       </RevealSection>
 
-      {/* ── The Resonators ───────────────────────────────── */}
-      <RevealSection>
-        <section
-          className="py-32 px-6 text-center"
-          style={{ borderTop: "1px solid rgba(255,255,255,0.08)", zIndex: 2, position: "relative" }}
-        >
-          <p
-            style={{
-              fontSize: "0.8rem",
-              letterSpacing: "0.08em",
-              color: "#7A6F62",
-              marginBottom: "1.75rem",
-            }}
-          >
-            Stay in the room.
-          </p>
-          <a
-            href="https://eriksjoholm-newsletter.beehiiv.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              fontSize: "0.65rem",
-              letterSpacing: "0.28em",
-              textTransform: "uppercase",
-              color: "#E8E0D4",
-              borderBottom: "1px solid rgba(200,146,42,0.4)",
-              paddingBottom: "2px",
-              transition: "border-color 200ms, color 200ms",
-            }}
-            className="hover:text-[var(--color-accent)] hover:border-[var(--color-accent)]"
-          >
-            Join The Resonators
-          </a>
-        </section>
-      </RevealSection>
-
       {/* ── Footer ───────────────────────────────────────── */}
       <footer
         className="flex items-center justify-between px-6 md:px-10 py-8"
