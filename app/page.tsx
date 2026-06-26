@@ -9,7 +9,7 @@ const navItems = [
   { label: "Music",           href: "/work" },
   { label: "Sync Licensing",  href: "/sync" },
   { label: "The Storyteller", href: "/storyteller" },
-  { label: "The Resonators",  href: "/resonators" },
+  { label: "Backstage",        href: "/resonators" },
   { label: "Contact",         href: "/contact" },
 ];
 
