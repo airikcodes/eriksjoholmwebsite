@@ -43,7 +43,7 @@ export default function Resonators() {
         }} />
       </div>
 
-      <div className="relative px-6 pt-20 pb-24" style={{ zIndex: 1 }}>
+      <div className="relative px-6 pt-32 pb-32" style={{ zIndex: 1 }}>
         <div style={{ maxWidth: "720px", margin: "0 auto" }}>
           <BackNav />
 
@@ -62,8 +62,8 @@ export default function Resonators() {
             className="font-[family-name:var(--font-cormorant)] font-light leading-relaxed"
             style={{ fontSize: "clamp(1.2rem, 2.8vw, 1.55rem)", color: "#E8E0D4" }}
           >
-            Backstage is a small, private dispatch for people who want to be
-            closer to the work than an audience usually gets. Not the finished
+            Backstage is a newsletter — a small, private dispatch for people
+            who want to be closer to the work than an audience usually gets. Not the finished
             version. The version before that — where the decisions are still
             visible and the cost of making it is still in the room.
           </p>
@@ -78,7 +78,7 @@ export default function Resonators() {
           </div>
 
           {/* Offerings */}
-          <div className="mt-14">
+          <div className="mt-24">
             <p style={{ fontSize: "0.5rem", letterSpacing: "0.35em", textTransform: "uppercase", color: "#7A6F62", marginBottom: "1.25rem" }}>
               What you receive
             </p>
@@ -87,7 +87,7 @@ export default function Resonators() {
               {offerings.map((o) => (
                 <li
                   key={o.index}
-                  className="py-7 flex gap-6"
+                  className="py-10 flex gap-6"
                   style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}
                 >
                   <span
@@ -113,7 +113,7 @@ export default function Resonators() {
           </div>
 
           {/* CTA */}
-          <div className="mt-14 text-center py-12 px-8" style={{ border: "1px solid rgba(200,146,42,0.15)", background: "rgba(200,146,42,0.03)" }}>
+          <div className="mt-24 text-center py-12 px-8" style={{ border: "1px solid rgba(200,146,42,0.15)", background: "rgba(200,146,42,0.03)" }}>
             <p
               className="font-[family-name:var(--font-cormorant)] font-light"
               style={{ fontSize: "clamp(1.1rem, 2.5vw, 1.4rem)", color: "#E8E0D4", marginBottom: "1.75rem" }}
