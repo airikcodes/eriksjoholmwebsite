@@ -69,7 +69,7 @@ export const syncCatalog: Track[] = [
     uses: ["Romance", "European drama", "Fashion", "Lifestyle"],
     spotifyLink: "https://open.spotify.com/track/37US5z8tYa3VWQoqiRAjRF",
     notes: "with Mistasy",
-    languages: "Italian/English",
+    languages: "Italian / English",
   },
   {
     title: "Gone",
@@ -185,18 +185,48 @@ export const syncCatalog: Track[] = [
   },
 ];
 
-const ALL_MOODS = ["Cinematic", "Dark", "Uplifting", "Romantic", "Nostalgic", "Nordic", "Energetic", "Emotional", "Hopeful", "Intimate", "Journey", "Spiritual"];
-const ALL_USES  = ["Drama", "Documentary", "Advertising", "Travel", "Romance", "Lifestyle", "Inspirational", "Sports"];
+const ALL_MOODS = [
+  "Cinematic", "Dark", "Uplifting", "Romantic", "Nostalgic",
+  "Nordic", "Energetic", "Emotional", "Hopeful", "Intimate", "Journey", "Spiritual",
+];
+const ALL_USES = [
+  "Drama", "Documentary", "Advertising", "Travel",
+  "Romance", "Lifestyle", "Inspirational", "Sports",
+];
 
-const TEMPO_COLORS: Record<Track["tempo"], string> = {
-  "Slow":       "rgba(200,146,42,0.2)",
-  "Mid-tempo":  "rgba(255,255,255,0.07)",
-  "Uptempo":    "rgba(29,185,84,0.12)",
+const TEMPO_COLORS: Record<Track["tempo"], { bg: string; color: string }> = {
+  "Slow":       { bg: "rgba(200,146,42,0.15)",  color: "#C8922A" },
+  "Mid-tempo":  { bg: "rgba(255,255,255,0.06)", color: "#7A6F62" },
+  "Uptempo":    { bg: "rgba(29,185,84,0.12)",   color: "#1DB954" },
 };
 
+function FilterChip({
+  label, active, onClick,
+}: { label: string; active: boolean; onClick: () => void }) {
+  return (
+    <button
+      onClick={onClick}
+      style={{
+        fontFamily: "var(--font-inter)",
+        fontSize: "0.48rem",
+        letterSpacing: "0.18em",
+        textTransform: "uppercase",
+        padding: "0.38rem 0.9rem",
+        border: `1px solid ${active ? "#C8922A" : "rgba(255,255,255,0.1)"}`,
+        color: active ? "#C8922A" : "#7A6F62",
+        background: active ? "rgba(200,146,42,0.08)" : "transparent",
+        cursor: "pointer",
+        transition: "border-color 150ms, color 150ms, background 150ms",
+      }}
+    >
+      {label}
+    </button>
+  );
+}
+
 export default function SyncCatalog() {
-  const [activeMood, setActiveMood] = useState<string | null>(null);
-  const [activeUse,  setActiveUse]  = useState<string | null>(null);
+  const [activeMood,  setActiveMood]  = useState<string | null>(null);
+  const [activeUse,   setActiveUse]   = useState<string | null>(null);
   const [activeTempo, setActiveTempo] = useState<Track["tempo"] | null>(null);
 
   const filtered = syncCatalog.filter((t) => {
@@ -206,175 +236,145 @@ export default function SyncCatalog() {
     return true;
   });
 
-  function toggleMood(m: string)    { setActiveMood(prev => prev === m ? null : m); }
-  function toggleUse(u: string)     { setActiveUse(prev  => prev === u ? null : u); }
-  function toggleTempo(t: Track["tempo"]) { setActiveTempo(prev => prev === t ? null : t); }
+  function toggleMood(m: string)           { setActiveMood(prev  => prev === m ? null : m); }
+  function toggleUse(u: string)            { setActiveUse(prev   => prev === u ? null : u); }
+  function toggleTempo(t: Track["tempo"])  { setActiveTempo(prev => prev === t ? null : t); }
   function clearAll() { setActiveMood(null); setActiveUse(null); setActiveTempo(null); }
   const hasFilter = activeMood || activeUse || activeTempo;
 
   return (
     <div>
-      {/* ── Filters ─── */}
-      <div className="space-y-4 mb-10">
 
-        {/* Tempo */}
-        <div>
-          <p style={{ fontSize: "0.48rem", letterSpacing: "0.3em", textTransform: "uppercase", color: "#7A6F62", marginBottom: "0.6rem" }}>Tempo</p>
-          <div className="flex flex-wrap gap-2">
-            {(["Slow", "Mid-tempo", "Uptempo"] as Track["tempo"][]).map((t) => (
-              <button
-                key={t}
-                onClick={() => toggleTempo(t)}
-                style={{
-                  fontSize: "0.5rem", letterSpacing: "0.18em", textTransform: "uppercase",
-                  padding: "0.35rem 0.85rem",
-                  border: `1px solid ${activeTempo === t ? "#C8922A" : "rgba(255,255,255,0.1)"}`,
-                  color: activeTempo === t ? "#C8922A" : "#7A6F62",
-                  background: activeTempo === t ? "rgba(200,146,42,0.08)" : "transparent",
-                  cursor: "pointer", transition: "all 150ms",
-                }}
-              >
-                {t}
-              </button>
-            ))}
-          </div>
-        </div>
+      {/* ── Filter panel ── */}
+      <div style={{
+        background: "rgba(255,255,255,0.02)",
+        border: "1px solid rgba(255,255,255,0.06)",
+        padding: "1.75rem",
+        marginBottom: "2.5rem",
+      }}>
+        <div className="space-y-5">
 
-        {/* Mood */}
-        <div>
-          <p style={{ fontSize: "0.48rem", letterSpacing: "0.3em", textTransform: "uppercase", color: "#7A6F62", marginBottom: "0.6rem" }}>Mood</p>
-          <div className="flex flex-wrap gap-2">
-            {ALL_MOODS.map((m) => (
-              <button
-                key={m}
-                onClick={() => toggleMood(m)}
-                style={{
-                  fontSize: "0.5rem", letterSpacing: "0.15em", textTransform: "uppercase",
-                  padding: "0.35rem 0.85rem",
-                  border: `1px solid ${activeMood === m ? "#C8922A" : "rgba(255,255,255,0.1)"}`,
-                  color: activeMood === m ? "#C8922A" : "#7A6F62",
-                  background: activeMood === m ? "rgba(200,146,42,0.08)" : "transparent",
-                  cursor: "pointer", transition: "all 150ms",
-                }}
-              >
-                {m}
-              </button>
-            ))}
+          {/* Tempo */}
+          <div>
+            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.42rem", letterSpacing: "0.3em", textTransform: "uppercase", color: "#7A6F62", marginBottom: "0.75rem" }}>
+              Tempo
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {(["Slow", "Mid-tempo", "Uptempo"] as Track["tempo"][]).map((t) => (
+                <FilterChip key={t} label={t} active={activeTempo === t} onClick={() => toggleTempo(t)} />
+              ))}
+            </div>
           </div>
-        </div>
 
-        {/* Use case */}
-        <div>
-          <p style={{ fontSize: "0.48rem", letterSpacing: "0.3em", textTransform: "uppercase", color: "#7A6F62", marginBottom: "0.6rem" }}>Use case</p>
-          <div className="flex flex-wrap gap-2">
-            {ALL_USES.map((u) => (
-              <button
-                key={u}
-                onClick={() => toggleUse(u)}
-                style={{
-                  fontSize: "0.5rem", letterSpacing: "0.15em", textTransform: "uppercase",
-                  padding: "0.35rem 0.85rem",
-                  border: `1px solid ${activeUse === u ? "#C8922A" : "rgba(255,255,255,0.1)"}`,
-                  color: activeUse === u ? "#C8922A" : "#7A6F62",
-                  background: activeUse === u ? "rgba(200,146,42,0.08)" : "transparent",
-                  cursor: "pointer", transition: "all 150ms",
-                }}
-              >
-                {u}
-              </button>
-            ))}
+          {/* Mood */}
+          <div>
+            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.42rem", letterSpacing: "0.3em", textTransform: "uppercase", color: "#7A6F62", marginBottom: "0.75rem" }}>
+              Mood
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {ALL_MOODS.map((m) => (
+                <FilterChip key={m} label={m} active={activeMood === m} onClick={() => toggleMood(m)} />
+              ))}
+            </div>
           </div>
+
+          {/* Use case */}
+          <div>
+            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.42rem", letterSpacing: "0.3em", textTransform: "uppercase", color: "#7A6F62", marginBottom: "0.75rem" }}>
+              Use case
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {ALL_USES.map((u) => (
+                <FilterChip key={u} label={u} active={activeUse === u} onClick={() => toggleUse(u)} />
+              ))}
+            </div>
+          </div>
+
         </div>
 
         {/* Count + clear */}
-        <div className="flex items-center gap-4 pt-1">
-          <span style={{ fontSize: "0.5rem", letterSpacing: "0.15em", color: "#7A6F62" }}>
+        <div className="flex items-center gap-5 mt-5 pt-4" style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+          <span style={{ fontFamily: "var(--font-inter)", fontSize: "0.48rem", letterSpacing: "0.12em", color: "#7A6F62" }}>
             {filtered.length} of {syncCatalog.length} tracks
           </span>
           {hasFilter && (
             <button
               onClick={clearAll}
-              style={{ fontSize: "0.5rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#C8922A", cursor: "pointer" }}
+              style={{ fontFamily: "var(--font-inter)", fontSize: "0.48rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#C8922A", cursor: "pointer" }}
             >
-              Clear filters ×
+              Clear ×
             </button>
           )}
         </div>
       </div>
 
-      {/* ── Track list ─── */}
+      {/* ── Track list ── */}
       <ul style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}>
         {filtered.map((track, i) => (
           <li
             key={track.title}
-            className="group py-5"
-            style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}
+            className="group"
+            style={{ borderBottom: "1px solid rgba(255,255,255,0.07)", padding: "1.75rem 0" }}
           >
-            <div className="flex items-start justify-between gap-4">
+            <div className="flex items-center justify-between gap-4">
 
-              {/* Left: index + title + tags */}
-              <div className="flex items-start gap-4 min-w-0">
-                <span style={{ fontSize: "0.48rem", color: "rgba(200,146,42,0.35)", letterSpacing: "0.08em", paddingTop: "0.3rem", flexShrink: 0, width: "1.4rem" }}>
+              {/* Left: index + title + meta */}
+              <div className="flex items-center gap-5 min-w-0">
+                <span style={{
+                  fontFamily: "var(--font-inter)",
+                  fontSize: "0.48rem",
+                  color: "rgba(200,146,42,0.35)",
+                  letterSpacing: "0.08em",
+                  flexShrink: 0,
+                  width: "1.4rem",
+                }}>
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <div className="min-w-0">
                   <p
                     className="font-[family-name:var(--font-cormorant)] font-light"
-                    style={{ fontSize: "clamp(1rem, 2.2vw, 1.2rem)", color: "#E8E0D4", lineHeight: 1.2 }}
+                    style={{ fontSize: "clamp(1rem, 2.2vw, 1.3rem)", color: "#E8E0D4", lineHeight: 1.2 }}
                   >
                     {track.title}
                   </p>
-
-                  {/* Tempo badge + notes */}
-                  <div className="flex flex-wrap items-center gap-2 mt-1.5">
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-2">
                     <span style={{
-                      fontSize: "0.42rem", letterSpacing: "0.18em", textTransform: "uppercase",
-                      padding: "0.2rem 0.5rem",
-                      background: TEMPO_COLORS[track.tempo],
-                      color: track.tempo === "Slow" ? "#C8922A" : track.tempo === "Uptempo" ? "#1DB954" : "#7A6F62",
+                      fontFamily: "var(--font-inter)",
+                      fontSize: "0.44rem",
+                      letterSpacing: "0.18em",
+                      textTransform: "uppercase",
+                      padding: "0.22rem 0.6rem",
+                      background: TEMPO_COLORS[track.tempo].bg,
+                      color: TEMPO_COLORS[track.tempo].color,
                     }}>
                       {track.tempo}
                     </span>
                     {track.languages && (
-                      <span style={{ fontSize: "0.42rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#7A6F62" }}>
+                      <span style={{ fontFamily: "var(--font-inter)", fontSize: "0.44rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#7A6F62" }}>
                         {track.languages}
                       </span>
                     )}
                     {track.notes && (
-                      <span style={{ fontSize: "0.42rem", letterSpacing: "0.12em", color: "#7A6F62" }}>
+                      <span style={{ fontFamily: "var(--font-inter)", fontSize: "0.44rem", letterSpacing: "0.08em", color: "rgba(122,111,98,0.7)" }}>
                         {track.notes}
                       </span>
                     )}
-                  </div>
-
-                  {/* Use case tags */}
-                  <div className="flex flex-wrap gap-1.5 mt-2">
-                    {track.uses.map((u) => (
-                      <span
-                        key={u}
-                        style={{
-                          fontSize: "0.4rem", letterSpacing: "0.15em", textTransform: "uppercase",
-                          padding: "0.18rem 0.5rem",
-                          border: "1px solid rgba(255,255,255,0.08)",
-                          color: "#7A6F62",
-                        }}
-                      >
-                        {u}
-                      </span>
-                    ))}
                   </div>
                 </div>
               </div>
 
               {/* Right: mood tags + listen */}
-              <div className="flex flex-col items-end gap-2 shrink-0">
-                <div className="flex flex-wrap justify-end gap-1.5 max-w-[10rem]">
-                  {track.moods.map((m) => (
+              <div className="flex items-center gap-5 shrink-0">
+                <div className="hidden sm:flex flex-wrap justify-end gap-1.5" style={{ maxWidth: "11rem" }}>
+                  {track.moods.slice(0, 2).map((m) => (
                     <span
                       key={m}
                       style={{
-                        fontSize: "0.4rem", letterSpacing: "0.12em", textTransform: "uppercase",
-                        padding: "0.18rem 0.5rem",
+                        fontFamily: "var(--font-inter)",
+                        fontSize: "0.42rem",
+                        letterSpacing: "0.12em",
+                        textTransform: "uppercase",
+                        padding: "0.22rem 0.6rem",
                         background: "rgba(200,146,42,0.07)",
                         border: "1px solid rgba(200,146,42,0.18)",
                         color: "#C8922A",
@@ -388,10 +388,15 @@ export default function SyncCatalog() {
                   href={track.spotifyLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="opacity-0 group-hover:opacity-100 transition-opacity duration-150"
-                  style={{ fontSize: "0.45rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#7A6F62" }}
-                  onMouseEnter={e => (e.currentTarget.style.color = "#1DB954")}
-                  onMouseLeave={e => (e.currentTarget.style.color = "#7A6F62")}
+                  className="group-hover:text-[#1DB954] transition-colors duration-150"
+                  style={{
+                    fontFamily: "var(--font-inter)",
+                    fontSize: "0.45rem",
+                    letterSpacing: "0.2em",
+                    textTransform: "uppercase",
+                    color: "rgba(122,111,98,0.55)",
+                    flexShrink: 0,
+                  }}
                 >
                   Listen →
                 </a>
@@ -403,11 +408,17 @@ export default function SyncCatalog() {
       </ul>
 
       {filtered.length === 0 && (
-        <p className="text-center py-16 text-sm" style={{ color: "#7A6F62" }}>
+        <p className="text-center py-20" style={{ fontFamily: "var(--font-inter)", fontSize: "0.78rem", color: "#7A6F62" }}>
           No tracks match those filters.{" "}
-          <button onClick={clearAll} style={{ color: "#C8922A", cursor: "pointer" }}>Clear all</button>
+          <button
+            onClick={clearAll}
+            style={{ color: "#C8922A", cursor: "pointer" }}
+          >
+            Clear all
+          </button>
         </p>
       )}
+
     </div>
   );
 }
