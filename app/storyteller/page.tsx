@@ -318,38 +318,30 @@ export default function Storyteller() {
                 Watch
               </h2>
 
-              {/* 16:9 placeholder */}
+              {/* 16:9 YouTube embed */}
               <div
                 style={{
                   position: "relative",
                   width: "100%",
                   paddingBottom: "56.25%",
-                  border: "1px solid rgba(200,146,42,0.25)",
-                  background: "rgba(200,146,42,0.02)",
                   borderRadius: "2px",
+                  overflow: "hidden",
+                  background: "#000",
                 }}
               >
-                <div
+                <iframe
+                  src="https://www.youtube.com/embed/L44DV_sT-Qw"
+                  title="GLENN — The Things We Don't Speak About"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
                   style={{
                     position: "absolute",
                     inset: 0,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
+                    width: "100%",
+                    height: "100%",
+                    border: 0,
                   }}
-                >
-                  <p
-                    style={{
-                      fontFamily: "var(--font-inter)",
-                      fontSize: "0.5rem",
-                      letterSpacing: "0.3em",
-                      textTransform: "uppercase",
-                      color: "rgba(200,146,42,0.4)",
-                    }}
-                  >
-                    Trailer coming soon
-                  </p>
-                </div>
+                />
               </div>
 
               <p
@@ -361,7 +353,6 @@ export default function Storyteller() {
                   letterSpacing: "0.05em",
                 }}
               >
-                {/* TODO: replace with actual trailer embed when available */}
                 Performed at GLÖD Storytelling Festival, Vasa, Finland — March 2022
               </p>
 

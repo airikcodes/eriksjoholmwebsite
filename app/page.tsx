@@ -31,7 +31,7 @@ export default function Home() {
       <RevealSection>
         <section
           id="nav"
-          className="flex flex-col items-center justify-center px-6 py-32"
+          className="flex flex-col items-center justify-center px-6 pt-32 pb-56"
           style={{ minHeight: "80vh", borderTop: "1px solid rgba(255,255,255,0.08)", zIndex: 2, position: "relative" }}
         >
           <nav className="flex flex-col gap-6 md:gap-7 pl-10">
