@@ -4,7 +4,7 @@ export default function BackNav() {
   return (
     <div style={{ marginBottom: "3.5rem" }}>
       <Link
-        href="/"
+        href="/#nav"
         className="hover:text-[#C8922A] transition-colors duration-200"
         style={{
           display: "inline-flex",

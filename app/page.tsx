@@ -7,6 +7,7 @@ import BackgroundSlideshow from "@/components/BackgroundSlideshow";
 const navItems = [
   { label: "About",           href: "/about" },
   { label: "Music & Work",    href: "/work" },
+  { label: "Sync Licensing",  href: "/sync" },
   { label: "The Storyteller", href: "/storyteller" },
   { label: "The Resonators",  href: "/resonators" },
   { label: "Contact",         href: "/contact" },
@@ -29,6 +30,7 @@ export default function Home() {
       {/* ── Navigation as Rooms ──────────────────────────── */}
       <RevealSection>
         <section
+          id="nav"
           className="flex flex-col items-center justify-center px-6 py-32"
           style={{ minHeight: "80vh", borderTop: "1px solid rgba(255,255,255,0.08)", zIndex: 2, position: "relative" }}
         >
