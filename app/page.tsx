@@ -5,12 +5,12 @@ import SongConcierge from "@/components/SongConcierge";
 import BackgroundSlideshow from "@/components/BackgroundSlideshow";
 
 const navItems = [
-  { label: "About",           href: "/about" },
-  { label: "Music",           href: "/work" },
-  { label: "Sync Licensing",  href: "/sync" },
-  { label: "The Storyteller", href: "/storyteller" },
-  { label: "Backstage",        href: "/resonators" },
-  { label: "Contact",         href: "/contact" },
+  { label: "About",   href: "/about",                                          external: false },
+  { label: "Songs",   href: "/songs",                                          external: false },
+  { label: "Shows",   href: "/storyteller",                                    external: false },
+  { label: "Notes",   href: "https://eriksjoholm-newsletter.beehiiv.com",      external: true  },
+  { label: "Shop",    href: "https://erik-sjoeholm-shop.fourthwall.com",        external: true  },
+  { label: "Contact", href: "/contact",                                         external: false },
 ];
 
 export default function Home() {
@@ -35,21 +35,40 @@ export default function Home() {
           style={{ minHeight: "80vh", borderTop: "1px solid rgba(255,255,255,0.08)", zIndex: 2, position: "relative" }}
         >
           <nav className="flex flex-col gap-6 md:gap-7 pl-10">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="room-link font-[family-name:var(--font-cormorant)] font-light"
-                style={{
-                  fontSize: "clamp(1.8rem, 4vw, 3.5rem)",
-                  letterSpacing: "0.02em",
-                  color: "#E8E0D4",
-                  transition: "color 200ms ease",
-                }}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {navItems.map((item) =>
+              item.external ? (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="room-link font-[family-name:var(--font-cormorant)] font-light"
+                  style={{
+                    fontSize: "clamp(1.8rem, 4vw, 3.5rem)",
+                    letterSpacing: "0.02em",
+                    color: "#E8E0D4",
+                    transition: "color 200ms ease",
+                    textDecoration: "none",
+                  }}
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="room-link font-[family-name:var(--font-cormorant)] font-light"
+                  style={{
+                    fontSize: "clamp(1.8rem, 4vw, 3.5rem)",
+                    letterSpacing: "0.02em",
+                    color: "#E8E0D4",
+                    transition: "color 200ms ease",
+                  }}
+                >
+                  {item.label}
+                </Link>
+              )
+            )}
           </nav>
         </section>
       </RevealSection>

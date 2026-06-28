@@ -80,6 +80,35 @@ export default function Contact() {
             </ul>
           </div>
 
+          {/* Songs For You */}
+          <div className="mb-16">
+            <span className="block w-6 h-px mb-12" style={{ background: "rgba(200,146,42,0.35)" }} />
+            <p style={{ fontSize: "0.5rem", letterSpacing: "0.35em", textTransform: "uppercase", color: "#7A6F62", marginBottom: "1rem" }}>
+              Songs For You
+            </p>
+            <h2
+              className="font-[family-name:var(--font-cormorant)] font-light"
+              style={{ fontSize: "clamp(1.6rem, 4vw, 2.75rem)", color: "#E8E0D4", lineHeight: 1.1, marginBottom: "1.75rem" }}
+            >
+              Songs For You
+            </h2>
+            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.875rem", color: "#7A6F62", lineHeight: 1.85, maxWidth: "52ch", marginBottom: "1rem" }}>
+              A song written for someone you love, for a moment that deserves its
+              own music. Weddings, milestones, people who matter. Each one is
+              written from scratch, for you alone.
+            </p>
+            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.875rem", color: "#7A6F62", lineHeight: 1.85, marginBottom: "1.25rem" }}>
+              To begin a conversation:
+            </p>
+            <a
+              href="mailto:erik@eriksjoholm.com"
+              className="font-[family-name:var(--font-cormorant)] font-light hover:text-[#E8E0D4] transition-colors duration-200"
+              style={{ fontSize: "clamp(1rem, 2.5vw, 1.35rem)", letterSpacing: "0.04em", color: "#C8922A" }}
+            >
+              erik@eriksjoholm.com
+            </a>
+          </div>
+
           {/* Social */}
           <div className="space-y-4">
             <p style={{ fontSize: "0.5rem", letterSpacing: "0.35em", textTransform: "uppercase", color: "#7A6F62" }}>
