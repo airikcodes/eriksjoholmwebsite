@@ -5,7 +5,7 @@ import BackNav from "@/components/BackNav";
 
 export const metadata: Metadata = {
   title: "About — Erik Sjøholm",
-  description: "Singer-songwriter and storyteller from Norway and Sweden, based in Luzern, Switzerland.",
+  description: "Singer-songwriter and storyteller from Ostrobothnia, the Swedish-speaking coast of Finland, based in Luzern, Switzerland.",
 };
 
 export default function About() {
@@ -76,9 +76,10 @@ export default function About() {
               className="font-[family-name:var(--font-cormorant)] font-light leading-relaxed"
               style={{ fontSize: "clamp(1.2rem, 2.8vw, 1.55rem)", color: "#E8E0D4" }}
             >
-              Erik Sjøholm is a Norwegian-Swedish singer-songwriter and storyteller
-              based in Luzern, Switzerland. He writes songs that don&apos;t rush — music built
-              from real moments, lived quietly and felt deeply.
+              Erik Sjøholm is a singer-songwriter and storyteller from Ostrobothnia —
+              the Swedish-speaking coast of Finland — now based in Luzern, Switzerland.
+              He writes songs that don&apos;t rush — music built from real moments,
+              lived quietly and felt deeply.
             </p>
 
             <span className="block" style={{ width: "2rem", height: "1px", background: "#C8922A", margin: "3rem 0" }} />
@@ -94,7 +95,7 @@ export default function About() {
                 his sound carries the weight of a story you&apos;ve heard before but
                 can&apos;t quite place. Songs about love, loss, distance, and homecoming —
                 and the thin line between all of them. He writes in English and
-                Scandinavian languages, sometimes both in the same breath.
+                English and Swedish, sometimes both in the same breath.
               </p>
 
               <p style={{
