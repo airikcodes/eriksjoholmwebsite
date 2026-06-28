@@ -5,7 +5,7 @@ import BackNav from "@/components/BackNav";
 
 export const metadata: Metadata = {
   title: "About — Erik Sjøholm",
-  description: "Singer-songwriter and storyteller from Norway and Sweden, based in Amsterdam.",
+  description: "Singer-songwriter and storyteller from Norway and Sweden, based in Luzern, Switzerland.",
 };
 
 export default function About() {
@@ -65,7 +65,7 @@ export default function About() {
               color: "#7A6F62",
               marginTop: "1rem",
             }}>
-              Singer-songwriter · Storyteller · Amsterdam
+              Singer-songwriter · Storyteller · Luzern
             </p>
           </div>
 
@@ -77,7 +77,7 @@ export default function About() {
               style={{ fontSize: "clamp(1.2rem, 2.8vw, 1.55rem)", color: "#E8E0D4" }}
             >
               Erik Sjøholm is a Norwegian-Swedish singer-songwriter and storyteller
-              based in Amsterdam. He writes songs that don&apos;t rush — music built
+              based in Luzern, Switzerland. He writes songs that don&apos;t rush — music built
               from real moments, lived quietly and felt deeply.
             </p>
 
