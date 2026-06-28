@@ -1,9 +1,7 @@
-import Link from "next/link";
-
 export default function BackNav() {
   return (
     <div style={{ marginBottom: "3.5rem" }}>
-      <Link
+      <a
         href="/#nav"
         className="hover:text-[#C8922A] transition-colors duration-200"
         style={{
@@ -29,7 +27,7 @@ export default function BackNav() {
         >
           Erik Sjøholm
         </span>
-      </Link>
+      </a>
     </div>
   );
 }
