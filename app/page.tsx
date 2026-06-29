@@ -45,7 +45,7 @@ export default function Home() {
             className="font-[family-name:var(--font-cormorant)] font-light"
             style={{
               fontStyle: "italic",
-              fontSize: "clamp(1.15rem, 2.8vw, 1.75rem)",
+              fontSize: "clamp(1.25rem, 2.8vw, 1.75rem)",
               color: "rgba(232,224,212,0.8)",
               letterSpacing: "0.02em",
               lineHeight: 1.75,

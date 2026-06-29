@@ -75,7 +75,7 @@ export default function Storyteller() {
             minHeight: "100svh",
             display: "flex",
             flexDirection: "column",
-            paddingTop: "4.5rem",
+            paddingTop: "5.5rem",
             paddingBottom: "5rem",
           }}
         >

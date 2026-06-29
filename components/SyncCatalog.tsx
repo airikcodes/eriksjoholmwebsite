@@ -391,11 +391,12 @@ export default function SyncCatalog() {
                   className="group-hover:text-[#1DB954] transition-colors duration-150"
                   style={{
                     fontFamily: "var(--font-inter)",
-                    fontSize: "0.45rem",
-                    letterSpacing: "0.2em",
+                    fontSize: "0.62rem",
+                    letterSpacing: "0.18em",
                     textTransform: "uppercase",
-                    color: "rgba(122,111,98,0.55)",
+                    color: "#7A6F62",
                     flexShrink: 0,
+                    padding: "0.4rem 0",
                   }}
                 >
                   Listen →

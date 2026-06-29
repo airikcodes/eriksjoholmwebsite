@@ -97,7 +97,7 @@ export default function Contact() {
               {topics.map((t) => (
                 <li
                   key={t.title}
-                  className="flex items-baseline justify-between gap-6"
+                  className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between sm:gap-6"
                   style={{
                     borderBottom: "1px solid rgba(255,255,255,0.07)",
                     padding: "1.75rem 0",
@@ -110,13 +110,12 @@ export default function Contact() {
                     {t.title}
                   </p>
                   <p
+                    className="mt-1 sm:mt-0 sm:text-right sm:max-w-[16rem]"
                     style={{
                       fontFamily: "var(--font-inter)",
                       fontSize: "0.75rem",
                       color: "#7A6F62",
                       lineHeight: 1.7,
-                      maxWidth: "16rem",
-                      textAlign: "right",
                     }}
                   >
                     {t.body}
