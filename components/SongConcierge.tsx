@@ -362,7 +362,7 @@ export default function SongConcierge() {
     <div className="w-full max-w-lg mx-auto" style={{ paddingTop: "clamp(5rem, 12vh, 7rem)", paddingBottom: "2rem" }}>
       <h2
         className="font-[family-name:var(--font-cormorant)] font-light text-center mb-8"
-        style={{ fontSize: "clamp(1.5rem, 5vw, 2.6rem)", color: "#E8E0D4", letterSpacing: "0.02em" }}
+        style={{ fontSize: "clamp(1.5rem, 5vw, 2.6rem)", color: "rgba(232,224,212,0.65)", letterSpacing: "0.02em" }}
       >
         What song can I play for you?
       </h2>
