@@ -35,7 +35,7 @@ export default function Home() {
           className="flex flex-col items-center justify-center px-6 pt-24 pb-40 sm:pt-32 sm:pb-56"
           style={{ minHeight: "80vh", borderTop: "1px solid rgba(255,255,255,0.08)", zIndex: 2, position: "relative" }}
         >
-          <nav className="flex flex-col gap-5 sm:gap-6 md:gap-7 pl-5 sm:pl-10">
+          <nav className="flex flex-col gap-5 sm:gap-6 md:gap-7 sm:pl-10">
             {navItems.map((item) =>
               item.external ? (
                 <a
