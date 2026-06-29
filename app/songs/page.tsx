@@ -182,8 +182,13 @@ export default function Songs() {
             </div>
           </div>
 
+          {/* ── Song list ── */}
+          <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingBottom: "5rem" }}>
+            <SongsAccordion songs={songs} />
+          </div>
+
           {/* ── Three destinations ── */}
-          <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: "5rem", paddingBottom: "5rem" }}>
+          <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: "5rem", paddingBottom: "9rem" }}>
 
             <p style={{
               fontFamily: "var(--font-inter)",
@@ -341,10 +346,6 @@ export default function Songs() {
             </div>
           </div>
 
-          {/* ── Song list ── */}
-          <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingBottom: "9rem" }}>
-            <SongsAccordion songs={songs} />
-          </div>
 
         </div>
       </div>
