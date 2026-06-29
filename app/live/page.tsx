@@ -57,6 +57,7 @@ export default function Live() {
             >
               Live
             </h1>
+            <span className="block" style={{ width: "2rem", height: "1px", background: "#C8922A", marginTop: "2.5rem" }} />
           </div>
 
           {/* ── Upcoming shows ── */}
@@ -130,7 +131,7 @@ export default function Live() {
               {pastStages.map((s) => (
                 <li
                   key={s.venue}
-                  className="flex items-baseline justify-between gap-6"
+                  className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between sm:gap-6"
                   style={{
                     borderBottom: "1px solid rgba(255,255,255,0.07)",
                     padding: "1.6rem 0",
@@ -144,10 +145,11 @@ export default function Live() {
                   </p>
                   <p style={{
                     fontFamily: "var(--font-inter)",
-                    fontSize: "0.65rem",
+                    fontSize: "0.62rem",
                     color: "#7A6F62",
                     letterSpacing: "0.08em",
                     flexShrink: 0,
+                    marginTop: "0.3rem",
                   }}>
                     {s.location}
                   </p>

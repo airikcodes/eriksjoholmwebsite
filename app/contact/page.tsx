@@ -53,6 +53,7 @@ export default function Contact() {
             >
               Let&apos;s be<br />in touch.
             </h1>
+            <span className="block" style={{ width: "2rem", height: "1px", background: "#C8922A", marginTop: "2.5rem" }} />
           </div>
 
           {/* ── Write directly ── */}
@@ -196,7 +197,7 @@ export default function Contact() {
             }}>
               Elsewhere
             </p>
-            <div className="grid grid-cols-2 gap-y-4 gap-x-12" style={{ maxWidth: "28rem" }}>
+            <div className="grid grid-cols-2 gap-y-2 gap-x-12" style={{ maxWidth: "28rem" }}>
               {social.map(({ label, href, hover }) => (
                 <a
                   key={label}
@@ -209,6 +210,8 @@ export default function Contact() {
                     fontSize: "0.82rem",
                     color: "#7A6F62",
                     letterSpacing: "0.03em",
+                    padding: "0.5rem 0",
+                    display: "block",
                   }}
                 >
                   {label} →

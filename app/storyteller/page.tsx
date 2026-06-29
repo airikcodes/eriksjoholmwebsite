@@ -428,7 +428,7 @@ export default function Storyteller() {
         <section
           style={{
             ...sectionPad,
-            borderTop: "3px solid #C8922A",
+            borderTop: "1px solid rgba(200,146,42,0.35)",
             background: "rgba(200,146,42,0.02)",
           }}
         >

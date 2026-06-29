@@ -208,10 +208,10 @@ function FilterChip({
       onClick={onClick}
       style={{
         fontFamily: "var(--font-inter)",
-        fontSize: "0.48rem",
-        letterSpacing: "0.18em",
+        fontSize: "0.58rem",
+        letterSpacing: "0.16em",
         textTransform: "uppercase",
-        padding: "0.38rem 0.9rem",
+        padding: "0.45rem 1rem",
         border: `1px solid ${active ? "#C8922A" : "rgba(255,255,255,0.1)"}`,
         color: active ? "#C8922A" : "#7A6F62",
         background: active ? "rgba(200,146,42,0.08)" : "transparent",
@@ -256,7 +256,7 @@ export default function SyncCatalog() {
 
           {/* Tempo */}
           <div>
-            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.42rem", letterSpacing: "0.3em", textTransform: "uppercase", color: "#7A6F62", marginBottom: "0.75rem" }}>
+            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.6rem", letterSpacing: "0.25em", textTransform: "uppercase", color: "#7A6F62", marginBottom: "0.75rem" }}>
               Tempo
             </p>
             <div className="flex flex-wrap gap-2">
@@ -268,7 +268,7 @@ export default function SyncCatalog() {
 
           {/* Mood */}
           <div>
-            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.42rem", letterSpacing: "0.3em", textTransform: "uppercase", color: "#7A6F62", marginBottom: "0.75rem" }}>
+            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.6rem", letterSpacing: "0.25em", textTransform: "uppercase", color: "#7A6F62", marginBottom: "0.75rem" }}>
               Mood
             </p>
             <div className="flex flex-wrap gap-2">
@@ -280,7 +280,7 @@ export default function SyncCatalog() {
 
           {/* Use case */}
           <div>
-            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.42rem", letterSpacing: "0.3em", textTransform: "uppercase", color: "#7A6F62", marginBottom: "0.75rem" }}>
+            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.6rem", letterSpacing: "0.25em", textTransform: "uppercase", color: "#7A6F62", marginBottom: "0.75rem" }}>
               Use case
             </p>
             <div className="flex flex-wrap gap-2">

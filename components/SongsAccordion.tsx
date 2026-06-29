@@ -56,11 +56,11 @@ export default function SongsAccordion({ songs }: { songs: Song[] }) {
                   {song.meta && (
                     <p style={{
                       fontFamily: "var(--font-inter)",
-                      fontSize: "0.44rem",
-                      letterSpacing: "0.15em",
+                      fontSize: "0.58rem",
+                      letterSpacing: "0.12em",
                       textTransform: "uppercase",
                       color: "#7A6F62",
-                      marginTop: "0.3rem",
+                      marginTop: "0.35rem",
                     }}>
                       {song.meta}
                     </p>
@@ -73,7 +73,11 @@ export default function SongsAccordion({ songs }: { songs: Song[] }) {
                   fontSize: "1.2rem",
                   lineHeight: 1,
                   flexShrink: 0,
-                  display: "inline-block",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  width: "2rem",
+                  height: "2rem",
                   transition: "transform 250ms ease, color 150ms",
                   transform: isOpen ? "rotate(45deg)" : "rotate(0deg)",
                 }}
