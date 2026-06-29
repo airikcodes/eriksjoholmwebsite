@@ -21,7 +21,7 @@ export default function Home() {
 
       {/* ── Hero: Concierge ──────────────────────────────── */}
       <section
-        className="relative flex flex-col items-center justify-center px-6"
+        className="relative flex flex-col items-center justify-center px-5 sm:px-6 py-16"
         style={{ minHeight: "100svh", zIndex: 2, position: "relative" }}
       >
         <SongConcierge />
