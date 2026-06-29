@@ -362,7 +362,7 @@ export default function SongConcierge() {
     <div className="w-full max-w-lg mx-auto" style={{ paddingTop: "clamp(5rem, 12vh, 7rem)", paddingBottom: "2rem" }}>
       <h2
         className="font-[family-name:var(--font-cormorant)] font-light text-center mb-8"
-        style={{ fontSize: "clamp(1.5rem, 5vw, 2.6rem)", color: "rgba(232,224,212,0.65)", letterSpacing: "0.02em" }}
+        style={{ fontSize: "clamp(1.5rem, 5vw, 2.6rem)", color: "#B8AFA6", letterSpacing: "0.02em" }}
       >
         What song can I play for you?
       </h2>
@@ -409,30 +409,32 @@ export default function SongConcierge() {
       </form>
 
       {/* Chips */}
-      <div className="flex flex-wrap items-center gap-2 mt-4">
-        <span style={{ fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#7A6F62" }}>
+      <div className="mt-5 text-center">
+        <p style={{ fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#7A6F62", marginBottom: "0.75rem" }}>
           or
-        </span>
-        {chips.map((chip) => (
-          <button
-            key={chip.id}
-            onClick={() => handleChip(chip.id)}
-            style={{
-              fontSize: "0.58rem",
-              letterSpacing: "0.18em",
-              textTransform: "uppercase",
-              padding: "0.45rem 1rem",
-              border: `1px solid ${activeChip === chip.id ? "var(--color-accent)" : "rgba(255,255,255,0.12)"}`,
-              color: activeChip === chip.id ? "var(--color-accent)" : "#7A6F62",
-              background: activeChip === chip.id ? "transparent" : "rgba(255,255,255,0.04)",
-              transition: "border-color 200ms, color 200ms",
-              cursor: "pointer",
-              whiteSpace: "nowrap",
-            }}
-          >
-            {chip.label}
-          </button>
-        ))}
+        </p>
+        <div className="flex flex-wrap justify-center gap-2">
+          {chips.map((chip) => (
+            <button
+              key={chip.id}
+              onClick={() => handleChip(chip.id)}
+              style={{
+                fontSize: "0.58rem",
+                letterSpacing: "0.18em",
+                textTransform: "uppercase",
+                padding: "0.45rem 1rem",
+                border: `1px solid ${activeChip === chip.id ? "var(--color-accent)" : "rgba(255,255,255,0.12)"}`,
+                color: activeChip === chip.id ? "var(--color-accent)" : "#7A6F62",
+                background: activeChip === chip.id ? "transparent" : "rgba(255,255,255,0.04)",
+                transition: "border-color 200ms, color 200ms",
+                cursor: "pointer",
+                whiteSpace: "nowrap",
+              }}
+            >
+              {chip.label}
+            </button>
+          ))}
+        </div>
       </div>
 
       {results.length > 0 && (
