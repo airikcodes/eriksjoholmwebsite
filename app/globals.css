@@ -39,6 +39,8 @@ body {
 
 ::selection { background: var(--color-accent); color: #FAFAF8; }
 
+.concierge-input::placeholder { color: rgba(122, 111, 98, 0.75); }
+
 /* Scroll-triggered reveal */
 .reveal {
   opacity: 0;

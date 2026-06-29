@@ -377,6 +377,7 @@ export default function SongConcierge() {
             setInput(e.target.value);
             if (results.length > 0 && !activeChip) setResults([]);
           }}
+          className="concierge-input"
           placeholder="Something quiet for late at night…"
           style={{
             width: "100%",
