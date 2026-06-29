@@ -95,7 +95,7 @@ export default function About() {
                 his sound carries the weight of a story you&apos;ve heard before but
                 can&apos;t quite place. Songs about love, loss, distance, and homecoming —
                 and the thin line between all of them. He writes in English and
-                English and Swedish, sometimes both in the same breath.
+                Swedish, sometimes both in the same breath.
               </p>
 
               <p style={{
@@ -264,11 +264,11 @@ export default function About() {
                 </p>
                 <div className="space-y-4">
                   <Link
-                    href="/work"
+                    href="/songs"
                     className="block hover:text-[#E8E0D4] transition-colors duration-200"
                     style={{ fontFamily: "var(--font-inter)", fontSize: "0.82rem", color: "#7A6F62", letterSpacing: "0.03em" }}
                   >
-                    Music →
+                    Songs →
                   </Link>
                   <Link
                     href="/storyteller"

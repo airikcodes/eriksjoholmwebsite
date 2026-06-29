@@ -160,13 +160,7 @@ export default function Storyteller() {
           <section style={{ ...sectionPad, ...divider }}>
             <div style={container}>
 
-              <p style={eyebrow}>The Show</p>
-              <h2
-                className="font-[family-name:var(--font-cormorant)] font-light"
-                style={sectionHeading}
-              >
-                The Show
-              </h2>
+              <p style={{ ...eyebrow, marginBottom: "2.5rem" }}>The Show</p>
 
               <div style={{ maxWidth: "60ch" }}>
                 <p style={{ ...bodyText, marginBottom: "1.5rem" }}>
@@ -310,13 +304,7 @@ export default function Storyteller() {
           <section id="trailer" style={{ ...sectionPad, ...divider }}>
             <div style={container}>
 
-              <p style={eyebrow}>Watch</p>
-              <h2
-                className="font-[family-name:var(--font-cormorant)] font-light"
-                style={{ ...sectionHeading, marginBottom: "2rem" }}
-              >
-                Watch
-              </h2>
+              <p style={{ ...eyebrow, marginBottom: "2.5rem" }}>Watch</p>
 
               {/* 16:9 YouTube embed */}
               <div
@@ -365,13 +353,7 @@ export default function Storyteller() {
           <section style={{ ...sectionPad, ...divider }}>
             <div style={container}>
 
-              <p style={eyebrow}>The Team</p>
-              <h2
-                className="font-[family-name:var(--font-cormorant)] font-light"
-                style={{ ...sectionHeading, marginBottom: "2.5rem" }}
-              >
-                The Team
-              </h2>
+              <p style={{ ...eyebrow, marginBottom: "2.5rem" }}>The Team</p>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
                 {[
@@ -452,7 +434,7 @@ export default function Storyteller() {
         >
           <div style={container}>
 
-            <p style={eyebrow}>For Programmers &amp; Festivals</p>
+            <p style={eyebrow}>Booking</p>
             <h2
               className="font-[family-name:var(--font-cormorant)] font-light"
               style={{ ...sectionHeading }}
@@ -597,11 +579,12 @@ export default function Storyteller() {
                       marginBottom: "1.5rem",
                     }}
                   >
-                    Upcoming dates will be announced in The Resonators — Erik&apos;s
-                    mailing list.
+                    Upcoming dates and events are announced on Notes — Erik&apos;s newsletter.
                   </p>
-                  <Link
-                    href="/resonators"
+                  <a
+                    href="https://eriksjoholm-newsletter.beehiiv.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="hover:bg-[#E8E0D4] hover:text-[#0D0B09] transition-all duration-200"
                     style={{
                       display: "inline-block",
@@ -612,10 +595,11 @@ export default function Storyteller() {
                       fontSize: "0.48rem",
                       letterSpacing: "0.28em",
                       textTransform: "uppercase",
+                      textDecoration: "none",
                     }}
                   >
-                    Stay in touch
-                  </Link>
+                    Subscribe to Notes
+                  </a>
                 </div>
 
                 {/* Book GLENN — bookers */}

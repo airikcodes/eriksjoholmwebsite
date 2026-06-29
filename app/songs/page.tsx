@@ -114,7 +114,7 @@ export default function Songs() {
               color: "#7A6F62",
               marginBottom: "1.25rem",
             }}>
-              Songs
+              Lyrics &amp; Stories
             </p>
             <h1
               className="font-[family-name:var(--font-cormorant)] font-light"

@@ -84,7 +84,7 @@ export default function Contact() {
           <div className="mb-16">
             <span className="block w-6 h-px mb-12" style={{ background: "rgba(200,146,42,0.35)" }} />
             <p style={{ fontSize: "0.5rem", letterSpacing: "0.35em", textTransform: "uppercase", color: "#7A6F62", marginBottom: "1rem" }}>
-              Songs For You
+              Commission
             </p>
             <h2
               className="font-[family-name:var(--font-cormorant)] font-light"
