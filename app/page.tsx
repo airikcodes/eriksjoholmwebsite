@@ -8,6 +8,7 @@ const navItems = [
   { label: "About",   href: "/about",                                          external: false },
   { label: "Songs",   href: "/songs",                                          external: false },
   { label: "Shows",   href: "/storyteller",                                    external: false },
+  { label: "Live",    href: "/live",                                            external: false },
   { label: "Notes",   href: "https://eriksjoholm-newsletter.beehiiv.com",      external: true  },
   { label: "Shop",    href: "https://erik-sjoeholm-shop.fourthwall.com",        external: true  },
   { label: "Contact", href: "/contact",                                         external: false },
