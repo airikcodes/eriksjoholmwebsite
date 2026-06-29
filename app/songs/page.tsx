@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import BackNav from "@/components/BackNav";
 import SongsAccordion from "@/components/SongsAccordion";
 import type { Song } from "@/components/SongsAccordion";
 
 export const metadata: Metadata = {
   title: "Songs — Erik Sjøholm",
-  description: "Lyrics, stories, and listening links for every song by Erik Sjøholm.",
+  description: "Selected songs with lyrics, stories, and listening links. Full catalogue on Spotify and Tidal.",
 };
 
 const SPOTIFY_ARTIST = "https://open.spotify.com/artist/1UpcgaCHBwic2IqUQ3hHdp";
@@ -103,7 +104,7 @@ export default function Songs() {
       <div className="relative" style={{ zIndex: 1 }}>
         <div style={{ maxWidth: "720px", margin: "0 auto", padding: "0 1.5rem" }}>
 
-          {/* ── Header ── */}
+          {/* ── Hero ── */}
           <div style={{ paddingTop: "5.5rem", paddingBottom: "5rem" }}>
             <BackNav />
             <p style={{
@@ -123,52 +124,39 @@ export default function Songs() {
                 color: "#E8E0D4",
                 letterSpacing: "0.02em",
                 lineHeight: 0.95,
-                marginBottom: "2rem",
+                marginBottom: "2.5rem",
               }}
             >
               Songs
             </h1>
+
+            <span className="block" style={{ width: "2rem", height: "1px", background: "#C8922A", marginBottom: "2.5rem" }} />
+
             <p style={{
               fontFamily: "var(--font-inter)",
               fontSize: "0.875rem",
               color: "#7A6F62",
-              lineHeight: 1.8,
-              maxWidth: "48ch",
+              lineHeight: 1.85,
+              maxWidth: "50ch",
+              marginBottom: "2rem",
             }}>
-              The words, where they came from, and where to hear them.
+              {songs.length} featured songs from a catalogue of over 300 original
+              compositions — with lyrics, the story behind each, and links to listen.
             </p>
-          </div>
 
-          {/* ── Song list ── */}
-          <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingBottom: "5rem" }}>
-            <SongsAccordion songs={songs} />
-          </div>
-
-          {/* ── Catalogue footer ── */}
-          <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: "4rem", paddingBottom: "8rem" }}>
-            <p style={{
-              fontFamily: "var(--font-inter)",
-              fontSize: "0.45rem",
-              letterSpacing: "0.35em",
-              textTransform: "uppercase",
-              color: "#7A6F62",
-              marginBottom: "1.5rem",
-            }}>
-              Full catalogue
-            </p>
-            <div className="flex flex-wrap gap-8">
+            <div className="flex flex-wrap gap-6">
               <a
                 href={SPOTIFY_ARTIST}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-[#C8922A] hover:border-[#C8922A] transition-colors duration-200"
+                className="hover:text-[#1DB954] transition-colors duration-200"
                 style={{
                   fontFamily: "var(--font-inter)",
-                  fontSize: "0.55rem",
-                  letterSpacing: "0.25em",
+                  fontSize: "0.52rem",
+                  letterSpacing: "0.2em",
                   textTransform: "uppercase",
                   color: "#7A6F62",
-                  borderBottom: "1px solid rgba(200,146,42,0.3)",
+                  borderBottom: "1px solid rgba(122,111,98,0.3)",
                   paddingBottom: "2px",
                 }}
               >
@@ -178,19 +166,183 @@ export default function Songs() {
                 href={TIDAL_ARTIST}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-[#C8922A] hover:border-[#C8922A] transition-colors duration-200"
+                className="hover:text-[#00FFFF] transition-colors duration-200"
                 style={{
                   fontFamily: "var(--font-inter)",
-                  fontSize: "0.55rem",
-                  letterSpacing: "0.25em",
+                  fontSize: "0.52rem",
+                  letterSpacing: "0.2em",
                   textTransform: "uppercase",
                   color: "#7A6F62",
-                  borderBottom: "1px solid rgba(200,146,42,0.3)",
+                  borderBottom: "1px solid rgba(122,111,98,0.3)",
                   paddingBottom: "2px",
                 }}
               >
                 Full catalogue on Tidal →
               </a>
+            </div>
+          </div>
+
+          {/* ── Song list ── */}
+          <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingBottom: "5rem" }}>
+            <SongsAccordion songs={songs} />
+          </div>
+
+          {/* ── Three destinations ── */}
+          <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: "5rem", paddingBottom: "9rem" }}>
+
+            <p style={{
+              fontFamily: "var(--font-inter)",
+              fontSize: "0.45rem",
+              letterSpacing: "0.35em",
+              textTransform: "uppercase",
+              color: "#7A6F62",
+              marginBottom: "3.5rem",
+            }}>
+              There is more
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-12">
+
+              {/* Sync Licensing */}
+              <div>
+                <p style={{
+                  fontFamily: "var(--font-inter)",
+                  fontSize: "0.42rem",
+                  letterSpacing: "0.32em",
+                  textTransform: "uppercase",
+                  color: "#C8922A",
+                  marginBottom: "0.85rem",
+                }}>
+                  Music for picture
+                </p>
+                <p
+                  className="font-[family-name:var(--font-cormorant)] font-light"
+                  style={{ fontSize: "1.25rem", color: "#E8E0D4", lineHeight: 1.15, marginBottom: "0.85rem" }}
+                >
+                  Sync Licensing
+                </p>
+                <p style={{
+                  fontFamily: "var(--font-inter)",
+                  fontSize: "0.78rem",
+                  color: "#7A6F62",
+                  lineHeight: 1.8,
+                  marginBottom: "1.25rem",
+                }}>
+                  Original songs available for film, television, advertising, and
+                  interactive media. One-stop licensing — master and publishing in
+                  a single agreement.
+                </p>
+                <Link
+                  href="/sync"
+                  className="hover:text-[#C8922A] transition-colors duration-200"
+                  style={{
+                    fontFamily: "var(--font-inter)",
+                    fontSize: "0.5rem",
+                    letterSpacing: "0.22em",
+                    textTransform: "uppercase",
+                    color: "#7A6F62",
+                    borderBottom: "1px solid rgba(122,111,98,0.3)",
+                    paddingBottom: "2px",
+                  }}
+                >
+                  Browse the catalogue →
+                </Link>
+              </div>
+
+              {/* Songs For You */}
+              <div>
+                <p style={{
+                  fontFamily: "var(--font-inter)",
+                  fontSize: "0.42rem",
+                  letterSpacing: "0.32em",
+                  textTransform: "uppercase",
+                  color: "#C8922A",
+                  marginBottom: "0.85rem",
+                }}>
+                  Something personal
+                </p>
+                <p
+                  className="font-[family-name:var(--font-cormorant)] font-light"
+                  style={{ fontSize: "1.25rem", color: "#E8E0D4", lineHeight: 1.15, marginBottom: "0.85rem" }}
+                >
+                  Songs For You
+                </p>
+                <p style={{
+                  fontFamily: "var(--font-inter)",
+                  fontSize: "0.78rem",
+                  color: "#7A6F62",
+                  lineHeight: 1.8,
+                  marginBottom: "1.25rem",
+                }}>
+                  A song written from scratch for someone you love. Weddings,
+                  milestones, moments that deserve their own music. Each one
+                  is written for you alone.
+                </p>
+                <Link
+                  href="/contact"
+                  className="hover:text-[#C8922A] transition-colors duration-200"
+                  style={{
+                    fontFamily: "var(--font-inter)",
+                    fontSize: "0.5rem",
+                    letterSpacing: "0.22em",
+                    textTransform: "uppercase",
+                    color: "#7A6F62",
+                    borderBottom: "1px solid rgba(122,111,98,0.3)",
+                    paddingBottom: "2px",
+                  }}
+                >
+                  Begin a conversation →
+                </Link>
+              </div>
+
+              {/* Notes */}
+              <div>
+                <p style={{
+                  fontFamily: "var(--font-inter)",
+                  fontSize: "0.42rem",
+                  letterSpacing: "0.32em",
+                  textTransform: "uppercase",
+                  color: "#C8922A",
+                  marginBottom: "0.85rem",
+                }}>
+                  Behind the work
+                </p>
+                <p
+                  className="font-[family-name:var(--font-cormorant)] font-light"
+                  style={{ fontSize: "1.25rem", color: "#E8E0D4", lineHeight: 1.15, marginBottom: "0.85rem" }}
+                >
+                  Notes
+                </p>
+                <p style={{
+                  fontFamily: "var(--font-inter)",
+                  fontSize: "0.78rem",
+                  color: "#7A6F62",
+                  lineHeight: 1.8,
+                  marginBottom: "1.25rem",
+                }}>
+                  A newsletter about making — what it actually takes to build
+                  a creative life. Lyrics before they're finished, stories
+                  before they're told.
+                </p>
+                <a
+                  href="https://eriksjoholm-newsletter.beehiiv.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#C8922A] transition-colors duration-200"
+                  style={{
+                    fontFamily: "var(--font-inter)",
+                    fontSize: "0.5rem",
+                    letterSpacing: "0.22em",
+                    textTransform: "uppercase",
+                    color: "#7A6F62",
+                    borderBottom: "1px solid rgba(122,111,98,0.3)",
+                    paddingBottom: "2px",
+                  }}
+                >
+                  Subscribe to Notes →
+                </a>
+              </div>
+
             </div>
           </div>
 
