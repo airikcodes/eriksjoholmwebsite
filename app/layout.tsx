@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
+import { cookies } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
+import LocaleSwitcher from "@/components/LocaleSwitcher";
 import "./globals.css";
+
+const validLocales = ['en', 'de', 'es', 'sv', 'fi', 'it', 'fr', 'pt'];
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -52,11 +56,15 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const cookieStore = await cookies();
+  const cookieLocale = cookieStore.get('NEXT_LOCALE')?.value ?? 'en';
+  const lang = validLocales.includes(cookieLocale) ? cookieLocale : 'en';
+
   return (
-    <html lang="en" className={`${cormorant.variable} ${inter.variable}`}>
+    <html lang={lang} className={`${cormorant.variable} ${inter.variable}`}>
       <body>
         {/* Portrait mark — global home link, fixed top-left */}
         <Link href="/" className="portrait-mark" aria-label="Erik Sjøholm — Home">
@@ -69,6 +77,7 @@ export default function RootLayout({
           />
         </Link>
 
+        <LocaleSwitcher />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
