@@ -3,7 +3,24 @@ import BackNav from "@/components/BackNav";
 
 export const metadata: Metadata = {
   title: "Contact — Erik Sjøholm",
-  description: "Get in touch with Erik Sjøholm.",
+  description:
+    "Reach Erik Sjøholm for booking, collaboration, press, or commissioned songs. Based in Luzern, performing across Europe.",
+  alternates: { canonical: "https://eriksjoholm.com/contact" },
+  openGraph: {
+    title: "Contact — Erik Sjøholm",
+    description:
+      "Reach Erik Sjøholm for booking, collaboration, press, or commissioned songs.",
+    url: "https://eriksjoholm.com/contact",
+    images: [{ url: "/images/portrait.jpg", width: 800, height: 800, alt: "Erik Sjøholm" }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact — Erik Sjøholm",
+    description:
+      "Reach Erik Sjøholm for booking, collaboration, press, or commissioned songs.",
+    images: ["/images/portrait.jpg"],
+  },
 };
 
 const topics = [

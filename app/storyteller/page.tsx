@@ -7,6 +7,22 @@ export const metadata: Metadata = {
   title: "GLENN — Erik Sjøholm",
   description:
     "GLENN: The Things We Don't Speak About — a storytelling concert by Erik Sjøholm. Book for festivals, theatres, and cultural venues.",
+  alternates: { canonical: "https://eriksjoholm.com/storyteller" },
+  openGraph: {
+    title: "GLENN — Erik Sjøholm",
+    description:
+      "GLENN: The Things We Don't Speak About — a storytelling concert by Erik Sjøholm. Book for festivals, theatres, and cultural venues.",
+    url: "https://eriksjoholm.com/storyteller",
+    images: [{ url: "/images/portrait.jpg", width: 800, height: 800, alt: "Erik Sjøholm" }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "GLENN — Erik Sjøholm",
+    description:
+      "GLENN: The Things We Don't Speak About — a storytelling concert by Erik Sjøholm.",
+    images: ["/images/portrait.jpg"],
+  },
 };
 
 const container: React.CSSProperties = {

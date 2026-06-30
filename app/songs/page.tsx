@@ -6,7 +6,24 @@ import type { Song } from "@/components/SongsAccordion";
 
 export const metadata: Metadata = {
   title: "Songs — Erik Sjøholm",
-  description: "Selected songs with lyrics, stories, and listening links. Full catalogue on Spotify and Tidal.",
+  description:
+    "Selected songs with lyrics, stories, and listening links. Full catalogue on Spotify and Tidal.",
+  alternates: { canonical: "https://eriksjoholm.com/songs" },
+  openGraph: {
+    title: "Songs — Erik Sjøholm",
+    description:
+      "Selected songs with lyrics, stories, and listening links. Full catalogue on Spotify and Tidal.",
+    url: "https://eriksjoholm.com/songs",
+    images: [{ url: "/images/portrait.jpg", width: 800, height: 800, alt: "Erik Sjøholm" }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Songs — Erik Sjøholm",
+    description:
+      "Selected songs with lyrics, stories, and listening links. Full catalogue on Spotify and Tidal.",
+    images: ["/images/portrait.jpg"],
+  },
 };
 
 const SPOTIFY_ARTIST = "https://open.spotify.com/artist/1UpcgaCHBwic2IqUQ3hHdp";

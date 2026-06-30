@@ -18,12 +18,37 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://eriksjoholm.com"),
   title: "Erik Sjøholm",
-  description: "Singer-songwriter and storyteller.",
+  description:
+    "Singer-songwriter and storyteller from Ostrobothnia, Finland, based in Luzern, Switzerland. Songs built from real moments, lived quietly and felt deeply.",
   openGraph: {
     title: "Erik Sjøholm",
-    description: "Singer-songwriter and storyteller.",
+    description:
+      "Singer-songwriter and storyteller from Finland, based in Luzern, Switzerland.",
+    url: "https://eriksjoholm.com",
+    siteName: "Erik Sjøholm",
+    images: [{ url: "/images/portrait.jpg", width: 800, height: 800, alt: "Erik Sjøholm" }],
+    locale: "en_US",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Erik Sjøholm",
+    description:
+      "Singer-songwriter and storyteller from Finland, based in Luzern, Switzerland.",
+    images: ["/images/portrait.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
@@ -44,6 +69,44 @@ export default function RootLayout({
           />
         </Link>
 
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "WebSite",
+                  "@id": "https://eriksjoholm.com/#website",
+                  name: "Erik Sjøholm",
+                  url: "https://eriksjoholm.com",
+                },
+                {
+                  "@type": ["Person", "MusicGroup"],
+                  "@id": "https://eriksjoholm.com/#artist",
+                  name: "Erik Sjøholm",
+                  alternateName: "Erik Sjoholm",
+                  url: "https://eriksjoholm.com",
+                  image: {
+                    "@type": "ImageObject",
+                    url: "https://eriksjoholm.com/images/portrait.jpg",
+                  },
+                  description:
+                    "Singer-songwriter and storyteller from Ostrobothnia, Finland, based in Luzern, Switzerland.",
+                  genre: ["Folk", "Singer-Songwriter", "Indie Folk"],
+                  sameAs: [
+                    "https://open.spotify.com/artist/1UpcgaCHBwic2IqUQ3hHdp",
+                    "https://tidal.com/artist/47687355",
+                    "https://www.instagram.com/eriksjoholmofficial",
+                    "https://facebook.com/eriksjoholmffofficial/",
+                    "https://www.youtube.com/eriksjoholmofficial",
+                    "https://www.linkedin.com/in/eriksjoholmofficial1717/",
+                  ],
+                },
+              ],
+            }),
+          }}
+        />
         {children}
       </body>
     </html>

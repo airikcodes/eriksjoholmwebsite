@@ -6,7 +6,23 @@ import RevealSection from "@/components/RevealSection";
 
 export const metadata: Metadata = {
   title: "About — Erik Sjøholm",
-  description: "Singer-songwriter and storyteller from Ostrobothnia, the Swedish-speaking coast of Finland, based in Luzern, Switzerland.",
+  description:
+    "Singer-songwriter and storyteller from Ostrobothnia, the Swedish-speaking coast of Finland, based in Luzern, Switzerland. Shaped by Lennon, Buckley, Mitchell, and Rice.",
+  alternates: { canonical: "https://eriksjoholm.com/about" },
+  openGraph: {
+    title: "About — Erik Sjøholm",
+    description:
+      "Singer-songwriter from Ostrobothnia, Finland, based in Luzern, Switzerland.",
+    url: "https://eriksjoholm.com/about",
+    images: [{ url: "/images/portrait.jpg", width: 800, height: 800, alt: "Erik Sjøholm" }],
+    type: "profile",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About — Erik Sjøholm",
+    description: "Singer-songwriter from Ostrobothnia, Finland, based in Luzern, Switzerland.",
+    images: ["/images/portrait.jpg"],
+  },
 };
 
 export default function About() {

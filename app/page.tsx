@@ -1,8 +1,31 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import RevealSection from "@/components/RevealSection";
 import ScrollIndicator from "@/components/ScrollIndicator";
 import SongConcierge from "@/components/SongConcierge";
 import BackgroundSlideshow from "@/components/BackgroundSlideshow";
+
+export const metadata: Metadata = {
+  title: "Erik Sjøholm",
+  description:
+    "Singer-songwriter and storyteller from Ostrobothnia, Finland, based in Luzern, Switzerland. Songs built from real moments, lived quietly and felt deeply.",
+  alternates: { canonical: "https://eriksjoholm.com" },
+  openGraph: {
+    title: "Erik Sjøholm",
+    description:
+      "Singer-songwriter and storyteller from Finland, based in Luzern, Switzerland.",
+    url: "https://eriksjoholm.com",
+    images: [{ url: "/images/portrait.jpg", width: 800, height: 800, alt: "Erik Sjøholm" }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Erik Sjøholm",
+    description:
+      "Singer-songwriter and storyteller from Finland, based in Luzern, Switzerland.",
+    images: ["/images/portrait.jpg"],
+  },
+};
 
 const navItems = [
   { label: "About",   href: "/about",                                          external: false },

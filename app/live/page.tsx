@@ -4,7 +4,24 @@ import BackNav from "@/components/BackNav";
 
 export const metadata: Metadata = {
   title: "Shows — Erik Sjøholm",
-  description: "Upcoming shows, Songs of the Seasons concerts, and past stages.",
+  description:
+    "Upcoming shows, Songs of the Seasons intimate concert series, and past stages across Europe.",
+  alternates: { canonical: "https://eriksjoholm.com/live" },
+  openGraph: {
+    title: "Shows — Erik Sjøholm",
+    description:
+      "Upcoming shows, Songs of the Seasons intimate concert series, and past stages across Europe.",
+    url: "https://eriksjoholm.com/live",
+    images: [{ url: "/images/portrait.jpg", width: 800, height: 800, alt: "Erik Sjøholm" }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Shows — Erik Sjøholm",
+    description:
+      "Upcoming shows, Songs of the Seasons intimate concert series, and past stages across Europe.",
+    images: ["/images/portrait.jpg"],
+  },
 };
 
 const pastStages = [

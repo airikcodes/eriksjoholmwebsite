@@ -5,7 +5,23 @@ import SyncCatalog from "@/components/SyncCatalog";
 export const metadata: Metadata = {
   title: "Sync Licensing — Erik Sjøholm",
   description:
-    "Original music available for film, TV, advertising, and other media. One-stop licensing. Browse the catalog on Disco.",
+    "Original music available for film, TV, advertising, and other media. One-stop licensing — single agreement clears master and publishing rights.",
+  alternates: { canonical: "https://eriksjoholm.com/sync" },
+  openGraph: {
+    title: "Sync Licensing — Erik Sjøholm",
+    description:
+      "Original music for film, TV, advertising, and other media. One-stop licensing, single agreement.",
+    url: "https://eriksjoholm.com/sync",
+    images: [{ url: "/images/portrait.jpg", width: 800, height: 800, alt: "Erik Sjøholm" }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sync Licensing — Erik Sjøholm",
+    description:
+      "Original music for film, TV, advertising, and other media. One-stop licensing.",
+    images: ["/images/portrait.jpg"],
+  },
 };
 
 const specs = [
