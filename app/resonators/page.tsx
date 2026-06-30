@@ -31,7 +31,7 @@ const offerings = [
 
 export default function Resonators() {
   return (
-    <main className="min-h-screen" style={{ background: "#0D0B09", color: "#E8E0D4" }}>
+    <main className="min-h-screen" style={{ background: "#F7F3EE", color: "#1C1A17" }}>
 
       {/* Static background — Croatia performance */}
       <div style={{ position: "fixed", inset: 0, zIndex: 0 }}>
@@ -51,7 +51,7 @@ export default function Resonators() {
           <div className="mb-14">
             <h1
               className="font-[family-name:var(--font-cormorant)] font-light"
-              style={{ fontSize: "clamp(2.5rem, 7vw, 5rem)", color: "#E8E0D4", letterSpacing: "0.03em", lineHeight: 1.05 }}
+              style={{ fontSize: "clamp(2.5rem, 7vw, 5rem)", color: "#1C1A17", letterSpacing: "0.03em", lineHeight: 1.05 }}
             >
               Backstage
             </h1>
@@ -60,7 +60,7 @@ export default function Resonators() {
           {/* Opening */}
           <p
             className="font-[family-name:var(--font-cormorant)] font-light leading-relaxed"
-            style={{ fontSize: "clamp(1.2rem, 2.8vw, 1.55rem)", color: "#E8E0D4" }}
+            style={{ fontSize: "clamp(1.2rem, 2.8vw, 1.55rem)", color: "#1C1A17" }}
           >
             Backstage is a newsletter — a small, private dispatch for people
             who want to be closer to the work than an audience usually gets. Not the finished
@@ -83,12 +83,12 @@ export default function Resonators() {
               What you receive
             </p>
 
-            <ul style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}>
+            <ul style={{ borderTop: "1px solid rgba(28,26,23,0.08)" }}>
               {offerings.map((o) => (
                 <li
                   key={o.index}
                   className="py-10 flex gap-6"
-                  style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}
+                  style={{ borderBottom: "1px solid rgba(28,26,23,0.08)" }}
                 >
                   <span
                     className="font-[family-name:var(--font-cormorant)] font-light shrink-0"
@@ -99,7 +99,7 @@ export default function Resonators() {
                   <div>
                     <p
                       className="font-[family-name:var(--font-cormorant)] font-light"
-                      style={{ fontSize: "1.2rem", color: "#E8E0D4", marginBottom: "0.5rem" }}
+                      style={{ fontSize: "1.2rem", color: "#1C1A17", marginBottom: "0.5rem" }}
                     >
                       {o.title}
                     </p>
@@ -116,7 +116,7 @@ export default function Resonators() {
           <div className="mt-24 text-center py-12 px-8" style={{ border: "1px solid rgba(200,146,42,0.15)", background: "rgba(200,146,42,0.03)" }}>
             <p
               className="font-[family-name:var(--font-cormorant)] font-light"
-              style={{ fontSize: "clamp(1.1rem, 2.5vw, 1.4rem)", color: "#E8E0D4", marginBottom: "1.75rem" }}
+              style={{ fontSize: "clamp(1.1rem, 2.5vw, 1.4rem)", color: "#1C1A17", marginBottom: "1.75rem" }}
             >
               Welcome backstage.
             </p>
@@ -129,7 +129,7 @@ export default function Resonators() {
                 fontSize: "0.6rem",
                 letterSpacing: "0.3em",
                 textTransform: "uppercase",
-                color: "#E8E0D4",
+                color: "#1C1A17",
                 borderBottom: "1px solid rgba(200,146,42,0.5)",
                 paddingBottom: "3px",
               }}

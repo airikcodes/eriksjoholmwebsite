@@ -23,11 +23,11 @@ export default function SongsAccordion({ songs }: { songs: Song[] }) {
   }
 
   return (
-    <ul style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}>
+    <ul style={{ borderTop: "1px solid rgba(28,26,23,0.08)" }}>
       {songs.map((song, i) => {
         const isOpen = openIds.has(song.id);
         return (
-          <li key={song.id} style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+          <li key={song.id} style={{ borderBottom: "1px solid rgba(28,26,23,0.08)" }}>
 
             {/* ── Row header (always visible) ── */}
             <button
@@ -49,7 +49,7 @@ export default function SongsAccordion({ songs }: { songs: Song[] }) {
                 <div className="min-w-0">
                   <p
                     className="font-[family-name:var(--font-cormorant)] font-light"
-                    style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.45rem)", color: "#E8E0D4", lineHeight: 1.2 }}
+                    style={{ fontSize: "clamp(1.05rem, 2.5vw, 1.45rem)", color: "#1C1A17", lineHeight: 1.2 }}
                   >
                     {song.title}
                   </p>
@@ -115,7 +115,7 @@ export default function SongsAccordion({ songs }: { songs: Song[] }) {
                         className="font-[family-name:var(--font-cormorant)] font-light italic"
                         style={{
                           fontSize: "clamp(1rem, 2vw, 1.2rem)",
-                          color: "rgba(232,224,212,0.4)",
+                          color: "rgba(28,26,23,0.35)",
                           lineHeight: 2.1,
                           whiteSpace: "pre-line",
                         }}

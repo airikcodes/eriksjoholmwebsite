@@ -238,13 +238,13 @@ function ResultCard({ track, onDismiss }: { track: Track; onDismiss: (id: string
   return (
     <div
       className="card-settle"
-      style={{ background: "rgba(20,16,10,0.75)", border: "1px solid rgba(255,255,255,0.12)", padding: "1.25rem 1.5rem", backdropFilter: "blur(8px)" }}
+      style={{ background: "rgba(247,243,238,0.85)", border: "1px solid rgba(28,26,23,0.12)", padding: "1.25rem 1.5rem", backdropFilter: "blur(8px)" }}
     >
       {/* Top row: icon + title + dismiss */}
       <div className="flex items-start gap-4">
         <div
           className="w-9 h-9 rounded-full flex items-center justify-center shrink-0"
-          style={{ border: "1px solid rgba(255,255,255,0.15)" }}
+          style={{ border: "1px solid rgba(28,26,23,0.18)" }}
         >
           <svg width="11" height="11" viewBox="0 0 12 12" fill="var(--color-accent)" style={{ transform: "translateX(1px)" }}>
             <polygon points="1,0 11,6 1,12" />
@@ -254,7 +254,7 @@ function ResultCard({ track, onDismiss }: { track: Track; onDismiss: (id: string
         <div className="flex-1 min-w-0">
           <p
             className="font-[family-name:var(--font-cormorant)] font-light"
-            style={{ fontSize: "1.15rem", color: "#E8E0D4", lineHeight: 1.2 }}
+            style={{ fontSize: "1.15rem", color: "#1C1A17", lineHeight: 1.2 }}
           >
             {track.title}
           </p>
@@ -288,7 +288,7 @@ function ResultCard({ track, onDismiss }: { track: Track; onDismiss: (id: string
           <button
             onClick={() => onDismiss(track.id)}
             aria-label="Dismiss"
-            style={{ color: "rgba(255,255,255,0.2)", fontSize: "1.2rem", lineHeight: 1 }}
+            style={{ color: "rgba(28,26,23,0.25)", fontSize: "1.2rem", lineHeight: 1 }}
             className="hover:text-[#7A6F62] transition-colors duration-200"
           >
             ×
@@ -362,7 +362,7 @@ export default function SongConcierge() {
     <div className="w-full max-w-lg mx-auto" style={{ paddingTop: "clamp(5rem, 12vh, 7rem)", paddingBottom: "2rem" }}>
       <h2
         className="font-[family-name:var(--font-cormorant)] font-light text-center mb-8"
-        style={{ fontSize: "clamp(1.5rem, 5vw, 2.6rem)", color: "#CFC7BE", letterSpacing: "0.02em" }}
+        style={{ fontSize: "clamp(1.5rem, 5vw, 2.6rem)", color: "#3A3530", letterSpacing: "0.02em" }}
       >
         What song can I play for you?
       </h2>
@@ -381,9 +381,9 @@ export default function SongConcierge() {
           placeholder="Something quiet for late at night…"
           style={{
             width: "100%",
-            background: "rgba(255,255,255,0.06)",
-            border: "1px solid rgba(255,255,255,0.22)",
-            color: "#E8E0D4",
+            background: "rgba(28,26,23,0.04)",
+            border: "1px solid rgba(28,26,23,0.18)",
+            color: "#1C1A17",
             padding: "1rem 3rem 1rem 1.25rem",
             fontSize: "0.875rem",
             letterSpacing: "0.02em",
@@ -392,7 +392,7 @@ export default function SongConcierge() {
             fontFamily: "var(--font-inter)",
           }}
           onFocus={(e) => (e.target.style.borderColor = "var(--color-accent)")}
-          onBlur={(e) => (e.target.style.borderColor = "rgba(255,255,255,0.15)")}
+          onBlur={(e) => (e.target.style.borderColor = "rgba(28,26,23,0.18)")}
         />
         <button
           type="submit"
@@ -424,9 +424,9 @@ export default function SongConcierge() {
                 letterSpacing: "0.18em",
                 textTransform: "uppercase",
                 padding: "0.45rem 1rem",
-                border: `1px solid ${activeChip === chip.id ? "var(--color-accent)" : "rgba(255,255,255,0.2)"}`,
+                border: `1px solid ${activeChip === chip.id ? "var(--color-accent)" : "rgba(28,26,23,0.18)"}`,
                 color: activeChip === chip.id ? "var(--color-accent)" : "#7A6F62",
-                background: activeChip === chip.id ? "transparent" : "rgba(255,255,255,0.04)",
+                background: activeChip === chip.id ? "transparent" : "rgba(28,26,23,0.03)",
                 transition: "border-color 200ms, color 200ms",
                 cursor: "pointer",
                 whiteSpace: "nowrap",

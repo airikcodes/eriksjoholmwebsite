@@ -196,7 +196,7 @@ const ALL_USES = [
 
 const TEMPO_COLORS: Record<Track["tempo"], { bg: string; color: string }> = {
   "Slow":       { bg: "rgba(200,146,42,0.15)",  color: "#C8922A" },
-  "Mid-tempo":  { bg: "rgba(255,255,255,0.06)", color: "#7A6F62" },
+  "Mid-tempo":  { bg: "rgba(28,26,23,0.06)",    color: "#8C8076" },
   "Uptempo":    { bg: "rgba(29,185,84,0.12)",   color: "#1DB954" },
 };
 
@@ -212,7 +212,7 @@ function FilterChip({
         letterSpacing: "0.16em",
         textTransform: "uppercase",
         padding: "0.45rem 1rem",
-        border: `1px solid ${active ? "#C8922A" : "rgba(255,255,255,0.1)"}`,
+        border: `1px solid ${active ? "#C8922A" : "rgba(28,26,23,0.15)"}`,
         color: active ? "#C8922A" : "#7A6F62",
         background: active ? "rgba(200,146,42,0.08)" : "transparent",
         cursor: "pointer",
@@ -247,8 +247,8 @@ export default function SyncCatalog() {
 
       {/* ── Filter panel ── */}
       <div style={{
-        background: "rgba(255,255,255,0.02)",
-        border: "1px solid rgba(255,255,255,0.06)",
+        background: "rgba(28,26,23,0.03)",
+        border: "1px solid rgba(28,26,23,0.08)",
         padding: "1.75rem",
         marginBottom: "2.5rem",
       }}>
@@ -293,7 +293,7 @@ export default function SyncCatalog() {
         </div>
 
         {/* Count + clear */}
-        <div className="flex items-center gap-5 mt-5 pt-4" style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+        <div className="flex items-center gap-5 mt-5 pt-4" style={{ borderTop: "1px solid rgba(28,26,23,0.06)" }}>
           <span style={{ fontFamily: "var(--font-inter)", fontSize: "0.48rem", letterSpacing: "0.12em", color: "#7A6F62" }}>
             {filtered.length} of {syncCatalog.length} tracks
           </span>
@@ -309,12 +309,12 @@ export default function SyncCatalog() {
       </div>
 
       {/* ── Track list ── */}
-      <ul style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}>
+      <ul style={{ borderTop: "1px solid rgba(28,26,23,0.08)" }}>
         {filtered.map((track, i) => (
           <li
             key={track.title}
             className="group"
-            style={{ borderBottom: "1px solid rgba(255,255,255,0.07)", padding: "1.75rem 0" }}
+            style={{ borderBottom: "1px solid rgba(28,26,23,0.08)", padding: "1.75rem 0" }}
           >
             <div className="flex items-center justify-between gap-4">
 
@@ -333,7 +333,7 @@ export default function SyncCatalog() {
                 <div className="min-w-0">
                   <p
                     className="font-[family-name:var(--font-cormorant)] font-light"
-                    style={{ fontSize: "clamp(1rem, 2.2vw, 1.3rem)", color: "#E8E0D4", lineHeight: 1.2 }}
+                    style={{ fontSize: "clamp(1rem, 2.2vw, 1.3rem)", color: "#1C1A17", lineHeight: 1.2 }}
                   >
                     {track.title}
                   </p>

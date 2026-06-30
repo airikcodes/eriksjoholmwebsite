@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function About() {
   return (
-    <main className="min-h-screen" style={{ background: "#0D0B09", color: "#E8E0D4" }}>
+    <main className="min-h-screen" style={{ background: "#F7F3EE", color: "#1C1A17" }}>
 
       {/* Fixed background */}
       <div style={{ position: "fixed", inset: 0, zIndex: 0 }}>
@@ -54,7 +54,7 @@ export default function About() {
               className="font-[family-name:var(--font-cormorant)] font-light"
               style={{
                 fontSize: "clamp(2rem, 6vw, 4.5rem)",
-                color: "#E8E0D4",
+                color: "#1C1A17",
                 letterSpacing: "0.04em",
                 lineHeight: 1.05,
               }}
@@ -75,11 +75,11 @@ export default function About() {
 
           {/* ── Bio ── */}
           <RevealSection>
-            <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: "5rem", paddingBottom: "5rem" }}>
+            <div style={{ borderTop: "1px solid rgba(28,26,23,0.08)", paddingTop: "5rem", paddingBottom: "5rem" }}>
 
               <p
                 className="font-[family-name:var(--font-cormorant)] font-light leading-relaxed"
-                style={{ fontSize: "clamp(1.15rem, 2.8vw, 1.55rem)", color: "#E8E0D4" }}
+                style={{ fontSize: "clamp(1.15rem, 2.8vw, 1.55rem)", color: "#1C1A17" }}
               >
                 Erik Sjøholm is a singer-songwriter and storyteller from Ostrobothnia —
                 the Swedish-speaking coast of Finland — now based in Luzern, Switzerland.
@@ -137,7 +137,7 @@ export default function About() {
 
           {/* ── Links ── */}
           <RevealSection>
-            <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: "5rem", paddingBottom: "8rem" }}>
+            <div style={{ borderTop: "1px solid rgba(28,26,23,0.08)", paddingTop: "5rem", paddingBottom: "8rem" }}>
 
               <p style={{
                 fontFamily: "var(--font-inter)",
@@ -198,7 +198,7 @@ export default function About() {
                     <a
                       href="https://www.instagram.com/eriksjoholmofficial"
                       target="_blank" rel="noopener noreferrer"
-                      className="block hover:text-[#E8E0D4] transition-colors duration-200"
+                      className="block hover:text-[#1C1A17] transition-colors duration-200"
                       style={{ fontFamily: "var(--font-inter)", fontSize: "0.82rem", color: "#7A6F62", letterSpacing: "0.03em", padding: "0.25rem 0" }}
                     >
                       Instagram →
@@ -272,21 +272,21 @@ export default function About() {
                   <div className="space-y-4">
                     <Link
                       href="/songs"
-                      className="block hover:text-[#E8E0D4] transition-colors duration-200"
+                      className="block hover:text-[#1C1A17] transition-colors duration-200"
                       style={{ fontFamily: "var(--font-inter)", fontSize: "0.82rem", color: "#7A6F62", letterSpacing: "0.03em", padding: "0.25rem 0" }}
                     >
                       Songs →
                     </Link>
                     <Link
                       href="/storyteller"
-                      className="block hover:text-[#E8E0D4] transition-colors duration-200"
+                      className="block hover:text-[#1C1A17] transition-colors duration-200"
                       style={{ fontFamily: "var(--font-inter)", fontSize: "0.82rem", color: "#7A6F62", letterSpacing: "0.03em", padding: "0.25rem 0" }}
                     >
                       The Storyteller →
                     </Link>
                     <Link
                       href="/sync"
-                      className="block hover:text-[#E8E0D4] transition-colors duration-200"
+                      className="block hover:text-[#1C1A17] transition-colors duration-200"
                       style={{ fontFamily: "var(--font-inter)", fontSize: "0.82rem", color: "#7A6F62", letterSpacing: "0.03em", padding: "0.25rem 0" }}
                     >
                       Sync Licensing →

@@ -33,7 +33,7 @@ export default function Home() {
         <section
           id="nav"
           className="flex flex-col items-center justify-center px-6 pt-24 pb-40 sm:pt-32 sm:pb-56"
-          style={{ minHeight: "80vh", borderTop: "1px solid rgba(255,255,255,0.08)", zIndex: 2, position: "relative" }}
+          style={{ minHeight: "80vh", borderTop: "1px solid rgba(28,26,23,0.08)", zIndex: 2, position: "relative" }}
         >
           <nav className="flex flex-col items-center gap-5 sm:gap-6 md:gap-7">
             {navItems.map((item) =>
@@ -47,7 +47,7 @@ export default function Home() {
                   style={{
                     fontSize: "clamp(1.8rem, 4vw, 3.5rem)",
                     letterSpacing: "0.02em",
-                    color: "#E8E0D4",
+                    color: "#1C1A17",
                     transition: "color 200ms ease",
                     textDecoration: "none",
                   }}
@@ -62,7 +62,7 @@ export default function Home() {
                   style={{
                     fontSize: "clamp(1.8rem, 4vw, 3.5rem)",
                     letterSpacing: "0.02em",
-                    color: "#E8E0D4",
+                    color: "#1C1A17",
                     transition: "color 200ms ease",
                   }}
                 >
@@ -77,17 +77,17 @@ export default function Home() {
       {/* ── Footer ───────────────────────────────────────── */}
       <footer
         className="flex items-end justify-center gap-8 px-6 pb-10"
-        style={{ borderTop: "1px solid rgba(255,255,255,0.08)", zIndex: 2, position: "relative", minHeight: "40vh" }}
+        style={{ borderTop: "1px solid rgba(28,26,23,0.08)", zIndex: 2, position: "relative", minHeight: "40vh" }}
       >
-        <p style={{ fontSize: "0.55rem", letterSpacing: "0.15em", color: "rgba(122,111,98,0.5)" }}>
+        <p style={{ fontSize: "0.55rem", letterSpacing: "0.15em", color: "rgba(140,128,118,0.7)" }}>
           © {new Date().getFullYear()} Erik Sjøholm
         </p>
         <a
           href="https://www.instagram.com/eriksjoholmofficial"
           target="_blank"
           rel="noopener noreferrer"
-          style={{ fontSize: "0.55rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(122,111,98,0.5)" }}
-          className="hover:text-[#E8E0D4] transition-colors duration-200"
+          style={{ fontSize: "0.55rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(140,128,118,0.7)" }}
+          className="hover:text-[#1C1A17] transition-colors duration-200"
         >
           @eriksjoholmofficial
         </a>

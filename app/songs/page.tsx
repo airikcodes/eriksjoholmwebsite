@@ -89,7 +89,7 @@ const songs: Song[] = [
 
 export default function Songs() {
   return (
-    <main className="min-h-screen" style={{ background: "#0D0B09", color: "#E8E0D4" }}>
+    <main className="min-h-screen" style={{ background: "#F7F3EE", color: "#1C1A17" }}>
 
       {/* Fixed background */}
       <div style={{ position: "fixed", inset: 0, zIndex: 0 }}>
@@ -121,7 +121,7 @@ export default function Songs() {
               className="font-[family-name:var(--font-cormorant)] font-light"
               style={{
                 fontSize: "clamp(3rem, 9vw, 6rem)",
-                color: "#E8E0D4",
+                color: "#1C1A17",
                 letterSpacing: "0.02em",
                 lineHeight: 0.95,
                 marginBottom: "2.5rem",
@@ -183,12 +183,12 @@ export default function Songs() {
           </div>
 
           {/* ── Song list ── */}
-          <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingBottom: "5rem" }}>
+          <div style={{ borderTop: "1px solid rgba(28,26,23,0.08)", paddingBottom: "5rem" }}>
             <SongsAccordion songs={songs} />
           </div>
 
           {/* ── Three destinations ── */}
-          <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: "5rem", paddingBottom: "9rem" }}>
+          <div style={{ borderTop: "1px solid rgba(28,26,23,0.08)", paddingTop: "5rem", paddingBottom: "9rem" }}>
 
             <p style={{
               fontFamily: "var(--font-inter)",
@@ -217,7 +217,7 @@ export default function Songs() {
                 </p>
                 <p
                   className="font-[family-name:var(--font-cormorant)] font-light"
-                  style={{ fontSize: "1.25rem", color: "#E8E0D4", lineHeight: 1.15, marginBottom: "0.85rem" }}
+                  style={{ fontSize: "1.25rem", color: "#1C1A17", lineHeight: 1.15, marginBottom: "0.85rem" }}
                 >
                   Sync Licensing
                 </p>
@@ -263,7 +263,7 @@ export default function Songs() {
                 </p>
                 <p
                   className="font-[family-name:var(--font-cormorant)] font-light"
-                  style={{ fontSize: "1.25rem", color: "#E8E0D4", lineHeight: 1.15, marginBottom: "0.85rem" }}
+                  style={{ fontSize: "1.25rem", color: "#1C1A17", lineHeight: 1.15, marginBottom: "0.85rem" }}
                 >
                   Songs For You
                 </p>
@@ -309,7 +309,7 @@ export default function Songs() {
                 </p>
                 <p
                   className="font-[family-name:var(--font-cormorant)] font-light"
-                  style={{ fontSize: "1.25rem", color: "#E8E0D4", lineHeight: 1.15, marginBottom: "0.85rem" }}
+                  style={{ fontSize: "1.25rem", color: "#1C1A17", lineHeight: 1.15, marginBottom: "0.85rem" }}
                 >
                   Notes
                 </p>

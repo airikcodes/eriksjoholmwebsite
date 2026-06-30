@@ -14,7 +14,7 @@ const topics = [
 ];
 
 const social = [
-  { label: "Instagram", href: "https://www.instagram.com/eriksjoholmofficial",        hover: "hover:text-[#E8E0D4]" },
+  { label: "Instagram", href: "https://www.instagram.com/eriksjoholmofficial",        hover: "hover:text-[#1C1A17]" },
   { label: "Facebook",  href: "https://facebook.com/eriksjoholmffofficial/",           hover: "hover:text-[#1877F2]" },
   { label: "YouTube",   href: "https://www.youtube.com/eriksjoholmofficial",           hover: "hover:text-[#FF0000]" },
   { label: "LinkedIn",  href: "https://www.linkedin.com/in/eriksjoholmofficial1717/",  hover: "hover:text-[#0A66C2]" },
@@ -24,7 +24,7 @@ const social = [
 
 export default function Contact() {
   return (
-    <main className="min-h-screen" style={{ background: "#0D0B09", color: "#E8E0D4" }}>
+    <main className="min-h-screen" style={{ background: "#F7F3EE", color: "#1C1A17" }}>
 
       {/* Fixed background */}
       <div style={{ position: "fixed", inset: 0, zIndex: 0 }}>
@@ -46,7 +46,7 @@ export default function Contact() {
               className="font-[family-name:var(--font-cormorant)] font-light"
               style={{
                 fontSize: "clamp(3rem, 9vw, 6rem)",
-                color: "#E8E0D4",
+                color: "#1C1A17",
                 letterSpacing: "0.02em",
                 lineHeight: 0.95,
               }}
@@ -57,7 +57,7 @@ export default function Contact() {
           </div>
 
           {/* ── Write directly ── */}
-          <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: "5rem", paddingBottom: "5rem" }}>
+          <div style={{ borderTop: "1px solid rgba(28,26,23,0.08)", paddingTop: "5rem", paddingBottom: "5rem" }}>
 
             <p style={{
               fontFamily: "var(--font-inter)",
@@ -71,7 +71,7 @@ export default function Contact() {
             </p>
             <a
               href="mailto:erik@eriksjoholm.com"
-              className="font-[family-name:var(--font-cormorant)] font-light hover:text-[#E8E0D4] transition-colors duration-200"
+              className="font-[family-name:var(--font-cormorant)] font-light hover:text-[#1C1A17] transition-colors duration-200"
               style={{
                 fontSize: "clamp(1.2rem, 3vw, 1.75rem)",
                 letterSpacing: "0.03em",
@@ -93,19 +93,19 @@ export default function Contact() {
             }}>
               What this is about
             </p>
-            <ul style={{ borderTop: "1px solid rgba(255,255,255,0.07)", marginTop: "1.25rem" }}>
+            <ul style={{ borderTop: "1px solid rgba(28,26,23,0.08)", marginTop: "1.25rem" }}>
               {topics.map((t) => (
                 <li
                   key={t.title}
                   className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between sm:gap-6"
                   style={{
-                    borderBottom: "1px solid rgba(255,255,255,0.07)",
+                    borderBottom: "1px solid rgba(28,26,23,0.08)",
                     padding: "1.75rem 0",
                   }}
                 >
                   <p
                     className="font-[family-name:var(--font-cormorant)] font-light"
-                    style={{ fontSize: "clamp(1rem, 2.2vw, 1.2rem)", color: "#E8E0D4" }}
+                    style={{ fontSize: "clamp(1rem, 2.2vw, 1.2rem)", color: "#1C1A17" }}
                   >
                     {t.title}
                   </p>
@@ -126,7 +126,7 @@ export default function Contact() {
           </div>
 
           {/* ── Songs For You ── */}
-          <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: "5rem", paddingBottom: "5rem" }}>
+          <div style={{ borderTop: "1px solid rgba(28,26,23,0.08)", paddingTop: "5rem", paddingBottom: "5rem" }}>
 
             <p style={{
               fontFamily: "var(--font-inter)",
@@ -142,7 +142,7 @@ export default function Contact() {
               className="font-[family-name:var(--font-cormorant)] font-light"
               style={{
                 fontSize: "clamp(2rem, 5vw, 3.5rem)",
-                color: "#E8E0D4",
+                color: "#1C1A17",
                 lineHeight: 1.05,
                 marginBottom: "2rem",
               }}
@@ -172,7 +172,7 @@ export default function Contact() {
             </p>
             <a
               href="mailto:erik@eriksjoholm.com"
-              className="font-[family-name:var(--font-cormorant)] font-light hover:text-[#E8E0D4] transition-colors duration-200"
+              className="font-[family-name:var(--font-cormorant)] font-light hover:text-[#1C1A17] transition-colors duration-200"
               style={{
                 fontSize: "clamp(1.1rem, 2.5vw, 1.45rem)",
                 letterSpacing: "0.03em",
@@ -184,7 +184,7 @@ export default function Contact() {
           </div>
 
           {/* ── Elsewhere ── */}
-          <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: "5rem", paddingBottom: "9rem" }}>
+          <div style={{ borderTop: "1px solid rgba(28,26,23,0.08)", paddingTop: "5rem", paddingBottom: "9rem" }}>
 
             <p style={{
               fontFamily: "var(--font-inter)",
