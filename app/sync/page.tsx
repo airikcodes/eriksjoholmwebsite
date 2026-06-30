@@ -28,7 +28,7 @@ const specs = [
 
 export default function Sync() {
   return (
-    <main className="min-h-screen" style={{ background: "#F7F3EE", color: "#1C1A17" }}>
+    <main className="min-h-screen" style={{ background: "#0D0B09", color: "#E8E0D4" }}>
 
       {/* Fixed background */}
       <div style={{ position: "fixed", inset: 0, zIndex: 0 }}>
@@ -60,7 +60,7 @@ export default function Sync() {
               className="font-[family-name:var(--font-cormorant)] font-light"
               style={{
                 fontSize: "clamp(3rem, 9vw, 6rem)",
-                color: "#1C1A17",
+                color: "#E8E0D4",
                 letterSpacing: "0.02em",
                 lineHeight: 0.95,
               }}
@@ -82,7 +82,7 @@ export default function Sync() {
           </div>
 
           {/* ── Catalogue ── */}
-          <div style={{ borderTop: "1px solid rgba(28,26,23,0.08)", paddingTop: "5rem", paddingBottom: "5rem" }}>
+          <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: "5rem", paddingBottom: "5rem" }}>
             <div className="flex items-baseline justify-between gap-4" style={{ marginBottom: "3rem" }}>
               <p style={{
                 fontFamily: "var(--font-inter)",
@@ -117,7 +117,7 @@ export default function Sync() {
           </div>
 
           {/* ── Specs ── */}
-          <div style={{ borderTop: "1px solid rgba(28,26,23,0.08)", paddingTop: "5rem", paddingBottom: "5rem" }}>
+          <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: "5rem", paddingBottom: "5rem" }}>
             <p style={{
               fontFamily: "var(--font-inter)",
               fontSize: "0.45rem",
@@ -143,7 +143,7 @@ export default function Sync() {
                   </p>
                   <p
                     className="font-[family-name:var(--font-cormorant)] font-light"
-                    style={{ fontSize: "1.25rem", color: "#1C1A17", marginBottom: "0.65rem", lineHeight: 1.15 }}
+                    style={{ fontSize: "1.25rem", color: "#E8E0D4", marginBottom: "0.65rem", lineHeight: 1.15 }}
                   >
                     {title}
                   </p>
@@ -161,7 +161,7 @@ export default function Sync() {
           </div>
 
           {/* ── Contact ── */}
-          <div style={{ borderTop: "1px solid rgba(28,26,23,0.08)", paddingTop: "5rem", paddingBottom: "9rem" }}>
+          <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: "5rem", paddingBottom: "9rem" }}>
             <p style={{
               fontFamily: "var(--font-inter)",
               fontSize: "0.45rem",
@@ -176,7 +176,7 @@ export default function Sync() {
               className="font-[family-name:var(--font-cormorant)] font-light"
               style={{
                 fontSize: "clamp(2rem, 5vw, 3.5rem)",
-                color: "#1C1A17",
+                color: "#E8E0D4",
                 lineHeight: 1.05,
                 marginBottom: "1.75rem",
               }}
@@ -197,7 +197,7 @@ export default function Sync() {
             </p>
             <a
               href="mailto:erik@eriksjoholm.com"
-              className="font-[family-name:var(--font-cormorant)] font-light hover:text-[#1C1A17] transition-colors duration-200"
+              className="font-[family-name:var(--font-cormorant)] font-light hover:text-[#E8E0D4] transition-colors duration-200"
               style={{
                 fontSize: "clamp(1.2rem, 3vw, 1.75rem)",
                 color: "#C8922A",

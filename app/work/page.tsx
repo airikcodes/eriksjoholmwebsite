@@ -29,7 +29,7 @@ const releases = [
 
 export default function Work() {
   return (
-    <main className="min-h-screen" style={{ background: "#F7F3EE", color: "#1C1A17" }}>
+    <main className="min-h-screen" style={{ background: "#0D0B09", color: "#E8E0D4" }}>
 
       {/* Static background — Arbogast Festival stage photo */}
       <div style={{ position: "fixed", inset: 0, zIndex: 0 }}>
@@ -47,7 +47,7 @@ export default function Work() {
 
           <h1
             className="font-[family-name:var(--font-cormorant)] font-light"
-            style={{ fontSize: "clamp(2.5rem, 7vw, 5rem)", color: "#1C1A17", letterSpacing: "0.03em", lineHeight: 1.05 }}
+            style={{ fontSize: "clamp(2.5rem, 7vw, 5rem)", color: "#E8E0D4", letterSpacing: "0.03em", lineHeight: 1.05 }}
           >
             Music
           </h1>
@@ -56,12 +56,12 @@ export default function Work() {
           </p>
 
           {/* Track list */}
-          <ul className="mt-14" style={{ borderTop: "1px solid rgba(28,26,23,0.08)" }}>
+          <ul className="mt-14" style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}>
             {releases.map((r, i) => (
               <li
                 key={r.title}
                 className="group flex items-center justify-between gap-4 py-5"
-                style={{ borderBottom: "1px solid rgba(28,26,23,0.08)" }}
+                style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}
               >
                 {/* Index + title */}
                 <div className="flex items-baseline gap-4 min-w-0">
@@ -71,7 +71,7 @@ export default function Work() {
                   <div className="min-w-0">
                     <p
                       className="font-[family-name:var(--font-cormorant)] font-light truncate"
-                      style={{ fontSize: "clamp(0.95rem, 2.2vw, 1.2rem)", color: "#1C1A17", lineHeight: 1.3 }}
+                      style={{ fontSize: "clamp(0.95rem, 2.2vw, 1.2rem)", color: "#E8E0D4", lineHeight: 1.3 }}
                     >
                       {r.title}
                     </p>

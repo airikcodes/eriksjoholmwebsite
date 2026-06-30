@@ -34,7 +34,7 @@ const sectionHeading: React.CSSProperties = {
   fontFamily: "var(--font-cormorant)",
   fontWeight: 300,
   fontSize: "clamp(2rem, 5vw, 3.5rem)",
-  color: "#1C1A17",
+  color: "#E8E0D4",
   letterSpacing: "0.03em",
   lineHeight: 1.05,
   marginBottom: "2rem",
@@ -48,12 +48,12 @@ const bodyText: React.CSSProperties = {
 };
 
 const divider: React.CSSProperties = {
-  borderTop: "1px solid rgba(28,26,23,0.08)",
+  borderTop: "1px solid rgba(255,255,255,0.07)",
 };
 
 export default function Storyteller() {
   return (
-    <main style={{ background: "#F7F3EE", color: "#1C1A17" }}>
+    <main style={{ background: "#0D0B09", color: "#E8E0D4" }}>
 
       {/* Fixed background — Mezrab storytelling house */}
       <div style={{ position: "fixed", inset: 0, zIndex: 0 }}>
@@ -94,7 +94,7 @@ export default function Storyteller() {
                 className="font-[family-name:var(--font-cormorant)] font-light"
                 style={{
                   fontSize: "clamp(5rem, 16vw, 9rem)",
-                  color: "#1C1A17",
+                  color: "#E8E0D4",
                   letterSpacing: "0.04em",
                   lineHeight: 0.92,
                   marginBottom: "1.5rem",
@@ -109,7 +109,7 @@ export default function Storyteller() {
                   fontStyle: "italic",
                   fontWeight: 300,
                   fontSize: "clamp(1.1rem, 2.8vw, 1.6rem)",
-                  color: "rgba(28,26,23,0.6)",
+                  color: "rgba(232,224,212,0.7)",
                   letterSpacing: "0.02em",
                   lineHeight: 1.4,
                   marginBottom: "1.25rem",
@@ -135,7 +135,7 @@ export default function Storyteller() {
               <div>
                 <a
                   href="#trailer"
-                  className="hover:bg-[#C8922A] hover:text-[#F7F3EE] transition-all duration-200"
+                  className="hover:bg-[#C8922A] hover:text-[#0D0B09] transition-all duration-200"
                   style={{
                     display: "inline-block",
                     border: "1px solid #C8922A",
@@ -206,7 +206,7 @@ export default function Storyteller() {
                   <div key={title}>
                     <p
                       className="font-[family-name:var(--font-cormorant)] font-light"
-                      style={{ fontSize: "1.05rem", color: "#1C1A17", lineHeight: 1.3, marginBottom: "0.4rem" }}
+                      style={{ fontSize: "1.05rem", color: "#E8E0D4", lineHeight: 1.3, marginBottom: "0.4rem" }}
                     >
                       {title}
                     </p>
@@ -263,7 +263,7 @@ export default function Storyteller() {
                         fontStyle: "italic",
                         fontWeight: 300,
                         fontSize: "clamp(1rem, 2vw, 1.2rem)",
-                        color: "#1C1A17",
+                        color: "#E8E0D4",
                         lineHeight: 1.6,
                         marginBottom: "1rem",
                       }}
@@ -376,7 +376,7 @@ export default function Storyteller() {
                   <div key={name}>
                     <p
                       className="font-[family-name:var(--font-cormorant)] font-light"
-                      style={{ fontSize: "1.15rem", color: "#1C1A17", marginBottom: "0.35rem" }}
+                      style={{ fontSize: "1.15rem", color: "#E8E0D4", marginBottom: "0.35rem" }}
                     >
                       {name}
                     </p>
@@ -413,7 +413,7 @@ export default function Storyteller() {
                   color: "#7A6F62",
                   marginTop: "3rem",
                   paddingTop: "2rem",
-                  borderTop: "1px solid rgba(28,26,23,0.08)",
+                  borderTop: "1px solid rgba(255,255,255,0.07)",
                 }}
               >
                 This storytelling concert has been partly funded by Svenska
@@ -429,7 +429,7 @@ export default function Storyteller() {
           style={{
             ...sectionPad,
             borderTop: "1px solid rgba(200,146,42,0.35)",
-            background: "rgba(200,146,42,0.04)",
+            background: "rgba(200,146,42,0.02)",
           }}
         >
           <div style={container}>
@@ -484,7 +484,7 @@ export default function Storyteller() {
                         style={{
                           fontFamily: "var(--font-inter)",
                           fontSize: "0.8rem",
-                          color: "#1C1A17",
+                          color: "#E8E0D4",
                           lineHeight: 1.6,
                           margin: 0,
                         }}
@@ -534,7 +534,7 @@ export default function Storyteller() {
                         style={{
                           fontFamily: "var(--font-inter)",
                           fontSize: "0.8rem",
-                          color: "#1C1A17",
+                          color: "#E8E0D4",
                           lineHeight: 1.6,
                           margin: 0,
                         }}
@@ -561,12 +561,12 @@ export default function Storyteller() {
                 <div
                   style={{
                     padding: "2rem",
-                    border: "1px solid rgba(28,26,23,0.08)",
+                    border: "1px solid rgba(255,255,255,0.07)",
                   }}
                 >
                   <h3
                     className="font-[family-name:var(--font-cormorant)] font-light"
-                    style={{ fontSize: "1.5rem", color: "#1C1A17", marginBottom: "0.75rem" }}
+                    style={{ fontSize: "1.5rem", color: "#E8E0D4", marginBottom: "0.75rem" }}
                   >
                     See the Show
                   </h3>
@@ -585,11 +585,11 @@ export default function Storyteller() {
                     href="https://eriksjoholm-newsletter.beehiiv.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:bg-[#1C1A17] hover:text-[#F7F3EE] transition-all duration-200"
+                    className="hover:bg-[#E8E0D4] hover:text-[#0D0B09] transition-all duration-200"
                     style={{
                       display: "inline-block",
-                      border: "1px solid #1C1A17",
-                      color: "#1C1A17",
+                      border: "1px solid #E8E0D4",
+                      color: "#E8E0D4",
                       padding: "0.6rem 1.5rem",
                       fontFamily: "var(--font-inter)",
                       fontSize: "0.48rem",
@@ -607,12 +607,12 @@ export default function Storyteller() {
                   style={{
                     padding: "2rem",
                     border: "1px solid rgba(200,146,42,0.25)",
-                    background: "rgba(200,146,42,0.04)",
+                    background: "rgba(200,146,42,0.02)",
                   }}
                 >
                   <h3
                     className="font-[family-name:var(--font-cormorant)] font-light"
-                    style={{ fontSize: "1.5rem", color: "#1C1A17", marginBottom: "0.75rem" }}
+                    style={{ fontSize: "1.5rem", color: "#E8E0D4", marginBottom: "0.75rem" }}
                   >
                     Book GLENN
                   </h3>
@@ -630,7 +630,7 @@ export default function Storyteller() {
                   </p>
                   <Link
                     href="/contact"
-                    className="hover:bg-[#C8922A] hover:text-[#F7F3EE] transition-all duration-200"
+                    className="hover:bg-[#C8922A] hover:text-[#0D0B09] transition-all duration-200"
                     style={{
                       display: "inline-block",
                       border: "1px solid #C8922A",

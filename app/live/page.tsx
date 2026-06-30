@@ -18,7 +18,7 @@ const pastStages = [
 
 export default function Live() {
   return (
-    <main className="min-h-screen" style={{ background: "#F7F3EE", color: "#1C1A17" }}>
+    <main className="min-h-screen" style={{ background: "#0D0B09", color: "#E8E0D4" }}>
 
       {/* Fixed background */}
       <div style={{ position: "fixed", inset: 0, zIndex: 0 }}>
@@ -50,7 +50,7 @@ export default function Live() {
               className="font-[family-name:var(--font-cormorant)] font-light"
               style={{
                 fontSize: "clamp(3rem, 9vw, 6rem)",
-                color: "#1C1A17",
+                color: "#E8E0D4",
                 letterSpacing: "0.02em",
                 lineHeight: 0.95,
               }}
@@ -61,7 +61,7 @@ export default function Live() {
           </div>
 
           {/* ── Upcoming shows ── */}
-          <div style={{ borderTop: "1px solid rgba(28,26,23,0.08)", paddingTop: "5rem", paddingBottom: "5rem" }}>
+          <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: "5rem", paddingBottom: "5rem" }}>
             <p style={{
               fontFamily: "var(--font-inter)",
               fontSize: "0.45rem",
@@ -77,7 +77,7 @@ export default function Live() {
               className="font-[family-name:var(--font-cormorant)] font-light"
               style={{
                 fontSize: "clamp(1.4rem, 3.5vw, 2rem)",
-                color: "#1C1A17",
+                color: "#E8E0D4",
                 lineHeight: 1.3,
                 marginBottom: "1.5rem",
               }}
@@ -98,7 +98,7 @@ export default function Live() {
               href="https://eriksjoholm-newsletter.beehiiv.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:bg-[#C8922A] hover:text-[#F7F3EE] transition-all duration-200"
+              className="hover:bg-[#C8922A] hover:text-[#0D0B09] transition-all duration-200"
               style={{
                 display: "inline-block",
                 border: "1px solid #C8922A",
@@ -116,7 +116,7 @@ export default function Live() {
           </div>
 
           {/* ── Past stages ── */}
-          <div style={{ borderTop: "1px solid rgba(28,26,23,0.08)", paddingTop: "5rem", paddingBottom: "5rem" }}>
+          <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: "5rem", paddingBottom: "5rem" }}>
             <p style={{
               fontFamily: "var(--font-inter)",
               fontSize: "0.45rem",
@@ -127,19 +127,19 @@ export default function Live() {
             }}>
               Past stages
             </p>
-            <ul style={{ borderTop: "1px solid rgba(28,26,23,0.08)", marginTop: "1.25rem" }}>
+            <ul style={{ borderTop: "1px solid rgba(255,255,255,0.07)", marginTop: "1.25rem" }}>
               {pastStages.map((s) => (
                 <li
                   key={s.venue}
                   className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between sm:gap-6"
                   style={{
-                    borderBottom: "1px solid rgba(28,26,23,0.08)",
+                    borderBottom: "1px solid rgba(255,255,255,0.07)",
                     padding: "1.6rem 0",
                   }}
                 >
                   <p
                     className="font-[family-name:var(--font-cormorant)] font-light"
-                    style={{ fontSize: "clamp(1rem, 2.2vw, 1.2rem)", color: "#1C1A17" }}
+                    style={{ fontSize: "clamp(1rem, 2.2vw, 1.2rem)", color: "#E8E0D4" }}
                   >
                     {s.venue}
                   </p>
@@ -159,7 +159,7 @@ export default function Live() {
           </div>
 
           {/* ── Book a show ── */}
-          <div style={{ borderTop: "1px solid rgba(28,26,23,0.08)", paddingTop: "5rem", paddingBottom: "9rem" }}>
+          <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: "5rem", paddingBottom: "9rem" }}>
             <p style={{
               fontFamily: "var(--font-inter)",
               fontSize: "0.45rem",
@@ -174,7 +174,7 @@ export default function Live() {
               className="font-[family-name:var(--font-cormorant)] font-light"
               style={{
                 fontSize: "clamp(2rem, 5vw, 3.5rem)",
-                color: "#1C1A17",
+                color: "#E8E0D4",
                 lineHeight: 1.05,
                 marginBottom: "1.75rem",
               }}
@@ -196,7 +196,7 @@ export default function Live() {
             <div className="flex flex-wrap items-center gap-6">
               <a
                 href="mailto:erik@eriksjoholm.com"
-                className="font-[family-name:var(--font-cormorant)] font-light hover:text-[#1C1A17] transition-colors duration-200"
+                className="font-[family-name:var(--font-cormorant)] font-light hover:text-[#E8E0D4] transition-colors duration-200"
                 style={{
                   fontSize: "clamp(1.1rem, 2.5vw, 1.45rem)",
                   letterSpacing: "0.03em",
