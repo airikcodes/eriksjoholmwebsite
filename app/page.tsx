@@ -75,14 +75,14 @@ export default function Home() {
 
       {/* ── Footer ───────────────────────────────────────── */}
       <footer
-        className="flex flex-col items-center justify-end gap-6 px-6 pb-10"
-        style={{ borderTop: "1px solid rgba(28,26,23,0.08)", zIndex: 2, position: "relative", minHeight: "40vh" }}
+        className="flex flex-col items-center justify-end gap-5 px-6 pb-10"
+        style={{ borderTop: "1px solid rgba(28,26,23,0.08)", zIndex: 2, position: "relative", minHeight: "clamp(140px, 30vh, 280px)" }}
       >
         {/* Secondary — for professionals */}
         <div className="flex items-center gap-6">
           <a
             href="/storyteller"
-            style={{ fontSize: "0.5rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(140,128,118,0.45)" }}
+            style={{ fontSize: "0.5rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(140,128,118,0.45)", padding: "0.5rem 0", display: "block" }}
             className="hover:text-[#C8922A] transition-colors duration-200"
           >
             Storyteller
@@ -90,7 +90,7 @@ export default function Home() {
           <span style={{ color: "rgba(140,128,118,0.25)", fontSize: "0.5rem" }}>·</span>
           <a
             href="/sync"
-            style={{ fontSize: "0.5rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(140,128,118,0.45)" }}
+            style={{ fontSize: "0.5rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(140,128,118,0.45)", padding: "0.5rem 0", display: "block" }}
             className="hover:text-[#C8922A] transition-colors duration-200"
           >
             Sync Licensing
@@ -105,7 +105,7 @@ export default function Home() {
             href="https://www.instagram.com/eriksjoholmofficial"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ fontSize: "0.5rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(140,128,118,0.45)" }}
+            style={{ fontSize: "0.5rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(140,128,118,0.45)", padding: "0.5rem 0", display: "block" }}
             className="hover:text-[#1C1A17] transition-colors duration-200"
           >
             @eriksjoholmofficial

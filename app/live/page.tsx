@@ -255,7 +255,7 @@ export default function Shows() {
             }}>
               For concerts, festivals, and private events — reach out directly.
             </p>
-            <div className="flex flex-wrap items-center gap-6">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
               <a
                 href="mailto:erik@eriksjoholm.com"
                 className="font-[family-name:var(--font-cormorant)] font-light hover:text-[#E8E0D4] transition-colors duration-200"
@@ -271,12 +271,13 @@ export default function Shows() {
                 href="/contact"
                 style={{
                   fontFamily: "var(--font-inter)",
-                  fontSize: "0.5rem",
+                  fontSize: "0.55rem",
                   letterSpacing: "0.25em",
                   textTransform: "uppercase",
                   color: "#7A6F62",
                   borderBottom: "1px solid rgba(122,111,98,0.35)",
                   paddingBottom: "2px",
+                  display: "inline-block",
                 }}
                 className="hover:text-[#C8922A] hover:border-[#C8922A] transition-colors duration-200"
               >
