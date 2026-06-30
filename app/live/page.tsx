@@ -3,20 +3,20 @@ import Link from "next/link";
 import BackNav from "@/components/BackNav";
 
 export const metadata: Metadata = {
-  title: "Live — Erik Sjøholm",
-  description: "Upcoming shows and tour dates for Erik Sjøholm.",
+  title: "Shows — Erik Sjøholm",
+  description: "Upcoming shows, Songs of the Seasons concerts, and past stages.",
 };
 
 const pastStages = [
-  { venue: "GLÖD Storytelling Festival",   location: "Vasa, Finland" },
+  { venue: "GLÖD Storytelling Festival",      location: "Vasa, Finland" },
   { venue: "Amsterdam Storytelling Festival", location: "Amsterdam, Netherlands" },
-  { venue: "Mezrab",                        location: "Amsterdam, Netherlands" },
-  { venue: "Arbogast Festival",             location: "Mölltorp, Sweden" },
-  { venue: "Tüssenland Festival",           location: "Zwolle, Netherlands" },
-  { venue: "Währinge Wohnzimmer",           location: "Vienna, Austria" },
+  { venue: "Mezrab",                          location: "Amsterdam, Netherlands" },
+  { venue: "Arbogast Festival",               location: "Mölltorp, Sweden" },
+  { venue: "Tüssenland Festival",             location: "Zwolle, Netherlands" },
+  { venue: "Währinge Wohnzimmer",             location: "Vienna, Austria" },
 ];
 
-export default function Live() {
+export default function Shows() {
   return (
     <main className="min-h-screen" style={{ background: "#0D0B09", color: "#E8E0D4" }}>
 
@@ -44,7 +44,7 @@ export default function Live() {
               color: "#7A6F62",
               marginBottom: "1.25rem",
             }}>
-              Tour dates
+              Live
             </p>
             <h1
               className="font-[family-name:var(--font-cormorant)] font-light"
@@ -55,12 +55,12 @@ export default function Live() {
                 lineHeight: 0.95,
               }}
             >
-              Live
+              Shows
             </h1>
             <span className="block" style={{ width: "2rem", height: "1px", background: "#C8922A", marginTop: "2.5rem" }} />
           </div>
 
-          {/* ── Upcoming shows ── */}
+          {/* ── Upcoming ── */}
           <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: "5rem", paddingBottom: "5rem" }}>
             <p style={{
               fontFamily: "var(--font-inter)",
@@ -115,6 +115,70 @@ export default function Live() {
             </a>
           </div>
 
+          {/* ── Songs of the Seasons ── */}
+          <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: "5rem", paddingBottom: "5rem" }}>
+            <p style={{
+              fontFamily: "var(--font-inter)",
+              fontSize: "0.45rem",
+              letterSpacing: "0.35em",
+              textTransform: "uppercase",
+              color: "#7A6F62",
+              marginBottom: "1.25rem",
+            }}>
+              Concert series
+            </p>
+            <h2
+              className="font-[family-name:var(--font-cormorant)] font-light"
+              style={{
+                fontSize: "clamp(2rem, 5vw, 3.5rem)",
+                color: "#E8E0D4",
+                lineHeight: 1.05,
+                marginBottom: "2rem",
+              }}
+            >
+              Songs of<br />the Seasons
+            </h2>
+            <p style={{
+              fontFamily: "var(--font-inter)",
+              fontSize: "0.875rem",
+              color: "#7A6F62",
+              lineHeight: 1.9,
+              maxWidth: "50ch",
+              marginBottom: "2rem",
+            }}>
+              An intimate concert series tied to the turning of the year —
+              four evenings, four seasons, original songs written for the
+              moment. Small rooms, close listening, no setlist repeated.
+            </p>
+            <p style={{
+              fontFamily: "var(--font-inter)",
+              fontSize: "0.875rem",
+              color: "#7A6F62",
+              lineHeight: 1.9,
+              maxWidth: "50ch",
+              marginBottom: "2.5rem",
+            }}>
+              Dates are announced to Notes subscribers first.
+            </p>
+            <a
+              href="https://eriksjoholm-newsletter.beehiiv.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                fontFamily: "var(--font-inter)",
+                fontSize: "0.5rem",
+                letterSpacing: "0.22em",
+                textTransform: "uppercase",
+                color: "#7A6F62",
+                borderBottom: "1px solid rgba(122,111,98,0.35)",
+                paddingBottom: "2px",
+              }}
+              className="hover:text-[#C8922A] hover:border-[#C8922A] transition-colors duration-200"
+            >
+              Join the list →
+            </a>
+          </div>
+
           {/* ── Past stages ── */}
           <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: "5rem", paddingBottom: "5rem" }}>
             <p style={{
@@ -158,7 +222,7 @@ export default function Live() {
             </ul>
           </div>
 
-          {/* ── Book a show ── */}
+          {/* ── Contact for shows ── */}
           <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: "5rem", paddingBottom: "9rem" }}>
             <p style={{
               fontFamily: "var(--font-inter)",
@@ -168,7 +232,7 @@ export default function Live() {
               color: "#7A6F62",
               marginBottom: "1.25rem",
             }}>
-              Booking
+              Get in touch
             </p>
             <h2
               className="font-[family-name:var(--font-cormorant)] font-light"
@@ -179,7 +243,7 @@ export default function Live() {
                 marginBottom: "1.75rem",
               }}
             >
-              Bring Erik to<br />your stage.
+              Want Erik at<br />your event?
             </h2>
             <p style={{
               fontFamily: "var(--font-inter)",
@@ -189,9 +253,7 @@ export default function Live() {
               maxWidth: "48ch",
               marginBottom: "2rem",
             }}>
-              For concerts, festivals, storytelling events, and private shows —
-              reach out directly. A full tech rider and press kit are available
-              on request.
+              For concerts, festivals, and private events — reach out directly.
             </p>
             <div className="flex flex-wrap items-center gap-6">
               <a
@@ -206,7 +268,7 @@ export default function Live() {
                 erik@eriksjoholm.com
               </a>
               <Link
-                href="/storyteller"
+                href="/contact"
                 style={{
                   fontFamily: "var(--font-inter)",
                   fontSize: "0.5rem",
@@ -218,7 +280,7 @@ export default function Live() {
                 }}
                 className="hover:text-[#C8922A] hover:border-[#C8922A] transition-colors duration-200"
               >
-                About the GLENN show →
+                Contact page →
               </Link>
             </div>
           </div>

@@ -69,7 +69,7 @@ export default function About() {
               textTransform: "uppercase",
               color: "#7A6F62",
             }}>
-              Singer-songwriter · Storyteller · Luzern
+              Singer-songwriter · Luzern
             </p>
           </div>
 

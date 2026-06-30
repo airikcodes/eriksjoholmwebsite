@@ -183,6 +183,52 @@ export default function Contact() {
             </a>
           </div>
 
+          {/* ── For professionals ── */}
+          <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: "5rem", paddingBottom: "5rem" }}>
+            <p style={{
+              fontFamily: "var(--font-inter)",
+              fontSize: "0.45rem",
+              letterSpacing: "0.35em",
+              textTransform: "uppercase",
+              color: "#7A6F62",
+              marginBottom: "1.5rem",
+            }}>
+              For professionals
+            </p>
+            <div className="flex flex-col gap-3">
+              <a
+                href="/storyteller"
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontSize: "0.78rem",
+                  color: "#7A6F62",
+                  letterSpacing: "0.03em",
+                  borderBottom: "1px solid rgba(122,111,98,0.25)",
+                  paddingBottom: "2px",
+                  width: "fit-content",
+                }}
+                className="hover:text-[#C8922A] hover:border-[#C8922A] transition-colors duration-200"
+              >
+                GLENN — The Storytelling Concert →
+              </a>
+              <a
+                href="/sync"
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontSize: "0.78rem",
+                  color: "#7A6F62",
+                  letterSpacing: "0.03em",
+                  borderBottom: "1px solid rgba(122,111,98,0.25)",
+                  paddingBottom: "2px",
+                  width: "fit-content",
+                }}
+                className="hover:text-[#C8922A] hover:border-[#C8922A] transition-colors duration-200"
+              >
+                Sync Licensing →
+              </a>
+            </div>
+          </div>
+
           {/* ── Elsewhere ── */}
           <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: "5rem", paddingBottom: "9rem" }}>
 

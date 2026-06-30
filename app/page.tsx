@@ -7,8 +7,7 @@ import BackgroundSlideshow from "@/components/BackgroundSlideshow";
 const navItems = [
   { label: "About",   href: "/about",                                          external: false },
   { label: "Songs",   href: "/songs",                                          external: false },
-  { label: "Shows",   href: "/storyteller",                                    external: false },
-  { label: "Live",    href: "/live",                                            external: false },
+  { label: "Shows",   href: "/live",                                           external: false },
   { label: "Notes",   href: "https://eriksjoholm-newsletter.beehiiv.com",      external: true  },
   { label: "Shop",    href: "https://erik-sjoeholm-shop.fourthwall.com",        external: true  },
   { label: "Contact", href: "/contact",                                         external: false },
@@ -76,21 +75,42 @@ export default function Home() {
 
       {/* ── Footer ───────────────────────────────────────── */}
       <footer
-        className="flex items-end justify-center gap-8 px-6 pb-10"
+        className="flex flex-col items-center justify-end gap-6 px-6 pb-10"
         style={{ borderTop: "1px solid rgba(28,26,23,0.08)", zIndex: 2, position: "relative", minHeight: "40vh" }}
       >
-        <p style={{ fontSize: "0.55rem", letterSpacing: "0.15em", color: "rgba(140,128,118,0.7)" }}>
-          © {new Date().getFullYear()} Erik Sjøholm
-        </p>
-        <a
-          href="https://www.instagram.com/eriksjoholmofficial"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ fontSize: "0.55rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(140,128,118,0.7)" }}
-          className="hover:text-[#1C1A17] transition-colors duration-200"
-        >
-          @eriksjoholmofficial
-        </a>
+        {/* Secondary — for professionals */}
+        <div className="flex items-center gap-6">
+          <a
+            href="/storyteller"
+            style={{ fontSize: "0.5rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(140,128,118,0.45)" }}
+            className="hover:text-[#C8922A] transition-colors duration-200"
+          >
+            Storyteller
+          </a>
+          <span style={{ color: "rgba(140,128,118,0.25)", fontSize: "0.5rem" }}>·</span>
+          <a
+            href="/sync"
+            style={{ fontSize: "0.5rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(140,128,118,0.45)" }}
+            className="hover:text-[#C8922A] transition-colors duration-200"
+          >
+            Sync Licensing
+          </a>
+        </div>
+        {/* Copyright */}
+        <div className="flex items-center gap-8">
+          <p style={{ fontSize: "0.5rem", letterSpacing: "0.15em", color: "rgba(140,128,118,0.45)" }}>
+            © {new Date().getFullYear()} Erik Sjøholm
+          </p>
+          <a
+            href="https://www.instagram.com/eriksjoholmofficial"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ fontSize: "0.5rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(140,128,118,0.45)" }}
+            className="hover:text-[#1C1A17] transition-colors duration-200"
+          >
+            @eriksjoholmofficial
+          </a>
+        </div>
       </footer>
     </main>
   );
