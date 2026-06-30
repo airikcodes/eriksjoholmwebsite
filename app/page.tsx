@@ -34,33 +34,6 @@ export default function Home() {
           className="flex flex-col items-center justify-center px-6 pt-24 pb-40 sm:pt-32 sm:pb-56"
           style={{ minHeight: "80vh", borderTop: "1px solid rgba(28,26,23,0.08)", zIndex: 2, position: "relative" }}
         >
-          {/* ── Typewriter sketches ── */}
-          <div style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none", userSelect: "none" }} aria-hidden="true">
-            {/* Performing figure — top left */}
-            <pre style={{ position: "absolute", fontFamily: "'Courier New', monospace", color: "#1C1A17", opacity: 0.3, fontSize: "1.4rem", lineHeight: 1.4, top: "7%", left: "4%", transform: "rotate(-8deg)" }}>
-              {"  *\n ( )\n \\|/\n  |\n / \\"}
-            </pre>
-            {/* Peaks / motion — top right, desktop only */}
-            <pre className="hidden sm:block" style={{ position: "absolute", fontFamily: "'Courier New', monospace", color: "#1C1A17", opacity: 0.3, fontSize: "1.5rem", lineHeight: 1.4, top: "10%", right: "5%", transform: "rotate(11deg)" }}>
-              {"^ ^ ^\n ^ ^\n^ ^ ^"}
-            </pre>
-            {/* Ripples — bottom right */}
-            <pre style={{ position: "absolute", fontFamily: "'Courier New', monospace", color: "#1C1A17", opacity: 0.3, fontSize: "1.6rem", lineHeight: 1.4, bottom: "22%", right: "4%", transform: "rotate(7deg)" }}>
-              {"( ( (\n ( ("}
-            </pre>
-            {/* Stars / notes — bottom left, desktop only */}
-            <pre className="hidden sm:block" style={{ position: "absolute", fontFamily: "'Courier New', monospace", color: "#1C1A17", opacity: 0.3, fontSize: "1.3rem", lineHeight: 1.4, bottom: "28%", left: "3%", transform: "rotate(-5deg)" }}>
-              {"*   *\n  *\n*   *"}
-            </pre>
-            {/* Guitar strings / slashes — mid left, large screens only */}
-            <pre className="hidden lg:block" style={{ position: "absolute", fontFamily: "'Courier New', monospace", color: "#1C1A17", opacity: 0.3, fontSize: "1.4rem", lineHeight: 1.4, top: "48%", left: "2%", transform: "rotate(-3deg)" }}>
-              {"/ / /\n/ / /"}
-            </pre>
-            {/* Rhythm — bottom centre */}
-            <pre style={{ position: "absolute", fontFamily: "'Courier New', monospace", color: "#1C1A17", opacity: 0.3, fontSize: "1.1rem", lineHeight: 1.4, bottom: "7%", left: "50%", transform: "translateX(-50%) rotate(2deg)" }}>
-              {"* - * - *"}
-            </pre>
-          </div>
           <nav className="flex flex-col items-center gap-5 sm:gap-6 md:gap-7">
             {navItems.map((item) =>
               item.external ? (
