@@ -37,27 +37,27 @@ export default function Home() {
           {/* ── Typewriter sketches ── */}
           <div style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none", userSelect: "none" }} aria-hidden="true">
             {/* Performing figure — top left */}
-            <pre style={{ position: "absolute", fontFamily: "'Courier New', monospace", color: "#1C1A17", opacity: 0.09, fontSize: "0.82rem", lineHeight: 1.4, top: "7%", left: "4%", transform: "rotate(-8deg)" }}>
+            <pre style={{ position: "absolute", fontFamily: "'Courier New', monospace", color: "#1C1A17", opacity: 0.3, fontSize: "1.4rem", lineHeight: 1.4, top: "7%", left: "4%", transform: "rotate(-8deg)" }}>
               {"  *\n ( )\n \\|/\n  |\n / \\"}
             </pre>
             {/* Peaks / motion — top right, desktop only */}
-            <pre className="hidden sm:block" style={{ position: "absolute", fontFamily: "'Courier New', monospace", color: "#1C1A17", opacity: 0.07, fontSize: "0.9rem", lineHeight: 1.4, top: "10%", right: "5%", transform: "rotate(11deg)" }}>
+            <pre className="hidden sm:block" style={{ position: "absolute", fontFamily: "'Courier New', monospace", color: "#1C1A17", opacity: 0.3, fontSize: "1.5rem", lineHeight: 1.4, top: "10%", right: "5%", transform: "rotate(11deg)" }}>
               {"^ ^ ^\n ^ ^\n^ ^ ^"}
             </pre>
             {/* Ripples — bottom right */}
-            <pre style={{ position: "absolute", fontFamily: "'Courier New', monospace", color: "#1C1A17", opacity: 0.08, fontSize: "1rem", lineHeight: 1.4, bottom: "22%", right: "4%", transform: "rotate(7deg)" }}>
+            <pre style={{ position: "absolute", fontFamily: "'Courier New', monospace", color: "#1C1A17", opacity: 0.3, fontSize: "1.6rem", lineHeight: 1.4, bottom: "22%", right: "4%", transform: "rotate(7deg)" }}>
               {"( ( (\n ( ("}
             </pre>
             {/* Stars / notes — bottom left, desktop only */}
-            <pre className="hidden sm:block" style={{ position: "absolute", fontFamily: "'Courier New', monospace", color: "#1C1A17", opacity: 0.08, fontSize: "0.75rem", lineHeight: 1.4, bottom: "28%", left: "3%", transform: "rotate(-5deg)" }}>
+            <pre className="hidden sm:block" style={{ position: "absolute", fontFamily: "'Courier New', monospace", color: "#1C1A17", opacity: 0.3, fontSize: "1.3rem", lineHeight: 1.4, bottom: "28%", left: "3%", transform: "rotate(-5deg)" }}>
               {"*   *\n  *\n*   *"}
             </pre>
             {/* Guitar strings / slashes — mid left, large screens only */}
-            <pre className="hidden lg:block" style={{ position: "absolute", fontFamily: "'Courier New', monospace", color: "#1C1A17", opacity: 0.07, fontSize: "0.8rem", lineHeight: 1.4, top: "48%", left: "2%", transform: "rotate(-3deg)" }}>
+            <pre className="hidden lg:block" style={{ position: "absolute", fontFamily: "'Courier New', monospace", color: "#1C1A17", opacity: 0.3, fontSize: "1.4rem", lineHeight: 1.4, top: "48%", left: "2%", transform: "rotate(-3deg)" }}>
               {"/ / /\n/ / /"}
             </pre>
             {/* Rhythm — bottom centre */}
-            <pre style={{ position: "absolute", fontFamily: "'Courier New', monospace", color: "#1C1A17", opacity: 0.06, fontSize: "0.65rem", lineHeight: 1.4, bottom: "7%", left: "50%", transform: "translateX(-50%) rotate(2deg)" }}>
+            <pre style={{ position: "absolute", fontFamily: "'Courier New', monospace", color: "#1C1A17", opacity: 0.3, fontSize: "1.1rem", lineHeight: 1.4, bottom: "7%", left: "50%", transform: "translateX(-50%) rotate(2deg)" }}>
               {"* - * - *"}
             </pre>
           </div>
