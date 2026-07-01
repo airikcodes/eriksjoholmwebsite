@@ -1,0 +1,182 @@
+{
+  "nav": {
+    "about": "Chi sono",
+    "songs": "Canzoni",
+    "shows": "Concerti",
+    "notes": "Note",
+    "shop": "Negozio",
+    "contact": "Contatti"
+  },
+  "home": {
+    "footer": {
+      "storyteller": "Narratore",
+      "syncLicensing": "Licenze Sync"
+    }
+  },
+  "concierge": {
+    "heading": "Quale canzone posso suonarti?",
+    "placeholder": "Qualcosa di tranquillo per tardi la notte…",
+    "or": "oppure",
+    "chips": {
+      "latest": "Ultimo rilascio",
+      "mostPlayed": "Più ascoltata",
+      "unexpected": "Sorpresa"
+    }
+  },
+  "about": {
+    "subtitle": "Singer-songwriter · Luzern",
+    "bio1": "Erik Sjøholm è un singer-songwriter e narratore dell'Ostrobotnia — la costa finlandese di lingua svedese — ora residente a Luzern, in Svizzera. Scrive canzoni che non hanno fretta — musica costruita da momenti reali, vissuti in silenzio e sentiti in profondità.",
+    "bio2": "Formato da John Lennon, Jeff Buckley, Joni Mitchell e Damien Rice, il suo suono porta il peso di una storia che hai già sentito ma che non riesci a collocare del tutto. Canzoni sull'amore, la perdita, la distanza e il ritorno a casa — e il confine sottile tra tutto questo. Scrive in inglese e svedese, a volte entrambi nello stesso respiro.",
+    "bio3": "Si è esibito in tutta Europa — dall'Arbogast Festival in Svezia a Mezrab e all'Amsterdam Storytelling Festival in Olanda, fino a serate di narrazione in Croazia e Finlandia. Il suo format di concerto GLENN intreccia canzoni originali con una narrazione parlata: ogni canzone guadagna il suo posto nella stanza prima di essere suonata.",
+    "pullQuote": "Penso che tu meriti di essere rispettato e amato per quello che sei.",
+    "findTheWork": "Trova il lavoro",
+    "listen": "Ascolta",
+    "follow": "Segui",
+    "contact": "Contatti",
+    "explore": "Esplora",
+    "theStoryteller": "Il narratore →",
+    "syncLicensing": "Licenze Sync →",
+    "songs": "Canzoni →"
+  },
+  "songs": {
+    "eyebrow": "Testi & storie",
+    "title": "Canzoni",
+    "featuredSongs": "{n} canzoni in evidenza da un catalogo di oltre 300 composizioni originali — con testi, la storia dietro ciascuna e link per ascoltare.",
+    "fullCatalogueSpotify": "Catalogo completo su Spotify →",
+    "fullCatalogueTidal": "Catalogo completo su Tidal →",
+    "thereIsMore": "C'è altro",
+    "sync": {
+      "eyebrow": "Musica per immagine",
+      "title": "Licenze Sync",
+      "desc": "Canzoni originali disponibili per cinema, televisione, pubblicità e media interattivi. Licenza one-stop — master ed editoria in un unico accordo.",
+      "cta": "Sfoglia il catalogo →"
+    },
+    "forYou": {
+      "eyebrow": "Qualcosa di personale",
+      "title": "Songs For You",
+      "desc": "Una canzone scritta da zero per qualcuno che ami. Matrimoni, traguardi, momenti che meritano la loro musica. Ognuna è scritta solo per te.",
+      "cta": "Inizia una conversazione →"
+    },
+    "notes": {
+      "eyebrow": "Dietro il lavoro",
+      "title": "Notes",
+      "desc": "Una newsletter sul fare — cosa serve davvero per costruire una vita creativa. Testi prima di essere terminati, storie prima di essere raccontate.",
+      "cta": "Iscriviti a Notes →"
+    }
+  },
+  "live": {
+    "eyebrow": "Live",
+    "title": "Concerti",
+    "upcoming": {
+      "label": "In arrivo",
+      "noShows": "Nessuna data annunciata ancora.",
+      "notesFirst": "Quando i concerti vengono confermati, gli iscritti a Notes lo sapranno per primi.",
+      "subscribeBtn": "Iscriviti a Notes"
+    },
+    "concertSeries": {
+      "label": "Serie di concerti",
+      "desc1": "Una serie di concerti intimi legata al volgere dell'anno — quattro serate, quattro stagioni, canzoni originali scritte per il momento. Sale piccole, ascolto ravvicinato, nessuna scaletta ripetuta.",
+      "desc2": "Le date vengono annunciate prima agli iscritti a Notes.",
+      "cta": "Unisciti alla lista →"
+    },
+    "pastStages": "Palchi passati",
+    "getInTouch": {
+      "label": "Contattaci",
+      "heading": "Vuoi Erik al tuo evento?",
+      "desc": "Per concerti, festival ed eventi privati — contattaci direttamente.",
+      "contactPage": "Pagina dei contatti →"
+    }
+  },
+  "contact": {
+    "title": "Restiamo in contatto.",
+    "writeDirectly": "Scrivi direttamente",
+    "whatThisIsAbout": "Di cosa si tratta",
+    "topics": [
+      { "title": "Booking & concerti live", "body": "Per richieste di concerti, festival o eventi di narrazione." },
+      { "title": "Collaborazione", "body": "Co-scrittura, produzione o qualsiasi progetto creativo congiunto." },
+      { "title": "Stampa & media", "body": "Interviste, reportage, licenze o richieste editoriali." },
+      { "title": "Tutto il resto", "body": "Una parola gentile è sempre benvenuta." }
+    ],
+    "commission": "Commissione",
+    "songsForYouTitle": "Songs For You",
+    "songsForYouDesc": "Una canzone scritta per qualcuno che ami, per un momento che merita la sua musica. Matrimoni, traguardi, persone che contano. Ognuna viene scritta da zero, solo per te.",
+    "toBegin": "Per iniziare una conversazione:",
+    "forProfessionals": "Per professionisti",
+    "glennLink": "GLENN — Il concerto narrativo →",
+    "syncLink": "Licenze Sync →",
+    "elsewhere": "Altrove"
+  },
+  "storyteller": {
+    "eyebrow": "Un concerto narrativo",
+    "heroBio": "Un concerto narrativo nato il giorno in cui Erik Sjøholm è venuto al mondo — e suo zio Glenn lo ha lasciato.",
+    "watchTrailer": "Guarda il trailer",
+    "theShow": "Lo spettacolo",
+    "showDesc1": "Immagina un mondo ricoperto di neve, dove luce e oscurità danzano al limite del silenzio. È lì che è nato Erik Sjøholm — e proprio quel giorno suo zio Glenn si è tolto la vita, lasciando un'eredità di dolore, domande e storie non dette.",
+    "showDesc2": "In questo concerto narrativo, Erik scava sotto la neve e il ghiaccio, portando alla luce frammenti della mitologia non raccontata della sua famiglia. Attraverso storie personali crude e canzoni originali — nella tradizione di Damien Rice, Glen Hansard e Jeff Buckley — ti porta in un viaggio nel cuore della perdita, dell'autoconoscenza e della ricerca di senso.",
+    "themes": [
+      { "title": "Dolore e perdita", "sub": "Storie non dette, mitologia familiare" },
+      { "title": "Resilienza", "sub": "Risorgere dalle ceneri del dolore" },
+      { "title": "Trasformazione", "sub": "Trasformare l'oscurità in arte" },
+      { "title": "Connessione umana", "sub": "L'universalità delle lotte silenziose" }
+    ],
+    "audience": "Pubblico",
+    "watch": "Guarda",
+    "trailerCaption": "Eseguito al GLÖD Storytelling Festival, Vasa, Finlandia — marzo 2022",
+    "theTeam": "Il team",
+    "teamMembers": [
+      {
+        "name": "Erik Sjøholm",
+        "role": "Performer & autore",
+        "bio": "Singer-songwriter e narratore, Erik porta sul palco una narrazione personale grezza, fondendo musica e racconto in un modo che tocca il pubblico in profondità."
+      },
+      {
+        "name": "Raphael Rodan",
+        "role": "Co-autore & regista",
+        "bio": "Narratore pluripremiato e regista teatrale con sede nei Paesi Bassi. Il suo lavoro si concentra sulla mitologia personale e le storie universali che ci uniscono."
+      },
+      {
+        "name": "Mey Rahimi",
+        "role": "Progettista visiva & autrice",
+        "bio": "Un'artista multidisciplinare specializzata nella narrazione visiva e nella scenografia. La sua estetica visiva eleva la profondità emotiva dello spettacolo."
+      }
+    ],
+    "fundingNote": "Questo concerto narrativo è stato in parte finanziato da Svenska Kulturfonden.",
+    "booking": "Prenotazione",
+    "forProgrammers": "Per programmatori & festival",
+    "theShowLabel": "Lo spettacolo",
+    "showSpecs": [
+      { "term": "Durata", "desc": "60 minuti" },
+      { "term": "Lingua", "desc": "Inglese o svedese (specificato alla prenotazione)" },
+      { "term": "Pubblico target", "desc": "Dai 16 anni in su, festival di narrazione, festival culturali, teatri, programmi di sensibilizzazione sulla salute mentale, università, benessere aziendale" }
+    ],
+    "stageRequirements": "Requisiti tecnici",
+    "stageSpecs": [
+      { "term": "Dimensioni palco", "desc": "Minimo 4m × 4m" },
+      { "term": "Illuminazione", "desc": "Illuminazione base del palco con possibilità di spotlight" },
+      { "term": "Sonorizzazione", "desc": "Sistema PA per voce e chitarra acustica" },
+      { "term": "Tech rider", "desc": "Tech rider completo e kit stampa disponibili su richiesta" }
+    ],
+    "seeTheShow": "Vedi lo spettacolo",
+    "seeTheShowDesc": "Le prossime date ed eventi vengono annunciati su Notes — la newsletter di Erik.",
+    "subscribeBtn": "Iscriviti a Notes",
+    "bookGlenn": "Prenota GLENN",
+    "bookGlennDesc": "Per discutere disponibilità, compensi e requisiti tecnici, contattaci direttamente.",
+    "getInTouch": "Contattaci"
+  },
+  "sync": {
+    "eyebrow": "Licenze Sync",
+    "title": "Musica per immagine.",
+    "intro": "Canzoni originali e strumentali per cinema, televisione, pubblicità e media interattivi. La maggior parte dei brani è one-stop — un'unica licenza copre sia i diritti master che quelli editoriali.",
+    "catalogueLabel": "Catalogo",
+    "openOnDisco": "Apri su Disco →",
+    "whatYouGet": "Cosa ottieni",
+    "specs": [
+      { "label": "Formato", "title": "Licenza one-stop", "desc": "Un unico accordo copre sia i diritti master che quelli editoriali. Nessun bisogno di contattare più titolari di diritti." },
+      { "label": "Catalogo", "title": "~300 canzoni originali", "desc": "Materiale singer-songwriter in inglese e lingue scandinave. Atmosferico, narrativo, emotivamente radicato." },
+      { "label": "Consegna", "title": "Stem su richiesta", "desc": "Stem puliti e versioni strumentali disponibili per la maggior parte dei brani. Invia il tuo brief." }
+    ],
+    "getInTouch": "Contattaci",
+    "sendABrief": "Invia un brief.",
+    "contactDesc": "Che tu abbia una scena specifica, un riferimento d'atmosfera o voglia semplicemente esplorare il catalogo — contattaci direttamente. Preventivi personalizzati per progetti di ogni dimensione."
+  }
+}

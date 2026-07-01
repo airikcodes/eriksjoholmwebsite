@@ -1,0 +1,182 @@
+{
+  "nav": {
+    "about": "Sobre mim",
+    "songs": "Músicas",
+    "shows": "Shows",
+    "notes": "Notas",
+    "shop": "Loja",
+    "contact": "Contato"
+  },
+  "home": {
+    "footer": {
+      "storyteller": "Contador de histórias",
+      "syncLicensing": "Licenciamento Sync"
+    }
+  },
+  "concierge": {
+    "heading": "Que música posso tocar para você?",
+    "placeholder": "Algo tranquilo para o final da noite…",
+    "or": "ou",
+    "chips": {
+      "latest": "Último lançamento",
+      "mostPlayed": "Mais tocada",
+      "unexpected": "Surpresa"
+    }
+  },
+  "about": {
+    "subtitle": "Cantor-compositor · Luzern",
+    "bio1": "Erik Sjøholm é cantor-compositor e contador de histórias da Ostrobôtnia — a costa finlandesa de língua sueca — atualmente radicado em Luzern, na Suíça. Ele escreve músicas sem pressa — música construída de momentos reais, vividos em silêncio e sentidos profundamente.",
+    "bio2": "Formado por John Lennon, Jeff Buckley, Joni Mitchell e Damien Rice, seu som carrega o peso de uma história que você já ouviu mas não consegue identificar. Músicas sobre amor, perda, distância e regresso — e a tênue linha entre tudo isso. Ele escreve em inglês e sueco, às vezes os dois no mesmo fôlego.",
+    "bio3": "Ele se apresentou por toda a Europa — do Arbogast Festival na Suécia ao Mezrab e ao Amsterdam Storytelling Festival na Holanda, até encontros de narração na Croácia e na Finlândia. Seu formato de concerto GLENN entrelaça músicas originais com narrativa falada: cada música conquista seu lugar na sala antes de ser tocada.",
+    "pullQuote": "Acho que você merece ser respeitado e amado por quem você é.",
+    "findTheWork": "Encontrar o trabalho",
+    "listen": "Ouvir",
+    "follow": "Seguir",
+    "contact": "Contato",
+    "explore": "Explorar",
+    "theStoryteller": "O contador de histórias →",
+    "syncLicensing": "Licenciamento Sync →",
+    "songs": "Músicas →"
+  },
+  "songs": {
+    "eyebrow": "Letras & histórias",
+    "title": "Músicas",
+    "featuredSongs": "{n} músicas selecionadas de um catálogo com mais de 300 composições originais — com letras, a história por trás de cada uma e links para ouvir.",
+    "fullCatalogueSpotify": "Catálogo completo no Spotify →",
+    "fullCatalogueTidal": "Catálogo completo no Tidal →",
+    "thereIsMore": "Há mais",
+    "sync": {
+      "eyebrow": "Música para imagem",
+      "title": "Licenciamento Sync",
+      "desc": "Músicas originais disponíveis para cinema, televisão, publicidade e mídias interativas. Licenciamento one-stop — master e editorial em um único acordo.",
+      "cta": "Ver o catálogo →"
+    },
+    "forYou": {
+      "eyebrow": "Algo pessoal",
+      "title": "Songs For You",
+      "desc": "Uma música escrita do zero para alguém que você ama. Casamentos, marcos importantes, momentos que merecem sua própria música. Cada uma é escrita só para você.",
+      "cta": "Iniciar uma conversa →"
+    },
+    "notes": {
+      "eyebrow": "Por trás do trabalho",
+      "title": "Notes",
+      "desc": "Uma newsletter sobre criar — o que realmente é preciso para construir uma vida criativa. Letras antes de terminadas, histórias antes de contadas.",
+      "cta": "Assinar Notes →"
+    }
+  },
+  "live": {
+    "eyebrow": "Ao vivo",
+    "title": "Shows",
+    "upcoming": {
+      "label": "Próximos",
+      "noShows": "Nenhuma data anunciada ainda.",
+      "notesFirst": "Quando os shows forem confirmados, os assinantes do Notes serão os primeiros a saber.",
+      "subscribeBtn": "Assinar Notes"
+    },
+    "concertSeries": {
+      "label": "Série de concertos",
+      "desc1": "Uma série íntima de concertos ligada à virada do ano — quatro noites, quatro estações, músicas originais escritas para o momento. Salas pequenas, escuta atenta, nenhuma setlist repetida.",
+      "desc2": "As datas são anunciadas primeiro aos assinantes do Notes.",
+      "cta": "Entrar na lista →"
+    },
+    "pastStages": "Palcos anteriores",
+    "getInTouch": {
+      "label": "Entrar em contato",
+      "heading": "Quer Erik no seu evento?",
+      "desc": "Para shows, festivais e eventos privados — entre em contato diretamente.",
+      "contactPage": "Página de contato →"
+    }
+  },
+  "contact": {
+    "title": "Vamos manter contato.",
+    "writeDirectly": "Escrever diretamente",
+    "whatThisIsAbout": "Sobre o que é",
+    "topics": [
+      { "title": "Booking & shows ao vivo", "body": "Para consultas sobre shows, festivais ou eventos de narração." },
+      { "title": "Colaboração", "body": "Coautoria, produção ou qualquer projeto criativo conjunto." },
+      { "title": "Imprensa & mídia", "body": "Entrevistas, reportagens, licenciamentos ou solicitações editoriais." },
+      { "title": "Tudo mais", "body": "Uma palavra gentil é sempre bem-vinda." }
+    ],
+    "commission": "Encomenda",
+    "songsForYouTitle": "Songs For You",
+    "songsForYouDesc": "Uma música escrita para alguém que você ama, para um momento que merece sua própria música. Casamentos, marcos, pessoas que importam. Cada uma é escrita do zero, só para você.",
+    "toBegin": "Para iniciar uma conversa:",
+    "forProfessionals": "Para profissionais",
+    "glennLink": "GLENN — O concerto narrativo →",
+    "syncLink": "Licenciamento Sync →",
+    "elsewhere": "Em outros lugares"
+  },
+  "storyteller": {
+    "eyebrow": "Um concerto narrativo",
+    "heroBio": "Um concerto narrativo nascido no dia em que Erik Sjøholm veio ao mundo — e seu tio Glenn o deixou.",
+    "watchTrailer": "Ver trailer",
+    "theShow": "O espetáculo",
+    "showDesc1": "Imagine um mundo coberto de neve, onde luz e escuridão dançam na beira do silêncio. Foi ali que Erik Sjøholm nasceu — e naquele mesmo dia, seu tio Glenn tirou a própria vida, deixando um legado de dor, perguntas e histórias não contadas.",
+    "showDesc2": "Neste concerto narrativo, Erik escava sob a neve e o gelo, descobrindo fragmentos da mitologia não dita de sua família. Através de histórias pessoais cruas e músicas originais — na tradição de Damien Rice, Glen Hansard e Jeff Buckley — ele leva você numa jornada ao coração da perda, do autodescoberta e da busca de sentido.",
+    "themes": [
+      { "title": "Luto e perda", "sub": "Histórias não contadas, mitologia familiar" },
+      { "title": "Resiliência", "sub": "Erguer-se das cinzas da dor" },
+      { "title": "Transformação", "sub": "Transformar a escuridão em arte" },
+      { "title": "Conexão humana", "sub": "A universalidade das lutas silenciosas" }
+    ],
+    "audience": "Público",
+    "watch": "Assistir",
+    "trailerCaption": "Apresentado no GLÖD Storytelling Festival, Vasa, Finlândia — março de 2022",
+    "theTeam": "A equipe",
+    "teamMembers": [
+      {
+        "name": "Erik Sjøholm",
+        "role": "Artista & autor",
+        "bio": "Cantor-compositor e contador de histórias, Erik traz uma narrativa pessoal crua ao palco, fundindo música e storytelling de um jeito que toca o público profundamente."
+      },
+      {
+        "name": "Raphael Rodan",
+        "role": "Coautor & diretor",
+        "bio": "Contador de histórias premiado e diretor de teatro baseado na Holanda. Seu trabalho foca em mitologia pessoal e nas histórias universais que nos conectam."
+      },
+      {
+        "name": "Mey Rahimi",
+        "role": "Designer visual & autora",
+        "bio": "Uma artista multidisciplinar especializada em storytelling visual e design cênico. Sua estética visual eleva a profundidade emocional do espetáculo."
+      }
+    ],
+    "fundingNote": "Este concerto narrativo foi parcialmente financiado pelo Svenska Kulturfonden.",
+    "booking": "Booking",
+    "forProgrammers": "Para programadores & festivais",
+    "theShowLabel": "O espetáculo",
+    "showSpecs": [
+      { "term": "Duração", "desc": "60 minutos" },
+      { "term": "Idioma", "desc": "Inglês ou sueco (especificado na reserva)" },
+      { "term": "Público-alvo", "desc": "A partir de 16 anos, festivais de storytelling, festivais culturais, teatros, programas de saúde mental, universidades, bem-estar corporativo" }
+    ],
+    "stageRequirements": "Requisitos técnicos",
+    "stageSpecs": [
+      { "term": "Tamanho do palco", "desc": "Mínimo 4m × 4m" },
+      { "term": "Iluminação", "desc": "Iluminação básica de palco com capacidade de spotlight" },
+      { "term": "Sonorização", "desc": "Sistema PA para voz e violão" },
+      { "term": "Tech rider", "desc": "Tech rider completo e kit de imprensa disponíveis mediante solicitação" }
+    ],
+    "seeTheShow": "Ver o espetáculo",
+    "seeTheShowDesc": "Próximas datas e eventos são anunciados no Notes — a newsletter de Erik.",
+    "subscribeBtn": "Assinar Notes",
+    "bookGlenn": "Reservar GLENN",
+    "bookGlennDesc": "Para discutir disponibilidade, cachê e requisitos técnicos, entre em contato diretamente.",
+    "getInTouch": "Entrar em contato"
+  },
+  "sync": {
+    "eyebrow": "Licenciamento Sync",
+    "title": "Música para imagem.",
+    "intro": "Músicas originais e instrumentais para cinema, televisão, publicidade e mídias interativas. A maioria das faixas é one-stop — uma única licença cobre tanto os direitos de master quanto os editoriais.",
+    "catalogueLabel": "Catálogo",
+    "openOnDisco": "Abrir no Disco →",
+    "whatYouGet": "O que você recebe",
+    "specs": [
+      { "label": "Formato", "title": "Licenciamento one-stop", "desc": "Um único acordo cobre tanto os direitos de master quanto os editoriais. Sem precisar negociar com múltiplos detentores de direitos." },
+      { "label": "Catálogo", "title": "~300 músicas originais", "desc": "Material de cantor-compositor em inglês e línguas escandinavas. Atmosférico, narrativo, emocionalmente ancorado." },
+      { "label": "Entrega", "title": "Stems sob demanda", "desc": "Stems limpos e versões instrumentais disponíveis para a maioria das faixas. Entre em contato com seu brief." }
+    ],
+    "getInTouch": "Entrar em contato",
+    "sendABrief": "Envie um brief.",
+    "contactDesc": "Seja uma cena específica, uma referência de humor ou simplesmente vontade de explorar o catálogo — entre em contato diretamente. Orçamentos personalizados para projetos de todos os tamanhos."
+  }
+}

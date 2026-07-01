@@ -324,16 +324,32 @@ function ResultCard({ track, onDismiss }: { track: Track; onDismiss: (id: string
   );
 }
 
-export default function SongConcierge() {
+interface SongConciergeProps {
+  heading?: string;
+  placeholder?: string;
+  orLabel?: string;
+  chipLatest?: string;
+  chipMostPlayed?: string;
+  chipUnexpected?: string;
+}
+
+export default function SongConcierge({
+  heading = "What song can I play for you?",
+  placeholder = "Something quiet for late at night…",
+  orLabel = "or",
+  chipLatest = "Latest Release",
+  chipMostPlayed = "Most Played",
+  chipUnexpected = "Unexpected",
+}: SongConciergeProps) {
   const [input, setInput] = useState("");
   const [results, setResults] = useState<Track[]>([]);
   const [activeChip, setActiveChip] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const chips = [
-    { label: "Latest Release", id: "lycka" },
-    { label: "Most Played",    id: "wake-up" },
-    { label: "Unexpected",     id: "night" },
+    { label: chipLatest,     id: "lycka" },
+    { label: chipMostPlayed, id: "wake-up" },
+    { label: chipUnexpected, id: "night" },
   ];
 
   function handleSubmit(e: FormEvent) {
@@ -364,7 +380,7 @@ export default function SongConcierge() {
         className="font-[family-name:var(--font-cormorant)] font-light text-center mb-8"
         style={{ fontSize: "clamp(1.5rem, 5vw, 2.6rem)", color: "#3A3530", letterSpacing: "0.02em" }}
       >
-        What song can I play for you?
+        {heading}
       </h2>
 
       {/* Input */}
@@ -378,7 +394,7 @@ export default function SongConcierge() {
             if (results.length > 0 && !activeChip) setResults([]);
           }}
           className="concierge-input"
-          placeholder="Something quiet for late at night…"
+          placeholder={placeholder}
           style={{
             width: "100%",
             background: "rgba(28,26,23,0.04)",
@@ -412,7 +428,7 @@ export default function SongConcierge() {
       {/* Chips */}
       <div className="mt-5 text-center">
         <p style={{ fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#7A6F62", marginBottom: "0.75rem" }}>
-          or
+          {orLabel}
         </p>
         <div className="flex flex-wrap justify-center gap-2">
           {chips.map((chip) => (

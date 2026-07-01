@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import RevealSection from "@/components/RevealSection";
 import BackNav from "@/components/BackNav";
+import { getDictionary, hasLocale } from "@/lib/dictionaries";
 
 export const metadata: Metadata = {
   title: "GLENN — Erik Sjøholm",
@@ -37,7 +39,7 @@ const sectionPad: React.CSSProperties = {
   paddingBottom: "5rem",
 };
 
-const eyebrow: React.CSSProperties = {
+const eyebrowStyle: React.CSSProperties = {
   fontFamily: "var(--font-inter)",
   fontSize: "0.48rem",
   letterSpacing: "0.35em",
@@ -67,11 +69,20 @@ const divider: React.CSSProperties = {
   borderTop: "1px solid rgba(255,255,255,0.07)",
 };
 
-export default function Storyteller() {
+export default async function Storyteller({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!hasLocale(locale)) notFound();
+  const t = await getDictionary(locale);
+  const st = t.storyteller;
+
   return (
     <main style={{ background: "#0D0B09", color: "#E8E0D4" }}>
 
-      {/* Fixed background — Mezrab storytelling house */}
+      {/* Fixed background */}
       <div style={{ position: "fixed", inset: 0, zIndex: 0 }}>
         <div
           style={{
@@ -99,11 +110,10 @@ export default function Storyteller() {
 
             <BackNav />
 
-            {/* Centered hero content */}
             <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center" }}>
 
-              <p style={{ ...eyebrow, color: "#7A6F62", marginBottom: "2rem" }}>
-                A Storytelling Concert
+              <p style={{ ...eyebrowStyle, color: "#7A6F62", marginBottom: "2rem" }}>
+                {st.eyebrow}
               </p>
 
               <h1
@@ -144,8 +154,7 @@ export default function Storyteller() {
                   marginBottom: "2.5rem",
                 }}
               >
-                A storytelling concert born on the day Erik Sjøholm came into
-                the world — and his uncle Glenn left it.
+                {st.heroBio}
               </p>
 
               <div>
@@ -163,7 +172,7 @@ export default function Storyteller() {
                     textTransform: "uppercase",
                   }}
                 >
-                  Watch Trailer
+                  {st.watchTrailer}
                 </a>
               </div>
 
@@ -176,23 +185,14 @@ export default function Storyteller() {
           <section style={{ ...sectionPad, ...divider }}>
             <div style={container}>
 
-              <p style={{ ...eyebrow, marginBottom: "2.5rem" }}>The Show</p>
+              <p style={{ ...eyebrowStyle, marginBottom: "2.5rem" }}>{st.theShow}</p>
 
               <div style={{ maxWidth: "60ch" }}>
                 <p style={{ ...bodyText, marginBottom: "1.5rem" }}>
-                  Imagine a world blanketed in snow, where light and darkness
-                  dance on the edge of silence. That is where Erik Sjøholm was
-                  born — and on that very day, his uncle Glenn took his own
-                  life, leaving behind a legacy of grief, questions, and
-                  unspoken stories.
+                  {st.showDesc1}
                 </p>
                 <p style={bodyText}>
-                  In this storytelling concert, Erik digs beneath the snow and
-                  ice, uncovering fragments of his family&apos;s unspoken
-                  mythology. Through raw personal stories and original songs —
-                  in the tradition of Damien Rice, Glen Hansard, and Jeff
-                  Buckley — he takes you on a journey into the heart of loss,
-                  self-discovery, and the search for meaning.
+                  {st.showDesc2}
                 </p>
               </div>
 
@@ -201,24 +201,7 @@ export default function Storyteller() {
                 className="grid grid-cols-2 sm:grid-cols-4 gap-8"
                 style={{ marginTop: "3.5rem" }}
               >
-                {[
-                  {
-                    title: "Grief and Loss",
-                    sub: "Unspoken stories, family mythology",
-                  },
-                  {
-                    title: "Resilience",
-                    sub: "Rising from the ashes of pain",
-                  },
-                  {
-                    title: "Transformation",
-                    sub: "Turning darkness into art",
-                  },
-                  {
-                    title: "Human Connection",
-                    sub: "The universality of silent struggles",
-                  },
-                ].map(({ title, sub }) => (
+                {st.themes.map(({ title, sub }) => (
                   <div key={title}>
                     <p
                       className="font-[family-name:var(--font-cormorant)] font-light"
@@ -249,27 +232,24 @@ export default function Storyteller() {
           <section style={{ ...sectionPad, ...divider }}>
             <div style={container}>
 
-              <p style={eyebrow}>Audience</p>
+              <p style={eyebrowStyle}>{st.audience}</p>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
                 {[
                   {
                     name: "Marielle Dúgdam",
                     location: "Amsterdam",
-                    quote:
-                      "Goose bumps from beginning to end. Your openness is such a gift.",
+                    quote: "Goose bumps from beginning to end. Your openness is such a gift.",
                   },
                   {
                     name: "Femke",
                     location: "Tüssenland Festival, Zwolle, NL",
-                    quote:
-                      "It was really impressive. Your voice as well as the show are so beautiful. I'm truly speechless.",
+                    quote: "It was really impressive. Your voice as well as the show are so beautiful. I'm truly speechless.",
                   },
                   {
                     name: "Evelyn",
                     location: "Währinge Wohnzimmer, Vienna",
-                    quote:
-                      "Your show was the best end of this day. Thank you for your courage and your honesty. Your beautiful songs touched my heart.",
+                    quote: "Your show was the best end of this day. Thank you for your courage and your honesty. Your beautiful songs touched my heart.",
                   },
                 ].map(({ name, quote, location }) => (
                   <div key={name}>
@@ -320,9 +300,8 @@ export default function Storyteller() {
           <section id="trailer" style={{ ...sectionPad, ...divider }}>
             <div style={container}>
 
-              <p style={{ ...eyebrow, marginBottom: "2.5rem" }}>Watch</p>
+              <p style={{ ...eyebrowStyle, marginBottom: "2.5rem" }}>{st.watch}</p>
 
-              {/* 16:9 YouTube embed */}
               <div
                 style={{
                   position: "relative",
@@ -357,7 +336,7 @@ export default function Storyteller() {
                   letterSpacing: "0.05em",
                 }}
               >
-                Performed at GLÖD Storytelling Festival, Vasa, Finland — March 2022
+                {st.trailerCaption}
               </p>
 
             </div>
@@ -369,26 +348,10 @@ export default function Storyteller() {
           <section style={{ ...sectionPad, ...divider }}>
             <div style={container}>
 
-              <p style={{ ...eyebrow, marginBottom: "2.5rem" }}>The Team</p>
+              <p style={{ ...eyebrowStyle, marginBottom: "2.5rem" }}>{st.theTeam}</p>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
-                {[
-                  {
-                    name: "Erik Sjøholm",
-                    role: "Performer & Writer",
-                    bio: "Singer-songwriter and storyteller, Erik brings a raw personal narrative to the stage, blending music and storytelling in a way that moves audiences deeply.",
-                  },
-                  {
-                    name: "Raphael Rodan",
-                    role: "Co-writer & Director",
-                    bio: "An award-winning storyteller and theatre director based in the Netherlands. His work focuses on personal mythology and the universal stories that connect us.",
-                  },
-                  {
-                    name: "Mey Rahimi",
-                    role: "Visual Designer & Writer",
-                    bio: "A multidisciplinary artist specialising in visual storytelling and stage design. Her visual aesthetics elevate the emotional depth of the show.",
-                  },
-                ].map(({ name, role, bio }) => (
+                {st.teamMembers.map(({ name, role, bio }) => (
                   <div key={name}>
                     <p
                       className="font-[family-name:var(--font-cormorant)] font-light"
@@ -432,8 +395,7 @@ export default function Storyteller() {
                   borderTop: "1px solid rgba(255,255,255,0.07)",
                 }}
               >
-                This storytelling concert has been partly funded by Svenska
-                Kulturfonden.
+                {st.fundingNote}
               </p>
 
             </div>
@@ -450,12 +412,12 @@ export default function Storyteller() {
         >
           <div style={container}>
 
-            <p style={eyebrow}>Booking</p>
+            <p style={eyebrowStyle}>{st.booking}</p>
             <h2
               className="font-[family-name:var(--font-cormorant)] font-light"
               style={{ ...sectionHeading }}
             >
-              For Programmers &amp; Festivals
+              {st.forProgrammers}
             </h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
@@ -472,17 +434,10 @@ export default function Storyteller() {
                     marginBottom: "1.25rem",
                   }}
                 >
-                  The Show
+                  {st.theShowLabel}
                 </p>
                 <dl style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-                  {[
-                    { term: "Duration", desc: "60 minutes" },
-                    { term: "Language", desc: "English or Swedish (specified at booking)" },
-                    {
-                      term: "Target audience",
-                      desc: "Age 16+, storytelling festivals, cultural festivals, theatres, mental health awareness programmes, universities, corporate wellness",
-                    },
-                  ].map(({ term, desc }) => (
+                  {st.showSpecs.map(({ term, desc }) => (
                     <div key={term}>
                       <dt
                         style={{
@@ -524,15 +479,10 @@ export default function Storyteller() {
                     marginBottom: "1.25rem",
                   }}
                 >
-                  Stage Requirements
+                  {st.stageRequirements}
                 </p>
                 <dl style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-                  {[
-                    { term: "Stage size", desc: "Minimum 4m × 4m" },
-                    { term: "Lighting", desc: "Basic stage lighting with spotlight capability" },
-                    { term: "Sound", desc: "PA system for vocals and acoustic guitar" },
-                    { term: "Tech rider", desc: "Full tech rider and press kit available on request" },
-                  ].map(({ term, desc }) => (
+                  {st.stageSpecs.map(({ term, desc }) => (
                     <div key={term}>
                       <dt
                         style={{
@@ -584,7 +534,7 @@ export default function Storyteller() {
                     className="font-[family-name:var(--font-cormorant)] font-light"
                     style={{ fontSize: "1.5rem", color: "#E8E0D4", marginBottom: "0.75rem" }}
                   >
-                    See the Show
+                    {st.seeTheShow}
                   </h3>
                   <p
                     style={{
@@ -595,7 +545,7 @@ export default function Storyteller() {
                       marginBottom: "1.5rem",
                     }}
                   >
-                    Upcoming dates and events are announced on Notes — Erik&apos;s newsletter.
+                    {st.seeTheShowDesc}
                   </p>
                   <a
                     href="https://eriksjoholm-newsletter.beehiiv.com"
@@ -614,7 +564,7 @@ export default function Storyteller() {
                       textDecoration: "none",
                     }}
                   >
-                    Subscribe to Notes
+                    {st.subscribeBtn}
                   </a>
                 </div>
 
@@ -630,7 +580,7 @@ export default function Storyteller() {
                     className="font-[family-name:var(--font-cormorant)] font-light"
                     style={{ fontSize: "1.5rem", color: "#E8E0D4", marginBottom: "0.75rem" }}
                   >
-                    Book GLENN
+                    {st.bookGlenn}
                   </h3>
                   <p
                     style={{
@@ -641,8 +591,7 @@ export default function Storyteller() {
                       marginBottom: "1.5rem",
                     }}
                   >
-                    To discuss availability, fees, and technical requirements,
-                    reach out directly.
+                    {st.bookGlennDesc}
                   </p>
                   <Link
                     href="/contact"
@@ -658,7 +607,7 @@ export default function Storyteller() {
                       textTransform: "uppercase",
                     }}
                   >
-                    Get in touch
+                    {st.getInTouch}
                   </Link>
                 </div>
 

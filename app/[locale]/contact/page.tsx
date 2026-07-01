@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import BackNav from "@/components/BackNav";
+import { getDictionary, hasLocale } from "@/lib/dictionaries";
 
 export const metadata: Metadata = {
   title: "Contact — Erik Sjøholm",
@@ -23,13 +25,6 @@ export const metadata: Metadata = {
   },
 };
 
-const topics = [
-  { title: "Booking & live shows",  body: "For concert, festival, or storytelling event enquiries." },
-  { title: "Collaboration",         body: "Co-writing, production, or any creative joint venture." },
-  { title: "Press & media",         body: "Interviews, features, licensing, or editorial requests." },
-  { title: "Everything else",       body: "A kind word is always welcome." },
-];
-
 const social = [
   { label: "Instagram", href: "https://www.instagram.com/eriksjoholmofficial",        hover: "hover:text-[#E8E0D4]" },
   { label: "Facebook",  href: "https://facebook.com/eriksjoholmffofficial/",           hover: "hover:text-[#1877F2]" },
@@ -39,7 +34,16 @@ const social = [
   { label: "Tidal",     href: "https://tidal.com/artist/47687355",                    hover: "hover:text-[#00FFFF]" },
 ];
 
-export default function Contact() {
+export default async function Contact({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!hasLocale(locale)) notFound();
+  const t = await getDictionary(locale);
+  const c = t.contact;
+
   return (
     <main className="min-h-screen" style={{ background: "#0D0B09", color: "#E8E0D4" }}>
 
@@ -68,7 +72,7 @@ export default function Contact() {
                 lineHeight: 0.95,
               }}
             >
-              Let&apos;s be<br />in touch.
+              {c.title}
             </h1>
             <span className="block" style={{ width: "2rem", height: "1px", background: "#C8922A", marginTop: "2.5rem" }} />
           </div>
@@ -84,7 +88,7 @@ export default function Contact() {
               color: "#7A6F62",
               marginBottom: "1.25rem",
             }}>
-              Write directly
+              {c.writeDirectly}
             </p>
             <a
               href="mailto:erik@eriksjoholm.com"
@@ -108,12 +112,12 @@ export default function Contact() {
               color: "#7A6F62",
               marginBottom: "0",
             }}>
-              What this is about
+              {c.whatThisIsAbout}
             </p>
             <ul style={{ borderTop: "1px solid rgba(255,255,255,0.07)", marginTop: "1.25rem" }}>
-              {topics.map((t) => (
+              {c.topics.map((topic) => (
                 <li
-                  key={t.title}
+                  key={topic.title}
                   className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between sm:gap-6"
                   style={{
                     borderBottom: "1px solid rgba(255,255,255,0.07)",
@@ -124,7 +128,7 @@ export default function Contact() {
                     className="font-[family-name:var(--font-cormorant)] font-light"
                     style={{ fontSize: "clamp(1rem, 2.2vw, 1.2rem)", color: "#E8E0D4" }}
                   >
-                    {t.title}
+                    {topic.title}
                   </p>
                   <p
                     className="mt-1 sm:mt-0 sm:text-right sm:max-w-[16rem]"
@@ -135,7 +139,7 @@ export default function Contact() {
                       lineHeight: 1.7,
                     }}
                   >
-                    {t.body}
+                    {topic.body}
                   </p>
                 </li>
               ))}
@@ -153,7 +157,7 @@ export default function Contact() {
               color: "#7A6F62",
               marginBottom: "1.25rem",
             }}>
-              Commission
+              {c.commission}
             </p>
             <h2
               className="font-[family-name:var(--font-cormorant)] font-light"
@@ -164,7 +168,7 @@ export default function Contact() {
                 marginBottom: "2rem",
               }}
             >
-              Songs For You
+              {c.songsForYouTitle}
             </h2>
             <p style={{
               fontFamily: "var(--font-inter)",
@@ -174,9 +178,7 @@ export default function Contact() {
               maxWidth: "52ch",
               marginBottom: "2.5rem",
             }}>
-              A song written for someone you love, for a moment that deserves its
-              own music. Weddings, milestones, people who matter. Each one is
-              written from scratch, for you alone.
+              {c.songsForYouDesc}
             </p>
             <p style={{
               fontFamily: "var(--font-inter)",
@@ -185,7 +187,7 @@ export default function Contact() {
               lineHeight: 1.8,
               marginBottom: "1.5rem",
             }}>
-              To begin a conversation:
+              {c.toBegin}
             </p>
             <a
               href="mailto:erik@eriksjoholm.com"
@@ -210,7 +212,7 @@ export default function Contact() {
               color: "#7A6F62",
               marginBottom: "1.5rem",
             }}>
-              For professionals
+              {c.forProfessionals}
             </p>
             <div className="flex flex-col gap-3">
               <a
@@ -226,7 +228,7 @@ export default function Contact() {
                 }}
                 className="hover:text-[#C8922A] hover:border-[#C8922A] transition-colors duration-200"
               >
-                GLENN — The Storytelling Concert →
+                {c.glennLink}
               </a>
               <a
                 href="/sync"
@@ -241,7 +243,7 @@ export default function Contact() {
                 }}
                 className="hover:text-[#C8922A] hover:border-[#C8922A] transition-colors duration-200"
               >
-                Sync Licensing →
+                {c.syncLink}
               </a>
             </div>
           </div>
@@ -257,7 +259,7 @@ export default function Contact() {
               color: "#7A6F62",
               marginBottom: "2.5rem",
             }}>
-              Elsewhere
+              {c.elsewhere}
             </p>
             <div className="grid grid-cols-2 gap-y-2 gap-x-12" style={{ maxWidth: "28rem" }}>
               {social.map(({ label, href, hover }) => (

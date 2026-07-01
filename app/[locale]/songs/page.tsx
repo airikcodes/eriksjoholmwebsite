@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import BackNav from "@/components/BackNav";
 import SongsAccordion from "@/components/SongsAccordion";
 import type { Song } from "@/components/SongsAccordion";
+import { getDictionary, hasLocale } from "@/lib/dictionaries";
 
 export const metadata: Metadata = {
   title: "Songs — Erik Sjøholm",
@@ -34,77 +36,28 @@ function tidalSearch(q: string) {
 }
 
 const songs: Song[] = [
-  {
-    id: "lycka",
-    title: "Lycka",
-    meta: "2025 · Swedish",
-    spotify: SPOTIFY_ARTIST,
-    tidal: tidalSearch("Lycka"),
-  },
-  {
-    id: "ashes",
-    title: "Ashes",
-    spotify: "https://open.spotify.com/track/6tcU3CmHiLKfbRNyTL5Evo",
-    tidal: tidalSearch("Ashes"),
-  },
-  {
-    id: "night-is-long",
-    title: "The Night Is Long (That Never Finds The Day)",
-    meta: "2024",
-    spotify: "https://open.spotify.com/track/2hApCQl0DQfhkEutJFOxVV",
-    tidal: tidalSearch("The Night Is Long"),
-  },
-  {
-    id: "midnight-sun",
-    title: "Midnight Sun",
-    meta: "with Mistasy",
-    spotify: "https://open.spotify.com/track/7KAFu2ouup81IBB6AnQZkM",
-    tidal: tidalSearch("Midnight Sun"),
-  },
-  {
-    id: "matsawana",
-    title: "Matsawana",
-    spotify: "https://open.spotify.com/track/0ap55kADfSNkisbVEWJWrr",
-    tidal: tidalSearch("Matsawana"),
-  },
-  {
-    id: "magari",
-    title: "Magari",
-    meta: "with Mistasy · Italian / English",
-    spotify: "https://open.spotify.com/track/37US5z8tYa3VWQoqiRAjRF",
-    tidal: tidalSearch("Magari"),
-  },
-  {
-    id: "gone",
-    title: "Gone",
-    meta: "with Mistasy",
-    spotify: "https://open.spotify.com/track/0Ii1bB6sc3ZyXUE5QGzqgB",
-    tidal: tidalSearch("Gone"),
-  },
-  {
-    id: "wake-up",
-    title: "Wake Up",
-    meta: "with Mistasy",
-    spotify: "https://open.spotify.com/track/5QKRx4B5ToIdKAcmaw093P",
-    tidal: tidalSearch("Wake Up"),
-  },
-  {
-    id: "valkommenhem",
-    title: "Välkommen hem",
-    meta: "with The Sjöholm Family Band · Swedish",
-    spotify: "https://open.spotify.com/track/5NGZlytj1yXPqCZp9zexhr",
-    tidal: tidalSearch("Välkommen hem"),
-  },
-  {
-    id: "barndomsaren",
-    title: "Barndomsåren / Pargas 98",
-    meta: "with Emil Nordström · Swedish",
-    spotify: "https://open.spotify.com/track/2x00pPFmK8lgkyPeW401Gu",
-    tidal: tidalSearch("Barndomsåren Pargas"),
-  },
+  { id: "lycka",          title: "Lycka",                                    meta: "2025 · Swedish", spotify: SPOTIFY_ARTIST,                                              tidal: tidalSearch("Lycka") },
+  { id: "ashes",          title: "Ashes",                                                             spotify: "https://open.spotify.com/track/6tcU3CmHiLKfbRNyTL5Evo",   tidal: tidalSearch("Ashes") },
+  { id: "night-is-long",  title: "The Night Is Long (That Never Finds The Day)", meta: "2024",        spotify: "https://open.spotify.com/track/2hApCQl0DQfhkEutJFOxVV",   tidal: tidalSearch("The Night Is Long") },
+  { id: "midnight-sun",   title: "Midnight Sun",                             meta: "with Mistasy",    spotify: "https://open.spotify.com/track/7KAFu2ouup81IBB6AnQZkM",   tidal: tidalSearch("Midnight Sun") },
+  { id: "matsawana",      title: "Matsawana",                                                         spotify: "https://open.spotify.com/track/0ap55kADfSNkisbVEWJWrr",   tidal: tidalSearch("Matsawana") },
+  { id: "magari",         title: "Magari",                                   meta: "with Mistasy · Italian / English", spotify: "https://open.spotify.com/track/37US5z8tYa3VWQoqiRAjRF", tidal: tidalSearch("Magari") },
+  { id: "gone",           title: "Gone",                                     meta: "with Mistasy",    spotify: "https://open.spotify.com/track/0Ii1bB6sc3ZyXUE5QGzqgB",   tidal: tidalSearch("Gone") },
+  { id: "wake-up",        title: "Wake Up",                                  meta: "with Mistasy",    spotify: "https://open.spotify.com/track/5QKRx4B5ToIdKAcmaw093P",   tidal: tidalSearch("Wake Up") },
+  { id: "valkommenhem",   title: "Välkommen hem",                            meta: "with The Sjöholm Family Band · Swedish", spotify: "https://open.spotify.com/track/5NGZlytj1yXPqCZp9zexhr", tidal: tidalSearch("Välkommen hem") },
+  { id: "barndomsaren",   title: "Barndomsåren / Pargas 98",                 meta: "with Emil Nordström · Swedish", spotify: "https://open.spotify.com/track/2x00pPFmK8lgkyPeW401Gu", tidal: tidalSearch("Barndomsåren Pargas") },
 ];
 
-export default function Songs() {
+export default async function Songs({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!hasLocale(locale)) notFound();
+  const t = await getDictionary(locale);
+  const s = t.songs;
+
   return (
     <main className="min-h-screen" style={{ background: "#0D0B09", color: "#E8E0D4" }}>
 
@@ -132,7 +85,7 @@ export default function Songs() {
               color: "#7A6F62",
               marginBottom: "1.25rem",
             }}>
-              Lyrics &amp; Stories
+              {s.eyebrow}
             </p>
             <h1
               className="font-[family-name:var(--font-cormorant)] font-light"
@@ -144,7 +97,7 @@ export default function Songs() {
                 marginBottom: "2.5rem",
               }}
             >
-              Songs
+              {s.title}
             </h1>
 
             <span className="block" style={{ width: "2rem", height: "1px", background: "#C8922A", marginBottom: "2.5rem" }} />
@@ -157,8 +110,7 @@ export default function Songs() {
               maxWidth: "50ch",
               marginBottom: "2rem",
             }}>
-              {songs.length} featured songs from a catalogue of over 300 original
-              compositions — with lyrics, the story behind each, and links to listen.
+              {s.featuredSongs.replace("{n}", String(songs.length))}
             </p>
 
             <div className="flex flex-wrap gap-6">
@@ -177,7 +129,7 @@ export default function Songs() {
                   paddingBottom: "2px",
                 }}
               >
-                Full catalogue on Spotify →
+                {s.fullCatalogueSpotify}
               </a>
               <a
                 href={TIDAL_ARTIST}
@@ -194,7 +146,7 @@ export default function Songs() {
                   paddingBottom: "2px",
                 }}
               >
-                Full catalogue on Tidal →
+                {s.fullCatalogueTidal}
               </a>
             </div>
           </div>
@@ -215,7 +167,7 @@ export default function Songs() {
               color: "#7A6F62",
               marginBottom: "3.5rem",
             }}>
-              There is more
+              {s.thereIsMore}
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-12">
@@ -230,13 +182,13 @@ export default function Songs() {
                   color: "#C8922A",
                   marginBottom: "0.85rem",
                 }}>
-                  Music for picture
+                  {s.sync.eyebrow}
                 </p>
                 <p
                   className="font-[family-name:var(--font-cormorant)] font-light"
                   style={{ fontSize: "1.25rem", color: "#E8E0D4", lineHeight: 1.15, marginBottom: "0.85rem" }}
                 >
-                  Sync Licensing
+                  {s.sync.title}
                 </p>
                 <p style={{
                   fontFamily: "var(--font-inter)",
@@ -245,9 +197,7 @@ export default function Songs() {
                   lineHeight: 1.8,
                   marginBottom: "1.25rem",
                 }}>
-                  Original songs available for film, television, advertising, and
-                  interactive media. One-stop licensing — master and publishing in
-                  a single agreement.
+                  {s.sync.desc}
                 </p>
                 <Link
                   href="/sync"
@@ -262,7 +212,7 @@ export default function Songs() {
                     paddingBottom: "2px",
                   }}
                 >
-                  Browse the catalogue →
+                  {s.sync.cta}
                 </Link>
               </div>
 
@@ -276,13 +226,13 @@ export default function Songs() {
                   color: "#C8922A",
                   marginBottom: "0.85rem",
                 }}>
-                  Something personal
+                  {s.forYou.eyebrow}
                 </p>
                 <p
                   className="font-[family-name:var(--font-cormorant)] font-light"
                   style={{ fontSize: "1.25rem", color: "#E8E0D4", lineHeight: 1.15, marginBottom: "0.85rem" }}
                 >
-                  Songs For You
+                  {s.forYou.title}
                 </p>
                 <p style={{
                   fontFamily: "var(--font-inter)",
@@ -291,9 +241,7 @@ export default function Songs() {
                   lineHeight: 1.8,
                   marginBottom: "1.25rem",
                 }}>
-                  A song written from scratch for someone you love. Weddings,
-                  milestones, moments that deserve their own music. Each one
-                  is written for you alone.
+                  {s.forYou.desc}
                 </p>
                 <Link
                   href="/contact"
@@ -308,7 +256,7 @@ export default function Songs() {
                     paddingBottom: "2px",
                   }}
                 >
-                  Begin a conversation →
+                  {s.forYou.cta}
                 </Link>
               </div>
 
@@ -322,13 +270,13 @@ export default function Songs() {
                   color: "#C8922A",
                   marginBottom: "0.85rem",
                 }}>
-                  Behind the work
+                  {s.notes.eyebrow}
                 </p>
                 <p
                   className="font-[family-name:var(--font-cormorant)] font-light"
                   style={{ fontSize: "1.25rem", color: "#E8E0D4", lineHeight: 1.15, marginBottom: "0.85rem" }}
                 >
-                  Notes
+                  {s.notes.title}
                 </p>
                 <p style={{
                   fontFamily: "var(--font-inter)",
@@ -337,9 +285,7 @@ export default function Songs() {
                   lineHeight: 1.8,
                   marginBottom: "1.25rem",
                 }}>
-                  A newsletter about making — what it actually takes to build
-                  a creative life. Lyrics before they're finished, stories
-                  before they're told.
+                  {s.notes.desc}
                 </p>
                 <a
                   href="https://eriksjoholm-newsletter.beehiiv.com"
@@ -356,13 +302,12 @@ export default function Songs() {
                     paddingBottom: "2px",
                   }}
                 >
-                  Subscribe to Notes →
+                  {s.notes.cta}
                 </a>
               </div>
 
             </div>
           </div>
-
 
         </div>
       </div>

@@ -1,0 +1,182 @@
+{
+  "nav": {
+    "about": "Tietoja",
+    "songs": "Laulut",
+    "shows": "Konsertit",
+    "notes": "Muistiinpanot",
+    "shop": "Kauppa",
+    "contact": "Yhteystiedot"
+  },
+  "home": {
+    "footer": {
+      "storyteller": "Tarinankerrontakonsertti",
+      "syncLicensing": "Synkronoinnin lisensointi"
+    }
+  },
+  "concierge": {
+    "heading": "Minkä laulun voin soittaa sinulle?",
+    "placeholder": "Jotain hiljaista myöhäiseen yöhön…",
+    "or": "tai",
+    "chips": {
+      "latest": "Uusin julkaisu",
+      "mostPlayed": "Eniten soitettu",
+      "unexpected": "Yllätys"
+    }
+  },
+  "about": {
+    "subtitle": "Singer-songwriter · Luzern",
+    "bio1": "Erik Sjøholm on lauluntekijä ja tarinankertoija Pohjanmaalta — Suomen ruotsinkieliseltä rannikolta — ja asuu nyt Luzernissa, Sveitsissä. Hän kirjoittaa lauluja, joilla ei ole kiire — musiikkia, joka rakentuu todellisista hetkistä, hiljaa eletyistä ja syvästi koetuista.",
+    "bio2": "John Lennonin, Jeff Buckleyn, Joni Mitchellin ja Damien Ricen muovaama hänen musiikkinsa kantaa tarinan painoa, jonka olet kuullut ennenkin mutta et osaa täysin sijoittaa. Lauluja rakkaudesta, menetyksestä, etäisyydestä ja kotiin paluusta — ja ohuesta rajasta kaiken tämän välillä. Hän kirjoittaa englanniksi ja ruotsiksi, joskus molempia samalla hengityksellä.",
+    "bio3": "Hän on esiintynyt eri puolilla Eurooppaa — Ruotsin Arbogast Festivalilta Alankomaiden Mezrabiin ja Amsterdam Storytelling Festivaliin, sekä tarinankerrontatapahtumiin Kroatiassa ja Suomessa. Hänen konserttimuotonsa GLENN yhdistää omia lauluja puhuttuun kerrontaan: jokainen laulu ansaitsee paikkansa huoneessa ennen kuin se soitetaan.",
+    "pullQuote": "Uskon, että ansaitset tulla kunnioitetuksi ja rakastetuksi sellaisena kuin olet.",
+    "findTheWork": "Löydä työ",
+    "listen": "Kuuntele",
+    "follow": "Seuraa",
+    "contact": "Yhteystiedot",
+    "explore": "Tutki",
+    "theStoryteller": "Tarinankerrontakonsertti →",
+    "syncLicensing": "Synkronoinnin lisensointi →",
+    "songs": "Laulut →"
+  },
+  "songs": {
+    "eyebrow": "Sanoitukset & tarinat",
+    "title": "Laulut",
+    "featuredSongs": "{n} valittua laulua yli 300 alkuperäiskappaleen katalogista — sanoituksineen, jokaisen tarina taustoineen ja kuuntelulinkit.",
+    "fullCatalogueSpotify": "Koko katalogi Spotifyssa →",
+    "fullCatalogueTidal": "Koko katalogi Tidalissa →",
+    "thereIsMore": "On muutakin",
+    "sync": {
+      "eyebrow": "Musiikkia kuvaan",
+      "title": "Synkronoinnin lisensointi",
+      "desc": "Alkuperäisiä lauluja elokuviin, televisioon, mainontaan ja interaktiivisiin medioihin. One-stop-lisensointi — master ja kustantaminen yhdessä sopimuksessa.",
+      "cta": "Selaa katalogi →"
+    },
+    "forYou": {
+      "eyebrow": "Jotain henkilökohtaista",
+      "title": "Songs For You",
+      "desc": "Laulu kirjoitettuna tyhjästä jollekin, jota rakastat. Häät, merkkipaalut, hetket, jotka ansaitsevat oman musiikkinsa. Jokainen on kirjoitettu vain sinulle.",
+      "cta": "Aloita keskustelu →"
+    },
+    "notes": {
+      "eyebrow": "Työn takana",
+      "title": "Notes",
+      "desc": "Uutiskirje tekemisestä — mitä luovan elämän rakentaminen todella vaatii. Sanoituksia ennen valmistumistaan, tarinoita ennen kertomistaan.",
+      "cta": "Tilaa Notes →"
+    }
+  },
+  "live": {
+    "eyebrow": "Live",
+    "title": "Konsertit",
+    "upcoming": {
+      "label": "Tulevat",
+      "noShows": "Päivämääriä ei ole vielä ilmoitettu.",
+      "notesFirst": "Kun konsertit vahvistetaan, Notes-tilaajat kuulevat siitä ensimmäisinä.",
+      "subscribeBtn": "Tilaa Notes"
+    },
+    "concertSeries": {
+      "label": "Konserttisarja",
+      "desc1": "Intiimi konserttisarja sidottuna vuoden kiertokulkuun — neljä iltaa, neljä vuodenaikaa, hetkeen kirjoitettuja alkuperäiskappaleita. Pienet tilat, lähellä kuunteleminen, ei toistuvaa setlistiä.",
+      "desc2": "Päivämäärät ilmoitetaan ensin Notes-tilaajille.",
+      "cta": "Liity listalle →"
+    },
+    "pastStages": "Aiemmat lavat",
+    "getInTouch": {
+      "label": "Ota yhteyttä",
+      "heading": "Haluatko Erikin tapahtumaasi?",
+      "desc": "Konsertteja, festivaaleja ja yksityisiä tapahtumia varten — ota suoraan yhteyttä.",
+      "contactPage": "Yhteystietosivu →"
+    }
+  },
+  "contact": {
+    "title": "Pidetään yhteyttä.",
+    "writeDirectly": "Kirjoita suoraan",
+    "whatThisIsAbout": "Mistä on kyse",
+    "topics": [
+      { "title": "Booking & liveesiintymiset", "body": "Konsertti-, festivaali- tai tarinankerrontatilaisuustiedusteluihin." },
+      { "title": "Yhteistyö", "body": "Yhteiskirjoittaminen, tuotanto tai mikä tahansa luova yhteishanke." },
+      { "title": "Lehdistö & media", "body": "Haastattelut, artikkelit, lisensointi tai toimitukselliset pyynnöt." },
+      { "title": "Kaikki muu", "body": "Ystävällinen sana on aina tervetullut." }
+    ],
+    "commission": "Tilaustyö",
+    "songsForYouTitle": "Songs For You",
+    "songsForYouDesc": "Laulu kirjoitettuna jollekin, jota rakastat, hetkelle, joka ansaitsee oman musiikkinsa. Häät, merkkipaalut, merkitykselliset ihmiset. Jokainen kirjoitetaan tyhjästä, vain sinulle.",
+    "toBegin": "Aloittaaksesi keskustelun:",
+    "forProfessionals": "Ammattilaisille",
+    "glennLink": "GLENN — Tarinankerrontakonsertti →",
+    "syncLink": "Synkronoinnin lisensointi →",
+    "elsewhere": "Muualla"
+  },
+  "storyteller": {
+    "eyebrow": "Tarinankerrontakonsertti",
+    "heroBio": "Tarinankerrontakonsertti, joka syntyi päivänä, jolloin Erik Sjøholm tuli maailmaan — ja hänen setänsä Glenn lähti siitä.",
+    "watchTrailer": "Katso traileri",
+    "theShow": "Esitys",
+    "showDesc1": "Kuvittele lumihangessa hukkuva maailma, jossa valo ja pimeys tanssivat hiljaisuuden reunalla. Siellä syntyi Erik Sjøholm — ja juuri sinä päivänä hänen setänsä Glenn riisti itseltään hengen jättäen perinnöksi surun, kysymyksiä ja kertomattomia tarinoita.",
+    "showDesc2": "Tässä tarinankerrontakonsertissa Erik kaivaa lumen ja jään alta paljastaen perheensä kertomattoman mytologian palasia. Raakoja henkilökohtaisia tarinoita ja alkuperäislauluja yhdistellen — Damien Ricen, Glen Hansardin ja Jeff Buckleyn perinteessä — hän vie sinut matkalle menetyksen, itsensä löytämisen ja merkityksen etsimisen ytimeen.",
+    "themes": [
+      { "title": "Suru ja menetys", "sub": "Kertomattomat tarinat, perheen mytologia" },
+      { "title": "Sinnikkyys", "sub": "Nouseminen kivun tuhkasta" },
+      { "title": "Muutos", "sub": "Pimeyden muuttaminen taiteeksi" },
+      { "title": "Ihmisyhteys", "sub": "Hiljaisten kamppailujen universaalius" }
+    ],
+    "audience": "Yleisö",
+    "watch": "Katso",
+    "trailerCaption": "Esitetty GLÖD Storytelling Festivalilla, Vaasa, Suomi — maaliskuu 2022",
+    "theTeam": "Tiimi",
+    "teamMembers": [
+      {
+        "name": "Erik Sjøholm",
+        "role": "Esiintyjä & kirjailija",
+        "bio": "Lauluntekijä ja tarinankertoija Erik tuo raaka henkilökohtaisen kerronnan lavalle yhdistäen musiikin ja tarinoiden kertomisen tavalla, joka koskettaa yleisöä syvästi."
+      },
+      {
+        "name": "Raphael Rodan",
+        "role": "Meiskirjailija & ohjaaja",
+        "bio": "Palkittu tarinankertoija ja teatteriohjaaja Alankomaista. Hänen työssään keskiössä on henkilökohtainen mytologia ja universaalit tarinat, jotka yhdistävät meitä."
+      },
+      {
+        "name": "Mey Rahimi",
+        "role": "Visuaalinen suunnittelija & kirjailija",
+        "bio": "Monitieteinen taiteilija, joka on erikoistunut visuaaliseen tarinankerrontaan ja lavastukseen. Hänen visuaalinen estetiikkansa syventää esityksen emotionaalista ulottuvuutta."
+      }
+    ],
+    "fundingNote": "Tätä tarinankerrontakonserttia on osittain rahoittanut Svenska Kulturfonden.",
+    "booking": "Booking",
+    "forProgrammers": "Ohjelmoijille & festivaaleille",
+    "theShowLabel": "Esitys",
+    "showSpecs": [
+      { "term": "Kesto", "desc": "60 minuuttia" },
+      { "term": "Kieli", "desc": "Englanti tai ruotsi (ilmoitetaan buukattaessa)" },
+      { "term": "Kohderyhmä", "desc": "Yli 16-vuotiaat, tarinankerrontafestivaalit, kulttuurifestivaalit, teatterit, mielenterveystietoisuusohjelmat, yliopistot, työssä jaksaminen" }
+    ],
+    "stageRequirements": "Lavatekniset vaatimukset",
+    "stageSpecs": [
+      { "term": "Lavan koko", "desc": "Vähintään 4m × 4m" },
+      { "term": "Valaistus", "desc": "Peruslavavalaistus kohdevalomahdollisuudella" },
+      { "term": "Ääni", "desc": "PA-järjestelmä lauluäänelle ja akustiselle kitaralle" },
+      { "term": "Tech rider", "desc": "Täydellinen tech rider ja presskansio saatavilla pyydettäessä" }
+    ],
+    "seeTheShow": "Näe esitys",
+    "seeTheShowDesc": "Tulevat päivämäärät ja tapahtumat ilmoitetaan Notes-uutiskirjeessä — Erikin newsletterissä.",
+    "subscribeBtn": "Tilaa Notes",
+    "bookGlenn": "Varaa GLENN",
+    "bookGlennDesc": "Saatavuuden, palkkioiden ja teknisten vaatimusten käsittelemiseksi ota suoraan yhteyttä.",
+    "getInTouch": "Ota yhteyttä"
+  },
+  "sync": {
+    "eyebrow": "Synkronoinnin lisensointi",
+    "title": "Musiikkia kuvaan.",
+    "intro": "Alkuperäisiä lauluja ja instrumentaaleja elokuviin, televisioon, mainontaan ja interaktiivisiin medioihin. Useimmat kappaleet ovat one-stop — yhdellä lisenssillä selvitetään sekä master- että julkaisuoikeudet.",
+    "catalogueLabel": "Katalogi",
+    "openOnDisco": "Avaa Discossa →",
+    "whatYouGet": "Mitä saat",
+    "specs": [
+      { "label": "Muoto", "title": "One-stop-lisensointi", "desc": "Yhdellä sopimuksella selvitetään sekä master- että julkaisuoikeudet. Ei tarvitse tavoitella useita oikeudenhaltijoita." },
+      { "label": "Katalogi", "title": "~300 alkuperäiskappaletta", "desc": "Singer-songwriter-materiaalia englannin ja skandinaavisten kielten kirjossa. Tunnelmallista, kerronnallista, tunteellisesti ankkuroitua." },
+      { "label": "Toimitus", "title": "Stemit pyydettäessä", "desc": "Puhtaita stemmejä ja instrumentaaliversioita saatavilla useimmille kappaleille. Ota yhteyttä briefisi kanssa." }
+    ],
+    "getInTouch": "Ota yhteyttä",
+    "sendABrief": "Lähetä brief.",
+    "contactDesc": "Oli kyseessä sitten tietty kohtaus, tunnelmaviite tai halu tutustua katalogiin — ota suoraan yhteyttä. Räätälöidyt tarjoukset kaikenkokoisille projekteille."
+  }
+}

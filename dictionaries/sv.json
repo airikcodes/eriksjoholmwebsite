@@ -1,0 +1,182 @@
+{
+  "nav": {
+    "about": "Om mig",
+    "songs": "Låtar",
+    "shows": "Konserter",
+    "notes": "Anteckningar",
+    "shop": "Butik",
+    "contact": "Kontakt"
+  },
+  "home": {
+    "footer": {
+      "storyteller": "Berättaren",
+      "syncLicensing": "Synklicenser"
+    }
+  },
+  "concierge": {
+    "heading": "Vilken låt kan jag spela för dig?",
+    "placeholder": "Något stilla för sent på kvällen…",
+    "or": "eller",
+    "chips": {
+      "latest": "Senaste släppet",
+      "mostPlayed": "Mest spelad",
+      "unexpected": "Oväntat"
+    }
+  },
+  "about": {
+    "subtitle": "Singer-songwriter · Luzern",
+    "bio1": "Erik Sjøholm är singer-songwriter och berättare från Österbotten — den svenskspråkiga kusten i Finland — och är nu bosatt i Luzern, Schweiz. Han skriver låtar som inte har bråttom — musik byggd av verkliga ögonblick, levda i stillhet och kända på djupet.",
+    "bio2": "Formad av John Lennon, Jeff Buckley, Joni Mitchell och Damien Rice bär hans musik tyngden av en historia du hört förut men inte riktigt kan placera. Låtar om kärlek, förlust, avstånd och hemkomst — och den tunna linjen mellan allt det. Han skriver på engelska och svenska, ibland båda i samma andetag.",
+    "bio3": "Han har uppträtt runt om i Europa — från Arbogast Festival i Sverige till Mezrab och Amsterdam Storytelling Festival i Nederländerna, till berättarkvällar i Kroatien och Finland. Hans konsertformat GLENN väver samman egna låtar med spoken word-berättande: varje låt förtjänar sin plats i rummet innan den spelas.",
+    "pullQuote": "Jag tror att du förtjänar att bli respekterad och älskad för den du är.",
+    "findTheWork": "Hitta musiken",
+    "listen": "Lyssna",
+    "follow": "Följ",
+    "contact": "Kontakt",
+    "explore": "Utforska",
+    "theStoryteller": "Berättaren →",
+    "syncLicensing": "Synklicenser →",
+    "songs": "Låtar →"
+  },
+  "songs": {
+    "eyebrow": "Texter & berättelser",
+    "title": "Låtar",
+    "featuredSongs": "{n} utvalda låtar från en katalog med över 300 egna kompositioner — med texter, historien bakom var och en och länkar för att lyssna.",
+    "fullCatalogueSpotify": "Hela katalogen på Spotify →",
+    "fullCatalogueTidal": "Hela katalogen på Tidal →",
+    "thereIsMore": "Det finns mer",
+    "sync": {
+      "eyebrow": "Musik för bild",
+      "title": "Synklicenser",
+      "desc": "Originallåtar tillgängliga för film, TV, reklam och interaktiva medier. One-stop-licensiering — master och förlag i ett enda avtal.",
+      "cta": "Bläddra i katalogen →"
+    },
+    "forYou": {
+      "eyebrow": "Något personligt",
+      "title": "Songs For You",
+      "desc": "En låt skriven från grunden för någon du älskar. Bröllop, milstolpar, ögonblick som förtjänar sin egen musik. Varje låt är skriven bara för dig.",
+      "cta": "Inled ett samtal →"
+    },
+    "notes": {
+      "eyebrow": "Bakom arbetet",
+      "title": "Notes",
+      "desc": "Ett nyhetsbrev om att skapa — vad det faktiskt krävs för att bygga ett kreativt liv. Texter innan de är klara, berättelser innan de berättas.",
+      "cta": "Prenumerera på Notes →"
+    }
+  },
+  "live": {
+    "eyebrow": "Live",
+    "title": "Konserter",
+    "upcoming": {
+      "label": "Kommande",
+      "noShows": "Inga datum annonserade ännu.",
+      "notesFirst": "När konserter bekräftas får Notes-prenumeranter höra det först.",
+      "subscribeBtn": "Prenumerera på Notes"
+    },
+    "concertSeries": {
+      "label": "Konsertsvit",
+      "desc1": "En intim konsertsvit knuten till årets gång — fyra kvällar, fyra årstider, egna låtar skrivna för stunden. Små rum, nära lyssnande, ingen setlista upprepas.",
+      "desc2": "Datum annonseras till Notes-prenumeranter först.",
+      "cta": "Gå med i listan →"
+    },
+    "pastStages": "Tidigare scener",
+    "getInTouch": {
+      "label": "Ta kontakt",
+      "heading": "Vill du ha Erik på ditt evenemang?",
+      "desc": "För konserter, festivaler och privata evenemang — kontakta direkt.",
+      "contactPage": "Kontaktsida →"
+    }
+  },
+  "contact": {
+    "title": "Låt oss hålla kontakten.",
+    "writeDirectly": "Skriv direkt",
+    "whatThisIsAbout": "Vad det handlar om",
+    "topics": [
+      { "title": "Bokning & livekonserter", "body": "För förfrågningar om konserter, festivaler eller berättarkvällar." },
+      { "title": "Samarbete", "body": "Co-writing, produktion eller gemensamt kreativt projekt." },
+      { "title": "Press & media", "body": "Intervjuer, features, licenser eller redaktionella förfrågningar." },
+      { "title": "Allt annat", "body": "Ett vänligt ord är alltid välkommet." }
+    ],
+    "commission": "Beställning",
+    "songsForYouTitle": "Songs For You",
+    "songsForYouDesc": "En låt skriven för någon du älskar, för ett ögonblick som förtjänar sin egen musik. Bröllop, milstolpar, människor som betyder något. Varje låt skrivs från grunden, bara för dig.",
+    "toBegin": "För att inleda ett samtal:",
+    "forProfessionals": "För proffs",
+    "glennLink": "GLENN — Berättarkonserten →",
+    "syncLink": "Synklicenser →",
+    "elsewhere": "På andra ställen"
+  },
+  "storyteller": {
+    "eyebrow": "En berättarkonsert",
+    "heroBio": "En berättarkonsert som föddes den dag Erik Sjøholm kom till världen — och hans farbror Glenn lämnade den.",
+    "watchTrailer": "Se trailer",
+    "theShow": "Föreställningen",
+    "showDesc1": "Föreställ dig en värld täckt av snö, där ljus och mörker dansar vid tystnadens rand. Det är där Erik Sjøholm föddes — och exakt den dagen tog hans farbror Glenn sitt eget liv och lämnade ett arv av sorg, frågor och osagda berättelser.",
+    "showDesc2": "I denna berättarkonsert gräver Erik under snö och is och blottlägger fragment av familjens osagda mytologi. Genom råa personliga berättelser och egna låtar — i traditionen från Damien Rice, Glen Hansard och Jeff Buckley — tar han dig med på en resa in i förlusens, självupptäcktens och meningssökandets hjärta.",
+    "themes": [
+      { "title": "Sorg och förlust", "sub": "Osagda berättelser, familjemytologi" },
+      { "title": "Resiliens", "sub": "Resa sig ur smärtans aska" },
+      { "title": "Förvandling", "sub": "Förvandla mörker till konst" },
+      { "title": "Mänsklig gemenskap", "sub": "Det universella i tysta kamper" }
+    ],
+    "audience": "Publik",
+    "watch": "Se",
+    "trailerCaption": "Framförd på GLÖD Storytelling Festival, Vasa, Finland — mars 2022",
+    "theTeam": "Teamet",
+    "teamMembers": [
+      {
+        "name": "Erik Sjøholm",
+        "role": "Performer & skribent",
+        "bio": "Singer-songwriter och berättare — Erik för en rå personlig berättelse till scenen och blandar musik och historier på ett sätt som berör publiken djupt."
+      },
+      {
+        "name": "Raphael Rodan",
+        "role": "Medförfattare & regissör",
+        "bio": "Prisbelönt berättare och teaterregissör baserad i Nederländerna. Hans arbete fokuserar på personlig mytologi och de universella berättelser som förenar oss."
+      },
+      {
+        "name": "Mey Rahimi",
+        "role": "Visuell formgivare & skribent",
+        "bio": "En multidisciplinär konstnär specialiserad på visuellt berättande och scenografi. Hennes visuella estetik fördjupar föreställningens emotionella dimension."
+      }
+    ],
+    "fundingNote": "Denna berättarkonsert har delvis finansierats av Svenska Kulturfonden.",
+    "booking": "Bokning",
+    "forProgrammers": "För arrangörer & festivaler",
+    "theShowLabel": "Föreställningen",
+    "showSpecs": [
+      { "term": "Längd", "desc": "60 minuter" },
+      { "term": "Språk", "desc": "Engelska eller svenska (anges vid bokning)" },
+      { "term": "Målgrupp", "desc": "Från 16 år, berättarfestivaler, kulturfestivaler, teatrar, program för psykisk hälsa, universitet, företagshälsovård" }
+    ],
+    "stageRequirements": "Scenkrav",
+    "stageSpecs": [
+      { "term": "Scenstorlek", "desc": "Minst 4m × 4m" },
+      { "term": "Ljus", "desc": "Grundläggande scenbelysning med spotlight-möjlighet" },
+      { "term": "Ljud", "desc": "PA-system för sång och akustisk gitarr" },
+      { "term": "Tech rider", "desc": "Fullständig tech rider och presskitt tillgängligt på begäran" }
+    ],
+    "seeTheShow": "Se föreställningen",
+    "seeTheShowDesc": "Kommande datum och evenemang annonseras i Notes — Eriks nyhetsbrev.",
+    "subscribeBtn": "Prenumerera på Notes",
+    "bookGlenn": "Boka GLENN",
+    "bookGlennDesc": "För att diskutera tillgänglighet, arvoden och tekniska krav — kontakta direkt.",
+    "getInTouch": "Ta kontakt"
+  },
+  "sync": {
+    "eyebrow": "Synklicenser",
+    "title": "Musik för bild.",
+    "intro": "Originallåtar och instrumentalstycken för film, TV, reklam och interaktiva medier. De flesta spår är one-stop — en enda licens reglerar både master- och publiceringsrättigheterna.",
+    "catalogueLabel": "Katalog",
+    "openOnDisco": "Öppna på Disco →",
+    "whatYouGet": "Vad du får",
+    "specs": [
+      { "label": "Format", "title": "One-stop-licensiering", "desc": "Ett enda avtal reglerar både master- och publiceringsrättigheterna. Ingen jakt på flera rättighetshavare." },
+      { "label": "Katalog", "title": "~300 originallåtar", "desc": "Singer-songwriter-material på engelska och skandinaviska språk. Atmosfäriskt, berättande, emotionellt förankrat." },
+      { "label": "Leverans", "title": "Stems på begäran", "desc": "Rena stems och instrumentalversioner tillgängliga för de flesta spår. Skicka din brief." }
+    ],
+    "getInTouch": "Ta kontakt",
+    "sendABrief": "Skicka en brief.",
+    "contactDesc": "Oavsett om du har en specifik scen, en stämningsreferens eller bara vill utforska katalogen — kontakta direkt. Individuella offerter för alla projektstorlekar."
+  }
+}

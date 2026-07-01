@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import BackNav from "@/components/BackNav";
 import SyncCatalog from "@/components/SyncCatalog";
+import { getDictionary, hasLocale } from "@/lib/dictionaries";
 
 export const metadata: Metadata = {
   title: "Sync Licensing — Erik Sjøholm",
@@ -24,25 +26,16 @@ export const metadata: Metadata = {
   },
 };
 
-const specs = [
-  {
-    label: "Format",
-    title: "One-stop licensing",
-    desc: "A single agreement clears both master and publishing rights. No chasing multiple rights holders.",
-  },
-  {
-    label: "Catalog",
-    title: "~300 original songs",
-    desc: "Singer-songwriter material across English and Scandinavian languages. Atmospheric, narrative, emotionally grounded.",
-  },
-  {
-    label: "Delivery",
-    title: "Stems on request",
-    desc: "Clean stems and instrumentals available for most tracks. Reach out with your brief.",
-  },
-];
+export default async function Sync({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!hasLocale(locale)) notFound();
+  const t = await getDictionary(locale);
+  const s = t.sync;
 
-export default function Sync() {
   return (
     <main className="min-h-screen" style={{ background: "#0D0B09", color: "#E8E0D4" }}>
 
@@ -70,7 +63,7 @@ export default function Sync() {
               color: "#7A6F62",
               marginBottom: "1.25rem",
             }}>
-              Sync Licensing
+              {s.eyebrow}
             </p>
             <h1
               className="font-[family-name:var(--font-cormorant)] font-light"
@@ -81,7 +74,7 @@ export default function Sync() {
                 lineHeight: 0.95,
               }}
             >
-              Music for<br />picture.
+              {s.title}
             </h1>
             <span className="block" style={{ width: "2rem", height: "1px", background: "#C8922A", margin: "2.5rem 0" }} />
             <p style={{
@@ -91,9 +84,7 @@ export default function Sync() {
               lineHeight: 1.85,
               maxWidth: "52ch",
             }}>
-              Original songs and instrumentals for film, television, advertising,
-              and interactive media. Most tracks are one-stop — a single license
-              clears both master and publishing rights.
+              {s.intro}
             </p>
           </div>
 
@@ -107,7 +98,7 @@ export default function Sync() {
                 textTransform: "uppercase",
                 color: "#7A6F62",
               }}>
-                Catalogue
+                {s.catalogueLabel}
               </p>
               <a
                 href="https://eriksjoholmofficial.disco.ac/cat/1272966979"
@@ -126,7 +117,7 @@ export default function Sync() {
                 }}
                 className="hover:border-[#C8922A] transition-colors duration-200"
               >
-                Open on Disco →
+                {s.openOnDisco}
               </a>
             </div>
             <SyncCatalog />
@@ -142,10 +133,10 @@ export default function Sync() {
               color: "#7A6F62",
               marginBottom: "3.5rem",
             }}>
-              What you get
+              {s.whatYouGet}
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-12">
-              {specs.map(({ label, title, desc }) => (
+              {s.specs.map(({ label, title, desc }) => (
                 <div key={label}>
                   <p style={{
                     fontFamily: "var(--font-inter)",
@@ -186,7 +177,7 @@ export default function Sync() {
               color: "#7A6F62",
               marginBottom: "1.25rem",
             }}>
-              Get in touch
+              {s.getInTouch}
             </p>
             <h2
               className="font-[family-name:var(--font-cormorant)] font-light"
@@ -197,7 +188,7 @@ export default function Sync() {
                 marginBottom: "1.75rem",
               }}
             >
-              Send a brief.
+              {s.sendABrief}
             </h2>
             <p style={{
               fontFamily: "var(--font-inter)",
@@ -207,9 +198,7 @@ export default function Sync() {
               maxWidth: "48ch",
               marginBottom: "2.25rem",
             }}>
-              Whether you have a specific scene, a mood reference, or just want
-              to explore the catalog — reach out directly. Custom quotes available
-              for all project sizes.
+              {s.contactDesc}
             </p>
             <a
               href="mailto:erik@eriksjoholm.com"

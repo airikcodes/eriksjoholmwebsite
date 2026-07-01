@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import RevealSection from "@/components/RevealSection";
 import ScrollIndicator from "@/components/ScrollIndicator";
 import SongConcierge from "@/components/SongConcierge";
 import BackgroundSlideshow from "@/components/BackgroundSlideshow";
+import { getDictionary, hasLocale } from "@/lib/dictionaries";
 
 export const metadata: Metadata = {
   title: "Erik Sjøholm",
@@ -27,16 +29,24 @@ export const metadata: Metadata = {
   },
 };
 
-const navItems = [
-  { label: "About",   href: "/about",                                          external: false },
-  { label: "Songs",   href: "/songs",                                          external: false },
-  { label: "Shows",   href: "/live",                                           external: false },
-  { label: "Notes",   href: "https://eriksjoholm-newsletter.beehiiv.com",      external: true  },
-  { label: "Shop",    href: "https://erik-sjoeholm-shop.fourthwall.com",        external: true  },
-  { label: "Contact", href: "/contact",                                         external: false },
-];
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!hasLocale(locale)) notFound();
+  const t = await getDictionary(locale);
 
-export default function Home() {
+  const navItems = [
+    { label: t.nav.about,   href: "/about",                                     external: false },
+    { label: t.nav.songs,   href: "/songs",                                     external: false },
+    { label: t.nav.shows,   href: "/live",                                      external: false },
+    { label: t.nav.notes,   href: "https://eriksjoholm-newsletter.beehiiv.com", external: true  },
+    { label: t.nav.shop,    href: "https://erik-sjoeholm-shop.fourthwall.com",   external: true  },
+    { label: t.nav.contact, href: "/contact",                                    external: false },
+  ];
+
   return (
     <main>
       <BackgroundSlideshow />
@@ -46,7 +56,14 @@ export default function Home() {
         className="relative flex flex-col items-center justify-center px-5 sm:px-6 py-16"
         style={{ minHeight: "100svh", zIndex: 2, position: "relative" }}
       >
-        <SongConcierge />
+        <SongConcierge
+          heading={t.concierge.heading}
+          placeholder={t.concierge.placeholder}
+          orLabel={t.concierge.or}
+          chipLatest={t.concierge.chips.latest}
+          chipMostPlayed={t.concierge.chips.mostPlayed}
+          chipUnexpected={t.concierge.chips.unexpected}
+        />
         <ScrollIndicator />
       </section>
 
@@ -108,7 +125,7 @@ export default function Home() {
             style={{ fontSize: "0.5rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(140,128,118,0.45)", padding: "0.5rem 0", display: "block" }}
             className="hover:text-[#C8922A] transition-colors duration-200"
           >
-            Storyteller
+            {t.home.footer.storyteller}
           </a>
           <span style={{ color: "rgba(140,128,118,0.25)", fontSize: "0.5rem" }}>·</span>
           <a
@@ -116,7 +133,7 @@ export default function Home() {
             style={{ fontSize: "0.5rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(140,128,118,0.45)", padding: "0.5rem 0", display: "block" }}
             className="hover:text-[#C8922A] transition-colors duration-200"
           >
-            Sync Licensing
+            {t.home.footer.syncLicensing}
           </a>
         </div>
         {/* Copyright */}

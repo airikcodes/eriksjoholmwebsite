@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import BackNav from "@/components/BackNav";
+import { getDictionary, hasLocale } from "@/lib/dictionaries";
 
 export const metadata: Metadata = {
   title: "Shows — Erik Sjøholm",
@@ -33,7 +35,16 @@ const pastStages = [
   { venue: "Währinge Wohnzimmer",             location: "Vienna, Austria" },
 ];
 
-export default function Shows() {
+export default async function Shows({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!hasLocale(locale)) notFound();
+  const t = await getDictionary(locale);
+  const l = t.live;
+
   return (
     <main className="min-h-screen" style={{ background: "#0D0B09", color: "#E8E0D4" }}>
 
@@ -61,7 +72,7 @@ export default function Shows() {
               color: "#7A6F62",
               marginBottom: "1.25rem",
             }}>
-              Live
+              {l.eyebrow}
             </p>
             <h1
               className="font-[family-name:var(--font-cormorant)] font-light"
@@ -72,7 +83,7 @@ export default function Shows() {
                 lineHeight: 0.95,
               }}
             >
-              Shows
+              {l.title}
             </h1>
             <span className="block" style={{ width: "2rem", height: "1px", background: "#C8922A", marginTop: "2.5rem" }} />
           </div>
@@ -87,7 +98,7 @@ export default function Shows() {
               color: "#7A6F62",
               marginBottom: "3rem",
             }}>
-              Upcoming
+              {l.upcoming.label}
             </p>
 
             <p
@@ -99,7 +110,7 @@ export default function Shows() {
                 marginBottom: "1.5rem",
               }}
             >
-              No dates announced yet.
+              {l.upcoming.noShows}
             </p>
             <p style={{
               fontFamily: "var(--font-inter)",
@@ -109,7 +120,7 @@ export default function Shows() {
               maxWidth: "44ch",
               marginBottom: "2.5rem",
             }}>
-              When shows are confirmed, subscribers to Notes hear first.
+              {l.upcoming.notesFirst}
             </p>
             <a
               href="https://eriksjoholm-newsletter.beehiiv.com"
@@ -128,7 +139,7 @@ export default function Shows() {
                 textDecoration: "none",
               }}
             >
-              Subscribe to Notes
+              {l.upcoming.subscribeBtn}
             </a>
           </div>
 
@@ -142,7 +153,7 @@ export default function Shows() {
               color: "#7A6F62",
               marginBottom: "1.25rem",
             }}>
-              Concert series
+              {l.concertSeries.label}
             </p>
             <h2
               className="font-[family-name:var(--font-cormorant)] font-light"
@@ -163,9 +174,7 @@ export default function Shows() {
               maxWidth: "50ch",
               marginBottom: "2rem",
             }}>
-              An intimate concert series tied to the turning of the year —
-              four evenings, four seasons, original songs written for the
-              moment. Small rooms, close listening, no setlist repeated.
+              {l.concertSeries.desc1}
             </p>
             <p style={{
               fontFamily: "var(--font-inter)",
@@ -175,7 +184,7 @@ export default function Shows() {
               maxWidth: "50ch",
               marginBottom: "2.5rem",
             }}>
-              Dates are announced to Notes subscribers first.
+              {l.concertSeries.desc2}
             </p>
             <a
               href="https://eriksjoholm-newsletter.beehiiv.com"
@@ -192,7 +201,7 @@ export default function Shows() {
               }}
               className="hover:text-[#C8922A] hover:border-[#C8922A] transition-colors duration-200"
             >
-              Join the list →
+              {l.concertSeries.cta}
             </a>
           </div>
 
@@ -206,7 +215,7 @@ export default function Shows() {
               color: "#7A6F62",
               marginBottom: "0",
             }}>
-              Past stages
+              {l.pastStages}
             </p>
             <ul style={{ borderTop: "1px solid rgba(255,255,255,0.07)", marginTop: "1.25rem" }}>
               {pastStages.map((s) => (
@@ -249,7 +258,7 @@ export default function Shows() {
               color: "#7A6F62",
               marginBottom: "1.25rem",
             }}>
-              Get in touch
+              {l.getInTouch.label}
             </p>
             <h2
               className="font-[family-name:var(--font-cormorant)] font-light"
@@ -260,7 +269,7 @@ export default function Shows() {
                 marginBottom: "1.75rem",
               }}
             >
-              Want Erik at<br />your event?
+              {l.getInTouch.heading}
             </h2>
             <p style={{
               fontFamily: "var(--font-inter)",
@@ -270,7 +279,7 @@ export default function Shows() {
               maxWidth: "48ch",
               marginBottom: "2rem",
             }}>
-              For concerts, festivals, and private events — reach out directly.
+              {l.getInTouch.desc}
             </p>
             <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
               <a
@@ -298,7 +307,7 @@ export default function Shows() {
                 }}
                 className="hover:text-[#C8922A] hover:border-[#C8922A] transition-colors duration-200"
               >
-                Contact page →
+                {l.getInTouch.contactPage}
               </Link>
             </div>
           </div>

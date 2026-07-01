@@ -1,0 +1,182 @@
+{
+  "nav": {
+    "about": "Über mich",
+    "songs": "Lieder",
+    "shows": "Konzerte",
+    "notes": "Notizen",
+    "shop": "Shop",
+    "contact": "Kontakt"
+  },
+  "home": {
+    "footer": {
+      "storyteller": "Geschichtenerzähler",
+      "syncLicensing": "Sync-Lizenzierung"
+    }
+  },
+  "concierge": {
+    "heading": "Welches Lied soll ich für dich spielen?",
+    "placeholder": "Etwas Leises für spät in der Nacht…",
+    "or": "oder",
+    "chips": {
+      "latest": "Neueste Veröffentlichung",
+      "mostPlayed": "Meistgehört",
+      "unexpected": "Überraschung"
+    }
+  },
+  "about": {
+    "subtitle": "Singer-Songwriter · Luzern",
+    "bio1": "Erik Sjøholm ist Singer-Songwriter und Geschichtenerzähler aus Ostrobothnien — der schwedischsprachigen Küste Finnlands — und lebt heute in Luzern, Schweiz. Er schreibt Lieder ohne Eile — Musik aus echten Momenten, still gelebt und tief empfunden.",
+    "bio2": "Geprägt von John Lennon, Jeff Buckley, Joni Mitchell und Damien Rice trägt sein Klang das Gewicht einer Geschichte, die man schon einmal gehört hat, aber nicht ganz einordnen kann. Lieder über Liebe, Verlust, Distanz und Heimkehr — und die dünne Linie zwischen all dem. Er schreibt auf Englisch und Schwedisch, manchmal beides im selben Atemzug.",
+    "bio3": "Er hat durch ganz Europa gespielt — vom Arbogast Festival in Schweden bis zu Mezrab und dem Amsterdam Storytelling Festival in den Niederlanden, bis hin zu Erzählabenden in Kroatien und Finnland. Sein Konzertformat GLENN verbindet eigene Lieder mit gesprochenen Geschichten: Jedes Lied verdient seinen Platz im Raum, bevor es gespielt wird.",
+    "pullQuote": "Ich glaube, du verdienst es, respektiert und geliebt zu werden für das, was du bist.",
+    "findTheWork": "Die Arbeit entdecken",
+    "listen": "Hören",
+    "follow": "Folgen",
+    "contact": "Kontakt",
+    "explore": "Erkunden",
+    "theStoryteller": "Der Geschichtenerzähler →",
+    "syncLicensing": "Sync-Lizenzierung →",
+    "songs": "Lieder →"
+  },
+  "songs": {
+    "eyebrow": "Texte & Geschichten",
+    "title": "Lieder",
+    "featuredSongs": "{n} ausgewählte Lieder aus einem Katalog von über 300 Eigenkompositionen — mit Texten, der Geschichte dahinter und Links zum Hören.",
+    "fullCatalogueSpotify": "Vollständiger Katalog auf Spotify →",
+    "fullCatalogueTidal": "Vollständiger Katalog auf Tidal →",
+    "thereIsMore": "Es gibt mehr",
+    "sync": {
+      "eyebrow": "Musik für das Bild",
+      "title": "Sync-Lizenzierung",
+      "desc": "Originalkompositionen für Film, Fernsehen, Werbung und interaktive Medien. One-Stop-Lizenzierung — Master und Verlag in einer einzigen Vereinbarung.",
+      "cta": "Katalog durchstöbern →"
+    },
+    "forYou": {
+      "eyebrow": "Etwas Persönliches",
+      "title": "Songs For You",
+      "desc": "Ein Lied, das von Grund auf neu für jemanden geschrieben wird, den du liebst. Hochzeiten, besondere Momente, Augenblicke, die ihre eigene Musik verdienen. Jedes Lied ist nur für dich.",
+      "cta": "Ein Gespräch beginnen →"
+    },
+    "notes": {
+      "eyebrow": "Hinter der Arbeit",
+      "title": "Notes",
+      "desc": "Ein Newsletter über das Machen — was es wirklich braucht, um ein kreatives Leben aufzubauen. Texte, bevor sie fertig sind. Geschichten, bevor sie erzählt werden.",
+      "cta": "Notes abonnieren →"
+    }
+  },
+  "live": {
+    "eyebrow": "Live",
+    "title": "Konzerte",
+    "upcoming": {
+      "label": "Bevorstehend",
+      "noShows": "Noch keine Termine angekündigt.",
+      "notesFirst": "Wenn Konzerte bestätigt werden, erfahren es die Notes-Abonnenten zuerst.",
+      "subscribeBtn": "Notes abonnieren"
+    },
+    "concertSeries": {
+      "label": "Konzertreihe",
+      "desc1": "Eine intime Konzertreihe, die mit dem Lauf des Jahres verbunden ist — vier Abende, vier Jahreszeiten, eigene Lieder für den Moment geschrieben. Kleine Räume, aufmerksames Zuhören, keine Setliste wiederholt.",
+      "desc2": "Termine werden zuerst an Notes-Abonnenten bekanntgegeben.",
+      "cta": "In die Liste eintragen →"
+    },
+    "pastStages": "Vergangene Bühnen",
+    "getInTouch": {
+      "label": "Kontakt aufnehmen",
+      "heading": "Erik bei deiner Veranstaltung?",
+      "desc": "Für Konzerte, Festivals und private Veranstaltungen — direkt anfragen.",
+      "contactPage": "Kontaktseite →"
+    }
+  },
+  "contact": {
+    "title": "Lass uns in Kontakt bleiben.",
+    "writeDirectly": "Direkt schreiben",
+    "whatThisIsAbout": "Worum es geht",
+    "topics": [
+      { "title": "Buchung & Live-Auftritte", "body": "Für Konzert-, Festival- oder Storytelling-Anfragen." },
+      { "title": "Zusammenarbeit", "body": "Co-Writing, Produktion oder jede kreative Zusammenarbeit." },
+      { "title": "Presse & Medien", "body": "Interviews, Features, Lizenzen oder redaktionelle Anfragen." },
+      { "title": "Alles andere", "body": "Ein freundliches Wort ist immer willkommen." }
+    ],
+    "commission": "Auftragsarbeit",
+    "songsForYouTitle": "Songs For You",
+    "songsForYouDesc": "Ein Lied für jemanden, den du liebst — für einen Moment, der seine eigene Musik verdient. Hochzeiten, Meilensteine, Menschen, die zählen. Jedes Lied wird von Grund auf neu geschrieben, nur für dich.",
+    "toBegin": "Um ein Gespräch zu beginnen:",
+    "forProfessionals": "Für Fachleute",
+    "glennLink": "GLENN — Das Storytelling-Konzert →",
+    "syncLink": "Sync-Lizenzierung →",
+    "elsewhere": "Anderswo"
+  },
+  "storyteller": {
+    "eyebrow": "Ein Storytelling-Konzert",
+    "heroBio": "Ein Storytelling-Konzert, das an dem Tag entstand, als Erik Sjøholm auf die Welt kam — und sein Onkel Glenn sie verließ.",
+    "watchTrailer": "Trailer ansehen",
+    "theShow": "Die Show",
+    "showDesc1": "Stell dir eine Welt vor, die in Schnee gebettet ist, wo Licht und Dunkelheit am Rand der Stille tanzen. Dort wurde Erik Sjøholm geboren — und genau an diesem Tag nahm sich sein Onkel Glenn das Leben und hinterließ ein Erbe aus Trauer, Fragen und unausgesprochenen Geschichten.",
+    "showDesc2": "In diesem Storytelling-Konzert gräbt Erik unter Schnee und Eis und fördert Fragmente der unausgesprochenen Mythologie seiner Familie zutage. Durch rohe persönliche Geschichten und eigene Lieder — in der Tradition von Damien Rice, Glen Hansard und Jeff Buckley — nimmt er das Publikum mit auf eine Reise ins Herz von Verlust, Selbstentdeckung und der Suche nach Sinn.",
+    "themes": [
+      { "title": "Trauer und Verlust", "sub": "Unausgesprochene Geschichten, Familienmythologie" },
+      { "title": "Resilienz", "sub": "Aufstehen aus den Trümmern des Schmerzes" },
+      { "title": "Wandel", "sub": "Dunkelheit in Kunst verwandeln" },
+      { "title": "Menschliche Verbindung", "sub": "Die Universalität stiller Kämpfe" }
+    ],
+    "audience": "Publikum",
+    "watch": "Ansehen",
+    "trailerCaption": "Aufgeführt beim GLÖD Storytelling Festival, Vasa, Finnland — März 2022",
+    "theTeam": "Das Team",
+    "teamMembers": [
+      {
+        "name": "Erik Sjøholm",
+        "role": "Performer & Autor",
+        "bio": "Singer-Songwriter und Geschichtenerzähler bringt Erik eine rohe persönliche Erzählung auf die Bühne und verbindet Musik und Geschichten auf eine Weise, die das Publikum tief berührt."
+      },
+      {
+        "name": "Raphael Rodan",
+        "role": "Co-Autor & Regisseur",
+        "bio": "Preisgekrönter Geschichtenerzähler und Theaterregisseur mit Sitz in den Niederlanden. Seine Arbeit konzentriert sich auf persönliche Mythologie und die universellen Geschichten, die uns verbinden."
+      },
+      {
+        "name": "Mey Rahimi",
+        "role": "Visuelle Gestalterin & Autorin",
+        "bio": "Eine multidisziplinäre Künstlerin, spezialisiert auf visuelles Storytelling und Bühnengestaltung. Ihre Bildsprache vertieft die emotionale Dimension der Show."
+      }
+    ],
+    "fundingNote": "Dieses Storytelling-Konzert wurde teilweise von Svenska Kulturfonden gefördert.",
+    "booking": "Buchung",
+    "forProgrammers": "Für Veranstalter & Festivals",
+    "theShowLabel": "Die Show",
+    "showSpecs": [
+      { "term": "Dauer", "desc": "60 Minuten" },
+      { "term": "Sprache", "desc": "Englisch oder Schwedisch (bei Buchung angegeben)" },
+      { "term": "Zielgruppe", "desc": "Ab 16 Jahren, Storytelling-Festivals, Kulturfestivals, Theater, Programme zur psychischen Gesundheit, Universitäten, betriebliches Wohlbefinden" }
+    ],
+    "stageRequirements": "Bühnenanforderungen",
+    "stageSpecs": [
+      { "term": "Bühnengröße", "desc": "Mindestens 4m × 4m" },
+      { "term": "Beleuchtung", "desc": "Grundlegende Bühnenbeleuchtung mit Spotlight-Möglichkeit" },
+      { "term": "Ton", "desc": "PA-System für Gesang und Akustikgitarre" },
+      { "term": "Tech-Rider", "desc": "Vollständiger Tech-Rider und Pressemappe auf Anfrage erhältlich" }
+    ],
+    "seeTheShow": "Die Show erleben",
+    "seeTheShowDesc": "Bevorstehende Termine werden in Notes — Eriks Newsletter — angekündigt.",
+    "subscribeBtn": "Notes abonnieren",
+    "bookGlenn": "GLENN buchen",
+    "bookGlennDesc": "Um Verfügbarkeit, Honorare und technische Anforderungen zu besprechen, direkt anfragen.",
+    "getInTouch": "Kontakt aufnehmen"
+  },
+  "sync": {
+    "eyebrow": "Sync-Lizenzierung",
+    "title": "Musik für das Bild.",
+    "intro": "Originalkompositionen und Instrumentalstücke für Film, Fernsehen, Werbung und interaktive Medien. Die meisten Titel sind One-Stop — eine einzige Lizenz klärt sowohl Master- als auch Verlagsrechte.",
+    "catalogueLabel": "Katalog",
+    "openOnDisco": "Auf Disco öffnen →",
+    "whatYouGet": "Was du bekommst",
+    "specs": [
+      { "label": "Format", "title": "One-Stop-Lizenzierung", "desc": "Eine einzige Vereinbarung klärt sowohl Master- als auch Verlagsrechte. Kein Nachfassen bei mehreren Rechteinhabern." },
+      { "label": "Katalog", "title": "~300 Eigenkompositionen", "desc": "Singer-Songwriter-Material in englischer und skandinavischer Sprache. Atmosphärisch, erzählerisch, emotional geerdet." },
+      { "label": "Lieferung", "title": "Stems auf Anfrage", "desc": "Saubere Stems und Instrumentalversionen für die meisten Titel erhältlich. Mit einem Brief anfragen." }
+    ],
+    "getInTouch": "Kontakt aufnehmen",
+    "sendABrief": "Eine Anfrage schicken.",
+    "contactDesc": "Ob du eine bestimmte Szene, eine Stimmungsreferenz hast oder einfach den Katalog erkunden möchtest — direkt anfragen. Individuelle Angebote für alle Projektgrößen."
+  }
+}

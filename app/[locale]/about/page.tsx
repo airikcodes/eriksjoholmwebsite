@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import BackNav from "@/components/BackNav";
 import RevealSection from "@/components/RevealSection";
+import { getDictionary, hasLocale } from "@/lib/dictionaries";
 
 export const metadata: Metadata = {
   title: "About — Erik Sjøholm",
@@ -25,7 +27,16 @@ export const metadata: Metadata = {
   },
 };
 
-export default function About() {
+export default async function About({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!hasLocale(locale)) notFound();
+  const t = await getDictionary(locale);
+  const a = t.about;
+
   return (
     <main className="min-h-screen" style={{ background: "#0D0B09", color: "#E8E0D4" }}>
 
@@ -85,7 +96,7 @@ export default function About() {
               textTransform: "uppercase",
               color: "#7A6F62",
             }}>
-              Singer-songwriter · Luzern
+              {a.subtitle}
             </p>
           </div>
 
@@ -97,10 +108,7 @@ export default function About() {
                 className="font-[family-name:var(--font-cormorant)] font-light leading-relaxed"
                 style={{ fontSize: "clamp(1.15rem, 2.8vw, 1.55rem)", color: "#E8E0D4" }}
               >
-                Erik Sjøholm is a singer-songwriter and storyteller from Ostrobothnia —
-                the Swedish-speaking coast of Finland — now based in Luzern, Switzerland.
-                He writes songs that don&apos;t rush — music built from real moments,
-                lived quietly and felt deeply.
+                {a.bio1}
               </p>
 
               <span className="block" style={{ width: "2rem", height: "1px", background: "#C8922A", margin: "3rem 0" }} />
@@ -112,11 +120,7 @@ export default function About() {
                   color: "#7A6F62",
                   lineHeight: 1.9,
                 }}>
-                  Shaped by John Lennon, Jeff Buckley, Joni Mitchell, and Damien Rice,
-                  his sound carries the weight of a story you&apos;ve heard before but
-                  can&apos;t quite place. Songs about love, loss, distance, and homecoming —
-                  and the thin line between all of them. He writes in English and
-                  Swedish, sometimes both in the same breath.
+                  {a.bio2}
                 </p>
 
                 <p style={{
@@ -125,11 +129,7 @@ export default function About() {
                   color: "#7A6F62",
                   lineHeight: 1.9,
                 }}>
-                  He has performed across Europe — from the Arbogast Festival in Sweden
-                  to Mezrab and the Amsterdam Storytelling Festival in the Netherlands,
-                  to storytelling gatherings in Croatia and Finland. His concert
-                  format GLENN weaves original songs with spoken narrative: every song
-                  earns its place in the room before it&apos;s played.
+                  {a.bio3}
                 </p>
               </div>
 
@@ -145,7 +145,7 @@ export default function About() {
                   lineHeight: 1.6,
                 }}
               >
-                &ldquo;I think you deserve to be respected and loved for who you are.&rdquo;
+                &ldquo;{a.pullQuote}&rdquo;
               </blockquote>
 
             </div>
@@ -163,7 +163,7 @@ export default function About() {
                 color: "#7A6F62",
                 marginBottom: "3.5rem",
               }}>
-                Find the work
+                {a.findTheWork}
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-10 sm:gap-y-16 gap-x-12">
@@ -177,7 +177,7 @@ export default function About() {
                     color: "#7A6F62",
                     marginBottom: "1.25rem",
                   }}>
-                    Listen
+                    {a.listen}
                   </p>
                   <div className="space-y-4">
                     <a
@@ -208,7 +208,7 @@ export default function About() {
                     color: "#7A6F62",
                     marginBottom: "1.25rem",
                   }}>
-                    Follow
+                    {a.follow}
                   </p>
                   <div className="space-y-4">
                     <a
@@ -263,7 +263,7 @@ export default function About() {
                     color: "#7A6F62",
                     marginBottom: "1.25rem",
                   }}>
-                    Contact
+                    {a.contact}
                   </p>
                   <a
                     href="mailto:erik@eriksjoholm.com"
@@ -283,7 +283,7 @@ export default function About() {
                     color: "#7A6F62",
                     marginBottom: "1.25rem",
                   }}>
-                    Explore
+                    {a.explore}
                   </p>
                   <div className="space-y-4">
                     <Link
@@ -291,21 +291,21 @@ export default function About() {
                       className="block hover:text-[#E8E0D4] transition-colors duration-200"
                       style={{ fontFamily: "var(--font-inter)", fontSize: "0.82rem", color: "#7A6F62", letterSpacing: "0.03em", padding: "0.25rem 0" }}
                     >
-                      Songs →
+                      {a.songs}
                     </Link>
                     <Link
                       href="/storyteller"
                       className="block hover:text-[#E8E0D4] transition-colors duration-200"
                       style={{ fontFamily: "var(--font-inter)", fontSize: "0.82rem", color: "#7A6F62", letterSpacing: "0.03em", padding: "0.25rem 0" }}
                     >
-                      The Storyteller →
+                      {a.theStoryteller}
                     </Link>
                     <Link
                       href="/sync"
                       className="block hover:text-[#E8E0D4] transition-colors duration-200"
                       style={{ fontFamily: "var(--font-inter)", fontSize: "0.82rem", color: "#7A6F62", letterSpacing: "0.03em", padding: "0.25rem 0" }}
                     >
-                      Sync Licensing →
+                      {a.syncLicensing}
                     </Link>
                   </div>
                 </div>

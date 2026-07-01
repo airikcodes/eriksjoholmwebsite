@@ -1,0 +1,182 @@
+{
+  "nav": {
+    "about": "About",
+    "songs": "Songs",
+    "shows": "Shows",
+    "notes": "Notes",
+    "shop": "Shop",
+    "contact": "Contact"
+  },
+  "home": {
+    "footer": {
+      "storyteller": "Storyteller",
+      "syncLicensing": "Sync Licensing"
+    }
+  },
+  "concierge": {
+    "heading": "What song can I play for you?",
+    "placeholder": "Something quiet for late at night…",
+    "or": "or",
+    "chips": {
+      "latest": "Latest Release",
+      "mostPlayed": "Most Played",
+      "unexpected": "Unexpected"
+    }
+  },
+  "about": {
+    "subtitle": "Singer-songwriter · Luzern",
+    "bio1": "Erik Sjøholm is a singer-songwriter and storyteller from Ostrobothnia — the Swedish-speaking coast of Finland — now based in Luzern, Switzerland. He writes songs that don't rush — music built from real moments, lived quietly and felt deeply.",
+    "bio2": "Shaped by John Lennon, Jeff Buckley, Joni Mitchell, and Damien Rice, his sound carries the weight of a story you've heard before but can't quite place. Songs about love, loss, distance, and homecoming — and the thin line between all of them. He writes in English and Swedish, sometimes both in the same breath.",
+    "bio3": "He has performed across Europe — from the Arbogast Festival in Sweden to Mezrab and the Amsterdam Storytelling Festival in the Netherlands, to storytelling gatherings in Croatia and Finland. His concert format GLENN weaves original songs with spoken narrative: every song earns its place in the room before it's played.",
+    "pullQuote": "I think you deserve to be respected and loved for who you are.",
+    "findTheWork": "Find the work",
+    "listen": "Listen",
+    "follow": "Follow",
+    "contact": "Contact",
+    "explore": "Explore",
+    "theStoryteller": "The Storyteller →",
+    "syncLicensing": "Sync Licensing →",
+    "songs": "Songs →"
+  },
+  "songs": {
+    "eyebrow": "Lyrics & Stories",
+    "title": "Songs",
+    "featuredSongs": "{n} featured songs from a catalogue of over 300 original compositions — with lyrics, the story behind each, and links to listen.",
+    "fullCatalogueSpotify": "Full catalogue on Spotify →",
+    "fullCatalogueTidal": "Full catalogue on Tidal →",
+    "thereIsMore": "There is more",
+    "sync": {
+      "eyebrow": "Music for picture",
+      "title": "Sync Licensing",
+      "desc": "Original songs available for film, television, advertising, and interactive media. One-stop licensing — master and publishing in a single agreement.",
+      "cta": "Browse the catalogue →"
+    },
+    "forYou": {
+      "eyebrow": "Something personal",
+      "title": "Songs For You",
+      "desc": "A song written from scratch for someone you love. Weddings, milestones, moments that deserve their own music. Each one is written for you alone.",
+      "cta": "Begin a conversation →"
+    },
+    "notes": {
+      "eyebrow": "Behind the work",
+      "title": "Notes",
+      "desc": "A newsletter about making — what it actually takes to build a creative life. Lyrics before they're finished, stories before they're told.",
+      "cta": "Subscribe to Notes →"
+    }
+  },
+  "live": {
+    "eyebrow": "Live",
+    "title": "Shows",
+    "upcoming": {
+      "label": "Upcoming",
+      "noShows": "No dates announced yet.",
+      "notesFirst": "When shows are confirmed, subscribers to Notes hear first.",
+      "subscribeBtn": "Subscribe to Notes"
+    },
+    "concertSeries": {
+      "label": "Concert series",
+      "desc1": "An intimate concert series tied to the turning of the year — four evenings, four seasons, original songs written for the moment. Small rooms, close listening, no setlist repeated.",
+      "desc2": "Dates are announced to Notes subscribers first.",
+      "cta": "Join the list →"
+    },
+    "pastStages": "Past stages",
+    "getInTouch": {
+      "label": "Get in touch",
+      "heading": "Want Erik at your event?",
+      "desc": "For concerts, festivals, and private events — reach out directly.",
+      "contactPage": "Contact page →"
+    }
+  },
+  "contact": {
+    "title": "Let's be in touch.",
+    "writeDirectly": "Write directly",
+    "whatThisIsAbout": "What this is about",
+    "topics": [
+      { "title": "Booking & live shows", "body": "For concert, festival, or storytelling event enquiries." },
+      { "title": "Collaboration", "body": "Co-writing, production, or any creative joint venture." },
+      { "title": "Press & media", "body": "Interviews, features, licensing, or editorial requests." },
+      { "title": "Everything else", "body": "A kind word is always welcome." }
+    ],
+    "commission": "Commission",
+    "songsForYouTitle": "Songs For You",
+    "songsForYouDesc": "A song written for someone you love, for a moment that deserves its own music. Weddings, milestones, people who matter. Each one is written from scratch, for you alone.",
+    "toBegin": "To begin a conversation:",
+    "forProfessionals": "For professionals",
+    "glennLink": "GLENN — The Storytelling Concert →",
+    "syncLink": "Sync Licensing →",
+    "elsewhere": "Elsewhere"
+  },
+  "storyteller": {
+    "eyebrow": "A Storytelling Concert",
+    "heroBio": "A storytelling concert born on the day Erik Sjøholm came into the world — and his uncle Glenn left it.",
+    "watchTrailer": "Watch Trailer",
+    "theShow": "The Show",
+    "showDesc1": "Imagine a world blanketed in snow, where light and darkness dance on the edge of silence. That is where Erik Sjøholm was born — and on that very day, his uncle Glenn took his own life, leaving behind a legacy of grief, questions, and unspoken stories.",
+    "showDesc2": "In this storytelling concert, Erik digs beneath the snow and ice, uncovering fragments of his family's unspoken mythology. Through raw personal stories and original songs — in the tradition of Damien Rice, Glen Hansard, and Jeff Buckley — he takes you on a journey into the heart of loss, self-discovery, and the search for meaning.",
+    "themes": [
+      { "title": "Grief and Loss", "sub": "Unspoken stories, family mythology" },
+      { "title": "Resilience", "sub": "Rising from the ashes of pain" },
+      { "title": "Transformation", "sub": "Turning darkness into art" },
+      { "title": "Human Connection", "sub": "The universality of silent struggles" }
+    ],
+    "audience": "Audience",
+    "watch": "Watch",
+    "trailerCaption": "Performed at GLÖD Storytelling Festival, Vasa, Finland — March 2022",
+    "theTeam": "The Team",
+    "teamMembers": [
+      {
+        "name": "Erik Sjøholm",
+        "role": "Performer & Writer",
+        "bio": "Singer-songwriter and storyteller, Erik brings a raw personal narrative to the stage, blending music and storytelling in a way that moves audiences deeply."
+      },
+      {
+        "name": "Raphael Rodan",
+        "role": "Co-writer & Director",
+        "bio": "An award-winning storyteller and theatre director based in the Netherlands. His work focuses on personal mythology and the universal stories that connect us."
+      },
+      {
+        "name": "Mey Rahimi",
+        "role": "Visual Designer & Writer",
+        "bio": "A multidisciplinary artist specialising in visual storytelling and stage design. Her visual aesthetics elevate the emotional depth of the show."
+      }
+    ],
+    "fundingNote": "This storytelling concert has been partly funded by Svenska Kulturfonden.",
+    "booking": "Booking",
+    "forProgrammers": "For Programmers & Festivals",
+    "theShowLabel": "The Show",
+    "showSpecs": [
+      { "term": "Duration", "desc": "60 minutes" },
+      { "term": "Language", "desc": "English or Swedish (specified at booking)" },
+      { "term": "Target audience", "desc": "Age 16+, storytelling festivals, cultural festivals, theatres, mental health awareness programmes, universities, corporate wellness" }
+    ],
+    "stageRequirements": "Stage Requirements",
+    "stageSpecs": [
+      { "term": "Stage size", "desc": "Minimum 4m × 4m" },
+      { "term": "Lighting", "desc": "Basic stage lighting with spotlight capability" },
+      { "term": "Sound", "desc": "PA system for vocals and acoustic guitar" },
+      { "term": "Tech rider", "desc": "Full tech rider and press kit available on request" }
+    ],
+    "seeTheShow": "See the Show",
+    "seeTheShowDesc": "Upcoming dates and events are announced on Notes — Erik's newsletter.",
+    "subscribeBtn": "Subscribe to Notes",
+    "bookGlenn": "Book GLENN",
+    "bookGlennDesc": "To discuss availability, fees, and technical requirements, reach out directly.",
+    "getInTouch": "Get in touch"
+  },
+  "sync": {
+    "eyebrow": "Sync Licensing",
+    "title": "Music for picture.",
+    "intro": "Original songs and instrumentals for film, television, advertising, and interactive media. Most tracks are one-stop — a single license clears both master and publishing rights.",
+    "catalogueLabel": "Catalogue",
+    "openOnDisco": "Open on Disco →",
+    "whatYouGet": "What you get",
+    "specs": [
+      { "label": "Format", "title": "One-stop licensing", "desc": "A single agreement clears both master and publishing rights. No chasing multiple rights holders." },
+      { "label": "Catalog", "title": "~300 original songs", "desc": "Singer-songwriter material across English and Scandinavian languages. Atmospheric, narrative, emotionally grounded." },
+      { "label": "Delivery", "title": "Stems on request", "desc": "Clean stems and instrumentals available for most tracks. Reach out with your brief." }
+    ],
+    "getInTouch": "Get in touch",
+    "sendABrief": "Send a brief.",
+    "contactDesc": "Whether you have a specific scene, a mood reference, or just want to explore the catalog — reach out directly. Custom quotes available for all project sizes."
+  }
+}
