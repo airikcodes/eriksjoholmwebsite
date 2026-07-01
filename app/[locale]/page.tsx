@@ -48,6 +48,10 @@ export default async function Home({
   ];
 
   return (
+    <>
+    {/* Preload first slideshow image — avoids LCP delay from CSS background discovery */}
+    {/* eslint-disable-next-line @next/next/no-page-custom-font */}
+    <link rel="preload" as="image" href="/images/bg/bg-01.jpg" fetchPriority="high" />
     <main>
       <BackgroundSlideshow />
 
@@ -153,5 +157,6 @@ export default async function Home({
         </div>
       </footer>
     </main>
+    </>
   );
 }

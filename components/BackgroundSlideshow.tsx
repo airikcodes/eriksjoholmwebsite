@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 const images = [
   "/images/bg/bg-01.jpg",
@@ -26,10 +27,22 @@ export default function BackgroundSlideshow() {
 
   return (
     <div className="bg-slideshow">
-      {images.map((src, i) => (
+      {/* First slide rendered as <Image priority> so the browser can paint it immediately */}
+      <div className={`bg-slide${current === 0 ? " active" : ""}`}>
+        <Image
+          src="/images/bg/bg-01.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          style={{ objectFit: "cover", objectPosition: "center" }}
+        />
+      </div>
+      {/* Remaining slides as CSS background (no need to prioritise) */}
+      {images.slice(1).map((src, i) => (
         <div
           key={src}
-          className={`bg-slide${i === current ? " active" : ""}`}
+          className={`bg-slide${i + 1 === current ? " active" : ""}`}
           style={{ backgroundImage: `url(${src})` }}
         />
       ))}
