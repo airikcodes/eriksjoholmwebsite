@@ -186,3 +186,76 @@ body {
   text-align: center;
   width: 100% !important;
 }
+
+/* ── Beehiiv post content ───────────────────────────────────────────────── */
+.notes-content {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.9;
+  color: #A8A098;
+}
+.notes-content p { margin-bottom: 1.4em; }
+.notes-content h1,
+.notes-content h2,
+.notes-content h3,
+.notes-content h4 {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-weight: 300;
+  color: #E8E0D4;
+  line-height: 1.15;
+  margin-top: 2.5em;
+  margin-bottom: 0.75em;
+}
+.notes-content h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); }
+.notes-content h2 { font-size: clamp(1.4rem, 3vw, 2rem); }
+.notes-content h3 { font-size: 1.25rem; }
+.notes-content a {
+  color: #C8922A;
+  text-underline-offset: 3px;
+}
+.notes-content a:hover { color: #E8E0D4; }
+.notes-content strong, .notes-content b { color: #CFC7BE; font-weight: 500; }
+.notes-content em, .notes-content i { font-style: italic; }
+.notes-content blockquote {
+  border-left: 2px solid #C8922A;
+  padding-left: 1.25rem;
+  margin: 2em 0;
+  color: #7A6F62;
+  font-style: italic;
+}
+.notes-content ul, .notes-content ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.4em;
+}
+.notes-content li { margin-bottom: 0.4em; }
+.notes-content img {
+  max-width: 100%;
+  height: auto;
+  margin: 2em 0;
+  opacity: 0.9;
+}
+.notes-content hr {
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  margin: 3em 0;
+}
+/* Strip Beehiiv's white/light backgrounds everywhere inside the post */
+.notes-content *,
+.notes-content table,
+.notes-content td,
+.notes-content tr {
+  background-color: transparent !important;
+}
+/* But preserve background on intentional buttons (styled <a> tags) */
+.notes-content a[style*="background"] {
+  display: inline-block;
+  padding: 0.6em 1.4em;
+  border-radius: 2px;
+  color: #E8E0D4 !important;
+  text-decoration: none;
+}
+.notes-content table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.notes-content td { padding: 0.5rem 0; vertical-align: top; }

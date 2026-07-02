@@ -92,10 +92,22 @@
     "writeDirectly": "Skriv direkt",
     "whatThisIsAbout": "Vad det handlar om",
     "topics": [
-      { "title": "Bokning & livekonserter", "body": "För förfrågningar om konserter, festivaler eller berättarkvällar." },
-      { "title": "Samarbete", "body": "Co-writing, produktion eller gemensamt kreativt projekt." },
-      { "title": "Press & media", "body": "Intervjuer, features, licenser eller redaktionella förfrågningar." },
-      { "title": "Allt annat", "body": "Ett vänligt ord är alltid välkommet." }
+      {
+        "title": "Bokning & livekonserter",
+        "body": "För förfrågningar om konserter, festivaler eller berättarkvällar."
+      },
+      {
+        "title": "Samarbete",
+        "body": "Co-writing, produktion eller gemensamt kreativt projekt."
+      },
+      {
+        "title": "Press & media",
+        "body": "Intervjuer, features, licenser eller redaktionella förfrågningar."
+      },
+      {
+        "title": "Allt annat",
+        "body": "Ett vänligt ord är alltid välkommet."
+      }
     ],
     "commission": "Beställning",
     "songsForYouTitle": "Songs For You",
@@ -114,10 +126,22 @@
     "showDesc1": "Föreställ dig en värld täckt av snö, där ljus och mörker dansar vid tystnadens rand. Det är där Erik Sjøholm föddes — och exakt den dagen tog hans farbror Glenn sitt eget liv och lämnade ett arv av sorg, frågor och osagda berättelser.",
     "showDesc2": "I denna berättarkonsert gräver Erik under snö och is och blottlägger fragment av familjens osagda mytologi. Genom råa personliga berättelser och egna låtar — i traditionen från Damien Rice, Glen Hansard och Jeff Buckley — tar han dig med på en resa in i förlusens, självupptäcktens och meningssökandets hjärta.",
     "themes": [
-      { "title": "Sorg och förlust", "sub": "Osagda berättelser, familjemytologi" },
-      { "title": "Resiliens", "sub": "Resa sig ur smärtans aska" },
-      { "title": "Förvandling", "sub": "Förvandla mörker till konst" },
-      { "title": "Mänsklig gemenskap", "sub": "Det universella i tysta kamper" }
+      {
+        "title": "Sorg och förlust",
+        "sub": "Osagda berättelser, familjemytologi"
+      },
+      {
+        "title": "Resiliens",
+        "sub": "Resa sig ur smärtans aska"
+      },
+      {
+        "title": "Förvandling",
+        "sub": "Förvandla mörker till konst"
+      },
+      {
+        "title": "Mänsklig gemenskap",
+        "sub": "Det universella i tysta kamper"
+      }
     ],
     "audience": "Publik",
     "watch": "Se",
@@ -145,16 +169,37 @@
     "forProgrammers": "För arrangörer & festivaler",
     "theShowLabel": "Föreställningen",
     "showSpecs": [
-      { "term": "Längd", "desc": "60 minuter" },
-      { "term": "Språk", "desc": "Engelska eller svenska (anges vid bokning)" },
-      { "term": "Målgrupp", "desc": "Från 16 år, berättarfestivaler, kulturfestivaler, teatrar, program för psykisk hälsa, universitet, företagshälsovård" }
+      {
+        "term": "Längd",
+        "desc": "60 minuter"
+      },
+      {
+        "term": "Språk",
+        "desc": "Engelska eller svenska (anges vid bokning)"
+      },
+      {
+        "term": "Målgrupp",
+        "desc": "Från 16 år, berättarfestivaler, kulturfestivaler, teatrar, program för psykisk hälsa, universitet, företagshälsovård"
+      }
     ],
     "stageRequirements": "Scenkrav",
     "stageSpecs": [
-      { "term": "Scenstorlek", "desc": "Minst 4m × 4m" },
-      { "term": "Ljus", "desc": "Grundläggande scenbelysning med spotlight-möjlighet" },
-      { "term": "Ljud", "desc": "PA-system för sång och akustisk gitarr" },
-      { "term": "Tech rider", "desc": "Fullständig tech rider och presskitt tillgängligt på begäran" }
+      {
+        "term": "Scenstorlek",
+        "desc": "Minst 4m × 4m"
+      },
+      {
+        "term": "Ljus",
+        "desc": "Grundläggande scenbelysning med spotlight-möjlighet"
+      },
+      {
+        "term": "Ljud",
+        "desc": "PA-system för sång och akustisk gitarr"
+      },
+      {
+        "term": "Tech rider",
+        "desc": "Fullständig tech rider och presskitt tillgängligt på begäran"
+      }
     ],
     "seeTheShow": "Se föreställningen",
     "seeTheShowDesc": "Kommande datum och evenemang annonseras i Notes — Eriks nyhetsbrev.",
@@ -171,12 +216,33 @@
     "openOnDisco": "Öppna på Disco →",
     "whatYouGet": "Vad du får",
     "specs": [
-      { "label": "Format", "title": "One-stop-licensiering", "desc": "Ett enda avtal reglerar både master- och publiceringsrättigheterna. Ingen jakt på flera rättighetshavare." },
-      { "label": "Katalog", "title": "~300 originallåtar", "desc": "Singer-songwriter-material på engelska och skandinaviska språk. Atmosfäriskt, berättande, emotionellt förankrat." },
-      { "label": "Leverans", "title": "Stems på begäran", "desc": "Rena stems och instrumentalversioner tillgängliga för de flesta spår. Skicka din brief." }
+      {
+        "label": "Format",
+        "title": "One-stop-licensiering",
+        "desc": "Ett enda avtal reglerar både master- och publiceringsrättigheterna. Ingen jakt på flera rättighetshavare."
+      },
+      {
+        "label": "Katalog",
+        "title": "~300 originallåtar",
+        "desc": "Singer-songwriter-material på engelska och skandinaviska språk. Atmosfäriskt, berättande, emotionellt förankrat."
+      },
+      {
+        "label": "Leverans",
+        "title": "Stems på begäran",
+        "desc": "Rena stems och instrumentalversioner tillgängliga för de flesta spår. Skicka din brief."
+      }
     ],
     "getInTouch": "Ta kontakt",
     "sendABrief": "Skicka en brief.",
     "contactDesc": "Oavsett om du har en specifik scen, en stämningsreferens eller bara vill utforska katalogen — kontakta direkt. Individuella offerter för alla projektstorlekar."
+  },
+  "notes": {
+    "eyebrow": "Nyhetsbrev",
+    "title": "Notes from the song-garden",
+    "description": "Ett brev om låtar, berättelser och vad det krävs för att fortsätta skapa. Kommer ut när det är klart.",
+    "subscribeLabel": "Prenumerera",
+    "archiveLabel": "Alla nummer",
+    "noPostsYet": "Inget här än — kika in snart.",
+    "backToNotes": "Alla anteckningar"
   }
 }

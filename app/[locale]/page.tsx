@@ -42,7 +42,7 @@ export default async function Home({
     { label: t.nav.about,   href: "/about",                                     external: false },
     { label: t.nav.songs,   href: "/songs",                                     external: false },
     { label: t.nav.shows,   href: "/live",                                      external: false },
-    { label: t.nav.notes,   href: "https://eriksjoholm-newsletter.beehiiv.com", external: true  },
+    { label: t.nav.notes,   href: "/notes",                                     external: false },
     { label: t.nav.shop,    href: "https://erik-sjoeholm-shop.fourthwall.com",   external: true  },
     { label: t.nav.contact, href: "/contact",                                    external: false },
   ];

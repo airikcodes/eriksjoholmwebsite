@@ -178,5 +178,14 @@
     "getInTouch": "Kontakt aufnehmen",
     "sendABrief": "Eine Anfrage schicken.",
     "contactDesc": "Ob du eine bestimmte Szene, eine Stimmungsreferenz hast oder einfach den Katalog erkunden möchtest — direkt anfragen. Individuelle Angebote für alle Projektgrößen."
+  },
+  "notes": {
+    "eyebrow": "Newsletter",
+    "title": "Notes from the song-garden",
+    "description": "Ein Brief über Lieder, Geschichten und was es braucht, um weiter zu erschaffen. Erscheint wenn er fertig ist.",
+    "subscribeLabel": "Abonnieren",
+    "archiveLabel": "Alle Ausgaben",
+    "noPostsYet": "Noch nichts hier — schau bald wieder vorbei.",
+    "backToNotes": "Alle Notizen"
   }
 }

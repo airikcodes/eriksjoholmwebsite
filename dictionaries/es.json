@@ -92,10 +92,22 @@
     "writeDirectly": "Escribir directamente",
     "whatThisIsAbout": "De qué se trata",
     "topics": [
-      { "title": "Booking y conciertos", "body": "Para consultas de conciertos, festivales o eventos de narración." },
-      { "title": "Colaboración", "body": "Co-escritura, producción o cualquier proyecto creativo conjunto." },
-      { "title": "Prensa y medios", "body": "Entrevistas, reportajes, licencias o solicitudes editoriales." },
-      { "title": "Todo lo demás", "body": "Una palabra amable siempre es bienvenida." }
+      {
+        "title": "Booking y conciertos",
+        "body": "Para consultas de conciertos, festivales o eventos de narración."
+      },
+      {
+        "title": "Colaboración",
+        "body": "Co-escritura, producción o cualquier proyecto creativo conjunto."
+      },
+      {
+        "title": "Prensa y medios",
+        "body": "Entrevistas, reportajes, licencias o solicitudes editoriales."
+      },
+      {
+        "title": "Todo lo demás",
+        "body": "Una palabra amable siempre es bienvenida."
+      }
     ],
     "commission": "Encargo",
     "songsForYouTitle": "Songs For You",
@@ -114,10 +126,22 @@
     "showDesc1": "Imagina un mundo cubierto de nieve, donde la luz y la oscuridad danzan al borde del silencio. Allí nació Erik Sjøholm — y ese mismo día, su tío Glenn se quitó la vida, dejando un legado de duelo, preguntas e historias no contadas.",
     "showDesc2": "En este concierto narrativo, Erik excava bajo la nieve y el hielo, descubriendo fragmentos de la mitología familiar no contada. A través de historias personales crudas y canciones originales — en la tradición de Damien Rice, Glen Hansard y Jeff Buckley — te lleva en un viaje al corazón de la pérdida, el autodescubrimiento y la búsqueda de sentido.",
     "themes": [
-      { "title": "Duelo y pérdida", "sub": "Historias no contadas, mitología familiar" },
-      { "title": "Resiliencia", "sub": "Levantarse de las cenizas del dolor" },
-      { "title": "Transformación", "sub": "Convertir la oscuridad en arte" },
-      { "title": "Conexión humana", "sub": "La universalidad de las luchas silenciosas" }
+      {
+        "title": "Duelo y pérdida",
+        "sub": "Historias no contadas, mitología familiar"
+      },
+      {
+        "title": "Resiliencia",
+        "sub": "Levantarse de las cenizas del dolor"
+      },
+      {
+        "title": "Transformación",
+        "sub": "Convertir la oscuridad en arte"
+      },
+      {
+        "title": "Conexión humana",
+        "sub": "La universalidad de las luchas silenciosas"
+      }
     ],
     "audience": "Público",
     "watch": "Ver",
@@ -145,16 +169,37 @@
     "forProgrammers": "Para programadores y festivales",
     "theShowLabel": "El espectáculo",
     "showSpecs": [
-      { "term": "Duración", "desc": "60 minutos" },
-      { "term": "Idioma", "desc": "Inglés o sueco (especificado al reservar)" },
-      { "term": "Público objetivo", "desc": "Mayores de 16 años, festivales de narración, festivales culturales, teatros, programas de salud mental, universidades, bienestar corporativo" }
+      {
+        "term": "Duración",
+        "desc": "60 minutos"
+      },
+      {
+        "term": "Idioma",
+        "desc": "Inglés o sueco (especificado al reservar)"
+      },
+      {
+        "term": "Público objetivo",
+        "desc": "Mayores de 16 años, festivales de narración, festivales culturales, teatros, programas de salud mental, universidades, bienestar corporativo"
+      }
     ],
     "stageRequirements": "Requisitos técnicos",
     "stageSpecs": [
-      { "term": "Tamaño del escenario", "desc": "Mínimo 4m × 4m" },
-      { "term": "Iluminación", "desc": "Iluminación básica de escenario con capacidad de spotlight" },
-      { "term": "Sonido", "desc": "Sistema PA para voz y guitarra acústica" },
-      { "term": "Tech rider", "desc": "Tech rider completo y kit de prensa disponibles bajo petición" }
+      {
+        "term": "Tamaño del escenario",
+        "desc": "Mínimo 4m × 4m"
+      },
+      {
+        "term": "Iluminación",
+        "desc": "Iluminación básica de escenario con capacidad de spotlight"
+      },
+      {
+        "term": "Sonido",
+        "desc": "Sistema PA para voz y guitarra acústica"
+      },
+      {
+        "term": "Tech rider",
+        "desc": "Tech rider completo y kit de prensa disponibles bajo petición"
+      }
     ],
     "seeTheShow": "Ver el espectáculo",
     "seeTheShowDesc": "Las próximas fechas y eventos se anuncian en Notes — el boletín de Erik.",
@@ -171,12 +216,33 @@
     "openOnDisco": "Abrir en Disco →",
     "whatYouGet": "Qué obtienes",
     "specs": [
-      { "label": "Formato", "title": "Licencia one-stop", "desc": "Un solo acuerdo cubre tanto los derechos de máster como los editoriales. Sin tener que contactar a múltiples titulares de derechos." },
-      { "label": "Catálogo", "title": "~300 canciones originales", "desc": "Material de cantautor en inglés e idiomas escandinavos. Atmosférico, narrativo, con base emocional sólida." },
-      { "label": "Entrega", "title": "Stems bajo petición", "desc": "Stems limpios e instrumentales disponibles para la mayoría de los temas. Envía tu brief." }
+      {
+        "label": "Formato",
+        "title": "Licencia one-stop",
+        "desc": "Un solo acuerdo cubre tanto los derechos de máster como los editoriales. Sin tener que contactar a múltiples titulares de derechos."
+      },
+      {
+        "label": "Catálogo",
+        "title": "~300 canciones originales",
+        "desc": "Material de cantautor en inglés e idiomas escandinavos. Atmosférico, narrativo, con base emocional sólida."
+      },
+      {
+        "label": "Entrega",
+        "title": "Stems bajo petición",
+        "desc": "Stems limpios e instrumentales disponibles para la mayoría de los temas. Envía tu brief."
+      }
     ],
     "getInTouch": "Ponerse en contacto",
     "sendABrief": "Envía un brief.",
     "contactDesc": "Ya sea que tengas una escena específica, una referencia de estado de ánimo o simplemente quieras explorar el catálogo — escríbenos directamente. Presupuestos personalizados para proyectos de todos los tamaños."
+  },
+  "notes": {
+    "eyebrow": "Boletín",
+    "title": "Notes from the song-garden",
+    "description": "Una carta sobre canciones, historias y lo que se necesita para seguir creando. Llega cuando está lista.",
+    "subscribeLabel": "Suscribirse",
+    "archiveLabel": "Todos los números",
+    "noPostsYet": "Nada aquí todavía — vuelve pronto.",
+    "backToNotes": "Todas las notas"
   }
 }

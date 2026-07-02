@@ -178,5 +178,14 @@
     "getInTouch": "Get in touch",
     "sendABrief": "Send a brief.",
     "contactDesc": "Whether you have a specific scene, a mood reference, or just want to explore the catalog — reach out directly. Custom quotes available for all project sizes."
+  },
+  "notes": {
+    "eyebrow": "Newsletter",
+    "title": "Notes from the song-garden",
+    "description": "A letter about songs, stories, and what it takes to keep making things. Comes out when it's ready.",
+    "subscribeLabel": "Subscribe",
+    "archiveLabel": "All issues",
+    "noPostsYet": "Nothing here yet — check back soon.",
+    "backToNotes": "All notes"
   }
 }

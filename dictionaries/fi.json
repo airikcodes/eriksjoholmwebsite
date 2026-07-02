@@ -92,10 +92,22 @@
     "writeDirectly": "Kirjoita suoraan",
     "whatThisIsAbout": "Mistä on kyse",
     "topics": [
-      { "title": "Booking & liveesiintymiset", "body": "Konsertti-, festivaali- tai tarinankerrontatilaisuustiedusteluihin." },
-      { "title": "Yhteistyö", "body": "Yhteiskirjoittaminen, tuotanto tai mikä tahansa luova yhteishanke." },
-      { "title": "Lehdistö & media", "body": "Haastattelut, artikkelit, lisensointi tai toimitukselliset pyynnöt." },
-      { "title": "Kaikki muu", "body": "Ystävällinen sana on aina tervetullut." }
+      {
+        "title": "Booking & liveesiintymiset",
+        "body": "Konsertti-, festivaali- tai tarinankerrontatilaisuustiedusteluihin."
+      },
+      {
+        "title": "Yhteistyö",
+        "body": "Yhteiskirjoittaminen, tuotanto tai mikä tahansa luova yhteishanke."
+      },
+      {
+        "title": "Lehdistö & media",
+        "body": "Haastattelut, artikkelit, lisensointi tai toimitukselliset pyynnöt."
+      },
+      {
+        "title": "Kaikki muu",
+        "body": "Ystävällinen sana on aina tervetullut."
+      }
     ],
     "commission": "Tilaustyö",
     "songsForYouTitle": "Songs For You",
@@ -114,10 +126,22 @@
     "showDesc1": "Kuvittele lumihangessa hukkuva maailma, jossa valo ja pimeys tanssivat hiljaisuuden reunalla. Siellä syntyi Erik Sjøholm — ja juuri sinä päivänä hänen setänsä Glenn riisti itseltään hengen jättäen perinnöksi surun, kysymyksiä ja kertomattomia tarinoita.",
     "showDesc2": "Tässä tarinankerrontakonsertissa Erik kaivaa lumen ja jään alta paljastaen perheensä kertomattoman mytologian palasia. Raakoja henkilökohtaisia tarinoita ja alkuperäislauluja yhdistellen — Damien Ricen, Glen Hansardin ja Jeff Buckleyn perinteessä — hän vie sinut matkalle menetyksen, itsensä löytämisen ja merkityksen etsimisen ytimeen.",
     "themes": [
-      { "title": "Suru ja menetys", "sub": "Kertomattomat tarinat, perheen mytologia" },
-      { "title": "Sinnikkyys", "sub": "Nouseminen kivun tuhkasta" },
-      { "title": "Muutos", "sub": "Pimeyden muuttaminen taiteeksi" },
-      { "title": "Ihmisyhteys", "sub": "Hiljaisten kamppailujen universaalius" }
+      {
+        "title": "Suru ja menetys",
+        "sub": "Kertomattomat tarinat, perheen mytologia"
+      },
+      {
+        "title": "Sinnikkyys",
+        "sub": "Nouseminen kivun tuhkasta"
+      },
+      {
+        "title": "Muutos",
+        "sub": "Pimeyden muuttaminen taiteeksi"
+      },
+      {
+        "title": "Ihmisyhteys",
+        "sub": "Hiljaisten kamppailujen universaalius"
+      }
     ],
     "audience": "Yleisö",
     "watch": "Katso",
@@ -145,16 +169,37 @@
     "forProgrammers": "Ohjelmoijille & festivaaleille",
     "theShowLabel": "Esitys",
     "showSpecs": [
-      { "term": "Kesto", "desc": "60 minuuttia" },
-      { "term": "Kieli", "desc": "Englanti tai ruotsi (ilmoitetaan buukattaessa)" },
-      { "term": "Kohderyhmä", "desc": "Yli 16-vuotiaat, tarinankerrontafestivaalit, kulttuurifestivaalit, teatterit, mielenterveystietoisuusohjelmat, yliopistot, työssä jaksaminen" }
+      {
+        "term": "Kesto",
+        "desc": "60 minuuttia"
+      },
+      {
+        "term": "Kieli",
+        "desc": "Englanti tai ruotsi (ilmoitetaan buukattaessa)"
+      },
+      {
+        "term": "Kohderyhmä",
+        "desc": "Yli 16-vuotiaat, tarinankerrontafestivaalit, kulttuurifestivaalit, teatterit, mielenterveystietoisuusohjelmat, yliopistot, työssä jaksaminen"
+      }
     ],
     "stageRequirements": "Lavatekniset vaatimukset",
     "stageSpecs": [
-      { "term": "Lavan koko", "desc": "Vähintään 4m × 4m" },
-      { "term": "Valaistus", "desc": "Peruslavavalaistus kohdevalomahdollisuudella" },
-      { "term": "Ääni", "desc": "PA-järjestelmä lauluäänelle ja akustiselle kitaralle" },
-      { "term": "Tech rider", "desc": "Täydellinen tech rider ja presskansio saatavilla pyydettäessä" }
+      {
+        "term": "Lavan koko",
+        "desc": "Vähintään 4m × 4m"
+      },
+      {
+        "term": "Valaistus",
+        "desc": "Peruslavavalaistus kohdevalomahdollisuudella"
+      },
+      {
+        "term": "Ääni",
+        "desc": "PA-järjestelmä lauluäänelle ja akustiselle kitaralle"
+      },
+      {
+        "term": "Tech rider",
+        "desc": "Täydellinen tech rider ja presskansio saatavilla pyydettäessä"
+      }
     ],
     "seeTheShow": "Näe esitys",
     "seeTheShowDesc": "Tulevat päivämäärät ja tapahtumat ilmoitetaan Notes-uutiskirjeessä — Erikin newsletterissä.",
@@ -171,12 +216,33 @@
     "openOnDisco": "Avaa Discossa →",
     "whatYouGet": "Mitä saat",
     "specs": [
-      { "label": "Muoto", "title": "One-stop-lisensointi", "desc": "Yhdellä sopimuksella selvitetään sekä master- että julkaisuoikeudet. Ei tarvitse tavoitella useita oikeudenhaltijoita." },
-      { "label": "Katalogi", "title": "~300 alkuperäiskappaletta", "desc": "Singer-songwriter-materiaalia englannin ja skandinaavisten kielten kirjossa. Tunnelmallista, kerronnallista, tunteellisesti ankkuroitua." },
-      { "label": "Toimitus", "title": "Stemit pyydettäessä", "desc": "Puhtaita stemmejä ja instrumentaaliversioita saatavilla useimmille kappaleille. Ota yhteyttä briefisi kanssa." }
+      {
+        "label": "Muoto",
+        "title": "One-stop-lisensointi",
+        "desc": "Yhdellä sopimuksella selvitetään sekä master- että julkaisuoikeudet. Ei tarvitse tavoitella useita oikeudenhaltijoita."
+      },
+      {
+        "label": "Katalogi",
+        "title": "~300 alkuperäiskappaletta",
+        "desc": "Singer-songwriter-materiaalia englannin ja skandinaavisten kielten kirjossa. Tunnelmallista, kerronnallista, tunteellisesti ankkuroitua."
+      },
+      {
+        "label": "Toimitus",
+        "title": "Stemit pyydettäessä",
+        "desc": "Puhtaita stemmejä ja instrumentaaliversioita saatavilla useimmille kappaleille. Ota yhteyttä briefisi kanssa."
+      }
     ],
     "getInTouch": "Ota yhteyttä",
     "sendABrief": "Lähetä brief.",
     "contactDesc": "Oli kyseessä sitten tietty kohtaus, tunnelmaviite tai halu tutustua katalogiin — ota suoraan yhteyttä. Räätälöidyt tarjoukset kaikenkokoisille projekteille."
+  },
+  "notes": {
+    "eyebrow": "Uutiskirje",
+    "title": "Notes from the song-garden",
+    "description": "Kirje lauluista, tarinoista ja siitä, mitä tarvitaan jatkuvaan luomiseen. Ilmestyy kun se on valmis.",
+    "subscribeLabel": "Tilaa",
+    "archiveLabel": "Kaikki numerot",
+    "noPostsYet": "Ei vielä mitään — tule pian takaisin.",
+    "backToNotes": "Kaikki muistiinpanot"
   }
 }
