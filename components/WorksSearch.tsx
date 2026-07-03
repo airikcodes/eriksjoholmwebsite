@@ -7,12 +7,14 @@ type Filter = 'all' | 'released' | 'unreleased';
 
 interface Props {
   works: Work[];
+  defaultLimit?: number;
 }
 
-export default function WorksSearch({ works }: Props) {
-  const [query, setQuery]   = useState('');
-  const [filter, setFilter] = useState<Filter>('all');
+export default function WorksSearch({ works, defaultLimit = 3 }: Props) {
+  const [query, setQuery]     = useState('');
+  const [filter, setFilter]   = useState<Filter>('all');
   const [openIds, setOpenIds] = useState<Set<string>>(new Set());
+  const [showAll, setShowAll] = useState(false);
 
   function toggle(id: string) {
     setOpenIds((prev) => {
@@ -24,6 +26,7 @@ export default function WorksSearch({ works }: Props) {
   }
 
   const q = query.toLowerCase().trim();
+  const isSearching = q.length > 0 || filter !== 'all';
 
   const filtered = works.filter((w) => {
     if (filter === 'released' && w.releaseStatus !== 'released')   return false;
@@ -31,6 +34,8 @@ export default function WorksSearch({ works }: Props) {
     if (q && !w.title.toLowerCase().includes(q)) return false;
     return true;
   });
+
+  const visible = (isSearching || showAll) ? filtered : filtered.slice(0, defaultLimit);
 
   const btnBase: React.CSSProperties = {
     background:      'none',
@@ -98,7 +103,7 @@ export default function WorksSearch({ works }: Props) {
         </p>
       ) : (
         <ul style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}>
-          {filtered.map((work, i) => {
+          {visible.map((work, i) => {
             const isOpen = openIds.has(work.id);
             return (
               <li key={work.id} style={{ borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
@@ -236,6 +241,28 @@ export default function WorksSearch({ works }: Props) {
             );
           })}
         </ul>
+      )}
+
+      {/* Show all toggle — only when not searching and there are more than the limit */}
+      {!isSearching && filtered.length > defaultLimit && (
+        <button
+          onClick={() => setShowAll((v) => !v)}
+          style={{
+            marginTop:     '2rem',
+            background:    'none',
+            border:        'none',
+            cursor:        'pointer',
+            fontFamily:    'var(--font-inter)',
+            fontSize:      '0.48rem',
+            letterSpacing: '0.25em',
+            textTransform: 'uppercase',
+            color:         '#7A6F62',
+            padding:       0,
+          }}
+          className="hover:text-[#C8922A] transition-colors duration-200"
+        >
+          {showAll ? 'Show less ↑' : `Show all ${filtered.length} songs ↓`}
+        </button>
       )}
     </div>
   );

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import BackNav from '@/components/BackNav';
 import WorksSearch from '@/components/WorksSearch';
+import AlbumsSearch from '@/components/AlbumsSearch';
 import KeepInTouch from '@/components/KeepInTouch';
 import { works, albums, featuredWorks } from '@/data/works';
 import { getDictionary, hasLocale } from '@/lib/dictionaries';
@@ -29,11 +30,6 @@ export const metadata: Metadata = {
 const SPOTIFY_ARTIST = 'https://open.spotify.com/artist/1UpcgaCHBwic2IqUQ3hHdp';
 const TIDAL_ARTIST   = 'https://tidal.com/artist/47687355';
 
-function typeLabel(type: string): string {
-  if (type === 'album') return 'Album';
-  if (type === 'ep')    return 'EP';
-  return type;
-}
 
 export default async function WorksPage({
   params,
@@ -214,131 +210,21 @@ export default async function WorksPage({
             </div>
           </div>
 
-          {/* ── Albums & Releases ── (hidden when empty) */}
-          {albums.length > 0 && (
-            <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '5rem', paddingBottom: '5rem' }}>
-              <p style={{
-                fontFamily:    'var(--font-inter)',
-                fontSize:      '0.45rem',
-                letterSpacing: '0.35em',
-                textTransform: 'uppercase',
-                color:         '#7A6F62',
-                marginBottom:  '3rem',
-              }}>
-                Albums & Releases
-              </p>
+          {/* ── Albums & EPs ── */}
+          <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '5rem', paddingBottom: '5rem' }}>
+            <p style={{
+              fontFamily:    'var(--font-inter)',
+              fontSize:      '0.45rem',
+              letterSpacing: '0.35em',
+              textTransform: 'uppercase',
+              color:         '#7A6F62',
+              marginBottom:  '3rem',
+            }}>
+              Albums & EPs
+            </p>
 
-              <ul style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}>
-                {albums.map((album) => (
-                  <li key={album.id} style={{ borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
-                    <Link
-                      href={`/works/${album.slug}`}
-                      style={{
-                        display:             'grid',
-                        gridTemplateColumns: '1fr auto',
-                        gap:                 '1.5rem',
-                        alignItems:          'center',
-                        padding:             '1.75rem 0',
-                        textDecoration:      'none',
-                      }}
-                      className="group"
-                    >
-                      <div>
-                        <p
-                          className="font-[family-name:var(--font-cormorant)] font-light group-hover:text-[#C8922A] transition-colors duration-200"
-                          style={{
-                            fontSize:      'clamp(1.05rem, 2.5vw, 1.4rem)',
-                            color:         '#E8E0D4',
-                            lineHeight:    1.2,
-                            letterSpacing: '0.01em',
-                          }}
-                        >
-                          {album.title}
-                        </p>
-                        <div style={{ display: 'flex', gap: '1rem', marginTop: '0.35rem', alignItems: 'baseline' }}>
-                          {album.year && (
-                            <span style={{
-                              fontFamily:    'var(--font-inter)',
-                              fontSize:      '0.55rem',
-                              letterSpacing: '0.1em',
-                              color:         '#7A6F62',
-                            }}>
-                              {album.year}
-                            </span>
-                          )}
-                          <span style={{
-                            fontFamily:    'var(--font-inter)',
-                            fontSize:      '0.45rem',
-                            letterSpacing: '0.22em',
-                            textTransform: 'uppercase',
-                            color:         'rgba(200,146,42,0.5)',
-                          }}>
-                            {typeLabel(album.workType)}
-                          </span>
-                          {album.meta && (
-                            <span style={{
-                              fontFamily:    'var(--font-inter)',
-                              fontSize:      '0.55rem',
-                              letterSpacing: '0.08em',
-                              color:         '#7A6F62',
-                            }}>
-                              {album.meta}
-                            </span>
-                          )}
-                        </div>
-                      </div>
-
-                      <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexShrink: 0 }}>
-                        {album.spotifyUrl && (
-                          <a
-                            href={album.spotifyUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={(e) => e.stopPropagation()}
-                            className="hover:text-[#1DB954] transition-colors duration-200"
-                            style={{
-                              fontFamily:    'var(--font-inter)',
-                              fontSize:      '0.48rem',
-                              letterSpacing: '0.15em',
-                              textTransform: 'uppercase',
-                              color:         '#7A6F62',
-                            }}
-                          >
-                            Spotify
-                          </a>
-                        )}
-                        {album.tidalUrl && (
-                          <a
-                            href={album.tidalUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={(e) => e.stopPropagation()}
-                            className="hover:text-[#00FFFF] transition-colors duration-200"
-                            style={{
-                              fontFamily:    'var(--font-inter)',
-                              fontSize:      '0.48rem',
-                              letterSpacing: '0.15em',
-                              textTransform: 'uppercase',
-                              color:         '#7A6F62',
-                            }}
-                          >
-                            Tidal
-                          </a>
-                        )}
-                        <span style={{
-                          fontFamily: 'var(--font-inter)',
-                          fontSize:   '0.5rem',
-                          color:      '#7A6F62',
-                        }}>
-                          →
-                        </span>
-                      </div>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
+            <AlbumsSearch albums={albums} />
+          </div>
 
           {/* ── Songs ── */}
           <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '5rem', paddingBottom: '5rem' }}>
@@ -353,7 +239,7 @@ export default async function WorksPage({
               Songs
             </p>
 
-            <WorksSearch works={works} />
+            <WorksSearch works={works} defaultLimit={3} />
           </div>
 
           {/* ── Sync Licensing ── */}
@@ -430,6 +316,59 @@ export default async function WorksPage({
                 {t.sync.openOnDisco}
               </a>
             </div>
+          </div>
+
+          {/* ── Songs For You ── */}
+          <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '5rem', paddingBottom: '5rem' }}>
+            <p style={{
+              fontFamily:    'var(--font-inter)',
+              fontSize:      '0.45rem',
+              letterSpacing: '0.35em',
+              textTransform: 'uppercase',
+              color:         '#7A6F62',
+              marginBottom:  '1.25rem',
+            }}>
+              {t.songs.forYou.eyebrow}
+            </p>
+            <h2
+              className="font-[family-name:var(--font-cormorant)] font-light"
+              style={{
+                fontSize:      'clamp(2rem, 5vw, 3.25rem)',
+                color:         '#E8E0D4',
+                lineHeight:    1.05,
+                letterSpacing: '0.01em',
+                marginBottom:  '1.5rem',
+              }}
+            >
+              {t.songs.forYou.title}
+            </h2>
+            <p style={{
+              fontFamily:   'var(--font-inter)',
+              fontSize:     '0.875rem',
+              color:        '#7A6F62',
+              lineHeight:   1.85,
+              maxWidth:     '50ch',
+              marginBottom: '2.5rem',
+            }}>
+              {t.songs.forYou.desc}
+            </p>
+            <Link
+              href="/contact"
+              style={{
+                display:        'inline-block',
+                border:         '1px solid rgba(200,146,42,0.5)',
+                color:          '#C8922A',
+                fontFamily:     'var(--font-inter)',
+                fontSize:       '0.48rem',
+                letterSpacing:  '0.28em',
+                textTransform:  'uppercase',
+                padding:        '0.75rem 1.75rem',
+                textDecoration: 'none',
+              }}
+              className="hover:border-[#C8922A] hover:text-[#E8E0D4] transition-all duration-200"
+            >
+              {t.songs.forYou.cta}
+            </Link>
           </div>
 
           {/* ── Keep in touch ── */}
