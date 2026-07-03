@@ -66,7 +66,7 @@ export async function getPostBySlug(slug: string): Promise<BeehiivPost | null> {
   if (!stub) return null;
 
   const res = await fetch(
-    `${API_BASE}/publications/${pubId}/posts/${stub.id}`,
+    `${API_BASE}/publications/${pubId}/posts/${stub.id}?expand[]=free_web_content`,
     {
       headers: { Authorization: `Bearer ${apiKey}` },
       next: { revalidate: 3600, tags: ['beehiiv-posts'] },
