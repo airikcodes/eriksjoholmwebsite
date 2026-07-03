@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import BackNav from '@/components/BackNav';
 import ProductCard from '@/components/ProductCard';
 import { getProducts } from '@/lib/fourthwall';
 import { hasLocale } from '@/lib/dictionaries';
@@ -47,7 +48,8 @@ export default async function ShopPage({
         <div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 1.5rem' }}>
 
           {/* ── Hero ── */}
-          <div style={{ paddingTop: '8rem', paddingBottom: '4rem' }}>
+          <div style={{ paddingTop: '5.5rem', paddingBottom: '4rem' }}>
+            <BackNav />
             <p style={{
               fontFamily: 'var(--font-inter)',
               fontSize: '0.48rem',

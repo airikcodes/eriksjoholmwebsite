@@ -26,11 +26,11 @@ export interface FWVariant {
   sku: string;
   unitPrice: FWMoney;
   compareAtPrice: FWMoney | null;
-  attributes: {
+  attributes?: {
     color?: { name: string; swatch: string };
     size?: { name: string };
   };
-  stock: { type: 'UNLIMITED' | 'LIMITED' | 'OUT_OF_STOCK'; inStock?: number };
+  stock?: { type: 'UNLIMITED' | 'LIMITED' | 'OUT_OF_STOCK'; inStock?: number };
   images: FWImage[];
 }
 

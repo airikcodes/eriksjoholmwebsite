@@ -6,7 +6,10 @@ import { addToCart } from '@/app/actions/cart';
 import type { FWVariant } from '@/lib/fourthwall';
 
 function isAvailable(variant: FWVariant): boolean {
-  return variant.stock.type === 'UNLIMITED' || (variant.stock.type === 'LIMITED' && (variant.stock.inStock ?? 0) > 0);
+  const stock = variant.stock;
+  if (!stock || stock.type === 'UNLIMITED') return true;
+  if (stock.type === 'OUT_OF_STOCK') return false;
+  return (stock.inStock ?? 0) > 0;
 }
 
 export default function AddToCart({ variants }: { variants: FWVariant[] }) {
@@ -70,7 +73,7 @@ export default function AddToCart({ variants }: { variants: FWVariant[] }) {
                     textDecoration: avail ? 'none' : 'line-through',
                   }}
                 >
-                  {v.attributes.color?.name || v.attributes.size?.name || v.name}
+                  {v.attributes?.color?.name || v.attributes?.size?.name || v.name}
                 </button>
               );
             })}

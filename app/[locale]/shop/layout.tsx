@@ -2,7 +2,6 @@ import { type ReactNode } from 'react';
 import CartProvider from '@/components/CartProvider';
 import CartDrawer from '@/components/CartDrawer';
 import CartButton from '@/components/CartButton';
-import BackNav from '@/components/BackNav';
 import { getCartData } from '@/app/actions/cart';
 
 export default async function ShopLayout({ children }: { children: ReactNode }) {
@@ -10,25 +9,15 @@ export default async function ShopLayout({ children }: { children: ReactNode }) 
 
   return (
     <CartProvider initialCart={initialCart}>
-      {/* Fixed top bar */}
+      {/* Cart button — sits left of the locale switcher (right: 5rem clears its ~50px width at right: 1.5rem) */}
       <div style={{
         position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 30,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        padding: '1.5rem',
-        pointerEvents: 'none',
+        top: '1.25rem',
+        right: '5rem',
+        zIndex: 20,
+        pointerEvents: 'auto',
       }}>
-        <div style={{ pointerEvents: 'auto' }}>
-          <BackNav />
-        </div>
-        <div style={{ pointerEvents: 'auto' }}>
-          <CartButton />
-        </div>
+        <CartButton />
       </div>
 
       {children}

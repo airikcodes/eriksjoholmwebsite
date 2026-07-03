@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
+import BackNav from '@/components/BackNav';
 import AddToCart from '@/components/AddToCart';
 import { getProducts, getProduct } from '@/lib/fourthwall';
 import { hasLocale } from '@/lib/dictionaries';
@@ -81,8 +82,13 @@ export default async function ProductPage({
       <div className="relative" style={{ zIndex: 1 }}>
         <div style={{ maxWidth: '960px', margin: '0 auto', padding: '0 1.5rem' }}>
 
+          {/* Back to shop listing */}
+          <div style={{ paddingTop: '5.5rem' }}>
+            <BackNav href="/shop" label="Shop" />
+          </div>
+
           <div style={{
-            paddingTop: '8rem',
+            paddingTop: '2rem',
             paddingBottom: '9rem',
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
@@ -139,17 +145,6 @@ export default async function ProductPage({
 
             {/* ── Details ── */}
             <div>
-              <p style={{
-                fontFamily: 'var(--font-inter)',
-                fontSize: '0.48rem',
-                letterSpacing: '0.35em',
-                textTransform: 'uppercase',
-                color: '#7A6F62',
-                marginBottom: '1rem',
-              }}>
-                Shop
-              </p>
-
               <h1
                 className="font-[family-name:var(--font-cormorant)] font-light"
                 style={{

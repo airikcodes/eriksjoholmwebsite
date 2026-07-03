@@ -16,7 +16,7 @@ export default function CartDrawer() {
   function handleRemove(variantId: string) {
     startTransition(async () => {
       const updated = await removeFromCart(variantId);
-      setCart(updated);
+      if (updated !== null) setCart(updated);
     });
   }
 
