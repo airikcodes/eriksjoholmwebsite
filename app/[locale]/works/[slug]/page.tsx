@@ -192,18 +192,18 @@ export default async function WorkPage({
           )}
 
           {/* ── Lyrics ── */}
-          <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
-            <p style={{
-              fontFamily:    'var(--font-inter)',
-              fontSize:      '0.45rem',
-              letterSpacing: '0.35em',
-              textTransform: 'uppercase',
-              color:         '#7A6F62',
-              marginBottom:  '2rem',
-            }}>
-              The Lyric
-            </p>
-            {work.lyrics ? (
+          {work.lyrics && (
+            <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
+              <p style={{
+                fontFamily:    'var(--font-inter)',
+                fontSize:      '0.45rem',
+                letterSpacing: '0.35em',
+                textTransform: 'uppercase',
+                color:         '#7A6F62',
+                marginBottom:  '2rem',
+              }}>
+                The Lyric
+              </p>
               <div style={{
                 borderLeft:  '1px solid rgba(200,146,42,0.2)',
                 paddingLeft: '1.5rem',
@@ -220,19 +220,8 @@ export default async function WorkPage({
                   {work.lyrics}
                 </p>
               </div>
-            ) : (
-              <p
-                className="font-[family-name:var(--font-cormorant)] font-light italic"
-                style={{
-                  fontSize:   'clamp(1rem, 2vw, 1.2rem)',
-                  color:      'rgba(232,224,212,0.2)',
-                  lineHeight: 2,
-                }}
-              >
-                Coming.
-              </p>
-            )}
-          </div>
+            </div>
+          )}
 
           {/* ── Story ── */}
           {work.story && (

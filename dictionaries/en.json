@@ -237,12 +237,12 @@
     "contactDesc": "Whether you have a specific scene, a mood reference, or just want to explore the catalog — reach out directly. Custom quotes available for all project sizes."
   },
   "notes": {
-    "eyebrow": "Newsletter",
+    "eyebrow": "Notes",
     "title": "Notes",
     "description": "An artistic travelogue where I share stories behind songs, reflections from the road, poems, recording notes, and small reflections about life that I find interesting.",
     "subscribeLabel": "Subscribe",
     "archiveLabel": "All issues",
-    "noPostsYet": "Nothing here yet — check back soon.",
+    "noPostsYet": "The first entry is on its way.",
     "backToNotes": "All notes",
     "subscribeDesc": "Get each letter in your inbox. No schedule, no noise — just the work."
   }
