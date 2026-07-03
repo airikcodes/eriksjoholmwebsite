@@ -1,8 +1,8 @@
 {
   "nav": {
     "about": "About",
-    "songs": "Songs",
-    "shows": "Shows",
+    "works": "Works",
+    "live": "Live",
     "notes": "Notes",
     "shop": "Shop",
     "contact": "Contact"
@@ -238,7 +238,7 @@
   },
   "notes": {
     "eyebrow": "Newsletter",
-    "title": "Notes from the song-garden",
+    "title": "Notes",
     "description": "A letter about songs, stories, and what it takes to keep making things. Comes out when it's ready.",
     "subscribeLabel": "Subscribe",
     "archiveLabel": "All issues",

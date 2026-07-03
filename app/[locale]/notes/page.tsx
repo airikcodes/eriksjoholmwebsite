@@ -2,28 +2,27 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import BackNav from '@/components/BackNav';
 import NoteCard from '@/components/NoteCard';
-import BeehiivForm from '@/components/BeehiivForm';
+import KeepInTouch from '@/components/KeepInTouch';
 import { getPosts } from '@/lib/beehiiv';
 import { getDictionary, hasLocale } from '@/lib/dictionaries';
 
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: 'Notes from the song-garden — Erik Sjøholm',
+  title: 'Notes — Erik Sjøholm',
   description:
-    'A newsletter about songs, stories, and what it takes to keep making things. By Erik Sjøholm.',
+    'Writing about songs, stories, and what it takes to keep making things. By Erik Sjøholm.',
   alternates: { canonical: 'https://eriksjoholm.com/notes' },
   openGraph: {
-    title: 'Notes from the song-garden — Erik Sjøholm',
-    description: 'A newsletter about songs, stories, and what it takes to keep making things.',
+    title: 'Notes — Erik Sjøholm',
+    description: 'Writing about songs, stories, and what it takes to keep making things.',
     url: 'https://eriksjoholm.com/notes',
     images: [{ url: '/images/portrait.jpg', width: 800, height: 800, alt: 'Erik Sjøholm' }],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Notes from the song-garden — Erik Sjøholm',
-    description: 'A newsletter about songs, stories, and what it takes to keep making things.',
+    title: 'Notes — Erik Sjøholm',
     images: ['/images/portrait.jpg'],
   },
 };
@@ -112,33 +111,13 @@ export default async function NotesIndex({
             )}
           </div>
 
-          {/* ── Subscribe ── */}
+          {/* ── Keep in touch ── */}
           <div style={{
-            borderTop: '1px solid rgba(255,255,255,0.07)',
-            paddingTop: '4rem',
+            borderTop:     '1px solid rgba(255,255,255,0.07)',
+            paddingTop:    '4rem',
             paddingBottom: '9rem',
           }}>
-            <p style={{
-              fontFamily: 'var(--font-inter)',
-              fontSize: '0.48rem',
-              letterSpacing: '0.35em',
-              textTransform: 'uppercase',
-              color: '#7A6F62',
-              marginBottom: '0.75rem',
-            }}>
-              {n.subscribeLabel}
-            </p>
-            <p style={{
-              fontFamily: 'var(--font-inter)',
-              fontSize: '0.875rem',
-              color: '#7A6F62',
-              lineHeight: 1.7,
-              maxWidth: '40ch',
-              marginBottom: '2rem',
-            }}>
-              {n.subscribeDesc}
-            </p>
-            <BeehiivForm />
+            <KeepInTouch variant="notes" />
           </div>
 
         </div>

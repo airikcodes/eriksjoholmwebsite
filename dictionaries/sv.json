@@ -1,8 +1,8 @@
 {
   "nav": {
     "about": "Om mig",
-    "songs": "Låtar",
-    "shows": "Konserter",
+    "works": "Verk",
+    "live": "Live",
     "notes": "Anteckningar",
     "shop": "Butik",
     "contact": "Kontakt"
@@ -238,7 +238,7 @@
   },
   "notes": {
     "eyebrow": "Nyhetsbrev",
-    "title": "Notes from the song-garden",
+    "title": "Notes",
     "description": "Ett brev om låtar, berättelser och vad det krävs för att fortsätta skapa. Kommer ut när det är klart.",
     "subscribeLabel": "Prenumerera",
     "archiveLabel": "Alla nummer",

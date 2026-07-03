@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import BackNav from '@/components/BackNav';
-import BeehiivForm from '@/components/BeehiivForm';
+import KeepInTouch from '@/components/KeepInTouch';
 import { getPostBySlug, getPosts, cleanBeehiivHtml } from '@/lib/beehiiv';
 import { getDictionary, hasLocale } from '@/lib/dictionaries';
 
@@ -153,33 +153,13 @@ export default async function NotePost({
             </div>
           )}
 
-          {/* ── Subscribe CTA ── */}
+          {/* ── Keep in touch ── */}
           <div style={{
-            borderTop: '1px solid rgba(255,255,255,0.07)',
-            paddingTop: '4rem',
+            borderTop:     '1px solid rgba(255,255,255,0.07)',
+            paddingTop:    '4rem',
             paddingBottom: '2rem',
           }}>
-            <p style={{
-              fontFamily: 'var(--font-inter)',
-              fontSize: '0.48rem',
-              letterSpacing: '0.35em',
-              textTransform: 'uppercase',
-              color: '#7A6F62',
-              marginBottom: '0.75rem',
-            }}>
-              {n.subscribeLabel}
-            </p>
-            <p style={{
-              fontFamily: 'var(--font-inter)',
-              fontSize: '0.875rem',
-              color: '#7A6F62',
-              lineHeight: 1.7,
-              maxWidth: '40ch',
-              marginBottom: '2rem',
-            }}>
-              {n.subscribeDesc}
-            </p>
-            <BeehiivForm />
+            <KeepInTouch variant="note" />
           </div>
 
           {/* ── Back link ── */}

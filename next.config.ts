@@ -10,10 +10,14 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       // ── Pre-existing short-links ──────────────────────────────────────────
-      { source: "/work",                                       destination: "/songs",                                     permanent: true },
+      { source: "/work",                                       destination: "/works",                                     permanent: true },
       { source: "/resonators",                                 destination: "https://eriksjoholm-newsletter.beehiiv.com", permanent: true },
-      { source: "/:locale(de|es|sv|fi|it|fr|pt)/work",        destination: "/:locale/songs",                             permanent: true },
+      { source: "/:locale(de|es|sv|fi|it|fr|pt)/work",        destination: "/:locale/works",                             permanent: true },
       { source: "/:locale(de|es|sv|fi|it|fr|pt)/resonators",  destination: "https://eriksjoholm-newsletter.beehiiv.com", permanent: true },
+
+      // ── Songs → Works (information architecture rename) ───────────────────
+      { source: "/songs",                                      destination: "/works",                                     permanent: true },
+      { source: "/:locale(de|es|sv|fi|it|fr|pt)/songs",       destination: "/:locale/works",                             permanent: true },
 
       // ── WordPress migration (eriksjoholm.com → eriksjoholm.com) ──────────
       // Generated 2026-07-01 from WordPress.2026-06-30.xml
@@ -31,17 +35,17 @@ const nextConfig: NextConfig = {
       { source: "/lostandfound",   destination: "/storyteller", permanent: true },
 
       // Songs / discography
-      { source: "/music",             destination: "/songs", permanent: true },
-      { source: "/music-slider",      destination: "/songs", permanent: true },
-      { source: "/music-grid",        destination: "/songs", permanent: true },
-      { source: "/2-7",               destination: "/songs", permanent: true },
-      { source: "/recordings",        destination: "/songs", permanent: true },
-      { source: "/in-the-beginning",  destination: "/songs", permanent: true },
-      { source: "/dream-true",        destination: "/songs", permanent: true },
-      { source: "/we-are-one",        destination: "/songs", permanent: true },
-      { source: "/alela",             destination: "/songs", permanent: true },
-      { source: "/matsawana",         destination: "/songs", permanent: true },
-      { source: "/sooner-or-later",   destination: "/songs", permanent: true },
+      { source: "/music",             destination: "/works", permanent: true },
+      { source: "/music-slider",      destination: "/works", permanent: true },
+      { source: "/music-grid",        destination: "/works", permanent: true },
+      { source: "/2-7",               destination: "/works", permanent: true },
+      { source: "/recordings",        destination: "/works", permanent: true },
+      { source: "/in-the-beginning",  destination: "/works", permanent: true },
+      { source: "/dream-true",        destination: "/works", permanent: true },
+      { source: "/we-are-one",        destination: "/works", permanent: true },
+      { source: "/alela",             destination: "/works", permanent: true },
+      { source: "/matsawana",         destination: "/works", permanent: true },
+      { source: "/sooner-or-later",   destination: "/works", permanent: true },
 
       // Shows / live
       { source: "/tour",             destination: "/live", permanent: true },

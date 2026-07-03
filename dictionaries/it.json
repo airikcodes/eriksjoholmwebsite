@@ -1,8 +1,8 @@
 {
   "nav": {
     "about": "Chi sono",
-    "songs": "Canzoni",
-    "shows": "Concerti",
+    "works": "Opere",
+    "live": "Live",
     "notes": "Note",
     "shop": "Negozio",
     "contact": "Contatti"
@@ -238,7 +238,7 @@
   },
   "notes": {
     "eyebrow": "Newsletter",
-    "title": "Notes from the song-garden",
+    "title": "Notes",
     "description": "Una lettera su canzoni, storie e ciò che serve per continuare a creare. Arriva quando è pronta.",
     "subscribeLabel": "Iscriviti",
     "archiveLabel": "Tutti i numeri",

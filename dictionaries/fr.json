@@ -1,8 +1,8 @@
 {
   "nav": {
     "about": "À propos",
-    "songs": "Chansons",
-    "shows": "Concerts",
+    "works": "Œuvres",
+    "live": "Live",
     "notes": "Notes",
     "shop": "Boutique",
     "contact": "Contact"
@@ -238,7 +238,7 @@
   },
   "notes": {
     "eyebrow": "Newsletter",
-    "title": "Notes from the song-garden",
+    "title": "Notes",
     "description": "Une lettre sur les chansons, les histoires et ce qu'il faut pour continuer à créer. Paraît quand c'est prêt.",
     "subscribeLabel": "S'abonner",
     "archiveLabel": "Tous les numéros",

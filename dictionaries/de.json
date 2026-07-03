@@ -1,8 +1,8 @@
 {
   "nav": {
     "about": "Über mich",
-    "songs": "Lieder",
-    "shows": "Konzerte",
+    "works": "Werke",
+    "live": "Live",
     "notes": "Notizen",
     "shop": "Shop",
     "contact": "Kontakt"
@@ -238,7 +238,7 @@
   },
   "notes": {
     "eyebrow": "Newsletter",
-    "title": "Notes from the song-garden",
+    "title": "Notes",
     "description": "Ein Brief über Lieder, Geschichten und was es braucht, um weiter zu erschaffen. Erscheint wenn er fertig ist.",
     "subscribeLabel": "Abonnieren",
     "archiveLabel": "Alle Ausgaben",

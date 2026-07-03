@@ -39,12 +39,12 @@ export default async function Home({
   const t = await getDictionary(locale);
 
   const navItems = [
-    { label: t.nav.about,   href: "/about",                                     external: false },
-    { label: t.nav.songs,   href: "/songs",                                     external: false },
-    { label: t.nav.shows,   href: "/live",                                      external: false },
-    { label: t.nav.notes,   href: "/notes",                                     external: false },
-    { label: t.nav.shop,    href: "/shop",                                        external: false },
-    { label: t.nav.contact, href: "/contact",                                    external: false },
+    { label: t.nav.about,   href: "/about",   external: false },
+    { label: t.nav.works,   href: "/works",   external: false },
+    { label: t.nav.live,    href: "/live",    external: false },
+    { label: t.nav.notes,   href: "/notes",   external: false },
+    { label: t.nav.shop,    href: "/shop",    external: false },
+    { label: t.nav.contact, href: "/contact", external: false },
   ];
 
   return (

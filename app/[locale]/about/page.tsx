@@ -287,7 +287,7 @@ export default async function About({
                   </p>
                   <div className="space-y-4">
                     <Link
-                      href="/songs"
+                      href="/works"
                       className="block hover:text-[#E8E0D4] transition-colors duration-200"
                       style={{ fontFamily: "var(--font-inter)", fontSize: "0.82rem", color: "#7A6F62", letterSpacing: "0.03em", padding: "0.25rem 0" }}
                     >

@@ -1,8 +1,8 @@
 {
   "nav": {
     "about": "Tietoja",
-    "songs": "Laulut",
-    "shows": "Konsertit",
+    "works": "Teokset",
+    "live": "Live",
     "notes": "Muistiinpanot",
     "shop": "Kauppa",
     "contact": "Yhteystiedot"
@@ -238,7 +238,7 @@
   },
   "notes": {
     "eyebrow": "Uutiskirje",
-    "title": "Notes from the song-garden",
+    "title": "Notes",
     "description": "Kirje lauluista, tarinoista ja siitä, mitä tarvitaan jatkuvaan luomiseen. Ilmestyy kun se on valmis.",
     "subscribeLabel": "Tilaa",
     "archiveLabel": "Kaikki numerot",
