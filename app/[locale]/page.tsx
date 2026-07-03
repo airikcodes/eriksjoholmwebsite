@@ -43,7 +43,7 @@ export default async function Home({
     { label: t.nav.songs,   href: "/songs",                                     external: false },
     { label: t.nav.shows,   href: "/live",                                      external: false },
     { label: t.nav.notes,   href: "/notes",                                     external: false },
-    { label: t.nav.shop,    href: "https://erik-sjoeholm-shop.fourthwall.com",   external: true  },
+    { label: t.nav.shop,    href: "/shop",                                        external: false },
     { label: t.nav.contact, href: "/contact",                                    external: false },
   ];
 

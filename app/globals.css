@@ -177,6 +177,11 @@ body {
 
 
 
+/* ── Shop product card hover ───────────────────────────────────────────── */
+a:hover .product-img {
+  transform: scale(1.04);
+}
+
 /* ── Beehiiv post content ───────────────────────────────────────────────── */
 .notes-content {
   font-family: var(--font-inter), system-ui, sans-serif;

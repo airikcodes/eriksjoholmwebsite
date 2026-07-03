@@ -1,6 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  images: {
+    remotePatterns: [
+      { protocol: 'https', hostname: 'imgproxy.fourthwall.dev' },
+      { protocol: 'https', hostname: 'cdn.fourthwall.com' },
+    ],
+  },
   async redirects() {
     return [
       // ── Pre-existing short-links ──────────────────────────────────────────
@@ -86,7 +92,6 @@ const nextConfig: NextConfig = {
       { source: "/bonfire-stories-after-the-first-show", destination: "/", permanent: true },
 
       // Dead WooCommerce / empty theme-demo pages → home
-      { source: "/shop",     destination: "/", permanent: true },
       { source: "/cart",     destination: "/", permanent: true },
       { source: "/checkout", destination: "/", permanent: true },
       { source: "/2-4",      destination: "/", permanent: true },
