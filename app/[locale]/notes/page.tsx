@@ -3,10 +3,10 @@ import { notFound } from 'next/navigation';
 import BackNav from '@/components/BackNav';
 import NoteCard from '@/components/NoteCard';
 import KeepInTouch from '@/components/KeepInTouch';
-import { getPosts } from '@/lib/beehiiv';
+import { getNotes } from '@/lib/notes';
 import { getDictionary, hasLocale } from '@/lib/dictionaries';
 
-export const revalidate = 3600;
+export const revalidate = false; // static — revalidated only on redeploy
 
 export const metadata: Metadata = {
   title: 'Notes — Erik Sjøholm',
@@ -37,7 +37,7 @@ export default async function NotesIndex({
   const t = await getDictionary(locale);
   const n = t.notes;
 
-  const posts = await getPosts();
+  const notes = await getNotes();
 
   return (
     <main className="min-h-screen" style={{ background: '#0D0B09', color: '#E8E0D4' }}>
@@ -45,10 +45,11 @@ export default async function NotesIndex({
       {/* Fixed background */}
       <div style={{ position: 'fixed', inset: 0, zIndex: 0 }}>
         <div style={{
-          position: 'absolute', inset: 0,
-          backgroundImage: 'url(/images/bg/bg-03.jpg)',
-          backgroundSize: 'cover', backgroundPosition: 'center',
-          opacity: 0.06,
+          position:           'absolute', inset: 0,
+          backgroundImage:    'url(/images/bg/bg-03.jpg)',
+          backgroundSize:     'cover',
+          backgroundPosition: 'center',
+          opacity:            0.06,
         }} />
       </div>
 
@@ -59,53 +60,53 @@ export default async function NotesIndex({
           <div style={{ paddingTop: '5.5rem', paddingBottom: '3.5rem' }}>
             <BackNav />
             <p style={{
-              fontFamily: 'var(--font-inter)',
-              fontSize: '0.48rem',
+              fontFamily:    'var(--font-inter)',
+              fontSize:      '0.48rem',
               letterSpacing: '0.35em',
               textTransform: 'uppercase',
-              color: '#7A6F62',
-              marginBottom: '1.25rem',
+              color:         '#7A6F62',
+              marginBottom:  '1.25rem',
             }}>
-              {n.eyebrow}
+              Notes
             </p>
             <h1
               className="font-[family-name:var(--font-cormorant)] font-light"
               style={{
-                fontSize: 'clamp(2.8rem, 8vw, 5.5rem)',
-                color: '#E8E0D4',
-                letterSpacing: '0.02em',
-                lineHeight: 0.95,
+                fontSize:     'clamp(2.8rem, 8vw, 5.5rem)',
+                color:        '#E8E0D4',
+                letterSpacing:'0.02em',
+                lineHeight:   0.95,
                 marginBottom: '1.75rem',
               }}
             >
-              {n.title}
+              Notes
             </h1>
             <p style={{
               fontFamily: 'var(--font-inter)',
-              fontSize: '0.875rem',
-              color: '#7A6F62',
+              fontSize:   '0.875rem',
+              color:      '#7A6F62',
               lineHeight: 1.85,
-              maxWidth: '44ch',
+              maxWidth:   '44ch',
             }}>
               {n.description}
             </p>
           </div>
 
-          {/* ── Post list ── */}
+          {/* ── Note list ── */}
           <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}>
-            {posts.length === 0 ? (
+            {notes.length === 0 ? (
               <p style={{
                 fontFamily: 'var(--font-inter)',
-                fontSize: '0.875rem',
-                color: '#7A6F62',
+                fontSize:   '0.875rem',
+                color:      '#7A6F62',
                 paddingTop: '3.5rem',
               }}>
                 {n.noPostsYet}
               </p>
             ) : (
               <div>
-                {posts.map((post) => (
-                  <NoteCard key={post.id} post={post} locale={locale} />
+                {notes.map((note) => (
+                  <NoteCard key={note.slug} note={note} locale={locale} />
                 ))}
               </div>
             )}
