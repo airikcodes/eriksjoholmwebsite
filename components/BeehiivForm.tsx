@@ -1,9 +1,10 @@
-const FORM_ID = '12cecb7e-72ad-4cd0-b12f-3868272593d0';
+// Publication UUID (pub_e1b09e30... minus the pub_ prefix) — used by the embed URL
+const PUB_UUID = 'e1b09e30-8567-4e0f-a940-0ed9680627ec';
 
 export default function BeehiivForm() {
   return (
     <iframe
-      src={`https://embeds.beehiiv.com/4/${FORM_ID}?slim=true`}
+      src={`https://embeds.beehiiv.com/4/${PUB_UUID}?slim=true`}
       data-test-id="beehiiv-embed"
       width="100%"
       frameBorder="0"
