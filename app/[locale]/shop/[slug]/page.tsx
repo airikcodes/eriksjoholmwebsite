@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import BackNav from '@/components/BackNav';
 import AddToCart from '@/components/AddToCart';
+import ProductGallery from '@/components/ProductGallery';
 import { getProducts, getProduct } from '@/lib/fourthwall';
 import { hasLocale } from '@/lib/dictionaries';
 
@@ -59,8 +59,6 @@ export default async function ProductPage({
   const product = await getProduct(slug);
   if (!product) notFound();
 
-  const images = product.images.length > 0 ? product.images : null;
-  const primaryImage = images?.[0];
   const lowestPrice = product.variants.reduce(
     (min, v) => (v.unitPrice.value < min.value ? v.unitPrice : min),
     product.variants[0]?.unitPrice ?? { value: 0, currency: 'USD' }
@@ -97,51 +95,7 @@ export default async function ProductPage({
           }}>
 
             {/* ── Images ── */}
-            <div>
-              {primaryImage ? (
-                <div style={{
-                  aspectRatio: '1 / 1',
-                  position: 'relative',
-                  overflow: 'hidden',
-                  background: 'rgba(255,255,255,0.03)',
-                  marginBottom: images && images.length > 1 ? '1rem' : 0,
-                }}>
-                  <Image
-                    src={primaryImage.url}
-                    alt={product.name}
-                    fill
-                    priority
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    style={{ objectFit: 'cover' }}
-                  />
-                </div>
-              ) : (
-                <div style={{ aspectRatio: '1/1', background: 'rgba(255,255,255,0.03)' }} />
-              )}
-
-              {/* Thumbnail strip */}
-              {images && images.length > 1 && (
-                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                  {images.slice(1).map((img) => (
-                    <div key={img.id} style={{
-                      width: '72px',
-                      aspectRatio: '1/1',
-                      position: 'relative',
-                      overflow: 'hidden',
-                      background: 'rgba(255,255,255,0.03)',
-                    }}>
-                      <Image
-                        src={img.url}
-                        alt={product.name}
-                        fill
-                        sizes="72px"
-                        style={{ objectFit: 'cover', opacity: 0.75 }}
-                      />
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
+            <ProductGallery images={product.images} alt={product.name} />
 
             {/* ── Details ── */}
             <div>

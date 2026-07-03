@@ -27,6 +27,7 @@ export interface FWVariant {
   unitPrice: FWMoney;
   compareAtPrice: FWMoney | null;
   attributes?: {
+    description?: string;
     color?: { name: string; swatch: string };
     size?: { name: string };
   };
@@ -44,17 +45,19 @@ export interface FWProduct {
   state: { type: 'AVAILABLE' | 'UNAVAILABLE' };
 }
 
-export interface FWCartItem {
-  variant: { id: string; name: string; unitPrice: FWMoney };
+// The cart API nests product info inside variant — no separate product field
+export interface FWCartVariant extends FWVariant {
   product: { id: string; name: string; slug: string };
+}
+
+export interface FWCartItem {
+  variant: FWCartVariant;
   quantity: number;
-  totalPrice: FWMoney;
 }
 
 export interface FWCart {
   id: string;
   items: FWCartItem[];
-  subtotal: FWMoney;
 }
 
 export async function getProducts(): Promise<FWProduct[]> {

@@ -29,6 +29,13 @@ export default function CartDrawer() {
 
   const isEmpty = !cart || cart.items.length === 0;
 
+  // Calculate subtotal from items since the API doesn't return one
+  const currency = cart?.items[0]?.variant.unitPrice.currency ?? 'USD';
+  const subtotalValue = cart?.items.reduce(
+    (sum, item) => sum + item.variant.unitPrice.value * item.quantity,
+    0
+  ) ?? 0;
+
   return (
     <>
       {/* Backdrop */}
@@ -117,69 +124,92 @@ export default function CartDrawer() {
             </p>
           ) : (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-              {cart.items.map((item) => (
-                <div
-                  key={item.variant.id}
-                  style={{
-                    display: 'flex',
-                    gap: '1rem',
-                    alignItems: 'flex-start',
-                    paddingBottom: '1.5rem',
-                    borderBottom: '1px solid rgba(255,255,255,0.05)',
-                  }}
-                >
-                  <div style={{ flex: 1, minWidth: 0 }}>
-                    <p style={{
-                      fontFamily: 'var(--font-cormorant, Georgia, serif)',
-                      fontSize: '1.1rem',
-                      fontWeight: 300,
-                      color: '#E8E0D4',
-                      marginBottom: '0.25rem',
-                      letterSpacing: '0.01em',
-                    }}>
-                      {item.product.name}
-                    </p>
-                    <p style={{
-                      fontFamily: 'var(--font-inter)',
-                      fontSize: '0.75rem',
-                      color: '#7A6F62',
-                      marginBottom: '0.5rem',
-                    }}>
-                      {item.variant.name} · Qty {item.quantity}
-                    </p>
-                    <p style={{
-                      fontFamily: 'var(--font-inter)',
-                      fontSize: '0.8rem',
-                      color: '#C8922A',
-                    }}>
-                      {fmt(item.totalPrice.value, item.totalPrice.currency)}
-                    </p>
-                  </div>
-                  <button
-                    onClick={() => handleRemove(item.variant.id)}
-                    disabled={isPending}
-                    aria-label="Remove item"
+              {cart.items.map((item) => {
+                const { variant } = item;
+                const itemTotal = variant.unitPrice.value * item.quantity;
+                const label = variant.attributes?.description || variant.name;
+                return (
+                  <div
+                    key={variant.id}
                     style={{
-                      background: 'none',
-                      border: 'none',
-                      cursor: isPending ? 'not-allowed' : 'pointer',
-                      color: '#7A6F62',
-                      fontSize: '0.65rem',
-                      letterSpacing: '0.1em',
-                      textTransform: 'uppercase',
-                      fontFamily: 'var(--font-inter)',
-                      padding: '0.25rem 0',
-                      opacity: isPending ? 0.5 : 1,
-                      transition: 'color 200ms',
-                      flexShrink: 0,
+                      display: 'flex',
+                      gap: '1rem',
+                      alignItems: 'flex-start',
+                      paddingBottom: '1.5rem',
+                      borderBottom: '1px solid rgba(255,255,255,0.05)',
                     }}
-                    onMouseEnter={(e) => { if (!isPending) e.currentTarget.style.color = '#E8E0D4'; }}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = '#7A6F62')}
                   >
-                    Remove
-                  </button>
-                </div>
-              ))}
+                    {/* Thumbnail */}
+                    {variant.images[0] && (
+                      <div style={{
+                        width: '56px',
+                        aspectRatio: '3/4',
+                        flexShrink: 0,
+                        overflow: 'hidden',
+                        background: 'rgba(255,255,255,0.03)',
+                      }}>
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={variant.images[0].url}
+                          alt={variant.product.name}
+                          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                        />
+                      </div>
+                    )}
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <p style={{
+                        fontFamily: 'var(--font-cormorant, Georgia, serif)',
+                        fontSize: '1.05rem',
+                        fontWeight: 300,
+                        color: '#E8E0D4',
+                        marginBottom: '0.2rem',
+                        letterSpacing: '0.01em',
+                      }}>
+                        {variant.product.name}
+                      </p>
+                      <p style={{
+                        fontFamily: 'var(--font-inter)',
+                        fontSize: '0.7rem',
+                        color: '#7A6F62',
+                        marginBottom: '0.5rem',
+                      }}>
+                        {label} · Qty {item.quantity}
+                      </p>
+                      <p style={{
+                        fontFamily: 'var(--font-inter)',
+                        fontSize: '0.8rem',
+                        color: '#C8922A',
+                      }}>
+                        {fmt(itemTotal, variant.unitPrice.currency)}
+                      </p>
+                    </div>
+                    <button
+                      onClick={() => handleRemove(variant.id)}
+                      disabled={isPending}
+                      aria-label="Remove item"
+                      style={{
+                        background: 'none',
+                        border: 'none',
+                        cursor: isPending ? 'not-allowed' : 'pointer',
+                        color: '#7A6F62',
+                        fontSize: '0.6rem',
+                        letterSpacing: '0.1em',
+                        textTransform: 'uppercase',
+                        fontFamily: 'var(--font-inter)',
+                        padding: '0.25rem 0',
+                        opacity: isPending ? 0.5 : 1,
+                        transition: 'color 200ms',
+                        flexShrink: 0,
+                        marginTop: '0.15rem',
+                      }}
+                      onMouseEnter={(e) => { if (!isPending) e.currentTarget.style.color = '#E8E0D4'; }}
+                      onMouseLeave={(e) => (e.currentTarget.style.color = '#7A6F62')}
+                    >
+                      Remove
+                    </button>
+                  </div>
+                );
+              })}
             </div>
           )}
         </div>
@@ -211,7 +241,7 @@ export default function CartDrawer() {
                 fontWeight: 300,
                 color: '#E8E0D4',
               }}>
-                {fmt(cart.subtotal.value, cart.subtotal.currency)}
+                {fmt(subtotalValue, currency)}
               </span>
             </div>
             <button
