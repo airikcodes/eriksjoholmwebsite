@@ -4,8 +4,8 @@ import { notFound } from 'next/navigation';
 import BackNav from '@/components/BackNav';
 import WorksSearch from '@/components/WorksSearch';
 import KeepInTouch from '@/components/KeepInTouch';
-import { works, featuredWorks } from '@/data/works';
-import { hasLocale } from '@/lib/dictionaries';
+import { works, albums, featuredWorks } from '@/data/works';
+import { getDictionary, hasLocale } from '@/lib/dictionaries';
 
 export const metadata: Metadata = {
   title: 'Works — Erik Sjøholm',
@@ -29,6 +29,12 @@ export const metadata: Metadata = {
 const SPOTIFY_ARTIST = 'https://open.spotify.com/artist/1UpcgaCHBwic2IqUQ3hHdp';
 const TIDAL_ARTIST   = 'https://tidal.com/artist/47687355';
 
+function typeLabel(type: string): string {
+  if (type === 'album') return 'Album';
+  if (type === 'ep')    return 'EP';
+  return type;
+}
+
 export default async function WorksPage({
   params,
 }: {
@@ -36,6 +42,7 @@ export default async function WorksPage({
 }) {
   const { locale } = await params;
   if (!hasLocale(locale)) notFound();
+  const t = await getDictionary(locale);
 
   return (
     <main className="min-h-screen" style={{ background: '#0D0B09', color: '#E8E0D4' }}>
@@ -43,11 +50,11 @@ export default async function WorksPage({
       {/* Fixed background */}
       <div style={{ position: 'fixed', inset: 0, zIndex: 0 }}>
         <div style={{
-          position:            'absolute', inset: 0,
-          backgroundImage:     'url(/images/bg/bg-01.jpg)',
-          backgroundSize:      'cover',
-          backgroundPosition:  'center top',
-          opacity:             0.09,
+          position:           'absolute', inset: 0,
+          backgroundImage:    'url(/images/bg/bg-01.jpg)',
+          backgroundSize:     'cover',
+          backgroundPosition: 'center top',
+          opacity:            0.09,
         }} />
       </div>
 
@@ -70,11 +77,11 @@ export default async function WorksPage({
             <h1
               className="font-[family-name:var(--font-cormorant)] font-light"
               style={{
-                fontSize:     'clamp(3rem, 9vw, 6rem)',
-                color:        '#E8E0D4',
-                letterSpacing:'0.02em',
-                lineHeight:   0.95,
-                marginBottom: '2.5rem',
+                fontSize:      'clamp(3rem, 9vw, 6rem)',
+                color:         '#E8E0D4',
+                letterSpacing: '0.02em',
+                lineHeight:    0.95,
+                marginBottom:  '2.5rem',
               }}
             >
               Works
@@ -83,11 +90,11 @@ export default async function WorksPage({
             <span className="block" style={{ width: '2rem', height: '1px', background: '#C8922A', marginBottom: '2.5rem' }} />
 
             <p style={{
-              fontFamily: 'var(--font-inter)',
-              fontSize:   '0.875rem',
-              color:      '#7A6F62',
-              lineHeight: 1.85,
-              maxWidth:   '50ch',
+              fontFamily:   'var(--font-inter)',
+              fontSize:     '0.875rem',
+              color:        '#7A6F62',
+              lineHeight:   1.85,
+              maxWidth:     '50ch',
               marginBottom: '2rem',
             }}>
               Songs, recordings, and other artistic works — from a catalogue of over 300 original compositions.
@@ -144,20 +151,19 @@ export default async function WorksPage({
               Featured
             </p>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
+            <div>
               {featuredWorks.map((work, i) => (
                 <Link
                   key={work.id}
                   href={`/works/${work.slug}`}
                   style={{
-                    display:        'grid',
+                    display:             'grid',
                     gridTemplateColumns: '2rem 1fr auto',
-                    gap:            '1.25rem',
-                    alignItems:     'baseline',
-                    padding:        '1.75rem 0',
-                    borderBottom:   '1px solid rgba(255,255,255,0.06)',
-                    textDecoration: 'none',
-                    transition:     'opacity 200ms',
+                    gap:                 '1.25rem',
+                    alignItems:          'baseline',
+                    padding:             '1.75rem 0',
+                    borderBottom:        '1px solid rgba(255,255,255,0.06)',
+                    textDecoration:      'none',
                   }}
                   className="group"
                 >
@@ -173,10 +179,10 @@ export default async function WorksPage({
                     <p
                       className="font-[family-name:var(--font-cormorant)] font-light group-hover:text-[#C8922A] transition-colors duration-200"
                       style={{
-                        fontSize:     'clamp(1.1rem, 2.8vw, 1.55rem)',
-                        color:        '#E8E0D4',
-                        lineHeight:   1.2,
-                        letterSpacing:'0.01em',
+                        fontSize:      'clamp(1.1rem, 2.8vw, 1.55rem)',
+                        color:         '#E8E0D4',
+                        lineHeight:    1.2,
+                        letterSpacing: '0.01em',
                       }}
                     >
                       {work.title}
@@ -198,7 +204,6 @@ export default async function WorksPage({
                     fontFamily:    'var(--font-inter)',
                     fontSize:      '0.5rem',
                     letterSpacing: '0.18em',
-                    textTransform: 'uppercase',
                     color:         '#7A6F62',
                     flexShrink:    0,
                   }}>
@@ -209,7 +214,133 @@ export default async function WorksPage({
             </div>
           </div>
 
-          {/* ── Songs catalogue ── */}
+          {/* ── Albums & Releases ── (hidden when empty) */}
+          {albums.length > 0 && (
+            <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '5rem', paddingBottom: '5rem' }}>
+              <p style={{
+                fontFamily:    'var(--font-inter)',
+                fontSize:      '0.45rem',
+                letterSpacing: '0.35em',
+                textTransform: 'uppercase',
+                color:         '#7A6F62',
+                marginBottom:  '3rem',
+              }}>
+                Albums & Releases
+              </p>
+
+              <ul style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}>
+                {albums.map((album) => (
+                  <li key={album.id} style={{ borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
+                    <Link
+                      href={`/works/${album.slug}`}
+                      style={{
+                        display:             'grid',
+                        gridTemplateColumns: '1fr auto',
+                        gap:                 '1.5rem',
+                        alignItems:          'center',
+                        padding:             '1.75rem 0',
+                        textDecoration:      'none',
+                      }}
+                      className="group"
+                    >
+                      <div>
+                        <p
+                          className="font-[family-name:var(--font-cormorant)] font-light group-hover:text-[#C8922A] transition-colors duration-200"
+                          style={{
+                            fontSize:      'clamp(1.05rem, 2.5vw, 1.4rem)',
+                            color:         '#E8E0D4',
+                            lineHeight:    1.2,
+                            letterSpacing: '0.01em',
+                          }}
+                        >
+                          {album.title}
+                        </p>
+                        <div style={{ display: 'flex', gap: '1rem', marginTop: '0.35rem', alignItems: 'baseline' }}>
+                          {album.year && (
+                            <span style={{
+                              fontFamily:    'var(--font-inter)',
+                              fontSize:      '0.55rem',
+                              letterSpacing: '0.1em',
+                              color:         '#7A6F62',
+                            }}>
+                              {album.year}
+                            </span>
+                          )}
+                          <span style={{
+                            fontFamily:    'var(--font-inter)',
+                            fontSize:      '0.45rem',
+                            letterSpacing: '0.22em',
+                            textTransform: 'uppercase',
+                            color:         'rgba(200,146,42,0.5)',
+                          }}>
+                            {typeLabel(album.workType)}
+                          </span>
+                          {album.meta && (
+                            <span style={{
+                              fontFamily:    'var(--font-inter)',
+                              fontSize:      '0.55rem',
+                              letterSpacing: '0.08em',
+                              color:         '#7A6F62',
+                            }}>
+                              {album.meta}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+
+                      <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexShrink: 0 }}>
+                        {album.spotifyUrl && (
+                          <a
+                            href={album.spotifyUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            className="hover:text-[#1DB954] transition-colors duration-200"
+                            style={{
+                              fontFamily:    'var(--font-inter)',
+                              fontSize:      '0.48rem',
+                              letterSpacing: '0.15em',
+                              textTransform: 'uppercase',
+                              color:         '#7A6F62',
+                            }}
+                          >
+                            Spotify
+                          </a>
+                        )}
+                        {album.tidalUrl && (
+                          <a
+                            href={album.tidalUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            className="hover:text-[#00FFFF] transition-colors duration-200"
+                            style={{
+                              fontFamily:    'var(--font-inter)',
+                              fontSize:      '0.48rem',
+                              letterSpacing: '0.15em',
+                              textTransform: 'uppercase',
+                              color:         '#7A6F62',
+                            }}
+                          >
+                            Tidal
+                          </a>
+                        )}
+                        <span style={{
+                          fontFamily: 'var(--font-inter)',
+                          fontSize:   '0.5rem',
+                          color:      '#7A6F62',
+                        }}>
+                          →
+                        </span>
+                      </div>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {/* ── Songs ── */}
           <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '5rem', paddingBottom: '5rem' }}>
             <p style={{
               fontFamily:    'var(--font-inter)',
@@ -223,6 +354,82 @@ export default async function WorksPage({
             </p>
 
             <WorksSearch works={works} />
+          </div>
+
+          {/* ── Sync Licensing ── */}
+          <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '5rem', paddingBottom: '5rem' }}>
+            <p style={{
+              fontFamily:    'var(--font-inter)',
+              fontSize:      '0.45rem',
+              letterSpacing: '0.35em',
+              textTransform: 'uppercase',
+              color:         '#7A6F62',
+              marginBottom:  '1.25rem',
+            }}>
+              {t.sync.eyebrow}
+            </p>
+            <h2
+              className="font-[family-name:var(--font-cormorant)] font-light"
+              style={{
+                fontSize:      'clamp(2rem, 5vw, 3.25rem)',
+                color:         '#E8E0D4',
+                lineHeight:    1.05,
+                letterSpacing: '0.01em',
+                marginBottom:  '1.5rem',
+              }}
+            >
+              {t.sync.title}
+            </h2>
+            <p style={{
+              fontFamily:   'var(--font-inter)',
+              fontSize:     '0.875rem',
+              color:        '#7A6F62',
+              lineHeight:   1.85,
+              maxWidth:     '50ch',
+              marginBottom: '2.5rem',
+            }}>
+              {t.sync.intro}
+            </p>
+            <div className="flex flex-wrap gap-6">
+              <Link
+                href="/sync"
+                style={{
+                  display:       'inline-block',
+                  border:        '1px solid rgba(200,146,42,0.5)',
+                  color:         '#C8922A',
+                  fontFamily:    'var(--font-inter)',
+                  fontSize:      '0.48rem',
+                  letterSpacing: '0.28em',
+                  textTransform: 'uppercase',
+                  padding:       '0.75rem 1.75rem',
+                  textDecoration:'none',
+                  transition:    'border-color 200ms, color 200ms',
+                }}
+                className="hover:border-[#C8922A] hover:text-[#E8E0D4] transition-all duration-200"
+              >
+                Browse the catalogue →
+              </Link>
+              <a
+                href="https://eriksjoholmofficial.disco.ac/cat/1272966979"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display:       'inline-block',
+                  fontFamily:    'var(--font-inter)',
+                  fontSize:      '0.48rem',
+                  letterSpacing: '0.2em',
+                  textTransform: 'uppercase',
+                  color:         '#7A6F62',
+                  borderBottom:  '1px solid rgba(122,111,98,0.3)',
+                  paddingBottom: '2px',
+                  textDecoration:'none',
+                  alignSelf:     'center',
+                }}
+                className="hover:text-[#C8922A] hover:border-[#C8922A] transition-colors duration-200"
+              >
+                {t.sync.openOnDisco}
+              </a>
+            </div>
           </div>
 
           {/* ── Keep in touch ── */}

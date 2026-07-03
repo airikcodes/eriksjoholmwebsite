@@ -27,6 +27,8 @@ export interface Work {
   story?: string;
   description?: string;
   credits?: WorkCredit[];
+  /** For albums/EPs: slugs of songs that appear on this release */
+  tracks?: string[];
   /** Slugs of related Notes on the website */
   relatedNotes?: string[];
 }
@@ -158,10 +160,37 @@ export const works: Work[] = [
   },
 ];
 
+// ── Albums & EPs ─────────────────────────────────────────────────────────────
+// Add album and EP releases here. Songs reference their parent via `album: slug`.
+// Example entry:
+// {
+//   id:            'example-album',
+//   slug:          'example-album',
+//   title:         'Example Album',
+//   workType:      'album',
+//   year:          2023,
+//   releaseStatus: 'released',
+//   featured:      false,
+//   description:   'Short description of the album.',
+//   spotifyUrl:    'https://open.spotify.com/album/...',
+//   tidalUrl:      'https://tidal.com/album/...',
+//   tracks:        ['song-slug-1', 'song-slug-2'],
+// },
+
+export const albums: Work[] = [
+  // Populate when ready — section is hidden when this array is empty
+];
+
+// ── Derived exports ───────────────────────────────────────────────────────────
+
+export const songs = works.filter(
+  (w) => w.workType === 'song' || w.workType === 'single' || w.workType === 'collaboration'
+);
+
 export const featuredWorks = works
   .filter((w) => w.featured)
   .sort((a, b) => (a.featuredOrder ?? 99) - (b.featuredOrder ?? 99));
 
 export function getWork(slug: string): Work | undefined {
-  return works.find((w) => w.slug === slug);
+  return [...works, ...albums].find((w) => w.slug === slug);
 }
