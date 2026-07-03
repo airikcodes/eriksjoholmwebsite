@@ -11,11 +11,11 @@ export const revalidate = false; // static — revalidated only on redeploy
 export const metadata: Metadata = {
   title: 'Notes — Erik Sjøholm',
   description:
-    'Writing about songs, stories, and what it takes to keep making things. By Erik Sjøholm.',
+    'An artistic travelogue — stories behind songs, reflections from the road, poems, and recording notes. By Erik Sjøholm.',
   alternates: { canonical: 'https://eriksjoholm.com/notes' },
   openGraph: {
     title: 'Notes — Erik Sjøholm',
-    description: 'Writing about songs, stories, and what it takes to keep making things.',
+    description: 'An artistic travelogue — stories behind songs, reflections from the road, poems, and recording notes.',
     url: 'https://eriksjoholm.com/notes',
     images: [{ url: '/images/portrait.jpg', width: 800, height: 800, alt: 'Erik Sjøholm' }],
     type: 'website',
