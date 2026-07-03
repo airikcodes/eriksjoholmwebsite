@@ -547,10 +547,8 @@ export default async function Storyteller({
                   >
                     {st.seeTheShowDesc}
                   </p>
-                  <a
-                    href="https://eriksjoholm-newsletter.beehiiv.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    href="/notes"
                     className="hover:bg-[#E8E0D4] hover:text-[#0D0B09] transition-all duration-200"
                     style={{
                       display: "inline-block",
@@ -565,7 +563,7 @@ export default async function Storyteller({
                     }}
                   >
                     {st.subscribeBtn}
-                  </a>
+                  </Link>
                 </div>
 
                 {/* Book GLENN — bookers */}

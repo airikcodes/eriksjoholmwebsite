@@ -36,7 +36,7 @@
     "explore": "Tutki",
     "theStoryteller": "Tarinankerrontakonsertti →",
     "syncLicensing": "Synkronoinnin lisensointi →",
-    "songs": "Laulut →"
+    "works": "Works →"
   },
   "songs": {
     "eyebrow": "Sanoitukset & tarinat",
@@ -239,7 +239,7 @@
   "notes": {
     "eyebrow": "Uutiskirje",
     "title": "Notes",
-    "description": "Kirje lauluista, tarinoista ja siitä, mitä tarvitaan jatkuvaan luomiseen. Ilmestyy kun se on valmis.",
+    "description": "Taiteellinen matkakuvaus — tarinoita laulujen takaa, heijastuksia tieltä, runoja, äänityspäiväkirjoja ja pieniä elämänpohdintoja.",
     "subscribeLabel": "Tilaa",
     "archiveLabel": "Kaikki numerot",
     "noPostsYet": "Ei vielä mitään — tule pian takaisin.",

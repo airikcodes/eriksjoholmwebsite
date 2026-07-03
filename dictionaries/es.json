@@ -36,7 +36,7 @@
     "explore": "Explorar",
     "theStoryteller": "El narrador →",
     "syncLicensing": "Licencias Sync →",
-    "songs": "Canciones →"
+    "works": "Works →"
   },
   "songs": {
     "eyebrow": "Letras e historias",
@@ -239,7 +239,7 @@
   "notes": {
     "eyebrow": "Boletín",
     "title": "Notes",
-    "description": "Una carta sobre canciones, historias y lo que se necesita para seguir creando. Llega cuando está lista.",
+    "description": "Un diario artístico de viaje — historias detrás de las canciones, reflexiones del camino, poemas, notas de grabación y pequeñas reflexiones sobre la vida.",
     "subscribeLabel": "Suscribirse",
     "archiveLabel": "Todos los números",
     "noPostsYet": "Nada aquí todavía — vuelve pronto.",

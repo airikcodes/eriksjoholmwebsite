@@ -36,7 +36,7 @@
     "explore": "Erkunden",
     "theStoryteller": "Der Geschichtenerzähler →",
     "syncLicensing": "Sync-Lizenzierung →",
-    "songs": "Lieder →"
+    "works": "Works →"
   },
   "songs": {
     "eyebrow": "Texte & Geschichten",
@@ -239,7 +239,7 @@
   "notes": {
     "eyebrow": "Newsletter",
     "title": "Notes",
-    "description": "Ein Brief über Lieder, Geschichten und was es braucht, um weiter zu erschaffen. Erscheint wenn er fertig ist.",
+    "description": "Eine künstlerische Reisebeschreibung — Geschichten hinter Liedern, Reflexionen von unterwegs, Gedichte, Aufnahmenotizen und kleine Beobachtungen über das Leben.",
     "subscribeLabel": "Abonnieren",
     "archiveLabel": "Alle Ausgaben",
     "noPostsYet": "Noch nichts hier — schau bald wieder vorbei.",

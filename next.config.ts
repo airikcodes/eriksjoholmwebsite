@@ -16,8 +16,8 @@ const nextConfig: NextConfig = {
       { source: "/:locale(de|es|sv|fi|it|fr|pt)/resonators",  destination: "https://eriksjoholm-newsletter.beehiiv.com", permanent: true },
 
       // ── Songs → Works (information architecture rename) ───────────────────
-      { source: "/songs",                                      destination: "/works",                                     permanent: true },
-      { source: "/:locale(de|es|sv|fi|it|fr|pt)/songs",       destination: "/:locale/works",                             permanent: true },
+      { source: "/songs",                                           destination: "/works",          permanent: true },
+      { source: "/:locale(en|de|es|sv|fi|it|fr|pt)/songs",        destination: "/:locale/works",  permanent: true },
 
       // ── WordPress migration (eriksjoholm.com → eriksjoholm.com) ──────────
       // Generated 2026-07-01 from WordPress.2026-06-30.xml

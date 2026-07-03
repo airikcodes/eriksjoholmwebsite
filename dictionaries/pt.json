@@ -36,7 +36,7 @@
     "explore": "Explorar",
     "theStoryteller": "O contador de histórias →",
     "syncLicensing": "Licenciamento Sync →",
-    "songs": "Músicas →"
+    "works": "Works →"
   },
   "songs": {
     "eyebrow": "Letras & histórias",
@@ -239,7 +239,7 @@
   "notes": {
     "eyebrow": "Newsletter",
     "title": "Notes",
-    "description": "Uma carta sobre canções, histórias e o que é preciso para continuar criando. Sai quando está pronta.",
+    "description": "Um diário de viagem artístico — histórias por trás das canções, reflexões da estrada, poemas, notas de gravação e pequenas reflexões sobre a vida.",
     "subscribeLabel": "Subscrever",
     "archiveLabel": "Todos os números",
     "noPostsYet": "Ainda nada aqui — volte em breve.",

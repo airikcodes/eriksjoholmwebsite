@@ -1,7 +1,7 @@
 {
   "nav": {
     "about": "Om mig",
-    "works": "Verk",
+    "works": "Works",
     "live": "Live",
     "notes": "Anteckningar",
     "shop": "Butik",
@@ -36,7 +36,7 @@
     "explore": "Utforska",
     "theStoryteller": "Berättaren →",
     "syncLicensing": "Synklicenser →",
-    "songs": "Låtar →"
+    "works": "Works →"
   },
   "songs": {
     "eyebrow": "Texter & berättelser",
@@ -239,7 +239,7 @@
   "notes": {
     "eyebrow": "Nyhetsbrev",
     "title": "Notes",
-    "description": "Ett brev om låtar, berättelser och vad det krävs för att fortsätta skapa. Kommer ut när det är klart.",
+    "description": "En konstnärlig resedagbok — historier bakom låtar, reflektioner från vägen, dikter, inspelningsanteckningar och små tankar om livet.",
     "subscribeLabel": "Prenumerera",
     "archiveLabel": "Alla nummer",
     "noPostsYet": "Inget här än — kika in snart.",

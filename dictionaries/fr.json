@@ -36,7 +36,7 @@
     "explore": "Explorer",
     "theStoryteller": "Le conteur →",
     "syncLicensing": "Licences Sync →",
-    "songs": "Chansons →"
+    "works": "Works →"
   },
   "songs": {
     "eyebrow": "Paroles & histoires",
@@ -239,7 +239,7 @@
   "notes": {
     "eyebrow": "Newsletter",
     "title": "Notes",
-    "description": "Une lettre sur les chansons, les histoires et ce qu'il faut pour continuer à créer. Paraît quand c'est prêt.",
+    "description": "Un carnet de voyage artistique — des histoires derrière les chansons, des réflexions de la route, des poèmes, des notes d'enregistrement et de petites réflexions sur la vie.",
     "subscribeLabel": "S'abonner",
     "archiveLabel": "Tous les numéros",
     "noPostsYet": "Rien ici pour l'instant — revenez bientôt.",

@@ -36,7 +36,7 @@
     "explore": "Esplora",
     "theStoryteller": "Il narratore →",
     "syncLicensing": "Licenze Sync →",
-    "songs": "Canzoni →"
+    "works": "Works →"
   },
   "songs": {
     "eyebrow": "Testi & storie",
@@ -239,7 +239,7 @@
   "notes": {
     "eyebrow": "Newsletter",
     "title": "Notes",
-    "description": "Una lettera su canzoni, storie e ciò che serve per continuare a creare. Arriva quando è pronta.",
+    "description": "Un diario di viaggio artistico — storie dietro le canzoni, riflessioni dalla strada, poesie, note di registrazione e piccole riflessioni sulla vita.",
     "subscribeLabel": "Iscriviti",
     "archiveLabel": "Tutti i numeri",
     "noPostsYet": "Niente ancora qui — torna presto.",

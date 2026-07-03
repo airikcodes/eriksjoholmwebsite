@@ -243,14 +243,13 @@ export default async function About({
                     >
                       LinkedIn →
                     </a>
-                    <a
-                      href="https://eriksjoholm-newsletter.beehiiv.com"
-                      target="_blank" rel="noopener noreferrer"
+                    <Link
+                      href="/notes"
                       className="block hover:text-[#C8922A] transition-colors duration-200"
                       style={{ fontFamily: "var(--font-inter)", fontSize: "0.82rem", color: "#7A6F62", letterSpacing: "0.03em", padding: "0.25rem 0" }}
                     >
                       Notes →
-                    </a>
+                    </Link>
                   </div>
                 </div>
 
@@ -291,7 +290,7 @@ export default async function About({
                       className="block hover:text-[#E8E0D4] transition-colors duration-200"
                       style={{ fontFamily: "var(--font-inter)", fontSize: "0.82rem", color: "#7A6F62", letterSpacing: "0.03em", padding: "0.25rem 0" }}
                     >
-                      {a.songs}
+                      {a.works}
                     </Link>
                     <Link
                       href="/storyteller"
