@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import Link from 'next/link';
 import BackNav from '@/components/BackNav';
+import BeehiivForm from '@/components/BeehiivForm';
 import { getPostBySlug, getPosts, cleanBeehiivHtml } from '@/lib/beehiiv';
 import { getDictionary, hasLocale } from '@/lib/dictionaries';
 
@@ -73,7 +73,7 @@ export default async function NotePost({
   if (!post) notFound();
 
   const n = t.notes;
-  const html = cleanBeehiivHtml(post.free_web_content ?? '');
+  const html = cleanBeehiivHtml(post.free_web_content ?? '', post.subtitle);
   const date = formatDate(post.publish_date, locale);
 
   return (
@@ -90,16 +90,16 @@ export default async function NotePost({
       </div>
 
       <div className="relative" style={{ zIndex: 1 }}>
-        <div style={{ maxWidth: '680px', margin: '0 auto', padding: '0 1.5rem' }}>
+        <div style={{ maxWidth: '640px', margin: '0 auto', padding: '0 1.5rem' }}>
 
           {/* ── Header ── */}
-          <div style={{ paddingTop: '5.5rem', paddingBottom: '3rem' }}>
-            <BackNav />
+          <div style={{ paddingTop: '5.5rem', paddingBottom: '3.5rem' }}>
+            <BackNav href="/notes" label={n.backToNotes} />
 
             <p style={{
               fontFamily: 'var(--font-inter)',
-              fontSize: '0.42rem',
-              letterSpacing: '0.3em',
+              fontSize: '0.48rem',
+              letterSpacing: '0.32em',
               textTransform: 'uppercase',
               color: '#7A6F62',
               marginBottom: '1.5rem',
@@ -110,9 +110,9 @@ export default async function NotePost({
             <h1
               className="font-[family-name:var(--font-cormorant)] font-light"
               style={{
-                fontSize: 'clamp(2.2rem, 6vw, 4rem)',
+                fontSize: 'clamp(2.2rem, 6vw, 3.75rem)',
                 color: '#E8E0D4',
-                letterSpacing: '0.02em',
+                letterSpacing: '0.01em',
                 lineHeight: 1.05,
                 marginBottom: post.subtitle ? '1.25rem' : 0,
               }}
@@ -123,9 +123,10 @@ export default async function NotePost({
             {post.subtitle && (
               <p style={{
                 fontFamily: 'var(--font-inter)',
-                fontSize: '1rem',
+                fontSize: '0.95rem',
                 color: '#7A6F62',
-                lineHeight: 1.7,
+                lineHeight: 1.75,
+                maxWidth: '44ch',
               }}>
                 {post.subtitle}
               </p>
@@ -135,15 +136,55 @@ export default async function NotePost({
           </div>
 
           {/* ── Post body ── */}
-          <div
-            className="notes-content"
-            style={{ paddingBottom: '6rem' }}
-            dangerouslySetInnerHTML={{ __html: html }}
-          />
+          {html ? (
+            <div
+              className="notes-content"
+              style={{ paddingBottom: '5rem' }}
+              dangerouslySetInnerHTML={{ __html: html }}
+            />
+          ) : (
+            <div style={{
+              paddingBottom: '5rem',
+              fontFamily: 'var(--font-inter)',
+              fontSize: '0.9rem',
+              color: '#7A6F62',
+            }}>
+              <p>Read the full letter on <a href={post.web_url} target="_blank" rel="noopener noreferrer" style={{ color: '#C8922A' }}>Beehiiv →</a></p>
+            </div>
+          )}
+
+          {/* ── Subscribe CTA ── */}
+          <div style={{
+            borderTop: '1px solid rgba(255,255,255,0.07)',
+            paddingTop: '4rem',
+            paddingBottom: '2rem',
+          }}>
+            <p style={{
+              fontFamily: 'var(--font-inter)',
+              fontSize: '0.48rem',
+              letterSpacing: '0.35em',
+              textTransform: 'uppercase',
+              color: '#7A6F62',
+              marginBottom: '0.75rem',
+            }}>
+              {n.subscribeLabel}
+            </p>
+            <p style={{
+              fontFamily: 'var(--font-inter)',
+              fontSize: '0.875rem',
+              color: '#7A6F62',
+              lineHeight: 1.7,
+              maxWidth: '40ch',
+              marginBottom: '2rem',
+            }}>
+              {n.subscribeDesc}
+            </p>
+            <BeehiivForm />
+          </div>
 
           {/* ── Back link ── */}
-          <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '3rem', paddingBottom: '9rem' }}>
-            <Link
+          <div style={{ paddingTop: '3rem', paddingBottom: '9rem' }}>
+            <a
               href="/notes"
               style={{
                 fontFamily: 'var(--font-inter)',
@@ -158,7 +199,7 @@ export default async function NotePost({
               className="hover:text-[#C8922A] hover:border-[#C8922A] transition-colors duration-200"
             >
               ← {n.backToNotes}
-            </Link>
+            </a>
           </div>
 
         </div>

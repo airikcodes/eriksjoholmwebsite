@@ -12,7 +12,7 @@ function env(key: string): string {
 export interface BeehiivPost {
   id: string;
   title: string;
-  subtitle: string;
+  subtitle: string | null;
   slug: string;
   status: string;
   created: number;
@@ -20,7 +20,8 @@ export interface BeehiivPost {
   thumbnail_url: string | null;
   web_url: string;
   free_web_content?: string;
-  authors: { name: string }[];
+  authors: string[];
+  content?: { free?: { web?: string } };
 }
 
 interface BeehiivListResponse {
@@ -59,13 +60,13 @@ export async function getPostBySlug(slug: string): Promise<BeehiivPost | null> {
   const pubId = env('BEEHIIV_PUBLICATION_ID');
   const apiKey = env('BEEHIIV_API_KEY');
 
-  // Fetch the list to resolve slug → id (list call is cached)
+  // Fetch the list to resolve slug → id (cached)
   const posts = await getPosts();
   const stub = posts.find((p) => p.slug === slug);
   if (!stub) return null;
 
   const res = await fetch(
-    `${API_BASE}/publications/${pubId}/posts/${stub.id}?expand[]=free_web_content`,
+    `${API_BASE}/publications/${pubId}/posts/${stub.id}`,
     {
       headers: { Authorization: `Bearer ${apiKey}` },
       next: { revalidate: 3600, tags: ['beehiiv-posts'] },
@@ -75,12 +76,15 @@ export async function getPostBySlug(slug: string): Promise<BeehiivPost | null> {
   if (!res.ok) return null;
 
   const json: BeehiivSingleResponse = await res.json();
-  return json.data ?? null;
+  const post = json.data ?? null;
+  if (!post) return null;
+
+  // Content lives in content.free.web — free_web_content is always null
+  post.free_web_content = post.content?.free?.web ?? '';
+  return post;
 }
 
 // ── HTML sanitization ────────────────────────────────────────────────────────
-// Strips Beehiiv's layout / brand styles while preserving Erik's intentional
-// inline styles (image widths, button backgrounds, etc.)
 
 const STYLE_ALLOWLIST: Record<string, RegExp[]> = {
   img:   [/^width$/, /^max-width$/, /^height$/, /^object-fit$/, /^float$/, /^margin$/],
@@ -101,12 +105,30 @@ function filterStyle(tag: string, styles: Record<string, string>): Record<string
   );
 }
 
-export function cleanBeehiivHtml(html: string): string {
+function preProcessBeehiivHtml(html: string): string {
+  // Strip embedded <style> and <script> blocks (and their content)
+  html = html.replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, '');
+  html = html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '');
+
+  // Extract <body> content from full HTML documents
+  const bodyMatch = html.match(/<body\b[^>]*>([\s\S]*?)<\/body>/i);
+  if (bodyMatch) html = bodyMatch[1];
+
+  // Remove the Beehiiv post <h1> (we render the title in the page header)
+  html = html.replace(/<h1\b[^>]*>[\s\S]*?<\/h1>/gi, '');
+
+  return html;
+}
+
+export function cleanBeehiivHtml(html: string, subtitle?: string | null): string {
   if (!html) return '';
+
+  html = preProcessBeehiivHtml(html);
 
   return sanitizeHtml(html, {
     allowedTags: [
-      'h1','h2','h3','h4','h5','h6',
+      // h1 intentionally omitted — rendered separately in page header
+      'h2','h3','h4','h5','h6',
       'p','br','hr',
       'ul','ol','li',
       'blockquote','pre','code',
@@ -150,24 +172,32 @@ export function cleanBeehiivHtml(html: string): string {
       'table': (tagName, attribs) => ({ tagName, attribs: { ...attribs, style: filterStyleStr('table', attribs.style) } }),
       'td':    (tagName, attribs) => ({ tagName, attribs: { ...attribs, style: filterStyleStr('td', attribs.style) } }),
       'p':    stripStyle,
-      'h1':   stripStyle,
       'h2':   stripStyle,
       'h3':   stripStyle,
       'span': stripStyle,
     },
-    // Remove Beehiiv tracking pixels (1×1 images)
     exclusiveFilter: (frame) => {
+      // Remove Beehiiv byline and social sharing blocks
+      const cls = frame.attribs?.class ?? '';
+      if (cls.includes('bh__byline')) return true;
+
+      // Remove h2 that is Beehiiv's subtitle (we render post.subtitle separately)
+      if (frame.tag === 'h2' && subtitle && frame.text?.trim() === subtitle.trim()) return true;
+
+      // Remove tracking pixels (1×1 images or Beehiiv tracking URLs)
       if (frame.tag === 'img') {
         const w = parseInt(frame.attribs.width ?? '99', 10);
         const h = parseInt(frame.attribs.height ?? '99', 10);
         if (w <= 1 || h <= 1) return true;
         if (/beehiiv\.com\/.*(open|track|pixel)/i.test(frame.attribs.src ?? '')) return true;
       }
-      // Remove unsubscribe footer blocks
-      if (frame.tag === 'div' || frame.tag === 'p') {
-        const text = frame.text?.toLowerCase() ?? '';
+
+      // Remove unsubscribe / footer blocks
+      if (['div', 'p', 'section', 'td'].includes(frame.tag)) {
+        const text = (frame.text ?? '').toLowerCase();
         if (text.includes('unsubscribe') && text.includes('email')) return true;
       }
+
       return false;
     },
   });

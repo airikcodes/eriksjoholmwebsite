@@ -92,10 +92,22 @@
     "writeDirectly": "Direkt schreiben",
     "whatThisIsAbout": "Worum es geht",
     "topics": [
-      { "title": "Buchung & Live-Auftritte", "body": "Für Konzert-, Festival- oder Storytelling-Anfragen." },
-      { "title": "Zusammenarbeit", "body": "Co-Writing, Produktion oder jede kreative Zusammenarbeit." },
-      { "title": "Presse & Medien", "body": "Interviews, Features, Lizenzen oder redaktionelle Anfragen." },
-      { "title": "Alles andere", "body": "Ein freundliches Wort ist immer willkommen." }
+      {
+        "title": "Buchung & Live-Auftritte",
+        "body": "Für Konzert-, Festival- oder Storytelling-Anfragen."
+      },
+      {
+        "title": "Zusammenarbeit",
+        "body": "Co-Writing, Produktion oder jede kreative Zusammenarbeit."
+      },
+      {
+        "title": "Presse & Medien",
+        "body": "Interviews, Features, Lizenzen oder redaktionelle Anfragen."
+      },
+      {
+        "title": "Alles andere",
+        "body": "Ein freundliches Wort ist immer willkommen."
+      }
     ],
     "commission": "Auftragsarbeit",
     "songsForYouTitle": "Songs For You",
@@ -114,10 +126,22 @@
     "showDesc1": "Stell dir eine Welt vor, die in Schnee gebettet ist, wo Licht und Dunkelheit am Rand der Stille tanzen. Dort wurde Erik Sjøholm geboren — und genau an diesem Tag nahm sich sein Onkel Glenn das Leben und hinterließ ein Erbe aus Trauer, Fragen und unausgesprochenen Geschichten.",
     "showDesc2": "In diesem Storytelling-Konzert gräbt Erik unter Schnee und Eis und fördert Fragmente der unausgesprochenen Mythologie seiner Familie zutage. Durch rohe persönliche Geschichten und eigene Lieder — in der Tradition von Damien Rice, Glen Hansard und Jeff Buckley — nimmt er das Publikum mit auf eine Reise ins Herz von Verlust, Selbstentdeckung und der Suche nach Sinn.",
     "themes": [
-      { "title": "Trauer und Verlust", "sub": "Unausgesprochene Geschichten, Familienmythologie" },
-      { "title": "Resilienz", "sub": "Aufstehen aus den Trümmern des Schmerzes" },
-      { "title": "Wandel", "sub": "Dunkelheit in Kunst verwandeln" },
-      { "title": "Menschliche Verbindung", "sub": "Die Universalität stiller Kämpfe" }
+      {
+        "title": "Trauer und Verlust",
+        "sub": "Unausgesprochene Geschichten, Familienmythologie"
+      },
+      {
+        "title": "Resilienz",
+        "sub": "Aufstehen aus den Trümmern des Schmerzes"
+      },
+      {
+        "title": "Wandel",
+        "sub": "Dunkelheit in Kunst verwandeln"
+      },
+      {
+        "title": "Menschliche Verbindung",
+        "sub": "Die Universalität stiller Kämpfe"
+      }
     ],
     "audience": "Publikum",
     "watch": "Ansehen",
@@ -145,16 +169,37 @@
     "forProgrammers": "Für Veranstalter & Festivals",
     "theShowLabel": "Die Show",
     "showSpecs": [
-      { "term": "Dauer", "desc": "60 Minuten" },
-      { "term": "Sprache", "desc": "Englisch oder Schwedisch (bei Buchung angegeben)" },
-      { "term": "Zielgruppe", "desc": "Ab 16 Jahren, Storytelling-Festivals, Kulturfestivals, Theater, Programme zur psychischen Gesundheit, Universitäten, betriebliches Wohlbefinden" }
+      {
+        "term": "Dauer",
+        "desc": "60 Minuten"
+      },
+      {
+        "term": "Sprache",
+        "desc": "Englisch oder Schwedisch (bei Buchung angegeben)"
+      },
+      {
+        "term": "Zielgruppe",
+        "desc": "Ab 16 Jahren, Storytelling-Festivals, Kulturfestivals, Theater, Programme zur psychischen Gesundheit, Universitäten, betriebliches Wohlbefinden"
+      }
     ],
     "stageRequirements": "Bühnenanforderungen",
     "stageSpecs": [
-      { "term": "Bühnengröße", "desc": "Mindestens 4m × 4m" },
-      { "term": "Beleuchtung", "desc": "Grundlegende Bühnenbeleuchtung mit Spotlight-Möglichkeit" },
-      { "term": "Ton", "desc": "PA-System für Gesang und Akustikgitarre" },
-      { "term": "Tech-Rider", "desc": "Vollständiger Tech-Rider und Pressemappe auf Anfrage erhältlich" }
+      {
+        "term": "Bühnengröße",
+        "desc": "Mindestens 4m × 4m"
+      },
+      {
+        "term": "Beleuchtung",
+        "desc": "Grundlegende Bühnenbeleuchtung mit Spotlight-Möglichkeit"
+      },
+      {
+        "term": "Ton",
+        "desc": "PA-System für Gesang und Akustikgitarre"
+      },
+      {
+        "term": "Tech-Rider",
+        "desc": "Vollständiger Tech-Rider und Pressemappe auf Anfrage erhältlich"
+      }
     ],
     "seeTheShow": "Die Show erleben",
     "seeTheShowDesc": "Bevorstehende Termine werden in Notes — Eriks Newsletter — angekündigt.",
@@ -171,9 +216,21 @@
     "openOnDisco": "Auf Disco öffnen →",
     "whatYouGet": "Was du bekommst",
     "specs": [
-      { "label": "Format", "title": "One-Stop-Lizenzierung", "desc": "Eine einzige Vereinbarung klärt sowohl Master- als auch Verlagsrechte. Kein Nachfassen bei mehreren Rechteinhabern." },
-      { "label": "Katalog", "title": "~300 Eigenkompositionen", "desc": "Singer-Songwriter-Material in englischer und skandinavischer Sprache. Atmosphärisch, erzählerisch, emotional geerdet." },
-      { "label": "Lieferung", "title": "Stems auf Anfrage", "desc": "Saubere Stems und Instrumentalversionen für die meisten Titel erhältlich. Mit einem Brief anfragen." }
+      {
+        "label": "Format",
+        "title": "One-Stop-Lizenzierung",
+        "desc": "Eine einzige Vereinbarung klärt sowohl Master- als auch Verlagsrechte. Kein Nachfassen bei mehreren Rechteinhabern."
+      },
+      {
+        "label": "Katalog",
+        "title": "~300 Eigenkompositionen",
+        "desc": "Singer-Songwriter-Material in englischer und skandinavischer Sprache. Atmosphärisch, erzählerisch, emotional geerdet."
+      },
+      {
+        "label": "Lieferung",
+        "title": "Stems auf Anfrage",
+        "desc": "Saubere Stems und Instrumentalversionen für die meisten Titel erhältlich. Mit einem Brief anfragen."
+      }
     ],
     "getInTouch": "Kontakt aufnehmen",
     "sendABrief": "Eine Anfrage schicken.",
@@ -186,6 +243,7 @@
     "subscribeLabel": "Abonnieren",
     "archiveLabel": "Alle Ausgaben",
     "noPostsYet": "Noch nichts hier — schau bald wieder vorbei.",
-    "backToNotes": "Alle Notizen"
+    "backToNotes": "Alle Notizen",
+    "subscribeDesc": "Jeder Brief direkt in dein Postfach. Kein Zeitplan, kein Lärm — nur die Arbeit."
   }
 }

@@ -54,10 +54,10 @@ export default async function NotesIndex({
       </div>
 
       <div className="relative" style={{ zIndex: 1 }}>
-        <div style={{ maxWidth: '720px', margin: '0 auto', padding: '0 1.5rem' }}>
+        <div style={{ maxWidth: '680px', margin: '0 auto', padding: '0 1.5rem' }}>
 
           {/* ── Hero ── */}
-          <div style={{ paddingTop: '5.5rem', paddingBottom: '4rem' }}>
+          <div style={{ paddingTop: '5.5rem', paddingBottom: '3.5rem' }}>
             <BackNav />
             <p style={{
               fontFamily: 'var(--font-inter)',
@@ -72,11 +72,11 @@ export default async function NotesIndex({
             <h1
               className="font-[family-name:var(--font-cormorant)] font-light"
               style={{
-                fontSize: 'clamp(3rem, 9vw, 6rem)',
+                fontSize: 'clamp(2.8rem, 8vw, 5.5rem)',
                 color: '#E8E0D4',
                 letterSpacing: '0.02em',
                 lineHeight: 0.95,
-                marginBottom: '2rem',
+                marginBottom: '1.75rem',
               }}
             >
               {n.title}
@@ -86,48 +86,20 @@ export default async function NotesIndex({
               fontSize: '0.875rem',
               color: '#7A6F62',
               lineHeight: 1.85,
-              maxWidth: '48ch',
+              maxWidth: '44ch',
             }}>
               {n.description}
             </p>
-            <span className="block" style={{ width: '2rem', height: '1px', background: '#C8922A', marginTop: '2.5rem' }} />
-          </div>
-
-          {/* ── Subscribe form ── */}
-          <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
-            <p style={{
-              fontFamily: 'var(--font-inter)',
-              fontSize: '0.45rem',
-              letterSpacing: '0.35em',
-              textTransform: 'uppercase',
-              color: '#7A6F62',
-              marginBottom: '2rem',
-            }}>
-              {n.subscribeLabel}
-            </p>
-            <BeehiivForm />
           </div>
 
           {/* ── Post list ── */}
-          <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingBottom: '9rem' }}>
-            <p style={{
-              fontFamily: 'var(--font-inter)',
-              fontSize: '0.45rem',
-              letterSpacing: '0.35em',
-              textTransform: 'uppercase',
-              color: '#7A6F62',
-              paddingTop: '4rem',
-              marginBottom: '0',
-            }}>
-              {n.archiveLabel}
-            </p>
-
+          <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}>
             {posts.length === 0 ? (
               <p style={{
                 fontFamily: 'var(--font-inter)',
                 fontSize: '0.875rem',
                 color: '#7A6F62',
-                marginTop: '3rem',
+                paddingTop: '3.5rem',
               }}>
                 {n.noPostsYet}
               </p>
@@ -138,6 +110,35 @@ export default async function NotesIndex({
                 ))}
               </div>
             )}
+          </div>
+
+          {/* ── Subscribe ── */}
+          <div style={{
+            borderTop: '1px solid rgba(255,255,255,0.07)',
+            paddingTop: '4rem',
+            paddingBottom: '9rem',
+          }}>
+            <p style={{
+              fontFamily: 'var(--font-inter)',
+              fontSize: '0.48rem',
+              letterSpacing: '0.35em',
+              textTransform: 'uppercase',
+              color: '#7A6F62',
+              marginBottom: '0.75rem',
+            }}>
+              {n.subscribeLabel}
+            </p>
+            <p style={{
+              fontFamily: 'var(--font-inter)',
+              fontSize: '0.875rem',
+              color: '#7A6F62',
+              lineHeight: 1.7,
+              maxWidth: '40ch',
+              marginBottom: '2rem',
+            }}>
+              {n.subscribeDesc}
+            </p>
+            <BeehiivForm />
           </div>
 
         </div>

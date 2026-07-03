@@ -92,10 +92,22 @@
     "writeDirectly": "Write directly",
     "whatThisIsAbout": "What this is about",
     "topics": [
-      { "title": "Booking & live shows", "body": "For concert, festival, or storytelling event enquiries." },
-      { "title": "Collaboration", "body": "Co-writing, production, or any creative joint venture." },
-      { "title": "Press & media", "body": "Interviews, features, licensing, or editorial requests." },
-      { "title": "Everything else", "body": "A kind word is always welcome." }
+      {
+        "title": "Booking & live shows",
+        "body": "For concert, festival, or storytelling event enquiries."
+      },
+      {
+        "title": "Collaboration",
+        "body": "Co-writing, production, or any creative joint venture."
+      },
+      {
+        "title": "Press & media",
+        "body": "Interviews, features, licensing, or editorial requests."
+      },
+      {
+        "title": "Everything else",
+        "body": "A kind word is always welcome."
+      }
     ],
     "commission": "Commission",
     "songsForYouTitle": "Songs For You",
@@ -114,10 +126,22 @@
     "showDesc1": "Imagine a world blanketed in snow, where light and darkness dance on the edge of silence. That is where Erik Sjøholm was born — and on that very day, his uncle Glenn took his own life, leaving behind a legacy of grief, questions, and unspoken stories.",
     "showDesc2": "In this storytelling concert, Erik digs beneath the snow and ice, uncovering fragments of his family's unspoken mythology. Through raw personal stories and original songs — in the tradition of Damien Rice, Glen Hansard, and Jeff Buckley — he takes you on a journey into the heart of loss, self-discovery, and the search for meaning.",
     "themes": [
-      { "title": "Grief and Loss", "sub": "Unspoken stories, family mythology" },
-      { "title": "Resilience", "sub": "Rising from the ashes of pain" },
-      { "title": "Transformation", "sub": "Turning darkness into art" },
-      { "title": "Human Connection", "sub": "The universality of silent struggles" }
+      {
+        "title": "Grief and Loss",
+        "sub": "Unspoken stories, family mythology"
+      },
+      {
+        "title": "Resilience",
+        "sub": "Rising from the ashes of pain"
+      },
+      {
+        "title": "Transformation",
+        "sub": "Turning darkness into art"
+      },
+      {
+        "title": "Human Connection",
+        "sub": "The universality of silent struggles"
+      }
     ],
     "audience": "Audience",
     "watch": "Watch",
@@ -145,16 +169,37 @@
     "forProgrammers": "For Programmers & Festivals",
     "theShowLabel": "The Show",
     "showSpecs": [
-      { "term": "Duration", "desc": "60 minutes" },
-      { "term": "Language", "desc": "English or Swedish (specified at booking)" },
-      { "term": "Target audience", "desc": "Age 16+, storytelling festivals, cultural festivals, theatres, mental health awareness programmes, universities, corporate wellness" }
+      {
+        "term": "Duration",
+        "desc": "60 minutes"
+      },
+      {
+        "term": "Language",
+        "desc": "English or Swedish (specified at booking)"
+      },
+      {
+        "term": "Target audience",
+        "desc": "Age 16+, storytelling festivals, cultural festivals, theatres, mental health awareness programmes, universities, corporate wellness"
+      }
     ],
     "stageRequirements": "Stage Requirements",
     "stageSpecs": [
-      { "term": "Stage size", "desc": "Minimum 4m × 4m" },
-      { "term": "Lighting", "desc": "Basic stage lighting with spotlight capability" },
-      { "term": "Sound", "desc": "PA system for vocals and acoustic guitar" },
-      { "term": "Tech rider", "desc": "Full tech rider and press kit available on request" }
+      {
+        "term": "Stage size",
+        "desc": "Minimum 4m × 4m"
+      },
+      {
+        "term": "Lighting",
+        "desc": "Basic stage lighting with spotlight capability"
+      },
+      {
+        "term": "Sound",
+        "desc": "PA system for vocals and acoustic guitar"
+      },
+      {
+        "term": "Tech rider",
+        "desc": "Full tech rider and press kit available on request"
+      }
     ],
     "seeTheShow": "See the Show",
     "seeTheShowDesc": "Upcoming dates and events are announced on Notes — Erik's newsletter.",
@@ -171,9 +216,21 @@
     "openOnDisco": "Open on Disco →",
     "whatYouGet": "What you get",
     "specs": [
-      { "label": "Format", "title": "One-stop licensing", "desc": "A single agreement clears both master and publishing rights. No chasing multiple rights holders." },
-      { "label": "Catalog", "title": "~300 original songs", "desc": "Singer-songwriter material across English and Scandinavian languages. Atmospheric, narrative, emotionally grounded." },
-      { "label": "Delivery", "title": "Stems on request", "desc": "Clean stems and instrumentals available for most tracks. Reach out with your brief." }
+      {
+        "label": "Format",
+        "title": "One-stop licensing",
+        "desc": "A single agreement clears both master and publishing rights. No chasing multiple rights holders."
+      },
+      {
+        "label": "Catalog",
+        "title": "~300 original songs",
+        "desc": "Singer-songwriter material across English and Scandinavian languages. Atmospheric, narrative, emotionally grounded."
+      },
+      {
+        "label": "Delivery",
+        "title": "Stems on request",
+        "desc": "Clean stems and instrumentals available for most tracks. Reach out with your brief."
+      }
     ],
     "getInTouch": "Get in touch",
     "sendABrief": "Send a brief.",
@@ -186,6 +243,7 @@
     "subscribeLabel": "Subscribe",
     "archiveLabel": "All issues",
     "noPostsYet": "Nothing here yet — check back soon.",
-    "backToNotes": "All notes"
+    "backToNotes": "All notes",
+    "subscribeDesc": "Get each letter in your inbox. No schedule, no noise — just the work."
   }
 }

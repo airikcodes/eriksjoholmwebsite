@@ -243,6 +243,7 @@
     "subscribeLabel": "Prenumerera",
     "archiveLabel": "Alla nummer",
     "noPostsYet": "Inget här än — kika in snart.",
-    "backToNotes": "Alla anteckningar"
+    "backToNotes": "Alla anteckningar",
+    "subscribeDesc": "Varje brev direkt i din inkorg. Inget schema, inget brus — bara arbetet."
   }
 }

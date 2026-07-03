@@ -243,6 +243,7 @@
     "subscribeLabel": "Tilaa",
     "archiveLabel": "Kaikki numerot",
     "noPostsYet": "Ei vielä mitään — tule pian takaisin.",
-    "backToNotes": "Kaikki muistiinpanot"
+    "backToNotes": "Kaikki muistiinpanot",
+    "subscribeDesc": "Jokainen kirje suoraan postilaatikkoosi. Ei aikataulua, ei melua — vain työ."
   }
 }

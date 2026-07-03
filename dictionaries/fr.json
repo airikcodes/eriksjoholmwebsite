@@ -243,6 +243,7 @@
     "subscribeLabel": "S'abonner",
     "archiveLabel": "Tous les numéros",
     "noPostsYet": "Rien ici pour l'instant — revenez bientôt.",
-    "backToNotes": "Toutes les notes"
+    "backToNotes": "Toutes les notes",
+    "subscribeDesc": "Chaque lettre dans ta boîte. Pas de calendrier, pas de bruit — juste le travail."
   }
 }
