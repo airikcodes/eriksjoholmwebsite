@@ -1,21 +1,29 @@
-export interface CustomSong {
+export interface FeaturedCustomSong {
   title: string;
   duration: string;
+  artworkUrl: string;
+  discoCode: string;
 }
 
-export const customSongs: CustomSong[] = [
-  { title: 'Julia (I Love You More)',              duration: '3:41' },
-  { title: 'Sigo el camino contigo',               duration: '2:35' },
-  { title: 'The Angel (Next To Me)',               duration: '4:23' },
-  { title: 'A Golden Moon',                        duration: '3:43' },
-  { title: 'Daddy',                                duration: '3:43' },
-  { title: 'Good Things Happen to Good People',    duration: '3:34' },
-  { title: 'An Indestructible Friendship',         duration: '4:11' },
-  { title: 'Too Good To Be True',                  duration: '5:24' },
-  { title: 'A Story of Love',                      duration: '3:39' },
-  { title: 'Falling in Love',                      duration: '5:00' },
-  { title: 'I\'ll Sing Our Story (Til the End of Time)', duration: '2:53' },
-  { title: 'Northern Star',                        duration: '4:40' },
-  { title: 'Madeleine',                            duration: '3:38' },
-  { title: 'Lilia',                                duration: '4:07' },
+export const featuredCustomSongs: FeaturedCustomSong[] = [
+  {
+    title:      'Julia (I Love You More)',
+    duration:   '3:41',
+    artworkUrl: 'https://s3.eu-central-1.amazonaws.com/l2-disco-data-eu/media/businesses/26337-erik-sjholm/artwork/f8329cdb-ba1e-4751-a605-487e7c622da6.jpeg',
+    discoCode:  'kblogcvgrfqd',
+  },
+  {
+    title:      'Lilia',
+    duration:   '4:07',
+    artworkUrl: 'https://s3.eu-central-1.amazonaws.com/l2-disco-data-eu/media/businesses/26337-erik-sjholm/artwork/515042ae-0c6e-424f-8531-fd9c7d0e0ed8.jpeg',
+    discoCode:  'nxcytkktpugo',
+  },
+  {
+    title:      'Adrianna Rose',
+    duration:   '3:16',
+    artworkUrl: 'https://s3.eu-central-1.amazonaws.com/l2-disco-data-eu/media/businesses/26337-erik-sjholm/artwork/95858a07-b5a8-4a98-9e21-72a4af7782ad.jpeg',
+    discoCode:  'phruhguovksc',
+  },
 ];
+
+export const CUSTOM_SONGS_PLAYLIST_URL = 'https://s.disco.ac/gpjjamnlavyi';

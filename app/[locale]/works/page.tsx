@@ -6,7 +6,8 @@ import WorksSearch from '@/components/WorksSearch';
 import AlbumsSearch from '@/components/AlbumsSearch';
 import KeepInTouch from '@/components/KeepInTouch';
 import { works, albums, featuredWorks } from '@/data/works';
-import { customSongs } from '@/data/customSongs';
+import { featuredCustomSongs, CUSTOM_SONGS_PLAYLIST_URL } from '@/data/customSongs';
+import CustomSongPlayer from '@/components/CustomSongPlayer';
 import { getDictionary, hasLocale } from '@/lib/dictionaries';
 
 export const metadata: Metadata = {
@@ -363,38 +364,8 @@ export default async function WorksPage({
               {t.songs.forYou.desc}
             </p>
 
-            {/* Example songs */}
-            <ul style={{ borderTop: '1px solid rgba(255,255,255,0.07)', marginBottom: '3rem' }}>
-              {customSongs.map((song) => (
-                <li
-                  key={song.title}
-                  style={{
-                    display:       'flex',
-                    alignItems:    'baseline',
-                    justifyContent:'space-between',
-                    gap:           '1.5rem',
-                    padding:       '1.1rem 0',
-                    borderBottom:  '1px solid rgba(255,255,255,0.05)',
-                  }}
-                >
-                  <span
-                    className="font-[family-name:var(--font-cormorant)] font-light"
-                    style={{ fontSize: 'clamp(0.95rem, 2.2vw, 1.2rem)', color: '#E8E0D4', lineHeight: 1.2 }}
-                  >
-                    {song.title}
-                  </span>
-                  <span style={{
-                    fontFamily:    'var(--font-inter)',
-                    fontSize:      '0.55rem',
-                    letterSpacing: '0.08em',
-                    color:         '#7A6F62',
-                    flexShrink:    0,
-                  }}>
-                    {song.duration}
-                  </span>
-                </li>
-              ))}
-            </ul>
+            {/* Example songs — playable */}
+            <CustomSongPlayer songs={featuredCustomSongs} playlistUrl={CUSTOM_SONGS_PLAYLIST_URL} />
 
             <Link
               href="/contact"
