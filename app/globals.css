@@ -158,9 +158,10 @@ body {
   background-size: cover;
   background-position: center;
   opacity: 0;
-  transition: opacity 1.5s ease-in-out;
-  /* needed when slide contains a next/image fill child */
+  /* transform transition handles the smooth wind-down when Ken Burns stops */
+  transition: opacity 1.5s ease-in-out, transform 2s ease-out;
   overflow: hidden;
+  transform-origin: center center;
 }
 .bg-slide.active {
   opacity: 1;
@@ -171,8 +172,19 @@ body {
   background: rgba(247, 243, 238, 0.82);
   z-index: 1;
 }
+
+/* Ken Burns — only when the user has not requested reduced motion */
+@keyframes kenBurns {
+  from { transform: scale(1.0)  translate(0%,    0%   ); }
+  to   { transform: scale(1.08) translate(-1.5%, -0.8%); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .bg-slide.active {
+    animation: kenBurns 26s ease-in-out forwards;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
-  .bg-slide { transition: none; }
+  .bg-slide { transition: opacity 1.5s ease-in-out; }
 }
 
 
