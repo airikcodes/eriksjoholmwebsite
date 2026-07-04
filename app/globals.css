@@ -179,7 +179,8 @@ body {
   to   { transform: scale(1.08) translate(-1.5%, -0.8%); }
 }
 @media (prefers-reduced-motion: no-preference) {
-  .bg-slide.active {
+  /* Ken Burns only for still-image slides — video slides have their own motion */
+  .bg-slide.active:not(.video-slide) {
     animation: kenBurns 26s ease-in-out forwards;
   }
 }
