@@ -41,6 +41,7 @@ function tidalSearch(q: string): string {
 }
 
 export const works: Work[] = [
+  // ── Featured ──────────────────────────────────────────────────────────────
   {
     id:            'lycka',
     slug:          'lycka',
@@ -53,7 +54,7 @@ export const works: Work[] = [
     language:      'Swedish',
     meta:          '2025 · Swedish',
     spotifyUrl:    SPOTIFY_ARTIST,
-    tidalUrl:      tidalSearch('Lycka'),
+    tidalUrl:      TIDAL_ARTIST,
   },
   {
     id:            'night-is-long',
@@ -80,6 +81,70 @@ export const works: Work[] = [
     spotifyUrl:    'https://open.spotify.com/track/7KAFu2ouup81IBB6AnQZkM',
     tidalUrl:      tidalSearch('Midnight Sun'),
   },
+
+  // ── Solo songs ─────────────────────────────────────────────────────────────
+  {
+    id:            'put-on-a-smile',
+    slug:          'put-on-a-smile',
+    title:         'Put On a Smile',
+    workType:      'song',
+    releaseStatus: 'released',
+    featured:      false,
+    meta:          'Piteå Sessions · with Andreas Jacobson',
+    spotifyUrl:    'https://open.spotify.com/track/5xrdXUnVS2hEPOMXAUImj5',
+    tidalUrl:      tidalSearch('Put On a Smile'),
+    relatedNotes:  ['put-on-a-smile'],
+    lyrics:
+`Two follow the one
+And you follow the gun
+
+Thoughts are filling our heads
+Minds are turning insane
+Capture a picture
+When you're out of control
+Watching a moment
+
+And when nothing makes no sense
+Just put on a smile
+
+Find a key to relief
+When time is locking it out
+Slow down a motion
+Catch the reflection of past
+Searching a true line
+
+And when nothing else makes no sense
+At all
+Just put on a smile
+
+Look around
+Everything's fine
+What's wrong right now
+Everything's fine
+
+Two follow the one
+And you follow the gun`,
+  },
+  {
+    id:            'one-last-waltz',
+    slug:          'one-last-waltz',
+    title:         'One Last Waltz',
+    workType:      'song',
+    releaseStatus: 'released',
+    featured:      false,
+    spotifyUrl:    'https://open.spotify.com/track/5mqLS6AqVNBCxak7g4oUO8',
+    tidalUrl:      tidalSearch('One Last Waltz'),
+  },
+  {
+    id:            'ray-of-light',
+    slug:          'ray-of-light',
+    title:         'Ray of Light',
+    workType:      'song',
+    releaseStatus: 'released',
+    featured:      false,
+    spotifyUrl:    'https://open.spotify.com/track/2vsvxI57LT953u4MHHJ02I',
+    tidalUrl:      tidalSearch('Ray of Light'),
+  },
   {
     id:            'ashes',
     slug:          'ashes',
@@ -100,6 +165,8 @@ export const works: Work[] = [
     spotifyUrl:    'https://open.spotify.com/track/0ap55kADfSNkisbVEWJWrr',
     tidalUrl:      tidalSearch('Matsawana'),
   },
+
+  // ── Collaborations ─────────────────────────────────────────────────────────
   {
     id:            'magari',
     slug:          'magari',
@@ -111,6 +178,17 @@ export const works: Work[] = [
     meta:          'with Mistasy · Italian / English',
     spotifyUrl:    'https://open.spotify.com/track/37US5z8tYa3VWQoqiRAjRF',
     tidalUrl:      tidalSearch('Magari'),
+  },
+  {
+    id:            'zero-one',
+    slug:          'zero-one',
+    title:         'Zero One',
+    workType:      'collaboration',
+    releaseStatus: 'released',
+    featured:      false,
+    meta:          'with Mistasy',
+    spotifyUrl:    'https://open.spotify.com/track/4vAkAlXeykSjbxQcaAOtfm',
+    tidalUrl:      tidalSearch('Zero One'),
   },
   {
     id:            'gone',
@@ -161,24 +239,72 @@ export const works: Work[] = [
 ];
 
 // ── Albums & EPs ─────────────────────────────────────────────────────────────
-// Add album and EP releases here. Songs reference their parent via `album: slug`.
-// Example entry:
-// {
-//   id:            'example-album',
-//   slug:          'example-album',
-//   title:         'Example Album',
-//   workType:      'album',
-//   year:          2023,
-//   releaseStatus: 'released',
-//   featured:      false,
-//   description:   'Short description of the album.',
-//   spotifyUrl:    'https://open.spotify.com/album/...',
-//   tidalUrl:      'https://tidal.com/album/...',
-//   tracks:        ['song-slug-1', 'song-slug-2'],
-// },
 
 export const albums: Work[] = [
-  // Populate when ready — section is hidden when this array is empty
+  {
+    id:            'walkabout',
+    slug:          'walkabout',
+    title:         'Walkabout',
+    workType:      'album',
+    releaseStatus: 'released',
+    featured:      false,
+    spotifyUrl:    'https://open.spotify.com/album/0qrNPLyljfXuNkDYAxUnpU',
+    tidalUrl:      tidalSearch('Walkabout'),
+  },
+  {
+    id:            'live-in-concert-walkabout-tour',
+    slug:          'live-in-concert-walkabout-tour',
+    title:         'Live in Concert, Walkabout Tour',
+    workType:      'album',
+    releaseStatus: 'released',
+    featured:      false,
+    spotifyUrl:    'https://open.spotify.com/album/4CK56Vn6pDPAL03LIsM46Y',
+    tidalUrl:      tidalSearch('Live in Concert Walkabout Tour'),
+  },
+  {
+    id:            'gone-ep',
+    slug:          'gone-ep',
+    title:         'Gone',
+    workType:      'ep',
+    releaseStatus: 'released',
+    featured:      false,
+    meta:          'with Mistasy',
+    spotifyUrl:    'https://open.spotify.com/album/6eDrvKVbYVPSaZ7nJMd0qc',
+    tidalUrl:      tidalSearch('Gone Mistasy'),
+  },
+  {
+    id:            'put-on-a-smile-pitea-sessions',
+    slug:          'put-on-a-smile-pitea-sessions',
+    title:         'Put On a Smile',
+    workType:      'single',
+    releaseStatus: 'released',
+    featured:      false,
+    meta:          'Piteå Sessions · with Andreas Jacobson',
+    spotifyUrl:    'https://open.spotify.com/album/4Tu9xwfp1fx70M4IDTHVug',
+    tidalUrl:      tidalSearch('Put On a Smile Piteå Sessions'),
+  },
+  {
+    id:            'one-last-waltz-acoustic',
+    slug:          'one-last-waltz-acoustic',
+    title:         'One Last Waltz',
+    workType:      'single',
+    releaseStatus: 'released',
+    featured:      false,
+    meta:          'Acoustic Version',
+    spotifyUrl:    'https://open.spotify.com/album/5VUHYEJfX596QuUmP8E3uf',
+    tidalUrl:      tidalSearch('One Last Waltz Acoustic'),
+  },
+  {
+    id:            'one-last-waltz-alternative',
+    slug:          'one-last-waltz-alternative',
+    title:         'One Last Waltz',
+    workType:      'single',
+    releaseStatus: 'released',
+    featured:      false,
+    meta:          'Alternative Version',
+    spotifyUrl:    'https://open.spotify.com/album/6r42sveobmn1YVx5p00GOI',
+    tidalUrl:      tidalSearch('One Last Waltz Alternative'),
+  },
 ];
 
 // ── Derived exports ───────────────────────────────────────────────────────────

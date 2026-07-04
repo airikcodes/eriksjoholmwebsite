@@ -2,14 +2,16 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import BackNav from '@/components/BackNav';
 import KeepInTouch from '@/components/KeepInTouch';
-import { works, getWork } from '@/data/works';
+import Link from 'next/link';
+import { works, albums, getWork } from '@/data/works';
 import { hasLocale } from '@/lib/dictionaries';
 
 const LOCALES = ['en', 'de', 'es', 'sv', 'fi', 'it', 'fr', 'pt'];
 
 export async function generateStaticParams() {
+  const all = [...works, ...albums];
   return LOCALES.flatMap((locale) =>
-    works.map((w) => ({ locale, slug: w.slug }))
+    all.map((w) => ({ locale, slug: w.slug }))
   );
 }
 
@@ -245,6 +247,40 @@ export default async function WorkPage({
               }}>
                 {work.story}
               </p>
+            </div>
+          )}
+
+          {/* ── From the Notes ── */}
+          {work.relatedNotes && work.relatedNotes.length > 0 && (
+            <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
+              <p style={{
+                fontFamily:    'var(--font-inter)',
+                fontSize:      '0.45rem',
+                letterSpacing: '0.35em',
+                textTransform: 'uppercase',
+                color:         '#7A6F62',
+                marginBottom:  '2rem',
+              }}>
+                From the Notes
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                {work.relatedNotes.map((noteSlug) => (
+                  <Link
+                    key={noteSlug}
+                    href={`/${locale}/notes/${noteSlug}`}
+                    style={{
+                      fontFamily:    'var(--font-inter)',
+                      fontSize:      '0.72rem',
+                      letterSpacing: '0.08em',
+                      color:         '#C8922A',
+                      textDecoration: 'none',
+                    }}
+                    className="hover:text-[#E8E0D4] transition-colors duration-200"
+                  >
+                    Read in Notes →
+                  </Link>
+                ))}
+              </div>
             </div>
           )}
 
