@@ -53,7 +53,7 @@ export const works: Work[] = [
     featuredOrder: 1,
     language:      'Swedish',
     meta:          '2026 · Swedish',
-    spotifyUrl:    SPOTIFY_ARTIST,
+    spotifyUrl:    'https://open.spotify.com/track/2ALT61LKWHRLW3qvRpz3JI',
     tidalUrl:      TIDAL_ARTIST,
   },
   {
@@ -177,6 +177,19 @@ And you follow the gun`,
     meta:          '2020 · Swedish',
     spotifyUrl:    'https://open.spotify.com/track/7GmUYn212pKkIOhKiRHKGJ',
     tidalUrl:      tidalSearch('Min käraste syster'),
+  },
+
+  {
+    id:            'glenn',
+    slug:          'glenn',
+    title:         'Glenn',
+    workType:      'storytelling',
+    year:          2024,
+    releaseStatus: 'released',
+    featured:      false,
+    meta:          '2024 · Storytelling',
+    spotifyUrl:    'https://open.spotify.com/album/0v9Nv0RIoHZjsjTwNy5PCr',
+    tidalUrl:      tidalSearch('Glenn'),
   },
 
   // ── Walkabout album tracks ─────────────────────────────────────────────────
