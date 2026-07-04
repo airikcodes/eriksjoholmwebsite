@@ -155,10 +155,10 @@ export default async function WorksPage({
                   href={`/works/${work.slug}`}
                   style={{
                     display:             'grid',
-                    gridTemplateColumns: '2rem 1fr auto',
+                    gridTemplateColumns: work.coverImage ? '2rem 52px 1fr auto' : '2rem 1fr auto',
                     gap:                 '1.25rem',
-                    alignItems:          'baseline',
-                    padding:             '1.75rem 0',
+                    alignItems:          'center',
+                    padding:             '1.5rem 0',
                     borderBottom:        '1px solid rgba(255,255,255,0.06)',
                     textDecoration:      'none',
                   }}
@@ -172,6 +172,15 @@ export default async function WorksPage({
                   }}>
                     {String(i + 1).padStart(2, '0')}
                   </span>
+                  {work.coverImage && (
+                    <img
+                      src={work.coverImage}
+                      alt=""
+                      width={52}
+                      height={52}
+                      style={{ width: 52, height: 52, objectFit: 'cover', opacity: 0.85 }}
+                    />
+                  )}
                   <div>
                     <p
                       className="font-[family-name:var(--font-cormorant)] font-light group-hover:text-[#C8922A] transition-colors duration-200"
