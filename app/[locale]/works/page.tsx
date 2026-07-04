@@ -223,7 +223,7 @@ export default async function WorksPage({
               Albums & EPs
             </p>
 
-            <AlbumsSearch albums={albums} />
+            <AlbumsSearch albums={albums} defaultLimit={3} />
           </div>
 
           {/* ── Songs ── */}

@@ -6,6 +6,7 @@ import type { Work } from '@/data/works';
 
 interface Props {
   albums: Work[];
+  defaultLimit?: number;
 }
 
 function typeLabel(type: string): string {
@@ -14,14 +15,18 @@ function typeLabel(type: string): string {
   return type;
 }
 
-export default function AlbumsSearch({ albums }: Props) {
-  const [query, setQuery] = useState('');
+export default function AlbumsSearch({ albums, defaultLimit = 3 }: Props) {
+  const [query,   setQuery]   = useState('');
+  const [showAll, setShowAll] = useState(false);
 
   const q = query.toLowerCase().trim();
+  const isSearching = q.length > 0;
 
   const filtered = albums.filter((a) =>
     !q || a.title.toLowerCase().includes(q) || (a.meta ?? '').toLowerCase().includes(q)
   );
+
+  const visible = (isSearching || showAll) ? filtered : filtered.slice(0, defaultLimit);
 
   return (
     <div>
@@ -62,7 +67,7 @@ export default function AlbumsSearch({ albums }: Props) {
         </p>
       ) : (
         <ul style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}>
-          {filtered.map((album) => (
+          {visible.map((album) => (
             <li key={album.id} style={{ borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
               <Link
                 href={`/works/${album.slug}`}
@@ -166,6 +171,28 @@ export default function AlbumsSearch({ albums }: Props) {
             </li>
           ))}
         </ul>
+      )}
+
+      {/* Show all toggle */}
+      {!isSearching && filtered.length > defaultLimit && (
+        <button
+          onClick={() => setShowAll((v) => !v)}
+          style={{
+            marginTop:     '2rem',
+            background:    'none',
+            border:        'none',
+            cursor:        'pointer',
+            fontFamily:    'var(--font-inter)',
+            fontSize:      '0.48rem',
+            letterSpacing: '0.25em',
+            textTransform: 'uppercase',
+            color:         '#7A6F62',
+            padding:       0,
+          }}
+          className="hover:text-[#C8922A] transition-colors duration-200"
+        >
+          {showAll ? 'Show less ↑' : `Show all ${filtered.length} albums & EPs ↓`}
+        </button>
       )}
     </div>
   );
