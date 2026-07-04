@@ -73,14 +73,23 @@ export default function AlbumsSearch({ albums, defaultLimit = 3 }: Props) {
                 href={`/works/${album.slug}`}
                 style={{
                   display:             'grid',
-                  gridTemplateColumns: '1fr auto',
-                  gap:                 '1.5rem',
+                  gridTemplateColumns: album.coverImage ? 'auto 1fr auto' : '1fr auto',
+                  gap:                 '1.25rem',
                   alignItems:          'center',
                   padding:             '1.75rem 0',
                   textDecoration:      'none',
                 }}
                 className="group"
               >
+                {album.coverImage && (
+                  <img
+                    src={album.coverImage}
+                    alt=""
+                    width={52}
+                    height={52}
+                    style={{ width: 52, height: 52, objectFit: 'cover', flexShrink: 0, opacity: 0.85 }}
+                  />
+                )}
                 <div>
                   <p
                     className="font-[family-name:var(--font-cormorant)] font-light group-hover:text-[#C8922A] transition-colors duration-200"

@@ -114,7 +114,7 @@ export default function WorksSearch({ works, defaultLimit = 3 }: Props) {
                   className="w-full text-left flex items-center justify-between gap-4"
                   style={{ padding: '1.6rem 0', cursor: 'pointer', background: 'none', border: 'none' }}
                 >
-                  <div className="flex items-baseline gap-5 min-w-0">
+                  <div className="flex items-center gap-4 min-w-0">
                     <span style={{
                       fontFamily:   'var(--font-inter)',
                       fontSize:     '0.48rem',
@@ -125,6 +125,15 @@ export default function WorksSearch({ works, defaultLimit = 3 }: Props) {
                     }}>
                       {String(i + 1).padStart(2, '0')}
                     </span>
+                    {work.coverImage && (
+                      <img
+                        src={work.coverImage}
+                        alt=""
+                        width={40}
+                        height={40}
+                        style={{ width: 40, height: 40, objectFit: 'cover', flexShrink: 0, opacity: 0.85 }}
+                      />
+                    )}
                     <div className="min-w-0">
                       <p
                         className="font-[family-name:var(--font-cormorant)] font-light"
