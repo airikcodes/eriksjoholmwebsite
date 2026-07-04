@@ -8,25 +8,16 @@ interface Props {
 export default function CustomSongPlayer({ songs, playlistUrl }: Props) {
   return (
     <div style={{ marginBottom: '2.5rem' }}>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginBottom: '2rem' }}>
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
         {songs.map((song) => (
-          <div key={song.title}>
-            {/* responsive 480:235 wrapper */}
-            <div style={{ position: 'relative', width: '100%', paddingBottom: `${(235 / 480) * 100}%` }}>
-              <iframe
-                src={song.embedSrc}
-                title={song.title}
-                allowFullScreen
-                frameBorder="0"
-                style={{
-                  position: 'absolute',
-                  inset:    0,
-                  width:    '100%',
-                  height:   '100%',
-                }}
-              />
-            </div>
-          </div>
+          <iframe
+            key={song.title}
+            src={song.embedSrc}
+            title={song.title}
+            allowFullScreen
+            frameBorder="0"
+            style={{ width: '100%', height: '235px', display: 'block' }}
+          />
         ))}
       </div>
 
