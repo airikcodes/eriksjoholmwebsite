@@ -1,28 +1,24 @@
 export interface FeaturedCustomSong {
-  title: string;
-  duration: string;
-  artworkUrl: string;
-  discoCode: string;
+  title:        string;
+  embedSrc:     string;
+  streamingUrl: string;
 }
 
 export const featuredCustomSongs: FeaturedCustomSong[] = [
   {
-    title:      'Julia (I Love You More)',
-    duration:   '3:41',
-    artworkUrl: 'https://s3.eu-central-1.amazonaws.com/l2-disco-data-eu/media/businesses/26337-erik-sjholm/artwork/f8329cdb-ba1e-4751-a605-487e7c622da6.jpeg',
-    discoCode:  'kblogcvgrfqd',
+    title:        'Julia (I Love You More)',
+    streamingUrl: 'https://s.disco.ac/maohljkcfryg',
+    embedSrc:     'https://eriksjoholmofficial.disco.ac/e/t/91239089?download=true&s=JWrj-nO35y6igbntHr4CutrQ7Vg%3AmNYFoGPG&artwork=true&color=%23C8922A&theme=dark',
   },
   {
-    title:      'Lilia',
-    duration:   '4:07',
-    artworkUrl: 'https://s3.eu-central-1.amazonaws.com/l2-disco-data-eu/media/businesses/26337-erik-sjholm/artwork/515042ae-0c6e-424f-8531-fd9c7d0e0ed8.jpeg',
-    discoCode:  'nxcytkktpugo',
+    title:        'Lilia',
+    streamingUrl: 'https://s.disco.ac/fbnywgiqjoqa',
+    embedSrc:     'https://eriksjoholmofficial.disco.ac/e/t/91239112?download=true&s=dHSv_Bo226N6DerRLtj-CNENaPo%3AfXiY6R6S&artwork=true&color=%23C8922A&theme=dark',
   },
   {
-    title:      'Adrianna Rose',
-    duration:   '3:16',
-    artworkUrl: 'https://s3.eu-central-1.amazonaws.com/l2-disco-data-eu/media/businesses/26337-erik-sjholm/artwork/95858a07-b5a8-4a98-9e21-72a4af7782ad.jpeg',
-    discoCode:  'phruhguovksc',
+    title:        'Adrianna Rose',
+    streamingUrl: 'https://s.disco.ac/urmoakankjcy',
+    embedSrc:     'https://eriksjoholmofficial.disco.ac/e/t/91239103?download=true&s=dk5DzrjIfgZOJM-MtJuIJ5k-0Bs%3AvnnwQGRD&artwork=true&color=%23C8922A&theme=dark',
   },
 ];
 
