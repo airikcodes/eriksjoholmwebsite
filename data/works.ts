@@ -179,19 +179,6 @@ And you follow the gun`,
     tidalUrl:      tidalSearch('Min käraste syster'),
   },
 
-  {
-    id:            'glenn',
-    slug:          'glenn',
-    title:         'Glenn',
-    workType:      'storytelling',
-    year:          2024,
-    releaseStatus: 'released',
-    featured:      false,
-    meta:          '2024 · Storytelling',
-    spotifyUrl:    'https://open.spotify.com/album/0v9Nv0RIoHZjsjTwNy5PCr',
-    tidalUrl:      tidalSearch('Glenn'),
-  },
-
   // ── Walkabout album tracks ─────────────────────────────────────────────────
   {
     id:            'compromise',
@@ -567,6 +554,37 @@ export const albums: Work[] = [
     meta:          'Pop Version',
     spotifyUrl:    'https://open.spotify.com/track/5NPMsz6algbBmCJOpSw9Y5',
     tidalUrl:      tidalSearch('One Last Waltz Pop Version'),
+  },
+  {
+    id:            'glenn-ep',
+    slug:          'glenn-ep',
+    title:         'Glenn',
+    workType:      'ep',
+    year:          2024,
+    releaseStatus: 'released',
+    featured:      false,
+    spotifyUrl:    'https://open.spotify.com/album/0v9Nv0RIoHZjsjTwNy5PCr',
+    tidalUrl:      tidalSearch('Glenn EP'),
+  },
+  {
+    id:            'endless-ep',
+    slug:          'endless-ep',
+    title:         'Endless',
+    workType:      'ep',
+    releaseStatus: 'released',
+    featured:      false,
+    spotifyUrl:    'https://open.spotify.com/album/0vzpOjRwZ3EyvsLyJ01eik',
+    tidalUrl:      tidalSearch('Endless EP'),
+  },
+  {
+    id:            'the-pearl-ep',
+    slug:          'the-pearl-ep',
+    title:         'The Pearl',
+    workType:      'ep',
+    releaseStatus: 'released',
+    featured:      false,
+    spotifyUrl:    'https://open.spotify.com/album/0KcyZclKHcMZFaBEsj6PVB',
+    tidalUrl:      tidalSearch('The Pearl EP'),
   },
 ];
 
