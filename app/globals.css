@@ -169,7 +169,7 @@ body {
 .bg-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(247, 243, 238, 0.72);
+  background: rgba(247, 243, 238, 0.45);
   z-index: 1;
 }
 

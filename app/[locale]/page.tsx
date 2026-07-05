@@ -52,7 +52,7 @@ export default async function Home({
     {/* Preload first slideshow image — avoids LCP delay from CSS background discovery */}
     {/* eslint-disable-next-line @next/next/no-page-custom-font */}
     <link rel="preload" as="image" href="/images/bg/bg-01.jpg" fetchPriority="high" />
-    <main>
+    <main style={{ background: "#1A1410" }}>
       <BackgroundSlideshow />
 
       {/* ── Hero: Concierge ──────────────────────────────── */}
