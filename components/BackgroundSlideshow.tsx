@@ -64,14 +64,14 @@ export default function BackgroundSlideshow() {
     if (video) seekToMiddle(video);
   }, [current]);
 
-  // Sync muted / volume to all video elements
+  // Only the active video plays with sound; all others stay muted
   useEffect(() => {
-    videoRefs.current.forEach((video) => {
+    videoRefs.current.forEach((video, i) => {
       if (!video) return;
-      video.muted = muted;
+      video.muted = muted || i !== current;
       video.volume = volume;
     });
-  }, [muted, volume]);
+  }, [muted, volume, current]);
 
   if (reducedMotion) {
     return (
