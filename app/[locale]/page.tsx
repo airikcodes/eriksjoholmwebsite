@@ -57,6 +57,7 @@ export default async function Home({
 
       {/* ── Hero: Concierge ──────────────────────────────── */}
       <section
+        data-no-peephole="true"
         className="relative flex flex-col items-center justify-center px-5 sm:px-6 py-16"
         style={{ minHeight: "100svh", zIndex: 2, position: "relative" }}
       >
@@ -74,6 +75,7 @@ export default async function Home({
       <RevealSection>
         <section
           id="nav"
+          data-no-peephole="true"
           className="flex flex-col items-center justify-center px-6 pt-24 pb-40 sm:pt-32 sm:pb-56"
           style={{ minHeight: "80vh", zIndex: 2, position: "relative" }}
         >

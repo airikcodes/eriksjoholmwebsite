@@ -32,7 +32,7 @@ export default function BackgroundSlideshow() {
   const [muted, setMuted]                 = useState(true);
   const [volume, setVolume]               = useState(0.6);
   const videoRefs                         = useRef<(HTMLVideoElement | null)[]>([]);
-  const overlayRef                        = useRef<HTMLDivElement | null>(null);
+  const circleRef                         = useRef<SVGCircleElement | null>(null);
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -59,7 +59,7 @@ export default function BackgroundSlideshow() {
     });
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // On cycle: re-seek the incoming video to its middle so it shows a fresh section
+  // On cycle: re-seek the incoming video to its middle
   useEffect(() => {
     const video = videoRefs.current[current];
     if (video) seekToMiddle(video);
@@ -74,26 +74,58 @@ export default function BackgroundSlideshow() {
     });
   }, [muted, volume, current]);
 
-  // Cursor peephole — wipe the overlay away around the mouse
+  // Organic peephole — RAF loop for smooth following + breathing radius
   useEffect(() => {
     if (reducedMotion) return;
-    const overlay = overlayRef.current;
-    if (!overlay) return;
+
+    let raf: number;
+    let targetR = 0;
+    let currentR = 0;
+    let targetX = window.innerWidth / 2;
+    let targetY = window.innerHeight / 2;
+    let currentX = targetX;
+    let currentY = targetY;
+    let start: number | null = null;
+
+    const tick = (t: number) => {
+      if (!start) start = t;
+      const elapsed = t - start;
+
+      currentX += (targetX - currentX) * 0.12;
+      currentY += (targetY - currentY) * 0.12;
+      currentR += (targetR - currentR) * 0.07;
+
+      // Two overlapping sine waves → irregular organic breathing
+      const breathe = currentR > 5
+        ? Math.sin(elapsed * 0.00085) * 14 + Math.sin(elapsed * 0.0013) * 9
+        : 0;
+
+      const r = Math.max(0, currentR + breathe);
+      const circle = circleRef.current;
+      if (circle) {
+        circle.setAttribute("cx", String(currentX | 0));
+        circle.setAttribute("cy", String(currentY | 0));
+        circle.setAttribute("r",  String(r | 0));
+      }
+
+      raf = requestAnimationFrame(tick);
+    };
 
     const onMove = (e: MouseEvent) => {
-      const mask = `radial-gradient(circle at ${e.clientX}px ${e.clientY}px, transparent 0px, transparent 50px, rgba(0,0,0,0.65) 140px, black 210px)`;
-      overlay.style.setProperty("mask-image", mask);
-      overlay.style.setProperty("-webkit-mask-image", mask);
+      const blocked = (e.target as Element | null)?.closest?.("[data-no-peephole]");
+      targetX = e.clientX;
+      targetY = e.clientY;
+      targetR = blocked ? 0 : 160;
     };
 
-    const onLeave = () => {
-      overlay.style.removeProperty("mask-image");
-      overlay.style.removeProperty("-webkit-mask-image");
-    };
+    const onLeave = () => { targetR = 0; };
 
+    raf = requestAnimationFrame(tick);
     window.addEventListener("mousemove", onMove, { passive: true });
     document.documentElement.addEventListener("mouseleave", onLeave);
+
     return () => {
+      cancelAnimationFrame(raf);
       window.removeEventListener("mousemove", onMove);
       document.documentElement.removeEventListener("mouseleave", onLeave);
     };
@@ -125,7 +157,82 @@ export default function BackgroundSlideshow() {
             </video>
           </div>
         ))}
-        <div className="bg-overlay" ref={overlayRef} />
+
+        {/* SVG overlay with organic aquarelle peephole */}
+        <svg
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            pointerEvents: "none",
+            zIndex: 1,
+            overflow: "visible",
+          }}
+        >
+          <defs>
+            {/*
+              Filter pipeline:
+              1. Blur the circle edge softly
+              2. Displace the blurred result with animated fractal noise
+              → produces a living, aquarelle-like fringe
+            */}
+            <filter id="organic-edge" x="-60%" y="-60%" width="220%" height="220%">
+              <feTurbulence
+                type="fractalNoise"
+                baseFrequency="0.012 0.015"
+                numOctaves="4"
+                seed="7"
+                result="turbulence"
+              >
+                {/* @ts-ignore — SMIL animate is valid SVG but React types are narrow here */}
+                <animate
+                  attributeName="baseFrequency"
+                  values="0.010 0.013;0.016 0.020;0.011 0.015;0.014 0.019;0.010 0.013"
+                  dur="8s"
+                  repeatCount="indefinite"
+                />
+              </feTurbulence>
+              <feGaussianBlur in="SourceGraphic" stdDeviation="14" result="blurred" />
+              <feDisplacementMap
+                in="blurred"
+                in2="turbulence"
+                scale="48"
+                xChannelSelector="R"
+                yChannelSelector="G"
+              >
+                {/* @ts-ignore */}
+                <animate
+                  attributeName="scale"
+                  values="36;58;42;54;36"
+                  dur="7s"
+                  repeatCount="indefinite"
+                />
+              </feDisplacementMap>
+            </filter>
+
+            <mask id="peephole-mask">
+              {/* White = show overlay, black = reveal video */}
+              <rect width="100%" height="100%" fill="white" />
+              <circle
+                ref={circleRef}
+                cx="0"
+                cy="0"
+                r="0"
+                fill="black"
+                filter="url(#organic-edge)"
+              />
+            </mask>
+          </defs>
+
+          <rect
+            width="100%"
+            height="100%"
+            fill="rgba(252,250,247,0.96)"
+            mask="url(#peephole-mask)"
+          />
+        </svg>
       </div>
 
       {/* Sound control — fixed bottom-right */}
