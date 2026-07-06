@@ -1,0 +1,380 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
+
+const videos = [
+  "/videos/bg-01.mp4",
+  "/videos/bg-02.mp4",
+  "/videos/bg-03.mp4",
+  "/videos/bg-04.mp4",
+];
+
+const CYCLE_MS = 30_000;
+const OVERLAY  = "rgba(252,250,247,0.96)";
+const BRUSH_R  = 52;
+
+const LOCALE_HOME_RE = /^\/([a-z]{2})?\/?$/;
+
+function seekToMiddle(video: HTMLVideoElement) {
+  const go = () => {
+    if (video.duration && isFinite(video.duration)) {
+      video.currentTime = video.duration / 2;
+    }
+  };
+  if (video.readyState >= 1 && isFinite(video.duration)) go();
+  else video.addEventListener("loadedmetadata", go, { once: true });
+}
+
+// ── Icons ────────────────────────────────────────────────────────────────────
+
+function IconOverlayOn() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+      strokeLinecap="round" strokeLinejoin="round" width="16" height="16" aria-hidden="true">
+      <rect x="3" y="4" width="18" height="16" rx="2" />
+      <line x1="7" y1="9"  x2="17" y2="9"  />
+      <line x1="7" y1="13" x2="14" y2="13" />
+      <line x1="7" y1="17" x2="10" y2="17" />
+    </svg>
+  );
+}
+
+function IconOverlayOff() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+      strokeLinecap="round" strokeLinejoin="round" width="16" height="16" aria-hidden="true">
+      <rect x="3" y="4" width="18" height="16" rx="2" />
+    </svg>
+  );
+}
+
+function IconPaint() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+      strokeLinecap="round" strokeLinejoin="round" width="16" height="16" aria-hidden="true">
+      <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z" />
+    </svg>
+  );
+}
+
+function IconPaintOff() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+      strokeLinecap="round" strokeLinejoin="round" width="16" height="16" aria-hidden="true">
+      <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z" />
+      <line x1="2" y1="2" x2="22" y2="22" />
+    </svg>
+  );
+}
+
+function IconSoundOff() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+      strokeLinecap="round" strokeLinejoin="round" width="16" height="16" aria-hidden="true">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+      <line x1="23" y1="9" x2="17" y2="15" />
+      <line x1="17" y1="9" x2="23" y2="15" />
+    </svg>
+  );
+}
+
+function IconSoundOn() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+      strokeLinecap="round" strokeLinejoin="round" width="16" height="16" aria-hidden="true">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+      <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+      <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+    </svg>
+  );
+}
+
+// ── Glass button shared style ─────────────────────────────────────────────────
+
+const glassBtn: React.CSSProperties = {
+  width: "36px", height: "36px", borderRadius: "50%",
+  background: "rgba(10,8,6,0.55)",
+  border: "1px solid rgba(200,146,42,0.35)",
+  color: "#C8922A",
+  display: "flex", alignItems: "center", justifyContent: "center",
+  cursor: "pointer",
+  backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)",
+  flexShrink: 0,
+  transition: "background 180ms ease, border-color 180ms ease, opacity 180ms ease",
+};
+
+// ── Component ─────────────────────────────────────────────────────────────────
+
+export default function PersistentBackground() {
+  const pathname        = usePathname();
+  const isHome          = LOCALE_HOME_RE.test(pathname);
+
+  const [current, setCurrent]         = useState(0);
+  const [reducedMotion, setRM]        = useState(false);
+  const [muted, setMuted]             = useState(true);
+  const [volume, setVolume]           = useState(0.6);
+  const [overlayOn, setOverlayOn]     = useState(true);
+  const [paintEnabled, setPaint]      = useState(true);
+
+  const videoRefs      = useRef<(HTMLVideoElement | null)[]>([]);
+  const canvasRef      = useRef<HTMLCanvasElement | null>(null);
+  // Refs so the mousemove closure always reads current values
+  const overlayOnRef   = useRef(true);
+  const paintRef       = useRef(true);
+  const isHomeRef      = useRef(isHome);
+
+  useEffect(() => { overlayOnRef.current = overlayOn; }, [overlayOn]);
+  useEffect(() => { paintRef.current     = paintEnabled; }, [paintEnabled]);
+  useEffect(() => { isHomeRef.current    = isHome; }, [isHome]);
+
+  // Reduced-motion preference
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setRM(mq.matches);
+    const h = (e: MediaQueryListEvent) => setRM(e.matches);
+    mq.addEventListener("change", h);
+    return () => mq.removeEventListener("change", h);
+  }, []);
+
+  // Video cycling
+  useEffect(() => {
+    if (reducedMotion) return;
+    const id = setInterval(() => setCurrent((c) => (c + 1) % videos.length), CYCLE_MS);
+    return () => clearInterval(id);
+  }, [reducedMotion]);
+
+  // Mount: fix muted hydration bug, seek, play
+  useEffect(() => {
+    videoRefs.current.forEach((v) => {
+      if (!v) return;
+      v.muted  = true;
+      v.volume = volume;
+      seekToMiddle(v);
+      v.play().catch(() => {});
+    });
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Re-seek on cycle
+  useEffect(() => {
+    const v = videoRefs.current[current];
+    if (v) seekToMiddle(v);
+  }, [current]);
+
+  // Sound: only active video gets audio
+  useEffect(() => {
+    videoRefs.current.forEach((v, i) => {
+      if (!v) return;
+      v.muted  = muted || i !== current;
+      v.volume = volume;
+    });
+  }, [muted, volume, current]);
+
+  // Canvas: fill + persistent scratch
+  useEffect(() => {
+    if (reducedMotion) return;
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    let ctx: CanvasRenderingContext2D | null = null;
+    let prevX: number | null = null;
+    let prevY: number | null = null;
+    let velX = 0, velY = 0;
+    let prevMX = 0, prevMY = 0;
+
+    const initCanvas = () => {
+      canvas.width  = window.innerWidth;
+      canvas.height = window.innerHeight;
+      ctx = canvas.getContext("2d");
+      if (!ctx) return;
+      ctx.fillStyle = OVERLAY;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      prevX = null;
+      prevY = null;
+    };
+    initCanvas();
+
+    const stamp = (x: number, y: number) => {
+      if (!ctx) return;
+      const speed   = Math.hypot(velX, velY);
+      const angle   = Math.atan2(velY, velX);
+      const stretch = 1 + Math.log1p(speed) * 0.30;
+      const rx      = BRUSH_R * stretch;
+      const ry      = BRUSH_R * Math.max(0.40, 1 / Math.sqrt(stretch));
+
+      ctx.save();
+      ctx.globalCompositeOperation = "destination-out";
+      ctx.translate(x, y);
+      ctx.rotate(angle);
+      ctx.scale(1, ry / rx);
+
+      const g = ctx.createRadialGradient(0, 0, 0, 0, 0, rx);
+      g.addColorStop(0,    "rgba(0,0,0,1)");
+      g.addColorStop(0.50, "rgba(0,0,0,0.95)");
+      g.addColorStop(0.78, "rgba(0,0,0,0.35)");
+      g.addColorStop(1,    "rgba(0,0,0,0)");
+
+      ctx.beginPath();
+      ctx.arc(0, 0, rx, 0, Math.PI * 2);
+      ctx.fillStyle = g;
+      ctx.fill();
+      ctx.restore();
+    };
+
+    const strokeTo = (x: number, y: number) => {
+      if (prevX === null || prevY === null) {
+        stamp(x, y);
+      } else {
+        const d = Math.hypot(x - prevX, y - prevY);
+        const n = Math.max(1, Math.ceil(d / 4));
+        for (let i = 1; i <= n; i++) {
+          const t = i / n;
+          stamp(prevX + (x - prevX) * t, prevY + (y - prevY) * t);
+        }
+      }
+      prevX = x;
+      prevY = y;
+    };
+
+    const onMove = (e: MouseEvent) => {
+      const dx = e.clientX - prevMX;
+      const dy = e.clientY - prevMY;
+      velX   = velX * 0.65 + dx * 0.35;
+      velY   = velY * 0.65 + dy * 0.35;
+      prevMX = e.clientX;
+      prevMY = e.clientY;
+
+      if (!isHomeRef.current || !overlayOnRef.current || !paintRef.current) {
+        prevX = null; prevY = null;
+        return;
+      }
+      const blocked = (e.target as Element | null)?.closest?.("[data-no-peephole]");
+      if (blocked) { prevX = null; prevY = null; return; }
+      strokeTo(e.clientX, e.clientY);
+    };
+
+    window.addEventListener("mousemove", onMove,    { passive: true });
+    window.addEventListener("resize",    initCanvas);
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("resize",    initCanvas);
+    };
+  }, [reducedMotion]);
+
+  // ── Overlay toggle ────────────────────────────────────────────────────────
+
+  const handleToggleOverlay = () => {
+    const next = !overlayOn;
+    setOverlayOn(next);
+    if (next) {
+      // Turning overlay ON: reset canvas to full cream, re-enable painting
+      const canvas = canvasRef.current;
+      const ctx = canvas?.getContext("2d");
+      if (canvas && ctx) {
+        ctx.fillStyle = OVERLAY;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+      }
+      setPaint(true);
+    }
+  };
+
+  const handleTogglePaint = () => setPaint((p) => !p);
+
+  // ── Render ────────────────────────────────────────────────────────────────
+
+  if (reducedMotion) {
+    // Static fallback — no canvas, no interactivity, only on home
+    if (!isHome) return null;
+    return <div className="bg-overlay" style={{ position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none" }} />;
+  }
+
+  return (
+    <>
+      {/* Videos: always in DOM so audio persists across navigation.
+          visibility:hidden keeps them invisible on non-home pages
+          without pausing playback. */}
+      <div
+        className="bg-slideshow"
+        style={{ visibility: isHome ? "visible" : "hidden" }}
+      >
+        {videos.map((src, i) => (
+          <div key={src} className={`bg-slide video-slide${i === current ? " active" : ""}`}>
+            <video
+              ref={(el) => { videoRefs.current[i] = el; }}
+              autoPlay muted loop playsInline aria-hidden="true"
+              style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
+            >
+              <source src={src} type="video/mp4" />
+            </video>
+          </div>
+        ))}
+
+        {/* Canvas always in DOM so scratch marks survive navigation.
+            CSS opacity:0 hides it without clearing the bitmap. */}
+        <canvas
+          ref={canvasRef}
+          aria-hidden="true"
+          style={{
+            position: "absolute", inset: 0,
+            width: "100%", height: "100%",
+            pointerEvents: "none", zIndex: 1,
+            opacity: (isHome && overlayOn) ? 1 : 0,
+            transition: "opacity 0.5s ease",
+          }}
+        />
+      </div>
+
+      {/* Controls — fixed bottom-right, visible on all pages */}
+      <div
+        role="group"
+        aria-label="Background controls"
+        style={{
+          position: "fixed", bottom: "1.5rem", right: "1.5rem", zIndex: 10,
+          display: "flex", alignItems: "center", gap: "0.5rem",
+        }}
+      >
+        {/* Paint toggle — only on home when overlay is on */}
+        {isHome && overlayOn && (
+          <button
+            onClick={handleTogglePaint}
+            aria-label={paintEnabled ? "Disable ice painting" : "Enable ice painting"}
+            title={paintEnabled ? "Stop painting" : "Paint ice"}
+            style={{ ...glassBtn, opacity: paintEnabled ? 1 : 0.45 }}
+          >
+            {paintEnabled ? <IconPaint /> : <IconPaintOff />}
+          </button>
+        )}
+
+        {/* Overlay toggle — only on home */}
+        {isHome && (
+          <button
+            onClick={handleToggleOverlay}
+            aria-label={overlayOn ? "Remove overlay" : "Restore overlay"}
+            title={overlayOn ? "Clear overlay" : "Restore overlay"}
+            style={{ ...glassBtn, opacity: overlayOn ? 1 : 0.55 }}
+          >
+            {overlayOn ? <IconOverlayOn /> : <IconOverlayOff />}
+          </button>
+        )}
+
+        {/* Volume slider — all pages */}
+        {!muted && (
+          <input type="range" min="0" max="1" step="0.05" value={volume}
+            onChange={(e) => setVolume(Number(e.target.value))}
+            aria-label="Volume"
+            style={{ width: "72px", accentColor: "#C8922A", cursor: "pointer" }}
+          />
+        )}
+
+        {/* Mute toggle — all pages */}
+        <button
+          onClick={() => setMuted((m) => !m)}
+          aria-label={muted ? "Unmute background video" : "Mute background video"}
+          style={glassBtn}
+        >
+          {muted ? <IconSoundOff /> : <IconSoundOn />}
+        </button>
+      </div>
+    </>
+  );
+}

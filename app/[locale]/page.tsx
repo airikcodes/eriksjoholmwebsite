@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import RevealSection from "@/components/RevealSection";
 import ScrollIndicator from "@/components/ScrollIndicator";
 import SongConcierge from "@/components/SongConcierge";
-import BackgroundSlideshow from "@/components/BackgroundSlideshow";
 import { getDictionary, hasLocale } from "@/lib/dictionaries";
 
 export const metadata: Metadata = {
@@ -52,9 +51,7 @@ export default async function Home({
     {/* Preload first slideshow image — avoids LCP delay from CSS background discovery */}
     {/* eslint-disable-next-line @next/next/no-page-custom-font */}
     <link rel="preload" as="image" href="/images/bg/bg-01.jpg" fetchPriority="high" />
-    <main style={{ background: "#F7F3EE" }}>
-      <BackgroundSlideshow />
-
+    <main style={{ background: "transparent" }}>
       {/* ── Hero: Concierge ──────────────────────────────── */}
       <section
         className="relative flex flex-col items-center justify-center px-5 sm:px-6 py-16"
