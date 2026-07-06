@@ -464,7 +464,7 @@ export default function SongConcierge({
   }
 
   return (
-    <div className="w-full max-w-lg mx-auto" style={{ paddingTop: "clamp(5rem, 12vh, 7rem)", paddingBottom: "2rem" }}>
+    <div data-no-peephole="true" className="w-full max-w-lg mx-auto" style={{ paddingTop: "clamp(5rem, 12vh, 7rem)", paddingBottom: "2rem" }}>
       <h2
         className="font-[family-name:var(--font-cormorant)] font-light text-center"
         style={{
