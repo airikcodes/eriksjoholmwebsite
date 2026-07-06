@@ -12,7 +12,7 @@ const videos = [
 
 const CYCLE_MS = 30_000;
 const OVERLAY  = "rgba(252,250,247,0.96)";
-const BRUSH_R  = 52;
+const BRUSH_R  = 58; // slightly larger works for both mouse and finger
 
 const LOCALE_HOME_RE = /^\/([a-z]{2})?\/?$/;
 
@@ -128,6 +128,16 @@ export default function PersistentBackground() {
   useEffect(() => { paintRef.current     = paintEnabled; }, [paintEnabled]);
   useEffect(() => { isHomeRef.current    = isHome; }, [isHome]);
 
+  // On touch devices: hide overlay by default so videos are visible immediately.
+  // Touch users can still enable the overlay via the toggle button and finger-paint.
+  useEffect(() => {
+    const isTouch = navigator.maxTouchPoints > 0 || "ontouchstart" in window;
+    if (isTouch) {
+      setOverlayOn(false);
+      setPaint(false);
+    }
+  }, []);
+
   // Reduced-motion preference
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -182,13 +192,18 @@ export default function PersistentBackground() {
     let velX = 0, velY = 0;
     let prevMX = 0, prevMY = 0;
 
+    const isTouch = navigator.maxTouchPoints > 0 || "ontouchstart" in window;
+
     const initCanvas = () => {
       canvas.width  = window.innerWidth;
       canvas.height = window.innerHeight;
       ctx = canvas.getContext("2d");
       if (!ctx) return;
-      ctx.fillStyle = OVERLAY;
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      // Touch devices start with overlay off — don't fill the canvas so videos show immediately
+      if (!isTouch) {
+        ctx.fillStyle = OVERLAY;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+      }
       prevX = null;
       prevY = null;
     };
@@ -253,10 +268,36 @@ export default function PersistentBackground() {
       strokeTo(e.clientX, e.clientY);
     };
 
-    window.addEventListener("mousemove", onMove,    { passive: true });
+    // Touch painting — finger drags scratch the overlay (larger effective brush via velocity)
+    const onTouchMove = (e: TouchEvent) => {
+      const touch = e.touches[0];
+      if (!touch) return;
+      const dx = touch.clientX - prevMX;
+      const dy = touch.clientY - prevMY;
+      velX   = velX * 0.65 + dx * 0.35;
+      velY   = velY * 0.65 + dy * 0.35;
+      prevMX = touch.clientX;
+      prevMY = touch.clientY;
+
+      if (!isHomeRef.current || !overlayOnRef.current || !paintRef.current) {
+        prevX = null; prevY = null; return;
+      }
+      // elementFromPoint needed — e.target stays fixed from touchstart position
+      const el = document.elementFromPoint(touch.clientX, touch.clientY);
+      if (el?.closest?.("[data-no-peephole]")) { prevX = null; prevY = null; return; }
+      strokeTo(touch.clientX, touch.clientY);
+    };
+
+    const onTouchEnd = () => { prevX = null; prevY = null; };
+
+    window.addEventListener("mousemove", onMove,      { passive: true });
+    window.addEventListener("touchmove", onTouchMove, { passive: true });
+    window.addEventListener("touchend",  onTouchEnd);
     window.addEventListener("resize",    initCanvas);
     return () => {
       window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("touchmove", onTouchMove);
+      window.removeEventListener("touchend",  onTouchEnd);
       window.removeEventListener("resize",    initCanvas);
     };
   }, [reducedMotion]);
@@ -295,7 +336,12 @@ export default function PersistentBackground() {
           without pausing playback. */}
       <div
         className="bg-slideshow"
-        style={{ visibility: isHome ? "visible" : "hidden" }}
+        style={{
+          // opacity:0 + pointerEvents:none keeps videos playing (audio) on other pages
+          // while making them invisible. visibility:hidden can pause media on some mobile browsers.
+          opacity: isHome ? 1 : 0,
+          pointerEvents: isHome ? "auto" : "none",
+        }}
       >
         {videos.map((src, i) => (
           <div key={src} className={`bg-slide video-slide${i === current ? " active" : ""}`}>
@@ -329,7 +375,10 @@ export default function PersistentBackground() {
         role="group"
         aria-label="Background controls"
         style={{
-          position: "fixed", bottom: "1.5rem", right: "1.5rem", zIndex: 10,
+          position: "fixed",
+          bottom: "max(1.5rem, calc(env(safe-area-inset-bottom, 0px) + 0.75rem))",
+          right: "max(1.5rem, env(safe-area-inset-right, 0px))",
+          zIndex: 50,
           display: "flex", alignItems: "center", gap: "0.5rem",
         }}
       >

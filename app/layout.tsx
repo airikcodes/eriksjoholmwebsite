@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import { cookies } from "next/headers";
 import Image from "next/image";
@@ -21,6 +21,12 @@ const inter = Inter({
   subsets: ["latin"],
   display: "swap",
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover", // enables env(safe-area-inset-*) on iOS
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://eriksjoholm.com"),
