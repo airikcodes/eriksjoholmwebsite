@@ -52,7 +52,7 @@ export default async function Home({
     {/* Preload first slideshow image — avoids LCP delay from CSS background discovery */}
     {/* eslint-disable-next-line @next/next/no-page-custom-font */}
     <link rel="preload" as="image" href="/images/bg/bg-01.jpg" fetchPriority="high" />
-    <main style={{ background: "#1A1410" }}>
+    <main style={{ background: "#1A1410", color: "#E8E0D4" }}>
       <BackgroundSlideshow />
 
       {/* ── Hero: Concierge ──────────────────────────────── */}
@@ -76,7 +76,7 @@ export default async function Home({
         <section
           id="nav"
           className="flex flex-col items-center justify-center px-6 pt-24 pb-40 sm:pt-32 sm:pb-56"
-          style={{ minHeight: "80vh", borderTop: "1px solid rgba(28,26,23,0.08)", zIndex: 2, position: "relative" }}
+          style={{ minHeight: "80vh", borderTop: "1px solid rgba(232,224,212,0.1)", zIndex: 2, position: "relative" }}
         >
           <nav className="flex flex-col items-center gap-5 sm:gap-6 md:gap-7">
             {navItems.map((item) =>
@@ -90,7 +90,7 @@ export default async function Home({
                   style={{
                     fontSize: "clamp(1.8rem, 4vw, 3.5rem)",
                     letterSpacing: "0.02em",
-                    color: "#1C1A17",
+                    color: "#E8E0D4",
                     transition: "color 200ms ease",
                     textDecoration: "none",
                   }}
@@ -105,7 +105,7 @@ export default async function Home({
                   style={{
                     fontSize: "clamp(1.8rem, 4vw, 3.5rem)",
                     letterSpacing: "0.02em",
-                    color: "#1C1A17",
+                    color: "#E8E0D4",
                     transition: "color 200ms ease",
                   }}
                 >
@@ -120,21 +120,21 @@ export default async function Home({
       {/* ── Footer ───────────────────────────────────────── */}
       <footer
         className="flex flex-col items-center justify-end gap-5 px-6 pb-10"
-        style={{ borderTop: "1px solid rgba(28,26,23,0.08)", zIndex: 2, position: "relative", minHeight: "clamp(140px, 30vh, 280px)" }}
+        style={{ borderTop: "1px solid rgba(232,224,212,0.1)", zIndex: 2, position: "relative", minHeight: "clamp(140px, 30vh, 280px)" }}
       >
         {/* Secondary — for professionals */}
         <div className="flex items-center gap-6">
           <a
             href="/storyteller"
-            style={{ fontSize: "0.5rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(140,128,118,0.45)", padding: "0.5rem 0", display: "block" }}
+            style={{ fontSize: "0.5rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(200,188,176,0.5)", padding: "0.5rem 0", display: "block" }}
             className="hover:text-[#C8922A] transition-colors duration-200"
           >
             {t.home.footer.storyteller}
           </a>
-          <span style={{ color: "rgba(140,128,118,0.25)", fontSize: "0.5rem" }}>·</span>
+          <span style={{ color: "rgba(200,188,176,0.25)", fontSize: "0.5rem" }}>·</span>
           <a
             href="/sync"
-            style={{ fontSize: "0.5rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(140,128,118,0.45)", padding: "0.5rem 0", display: "block" }}
+            style={{ fontSize: "0.5rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(200,188,176,0.5)", padding: "0.5rem 0", display: "block" }}
             className="hover:text-[#C8922A] transition-colors duration-200"
           >
             {t.home.footer.syncLicensing}
@@ -142,15 +142,15 @@ export default async function Home({
         </div>
         {/* Copyright */}
         <div className="flex items-center gap-8">
-          <p style={{ fontSize: "0.5rem", letterSpacing: "0.15em", color: "rgba(140,128,118,0.45)" }}>
+          <p style={{ fontSize: "0.5rem", letterSpacing: "0.15em", color: "rgba(200,188,176,0.5)" }}>
             © {new Date().getFullYear()} Erik Sjøholm
           </p>
           <a
             href="https://www.instagram.com/eriksjoholmofficial"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ fontSize: "0.5rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(140,128,118,0.45)", padding: "0.5rem 0", display: "block" }}
-            className="hover:text-[#1C1A17] transition-colors duration-200"
+            style={{ fontSize: "0.5rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(200,188,176,0.5)", padding: "0.5rem 0", display: "block" }}
+            className="hover:text-[#E8E0D4] transition-colors duration-200"
           >
             @eriksjoholmofficial
           </a>
