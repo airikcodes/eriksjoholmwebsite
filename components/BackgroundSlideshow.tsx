@@ -32,6 +32,7 @@ export default function BackgroundSlideshow() {
   const [muted, setMuted]                 = useState(true);
   const [volume, setVolume]               = useState(0.6);
   const videoRefs                         = useRef<(HTMLVideoElement | null)[]>([]);
+  const overlayRef                        = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -73,6 +74,31 @@ export default function BackgroundSlideshow() {
     });
   }, [muted, volume, current]);
 
+  // Cursor peephole — wipe the overlay away around the mouse
+  useEffect(() => {
+    if (reducedMotion) return;
+    const overlay = overlayRef.current;
+    if (!overlay) return;
+
+    const onMove = (e: MouseEvent) => {
+      const mask = `radial-gradient(circle at ${e.clientX}px ${e.clientY}px, transparent 0px, transparent 50px, rgba(0,0,0,0.65) 140px, black 210px)`;
+      overlay.style.setProperty("mask-image", mask);
+      overlay.style.setProperty("-webkit-mask-image", mask);
+    };
+
+    const onLeave = () => {
+      overlay.style.removeProperty("mask-image");
+      overlay.style.removeProperty("-webkit-mask-image");
+    };
+
+    window.addEventListener("mousemove", onMove, { passive: true });
+    document.documentElement.addEventListener("mouseleave", onLeave);
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      document.documentElement.removeEventListener("mouseleave", onLeave);
+    };
+  }, [reducedMotion]);
+
   if (reducedMotion) {
     return (
       <div className="bg-slideshow">
@@ -99,7 +125,7 @@ export default function BackgroundSlideshow() {
             </video>
           </div>
         ))}
-        <div className="bg-overlay" />
+        <div className="bg-overlay" ref={overlayRef} />
       </div>
 
       {/* Sound control — fixed bottom-right */}
