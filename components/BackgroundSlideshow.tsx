@@ -11,7 +11,9 @@ const videos = [
 ];
 
 const FALLBACK_IMAGE = "/images/bg/bg-01.jpg";
-const CYCLE_MS = 30_000;
+const CYCLE_MS  = 30_000;
+const OVERLAY   = "rgba(252,250,247,0.96)";
+const BRUSH_R   = 52; // base brush radius in CSS px
 
 function seekToMiddle(video: HTMLVideoElement) {
   const go = () => {
@@ -32,7 +34,7 @@ export default function BackgroundSlideshow() {
   const [muted, setMuted]                 = useState(true);
   const [volume, setVolume]               = useState(0.6);
   const videoRefs                         = useRef<(HTMLVideoElement | null)[]>([]);
-  const shapeRef                          = useRef<SVGEllipseElement | null>(null);
+  const canvasRef                         = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -71,89 +73,100 @@ export default function BackgroundSlideshow() {
     });
   }, [muted, volume, current]);
 
-  // Velocity-reactive organic shape — ink/crack feel
+  // Canvas scratch effect — persistent ice-wipe
   useEffect(() => {
     if (reducedMotion) return;
+    const canvas = canvasRef.current;
+    if (!canvas) return;
 
-    let raf: number;
-    let targetR   = 0;
-    let currentR  = 0;
-    let targetX   = window.innerWidth  / 2;
-    let targetY   = window.innerHeight / 2;
-    let currentX  = targetX;
-    let currentY  = targetY;
-    let prevMX    = targetX;
-    let prevMY    = targetY;
-    let velX      = 0;
-    let velY      = 0;
-    let start: number | null = null;
+    let ctx: CanvasRenderingContext2D | null = null;
+    let prevX: number | null = null;
+    let prevY: number | null = null;
+    let velX = 0, velY = 0;
+    let prevMX = 0, prevMY = 0;
 
-    const tick = (t: number) => {
-      if (!start) start = t;
-      const elapsed = t - start;
+    const initCanvas = () => {
+      canvas.width  = window.innerWidth;
+      canvas.height = window.innerHeight;
+      ctx = canvas.getContext("2d");
+      if (!ctx) return;
+      ctx.fillStyle = OVERLAY;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      // Lift the pen so the next stroke starts fresh after resize
+      prevX = null;
+      prevY = null;
+    };
 
-      // Smooth position follow
-      currentX += (targetX - currentX) * 0.10;
-      currentY += (targetY - currentY) * 0.10;
-      currentR += (targetR - currentR) * 0.06;
+    initCanvas();
 
-      // Decay velocity so stretch rebounds when cursor stops
-      velX *= 0.86;
-      velY *= 0.86;
+    // Paint one brush stamp at (x, y), shaped by current velocity
+    const stamp = (x: number, y: number) => {
+      if (!ctx) return;
+      const speed   = Math.hypot(velX, velY);
+      const angle   = Math.atan2(velY, velX);
+      const stretch = 1 + Math.log1p(speed) * 0.30;
+      const rx      = BRUSH_R * stretch;
+      const ry      = BRUSH_R * Math.max(0.40, 1 / Math.sqrt(stretch));
 
-      const speed = Math.hypot(velX, velY);
-      const angle = Math.atan2(velY, velX) * (180 / Math.PI);
+      ctx.save();
+      ctx.globalCompositeOperation = "destination-out";
+      ctx.translate(x, y);
+      ctx.rotate(angle);
+      ctx.scale(1, ry / rx);
 
-      // Logarithmic stretch so it doesn't explode at high speed
-      const stretchX = 1 + Math.log1p(speed) * 0.28;
-      const squishY  = Math.max(0.55, 1 / Math.sqrt(stretchX));
+      // Feathered radial gradient — firm centre, soft frosty edge
+      const g = ctx.createRadialGradient(0, 0, 0, 0, 0, rx);
+      g.addColorStop(0,    "rgba(0,0,0,1)");
+      g.addColorStop(0.50, "rgba(0,0,0,0.95)");
+      g.addColorStop(0.78, "rgba(0,0,0,0.35)");
+      g.addColorStop(1,    "rgba(0,0,0,0)");
 
-      // Two out-of-phase sine waves per axis → never a perfect circle
-      const bRx = Math.sin(elapsed * 0.00078) * 28 + Math.sin(elapsed * 0.00190) * 16;
-      const bRy = Math.sin(elapsed * 0.00091 + 1.9) * 24 + Math.sin(elapsed * 0.00140 + 0.8) * 14;
+      ctx.beginPath();
+      ctx.arc(0, 0, rx, 0, Math.PI * 2);
+      ctx.fillStyle = g;
+      ctx.fill();
+      ctx.restore();
+    };
 
-      const rx = Math.max(0, currentR * stretchX + bRx);
-      const ry = Math.max(0, currentR * squishY  + bRy);
-
-      const shape = shapeRef.current;
-      if (shape) {
-        const cx = currentX | 0;
-        const cy = currentY | 0;
-        shape.setAttribute("cx",        String(cx));
-        shape.setAttribute("cy",        String(cy));
-        shape.setAttribute("rx",        String(rx | 0));
-        shape.setAttribute("ry",        String(ry | 0));
-        // Rotate the ellipse to align with cursor direction
-        shape.setAttribute("transform", `rotate(${angle | 0}, ${cx}, ${cy})`);
+    // Interpolate stamps along the path so fast moves leave no gaps
+    const strokeTo = (x: number, y: number) => {
+      if (prevX === null || prevY === null) {
+        stamp(x, y);
+      } else {
+        const dist = Math.hypot(x - prevX, y - prevY);
+        const n    = Math.max(1, Math.ceil(dist / 4));
+        for (let i = 1; i <= n; i++) {
+          const t = i / n;
+          stamp(prevX + (x - prevX) * t, prevY + (y - prevY) * t);
+        }
       }
-
-      raf = requestAnimationFrame(tick);
+      prevX = x;
+      prevY = y;
     };
 
     const onMove = (e: MouseEvent) => {
-      const blocked = (e.target as Element | null)?.closest?.("[data-no-peephole]");
       const dx = e.clientX - prevMX;
       const dy = e.clientY - prevMY;
-      // Exponential smoothing on velocity
-      velX = velX * 0.60 + dx * 0.40;
-      velY = velY * 0.60 + dy * 0.40;
-      prevMX  = e.clientX;
-      prevMY  = e.clientY;
-      targetX = e.clientX;
-      targetY = e.clientY;
-      targetR = blocked ? 0 : 250;
+      velX   = velX  * 0.65 + dx * 0.35;
+      velY   = velY  * 0.65 + dy * 0.35;
+      prevMX = e.clientX;
+      prevMY = e.clientY;
+
+      const blocked = (e.target as Element | null)?.closest?.("[data-no-peephole]");
+      if (blocked) {
+        // Lift the pen — no scratch, and don't bridge across the gap on exit
+        prevX = null;
+        prevY = null;
+        return;
+      }
+      strokeTo(e.clientX, e.clientY);
     };
 
-    const onLeave = () => { targetR = 0; };
-
-    raf = requestAnimationFrame(tick);
-    window.addEventListener("mousemove", onMove, { passive: true });
-    document.documentElement.addEventListener("mouseleave", onLeave);
-
+    window.addEventListener("mousemove", onMove,    { passive: true });
+    window.addEventListener("resize",    initCanvas);
     return () => {
-      cancelAnimationFrame(raf);
       window.removeEventListener("mousemove", onMove);
-      document.documentElement.removeEventListener("mouseleave", onLeave);
+      window.removeEventListener("resize",    initCanvas);
     };
   }, [reducedMotion]);
 
@@ -184,78 +197,19 @@ export default function BackgroundSlideshow() {
           </div>
         ))}
 
-        {/* SVG overlay — organic ink/crack peephole */}
-        <svg
+        {/* Canvas overlay — starts fully filled; scratches stay cleared */}
+        <canvas
+          ref={canvasRef}
           aria-hidden="true"
           style={{
-            position: "absolute",
-            inset: 0,
-            width: "100%",
-            height: "100%",
+            position:      "absolute",
+            inset:         0,
+            width:         "100%",
+            height:        "100%",
             pointerEvents: "none",
-            zIndex: 1,
-            overflow: "visible",
+            zIndex:        1,
           }}
-        >
-          <defs>
-            {/*
-              Pipeline: blur the ellipse first (soft body) then violently
-              displace it with fractal noise → ink tendrils / crack edges
-            */}
-            <filter id="organic-edge" x="-70%" y="-70%" width="240%" height="240%">
-              <feTurbulence
-                type="fractalNoise"
-                baseFrequency="0.018 0.022"
-                numOctaves="5"
-                seed="12"
-                result="turbulence"
-              >
-                {/* @ts-ignore — SMIL animate is valid SVG */}
-                <animate
-                  attributeName="baseFrequency"
-                  values="0.015 0.020;0.022 0.028;0.017 0.022;0.020 0.026;0.015 0.020"
-                  dur="7s"
-                  repeatCount="indefinite"
-                />
-              </feTurbulence>
-              <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blurred" />
-              <feDisplacementMap
-                in="blurred"
-                in2="turbulence"
-                scale="82"
-                xChannelSelector="R"
-                yChannelSelector="G"
-              >
-                {/* @ts-ignore */}
-                <animate
-                  attributeName="scale"
-                  values="68;96;74;90;68"
-                  dur="5s"
-                  repeatCount="indefinite"
-                />
-              </feDisplacementMap>
-            </filter>
-
-            <mask id="peephole-mask">
-              {/* white = show overlay · black = reveal video */}
-              <rect width="100%" height="100%" fill="white" />
-              <ellipse
-                ref={shapeRef}
-                cx="0" cy="0"
-                rx="0" ry="0"
-                fill="black"
-                filter="url(#organic-edge)"
-              />
-            </mask>
-          </defs>
-
-          <rect
-            width="100%"
-            height="100%"
-            fill="rgba(252,250,247,0.96)"
-            mask="url(#peephole-mask)"
-          />
-        </svg>
+        />
       </div>
 
       {/* Sound control — fixed bottom-right */}
@@ -264,20 +218,18 @@ export default function BackgroundSlideshow() {
         aria-label="Video sound"
         style={{
           position: "fixed",
-          bottom: "1.5rem",
-          right: "1.5rem",
-          zIndex: 10,
-          display: "flex",
+          bottom:   "1.5rem",
+          right:    "1.5rem",
+          zIndex:   10,
+          display:  "flex",
           alignItems: "center",
-          gap: "0.625rem",
+          gap:      "0.625rem",
         }}
       >
         {!muted && (
           <input
             type="range"
-            min="0"
-            max="1"
-            step="0.05"
+            min="0" max="1" step="0.05"
             value={volume}
             onChange={(e) => setVolume(Number(e.target.value))}
             aria-label="Volume"
@@ -288,20 +240,13 @@ export default function BackgroundSlideshow() {
           onClick={() => setMuted((m) => !m)}
           aria-label={muted ? "Unmute background video" : "Mute background video"}
           style={{
-            width: "36px",
-            height: "36px",
-            borderRadius: "50%",
+            width: "36px", height: "36px", borderRadius: "50%",
             background: "rgba(10,8,6,0.55)",
             border: "1px solid rgba(200,146,42,0.35)",
-            color: "#C8922A",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            cursor: "pointer",
-            backdropFilter: "blur(6px)",
-            WebkitBackdropFilter: "blur(6px)",
-            flexShrink: 0,
-            transition: "background 180ms ease, border-color 180ms ease",
+            color: "#C8922A", display: "flex", alignItems: "center",
+            justifyContent: "center", cursor: "pointer",
+            backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)",
+            flexShrink: 0, transition: "background 180ms ease, border-color 180ms ease",
           }}
         >
           {muted ? (
