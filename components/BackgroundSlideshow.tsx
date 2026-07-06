@@ -32,7 +32,7 @@ export default function BackgroundSlideshow() {
   const [muted, setMuted]                 = useState(true);
   const [volume, setVolume]               = useState(0.6);
   const videoRefs                         = useRef<(HTMLVideoElement | null)[]>([]);
-  const circleRef                         = useRef<SVGCircleElement | null>(null);
+  const shapeRef                          = useRef<SVGEllipseElement | null>(null);
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -48,7 +48,6 @@ export default function BackgroundSlideshow() {
     return () => clearInterval(id);
   }, [reducedMotion]);
 
-  // On mount: fix React hydration muted bug, seek all to middle, start playing
   useEffect(() => {
     videoRefs.current.forEach((video) => {
       if (!video) return;
@@ -59,13 +58,11 @@ export default function BackgroundSlideshow() {
     });
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // On cycle: re-seek the incoming video to its middle
   useEffect(() => {
     const video = videoRefs.current[current];
     if (video) seekToMiddle(video);
   }, [current]);
 
-  // Only the active video plays with sound; all others stay muted
   useEffect(() => {
     videoRefs.current.forEach((video, i) => {
       if (!video) return;
@@ -74,38 +71,60 @@ export default function BackgroundSlideshow() {
     });
   }, [muted, volume, current]);
 
-  // Organic peephole — RAF loop for smooth following + breathing radius
+  // Velocity-reactive organic shape — ink/crack feel
   useEffect(() => {
     if (reducedMotion) return;
 
     let raf: number;
-    let targetR = 0;
-    let currentR = 0;
-    let targetX = window.innerWidth / 2;
-    let targetY = window.innerHeight / 2;
-    let currentX = targetX;
-    let currentY = targetY;
+    let targetR   = 0;
+    let currentR  = 0;
+    let targetX   = window.innerWidth  / 2;
+    let targetY   = window.innerHeight / 2;
+    let currentX  = targetX;
+    let currentY  = targetY;
+    let prevMX    = targetX;
+    let prevMY    = targetY;
+    let velX      = 0;
+    let velY      = 0;
     let start: number | null = null;
 
     const tick = (t: number) => {
       if (!start) start = t;
       const elapsed = t - start;
 
-      currentX += (targetX - currentX) * 0.12;
-      currentY += (targetY - currentY) * 0.12;
-      currentR += (targetR - currentR) * 0.07;
+      // Smooth position follow
+      currentX += (targetX - currentX) * 0.10;
+      currentY += (targetY - currentY) * 0.10;
+      currentR += (targetR - currentR) * 0.06;
 
-      // Two overlapping sine waves → irregular organic breathing
-      const breathe = currentR > 5
-        ? Math.sin(elapsed * 0.00085) * 14 + Math.sin(elapsed * 0.0013) * 9
-        : 0;
+      // Decay velocity so stretch rebounds when cursor stops
+      velX *= 0.86;
+      velY *= 0.86;
 
-      const r = Math.max(0, currentR + breathe);
-      const circle = circleRef.current;
-      if (circle) {
-        circle.setAttribute("cx", String(currentX | 0));
-        circle.setAttribute("cy", String(currentY | 0));
-        circle.setAttribute("r",  String(r | 0));
+      const speed = Math.hypot(velX, velY);
+      const angle = Math.atan2(velY, velX) * (180 / Math.PI);
+
+      // Logarithmic stretch so it doesn't explode at high speed
+      const stretchX = 1 + Math.log1p(speed) * 0.28;
+      const squishY  = Math.max(0.55, 1 / Math.sqrt(stretchX));
+
+      // Two out-of-phase sine waves per axis → never a perfect circle
+      const bRx = Math.sin(elapsed * 0.00078) * 28 + Math.sin(elapsed * 0.00190) * 16;
+      const bRy = Math.sin(elapsed * 0.00091 + 1.9) * 24 + Math.sin(elapsed * 0.00140 + 0.8) * 14;
+
+      const rx = Math.max(0, currentR * stretchX + bRx);
+      const ry = Math.max(0, currentR * squishY  + bRy);
+
+      const shape = shapeRef.current;
+      if (shape) {
+        const cx = currentX | 0;
+        const cy = currentY | 0;
+        shape.setAttribute("cx",        String(cx));
+        shape.setAttribute("cy",        String(cy));
+        shape.setAttribute("rx",        String(rx | 0));
+        shape.setAttribute("ry",        String(ry | 0));
+        // Rotate the ellipse to align with cursor direction
+        shape.setAttribute("transform", `rotate(${angle | 0}, ${cx}, ${cy})`);
       }
 
       raf = requestAnimationFrame(tick);
@@ -113,9 +132,16 @@ export default function BackgroundSlideshow() {
 
     const onMove = (e: MouseEvent) => {
       const blocked = (e.target as Element | null)?.closest?.("[data-no-peephole]");
+      const dx = e.clientX - prevMX;
+      const dy = e.clientY - prevMY;
+      // Exponential smoothing on velocity
+      velX = velX * 0.60 + dx * 0.40;
+      velY = velY * 0.60 + dy * 0.40;
+      prevMX  = e.clientX;
+      prevMY  = e.clientY;
       targetX = e.clientX;
       targetY = e.clientY;
-      targetR = blocked ? 0 : 160;
+      targetR = blocked ? 0 : 250;
     };
 
     const onLeave = () => { targetR = 0; };
@@ -158,7 +184,7 @@ export default function BackgroundSlideshow() {
           </div>
         ))}
 
-        {/* SVG overlay with organic aquarelle peephole */}
+        {/* SVG overlay — organic ink/crack peephole */}
         <svg
           aria-hidden="true"
           style={{
@@ -173,53 +199,50 @@ export default function BackgroundSlideshow() {
         >
           <defs>
             {/*
-              Filter pipeline:
-              1. Blur the circle edge softly
-              2. Displace the blurred result with animated fractal noise
-              → produces a living, aquarelle-like fringe
+              Pipeline: blur the ellipse first (soft body) then violently
+              displace it with fractal noise → ink tendrils / crack edges
             */}
-            <filter id="organic-edge" x="-60%" y="-60%" width="220%" height="220%">
+            <filter id="organic-edge" x="-70%" y="-70%" width="240%" height="240%">
               <feTurbulence
                 type="fractalNoise"
-                baseFrequency="0.012 0.015"
-                numOctaves="4"
-                seed="7"
+                baseFrequency="0.018 0.022"
+                numOctaves="5"
+                seed="12"
                 result="turbulence"
               >
-                {/* @ts-ignore — SMIL animate is valid SVG but React types are narrow here */}
+                {/* @ts-ignore — SMIL animate is valid SVG */}
                 <animate
                   attributeName="baseFrequency"
-                  values="0.010 0.013;0.016 0.020;0.011 0.015;0.014 0.019;0.010 0.013"
-                  dur="8s"
+                  values="0.015 0.020;0.022 0.028;0.017 0.022;0.020 0.026;0.015 0.020"
+                  dur="7s"
                   repeatCount="indefinite"
                 />
               </feTurbulence>
-              <feGaussianBlur in="SourceGraphic" stdDeviation="14" result="blurred" />
+              <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blurred" />
               <feDisplacementMap
                 in="blurred"
                 in2="turbulence"
-                scale="48"
+                scale="82"
                 xChannelSelector="R"
                 yChannelSelector="G"
               >
                 {/* @ts-ignore */}
                 <animate
                   attributeName="scale"
-                  values="36;58;42;54;36"
-                  dur="7s"
+                  values="68;96;74;90;68"
+                  dur="5s"
                   repeatCount="indefinite"
                 />
               </feDisplacementMap>
             </filter>
 
             <mask id="peephole-mask">
-              {/* White = show overlay, black = reveal video */}
+              {/* white = show overlay · black = reveal video */}
               <rect width="100%" height="100%" fill="white" />
-              <circle
-                ref={circleRef}
-                cx="0"
-                cy="0"
-                r="0"
+              <ellipse
+                ref={shapeRef}
+                cx="0" cy="0"
+                rx="0" ry="0"
                 fill="black"
                 filter="url(#organic-edge)"
               />
