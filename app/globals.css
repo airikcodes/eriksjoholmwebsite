@@ -39,7 +39,7 @@ body {
 
 ::selection { background: var(--color-accent); color: #F7F3EE; }
 
-.concierge-input::placeholder { color: rgba(200, 188, 176, 0.45); }
+.concierge-input::placeholder { color: rgba(140, 128, 118, 0.7); }
 
 /* Scroll-triggered reveal */
 .reveal {
@@ -169,7 +169,7 @@ body {
 .bg-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(10, 8, 6, 0.75);
+  background: rgba(247, 243, 238, 0.88);
   z-index: 1;
 }
 

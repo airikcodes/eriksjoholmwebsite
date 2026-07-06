@@ -469,7 +469,7 @@ export default function SongConcierge({
         className="font-[family-name:var(--font-cormorant)] font-light text-center"
         style={{
           fontSize:     "clamp(1.5rem, 5vw, 2.6rem)",
-          color:        "#E8E0D4",
+          color:        "#3A3530",
           letterSpacing:"0.02em",
           marginBottom: tagline ? "0.9rem" : "2rem",
         }}
@@ -482,7 +482,7 @@ export default function SongConcierge({
           className="font-[family-name:var(--font-cormorant)] font-light text-center"
           style={{
             fontSize:     "clamp(1rem, 2.4vw, 1.2rem)",
-            color:        "rgba(232,224,212,0.55)",
+            color:        "rgba(55,48,43,0.5)",
             fontStyle:    "italic",
             letterSpacing:"0.02em",
             lineHeight:   1.5,
@@ -507,9 +507,9 @@ export default function SongConcierge({
           placeholder={placeholder}
           style={{
             width:       "100%",
-            background:  "rgba(232,224,212,0.07)",
-            border:      "1px solid rgba(232,224,212,0.18)",
-            color:       "#E8E0D4",
+            background:  "rgba(28,26,23,0.04)",
+            border:      "1px solid rgba(28,26,23,0.18)",
+            color:       "#1C1A17",
             padding:     "1rem 3rem 1rem 1.25rem",
             fontSize:    "0.875rem",
             letterSpacing:"0.02em",
@@ -518,15 +518,15 @@ export default function SongConcierge({
             fontFamily:  "var(--font-inter)",
           }}
           onFocus={(e) => (e.target.style.borderColor = "var(--color-accent)")}
-          onBlur={(e) => (e.target.style.borderColor = "rgba(232,224,212,0.18)")}
+          onBlur={(e) => (e.target.style.borderColor = "rgba(28,26,23,0.18)")}
         />
         <button
           type="submit"
           aria-label="Send"
           className="absolute right-4 top-1/2 -translate-y-1/2 transition-colors duration-200"
-          style={{ color: "rgba(200,188,176,0.55)" }}
+          style={{ color: "#7A6F62" }}
           onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "var(--color-accent)")}
-          onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "rgba(200,188,176,0.55)")}
+          onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "#7A6F62")}
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
             <line x1="22" y1="2" x2="11" y2="13" />
@@ -537,7 +537,7 @@ export default function SongConcierge({
 
       {/* Chips */}
       <div className="mt-5 text-center">
-        <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(200,188,176,0.55)", marginBottom: "0.75rem" }}>
+        <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#7A6F62", marginBottom: "0.75rem" }}>
           {orLabel}
         </p>
         <div className="flex flex-wrap justify-center gap-2">
@@ -551,9 +551,9 @@ export default function SongConcierge({
                 letterSpacing: "0.18em",
                 textTransform: "uppercase",
                 padding:       "0.45rem 1rem",
-                border:        `1px solid ${activeChip === chip.id ? "var(--color-accent)" : "rgba(232,224,212,0.18)"}`,
-                color:         activeChip === chip.id ? "var(--color-accent)" : "rgba(200,188,176,0.65)",
-                background:    activeChip === chip.id ? "transparent" : "rgba(232,224,212,0.05)",
+                border:        `1px solid ${activeChip === chip.id ? "var(--color-accent)" : "rgba(28,26,23,0.18)"}`,
+                color:         activeChip === chip.id ? "var(--color-accent)" : "rgba(28,26,23,0.45)",
+                background:    activeChip === chip.id ? "transparent" : "rgba(28,26,23,0.04)",
                 transition:    "border-color 200ms, color 200ms",
                 cursor:        "pointer",
                 whiteSpace:    "nowrap",
