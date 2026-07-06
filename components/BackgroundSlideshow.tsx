@@ -35,10 +35,23 @@ export default function BackgroundSlideshow() {
     return () => clearInterval(id);
   }, [reducedMotion]);
 
-  // When cycling, reset the incoming video to its start so it feels fresh
+  // React doesn't reliably set the `muted` HTML attribute during hydration,
+  // which blocks browser autoplay policy. Force it via the DOM property.
+  useEffect(() => {
+    videoRefs.current.forEach((video) => {
+      if (!video) return;
+      video.muted = true;
+      video.play().catch(() => {});
+    });
+  }, []);
+
+  // When cycling, reset the incoming video to its start and ensure it plays
   useEffect(() => {
     const video = videoRefs.current[current];
-    if (video) video.currentTime = 0;
+    if (!video) return;
+    video.currentTime = 0;
+    video.muted = true;
+    video.play().catch(() => {});
   }, [current]);
 
   if (reducedMotion) {
