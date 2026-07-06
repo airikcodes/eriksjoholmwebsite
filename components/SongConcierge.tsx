@@ -428,7 +428,7 @@ export default function SongConcierge({
   chipLatest     = "Latest Release",
   chipMostPlayed = "Most Played",
   chipUnexpected = "Unexpected",
-  tagline        = "Songs built from real moments, lived quietly and felt deeply.",
+  tagline        = "",
 }: SongConciergeProps) {
   const [input, setInput]       = useState("");
   const [results, setResults]   = useState<Track[]>([]);

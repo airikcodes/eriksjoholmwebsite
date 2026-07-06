@@ -119,7 +119,7 @@ export default async function Home({
       {/* ── Footer ───────────────────────────────────────── */}
       <footer
         className="flex flex-col items-center justify-end gap-5 px-6 pb-10"
-        style={{ borderTop: "1px solid rgba(28,26,23,0.08)", zIndex: 2, position: "relative", minHeight: "clamp(140px, 30vh, 280px)" }}
+        style={{ zIndex: 2, position: "relative", minHeight: "clamp(140px, 30vh, 280px)" }}
       >
         {/* Secondary — for professionals */}
         <div className="flex items-center gap-6">
