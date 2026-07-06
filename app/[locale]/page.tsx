@@ -68,7 +68,6 @@ export default async function Home({
           chipMostPlayed={t.concierge.chips.mostPlayed}
           chipUnexpected={t.concierge.chips.unexpected}
         />
-        <ScrollIndicator />
       </section>
 
       {/* ── Navigation as Rooms ──────────────────────────── */}
@@ -76,7 +75,7 @@ export default async function Home({
         <section
           id="nav"
           className="flex flex-col items-center justify-center px-6 pt-24 pb-40 sm:pt-32 sm:pb-56"
-          style={{ minHeight: "80vh", borderTop: "1px solid rgba(232,224,212,0.1)", zIndex: 2, position: "relative" }}
+          style={{ minHeight: "80vh", zIndex: 2, position: "relative" }}
         >
           <nav className="flex flex-col items-center gap-5 sm:gap-6 md:gap-7">
             {navItems.map((item) =>
