@@ -319,16 +319,20 @@ export default function PersistentBackground() {
             s.mode = ady > adx * 2 ? "scroll" : "paint";
           }
         }
-        if (s.mode === "scroll") continue;
+
+        // Always track position so velocity is accurate the moment painting starts
+        const dx = t.clientX - s.prevMX;
+        const dy = t.clientY - s.prevMY;
+        s.prevMX = t.clientX;
+        s.prevMY = t.clientY;
+
+        // Only paint for a confirmed paint gesture — not scroll, not undecided
+        if (s.mode !== "paint") continue;
 
         if (inControls(t.clientX, t.clientY)) { s.prevX = null; s.prevY = null; continue; }
 
-        const dx = t.clientX - s.prevMX;
-        const dy = t.clientY - s.prevMY;
-        s.vx     = s.vx * 0.65 + dx * 0.35;
-        s.vy     = s.vy * 0.65 + dy * 0.35;
-        s.prevMX = t.clientX;
-        s.prevMY = t.clientY;
+        s.vx = s.vx * 0.65 + dx * 0.35;
+        s.vy = s.vy * 0.65 + dy * 0.35;
 
         ({ x: s.prevX, y: s.prevY } = strokeTo(t.clientX, t.clientY, s.prevX, s.prevY, s.vx, s.vy));
       }
@@ -358,14 +362,20 @@ export default function PersistentBackground() {
     window.addEventListener("touchmove",   onTouchMove,    { passive: true });
     window.addEventListener("touchend",    onTouchEnd);
     window.addEventListener("touchcancel", onTouchCancel);
-    window.addEventListener("resize",      initCanvas);
+    // Only reinitialize when WIDTH changes (real orientation flip).
+    // iOS URL bar show/hide only changes HEIGHT — skip it to preserve scratch marks.
+    const handleResize = () => {
+      const newW = Math.round(window.innerWidth * (window.devicePixelRatio || 1));
+      if (newW !== canvas.width) initCanvas();
+    };
+    window.addEventListener("resize",      handleResize);
     return () => {
       window.removeEventListener("mousemove",   onMove);
       window.removeEventListener("touchstart",  onTouchStart);
       window.removeEventListener("touchmove",   onTouchMove);
       window.removeEventListener("touchend",    onTouchEnd);
       window.removeEventListener("touchcancel", onTouchCancel);
-      window.removeEventListener("resize",      initCanvas);
+      window.removeEventListener("resize",      handleResize);
     };
   }, [reducedMotion]);
 
