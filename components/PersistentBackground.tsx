@@ -184,14 +184,21 @@ export default function PersistentBackground() {
     let prevMX = 0, prevMY = 0;
 
     const isTouch = navigator.maxTouchPoints > 0 || "ontouchstart" in window;
+    // Larger step on touch: fewer stamps per fast swipe, still a solid line
+    const STEP = isTouch ? 8 : 4;
 
     const initCanvas = () => {
-      canvas.width  = window.innerWidth;
-      canvas.height = window.innerHeight;
+      // Scale the canvas buffer by devicePixelRatio so gradients render sharp
+      // on retina/high-DPR phones. All drawing coordinates below stay in CSS pixels
+      // because we apply ctx.scale(dpr, dpr) immediately after.
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width  = Math.round(window.innerWidth  * dpr);
+      canvas.height = Math.round(window.innerHeight * dpr);
       ctx = canvas.getContext("2d");
       if (!ctx) return;
+      ctx.scale(dpr, dpr);
       ctx.fillStyle = OVERLAY;
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
       prevX = null;
       prevY = null;
     };
@@ -234,7 +241,7 @@ export default function PersistentBackground() {
         stamp(x, y, vx, vy);
       } else {
         const d = Math.hypot(x - px, y - py);
-        const n = Math.max(1, Math.ceil(d / 4));
+        const n = Math.max(1, Math.ceil(d / STEP));
         for (let i = 1; i <= n; i++) {
           const t = i / n;
           stamp(px + (x - px) * t, py + (y - py) * t, vx, vy);
@@ -242,6 +249,8 @@ export default function PersistentBackground() {
       }
       return { x, y };
     };
+
+    // ── Mouse ────────────────────────────────────────────────────────────────
 
     const onMove = (e: MouseEvent) => {
       const dx = e.clientX - prevMX;
@@ -260,54 +269,106 @@ export default function PersistentBackground() {
       ({ x: prevX, y: prevY } = strokeTo(e.clientX, e.clientY, prevX, prevY, velX, velY));
     };
 
-    // Per-finger tracking for multi-touch painting
-    type TouchState = { prevX: number | null; prevY: number | null; prevMX: number; prevMY: number; vx: number; vy: number };
-    const fingers = new Map<number, TouchState>();
+    // ── Touch — per-finger state, scroll intent detection, RAF batching ──────
+
+    // 12 px of movement before we decide: primarily vertical = scroll (don't paint)
+    const INTENT_PX = 12;
+
+    type FingerState = {
+      prevX: number | null; prevY: number | null;
+      startX: number; startY: number;
+      prevMX: number; prevMY: number;
+      vx: number; vy: number;
+      mode: "undecided" | "scroll" | "paint";
+    };
+    const fingers = new Map<number, FingerState>();
+
+    // Batch canvas writes to one RAF frame so high-frequency touch events
+    // (120 Hz on ProMotion) don't saturate the main thread
+    let rafId: number | null = null;
+    const pending = new Map<number, { x: number; y: number }>();
+
+    const flushPending = () => {
+      rafId = null;
+      if (!isHomeRef.current || !overlayOnRef.current || !paintRef.current) {
+        pending.clear();
+        return;
+      }
+      for (const [id, pos] of pending) {
+        const s = fingers.get(id);
+        if (!s || s.mode === "scroll") { pending.delete(id); continue; }
+        const el = document.elementFromPoint(pos.x, pos.y);
+        if (el?.closest?.("[data-no-peephole]")) {
+          s.prevX = null; s.prevY = null; pending.delete(id); continue;
+        }
+        ({ x: s.prevX, y: s.prevY } = strokeTo(pos.x, pos.y, s.prevX, s.prevY, s.vx, s.vy));
+        pending.delete(id);
+      }
+    };
 
     const onTouchStart = (e: TouchEvent) => {
       for (const t of Array.from(e.changedTouches)) {
-        fingers.set(t.identifier, { prevX: null, prevY: null, prevMX: t.clientX, prevMY: t.clientY, vx: 0, vy: 0 });
+        fingers.set(t.identifier, {
+          prevX: null, prevY: null,
+          startX: t.clientX, startY: t.clientY,
+          prevMX: t.clientX, prevMY: t.clientY,
+          vx: 0, vy: 0,
+          mode: "undecided",
+        });
       }
     };
 
     const onTouchMove = (e: TouchEvent) => {
-      if (!isHomeRef.current || !overlayOnRef.current || !paintRef.current) {
-        fingers.forEach((s) => { s.prevX = null; s.prevY = null; });
-        return;
-      }
       for (const t of Array.from(e.changedTouches)) {
         const s = fingers.get(t.identifier);
         if (!s) continue;
+
+        // Determine intent from first significant movement
+        if (s.mode === "undecided") {
+          const adx = Math.abs(t.clientX - s.startX);
+          const ady = Math.abs(t.clientY - s.startY);
+          if (Math.hypot(adx, ady) > INTENT_PX) {
+            // Ratio 1.8: a 61° angle from horizontal or less → paint; steeper → scroll
+            s.mode = ady > adx * 1.8 ? "scroll" : "paint";
+          }
+        }
+        if (s.mode === "scroll") continue;
+
         const dx = t.clientX - s.prevMX;
         const dy = t.clientY - s.prevMY;
-        s.vx    = s.vx * 0.65 + dx * 0.35;
-        s.vy    = s.vy * 0.65 + dy * 0.35;
+        s.vx     = s.vx * 0.65 + dx * 0.35;
+        s.vy     = s.vy * 0.65 + dy * 0.35;
         s.prevMX = t.clientX;
         s.prevMY = t.clientY;
 
-        const el = document.elementFromPoint(t.clientX, t.clientY);
-        if (el?.closest?.("[data-no-peephole]")) { s.prevX = null; s.prevY = null; continue; }
-        ({ x: s.prevX, y: s.prevY } = strokeTo(t.clientX, t.clientY, s.prevX, s.prevY, s.vx, s.vy));
+        pending.set(t.identifier, { x: t.clientX, y: t.clientY });
+      }
+      if (pending.size > 0 && rafId === null) {
+        rafId = requestAnimationFrame(flushPending);
       }
     };
 
     const onTouchEnd = (e: TouchEvent) => {
-      for (const t of Array.from(e.changedTouches)) fingers.delete(t.identifier);
+      for (const t of Array.from(e.changedTouches)) {
+        fingers.delete(t.identifier);
+        pending.delete(t.identifier);
+      }
     };
 
-    window.addEventListener("mousemove",  onMove,       { passive: true });
-    window.addEventListener("touchstart", onTouchStart, { passive: true });
-    window.addEventListener("touchmove",  onTouchMove,  { passive: true });
-    window.addEventListener("touchend",   onTouchEnd);
-    window.addEventListener("touchcancel",onTouchEnd);
-    window.addEventListener("resize",     initCanvas);
+    window.addEventListener("mousemove",   onMove,       { passive: true });
+    window.addEventListener("touchstart",  onTouchStart, { passive: true });
+    window.addEventListener("touchmove",   onTouchMove,  { passive: true });
+    window.addEventListener("touchend",    onTouchEnd);
+    window.addEventListener("touchcancel", onTouchEnd);
+    window.addEventListener("resize",      initCanvas);
     return () => {
-      window.removeEventListener("mousemove",  onMove);
-      window.removeEventListener("touchstart", onTouchStart);
-      window.removeEventListener("touchmove",  onTouchMove);
-      window.removeEventListener("touchend",   onTouchEnd);
-      window.removeEventListener("touchcancel",onTouchEnd);
-      window.removeEventListener("resize",     initCanvas);
+      if (rafId !== null) cancelAnimationFrame(rafId);
+      window.removeEventListener("mousemove",   onMove);
+      window.removeEventListener("touchstart",  onTouchStart);
+      window.removeEventListener("touchmove",   onTouchMove);
+      window.removeEventListener("touchend",    onTouchEnd);
+      window.removeEventListener("touchcancel", onTouchEnd);
+      window.removeEventListener("resize",      initCanvas);
     };
   }, [reducedMotion]);
 
@@ -322,7 +383,8 @@ export default function PersistentBackground() {
       const ctx = canvas?.getContext("2d");
       if (canvas && ctx) {
         ctx.fillStyle = OVERLAY;
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        // Context has scale(dpr,dpr) applied — fill in CSS pixels, not buffer pixels
+        ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
       }
       setPaint(true);
     }
