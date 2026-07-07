@@ -15,7 +15,7 @@
   },
   "concierge": {
     "preamble": "",
-    "heading": "Minkä laulun voin soittaa sinulle?",
+    "heading": "Raaputa lottoarvasi. Murra onnenkakunsa auki. Löydä nyt musiikki, joka odottaa sinua täällä. Millaisen kappaleen voisin soittaa sinulle juuri nyt?",
     "timeSlots": {
       "morning": "this morning",
       "afternoon": "this afternoon",

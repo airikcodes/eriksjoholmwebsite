@@ -15,7 +15,7 @@
   },
   "concierge": {
     "preamble": "",
-    "heading": "Quelle chanson puis-je vous jouer?",
+    "heading": "Grattez le billet de loterie. Ouvrez le fortune cookie. Découvrez maintenant la musique qui vous attend ici. Quel genre de chanson puis-je vous jouer en ce moment?",
     "timeSlots": {
       "morning": "this morning",
       "afternoon": "this afternoon",
