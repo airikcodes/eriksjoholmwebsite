@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, FormEvent } from "react";
-import { useBackgroundIsLight } from "@/lib/useBackgroundIsLight";
+import { useBgColorMode } from "@/lib/useBackgroundIsLight";
 
 const SPOTIFY_ARTIST = "https://open.spotify.com/artist/1UpcgaCHBwic2IqUQ3hHdp";
 const TIDAL_ARTIST   = "https://tidal.com/artist/47687355";
@@ -444,26 +444,11 @@ export default function SongConcierge({
   const [input, setInput]       = useState("");
   const [results, setResults]   = useState<Track[]>([]);
   const [activeChip, setActiveChip] = useState<string | null>(null);
-  const inputRef  = useRef<HTMLInputElement>(null);
+  const inputRef   = useRef<HTMLInputElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
-  const isLight = useBackgroundIsLight(wrapperRef);
-
-  // Adaptive color tokens — dark text over cream, white over video
-  const c = {
-    preamble:     isLight ? "rgba(58,53,48,0.55)"    : "rgba(255,255,255,0.85)",
-    heading:      isLight ? "#3A3530"                : "#ffffff",
-    tagline:      isLight ? "rgba(55,48,43,0.5)"     : "rgba(255,255,255,0.55)",
-    orLabel:      isLight ? "#7A6F62"                : "rgba(255,255,255,0.7)",
-    inputColor:   isLight ? "#1C1A17"                : "#ffffff",
-    inputBg:      isLight ? "rgba(255,255,255,0.6)"  : "rgba(255,255,255,0.08)",
-    inputBorder:  isLight ? "rgba(58,53,48,0.22)"    : "rgba(255,255,255,0.35)",
-    inputFocus:   isLight ? "rgba(58,53,48,0.6)"     : "rgba(255,255,255,0.8)",
-    btnColor:     isLight ? "#7A6F62"                : "#ffffff",
-    chipColor:    isLight ? "#7A6F62"                : "#ffffff",
-    chipBorder:   isLight ? "rgba(58,53,48,0.22)"    : "rgba(255,255,255,0.35)",
-    chipActive:   isLight ? "rgba(58,53,48,0.7)"     : "rgba(255,255,255,0.9)",
-  } as const;
+  // Writes data-bg-mode="light"/"dark" directly on wrapperRef — no re-renders
+  useBgColorMode(wrapperRef as React.RefObject<HTMLElement | null>);
 
   const [displayHeading, setDisplayHeading] = useState(heading);
   useEffect(() => {
@@ -510,53 +495,27 @@ export default function SongConcierge({
       ref={wrapperRef}
       data-no-peephole="true"
       className="w-full max-w-lg mx-auto"
-      style={{
-        paddingTop: "clamp(5rem, 12vh, 7rem)",
-        paddingBottom: "2rem",
-        "--concierge-placeholder": isLight ? "rgba(140,128,118,0.6)" : "rgba(255,255,255,0.45)",
-      } as React.CSSProperties}
+      style={{ paddingTop: "clamp(5rem, 12vh, 7rem)", paddingBottom: "2rem" }}
     >
       {preamble && (
         <p
-          className="font-[family-name:var(--font-cormorant)] font-light text-center"
-          style={{
-            fontSize:      "clamp(1rem, 2.8vw, 1.35rem)",
-            color:         c.preamble,
-            letterSpacing: "0.03em",
-            lineHeight:    1.85,
-            marginBottom:  "1.1rem",
-            transition:    "color 300ms ease",
-          }}
+          className="concierge-preamble font-[family-name:var(--font-cormorant)] font-light text-center"
+          style={{ fontSize: "clamp(1rem, 2.8vw, 1.35rem)", letterSpacing: "0.03em", lineHeight: 1.85, marginBottom: "1.1rem" }}
         >
           {preamble}
         </p>
       )}
       <h2
-        className="font-[family-name:var(--font-cormorant)] font-light text-center"
-        style={{
-          fontSize:     "clamp(1.25rem, 3.8vw, 2rem)",
-          lineHeight:   1.65,
-          color:        c.heading,
-          letterSpacing:"0.02em",
-          marginBottom: tagline ? "0.9rem" : "2rem",
-          transition:   "color 300ms ease",
-        }}
+        className="concierge-heading font-[family-name:var(--font-cormorant)] font-light text-center"
+        style={{ fontSize: "clamp(1.25rem, 3.8vw, 2rem)", lineHeight: 1.65, letterSpacing: "0.02em", marginBottom: tagline ? "0.9rem" : "2rem" }}
       >
         {displayHeading}
       </h2>
 
       {tagline && (
         <p
-          className="font-[family-name:var(--font-cormorant)] font-light text-center"
-          style={{
-            fontSize:     "clamp(1rem, 2.4vw, 1.2rem)",
-            color:        c.tagline,
-            fontStyle:    "italic",
-            letterSpacing:"0.02em",
-            lineHeight:   1.5,
-            marginBottom: "2rem",
-            transition:   "color 300ms ease",
-          }}
+          className="concierge-tagline font-[family-name:var(--font-cormorant)] font-light text-center"
+          style={{ fontSize: "clamp(1rem, 2.4vw, 1.2rem)", fontStyle: "italic", letterSpacing: "0.02em", lineHeight: 1.5, marginBottom: "2rem" }}
         >
           {tagline}
         </p>
@@ -574,26 +533,12 @@ export default function SongConcierge({
           }}
           className="concierge-input"
           placeholder={placeholder}
-          style={{
-            width:        "100%",
-            background:   c.inputBg,
-            border:       `1px solid ${c.inputBorder}`,
-            color:        c.inputColor,
-            padding:      "1rem 3rem 1rem 1.25rem",
-            fontSize:     "0.875rem",
-            letterSpacing:"0.02em",
-            outline:      "none",
-            transition:   "border-color 200ms, background 300ms, color 300ms",
-            fontFamily:   "var(--font-inter)",
-          }}
-          onFocus={(e) => (e.target.style.borderColor = c.inputFocus)}
-          onBlur={(e) => (e.target.style.borderColor = c.inputBorder)}
+          style={{ width: "100%", padding: "1rem 3rem 1rem 1.25rem", fontSize: "0.875rem", letterSpacing: "0.02em", fontFamily: "var(--font-inter)" }}
         />
         <button
           type="submit"
           aria-label="Send"
-          className="absolute right-4 top-1/2 -translate-y-1/2 transition-colors duration-200"
-          style={{ color: c.btnColor, transition: "color 300ms ease" }}
+          className="concierge-btn absolute right-4 top-1/2 -translate-y-1/2"
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
             <line x1="22" y1="2" x2="11" y2="13" />
@@ -604,7 +549,7 @@ export default function SongConcierge({
 
       {/* Chips */}
       <div className="mt-5 text-center">
-        <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", color: c.orLabel, marginBottom: "0.75rem", transition: "color 300ms ease" }}>
+        <p className="concierge-or" style={{ fontFamily: "var(--font-inter)", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "0.75rem" }}>
           {orLabel}
         </p>
         <div className="flex flex-wrap justify-center gap-2">
@@ -612,19 +557,8 @@ export default function SongConcierge({
             <button
               key={chip.id}
               onClick={() => handleChip(chip.id)}
-              style={{
-                fontFamily:    "var(--font-inter)",
-                fontSize:      "0.58rem",
-                letterSpacing: "0.18em",
-                textTransform: "uppercase",
-                padding:       "0.45rem 1rem",
-                border:        `1px solid ${activeChip === chip.id ? c.chipActive : c.chipBorder}`,
-                color:         c.chipColor,
-                background:    "transparent",
-                transition:    "border-color 200ms, color 300ms ease",
-                cursor:        "pointer",
-                whiteSpace:    "nowrap",
-              }}
+              className={`concierge-chip${activeChip === chip.id ? " active" : ""}`}
+              style={{ fontFamily: "var(--font-inter)", fontSize: "0.58rem", letterSpacing: "0.18em", textTransform: "uppercase", padding: "0.45rem 1rem", background: "transparent", cursor: "pointer", whiteSpace: "nowrap" }}
             >
               {chip.label}
             </button>

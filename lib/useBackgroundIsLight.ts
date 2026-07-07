@@ -1,77 +1,75 @@
 "use client";
-import { useEffect, useState, RefObject } from "react";
+import { useEffect, RefObject } from "react";
 
 /**
- * Reads pixels from the scratch-canvas beneath `elementRef` to determine
- * whether the visible background is light (cream overlay present) or dark
- * (canvas erased / overlay hidden, showing the video).
+ * Samples the scratch canvas beneath wrapperRef.current each animation frame
+ * and writes `data-bg-mode="light"` or `data-bg-mode="dark"` directly onto
+ * that element — no React state, no re-renders.
  *
- * Returns true  → background is light → use dark text
- * Returns false → background is dark  → use white text
+ * CSS responds to the attribute:
+ *   [data-bg-mode="dark"] .child { color: white; }
  */
-export function useBackgroundIsLight(elementRef: RefObject<HTMLElement | null>): boolean {
-  const [isLight, setIsLight] = useState(true);
-
+export function useBgColorMode(wrapperRef: RefObject<HTMLElement | null>): void {
   useEffect(() => {
     let rafId: number;
-    let last = true;
+    let frameIdx = 0;
+    let canvas: HTMLCanvasElement | null = null;
+    let ctx: CanvasRenderingContext2D | null = null;
+    let streak = 0;       // +N = N light readings, -N = N dark readings
+    const THRESHOLD = 4;  // consecutive frames before committing a flip
+    let mode = "light";   // tracks what's written to the DOM
 
     const tick = () => {
-      const canvas = document.querySelector<HTMLCanvasElement>(".bg-slideshow canvas");
-      const el = elementRef.current;
+      rafId = requestAnimationFrame(tick);
 
-      if (!canvas || !el) {
-        rafId = requestAnimationFrame(tick);
+      // ~20 fps: only sample every 3rd frame
+      if (++frameIdx % 3 !== 0) return;
+
+      if (!canvas) {
+        canvas = document.querySelector<HTMLCanvasElement>(".bg-slideshow canvas");
+        if (!canvas) return;
+      }
+
+      const el = wrapperRef.current;
+      if (!el) return;
+
+      // Overlay toggled off → canvas CSS opacity "0" → full video behind, always dark
+      if (canvas.style.opacity === "0") {
+        streak = 0;
+        if (mode !== "dark") { mode = "dark"; el.dataset.bgMode = "dark"; }
         return;
       }
 
-      // When the overlay is toggled off, the canvas CSS opacity is 0.
-      // getImageData still reads the stale bitmap, so we must check visibility first.
-      if (canvas.style.opacity === "0") {
-        if (last) { last = false; setIsLight(false); }
-        rafId = requestAnimationFrame(tick);
-        return;
+      if (!ctx) {
+        ctx = canvas.getContext("2d");
+        if (!ctx) return;
       }
 
       try {
-        const ctx = canvas.getContext("2d");
-        if (ctx) {
-          const rect = el.getBoundingClientRect();
-          const dpr = window.devicePixelRatio || 1;
-          // Three horizontal samples at vertical mid-point
-          const points: [number, number][] = [
-            [rect.left + rect.width * 0.25, rect.top + rect.height * 0.5],
-            [rect.left + rect.width * 0.50, rect.top + rect.height * 0.5],
-            [rect.left + rect.width * 0.75, rect.top + rect.height * 0.5],
-          ];
-          let totalAlpha = 0;
-          let n = 0;
-          for (const [x, y] of points) {
-            const px = Math.round(x * dpr);
-            const py = Math.round(y * dpr);
-            if (px >= 0 && py >= 0 && px < canvas.width && py < canvas.height) {
-              totalAlpha += ctx.getImageData(px, py, 1, 1).data[3];
-              n++;
-            }
-          }
-          if (n > 0) {
-            const newIsLight = totalAlpha / n > 128;
-            if (newIsLight !== last) {
-              last = newIsLight;
-              setIsLight(newIsLight);
-            }
-          }
-        }
-      } catch {
-        // Canvas may not be readable in some edge cases; keep current value
-      }
+        const rect = el.getBoundingClientRect();
+        const dpr  = window.devicePixelRatio || 1;
+        const cx   = Math.round((rect.left + rect.width  * 0.5) * dpr);
+        const cy   = Math.round((rect.top  + rect.height * 0.5) * dpr);
 
-      rafId = requestAnimationFrame(tick);
+        // Need ≥1 px margin for the 3×3 block
+        if (cx < 1 || cy < 1 || cx >= canvas.width - 1 || cy >= canvas.height - 1) return;
+
+        // One getImageData call reads 9 pixels — averaged alpha tells us what's showing
+        const { data } = ctx.getImageData(cx - 1, cy - 1, 3, 3);
+        let totalAlpha = 0;
+        for (let i = 3; i < data.length; i += 4) totalAlpha += data[i];
+        const avg = totalAlpha / 9; // ~245 = full overlay, ~0 = fully erased (video)
+
+        // Dead-band [96, 160] prevents flickering at brush-stroke edges
+        if      (avg > 160) streak = Math.min(streak + 1,  THRESHOLD);
+        else if (avg <  96) streak = Math.max(streak - 1, -THRESHOLD);
+
+        if (streak >=  THRESHOLD && mode !== "light") { mode = "light"; el.dataset.bgMode = "light"; }
+        if (streak <= -THRESHOLD && mode !== "dark")  { mode = "dark";  el.dataset.bgMode = "dark";  }
+      } catch { /* canvas read error — keep current mode */ }
     };
 
     rafId = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(rafId);
-  }, []); // elementRef object is stable; no need to list it
-
-  return isLight;
+  }, []); // wrapperRef object is stable for the component's lifetime
 }

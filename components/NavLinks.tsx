@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRef } from "react";
-import { useBackgroundIsLight } from "@/lib/useBackgroundIsLight";
+import { useBgColorMode } from "@/lib/useBackgroundIsLight";
 
 interface NavItem {
   label: string;
@@ -12,15 +12,15 @@ interface NavItem {
 
 export default function NavLinks({ items }: { items: NavItem[] }) {
   const wrapperRef = useRef<HTMLElement>(null);
-  const isLight    = useBackgroundIsLight(wrapperRef as React.RefObject<HTMLElement | null>);
-  const textColor  = isLight ? "#1C1A17" : "#ffffff";
+
+  // Writes data-bg-mode onto the nav directly — no React state, no re-renders
+  useBgColorMode(wrapperRef as React.RefObject<HTMLElement | null>);
 
   return (
     <nav
       ref={wrapperRef}
       data-no-peephole="true"
       className="flex flex-col items-center gap-5 sm:gap-6 md:gap-7"
-      style={{ "--nav-link-color": textColor } as React.CSSProperties}
     >
       {items.map((item) =>
         item.external ? (
@@ -30,13 +30,7 @@ export default function NavLinks({ items }: { items: NavItem[] }) {
             target="_blank"
             rel="noopener noreferrer"
             className="room-link font-[family-name:var(--font-cormorant)] font-light"
-            style={{
-              fontSize:      "clamp(1.8rem, 4vw, 3.5rem)",
-              letterSpacing: "0.02em",
-              textDecoration: "none",
-              color:         textColor,
-              transition:    "color 300ms ease",
-            }}
+            style={{ fontSize: "clamp(1.8rem, 4vw, 3.5rem)", letterSpacing: "0.02em", textDecoration: "none" }}
           >
             {item.label}
           </a>
@@ -45,12 +39,7 @@ export default function NavLinks({ items }: { items: NavItem[] }) {
             key={item.href}
             href={item.href}
             className="room-link font-[family-name:var(--font-cormorant)] font-light"
-            style={{
-              fontSize:      "clamp(1.8rem, 4vw, 3.5rem)",
-              letterSpacing: "0.02em",
-              color:         textColor,
-              transition:    "color 300ms ease",
-            }}
+            style={{ fontSize: "clamp(1.8rem, 4vw, 3.5rem)", letterSpacing: "0.02em" }}
           >
             {item.label}
           </Link>
