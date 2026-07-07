@@ -10,9 +10,10 @@ const videos = [
   "/videos/bg-04.mp4",
 ];
 
-const CYCLE_MS = 30_000;
-const OVERLAY  = "rgba(252,250,247,0.96)";
-const BRUSH_R  = 58; // slightly larger works for both mouse and finger
+const CYCLE_MS     = 30_000;
+const OVERLAY      = "rgba(252,250,247,0.96)";
+const BRUSH_R      = 58;
+const BRUSH_R_TOUCH = 90; // fingers cover more area
 
 const LOCALE_HOME_RE = /^\/([a-z]{2})?\/?$/;
 
@@ -128,16 +129,6 @@ export default function PersistentBackground() {
   useEffect(() => { paintRef.current     = paintEnabled; }, [paintEnabled]);
   useEffect(() => { isHomeRef.current    = isHome; }, [isHome]);
 
-  // On touch devices: hide overlay by default so videos are visible immediately.
-  // Touch users can still enable the overlay via the toggle button and finger-paint.
-  useEffect(() => {
-    const isTouch = navigator.maxTouchPoints > 0 || "ontouchstart" in window;
-    if (isTouch) {
-      setOverlayOn(false);
-      setPaint(false);
-    }
-  }, []);
-
   // Reduced-motion preference
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -199,23 +190,21 @@ export default function PersistentBackground() {
       canvas.height = window.innerHeight;
       ctx = canvas.getContext("2d");
       if (!ctx) return;
-      // Touch devices start with overlay off — don't fill the canvas so videos show immediately
-      if (!isTouch) {
-        ctx.fillStyle = OVERLAY;
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-      }
+      ctx.fillStyle = OVERLAY;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
       prevX = null;
       prevY = null;
     };
     initCanvas();
 
-    const stamp = (x: number, y: number) => {
+    const stamp = (x: number, y: number, vx = velX, vy = velY) => {
       if (!ctx) return;
-      const speed   = Math.hypot(velX, velY);
-      const angle   = Math.atan2(velY, velX);
+      const baseR   = isTouch ? BRUSH_R_TOUCH : BRUSH_R;
+      const speed   = Math.hypot(vx, vy);
+      const angle   = Math.atan2(vy, vx);
       const stretch = 1 + Math.log1p(speed) * 0.30;
-      const rx      = BRUSH_R * stretch;
-      const ry      = BRUSH_R * Math.max(0.40, 1 / Math.sqrt(stretch));
+      const rx      = baseR * stretch;
+      const ry      = baseR * Math.max(0.40, 1 / Math.sqrt(stretch));
 
       ctx.save();
       ctx.globalCompositeOperation = "destination-out";
@@ -236,19 +225,22 @@ export default function PersistentBackground() {
       ctx.restore();
     };
 
-    const strokeTo = (x: number, y: number) => {
-      if (prevX === null || prevY === null) {
-        stamp(x, y);
+    const strokeTo = (
+      x: number, y: number,
+      px: number | null, py: number | null,
+      vx: number, vy: number,
+    ): { x: number; y: number } => {
+      if (px === null || py === null) {
+        stamp(x, y, vx, vy);
       } else {
-        const d = Math.hypot(x - prevX, y - prevY);
+        const d = Math.hypot(x - px, y - py);
         const n = Math.max(1, Math.ceil(d / 4));
         for (let i = 1; i <= n; i++) {
           const t = i / n;
-          stamp(prevX + (x - prevX) * t, prevY + (y - prevY) * t);
+          stamp(px + (x - px) * t, py + (y - py) * t, vx, vy);
         }
       }
-      prevX = x;
-      prevY = y;
+      return { x, y };
     };
 
     const onMove = (e: MouseEvent) => {
@@ -265,40 +257,57 @@ export default function PersistentBackground() {
       }
       const blocked = (e.target as Element | null)?.closest?.("[data-no-peephole]");
       if (blocked) { prevX = null; prevY = null; return; }
-      strokeTo(e.clientX, e.clientY);
+      ({ x: prevX, y: prevY } = strokeTo(e.clientX, e.clientY, prevX, prevY, velX, velY));
     };
 
-    // Touch painting — finger drags scratch the overlay (larger effective brush via velocity)
-    const onTouchMove = (e: TouchEvent) => {
-      const touch = e.touches[0];
-      if (!touch) return;
-      const dx = touch.clientX - prevMX;
-      const dy = touch.clientY - prevMY;
-      velX   = velX * 0.65 + dx * 0.35;
-      velY   = velY * 0.65 + dy * 0.35;
-      prevMX = touch.clientX;
-      prevMY = touch.clientY;
+    // Per-finger tracking for multi-touch painting
+    type TouchState = { prevX: number | null; prevY: number | null; prevMX: number; prevMY: number; vx: number; vy: number };
+    const fingers = new Map<number, TouchState>();
 
-      if (!isHomeRef.current || !overlayOnRef.current || !paintRef.current) {
-        prevX = null; prevY = null; return;
+    const onTouchStart = (e: TouchEvent) => {
+      for (const t of Array.from(e.changedTouches)) {
+        fingers.set(t.identifier, { prevX: null, prevY: null, prevMX: t.clientX, prevMY: t.clientY, vx: 0, vy: 0 });
       }
-      // elementFromPoint needed — e.target stays fixed from touchstart position
-      const el = document.elementFromPoint(touch.clientX, touch.clientY);
-      if (el?.closest?.("[data-no-peephole]")) { prevX = null; prevY = null; return; }
-      strokeTo(touch.clientX, touch.clientY);
     };
 
-    const onTouchEnd = () => { prevX = null; prevY = null; };
+    const onTouchMove = (e: TouchEvent) => {
+      if (!isHomeRef.current || !overlayOnRef.current || !paintRef.current) {
+        fingers.forEach((s) => { s.prevX = null; s.prevY = null; });
+        return;
+      }
+      for (const t of Array.from(e.changedTouches)) {
+        const s = fingers.get(t.identifier);
+        if (!s) continue;
+        const dx = t.clientX - s.prevMX;
+        const dy = t.clientY - s.prevMY;
+        s.vx    = s.vx * 0.65 + dx * 0.35;
+        s.vy    = s.vy * 0.65 + dy * 0.35;
+        s.prevMX = t.clientX;
+        s.prevMY = t.clientY;
 
-    window.addEventListener("mousemove", onMove,      { passive: true });
-    window.addEventListener("touchmove", onTouchMove, { passive: true });
-    window.addEventListener("touchend",  onTouchEnd);
-    window.addEventListener("resize",    initCanvas);
+        const el = document.elementFromPoint(t.clientX, t.clientY);
+        if (el?.closest?.("[data-no-peephole]")) { s.prevX = null; s.prevY = null; continue; }
+        ({ x: s.prevX, y: s.prevY } = strokeTo(t.clientX, t.clientY, s.prevX, s.prevY, s.vx, s.vy));
+      }
+    };
+
+    const onTouchEnd = (e: TouchEvent) => {
+      for (const t of Array.from(e.changedTouches)) fingers.delete(t.identifier);
+    };
+
+    window.addEventListener("mousemove",  onMove,       { passive: true });
+    window.addEventListener("touchstart", onTouchStart, { passive: true });
+    window.addEventListener("touchmove",  onTouchMove,  { passive: true });
+    window.addEventListener("touchend",   onTouchEnd);
+    window.addEventListener("touchcancel",onTouchEnd);
+    window.addEventListener("resize",     initCanvas);
     return () => {
-      window.removeEventListener("mousemove", onMove);
-      window.removeEventListener("touchmove", onTouchMove);
-      window.removeEventListener("touchend",  onTouchEnd);
-      window.removeEventListener("resize",    initCanvas);
+      window.removeEventListener("mousemove",  onMove);
+      window.removeEventListener("touchstart", onTouchStart);
+      window.removeEventListener("touchmove",  onTouchMove);
+      window.removeEventListener("touchend",   onTouchEnd);
+      window.removeEventListener("touchcancel",onTouchEnd);
+      window.removeEventListener("resize",     initCanvas);
     };
   }, [reducedMotion]);
 
