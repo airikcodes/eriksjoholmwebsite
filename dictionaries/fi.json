@@ -16,6 +16,12 @@
   "concierge": {
     "preamble": "",
     "heading": "Minkä laulun voin soittaa sinulle?",
+    "timeSlots": {
+      "morning": "this morning",
+      "afternoon": "this afternoon",
+      "evening": "this evening",
+      "night": "tonight"
+    },
     "placeholder": "Jotain hiljaista myöhäiseen yöhön…",
     "or": "tai",
     "chips": {

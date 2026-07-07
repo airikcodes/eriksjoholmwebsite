@@ -411,9 +411,14 @@ function ResultCard({ track, onDismiss }: { track: Track; onDismiss: (id: string
   );
 }
 
+interface TimeSlots {
+  morning: string; afternoon: string; evening: string; night: string;
+}
+
 interface SongConciergeProps {
   preamble?:       string;
   heading?:        string;
+  timeSlots?:      TimeSlots;
   placeholder?:    string;
   orLabel?:        string;
   chipLatest?:     string;
@@ -425,6 +430,7 @@ interface SongConciergeProps {
 export default function SongConcierge({
   preamble       = "",
   heading        = "What song can I play for you?",
+  timeSlots,
   placeholder    = "Something quiet for late at night…",
   orLabel        = "or",
   chipLatest     = "Latest Release",
@@ -436,6 +442,18 @@ export default function SongConcierge({
   const [results, setResults]   = useState<Track[]>([]);
   const [activeChip, setActiveChip] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  const [displayHeading, setDisplayHeading] = useState(heading);
+  useEffect(() => {
+    if (!timeSlots) return;
+    const hour = new Date().getHours();
+    let slot: string;
+    if      (hour >= 5  && hour < 12) slot = timeSlots.morning;
+    else if (hour >= 12 && hour < 17) slot = timeSlots.afternoon;
+    else if (hour >= 17 && hour < 21) slot = timeSlots.evening;
+    else                              slot = timeSlots.night;
+    if (slot) setDisplayHeading(heading.replace("right now", slot));
+  }, [heading, timeSlots]);
 
   const chips = [
     { label: chipLatest,     id: "lycka" },
@@ -491,7 +509,7 @@ export default function SongConcierge({
           marginBottom: tagline ? "0.9rem" : "2rem",
         }}
       >
-        {heading}
+        {displayHeading}
       </h2>
 
       {tagline && (

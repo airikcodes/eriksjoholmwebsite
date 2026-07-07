@@ -16,6 +16,12 @@
   "concierge": {
     "preamble": "",
     "heading": "Que música posso tocar para você?",
+    "timeSlots": {
+      "morning": "this morning",
+      "afternoon": "this afternoon",
+      "evening": "this evening",
+      "night": "tonight"
+    },
     "placeholder": "Algo tranquilo para o final da noite…",
     "or": "ou",
     "chips": {

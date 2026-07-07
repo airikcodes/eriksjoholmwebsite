@@ -16,6 +16,12 @@
   "concierge": {
     "preamble": "",
     "heading": "Quelle chanson puis-je vous jouer?",
+    "timeSlots": {
+      "morning": "this morning",
+      "afternoon": "this afternoon",
+      "evening": "this evening",
+      "night": "tonight"
+    },
     "placeholder": "Quelque chose de doux pour tard le soir…",
     "or": "ou",
     "chips": {

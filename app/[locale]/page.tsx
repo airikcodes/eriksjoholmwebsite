@@ -60,6 +60,7 @@ export default async function Home({
         <SongConcierge
           preamble={t.concierge.preamble}
           heading={t.concierge.heading}
+          timeSlots={t.concierge.timeSlots}
           placeholder={t.concierge.placeholder}
           orLabel={t.concierge.or}
           chipLatest={t.concierge.chips.latest}

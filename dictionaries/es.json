@@ -16,6 +16,12 @@
   "concierge": {
     "preamble": "",
     "heading": "¿Qué canción puedo tocarte?",
+    "timeSlots": {
+      "morning": "this morning",
+      "afternoon": "this afternoon",
+      "evening": "this evening",
+      "night": "tonight"
+    },
     "placeholder": "Algo tranquilo para tarde en la noche…",
     "or": "o",
     "chips": {

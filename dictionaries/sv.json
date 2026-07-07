@@ -16,6 +16,12 @@
   "concierge": {
     "preamble": "",
     "heading": "Vilken låt kan jag spela för dig?",
+    "timeSlots": {
+      "morning": "this morning",
+      "afternoon": "this afternoon",
+      "evening": "this evening",
+      "night": "tonight"
+    },
     "placeholder": "Något stilla för sent på kvällen…",
     "or": "eller",
     "chips": {
