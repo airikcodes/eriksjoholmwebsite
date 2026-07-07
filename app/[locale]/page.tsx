@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import RevealSection from "@/components/RevealSection";
 import ScrollIndicator from "@/components/ScrollIndicator";
 import SongConcierge from "@/components/SongConcierge";
+import NavLinks from "@/components/NavLinks";
 import { getDictionary, hasLocale } from "@/lib/dictionaries";
 
 export const metadata: Metadata = {
@@ -77,40 +77,7 @@ export default async function Home({
           className="flex flex-col items-center justify-center px-6 pt-24 pb-40 sm:pt-32 sm:pb-56"
           style={{ minHeight: "80vh", zIndex: 2, position: "relative" }}
         >
-          <nav data-no-peephole="true" className="flex flex-col items-center gap-5 sm:gap-6 md:gap-7">
-            {navItems.map((item) =>
-              item.external ? (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="room-link font-[family-name:var(--font-cormorant)] font-light"
-                  style={{
-                    fontSize: "clamp(1.8rem, 4vw, 3.5rem)",
-                    letterSpacing: "0.02em",
-                    transition: "color 200ms ease",
-                    textDecoration: "none",
-                  }}
-                >
-                  {item.label}
-                </a>
-              ) : (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="room-link font-[family-name:var(--font-cormorant)] font-light"
-                  style={{
-                    fontSize: "clamp(1.8rem, 4vw, 3.5rem)",
-                    letterSpacing: "0.02em",
-                    transition: "color 200ms ease",
-                  }}
-                >
-                  {item.label}
-                </Link>
-              )
-            )}
-          </nav>
+          <NavLinks items={navItems} />
         </section>
       </RevealSection>
 

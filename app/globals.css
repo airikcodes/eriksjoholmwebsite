@@ -39,7 +39,7 @@ body {
 
 ::selection { background: var(--color-accent); color: #F7F3EE; }
 
-.concierge-input::placeholder { color: rgba(255, 255, 255, 0.5); }
+.concierge-input::placeholder { color: var(--concierge-placeholder, rgba(140,128,118,0.6)); }
 
 /* Scroll-triggered reveal */
 .reveal {
@@ -84,12 +84,10 @@ body {
   .scroll-indicator { animation: none; opacity: 0.4; }
 }
 
-/* Navigation room links */
+/* Navigation room links — color driven by --nav-link-color set via JS */
 .room-link {
   position: relative;
   display: inline-block;
-  color: white;
-  mix-blend-mode: difference;
 }
 .room-link::before {
   content: '—';
@@ -97,9 +95,9 @@ body {
   right: calc(100% + 0.75rem);
   top: 50%;
   transform: translateY(-50%);
-  color: white;
+  color: var(--nav-link-color, #1C1A17);
   opacity: 0;
-  transition: opacity 200ms ease;
+  transition: opacity 200ms ease, color 300ms ease;
   font-style: normal;
   font-size: 0.7em;
 }
@@ -113,14 +111,11 @@ body {
   left: 0;
   width: 0;
   height: 1px;
-  background: white;
-  transition: width 300ms ease;
+  background: var(--nav-link-color, #1C1A17);
+  transition: width 300ms ease, background 300ms ease;
 }
 .room-link:hover::after {
   width: 100%;
-}
-.room-link:hover {
-  color: white !important;
 }
 
 /* Portrait logo mark */
