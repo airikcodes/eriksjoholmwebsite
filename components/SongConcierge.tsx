@@ -419,6 +419,7 @@ interface SongConciergeProps {
   preamble?:       string;
   heading?:        string;
   timeSlots?:      TimeSlots;
+  timeReplace?:    string;
   placeholder?:    string;
   orLabel?:        string;
   chipLatest?:     string;
@@ -431,6 +432,7 @@ export default function SongConcierge({
   preamble       = "",
   heading        = "What song can I play for you?",
   timeSlots,
+  timeReplace    = "right now",
   placeholder    = "Something quiet for late at night…",
   orLabel        = "or",
   chipLatest     = "Latest Release",
@@ -452,7 +454,7 @@ export default function SongConcierge({
     else if (hour >= 12 && hour < 17) slot = timeSlots.afternoon;
     else if (hour >= 17 && hour < 21) slot = timeSlots.evening;
     else                              slot = timeSlots.night;
-    if (slot) setDisplayHeading(heading.replace("right now", slot));
+    if (slot) setDisplayHeading(heading.replace(timeReplace, slot));
   }, [heading, timeSlots]);
 
   const chips = [

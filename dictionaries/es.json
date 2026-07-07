@@ -17,10 +17,10 @@
     "preamble": "",
     "heading": "Rasca el billete de lotería. Abre la galleta de la fortuna. Descubre ahora la música que te espera aquí. ¿Qué tipo de canción puedo tocarte ahora mismo?",
     "timeSlots": {
-      "morning": "this morning",
-      "afternoon": "this afternoon",
-      "evening": "this evening",
-      "night": "tonight"
+      "morning": "esta mañana",
+      "afternoon": "esta tarde",
+      "evening": "esta noche",
+      "night": "esta noche"
     },
     "placeholder": "Algo tranquilo para tarde en la noche…",
     "or": "o",
@@ -28,7 +28,8 @@
       "latest": "Último lanzamiento",
       "mostPlayed": "Más escuchado",
       "unexpected": "Sorpresa"
-    }
+    },
+    "timeReplace": "ahora mismo"
   },
   "about": {
     "subtitle": "Cantautor · Luzern",

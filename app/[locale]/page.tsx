@@ -61,6 +61,7 @@ export default async function Home({
           preamble={t.concierge.preamble}
           heading={t.concierge.heading}
           timeSlots={t.concierge.timeSlots}
+          timeReplace={t.concierge.timeReplace}
           placeholder={t.concierge.placeholder}
           orLabel={t.concierge.or}
           chipLatest={t.concierge.chips.latest}

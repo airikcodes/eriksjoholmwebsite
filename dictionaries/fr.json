@@ -17,10 +17,10 @@
     "preamble": "",
     "heading": "Grattez le billet de loterie. Ouvrez le fortune cookie. Découvrez maintenant la musique qui vous attend ici. Quel genre de chanson puis-je vous jouer en ce moment?",
     "timeSlots": {
-      "morning": "this morning",
-      "afternoon": "this afternoon",
-      "evening": "this evening",
-      "night": "tonight"
+      "morning": "ce matin",
+      "afternoon": "cet après-midi",
+      "evening": "ce soir",
+      "night": "ce soir"
     },
     "placeholder": "Quelque chose de doux pour tard le soir…",
     "or": "ou",
@@ -28,7 +28,8 @@
       "latest": "Dernière sortie",
       "mostPlayed": "La plus écoutée",
       "unexpected": "Surprise"
-    }
+    },
+    "timeReplace": "en ce moment"
   },
   "about": {
     "subtitle": "Auteur-compositeur-interprète · Luzern",

@@ -17,10 +17,10 @@
     "preamble": "",
     "heading": "Kratz das Lotterieticket frei. Knack den Glückskeks auf. Entdecke jetzt die Musik, die hier auf dich wartet. Was für ein Lied soll ich dir gerade spielen?",
     "timeSlots": {
-      "morning": "this morning",
-      "afternoon": "this afternoon",
-      "evening": "this evening",
-      "night": "tonight"
+      "morning": "heute Morgen",
+      "afternoon": "heute Nachmittag",
+      "evening": "heute Abend",
+      "night": "heute Nacht"
     },
     "placeholder": "Etwas Leises für spät in der Nacht…",
     "or": "oder",
@@ -28,7 +28,8 @@
       "latest": "Neueste Veröffentlichung",
       "mostPlayed": "Meistgehört",
       "unexpected": "Überraschung"
-    }
+    },
+    "timeReplace": "gerade"
   },
   "about": {
     "subtitle": "Singer-Songwriter · Luzern",

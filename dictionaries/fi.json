@@ -17,10 +17,10 @@
     "preamble": "",
     "heading": "Raaputa lottoarvasi. Murra onnenkakunsa auki. Löydä nyt musiikki, joka odottaa sinua täällä. Millaisen kappaleen voisin soittaa sinulle juuri nyt?",
     "timeSlots": {
-      "morning": "this morning",
-      "afternoon": "this afternoon",
-      "evening": "this evening",
-      "night": "tonight"
+      "morning": "tänä aamuna",
+      "afternoon": "tänä iltapäivänä",
+      "evening": "tänä iltana",
+      "night": "tänä yönä"
     },
     "placeholder": "Jotain hiljaista myöhäiseen yöhön…",
     "or": "tai",
@@ -28,7 +28,8 @@
       "latest": "Uusin julkaisu",
       "mostPlayed": "Eniten soitettu",
       "unexpected": "Yllätys"
-    }
+    },
+    "timeReplace": "juuri nyt"
   },
   "about": {
     "subtitle": "Singer-songwriter · Luzern",

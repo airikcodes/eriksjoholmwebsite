@@ -17,10 +17,10 @@
     "preamble": "",
     "heading": "Raspe o bilhete de loteria. Abra o biscoito da sorte. Descubra agora a música que te espera aqui. Que tipo de música posso tocar para você agora?",
     "timeSlots": {
-      "morning": "this morning",
-      "afternoon": "this afternoon",
-      "evening": "this evening",
-      "night": "tonight"
+      "morning": "esta manhã",
+      "afternoon": "esta tarde",
+      "evening": "esta noite",
+      "night": "esta noite"
     },
     "placeholder": "Algo tranquilo para o final da noite…",
     "or": "ou",
@@ -28,7 +28,8 @@
       "latest": "Último lançamento",
       "mostPlayed": "Mais tocada",
       "unexpected": "Surpresa"
-    }
+    },
+    "timeReplace": "agora"
   },
   "about": {
     "subtitle": "Cantor-compositor · Luzern",

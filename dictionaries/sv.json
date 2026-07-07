@@ -17,10 +17,10 @@
     "preamble": "",
     "heading": "Skrapa lotten. Knäck lyckokakan. Upptäck nu musiken som väntar på dig här. Vad för slags låt kan jag spela för dig just nu?",
     "timeSlots": {
-      "morning": "this morning",
-      "afternoon": "this afternoon",
-      "evening": "this evening",
-      "night": "tonight"
+      "morning": "i morse",
+      "afternoon": "i eftermiddag",
+      "evening": "i kväll",
+      "night": "i natt"
     },
     "placeholder": "Något stilla för sent på kvällen…",
     "or": "eller",
@@ -28,7 +28,8 @@
       "latest": "Senaste släppet",
       "mostPlayed": "Mest spelad",
       "unexpected": "Oväntat"
-    }
+    },
+    "timeReplace": "just nu"
   },
   "about": {
     "subtitle": "Singer-songwriter · Luzern",

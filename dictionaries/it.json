@@ -17,10 +17,10 @@
     "preamble": "",
     "heading": "Gratta il biglietto della lotteria. Apri il biscotto della fortuna. Scopri ora la musica che ti aspetta qui. Che tipo di canzone posso suonarti adesso?",
     "timeSlots": {
-      "morning": "this morning",
-      "afternoon": "this afternoon",
-      "evening": "this evening",
-      "night": "tonight"
+      "morning": "stamattina",
+      "afternoon": "questo pomeriggio",
+      "evening": "stasera",
+      "night": "stanotte"
     },
     "placeholder": "Qualcosa di tranquillo per tardi la notte…",
     "or": "oppure",
@@ -28,7 +28,8 @@
       "latest": "Ultimo rilascio",
       "mostPlayed": "Più ascoltata",
       "unexpected": "Sorpresa"
-    }
+    },
+    "timeReplace": "adesso"
   },
   "about": {
     "subtitle": "Singer-songwriter · Luzern",
