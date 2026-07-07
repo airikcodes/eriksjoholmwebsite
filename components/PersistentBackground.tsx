@@ -94,7 +94,7 @@ function IconSoundOn() {
 // ── Glass button shared style ─────────────────────────────────────────────────
 
 const glassBtn: React.CSSProperties = {
-  width: "36px", height: "36px", borderRadius: "50%",
+  width: "44px", height: "44px", borderRadius: "50%",
   background: "rgba(10,8,6,0.55)",
   border: "1px solid rgba(200,146,42,0.35)",
   color: "#C8922A",
@@ -184,13 +184,13 @@ export default function PersistentBackground() {
     let prevMX = 0, prevMY = 0;
 
     const isTouch = navigator.maxTouchPoints > 0 || "ontouchstart" in window;
-    // Larger step on touch: fewer stamps per fast swipe, still a solid line
     const STEP = isTouch ? 8 : 4;
 
+    // Fast coordinate check to avoid painting over the controls cluster
+    const inControls = (x: number, y: number) =>
+      x > window.innerWidth - 260 && y > window.innerHeight - 90;
+
     const initCanvas = () => {
-      // Scale the canvas buffer by devicePixelRatio so gradients render sharp
-      // on retina/high-DPR phones. All drawing coordinates below stay in CSS pixels
-      // because we apply ctx.scale(dpr, dpr) immediately after.
       const dpr = window.devicePixelRatio || 1;
       canvas.width  = Math.round(window.innerWidth  * dpr);
       canvas.height = Math.round(window.innerHeight * dpr);
@@ -269,10 +269,17 @@ export default function PersistentBackground() {
       ({ x: prevX, y: prevY } = strokeTo(e.clientX, e.clientY, prevX, prevY, velX, velY));
     };
 
-    // ── Touch — per-finger state, scroll intent detection, RAF batching ──────
+    // ── Touch ────────────────────────────────────────────────────────────────
+    //
+    // Design: paint directly in onTouchMove (no RAF batching) so strokes
+    // track the finger without lag. RAF batching would lose intermediate
+    // positions when multiple events fire in one frame, making fast swipes
+    // look choppy and adding a full frame of visible lag.
+    //
+    // Scroll vs paint: first INTENT_PX of movement decides gesture type.
+    // Steeper than ~63° from horizontal (dy > dx*2) → scroll; else → paint.
 
-    // 12 px of movement before we decide: primarily vertical = scroll (don't paint)
-    const INTENT_PX = 12;
+    const INTENT_PX = 16;
 
     type FingerState = {
       prevX: number | null; prevY: number | null;
@@ -282,29 +289,6 @@ export default function PersistentBackground() {
       mode: "undecided" | "scroll" | "paint";
     };
     const fingers = new Map<number, FingerState>();
-
-    // Batch canvas writes to one RAF frame so high-frequency touch events
-    // (120 Hz on ProMotion) don't saturate the main thread
-    let rafId: number | null = null;
-    const pending = new Map<number, { x: number; y: number }>();
-
-    const flushPending = () => {
-      rafId = null;
-      if (!isHomeRef.current || !overlayOnRef.current || !paintRef.current) {
-        pending.clear();
-        return;
-      }
-      for (const [id, pos] of pending) {
-        const s = fingers.get(id);
-        if (!s || s.mode === "scroll") { pending.delete(id); continue; }
-        const el = document.elementFromPoint(pos.x, pos.y);
-        if (el?.closest?.("[data-no-peephole]")) {
-          s.prevX = null; s.prevY = null; pending.delete(id); continue;
-        }
-        ({ x: s.prevX, y: s.prevY } = strokeTo(pos.x, pos.y, s.prevX, s.prevY, s.vx, s.vy));
-        pending.delete(id);
-      }
-    };
 
     const onTouchStart = (e: TouchEvent) => {
       for (const t of Array.from(e.changedTouches)) {
@@ -319,20 +303,25 @@ export default function PersistentBackground() {
     };
 
     const onTouchMove = (e: TouchEvent) => {
+      if (!isHomeRef.current || !overlayOnRef.current || !paintRef.current) {
+        fingers.forEach(s => { s.prevX = null; s.prevY = null; });
+        return;
+      }
       for (const t of Array.from(e.changedTouches)) {
         const s = fingers.get(t.identifier);
         if (!s) continue;
 
-        // Determine intent from first significant movement
+        // Resolve gesture intent from first significant movement
         if (s.mode === "undecided") {
           const adx = Math.abs(t.clientX - s.startX);
           const ady = Math.abs(t.clientY - s.startY);
           if (Math.hypot(adx, ady) > INTENT_PX) {
-            // Ratio 1.8: a 61° angle from horizontal or less → paint; steeper → scroll
-            s.mode = ady > adx * 1.8 ? "scroll" : "paint";
+            s.mode = ady > adx * 2 ? "scroll" : "paint";
           }
         }
         if (s.mode === "scroll") continue;
+
+        if (inControls(t.clientX, t.clientY)) { s.prevX = null; s.prevY = null; continue; }
 
         const dx = t.clientX - s.prevMX;
         const dy = t.clientY - s.prevMY;
@@ -341,33 +330,41 @@ export default function PersistentBackground() {
         s.prevMX = t.clientX;
         s.prevMY = t.clientY;
 
-        pending.set(t.identifier, { x: t.clientX, y: t.clientY });
-      }
-      if (pending.size > 0 && rafId === null) {
-        rafId = requestAnimationFrame(flushPending);
+        ({ x: s.prevX, y: s.prevY } = strokeTo(t.clientX, t.clientY, s.prevX, s.prevY, s.vx, s.vy));
       }
     };
 
     const onTouchEnd = (e: TouchEvent) => {
       for (const t of Array.from(e.changedTouches)) {
+        const s = fingers.get(t.identifier);
+        // Tap with no significant drag → stamp once to reveal a spot
+        if (
+          s?.mode === "undecided" &&
+          isHomeRef.current && overlayOnRef.current && paintRef.current &&
+          !inControls(t.clientX, t.clientY)
+        ) {
+          stamp(t.clientX, t.clientY, 0, 0);
+        }
         fingers.delete(t.identifier);
-        pending.delete(t.identifier);
       }
     };
 
-    window.addEventListener("mousemove",   onMove,       { passive: true });
-    window.addEventListener("touchstart",  onTouchStart, { passive: true });
-    window.addEventListener("touchmove",   onTouchMove,  { passive: true });
+    const onTouchCancel = (e: TouchEvent) => {
+      for (const t of Array.from(e.changedTouches)) fingers.delete(t.identifier);
+    };
+
+    window.addEventListener("mousemove",   onMove,         { passive: true });
+    window.addEventListener("touchstart",  onTouchStart,   { passive: true });
+    window.addEventListener("touchmove",   onTouchMove,    { passive: true });
     window.addEventListener("touchend",    onTouchEnd);
-    window.addEventListener("touchcancel", onTouchEnd);
+    window.addEventListener("touchcancel", onTouchCancel);
     window.addEventListener("resize",      initCanvas);
     return () => {
-      if (rafId !== null) cancelAnimationFrame(rafId);
       window.removeEventListener("mousemove",   onMove);
       window.removeEventListener("touchstart",  onTouchStart);
       window.removeEventListener("touchmove",   onTouchMove);
       window.removeEventListener("touchend",    onTouchEnd);
-      window.removeEventListener("touchcancel", onTouchEnd);
+      window.removeEventListener("touchcancel", onTouchCancel);
       window.removeEventListener("resize",      initCanvas);
     };
   }, [reducedMotion]);
@@ -382,8 +379,12 @@ export default function PersistentBackground() {
       const canvas = canvasRef.current;
       const ctx = canvas?.getContext("2d");
       if (canvas && ctx) {
+        // Restore exact DPR transform before filling — setTransform is absolute,
+        // not cumulative, so this is safe even if state drifted.
+        const dpr = window.devicePixelRatio || 1;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        ctx.globalCompositeOperation = "source-over";
         ctx.fillStyle = OVERLAY;
-        // Context has scale(dpr,dpr) applied — fill in CSS pixels, not buffer pixels
         ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
       }
       setPaint(true);
