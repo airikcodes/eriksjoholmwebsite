@@ -484,7 +484,8 @@ export default function SongConcierge({
       <h2
         className="font-[family-name:var(--font-cormorant)] font-light text-center"
         style={{
-          fontSize:     "clamp(1.5rem, 5vw, 2.6rem)",
+          fontSize:     "clamp(1.25rem, 3.8vw, 2rem)",
+          lineHeight:   1.65,
           color:        "#3A3530",
           letterSpacing:"0.02em",
           marginBottom: tagline ? "0.9rem" : "2rem",
