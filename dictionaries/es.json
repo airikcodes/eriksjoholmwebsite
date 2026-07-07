@@ -14,6 +14,7 @@
     }
   },
   "concierge": {
+    "preamble": "",
     "heading": "¿Qué canción puedo tocarte?",
     "placeholder": "Algo tranquilo para tarde en la noche…",
     "or": "o",

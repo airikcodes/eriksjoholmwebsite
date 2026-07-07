@@ -14,6 +14,7 @@
     }
   },
   "concierge": {
+    "preamble": "",
     "heading": "Welches Lied soll ich für dich spielen?",
     "placeholder": "Etwas Leises für spät in der Nacht…",
     "or": "oder",

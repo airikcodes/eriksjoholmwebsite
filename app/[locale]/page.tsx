@@ -58,6 +58,7 @@ export default async function Home({
         style={{ minHeight: "100svh", zIndex: 2, position: "relative" }}
       >
         <SongConcierge
+          preamble={t.concierge.preamble}
           heading={t.concierge.heading}
           placeholder={t.concierge.placeholder}
           orLabel={t.concierge.or}

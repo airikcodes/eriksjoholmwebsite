@@ -14,7 +14,8 @@
     }
   },
   "concierge": {
-    "heading": "What song can I play for you?",
+    "preamble": "Scratch the lottery ticket. Crack the fortune cookie open. Now discover the music waiting for you here.",
+    "heading": "What kind of song can I play for you right now?",
     "placeholder": "Something quiet for late at night…",
     "or": "or",
     "chips": {

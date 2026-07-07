@@ -14,6 +14,7 @@
     }
   },
   "concierge": {
+    "preamble": "",
     "heading": "Quale canzone posso suonarti?",
     "placeholder": "Qualcosa di tranquillo per tardi la notte…",
     "or": "oppure",

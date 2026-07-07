@@ -412,6 +412,7 @@ function ResultCard({ track, onDismiss }: { track: Track; onDismiss: (id: string
 }
 
 interface SongConciergeProps {
+  preamble?:       string;
   heading?:        string;
   placeholder?:    string;
   orLabel?:        string;
@@ -422,6 +423,7 @@ interface SongConciergeProps {
 }
 
 export default function SongConcierge({
+  preamble       = "",
   heading        = "What song can I play for you?",
   placeholder    = "Something quiet for late at night…",
   orLabel        = "or",
@@ -465,6 +467,20 @@ export default function SongConcierge({
 
   return (
     <div data-no-peephole="true" className="w-full max-w-lg mx-auto" style={{ paddingTop: "clamp(5rem, 12vh, 7rem)", paddingBottom: "2rem" }}>
+      {preamble && (
+        <p
+          className="font-[family-name:var(--font-cormorant)] font-light text-center"
+          style={{
+            fontSize:      "clamp(1rem, 2.8vw, 1.35rem)",
+            color:         "rgba(58,53,48,0.52)",
+            letterSpacing: "0.03em",
+            lineHeight:    1.85,
+            marginBottom:  "1.1rem",
+          }}
+        >
+          {preamble}
+        </p>
+      )}
       <h2
         className="font-[family-name:var(--font-cormorant)] font-light text-center"
         style={{

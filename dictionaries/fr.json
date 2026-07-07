@@ -14,6 +14,7 @@
     }
   },
   "concierge": {
+    "preamble": "",
     "heading": "Quelle chanson puis-je vous jouer?",
     "placeholder": "Quelque chose de doux pour tard le soir…",
     "or": "ou",
