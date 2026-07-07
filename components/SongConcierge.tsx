@@ -492,7 +492,8 @@ export default function SongConcierge({
           className="font-[family-name:var(--font-cormorant)] font-light text-center"
           style={{
             fontSize:      "clamp(1rem, 2.8vw, 1.35rem)",
-            color:         "rgba(58,53,48,0.52)",
+            color:         "white",
+            mixBlendMode:  "difference",
             letterSpacing: "0.03em",
             lineHeight:    1.85,
             marginBottom:  "1.1rem",
@@ -506,7 +507,8 @@ export default function SongConcierge({
         style={{
           fontSize:     "clamp(1.25rem, 3.8vw, 2rem)",
           lineHeight:   1.65,
-          color:        "#3A3530",
+          color:        "white",
+          mixBlendMode: "difference",
           letterSpacing:"0.02em",
           marginBottom: tagline ? "0.9rem" : "2rem",
         }}
@@ -543,27 +545,26 @@ export default function SongConcierge({
           className="concierge-input"
           placeholder={placeholder}
           style={{
-            width:       "100%",
-            background:  "rgba(28,26,23,0.04)",
-            border:      "1px solid rgba(28,26,23,0.18)",
-            color:       "#1C1A17",
-            padding:     "1rem 3rem 1rem 1.25rem",
-            fontSize:    "0.875rem",
+            width:        "100%",
+            background:   "rgba(255,255,255,0.08)",
+            border:       "1px solid rgba(255,255,255,0.35)",
+            color:        "white",
+            mixBlendMode: "difference",
+            padding:      "1rem 3rem 1rem 1.25rem",
+            fontSize:     "0.875rem",
             letterSpacing:"0.02em",
-            outline:     "none",
-            transition:  "border-color 200ms",
-            fontFamily:  "var(--font-inter)",
+            outline:      "none",
+            transition:   "border-color 200ms",
+            fontFamily:   "var(--font-inter)",
           }}
-          onFocus={(e) => (e.target.style.borderColor = "var(--color-accent)")}
-          onBlur={(e) => (e.target.style.borderColor = "rgba(28,26,23,0.18)")}
+          onFocus={(e) => (e.target.style.borderColor = "rgba(255,255,255,0.8)")}
+          onBlur={(e) => (e.target.style.borderColor = "rgba(255,255,255,0.35)")}
         />
         <button
           type="submit"
           aria-label="Send"
           className="absolute right-4 top-1/2 -translate-y-1/2 transition-colors duration-200"
-          style={{ color: "#7A6F62" }}
-          onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "var(--color-accent)")}
-          onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "#7A6F62")}
+          style={{ color: "white", mixBlendMode: "difference" }}
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
             <line x1="22" y1="2" x2="11" y2="13" />
@@ -574,7 +575,7 @@ export default function SongConcierge({
 
       {/* Chips */}
       <div className="mt-5 text-center">
-        <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#7A6F62", marginBottom: "0.75rem" }}>
+        <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "white", mixBlendMode: "difference", marginBottom: "0.75rem" }}>
           {orLabel}
         </p>
         <div className="flex flex-wrap justify-center gap-2">
@@ -588,10 +589,11 @@ export default function SongConcierge({
                 letterSpacing: "0.18em",
                 textTransform: "uppercase",
                 padding:       "0.45rem 1rem",
-                border:        `1px solid ${activeChip === chip.id ? "var(--color-accent)" : "rgba(28,26,23,0.18)"}`,
-                color:         activeChip === chip.id ? "var(--color-accent)" : "rgba(28,26,23,0.45)",
-                background:    activeChip === chip.id ? "transparent" : "rgba(28,26,23,0.04)",
-                transition:    "border-color 200ms, color 200ms",
+                border:        `1px solid ${activeChip === chip.id ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.35)"}`,
+                color:         "white",
+                mixBlendMode:  "difference",
+                background:    "transparent",
+                transition:    "border-color 200ms",
                 cursor:        "pointer",
                 whiteSpace:    "nowrap",
               }}

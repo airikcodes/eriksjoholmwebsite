@@ -89,7 +89,6 @@ export default async function Home({
                   style={{
                     fontSize: "clamp(1.8rem, 4vw, 3.5rem)",
                     letterSpacing: "0.02em",
-                    color: "#1C1A17",
                     transition: "color 200ms ease",
                     textDecoration: "none",
                   }}
@@ -104,7 +103,6 @@ export default async function Home({
                   style={{
                     fontSize: "clamp(1.8rem, 4vw, 3.5rem)",
                     letterSpacing: "0.02em",
-                    color: "#1C1A17",
                     transition: "color 200ms ease",
                   }}
                 >
