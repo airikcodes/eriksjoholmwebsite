@@ -157,10 +157,9 @@ export default function PersistentBackground() {
           aria-hidden="true"
           style={{
             position: "fixed", inset: 0, zIndex: 1, pointerEvents: "none",
-            backgroundColor: "rgba(0,0,0,0.15)",
+            backgroundColor: "rgba(0,0,0,0.10)",
             backgroundImage: [
-              "radial-gradient(ellipse 78% 62% at 50% 48%, rgba(0,0,0,0.52) 0%, rgba(0,0,0,0.22) 52%, transparent 82%)",
-              "linear-gradient(to top, rgba(0,0,0,0.68) 0%, rgba(0,0,0,0.18) 28%, transparent 48%)",
+              "radial-gradient(ellipse 100% 100% at 50% 50%, transparent 35%, rgba(0,0,0,0.35) 100%)",
             ].join(", "),
           }}
         />
