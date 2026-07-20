@@ -15,7 +15,7 @@
   },
   "concierge": {
     "preamble": "",
-    "heading": "Kratz das Lotterieticket frei. Knack den Glückskeks auf. Entdecke jetzt die Musik, die hier auf dich wartet. Was für ein Lied soll ich dir gerade spielen?",
+    "heading": "Welches Lied soll ich dir gerade spielen?",
     "timeSlots": {
       "morning": "heute Morgen",
       "afternoon": "heute Nachmittag",

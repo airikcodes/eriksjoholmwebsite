@@ -15,7 +15,7 @@
   },
   "concierge": {
     "preamble": "",
-    "heading": "Skrapa lotten. Knäck lyckokakan. Upptäck nu musiken som väntar på dig här. Vad för slags låt kan jag spela för dig just nu?",
+    "heading": "Vilken låt kan jag spela för dig just nu?",
     "timeSlots": {
       "morning": "i morse",
       "afternoon": "i eftermiddag",

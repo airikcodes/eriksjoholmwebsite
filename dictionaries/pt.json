@@ -15,7 +15,7 @@
   },
   "concierge": {
     "preamble": "",
-    "heading": "Raspe o bilhete de loteria. Abra o biscoito da sorte. Descubra agora a música que te espera aqui. Que tipo de música posso tocar para você agora?",
+    "heading": "Qual música posso tocar para você agora?",
     "timeSlots": {
       "morning": "esta manhã",
       "afternoon": "esta tarde",
