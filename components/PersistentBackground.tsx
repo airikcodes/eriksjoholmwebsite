@@ -142,7 +142,7 @@ export default function PersistentBackground() {
             <video
               ref={(el) => { videoRefs.current[i] = el; }}
               autoPlay muted loop playsInline aria-hidden="true"
-              style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
+              style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", filter: "brightness(0.62) contrast(0.88) saturate(0.82)" }}
             >
               <source src={src} type="video/mp4" />
             </video>
@@ -157,10 +157,7 @@ export default function PersistentBackground() {
           aria-hidden="true"
           style={{
             position: "fixed", inset: 0, zIndex: 1, pointerEvents: "none",
-            backgroundColor: "rgba(0,0,0,0.10)",
-            backgroundImage: [
-              "radial-gradient(ellipse 100% 100% at 50% 50%, transparent 35%, rgba(0,0,0,0.35) 100%)",
-            ].join(", "),
+            background: "radial-gradient(ellipse 100% 100% at 50% 50%, transparent 40%, rgba(0,0,0,0.45) 100%)",
           }}
         />
       )}

@@ -55,12 +55,7 @@ export default async function Home({
       {/* ── Hero: Concierge ──────────────────────────────── */}
       <section
         className="relative flex flex-col items-center justify-center px-5 sm:px-6 py-16"
-        style={{
-          minHeight: "100svh",
-          zIndex: 2,
-          position: "relative",
-          background: "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.55) 10%, rgba(0,0,0,0.55) 90%, rgba(0,0,0,0) 100%)",
-        }}
+        style={{ minHeight: "100svh", zIndex: 2, position: "relative" }}
       >
         <SongConcierge
           preamble={t.concierge.preamble}
@@ -80,12 +75,7 @@ export default async function Home({
         <section
           id="nav"
           className="flex flex-col items-center justify-center px-6 pt-24 pb-40 sm:pt-32 sm:pb-56"
-          style={{
-            minHeight: "80vh",
-            zIndex: 2,
-            position: "relative",
-            background: "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.60) 8%, rgba(0,0,0,0.60) 92%, rgba(0,0,0,0) 100%)",
-          }}
+          style={{ minHeight: "80vh", zIndex: 2, position: "relative" }}
         >
           <NavLinks items={navItems} />
         </section>
