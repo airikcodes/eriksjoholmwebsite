@@ -1,8 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { useRef } from "react";
-import { useBgColorMode } from "@/lib/useBackgroundIsLight";
 
 interface NavItem {
   label: string;
@@ -11,14 +9,8 @@ interface NavItem {
 }
 
 export default function NavLinks({ items }: { items: NavItem[] }) {
-  const wrapperRef = useRef<HTMLElement>(null);
-
-  // Writes data-bg-mode onto the nav directly — no React state, no re-renders
-  useBgColorMode(wrapperRef as React.RefObject<HTMLElement | null>);
-
   return (
     <nav
-      ref={wrapperRef}
       data-no-peephole="true"
       className="flex flex-col items-center gap-5 sm:gap-6 md:gap-7"
     >

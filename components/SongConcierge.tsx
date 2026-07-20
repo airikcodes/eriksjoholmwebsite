@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useRef, useEffect, FormEvent } from "react";
-import { useBgColorMode } from "@/lib/useBackgroundIsLight";
 
 const SPOTIFY_ARTIST = "https://open.spotify.com/artist/1UpcgaCHBwic2IqUQ3hHdp";
 const TIDAL_ARTIST   = "https://tidal.com/artist/47687355";
@@ -444,11 +443,7 @@ export default function SongConcierge({
   const [input, setInput]       = useState("");
   const [results, setResults]   = useState<Track[]>([]);
   const [activeChip, setActiveChip] = useState<string | null>(null);
-  const inputRef   = useRef<HTMLInputElement>(null);
-  const wrapperRef = useRef<HTMLDivElement>(null);
-
-  // Writes data-bg-mode="light"/"dark" directly on wrapperRef — no re-renders
-  useBgColorMode(wrapperRef as React.RefObject<HTMLElement | null>);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const [displayHeading, setDisplayHeading] = useState(heading);
   useEffect(() => {
@@ -492,8 +487,6 @@ export default function SongConcierge({
 
   return (
     <div
-      ref={wrapperRef}
-      data-no-peephole="true"
       className="w-full max-w-lg mx-auto"
       style={{ paddingTop: "clamp(5rem, 12vh, 7rem)", paddingBottom: "2rem" }}
     >

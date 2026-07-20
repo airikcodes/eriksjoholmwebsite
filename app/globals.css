@@ -22,7 +22,7 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: #F7F3EE;
+  background-color: #000000;
 }
 
 body {
@@ -39,51 +39,34 @@ body {
 
 ::selection { background: var(--color-accent); color: #F7F3EE; }
 
-/* ── Adaptive concierge + nav colors (data-bg-mode set by JS canvas sampling) ─ */
+/* ── Concierge element colors — always on dark video background ─────────────── */
 
-/* Light mode defaults (cream overlay visible) */
-.concierge-preamble { color: rgba(58,53,48,0.55);  transition: color 150ms ease; }
-.concierge-heading  { color: #3A3530;               transition: color 150ms ease; }
-.concierge-tagline  { color: rgba(55,48,43,0.5);    transition: color 150ms ease; }
-.concierge-or       { color: #7A6F62;               transition: color 150ms ease; }
-.concierge-btn      { color: #7A6F62;               transition: color 150ms ease; }
+.concierge-preamble { color: rgba(255,255,255,0.82); }
+.concierge-heading  { color: #ffffff; }
+.concierge-tagline  { color: rgba(255,255,255,0.55); }
+.concierge-or       { color: rgba(255,255,255,0.65); }
+.concierge-btn      { color: rgba(255,255,255,0.75); transition: color 150ms ease; }
+.concierge-btn:hover { color: #ffffff; }
 
 .concierge-chip {
-  color: #7A6F62;
-  border: 1px solid rgba(58,53,48,0.22);
-  transition: color 150ms ease, border-color 150ms ease;
+  color:        rgba(255,255,255,0.75);
+  border:       1px solid rgba(255,255,255,0.28);
+  transition:   color 150ms ease, border-color 150ms ease;
 }
-.concierge-chip.active { border-color: rgba(58,53,48,0.7); }
+.concierge-chip:hover        { color: #ffffff; border-color: rgba(255,255,255,0.55); }
+.concierge-chip.active       { color: #ffffff; border-color: rgba(255,255,255,0.9); }
 
 .concierge-input {
-  background:   rgba(255,255,255,0.6);
+  background:   rgba(255,255,255,0.07);
   border-style: solid;
   border-width: 1px;
-  border-color: rgba(58,53,48,0.22);
-  color:        #1C1A17;
-  outline:      none;
-  transition:   border-color 150ms ease, background 150ms ease, color 150ms ease;
-}
-.concierge-input:focus       { border-color: rgba(58,53,48,0.6); }
-.concierge-input::placeholder { color: rgba(140,128,118,0.6); transition: color 150ms ease; }
-
-/* Dark mode overrides (video visible behind element) */
-[data-bg-mode="dark"] .concierge-preamble { color: rgba(255,255,255,0.85); }
-[data-bg-mode="dark"] .concierge-heading  { color: #ffffff; }
-[data-bg-mode="dark"] .concierge-tagline  { color: rgba(255,255,255,0.55); }
-[data-bg-mode="dark"] .concierge-or       { color: rgba(255,255,255,0.7); }
-[data-bg-mode="dark"] .concierge-btn      { color: #ffffff; }
-
-[data-bg-mode="dark"] .concierge-chip         { color: #ffffff; border-color: rgba(255,255,255,0.35); }
-[data-bg-mode="dark"] .concierge-chip.active  { border-color: rgba(255,255,255,0.9); }
-
-[data-bg-mode="dark"] .concierge-input {
-  background:   rgba(255,255,255,0.08);
-  border-color: rgba(255,255,255,0.35);
+  border-color: rgba(255,255,255,0.28);
   color:        #ffffff;
+  outline:      none;
+  transition:   border-color 150ms ease, background 150ms ease;
 }
-[data-bg-mode="dark"] .concierge-input:focus       { border-color: rgba(255,255,255,0.8); }
-[data-bg-mode="dark"] .concierge-input::placeholder { color: rgba(255,255,255,0.45); }
+.concierge-input:focus        { border-color: rgba(255,255,255,0.75); background: rgba(255,255,255,0.10); }
+.concierge-input::placeholder { color: rgba(255,255,255,0.38); }
 
 /* Scroll-triggered reveal */
 .reveal {
@@ -128,30 +111,26 @@ body {
   .scroll-indicator { animation: none; opacity: 0.4; }
 }
 
-/* Navigation room links — color driven by data-bg-mode on ancestor <nav> */
+/* Navigation room links — always white on dark video background */
 .room-link {
   position: relative;
   display: inline-block;
-  color: #1C1A17;
+  color: #ffffff;
   transition: color 150ms ease;
 }
-[data-bg-mode="dark"] .room-link { color: #ffffff; }
-
 .room-link::before {
   content: '—';
   position: absolute;
   right: calc(100% + 0.75rem);
   top: 50%;
   transform: translateY(-50%);
-  color: #1C1A17;
+  color: #ffffff;
   opacity: 0;
-  transition: opacity 200ms ease, color 150ms ease;
+  transition: opacity 200ms ease;
   font-style: normal;
   font-size: 0.7em;
 }
-[data-bg-mode="dark"] .room-link::before { color: #ffffff; }
 .room-link:hover::before { opacity: 1; }
-
 .room-link::after {
   content: '';
   position: absolute;
@@ -159,10 +138,9 @@ body {
   left: 0;
   width: 0;
   height: 1px;
-  background: #1C1A17;
-  transition: width 300ms ease, background 150ms ease;
+  background: #ffffff;
+  transition: width 300ms ease;
 }
-[data-bg-mode="dark"] .room-link::after { background: #ffffff; }
 .room-link:hover::after { width: 100%; }
 
 /* Portrait logo mark */
@@ -210,12 +188,7 @@ body {
 .bg-slide.active {
   opacity: 1;
 }
-.bg-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(252, 250, 247, 0.96);
-  z-index: 1;
-}
+
 
 /* Ken Burns — only when the user has not requested reduced motion */
 @keyframes kenBurns {
