@@ -15,7 +15,7 @@
   },
   "concierge": {
     "preamble": "",
-    "heading": "Scratch the lottery ticket. Crack the fortune cookie open. Now discover the music waiting for you here. What kind of song can I play for you right now?",
+    "heading": "What song can I play for you right now?",
     "timeSlots": {
       "morning": "this morning",
       "afternoon": "this afternoon",
