@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import LocaleSwitcher from "@/components/LocaleSwitcher";
 import PersistentBackground from "@/components/PersistentBackground";
+import SmoothScroll from "@/components/SmoothScroll";
 import "./globals.css";
 
 const validLocales = ['en', 'de', 'es', 'sv', 'fi', 'it', 'fr', 'pt'];
@@ -84,6 +85,7 @@ export default async function RootLayout({
           />
         </Link>
 
+        <SmoothScroll />
         <LocaleSwitcher />
         <PersistentBackground />
         <script
