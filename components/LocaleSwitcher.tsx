@@ -25,38 +25,50 @@ export default function LocaleSwitcher() {
     const target =
       next === defaultLocale ? base : `/${next}${base === '/' ? '' : base}`;
     document.cookie = `NEXT_LOCALE=${next}; path=/; max-age=${365 * 24 * 60 * 60}; SameSite=Lax`;
-    router.push(target);
+    if (target === pathname) {
+      router.refresh();
+    } else {
+      router.push(target);
+    }
   }
 
   return (
-    <select
-      value={current}
-      onChange={(e) => switchTo(e.target.value)}
-      aria-label="Language"
+    <div
+      role="navigation"
+      aria-label="Language selector"
       style={{
         position: 'fixed',
         top: '1.5rem',
         right: '1.5rem',
         zIndex: 10,
-        background: 'transparent',
-        border: '1px solid rgba(140, 128, 118, 0.3)',
-        borderRadius: '2px',
-        color: 'rgba(140, 128, 118, 0.7)',
-        fontSize: '0.48rem',
-        letterSpacing: '0.2em',
-        cursor: 'pointer',
-        padding: '0.35rem 0.5rem',
-        fontFamily: 'var(--font-inter)',
-        textTransform: 'uppercase',
-        appearance: 'none',
-        WebkitAppearance: 'none',
+        display: 'flex',
+        gap: '0.3rem',
+        alignItems: 'center',
       }}
     >
       {locales.map((l) => (
-        <option key={l} value={l}>
+        <button
+          key={l}
+          onClick={() => switchTo(l)}
+          aria-label={`Switch to ${l.toUpperCase()}`}
+          aria-current={l === current ? 'true' : undefined}
+          style={{
+            background: 'none',
+            border: 'none',
+            cursor: 'pointer',
+            color: l === current ? 'rgba(255,255,255,0.85)' : 'rgba(140,128,118,0.4)',
+            fontSize: '0.6rem',
+            letterSpacing: '0.18em',
+            fontFamily: 'var(--font-inter)',
+            textTransform: 'uppercase',
+            padding: '0.3rem 0.1rem',
+            lineHeight: 1,
+            transition: 'color 180ms ease',
+          }}
+        >
           {l.toUpperCase()}
-        </option>
+        </button>
       ))}
-    </select>
+    </div>
   );
 }

@@ -91,30 +91,40 @@ export default function PersistentBackground() {
     return () => clearInterval(id);
   }, [reducedMotion]);
 
-  // Mount: fix muted hydration bug, seek, play
-  useEffect(() => {
-    videoRefs.current.forEach((v) => {
-      if (!v) return;
-      v.muted  = true;
-      v.volume = volume;
-      seekToMiddle(v);
-      v.play().catch(() => {});
-    });
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
-  // Re-seek on cycle
-  useEffect(() => {
-    const v = videoRefs.current[current];
-    if (v) seekToMiddle(v);
-  }, [current]);
-
-  // Sound: only active video gets audio
+  // Mount: fix muted hydration bug, seek and play current video
   useEffect(() => {
     videoRefs.current.forEach((v, i) => {
       if (!v) return;
-      v.muted  = muted || i !== current;
+      v.muted  = true;
       v.volume = volume;
+      if (i === current) {
+        seekToMiddle(v);
+        v.play().catch(() => {});
+      }
     });
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Re-seek and play on cycle, mute outgoing video
+  useEffect(() => {
+    videoRefs.current.forEach((v, i) => {
+      if (!v) return;
+      if (i === current) {
+        v.muted = muted;
+        v.volume = volume;
+        seekToMiddle(v);
+        v.play().catch(() => {});
+      } else {
+        v.muted = true;
+      }
+    });
+  }, [current]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Sound: keep active video in sync with muted/volume controls
+  useEffect(() => {
+    const v = videoRefs.current[current];
+    if (!v) return;
+    v.muted  = muted;
+    v.volume = volume;
   }, [muted, volume, current]);
 
   // ── Render ────────────────────────────────────────────────────────────────
@@ -127,68 +137,66 @@ export default function PersistentBackground() {
     );
   }
 
+  const nextIdx = (current + 1) % videos.length;
+
   return (
     <>
-      {/* Videos: always in DOM so audio persists across navigation */}
-      <div
-        className="bg-slideshow"
-        style={{
-          opacity:       isHome ? 1 : 0,
-          pointerEvents: isHome ? "auto" : "none",
-        }}
-      >
-        {videos.map((src, i) => (
-          <div key={src} className={`bg-slide video-slide${i === current ? " active" : ""}`}>
-            <video
-              ref={(el) => { videoRefs.current[i] = el; }}
-              autoPlay muted loop playsInline aria-hidden="true"
-              style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", filter: "brightness(0.62) contrast(0.88) saturate(0.82)" }}
-            >
-              <source src={src} type="video/mp4" />
-            </video>
-          </div>
-        ))}
-      </div>
-
-      {/* Dark vignette — sits above the video, below page content.
-          Center oval shadows the concierge; bottom gradient shadows the nav. */}
+      {/* Videos only on home page — avoids loading 160MB on every inner page */}
       {isHome && (
-        <div
-          aria-hidden="true"
-          style={{
-            position: "fixed", inset: 0, zIndex: 1, pointerEvents: "none",
-            background: "radial-gradient(ellipse 100% 100% at 50% 50%, transparent 40%, rgba(0,0,0,0.45) 100%)",
-          }}
-        />
-      )}
+        <>
+          <div className="bg-slideshow">
+            {videos.map((src, i) => (
+              <div key={src} className={`bg-slide video-slide${i === current ? " active" : ""}`}>
+                <video
+                  ref={(el) => { videoRefs.current[i] = el; }}
+                  muted loop playsInline aria-hidden="true"
+                  preload={i === current || i === nextIdx ? "auto" : "none"}
+                  style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", filter: "brightness(0.62) contrast(0.88) saturate(0.82)" }}
+                >
+                  <source src={src} type="video/mp4" />
+                </video>
+              </div>
+            ))}
+          </div>
 
-      {/* Sound controls — fixed bottom-right, visible on all pages */}
-      <div
-        role="group"
-        aria-label="Background controls"
-        style={{
-          position: "fixed",
-          bottom: "max(1.5rem, calc(env(safe-area-inset-bottom, 0px) + 0.75rem))",
-          right:  "max(1.5rem, env(safe-area-inset-right, 0px))",
-          zIndex: 50,
-          display: "flex", alignItems: "center", gap: "0.5rem",
-        }}
-      >
-        {!muted && (
-          <input type="range" min="0" max="1" step="0.05" value={volume}
-            onChange={(e) => setVolume(Number(e.target.value))}
-            aria-label="Volume"
-            style={{ width: "72px", accentColor: "#C8922A", cursor: "pointer" }}
+          {/* Dark vignette */}
+          <div
+            aria-hidden="true"
+            style={{
+              position: "fixed", inset: 0, zIndex: 1, pointerEvents: "none",
+              background: "radial-gradient(ellipse 100% 100% at 50% 50%, transparent 40%, rgba(0,0,0,0.45) 100%)",
+            }}
           />
-        )}
-        <button
-          onClick={() => setMuted((m) => !m)}
-          aria-label={muted ? "Unmute background video" : "Mute background video"}
-          style={glassBtn}
-        >
-          {muted ? <IconSoundOff /> : <IconSoundOn />}
-        </button>
-      </div>
+
+          {/* Sound controls */}
+          <div
+            role="group"
+            aria-label="Background controls"
+            style={{
+              position: "fixed",
+              bottom: "max(1.5rem, calc(env(safe-area-inset-bottom, 0px) + 0.75rem))",
+              right:  "max(1.5rem, env(safe-area-inset-right, 0px))",
+              zIndex: 50,
+              display: "flex", alignItems: "center", gap: "0.5rem",
+            }}
+          >
+            {!muted && (
+              <input type="range" min="0" max="1" step="0.05" value={volume}
+                onChange={(e) => setVolume(Number(e.target.value))}
+                aria-label="Volume"
+                style={{ width: "72px", accentColor: "#C8922A", cursor: "pointer" }}
+              />
+            )}
+            <button
+              onClick={() => setMuted((m) => !m)}
+              aria-label={muted ? "Unmute background video" : "Mute background video"}
+              style={glassBtn}
+            >
+              {muted ? <IconSoundOff /> : <IconSoundOn />}
+            </button>
+          </div>
+        </>
+      )}
     </>
   );
 }
