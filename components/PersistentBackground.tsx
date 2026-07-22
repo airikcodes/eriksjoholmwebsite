@@ -97,7 +97,8 @@ export default function PersistentBackground() {
     const isSlow = conn?.saveData || ['slow-2g', '2g'].includes(conn?.effectiveType ?? '');
     if (!isMobile && !isSlow) setShowVideo(true);
 
-    return () => mq.removeEventListener("change", h);
+    const t = setTimeout(() => setVideoReady(true), 10_000);
+    return () => { mq.removeEventListener("change", h); clearTimeout(t); };
   }, []);
 
   // Cycling — runs for both image and video modes
@@ -203,8 +204,7 @@ export default function PersistentBackground() {
               ref={(el) => { videoRefs.current[i] = el; }}
               muted loop playsInline aria-hidden="true"
               preload={i === activeVideoIdx || i === nextVideoIdx ? "auto" : "none"}
-              onCanPlay={i === 0 && !videoReady ? () => setVideoReady(true) : undefined}
-              style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", filter: bgFilter }}
+style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", filter: bgFilter }}
             >
               <source src={src} type="video/mp4" />
             </video>
