@@ -27,8 +27,8 @@ const images = [
 ];
 
 const CYCLE_MS = 30_000;
-
 const LOCALE_HOME_RE = /^\/([a-z]{2})?\/?$/;
+const bgFilter = "brightness(0.62) contrast(0.88) saturate(0.82)";
 
 // ── Icons ────────────────────────────────────────────────────────────────────
 
@@ -54,8 +54,6 @@ function IconSoundOn() {
   );
 }
 
-// ── Glass button shared style ─────────────────────────────────────────────────
-
 const glassBtn: React.CSSProperties = {
   width: "44px", height: "44px", borderRadius: "50%",
   background: "rgba(10,8,6,0.55)",
@@ -68,23 +66,34 @@ const glassBtn: React.CSSProperties = {
   transition: "background 180ms ease, border-color 180ms ease, opacity 180ms ease",
 };
 
-const bgFilter = "brightness(0.62) contrast(0.88) saturate(0.82)";
-
 // ── Component ─────────────────────────────────────────────────────────────────
+//
+// Two-slot approach: only 2 video elements exist in the DOM.
+// Slot A plays the current video; slot B preloads the next one.
+// On each cycle they swap roles, then the outgoing slot's src is updated
+// to the video after next so it can preload during the next 30-second window.
 
 export default function PersistentBackground() {
-  const pathname      = usePathname();
-  const isHome        = LOCALE_HOME_RE.test(pathname);
+  const pathname    = usePathname();
+  const isHome      = LOCALE_HOME_RE.test(pathname);
 
-  const [current, setCurrent]     = useState(0);
+  const [imgIdx, setImgIdx]       = useState(0);
+  const [flip, setFlip]           = useState(false); // false = slot A active, true = slot B active
   const [reducedMotion, setRM]    = useState(false);
-  const [showVideo, setShowVideo] = useState(false); // conservative: off until client confirms
+  const [showVideo, setShowVideo] = useState(false);
   const [muted, setMuted]         = useState(true);
   const [volume, setVolume]       = useState(0.6);
 
-  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const slotA  = useRef<HTMLVideoElement>(null);
+  const slotB  = useRef<HTMLVideoElement>(null);
+  const idxRef = useRef(0); // current video index tracked via ref to avoid stale closures
+  const mutedRef  = useRef(true);
+  const volumeRef = useRef(0.6);
 
-  // Reduced-motion preference + mobile/slow-connection check
+  useEffect(() => { mutedRef.current  = muted;  }, [muted]);
+  useEffect(() => { volumeRef.current = volume; }, [volume]);
+
+  // Detect capabilities; kick off initial playback
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
     setRM(mq.matches);
@@ -93,129 +102,119 @@ export default function PersistentBackground() {
 
     const conn = (navigator as any).connection;
     const isMobile = window.innerWidth < 768;
-    const isSlow = conn?.saveData || ['slow-2g', '2g'].includes(conn?.effectiveType ?? '');
-    if (!isMobile && !isSlow) setShowVideo(true);
+    const isSlow   = conn?.saveData || ['slow-2g', '2g'].includes(conn?.effectiveType ?? '');
+
+    if (!isMobile && !isSlow) {
+      setShowVideo(true);
+      // Set srcs imperatively so React never re-reconciles them
+      const a = slotA.current;
+      const b = slotB.current;
+      if (a) { a.src = videos[0]; a.muted = true; a.volume = volumeRef.current; a.load(); a.play().catch(() => {}); }
+      if (b) { b.src = videos[1]; b.muted = true; b.volume = volumeRef.current; b.load(); }
+    }
 
     return () => mq.removeEventListener("change", h);
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Cycling — runs for both image and video modes
+  // Cycling
   useEffect(() => {
     if (reducedMotion) return;
-    const id = setInterval(() => setCurrent((c) => c + 1), CYCLE_MS);
+
+    const id = setInterval(() => {
+      const nextIdx = idxRef.current + 1;
+      idxRef.current = nextIdx;
+
+      setFlip(f => {
+        // incoming = slot that was preloading, now becomes active
+        // outgoing = slot that was playing, now becomes preloader
+        const incoming = f ? slotA.current : slotB.current;
+        const outgoing = f ? slotB.current : slotA.current;
+
+        if (incoming) {
+          incoming.muted  = mutedRef.current;
+          incoming.volume = volumeRef.current;
+          incoming.currentTime = 0;
+          incoming.play().catch(() => {});
+        }
+        if (outgoing) {
+          outgoing.muted = true;
+          outgoing.src   = videos[(nextIdx + 1) % videos.length];
+          outgoing.load();
+        }
+
+        return !f;
+      });
+
+      setImgIdx(i => i + 1);
+    }, CYCLE_MS);
+
     return () => clearInterval(id);
   }, [reducedMotion]);
 
-  // Mount: fix muted hydration bug and play current video from start
+  // Keep active slot in sync with sound controls
   useEffect(() => {
-    videoRefs.current.forEach((v, i) => {
-      if (!v) return;
-      v.muted  = true;
-      v.volume = volume;
-      if (i === current % videos.length) {
-        v.play().catch(() => {});
-      }
-    });
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
-  // Play next video from start on cycle, mute outgoing video
-  useEffect(() => {
-    const activeIdx = current % videos.length;
-    videoRefs.current.forEach((v, i) => {
-      if (!v) return;
-      if (i === activeIdx) {
-        v.muted = muted;
-        v.volume = volume;
-        v.currentTime = 0;
-        v.play().catch(() => {});
-      } else {
-        v.muted = true;
-      }
-    });
-  }, [current]); // eslint-disable-line react-hooks/exhaustive-deps
-
-  // Sound: keep active video in sync with muted/volume controls
-  useEffect(() => {
-    const v = videoRefs.current[current % videos.length];
-    if (!v) return;
-    v.muted  = muted;
-    v.volume = volume;
-  }, [muted, volume, current]);
+    const active = flip ? slotB.current : slotA.current;
+    if (!active) return;
+    active.muted  = muted;
+    active.volume = volume;
+  }, [muted, volume, flip]);
 
   // ── Render ────────────────────────────────────────────────────────────────
 
   if (!isHome) return null;
 
-  // Reduced-motion: no animation at all — static dark background
   if (reducedMotion) {
     return <div style={{ position: "fixed", inset: 0, zIndex: 0, background: "#0d0d0d", pointerEvents: "none" }} />;
   }
 
-  // Mobile / slow connection: Ken Burns image slideshow (no video download)
   if (!showVideo) {
-    const imgIdx = current % images.length;
+    const iIdx = imgIdx % images.length;
     return (
       <>
         <div className="bg-slideshow">
           {images.map((src, i) => (
-            <div
-              key={src}
-              className={`bg-slide${i === imgIdx ? " active" : ""}`}
-              style={{ backgroundImage: `url(${src})`, filter: bgFilter }}
-            />
+            <div key={src} className={`bg-slide${i === iIdx ? " active" : ""}`}
+              style={{ backgroundImage: `url(${src})`, filter: bgFilter }} />
           ))}
         </div>
-        <div
-          aria-hidden="true"
-          style={{
-            position: "fixed", inset: 0, zIndex: 1, pointerEvents: "none",
-            background: "radial-gradient(ellipse 100% 100% at 50% 50%, transparent 40%, rgba(0,0,0,0.45) 100%)",
-          }}
-        />
+        <div aria-hidden="true" style={{
+          position: "fixed", inset: 0, zIndex: 1, pointerEvents: "none",
+          background: "radial-gradient(ellipse 100% 100% at 50% 50%, transparent 40%, rgba(0,0,0,0.45) 100%)",
+        }} />
       </>
     );
   }
 
-  // Desktop / fast connection: video slideshow
-  const activeVideoIdx = current % videos.length;
-  const nextVideoIdx   = (current + 1) % videos.length;
+  const videoStyle: React.CSSProperties = {
+    position: "absolute", inset: 0,
+    width: "100%", height: "100%",
+    objectFit: "cover",
+    filter: bgFilter,
+  };
 
   return (
     <>
       <div className="bg-slideshow">
-        {videos.map((src, i) => (
-          <div key={src} className={`bg-slide video-slide${i === activeVideoIdx ? " active" : ""}`}>
-            <video
-              ref={(el) => { videoRefs.current[i] = el; }}
-              muted loop playsInline aria-hidden="true"
-              preload={i === activeVideoIdx || i === nextVideoIdx ? "auto" : "none"}
-style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", filter: bgFilter }}
-            >
-              <source src={src} type="video/mp4" />
-            </video>
-          </div>
-        ))}
+        <div className={`bg-slide video-slide${!flip ? " active" : ""}`}>
+          <video ref={slotA} muted loop playsInline aria-hidden="true" preload="auto" style={videoStyle} />
+        </div>
+        <div className={`bg-slide video-slide${flip ? " active" : ""}`}>
+          <video ref={slotB} muted loop playsInline aria-hidden="true" preload="auto" style={videoStyle} />
+        </div>
       </div>
 
-      <div
-        aria-hidden="true"
-        style={{
-          position: "fixed", inset: 0, zIndex: 1, pointerEvents: "none",
-          background: "radial-gradient(ellipse 100% 100% at 50% 50%, transparent 40%, rgba(0,0,0,0.45) 100%)",
-        }}
-      />
+      <div aria-hidden="true" style={{
+        position: "fixed", inset: 0, zIndex: 1, pointerEvents: "none",
+        background: "radial-gradient(ellipse 100% 100% at 50% 50%, transparent 40%, rgba(0,0,0,0.45) 100%)",
+      }} />
 
-      <div
-        role="group"
-        aria-label="Background controls"
-        style={{
-          position: "fixed",
-          bottom: "max(1.5rem, calc(env(safe-area-inset-bottom, 0px) + 0.75rem))",
-          right:  "max(1.5rem, env(safe-area-inset-right, 0px))",
-          zIndex: 50,
-          display: "flex", alignItems: "center", gap: "0.5rem",
-        }}
-      >
+      <div role="group" aria-label="Background controls" style={{
+        position: "fixed",
+        bottom: "max(1.5rem, calc(env(safe-area-inset-bottom, 0px) + 0.75rem))",
+        right:  "max(1.5rem, env(safe-area-inset-right, 0px))",
+        zIndex: 50,
+        display: "flex", alignItems: "center", gap: "0.5rem",
+      }}>
         {!muted && (
           <input type="range" min="0" max="1" step="0.05" value={volume}
             onChange={(e) => setVolume(Number(e.target.value))}
