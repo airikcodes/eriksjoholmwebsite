@@ -8,6 +8,7 @@ const videos = [
   "/videos/bg-02.mp4",
   "/videos/bg-03.mp4",
   "/videos/bg-04.mp4",
+  "/videos/bg-05.mp4",
 ];
 
 const images = [

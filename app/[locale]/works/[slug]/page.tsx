@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import BackNav from '@/components/BackNav';
 import KeepInTouch from '@/components/KeepInTouch';
 import Link from 'next/link';
-import { works, albums, getWork } from '@/data/works';
+import { works, albums, getWork, type Work } from '@/data/works';
 import { hasLocale } from '@/lib/dictionaries';
 
 const LOCALES = ['en', 'de', 'es', 'sv', 'fi', 'it', 'fr', 'pt'];
@@ -57,6 +57,13 @@ export default async function WorkPage({
 
   const work = getWork(slug);
   if (!work) notFound();
+
+  const isUpcoming = work.releaseStatus === 'upcoming';
+
+  // For upcoming albums: resolve track entries for the singles-so-far list
+  const trackWorks: Work[] = isUpcoming && work.tracks
+    ? work.tracks.map((s) => getWork(s)).filter(Boolean) as Work[]
+    : [];
 
   return (
     <main className="min-h-screen" style={{ background: '#0D0B09', color: '#E8E0D4' }}>
@@ -137,8 +144,8 @@ export default async function WorkPage({
             </div>
           )}
 
-          {/* ── Listen ── */}
-          {(work.spotifyUrl || work.tidalUrl) && (
+          {/* ── Listen (released only) ── */}
+          {!isUpcoming && (work.spotifyUrl || work.tidalUrl) && (
             <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
               <p style={{
                 fontFamily:    'var(--font-inter)',
@@ -250,6 +257,71 @@ export default async function WorkPage({
             </div>
           )}
 
+          {/* ── Singles so far (upcoming albums only) ── */}
+          {isUpcoming && trackWorks.length > 0 && (
+            <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
+              <p style={{
+                fontFamily:    'var(--font-inter)',
+                fontSize:      '0.45rem',
+                letterSpacing: '0.35em',
+                textTransform: 'uppercase',
+                color:         '#7A6F62',
+                marginBottom:  '2rem',
+              }}>
+                Singles So Far
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column' }}>
+                {trackWorks.map((track) => (
+                  <Link
+                    key={track.slug}
+                    href={`/${locale}/works/${track.slug}`}
+                    style={{
+                      display:        'grid',
+                      gridTemplateColumns: track.coverImage ? '44px 1fr auto' : '1fr auto',
+                      gap:            '1rem',
+                      alignItems:     'center',
+                      padding:        '1rem 0',
+                      borderBottom:   '1px solid rgba(255,255,255,0.05)',
+                      textDecoration: 'none',
+                    }}
+                    className="group"
+                  >
+                    {track.coverImage && (
+                      <img
+                        src={track.coverImage}
+                        alt=""
+                        width={44}
+                        height={44}
+                        style={{ width: 44, height: 44, objectFit: 'cover', opacity: 0.8 }}
+                      />
+                    )}
+                    <div>
+                      <p
+                        className="font-[family-name:var(--font-cormorant)] font-light group-hover:text-[#C8922A] transition-colors duration-200"
+                        style={{ fontSize: 'clamp(0.95rem, 2.2vw, 1.2rem)', color: '#E8E0D4', lineHeight: 1.25 }}
+                      >
+                        {track.title}
+                      </p>
+                      {track.meta && (
+                        <p style={{
+                          fontFamily:    'var(--font-inter)',
+                          fontSize:      '0.52rem',
+                          letterSpacing: '0.1em',
+                          textTransform: 'uppercase',
+                          color:         '#5A5248',
+                          marginTop:     '0.2rem',
+                        }}>
+                          {track.meta}
+                        </p>
+                      )}
+                    </div>
+                    <span style={{ fontFamily: 'var(--font-inter)', fontSize: '0.5rem', color: '#7A6F62' }}>→</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* ── From the Notes ── */}
           {work.relatedNotes && work.relatedNotes.length > 0 && (
             <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
@@ -327,7 +399,12 @@ export default async function WorkPage({
 
           {/* ── Keep in touch ── */}
           <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '5rem', paddingBottom: '9rem' }}>
-            <KeepInTouch variant="work" />
+            <KeepInTouch
+              variant="work"
+              overrideBody={isUpcoming
+                ? `Want to be notified when ${work.title} is released? Subscribe to hear first.`
+                : undefined}
+            />
           </div>
 
         </div>

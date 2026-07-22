@@ -5,7 +5,7 @@ import BackNav from '@/components/BackNav';
 import WorksSearch from '@/components/WorksSearch';
 import AlbumsSearch from '@/components/AlbumsSearch';
 import KeepInTouch from '@/components/KeepInTouch';
-import { works, albums, featuredWorks } from '@/data/works';
+import { works, albums, featuredWorks, upcomingAlbums, getWork } from '@/data/works';
 import { featuredCustomSongs, CUSTOM_SONGS_PLAYLIST_URL } from '@/data/customSongs';
 import CustomSongPlayer from '@/components/CustomSongPlayer';
 import { getDictionary, hasLocale } from '@/lib/dictionaries';
@@ -220,6 +220,97 @@ export default async function WorksPage({
               ))}
             </div>
           </div>
+
+          {/* ── Up Next ── */}
+          {upcomingAlbums.length > 0 && (
+            <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '5rem', paddingBottom: '5rem' }}>
+              <p style={{
+                fontFamily:    'var(--font-inter)',
+                fontSize:      '0.45rem',
+                letterSpacing: '0.35em',
+                textTransform: 'uppercase',
+                color:         '#7A6F62',
+                marginBottom:  '3.5rem',
+              }}>
+                Up Next
+              </p>
+
+              <div>
+                {upcomingAlbums.map((work) => (
+                  <Link
+                    key={work.id}
+                    href={`/works/${work.slug}`}
+                    style={{
+                      display:        'grid',
+                      gridTemplateColumns: '1fr auto',
+                      gap:            '1.25rem',
+                      alignItems:     'center',
+                      padding:        '1.5rem 0',
+                      borderBottom:   '1px solid rgba(255,255,255,0.06)',
+                      textDecoration: 'none',
+                    }}
+                    className="group"
+                  >
+                    <div>
+                      <p style={{
+                        fontFamily:    'var(--font-inter)',
+                        fontSize:      '0.45rem',
+                        letterSpacing: '0.3em',
+                        textTransform: 'uppercase',
+                        color:         'rgba(200,146,42,0.5)',
+                        marginBottom:  '0.5rem',
+                      }}>
+                        {work.workType === 'album' ? 'Album' : work.workType === 'ep' ? 'EP' : 'Single'} · Coming Soon
+                      </p>
+                      <p
+                        className="font-[family-name:var(--font-cormorant)] font-light group-hover:text-[#C8922A] transition-colors duration-200"
+                        style={{
+                          fontSize:      'clamp(1.1rem, 2.8vw, 1.55rem)',
+                          color:         '#E8E0D4',
+                          lineHeight:    1.2,
+                          letterSpacing: '0.01em',
+                        }}
+                      >
+                        {work.title}
+                      </p>
+                      {work.meta && (
+                        <p style={{
+                          fontFamily:    'var(--font-inter)',
+                          fontSize:      '0.55rem',
+                          letterSpacing: '0.12em',
+                          textTransform: 'uppercase',
+                          color:         '#7A6F62',
+                          marginTop:     '0.3rem',
+                        }}>
+                          {work.meta}
+                        </p>
+                      )}
+                      {work.tracks && work.tracks.length > 0 && (
+                        <p style={{
+                          fontFamily:    'var(--font-inter)',
+                          fontSize:      '0.52rem',
+                          letterSpacing: '0.08em',
+                          color:         '#5A5248',
+                          marginTop:     '0.5rem',
+                        }}>
+                          {work.tracks.length} single{work.tracks.length !== 1 ? 's' : ''} released so far
+                        </p>
+                      )}
+                    </div>
+                    <span style={{
+                      fontFamily:    'var(--font-inter)',
+                      fontSize:      '0.5rem',
+                      letterSpacing: '0.18em',
+                      color:         '#7A6F62',
+                      flexShrink:    0,
+                    }}>
+                      →
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* ── Albums & EPs ── */}
           <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '5rem', paddingBottom: '5rem' }}>

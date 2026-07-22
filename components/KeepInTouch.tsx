@@ -31,10 +31,14 @@ const copy: Record<KeepInTouchVariant, { heading: string; body: string }> = {
 
 interface Props {
   variant?: KeepInTouchVariant;
+  overrideHeading?: string;
+  overrideBody?: string;
 }
 
-export default function KeepInTouch({ variant = 'generic' }: Props) {
+export default function KeepInTouch({ variant = 'generic', overrideHeading, overrideBody }: Props) {
   const { heading, body } = copy[variant];
+  const displayHeading = overrideHeading ?? heading;
+  const displayBody    = overrideBody    ?? body;
 
   return (
     <div>
@@ -47,7 +51,7 @@ export default function KeepInTouch({ variant = 'generic' }: Props) {
         lineHeight:     1.1,
         marginBottom:   '1rem',
       }}>
-        {heading}
+        {displayHeading}
       </p>
       <p style={{
         fontFamily:   'var(--font-inter)',
@@ -57,7 +61,7 @@ export default function KeepInTouch({ variant = 'generic' }: Props) {
         maxWidth:     '40ch',
         marginBottom: '2rem',
       }}>
-        {body}
+        {displayBody}
       </p>
       <BeehiivForm />
     </div>

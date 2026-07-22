@@ -1,5 +1,5 @@
 export type WorkType = 'song' | 'album' | 'ep' | 'single' | 'storytelling' | 'collaboration';
-export type ReleaseStatus = 'released' | 'unreleased';
+export type ReleaseStatus = 'released' | 'unreleased' | 'upcoming';
 
 export interface WorkCredit {
   role: string;
@@ -53,6 +53,7 @@ export const works: Work[] = [
     featuredOrder: 1,
     language:      'Swedish',
     meta:          '2026 · Swedish',
+    album:         'next-album-collaboration-with-emil-nordstrom',
     coverImage:    'https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026ed0b3388394820c3aac27c5',
     spotifyUrl:    'https://open.spotify.com/track/2ALT61LKWHRLW3qvRpz3JI',
     tidalUrl:      TIDAL_ARTIST,
@@ -345,6 +346,7 @@ And you follow the gun`,
     featured:      false,
     language:      'Swedish',
     meta:          'with Emil Nordström · Swedish',
+    album:         'next-album-collaboration-with-emil-nordstrom',
     coverImage:    'https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e028cc91fad2d8dc06c518ecf27',
     spotifyUrl:    'https://open.spotify.com/track/2x00pPFmK8lgkyPeW401Gu',
     tidalUrl:      tidalSearch('Barndomsåren Pargas'),
@@ -359,6 +361,7 @@ And you follow the gun`,
     featured:      false,
     language:      'Swedish',
     meta:          '2025 · with Emil Nordström · Swedish',
+    album:         'next-album-collaboration-with-emil-nordstrom',
     coverImage:    'https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02a3617845d60b2e0a31a33e4d',
     spotifyUrl:    'https://open.spotify.com/track/5sxlnPchl6ib1vOrjJanxz',
     tidalUrl:      tidalSearch('Sanden I Min Hand'),
@@ -373,6 +376,7 @@ And you follow the gun`,
     featured:      false,
     language:      'Swedish',
     meta:          '2026 · with Emil Nordström · Swedish',
+    album:         'next-album-collaboration-with-emil-nordstrom',
     coverImage:    'https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02a76303c4d3c06fcf1bfaf925',
     spotifyUrl:    'https://open.spotify.com/track/5xGo3coakkLQsrq5V3ArIp',
     tidalUrl:      tidalSearch('Längs Med Vägen'),
@@ -387,6 +391,7 @@ And you follow the gun`,
     featured:      false,
     language:      'Swedish',
     meta:          '2025 · with Emil Nordström · Swedish',
+    album:         'next-album-collaboration-with-emil-nordstrom',
     coverImage:    'https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e023a7b1d4dc5e3fe9605191636',
     spotifyUrl:    'https://open.spotify.com/track/0GOPIKvZioFI9CWyBwkt5S',
     tidalUrl:      tidalSearch('Fri Som En Fågel'),
@@ -629,6 +634,28 @@ export const albums: Work[] = [
     spotifyUrl:    'https://open.spotify.com/album/0KcyZclKHcMZFaBEsj6PVB',
     tidalUrl:      tidalSearch('The Pearl EP'),
   },
+
+  // ── Upcoming ──────────────────────────────────────────────────────────────
+  {
+    id:            'next-album-collaboration-with-emil-nordstrom',
+    slug:          'next-album-collaboration-with-emil-nordstrom',
+    title:         'Next Album – Collaboration with Emil Nordström',
+    workType:      'album',
+    releaseStatus: 'upcoming',
+    featured:      false,
+    language:      'Swedish',
+    meta:          'with Emil Nordström · Swedish',
+    credits: [
+      { name: 'Emil Nordström', role: 'Co-writer & Co-artist' },
+    ],
+    tracks: [
+      'lycka',
+      'langs-med-vagen',
+      'barndomsaren',
+      'sanden-i-min-hand',
+      'fri-som-en-fagel',
+    ],
+  },
 ];
 
 // ── Derived exports ───────────────────────────────────────────────────────────
@@ -640,6 +667,8 @@ export const songs = works.filter(
 export const featuredWorks = works
   .filter((w) => w.featured)
   .sort((a, b) => (a.featuredOrder ?? 99) - (b.featuredOrder ?? 99));
+
+export const upcomingAlbums = albums.filter((a) => a.releaseStatus === 'upcoming');
 
 export function getWork(slug: string): Work | undefined {
   return [...works, ...albums].find((w) => w.slug === slug);
