@@ -85,6 +85,8 @@ export default async function RootLayout({
           />
         </Link>
 
+        {/* Preload first background video on desktop so it's ready the moment JS enables video mode */}
+        <link rel="preload" as="video" href="/videos/bg-01.mp4" type="video/mp4" media="(min-width: 768px)" />
         <SmoothScroll />
         <LocaleSwitcher />
         <PersistentBackground />

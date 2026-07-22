@@ -30,16 +30,6 @@ const CYCLE_MS = 30_000;
 
 const LOCALE_HOME_RE = /^\/([a-z]{2})?\/?$/;
 
-function seekToMiddle(video: HTMLVideoElement) {
-  const go = () => {
-    if (video.duration && isFinite(video.duration)) {
-      video.currentTime = video.duration / 2;
-    }
-  };
-  if (video.readyState >= 1 && isFinite(video.duration)) go();
-  else video.addEventListener("loadedmetadata", go, { once: true });
-}
-
 // ── Icons ────────────────────────────────────────────────────────────────────
 
 function IconSoundOff() {
@@ -116,20 +106,19 @@ export default function PersistentBackground() {
     return () => clearInterval(id);
   }, [reducedMotion]);
 
-  // Mount: fix muted hydration bug, seek and play current video
+  // Mount: fix muted hydration bug and play current video from start
   useEffect(() => {
     videoRefs.current.forEach((v, i) => {
       if (!v) return;
       v.muted  = true;
       v.volume = volume;
       if (i === current % videos.length) {
-        seekToMiddle(v);
         v.play().catch(() => {});
       }
     });
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Re-seek and play on cycle, mute outgoing video
+  // Play next video from start on cycle, mute outgoing video
   useEffect(() => {
     const activeIdx = current % videos.length;
     videoRefs.current.forEach((v, i) => {
@@ -137,7 +126,7 @@ export default function PersistentBackground() {
       if (i === activeIdx) {
         v.muted = muted;
         v.volume = volume;
-        seekToMiddle(v);
+        v.currentTime = 0;
         v.play().catch(() => {});
       } else {
         v.muted = true;
