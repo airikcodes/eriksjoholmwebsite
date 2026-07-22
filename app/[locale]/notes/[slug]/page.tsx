@@ -144,7 +144,7 @@ export default async function NotePost({
             paddingTop:    '4rem',
             paddingBottom: '2rem',
           }}>
-            <KeepInTouch variant="note" />
+            <KeepInTouch variant="note" locale={locale} />
           </div>
 
           {/* ── Back link ── */}

@@ -44,7 +44,7 @@
     "explore": "Explorar",
     "theStoryteller": "O contador de histórias →",
     "syncLicensing": "Licenciamento Sync →",
-    "works": "Works →"
+    "works": "Obras →"
   },
   "songs": {
     "eyebrow": "Letras & histórias",
@@ -252,6 +252,38 @@
     "archiveLabel": "Todos os números",
     "noPostsYet": "Ainda nada aqui — volte em breve.",
     "backToNotes": "Todas as notas",
-    "subscribeDesc": "Cada carta na sua caixa. Sem calendário, sem ruído — apenas o trabalho."
+    "subscribeDesc": "Cada carta na sua caixa. Sem calendário, sem ruído — apenas o trabalho.",
+    "readMore": "Ler →"
+  },
+  "works": {
+    "featured": "Destaque",
+    "upNext": "A seguir",
+    "albumsAndEps": "Álbuns & EPs",
+    "songs": "Músicas",
+    "comingSoon": "Em breve",
+    "singleSoFar": "single lançado até agora",
+    "singlesSoFar": "singles lançados até agora",
+    "listen": "Ouvir",
+    "theLyric": "A Letra",
+    "theStory": "A História",
+    "singlesSoFarLabel": "Singles até agora",
+    "fromTheNotes": "Das Notas",
+    "readInNotes": "Ler nas Notas →",
+    "credits": "Créditos",
+    "intro": "Músicas, gravações e outras obras artísticas — de um catálogo com mais de 300 composições originais."
+  },
+  "keepInTouch": {
+    "heading": "Manter contato",
+    "generic": "Junta-te à minha lista de email para notas ocasionais, novas músicas, concertos e atualizações.",
+    "works": "Fica a par de novas músicas, gravações e as histórias por trás delas.",
+    "work": "Fica a saber o que crio a seguir.",
+    "live": "Recebe notificações sobre próximos concertos e apresentações ao vivo.",
+    "notes": "Recebe novas notas e histórias na tua caixa de entrada.",
+    "note": "Recebe notas futuras na tua caixa de entrada."
+  },
+  "form": {
+    "subscribe": "Subscrever",
+    "success": "Estás dentro. Aguarda a primeira carta.",
+    "error": "Algo correu mal — tenta de novo ou escreve para sjoholm.e@gmail.com."
   }
 }

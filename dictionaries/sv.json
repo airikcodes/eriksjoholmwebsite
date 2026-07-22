@@ -1,7 +1,7 @@
 {
   "nav": {
     "about": "Om mig",
-    "works": "Works",
+    "works": "Verk",
     "live": "Live",
     "notes": "Anteckningar",
     "shop": "Butik",
@@ -44,7 +44,7 @@
     "explore": "Utforska",
     "theStoryteller": "Berättaren →",
     "syncLicensing": "Synklicenser →",
-    "works": "Works →"
+    "works": "Verk →"
   },
   "songs": {
     "eyebrow": "Texter & berättelser",
@@ -252,6 +252,38 @@
     "archiveLabel": "Alla nummer",
     "noPostsYet": "Inget här än — kika in snart.",
     "backToNotes": "Alla anteckningar",
-    "subscribeDesc": "Varje brev direkt i din inkorg. Inget schema, inget brus — bara arbetet."
+    "subscribeDesc": "Varje brev direkt i din inkorg. Inget schema, inget brus — bara arbetet.",
+    "readMore": "Läs →"
+  },
+  "works": {
+    "featured": "Utvalda",
+    "upNext": "Härnäst",
+    "albumsAndEps": "Album & EP",
+    "songs": "Låtar",
+    "comingSoon": "Snart",
+    "singleSoFar": "singel utgiven hittills",
+    "singlesSoFar": "singlar utgivna hittills",
+    "listen": "Lyssna",
+    "theLyric": "Texten",
+    "theStory": "Historien",
+    "singlesSoFarLabel": "Hittills utgivna singlar",
+    "fromTheNotes": "Från anteckningarna",
+    "readInNotes": "Läs i anteckningar →",
+    "credits": "Credits",
+    "intro": "Låtar, inspelningar och andra konstnärliga verk — från en katalog med över 300 originalkompositioner."
+  },
+  "keepInTouch": {
+    "heading": "Håll kontakten",
+    "generic": "Gå med i mitt nyhetsbrev — för enstaka notiser, nya låtar, konserter och uppdateringar.",
+    "works": "Hör om nya låtar, inspelningar och berättelserna bakom dem.",
+    "work": "Hör vad jag skapar härnäst.",
+    "live": "Bli notifierad om kommande konserter och liveframträdanden.",
+    "notes": "Få nya anteckningar och berättelser direkt i inkorgen.",
+    "note": "Få framtida anteckningar direkt i inkorgen."
+  },
+  "form": {
+    "subscribe": "Prenumerera",
+    "success": "Du är med. Håll utkik efter det första brevet.",
+    "error": "Något gick fel — försök igen eller skriv till sjoholm.e@gmail.com."
   }
 }

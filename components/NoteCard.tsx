@@ -3,7 +3,7 @@ import Image from 'next/image';
 import type { Note } from '@/lib/notes';
 import { formatNoteDate } from '@/lib/notes';
 
-export default function NoteCard({ note, locale }: { note: Note; locale: string }) {
+export default function NoteCard({ note, locale, readMoreLabel = 'Read →' }: { note: Note; locale: string; readMoreLabel?: string }) {
   const date = formatNoteDate(note.date, locale);
 
   return (
@@ -73,7 +73,7 @@ export default function NoteCard({ note, locale }: { note: Note; locale: string 
               color:         '#7A6F62',
             }}
           >
-            Read →
+            {readMoreLabel}
           </span>
         </div>
 

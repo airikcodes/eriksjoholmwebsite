@@ -38,12 +38,15 @@ export default function LocaleSwitcher() {
       aria-label="Language selector"
       style={{
         position: 'fixed',
-        top: '1.5rem',
-        right: '1.5rem',
+        top: 'max(1.5rem, calc(env(safe-area-inset-top, 0px) + 0.75rem))',
+        right: 'max(1.5rem, env(safe-area-inset-right, 0px))',
         zIndex: 10,
         display: 'flex',
         gap: '0.3rem',
         alignItems: 'center',
+        flexWrap: 'wrap',
+        maxWidth: 'calc(100vw - 3rem)',
+        justifyContent: 'flex-end',
       }}
     >
       {locales.map((l) => (

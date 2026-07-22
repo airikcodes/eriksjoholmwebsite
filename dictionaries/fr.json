@@ -44,7 +44,7 @@
     "explore": "Explorer",
     "theStoryteller": "Le conteur →",
     "syncLicensing": "Licences Sync →",
-    "works": "Works →"
+    "works": "Œuvres →"
   },
   "songs": {
     "eyebrow": "Paroles & histoires",
@@ -252,6 +252,38 @@
     "archiveLabel": "Tous les numéros",
     "noPostsYet": "Rien ici pour l'instant — revenez bientôt.",
     "backToNotes": "Toutes les notes",
-    "subscribeDesc": "Chaque lettre dans ta boîte. Pas de calendrier, pas de bruit — juste le travail."
+    "subscribeDesc": "Chaque lettre dans ta boîte. Pas de calendrier, pas de bruit — juste le travail.",
+    "readMore": "Lire →"
+  },
+  "works": {
+    "featured": "À la une",
+    "upNext": "Prochainement",
+    "albumsAndEps": "Albums & EPs",
+    "songs": "Chansons",
+    "comingSoon": "Bientôt",
+    "singleSoFar": "single sorti jusqu’ici",
+    "singlesSoFar": "singles sortis jusqu’ici",
+    "listen": "Écouter",
+    "theLyric": "Les Paroles",
+    "theStory": "L'Histoire",
+    "singlesSoFarLabel": "Singles jusqu’ici",
+    "fromTheNotes": "Des Notes",
+    "readInNotes": "Lire dans les Notes →",
+    "credits": "Crédits",
+    "intro": "Chansons, enregistrements et autres œuvres artistiques — d'un catalogue de plus de 300 compositions originales."
+  },
+  "keepInTouch": {
+    "heading": "Restons en contact",
+    "generic": "Rejoins ma liste de diffusion pour des notes occasionnelles, de nouvelles chansons, des concerts et des actualités.",
+    "works": "Sois au courant des nouvelles chansons, enregistrements et des histoires derrière.",
+    "work": "Découvre ce que je ferai ensuite.",
+    "live": "Sois notifié des prochains concerts et performances live.",
+    "notes": "Reçois de nouvelles notes et histoires dans ta boîte mail.",
+    "note": "Reçois les prochaines notes dans ta boîte mail."
+  },
+  "form": {
+    "subscribe": "S'abonner",
+    "success": "Tu es inscrit. Guette la première lettre.",
+    "error": "Quelque chose s’est mal passé — réessaie ou écris à sjoholm.e@gmail.com."
   }
 }

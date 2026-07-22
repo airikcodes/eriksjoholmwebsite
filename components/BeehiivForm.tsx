@@ -2,7 +2,17 @@
 
 import { useState } from 'react';
 
-export default function BeehiivForm() {
+interface Props {
+  subscribeLabel?: string;
+  successMsg?: string;
+  errorMsg?: string;
+}
+
+export default function BeehiivForm({
+  subscribeLabel = 'Subscribe',
+  successMsg = "You're in. Watch for the first letter.",
+  errorMsg = 'Something went wrong — try again or write to sjoholm.e@gmail.com.',
+}: Props) {
   const [email, setEmail] = useState('');
   const [state, setState] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
@@ -36,7 +46,7 @@ export default function BeehiivForm() {
         color: '#C8922A',
         letterSpacing: '0.05em',
       }}>
-        You&rsquo;re in. Watch for the first letter.
+        {successMsg}
       </p>
     );
   }
@@ -95,7 +105,7 @@ export default function BeehiivForm() {
           (e.currentTarget as HTMLButtonElement).style.color = '#C8922A';
         }}
       >
-        {state === 'loading' ? '…' : 'Subscribe'}
+        {state === 'loading' ? '…' : subscribeLabel}
       </button>
 
       {state === 'error' && (
@@ -106,7 +116,7 @@ export default function BeehiivForm() {
           color: '#7A6F62',
           marginTop: '0.5rem',
         }}>
-          Something went wrong — try again or write directly to sjoholm.e@gmail.com.
+          {errorMsg}
         </p>
       )}
     </form>

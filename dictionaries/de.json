@@ -1,7 +1,7 @@
 {
   "nav": {
     "about": "Über mich",
-    "works": "Works",
+    "works": "Werke",
     "live": "Live",
     "notes": "Notizen",
     "shop": "Shop",
@@ -44,7 +44,7 @@
     "explore": "Erkunden",
     "theStoryteller": "Der Geschichtenerzähler →",
     "syncLicensing": "Sync-Lizenzierung →",
-    "works": "Works →"
+    "works": "Werke →"
   },
   "songs": {
     "eyebrow": "Texte & Geschichten",
@@ -252,6 +252,38 @@
     "archiveLabel": "Alle Ausgaben",
     "noPostsYet": "Noch nichts hier — schau bald wieder vorbei.",
     "backToNotes": "Alle Notizen",
-    "subscribeDesc": "Jeder Brief direkt in dein Postfach. Kein Zeitplan, kein Lärm — nur die Arbeit."
+    "subscribeDesc": "Jeder Brief direkt in dein Postfach. Kein Zeitplan, kein Lärm — nur die Arbeit.",
+    "readMore": "Lesen →"
+  },
+  "works": {
+    "featured": "Ausgewählt",
+    "upNext": "Als Nächstes",
+    "albumsAndEps": "Alben & EPs",
+    "songs": "Songs",
+    "comingSoon": "Demnächst",
+    "singleSoFar": "Single bisher veröffentlicht",
+    "singlesSoFar": "Singles bisher veröffentlicht",
+    "listen": "Anhören",
+    "theLyric": "Der Text",
+    "theStory": "Die Geschichte",
+    "singlesSoFarLabel": "Bisherige Singles",
+    "fromTheNotes": "Aus den Notizen",
+    "readInNotes": "Im Notizbuch lesen →",
+    "credits": "Credits",
+    "intro": "Songs, Aufnahmen und andere künstlerische Werke — aus einem Katalog von über 300 Originalkompositionen."
+  },
+  "keepInTouch": {
+    "heading": "In Kontakt bleiben",
+    "generic": "Trag dich in meinen Newsletter ein — für gelegentliche Notizen, neue Songs, Konzerte und Neuigkeiten.",
+    "works": "Erfahre von neuen Songs, Aufnahmen und den Geschichten dahinter.",
+    "work": "Erfahre, was als Nächstes entsteht.",
+    "live": "Erhalte Benachrichtigungen über bevorstehende Konzerte und Auftritte.",
+    "notes": "Erhalte neue Notizen und Geschichten direkt in deinen Posteingang.",
+    "note": "Erhalte zukünftige Notizen in deinen Posteingang."
+  },
+  "form": {
+    "subscribe": "Abonnieren",
+    "success": "Du bist dabei. Halte Ausschau nach dem ersten Brief.",
+    "error": "Etwas ist schiefgelaufen — versuche es erneut oder schreibe an sjoholm.e@gmail.com."
   }
 }

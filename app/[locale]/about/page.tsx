@@ -74,6 +74,7 @@ export default async function About({
                 alt="Erik Sjøholm"
                 width={160}
                 height={160}
+                priority
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
               />
             </div>

@@ -68,7 +68,7 @@ export default async function LivePage({
               color:         '#7A6F62',
               marginBottom:  '1.25rem',
             }}>
-              Live
+              {l.eyebrow}
             </p>
             <h1
               className="font-[family-name:var(--font-cormorant)] font-light"
@@ -79,7 +79,7 @@ export default async function LivePage({
                 lineHeight:   0.95,
               }}
             >
-              Live
+              {l.title}
             </h1>
             <span className="block" style={{ width: '2rem', height: '1px', background: '#C8922A', marginTop: '2.5rem' }} />
           </div>
@@ -184,7 +184,7 @@ export default async function LivePage({
               </ul>
             )}
 
-            <KeepInTouch variant="live" />
+            <KeepInTouch variant="live" locale={locale} />
           </div>
 
           {/* ── Songs of the Seasons ── */}

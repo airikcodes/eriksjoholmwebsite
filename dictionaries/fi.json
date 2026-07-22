@@ -44,7 +44,7 @@
     "explore": "Tutki",
     "theStoryteller": "Tarinankerrontakonsertti →",
     "syncLicensing": "Synkronoinnin lisensointi →",
-    "works": "Works →"
+    "works": "Teokset →"
   },
   "songs": {
     "eyebrow": "Sanoitukset & tarinat",
@@ -252,6 +252,38 @@
     "archiveLabel": "Kaikki numerot",
     "noPostsYet": "Ei vielä mitään — tule pian takaisin.",
     "backToNotes": "Kaikki muistiinpanot",
-    "subscribeDesc": "Jokainen kirje suoraan postilaatikkoosi. Ei aikataulua, ei melua — vain työ."
+    "subscribeDesc": "Jokainen kirje suoraan postilaatikkoosi. Ei aikataulua, ei melua — vain työ.",
+    "readMore": "Lue →"
+  },
+  "works": {
+    "featured": "Valitut",
+    "upNext": "Seuraavaksi",
+    "albumsAndEps": "Albumit & EP:t",
+    "songs": "Kappaleet",
+    "comingSoon": "Pian",
+    "singleSoFar": "single julkaistu tähän mennessä",
+    "singlesSoFar": "singleä julkaistu tähän mennessä",
+    "listen": "Kuuntele",
+    "theLyric": "Sanoitukset",
+    "theStory": "Tarina",
+    "singlesSoFarLabel": "Tähänastiset singlet",
+    "fromTheNotes": "Muistiinpanoista",
+    "readInNotes": "Lue Muistiinpanoissa →",
+    "credits": "Tekijät",
+    "intro": "Kappaleita, äänitteitä ja muita taiteellisia teoksia — yli 300 originaaliteoksen katalogista."
+  },
+  "keepInTouch": {
+    "heading": "Pysy yhteydessä",
+    "generic": "Liity postituslistalleni saadaksesi satunnaisia muistiinpanoja, uusia kappaleita, konsertteja ja päivityksiä.",
+    "works": "Kuule uusista kappaleista, nauhoituksista ja niiden tarinoista.",
+    "work": "Kuule mitä teen seuraavaksi.",
+    "live": "Saat ilmoituksen tulevista konserteista ja live-esiintymisistä.",
+    "notes": "Vastaanota uusia muistiinpanoja ja tarinoita sähköpostiisi.",
+    "note": "Vastaanota tulevia muistiinpanoja sähköpostiisi."
+  },
+  "form": {
+    "subscribe": "Tilaa",
+    "success": "Olet mukana. Odota ensimmäistä kirjettä.",
+    "error": "Jotain meni pieleen — yritä uudelleen tai kirjoita osoitteeseen sjoholm.e@gmail.com."
   }
 }

@@ -1,44 +1,23 @@
 import BeehiivForm from './BeehiivForm';
+import { getDictionary, hasLocale } from '@/lib/dictionaries';
 
 export type KeepInTouchVariant = 'generic' | 'works' | 'work' | 'live' | 'notes' | 'note';
 
-const copy: Record<KeepInTouchVariant, { heading: string; body: string }> = {
-  generic: {
-    heading: 'Keep in touch',
-    body:    'Join my mailing list for occasional notes, new songs, concerts, and updates.',
-  },
-  works: {
-    heading: 'Keep in touch',
-    body:    'Hear about new songs, recordings, and the stories behind them.',
-  },
-  work: {
-    heading: 'Keep in touch',
-    body:    'Hear what I make next.',
-  },
-  live: {
-    heading: 'Keep in touch',
-    body:    'Get notified about upcoming concerts and live performances.',
-  },
-  notes: {
-    heading: 'Keep in touch',
-    body:    'Receive new notes and stories in your inbox.',
-  },
-  note: {
-    heading: 'Keep in touch',
-    body:    'Receive future notes in your inbox.',
-  },
-};
-
 interface Props {
   variant?: KeepInTouchVariant;
+  locale?: string;
   overrideHeading?: string;
   overrideBody?: string;
 }
 
-export default function KeepInTouch({ variant = 'generic', overrideHeading, overrideBody }: Props) {
-  const { heading, body } = copy[variant];
-  const displayHeading = overrideHeading ?? heading;
-  const displayBody    = overrideBody    ?? body;
+export default async function KeepInTouch({ variant = 'generic', locale = 'en', overrideHeading, overrideBody }: Props) {
+  const safeLocale = hasLocale(locale) ? locale : 'en';
+  const t = await getDictionary(safeLocale);
+  const kit = t.keepInTouch as Record<string, string>;
+  const frm = t.form as Record<string, string>;
+
+  const displayHeading = overrideHeading ?? kit.heading;
+  const displayBody    = overrideBody    ?? kit[variant] ?? kit.generic;
 
   return (
     <div>
@@ -63,7 +42,11 @@ export default function KeepInTouch({ variant = 'generic', overrideHeading, over
       }}>
         {displayBody}
       </p>
-      <BeehiivForm />
+      <BeehiivForm
+        subscribeLabel={frm.subscribe}
+        successMsg={frm.success}
+        errorMsg={frm.error}
+      />
     </div>
   );
 }

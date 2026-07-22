@@ -67,7 +67,7 @@ export default async function NotesIndex({
               color:         '#7A6F62',
               marginBottom:  '1.25rem',
             }}>
-              Notes
+              {n.eyebrow}
             </p>
             <h1
               className="font-[family-name:var(--font-cormorant)] font-light"
@@ -79,7 +79,7 @@ export default async function NotesIndex({
                 marginBottom: '1.75rem',
               }}
             >
-              Notes
+              {n.title}
             </h1>
             <p style={{
               fontFamily: 'var(--font-inter)',
@@ -106,7 +106,7 @@ export default async function NotesIndex({
             ) : (
               <div>
                 {notes.map((note) => (
-                  <NoteCard key={note.slug} note={note} locale={locale} />
+                  <NoteCard key={note.slug} note={note} locale={locale} readMoreLabel={n.readMore} />
                 ))}
               </div>
             )}
@@ -118,7 +118,7 @@ export default async function NotesIndex({
             paddingTop:    '4rem',
             paddingBottom: '9rem',
           }}>
-            <KeepInTouch variant="notes" />
+            <KeepInTouch variant="notes" locale={locale} />
           </div>
 
         </div>

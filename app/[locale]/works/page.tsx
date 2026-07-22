@@ -70,7 +70,7 @@ export default async function WorksPage({
               color:         '#7A6F62',
               marginBottom:  '1.25rem',
             }}>
-              Works
+              {t.nav.works}
             </p>
             <h1
               className="font-[family-name:var(--font-cormorant)] font-light"
@@ -82,7 +82,7 @@ export default async function WorksPage({
                 marginBottom:  '2.5rem',
               }}
             >
-              Works
+              {t.nav.works}
             </h1>
 
             <span className="block" style={{ width: '2rem', height: '1px', background: '#C8922A', marginBottom: '2.5rem' }} />
@@ -95,7 +95,7 @@ export default async function WorksPage({
               maxWidth:     '50ch',
               marginBottom: '2rem',
             }}>
-              Songs, recordings, and other artistic works — from a catalogue of over 300 original compositions.
+              {t.works.intro}
             </p>
 
             <div className="flex flex-wrap gap-6">
@@ -114,7 +114,7 @@ export default async function WorksPage({
                   paddingBottom: '2px',
                 }}
               >
-                Full catalogue on Spotify →
+                {t.songs.fullCatalogueSpotify}
               </a>
               <a
                 href={TIDAL_ARTIST}
@@ -131,7 +131,7 @@ export default async function WorksPage({
                   paddingBottom: '2px',
                 }}
               >
-                Full catalogue on Tidal →
+                {t.songs.fullCatalogueTidal}
               </a>
             </div>
           </div>
@@ -146,7 +146,7 @@ export default async function WorksPage({
               color:         '#7A6F62',
               marginBottom:  '3.5rem',
             }}>
-              Featured
+              {t.works.featured}
             </p>
 
             <div>
@@ -232,7 +232,7 @@ export default async function WorksPage({
                 color:         '#7A6F62',
                 marginBottom:  '3.5rem',
               }}>
-                Up Next
+                {t.works.upNext}
               </p>
 
               <div>
@@ -260,7 +260,7 @@ export default async function WorksPage({
                         color:         'rgba(200,146,42,0.5)',
                         marginBottom:  '0.5rem',
                       }}>
-                        {work.workType === 'album' ? 'Album' : work.workType === 'ep' ? 'EP' : 'Single'} · Coming Soon
+                        {work.workType === 'album' ? 'Album' : work.workType === 'ep' ? 'EP' : 'Single'} · {t.works.comingSoon}
                       </p>
                       <p
                         className="font-[family-name:var(--font-cormorant)] font-light group-hover:text-[#C8922A] transition-colors duration-200"
@@ -293,7 +293,7 @@ export default async function WorksPage({
                           color:         '#5A5248',
                           marginTop:     '0.5rem',
                         }}>
-                          {work.tracks.length} single{work.tracks.length !== 1 ? 's' : ''} released so far
+                          {work.tracks.length} {work.tracks.length !== 1 ? t.works.singlesSoFar : t.works.singleSoFar}
                         </p>
                       )}
                     </div>
@@ -322,7 +322,7 @@ export default async function WorksPage({
               color:         '#7A6F62',
               marginBottom:  '3rem',
             }}>
-              Albums & EPs
+              {t.works.albumsAndEps}
             </p>
 
             <AlbumsSearch albums={albums} defaultLimit={3} />
@@ -338,7 +338,7 @@ export default async function WorksPage({
               color:         '#7A6F62',
               marginBottom:  '3rem',
             }}>
-              Songs
+              {t.works.songs}
             </p>
 
             <WorksSearch works={works} defaultLimit={3} />
@@ -395,7 +395,7 @@ export default async function WorksPage({
                 }}
                 className="hover:border-[#C8922A] hover:text-[#E8E0D4] transition-all duration-200"
               >
-                Browse the catalogue →
+                {t.songs.sync.cta}
               </Link>
               <a
                 href="https://eriksjoholmofficial.disco.ac/cat/1272966979"
@@ -479,7 +479,7 @@ export default async function WorksPage({
 
           {/* ── Keep in touch ── */}
           <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '5rem', paddingBottom: '9rem' }}>
-            <KeepInTouch variant="works" />
+            <KeepInTouch variant="works" locale={locale} />
           </div>
 
         </div>

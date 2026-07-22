@@ -252,6 +252,38 @@
     "archiveLabel": "All issues",
     "noPostsYet": "The first entry is on its way.",
     "backToNotes": "All notes",
-    "subscribeDesc": "Get each letter in your inbox. No schedule, no noise — just the work."
+    "subscribeDesc": "Get each letter in your inbox. No schedule, no noise — just the work.",
+    "readMore": "Read →"
+  },
+  "works": {
+    "featured": "Featured",
+    "upNext": "Up Next",
+    "albumsAndEps": "Albums & EPs",
+    "songs": "Songs",
+    "comingSoon": "Coming Soon",
+    "singleSoFar": "single released so far",
+    "singlesSoFar": "singles released so far",
+    "listen": "Listen",
+    "theLyric": "The Lyric",
+    "theStory": "The Story",
+    "singlesSoFarLabel": "Singles So Far",
+    "fromTheNotes": "From the Notes",
+    "readInNotes": "Read in Notes →",
+    "credits": "Credits",
+    "intro": "Songs, recordings, and other artistic works — from a catalogue of over 300 original compositions."
+  },
+  "keepInTouch": {
+    "heading": "Keep in touch",
+    "generic": "Join my mailing list for occasional notes, new songs, concerts, and updates.",
+    "works": "Hear about new songs, recordings, and the stories behind them.",
+    "work": "Hear what I make next.",
+    "live": "Get notified about upcoming concerts and live performances.",
+    "notes": "Receive new notes and stories in your inbox.",
+    "note": "Receive future notes in your inbox."
+  },
+  "form": {
+    "subscribe": "Subscribe",
+    "success": "You’re in. Watch for the first letter.",
+    "error": "Something went wrong — try again or write to sjoholm.e@gmail.com."
   }
 }

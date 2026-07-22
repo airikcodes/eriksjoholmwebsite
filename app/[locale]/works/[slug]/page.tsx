@@ -4,7 +4,7 @@ import BackNav from '@/components/BackNav';
 import KeepInTouch from '@/components/KeepInTouch';
 import Link from 'next/link';
 import { works, albums, getWork, type Work } from '@/data/works';
-import { hasLocale } from '@/lib/dictionaries';
+import { getDictionary, hasLocale } from '@/lib/dictionaries';
 
 const LOCALES = ['en', 'de', 'es', 'sv', 'fi', 'it', 'fr', 'pt'];
 
@@ -58,6 +58,7 @@ export default async function WorkPage({
   const work = getWork(slug);
   if (!work) notFound();
 
+  const t = await getDictionary(locale);
   const isUpcoming = work.releaseStatus === 'upcoming';
 
   // For upcoming albums: resolve track entries for the singles-so-far list
@@ -155,7 +156,7 @@ export default async function WorkPage({
                 color:         '#7A6F62',
                 marginBottom:  '2rem',
               }}>
-                Listen
+                {t.works.listen}
               </p>
               <div className="flex flex-wrap gap-6">
                 {work.spotifyUrl && (
@@ -211,7 +212,7 @@ export default async function WorkPage({
                 color:         '#7A6F62',
                 marginBottom:  '2rem',
               }}>
-                The Lyric
+                {t.works.theLyric}
               </p>
               <div style={{
                 borderLeft:  '1px solid rgba(200,146,42,0.2)',
@@ -243,7 +244,7 @@ export default async function WorkPage({
                 color:         '#7A6F62',
                 marginBottom:  '1.5rem',
               }}>
-                The Story
+                {t.works.theStory}
               </p>
               <p style={{
                 fontFamily: 'var(--font-inter)',
@@ -268,7 +269,7 @@ export default async function WorkPage({
                 color:         '#7A6F62',
                 marginBottom:  '2rem',
               }}>
-                Singles So Far
+                {t.works.singlesSoFarLabel}
               </p>
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                 {trackWorks.map((track) => (
@@ -333,7 +334,7 @@ export default async function WorkPage({
                 color:         '#7A6F62',
                 marginBottom:  '2rem',
               }}>
-                From the Notes
+                {t.works.fromTheNotes}
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                 {work.relatedNotes.map((noteSlug) => (
@@ -349,7 +350,7 @@ export default async function WorkPage({
                     }}
                     className="hover:text-[#E8E0D4] transition-colors duration-200"
                   >
-                    Read in Notes →
+                    {t.works.readInNotes}
                   </Link>
                 ))}
               </div>
@@ -367,7 +368,7 @@ export default async function WorkPage({
                 color:         '#7A6F62',
                 marginBottom:  '2rem',
               }}>
-                Credits
+                {t.works.credits}
               </p>
               <ul style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
                 {work.credits.map((credit, i) => (
@@ -401,6 +402,7 @@ export default async function WorkPage({
           <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '5rem', paddingBottom: '9rem' }}>
             <KeepInTouch
               variant="work"
+              locale={locale}
               overrideBody={isUpcoming
                 ? `Want to be notified when ${work.title} is released? Subscribe to hear first.`
                 : undefined}
