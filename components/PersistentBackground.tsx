@@ -70,17 +70,25 @@ export default function PersistentBackground() {
 
   const [current, setCurrent]   = useState(0);
   const [reducedMotion, setRM]  = useState(false);
+  const [showVideo, setShowVideo] = useState(false); // off until client confirms conditions
   const [muted, setMuted]       = useState(true);
   const [volume, setVolume]     = useState(0.6);
 
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
-  // Reduced-motion preference
+  // Reduced-motion preference + mobile/slow-connection check
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
     setRM(mq.matches);
     const h = (e: MediaQueryListEvent) => setRM(e.matches);
     mq.addEventListener("change", h);
+
+    // Skip video on mobile viewports or low-bandwidth connections
+    const conn = (navigator as any).connection;
+    const isMobile = window.innerWidth < 768;
+    const isSlow = conn?.saveData || ['slow-2g', '2g'].includes(conn?.effectiveType ?? '');
+    if (!isMobile && !isSlow) setShowVideo(true);
+
     return () => mq.removeEventListener("change", h);
   }, []);
 
@@ -129,8 +137,8 @@ export default function PersistentBackground() {
 
   // ── Render ────────────────────────────────────────────────────────────────
 
-  if (reducedMotion) {
-    // Reduced-motion: static dark background, no video
+  if (reducedMotion || !showVideo) {
+    // Static dark background for: reduced-motion preference, mobile, or slow connection
     if (!isHome) return null;
     return (
       <div style={{ position: "fixed", inset: 0, zIndex: 0, background: "#0d0d0d", pointerEvents: "none" }} />
@@ -141,7 +149,7 @@ export default function PersistentBackground() {
 
   return (
     <>
-      {/* Videos only on home page — avoids loading 160MB on every inner page */}
+      {/* Videos only on home page */}
       {isHome && (
         <>
           <div className="bg-slideshow">
