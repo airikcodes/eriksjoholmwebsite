@@ -10,6 +10,14 @@ const videos = [
   "/videos/bg-04.mp4",
 ];
 
+const images = [
+  "/images/bg/bg-01.jpg",
+  "/images/bg/bg-02.jpg",
+  "/images/bg/bg-03.jpg",
+  "/images/bg/bg-04.jpg",
+  "/images/bg/bg-05.jpg",
+];
+
 const CYCLE_MS = 30_000;
 
 const LOCALE_HOME_RE = /^\/([a-z]{2})?\/?$/;
@@ -62,17 +70,19 @@ const glassBtn: React.CSSProperties = {
   transition: "background 180ms ease, border-color 180ms ease, opacity 180ms ease",
 };
 
+const bgFilter = "brightness(0.62) contrast(0.88) saturate(0.82)";
+
 // ── Component ─────────────────────────────────────────────────────────────────
 
 export default function PersistentBackground() {
   const pathname      = usePathname();
   const isHome        = LOCALE_HOME_RE.test(pathname);
 
-  const [current, setCurrent]   = useState(0);
-  const [reducedMotion, setRM]  = useState(false);
-  const [showVideo, setShowVideo] = useState(false); // off until client confirms conditions
-  const [muted, setMuted]       = useState(true);
-  const [volume, setVolume]     = useState(0.6);
+  const [current, setCurrent]     = useState(0);
+  const [reducedMotion, setRM]    = useState(false);
+  const [showVideo, setShowVideo] = useState(false); // conservative: off until client confirms
+  const [muted, setMuted]         = useState(true);
+  const [volume, setVolume]       = useState(0.6);
 
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
@@ -83,7 +93,6 @@ export default function PersistentBackground() {
     const h = (e: MediaQueryListEvent) => setRM(e.matches);
     mq.addEventListener("change", h);
 
-    // Skip video on mobile viewports or low-bandwidth connections
     const conn = (navigator as any).connection;
     const isMobile = window.innerWidth < 768;
     const isSlow = conn?.saveData || ['slow-2g', '2g'].includes(conn?.effectiveType ?? '');
@@ -92,10 +101,10 @@ export default function PersistentBackground() {
     return () => mq.removeEventListener("change", h);
   }, []);
 
-  // Video cycling
+  // Cycling — runs for both image and video modes
   useEffect(() => {
     if (reducedMotion) return;
-    const id = setInterval(() => setCurrent((c) => (c + 1) % videos.length), CYCLE_MS);
+    const id = setInterval(() => setCurrent((c) => c + 1), CYCLE_MS);
     return () => clearInterval(id);
   }, [reducedMotion]);
 
@@ -105,7 +114,7 @@ export default function PersistentBackground() {
       if (!v) return;
       v.muted  = true;
       v.volume = volume;
-      if (i === current) {
+      if (i === current % videos.length) {
         seekToMiddle(v);
         v.play().catch(() => {});
       }
@@ -114,9 +123,10 @@ export default function PersistentBackground() {
 
   // Re-seek and play on cycle, mute outgoing video
   useEffect(() => {
+    const activeIdx = current % videos.length;
     videoRefs.current.forEach((v, i) => {
       if (!v) return;
-      if (i === current) {
+      if (i === activeIdx) {
         v.muted = muted;
         v.volume = volume;
         seekToMiddle(v);
@@ -129,7 +139,7 @@ export default function PersistentBackground() {
 
   // Sound: keep active video in sync with muted/volume controls
   useEffect(() => {
-    const v = videoRefs.current[current];
+    const v = videoRefs.current[current % videos.length];
     if (!v) return;
     v.muted  = muted;
     v.volume = volume;
@@ -137,74 +147,93 @@ export default function PersistentBackground() {
 
   // ── Render ────────────────────────────────────────────────────────────────
 
-  if (reducedMotion || !showVideo) {
-    // Static dark background for: reduced-motion preference, mobile, or slow connection
-    if (!isHome) return null;
+  if (!isHome) return null;
+
+  // Reduced-motion: no animation at all — static dark background
+  if (reducedMotion) {
+    return <div style={{ position: "fixed", inset: 0, zIndex: 0, background: "#0d0d0d", pointerEvents: "none" }} />;
+  }
+
+  // Mobile / slow connection: Ken Burns image slideshow (no video download)
+  if (!showVideo) {
+    const imgIdx = current % images.length;
     return (
-      <div style={{ position: "fixed", inset: 0, zIndex: 0, background: "#0d0d0d", pointerEvents: "none" }} />
+      <>
+        <div className="bg-slideshow">
+          {images.map((src, i) => (
+            <div
+              key={src}
+              className={`bg-slide${i === imgIdx ? " active" : ""}`}
+              style={{ backgroundImage: `url(${src})`, filter: bgFilter }}
+            />
+          ))}
+        </div>
+        <div
+          aria-hidden="true"
+          style={{
+            position: "fixed", inset: 0, zIndex: 1, pointerEvents: "none",
+            background: "radial-gradient(ellipse 100% 100% at 50% 50%, transparent 40%, rgba(0,0,0,0.45) 100%)",
+          }}
+        />
+      </>
     );
   }
 
-  const nextIdx = (current + 1) % videos.length;
+  // Desktop / fast connection: video slideshow
+  const activeVideoIdx = current % videos.length;
+  const nextVideoIdx   = (current + 1) % videos.length;
 
   return (
     <>
-      {/* Videos only on home page */}
-      {isHome && (
-        <>
-          <div className="bg-slideshow">
-            {videos.map((src, i) => (
-              <div key={src} className={`bg-slide video-slide${i === current ? " active" : ""}`}>
-                <video
-                  ref={(el) => { videoRefs.current[i] = el; }}
-                  muted loop playsInline aria-hidden="true"
-                  preload={i === current || i === nextIdx ? "auto" : "none"}
-                  style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", filter: "brightness(0.62) contrast(0.88) saturate(0.82)" }}
-                >
-                  <source src={src} type="video/mp4" />
-                </video>
-              </div>
-            ))}
-          </div>
-
-          {/* Dark vignette */}
-          <div
-            aria-hidden="true"
-            style={{
-              position: "fixed", inset: 0, zIndex: 1, pointerEvents: "none",
-              background: "radial-gradient(ellipse 100% 100% at 50% 50%, transparent 40%, rgba(0,0,0,0.45) 100%)",
-            }}
-          />
-
-          {/* Sound controls */}
-          <div
-            role="group"
-            aria-label="Background controls"
-            style={{
-              position: "fixed",
-              bottom: "max(1.5rem, calc(env(safe-area-inset-bottom, 0px) + 0.75rem))",
-              right:  "max(1.5rem, env(safe-area-inset-right, 0px))",
-              zIndex: 50,
-              display: "flex", alignItems: "center", gap: "0.5rem",
-            }}
-          >
-            {!muted && (
-              <input type="range" min="0" max="1" step="0.05" value={volume}
-                onChange={(e) => setVolume(Number(e.target.value))}
-                aria-label="Volume"
-                style={{ width: "72px", accentColor: "#C8922A", cursor: "pointer" }}
-              />
-            )}
-            <button
-              onClick={() => setMuted((m) => !m)}
-              aria-label={muted ? "Unmute background video" : "Mute background video"}
-              style={glassBtn}
+      <div className="bg-slideshow">
+        {videos.map((src, i) => (
+          <div key={src} className={`bg-slide video-slide${i === activeVideoIdx ? " active" : ""}`}>
+            <video
+              ref={(el) => { videoRefs.current[i] = el; }}
+              muted loop playsInline aria-hidden="true"
+              preload={i === activeVideoIdx || i === nextVideoIdx ? "auto" : "none"}
+              style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", filter: bgFilter }}
             >
-              {muted ? <IconSoundOff /> : <IconSoundOn />}
-            </button>
+              <source src={src} type="video/mp4" />
+            </video>
           </div>
-        </>
-      )}
+        ))}
+      </div>
+
+      <div
+        aria-hidden="true"
+        style={{
+          position: "fixed", inset: 0, zIndex: 1, pointerEvents: "none",
+          background: "radial-gradient(ellipse 100% 100% at 50% 50%, transparent 40%, rgba(0,0,0,0.45) 100%)",
+        }}
+      />
+
+      <div
+        role="group"
+        aria-label="Background controls"
+        style={{
+          position: "fixed",
+          bottom: "max(1.5rem, calc(env(safe-area-inset-bottom, 0px) + 0.75rem))",
+          right:  "max(1.5rem, env(safe-area-inset-right, 0px))",
+          zIndex: 50,
+          display: "flex", alignItems: "center", gap: "0.5rem",
+        }}
+      >
+        {!muted && (
+          <input type="range" min="0" max="1" step="0.05" value={volume}
+            onChange={(e) => setVolume(Number(e.target.value))}
+            aria-label="Volume"
+            style={{ width: "72px", accentColor: "#C8922A", cursor: "pointer" }}
+          />
+        )}
+        <button
+          onClick={() => setMuted((m) => !m)}
+          aria-label={muted ? "Unmute background video" : "Mute background video"}
+          style={glassBtn}
+        >
+          {muted ? <IconSoundOff /> : <IconSoundOn />}
+        </button>
+      </div>
     </>
   );
 }
