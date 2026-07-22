@@ -79,6 +79,7 @@ export default function PersistentBackground() {
   const [current, setCurrent]     = useState(0);
   const [reducedMotion, setRM]    = useState(false);
   const [showVideo, setShowVideo] = useState(false); // conservative: off until client confirms
+  const [videoReady, setVideoReady] = useState(false); // true once first video can play
   const [muted, setMuted]         = useState(true);
   const [volume, setVolume]       = useState(0.6);
 
@@ -183,12 +184,26 @@ export default function PersistentBackground() {
   return (
     <>
       <div className="bg-slideshow">
+        {/* Poster image: visible immediately, fades out once first video is ready */}
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute", inset: 0,
+            backgroundImage: "url(/images/bg/bg-01.jpg)",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            filter: bgFilter,
+            opacity: videoReady ? 0 : 1,
+            transition: "opacity 1.5s ease-in-out",
+          }}
+        />
         {videos.map((src, i) => (
           <div key={src} className={`bg-slide video-slide${i === activeVideoIdx ? " active" : ""}`}>
             <video
               ref={(el) => { videoRefs.current[i] = el; }}
               muted loop playsInline aria-hidden="true"
               preload={i === activeVideoIdx || i === nextVideoIdx ? "auto" : "none"}
+              onCanPlay={i === 0 && !videoReady ? () => setVideoReady(true) : undefined}
               style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", filter: bgFilter }}
             >
               <source src={src} type="video/mp4" />
