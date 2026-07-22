@@ -9,7 +9,7 @@ const countryToLocale: Record<string, string> = {
   ES: 'es', MX: 'es', AR: 'es', CL: 'es', CO: 'es', PE: 'es',
   VE: 'es', EC: 'es', BO: 'es', PY: 'es', UY: 'es',
   SE: 'sv',
-  FI: 'fi',
+  FI: 'sv',
   IT: 'it',
   FR: 'fr', BE: 'fr', LU: 'fr', MC: 'fr',
   PT: 'pt', BR: 'pt',
