@@ -258,6 +258,73 @@ export default async function WorkPage({
             </div>
           )}
 
+          {/* ── Collaborator spotlight (any credit with a url) ── */}
+          {work.credits && work.credits.some(c => c.url) && (
+            <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
+              {work.credits.filter(c => c.url).map((credit, i) => (
+                <div key={i}>
+                  <p style={{
+                    fontFamily:    'var(--font-inter)',
+                    fontSize:      '0.45rem',
+                    letterSpacing: '0.35em',
+                    textTransform: 'uppercase',
+                    color:         '#7A6F62',
+                    marginBottom:  '2rem',
+                  }}>
+                    In collaboration with
+                  </p>
+                  <a
+                    href={credit.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ textDecoration: 'none', display: 'block' }}
+                    className="group"
+                  >
+                    <h2
+                      className="font-[family-name:var(--font-cormorant)] font-light group-hover:text-[#C8922A] transition-colors duration-200"
+                      style={{
+                        fontSize:     'clamp(2rem, 6vw, 3rem)',
+                        color:        '#E8E0D4',
+                        letterSpacing:'0.01em',
+                        lineHeight:   1.05,
+                        marginBottom: '0.6rem',
+                      }}
+                    >
+                      {credit.name}
+                    </h2>
+                    <p style={{
+                      fontFamily:    'var(--font-inter)',
+                      fontSize:      '0.52rem',
+                      letterSpacing: '0.15em',
+                      textTransform: 'uppercase',
+                      color:         '#7A6F62',
+                      marginBottom:  '1.75rem',
+                    }}>
+                      {credit.role}
+                    </p>
+                    <span
+                      className="group-hover:opacity-80 transition-opacity duration-200"
+                      style={{
+                        display:       'inline-flex',
+                        alignItems:    'center',
+                        gap:           '0.4rem',
+                        fontFamily:    'var(--font-inter)',
+                        fontSize:      '0.52rem',
+                        letterSpacing: '0.18em',
+                        textTransform: 'uppercase',
+                        color:         '#C8922A',
+                        borderBottom:  '1px solid rgba(200,146,42,0.35)',
+                        paddingBottom: '3px',
+                      }}
+                    >
+                      {credit.url!.replace(/^https?:\/\//, '')} →
+                    </span>
+                  </a>
+                </div>
+              ))}
+            </div>
+          )}
+
           {/* ── Singles so far (upcoming albums only) ── */}
           {isUpcoming && trackWorks.length > 0 && (
             <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
@@ -377,12 +444,24 @@ export default async function WorkPage({
                     className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between sm:gap-6"
                     style={{ borderBottom: '1px solid rgba(255,255,255,0.05)', padding: '1rem 0' }}
                   >
-                    <p
-                      className="font-[family-name:var(--font-cormorant)] font-light"
-                      style={{ fontSize: 'clamp(0.9rem, 2vw, 1.1rem)', color: '#E8E0D4' }}
-                    >
-                      {credit.name}
-                    </p>
+                    {credit.url ? (
+                      <a
+                        href={credit.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-[family-name:var(--font-cormorant)] font-light hover:text-[#C8922A] transition-colors duration-200"
+                        style={{ fontSize: 'clamp(0.9rem, 2vw, 1.1rem)', color: '#E8E0D4', textDecoration: 'none' }}
+                      >
+                        {credit.name} ↗
+                      </a>
+                    ) : (
+                      <p
+                        className="font-[family-name:var(--font-cormorant)] font-light"
+                        style={{ fontSize: 'clamp(0.9rem, 2vw, 1.1rem)', color: '#E8E0D4' }}
+                      >
+                        {credit.name}
+                      </p>
+                    )}
                     <p style={{
                       fontFamily:    'var(--font-inter)',
                       fontSize:      '0.6rem',

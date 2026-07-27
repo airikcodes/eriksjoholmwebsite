@@ -4,6 +4,7 @@ export type ReleaseStatus = 'released' | 'unreleased' | 'upcoming';
 export interface WorkCredit {
   role: string;
   name: string;
+  url?: string;
 }
 
 export interface Work {
@@ -646,7 +647,7 @@ export const albums: Work[] = [
     language:      'Swedish',
     meta:          'with Emil Nordström · Swedish',
     credits: [
-      { name: 'Emil Nordström', role: 'Co-writer & Co-artist' },
+      { name: 'Emil Nordström', role: 'Co-writer & Co-artist', url: 'https://emilnordstrom.com/portfolio' },
     ],
     tracks: [
       'lycka',
