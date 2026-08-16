@@ -2,7 +2,12 @@
 
 export default function ScrollIndicator() {
   return (
-    <div className="absolute bottom-8 left-1/2 -translate-x-1/2 scroll-indicator">
+    <a
+      href="#nav"
+      aria-label="Open menu"
+      className="absolute bottom-8 left-1/2 -translate-x-1/2 scroll-indicator hover:opacity-100 transition-opacity duration-200"
+      style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "0.5rem" }}
+    >
       <svg
         width="18"
         height="11"
@@ -18,6 +23,6 @@ export default function ScrollIndicator() {
           strokeLinejoin="round"
         />
       </svg>
-    </div>
+    </a>
   );
 }

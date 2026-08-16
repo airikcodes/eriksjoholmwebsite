@@ -57,6 +57,7 @@ export default async function Home({
         className="relative flex flex-col items-center justify-center px-5 sm:px-6 py-16"
         style={{ minHeight: "100svh", zIndex: 2, position: "relative" }}
       >
+        <ScrollIndicator />
         <SongConcierge
           preamble={t.concierge.preamble}
           heading={t.concierge.heading}
