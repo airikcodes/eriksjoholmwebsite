@@ -7,6 +7,15 @@ import Link from 'next/link';
 const LOCALES = ['en', 'de', 'es', 'sv', 'fi', 'it', 'fr', 'pt'];
 const DEFAULT_LOCALE = 'en';
 
+const SUBTITLES: Record<string, string> = {
+  '/about':   'the story so far',
+  '/works':   'songs and recordings',
+  '/live':    'shows and dates',
+  '/notes':   'journal entries',
+  '/shop':    'merch and prints',
+  '/contact': 'get in touch',
+};
+
 function getLocale(pathname: string): string {
   for (const l of LOCALES) {
     if (pathname === `/${l}` || pathname.startsWith(`/${l}/`)) return l;
@@ -24,14 +33,14 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
   const router    = useRouter();
   const current   = getLocale(pathname);
 
-  const [open, setOpen] = useState(false);
+  const [open, setOpen]             = useState(false);
+  const [hoveredEntry, setHovered]  = useState<number | null>(null);
   const toggleRef  = useRef<HTMLButtonElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
 
   // Close on Escape; trap Tab focus inside the overlay
   useEffect(() => {
     if (!open) return;
-
     function onKey(e: KeyboardEvent) {
       if (e.key === 'Escape') {
         setOpen(false);
@@ -40,9 +49,7 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
       }
       if (e.key === 'Tab' && overlayRef.current) {
         const focusable = Array.from(
-          overlayRef.current.querySelectorAll<HTMLElement>(
-            'a[href], button:not([disabled])'
-          )
+          overlayRef.current.querySelectorAll<HTMLElement>('a[href], button:not([disabled])')
         );
         const first = focusable[0];
         const last  = focusable[focusable.length - 1];
@@ -53,7 +60,6 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
         }
       }
     }
-
     document.addEventListener('keydown', onKey);
     return () => document.removeEventListener('keydown', onKey);
   }, [open]);
@@ -71,6 +77,7 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
 
   function close() {
     setOpen(false);
+    setHovered(null);
     toggleRef.current?.focus();
   }
 
@@ -96,21 +103,21 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
         aria-expanded={open}
         aria-controls="nav-overlay"
         style={{
-          position:    'fixed',
-          top:         'max(1.5rem, calc(env(safe-area-inset-top, 0px) + 0.75rem))',
-          right:       'max(1.5rem, env(safe-area-inset-right, 0px))',
-          zIndex:      60,
-          background:  'none',
-          border:      'none',
-          cursor:      'pointer',
-          color:       open ? 'rgba(255,255,255,0.9)' : 'rgba(200,146,42,0.75)',
-          fontFamily:  'var(--font-inter)',
-          fontSize:    '0.6rem',
+          position:      'fixed',
+          top:           'max(1.5rem, calc(env(safe-area-inset-top, 0px) + 0.75rem))',
+          right:         'max(1.5rem, env(safe-area-inset-right, 0px))',
+          zIndex:        60,
+          background:    'none',
+          border:        'none',
+          cursor:        'pointer',
+          color:         open ? 'rgba(255,255,255,0.9)' : 'rgba(200,146,42,0.75)',
+          fontFamily:    'var(--font-inter)',
+          fontSize:      '0.6rem',
           letterSpacing: '0.22em',
           textTransform: 'uppercase',
-          padding:     '0.3rem 0',
-          lineHeight:  1,
-          transition:  'color 180ms ease',
+          padding:       '0.3rem 0',
+          lineHeight:    1,
+          transition:    'color 180ms ease',
         }}
       >
         {open ? 'Close' : 'Menu'}
@@ -123,76 +130,197 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
         role="dialog"
         aria-modal="true"
         aria-label="Navigation"
-        onClick={(e) => { if (e.target === e.currentTarget) close(); }}
         style={{
-          position:       'fixed',
-          inset:          0,
-          zIndex:         55,
-          background:     'rgba(10, 8, 6, 0.97)',
-          backdropFilter: 'blur(4px)',
+          position:             'fixed',
+          inset:                0,
+          zIndex:               55,
+          background:           'rgba(10, 8, 6, 0.97)',
+          backdropFilter:       'blur(4px)',
           WebkitBackdropFilter: 'blur(4px)',
-          display:        'flex',
-          flexDirection:  'column',
-          alignItems:     'center',
-          justifyContent: 'center',
-          gap:            '3.5rem',
-          opacity:        open ? 1 : 0,
-          pointerEvents:  open ? 'auto' : 'none',
-          transition:     'opacity 220ms ease',
+          overflowY:            'auto',
+          display:              'flex',
+          flexDirection:        'column',
+          justifyContent:       'center',
+          padding:              'clamp(4rem, 8vh, 5rem) clamp(2.5rem, 8vw, 5rem)',
+          opacity:              open ? 1 : 0,
+          pointerEvents:        open ? 'auto' : 'none',
+          transition:           'opacity 220ms ease',
         }}
       >
-        {/* Nav links */}
-        <nav
-          aria-label="Main navigation"
-          className="flex flex-col items-center gap-5 sm:gap-6 md:gap-7"
-        >
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={close}
-              tabIndex={open ? 0 : -1}
-              className="room-link font-[family-name:var(--font-cormorant)] font-light"
-              style={{ fontSize: 'clamp(1.8rem, 4vw, 3.5rem)', letterSpacing: '0.02em' }}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+        <div style={{ width: '100%', maxWidth: '620px' }}>
 
-        {/* Divider */}
-        <span style={{ width: '2rem', height: '1px', background: 'rgba(200,146,42,0.2)', display: 'block' }} />
+          {/* ── INDEX kicker ──────────────────────────────────────────────── */}
+          <p style={{
+            fontFamily:    'var(--font-inter)',
+            fontSize:      '0.45rem',
+            letterSpacing: '0.42em',
+            textTransform: 'uppercase',
+            color:         '#7A6F62',
+            marginBottom:  '2rem',
+            userSelect:    'none',
+          }}>
+            Index
+          </p>
 
-        {/* Locale row */}
-        <div
-          role="group"
-          aria-label="Language selector"
-          style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap', justifyContent: 'center' }}
-        >
-          {LOCALES.map((l) => (
-            <button
-              key={l}
-              onClick={() => switchLocale(l)}
-              aria-label={`Switch to ${l.toUpperCase()}`}
-              aria-current={l === current ? 'true' : undefined}
-              tabIndex={open ? 0 : -1}
-              style={{
-                background:    'none',
-                border:        'none',
-                cursor:        'pointer',
-                color:         l === current ? 'rgba(255,255,255,0.9)' : 'rgba(140,128,118,0.4)',
-                fontFamily:    'var(--font-inter)',
-                fontSize:      '0.6rem',
-                letterSpacing: '0.18em',
-                textTransform: 'uppercase',
-                padding:       '0.4rem 0.3rem',
-                lineHeight:    1,
-                transition:    'color 180ms ease',
-              }}
+          {/* ── Nav entries ───────────────────────────────────────────────── */}
+          <nav aria-label="Main navigation">
+            {/* Top hairline */}
+            <div style={{ height: '1px', background: 'rgba(255,255,255,0.07)' }} />
+
+            {navItems.map((item, i) => {
+              const hot = hoveredEntry === i;
+              return (
+                <div
+                  key={item.href}
+                  onMouseEnter={() => setHovered(i)}
+                  onMouseLeave={() => setHovered(null)}
+                >
+                  <Link
+                    href={item.href}
+                    onClick={close}
+                    tabIndex={open ? 0 : -1}
+                    style={{
+                      display:        'block',
+                      textDecoration: 'none',
+                      padding:        'clamp(0.85rem, 2vh, 1.15rem) 0',
+                      outline:        'none',
+                    }}
+                  >
+                    {/* Title row: label + leader dots + number */}
+                    <div style={{ display: 'flex', alignItems: 'flex-end', width: '100%' }}>
+                      <span
+                        className="font-[family-name:var(--font-cormorant)] font-light"
+                        style={{
+                          fontSize:      'clamp(1.4rem, 3vw, 2rem)',
+                          letterSpacing: '0.02em',
+                          color:         hot ? '#E8E0D4' : 'rgba(232,224,212,0.65)',
+                          lineHeight:    1.15,
+                          transition:    'color 150ms ease',
+                          flexShrink:    0,
+                        }}
+                      >
+                        {item.label}
+                      </span>
+
+                      {/* Dotted leader */}
+                      <span style={{
+                        flex:         1,
+                        display:      'block',
+                        borderBottom: `1px dotted ${hot ? 'rgba(200,146,42,0.4)' : 'rgba(140,128,118,0.2)'}`,
+                        margin:       '0 0.85rem 0.3em',
+                        transition:   'border-color 150ms ease',
+                      }} />
+
+                      {/* Two-digit number */}
+                      <span style={{
+                        fontFamily:    'var(--font-inter)',
+                        fontSize:      '0.72rem',
+                        letterSpacing: '0.1em',
+                        color:         hot ? 'rgba(200,146,42,0.75)' : 'rgba(140,128,118,0.3)',
+                        lineHeight:    1,
+                        paddingBottom: '0.15em',
+                        flexShrink:    0,
+                        transition:    'color 150ms ease',
+                      }}>
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                    </div>
+
+                    {/* Subtitle */}
+                    <p style={{
+                      fontFamily:    'var(--font-inter)',
+                      fontSize:      '0.67rem',
+                      fontStyle:     'italic',
+                      letterSpacing: '0.01em',
+                      color:         hot ? 'rgba(140,128,118,0.8)' : 'rgba(140,128,118,0.38)',
+                      marginTop:     '0.3rem',
+                      transition:    'color 150ms ease',
+                    }}>
+                      {SUBTITLES[item.href] ?? ''}
+                    </p>
+                  </Link>
+
+                  {/* Hairline divider */}
+                  <div style={{ height: '1px', background: 'rgba(255,255,255,0.07)' }} />
+                </div>
+              );
+            })}
+          </nav>
+
+          {/* ── Footer row ────────────────────────────────────────────────── */}
+          <div style={{
+            display:        'flex',
+            justifyContent: 'space-between',
+            alignItems:     'center',
+            flexWrap:       'wrap',
+            gap:            '0.75rem 1.5rem',
+            paddingTop:     '1.5rem',
+          }}>
+            {/* See also */}
+            <p style={{
+              fontFamily:    'var(--font-inter)',
+              fontSize:      '0.62rem',
+              fontStyle:     'italic',
+              color:         'rgba(140,128,118,0.45)',
+              letterSpacing: '0.02em',
+            }}>
+              see also —{' '}
+              <a
+                href="/storyteller"
+                onClick={close}
+                tabIndex={open ? 0 : -1}
+                style={{ color: 'inherit', textDecoration: 'none' }}
+                className="hover:text-[#C8922A] transition-colors duration-150"
+              >
+                Storyteller
+              </a>
+              {' · '}
+              <a
+                href="/sync"
+                onClick={close}
+                tabIndex={open ? 0 : -1}
+                style={{ color: 'inherit', textDecoration: 'none' }}
+                className="hover:text-[#C8922A] transition-colors duration-150"
+              >
+                Sync licensing
+              </a>
+            </p>
+
+            {/* Locale codes */}
+            <div
+              role="group"
+              aria-label="Language selector"
+              style={{ display: 'flex', gap: '0.3rem', flexWrap: 'wrap' }}
             >
-              {l.toUpperCase()}
-            </button>
-          ))}
+              {LOCALES.map((l) => (
+                <button
+                  key={l}
+                  onClick={() => switchLocale(l)}
+                  aria-label={`Switch to ${l.toUpperCase()}`}
+                  aria-current={l === current ? 'true' : undefined}
+                  tabIndex={open ? 0 : -1}
+                  style={{
+                    background:      'none',
+                    border:          'none',
+                    cursor:          'pointer',
+                    color:           l === current ? 'rgba(255,255,255,0.85)' : 'rgba(140,128,118,0.35)',
+                    fontFamily:      'var(--font-inter)',
+                    fontSize:        '0.58rem',
+                    letterSpacing:   '0.18em',
+                    textTransform:   'uppercase',
+                    padding:         '0.25rem 0.2rem',
+                    lineHeight:      1,
+                    textDecoration:  l === current ? 'underline' : 'none',
+                    textUnderlineOffset: '3px',
+                    transition:      'color 150ms ease',
+                  }}
+                >
+                  {l.toUpperCase()}
+                </button>
+              ))}
+            </div>
+          </div>
+
         </div>
       </div>
     </>
