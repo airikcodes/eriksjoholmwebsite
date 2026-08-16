@@ -3,9 +3,10 @@ import { Cormorant_Garamond, Inter } from "next/font/google";
 import { cookies } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
-import LocaleSwitcher from "@/components/LocaleSwitcher";
+import TopBar from "@/components/TopBar";
 import PersistentBackground from "@/components/PersistentBackground";
 import SmoothScroll from "@/components/SmoothScroll";
+import { getDictionary } from "@/lib/dictionaries";
 import "./globals.css";
 
 const validLocales = ['en', 'de', 'es', 'sv', 'fi', 'it', 'fr', 'pt'];
@@ -67,9 +68,18 @@ export const metadata: Metadata = {
 export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  const cookieStore = await cookies();
+  const cookieStore  = await cookies();
   const cookieLocale = cookieStore.get('NEXT_LOCALE')?.value ?? 'en';
-  const lang = validLocales.includes(cookieLocale) ? cookieLocale : 'en';
+  const lang         = validLocales.includes(cookieLocale) ? cookieLocale : 'en';
+  const t            = await getDictionary(lang as Parameters<typeof getDictionary>[0]);
+  const navItems = [
+    { label: t.nav.about,   href: '/about'   },
+    { label: t.nav.works,   href: '/works'   },
+    { label: t.nav.live,    href: '/live'    },
+    { label: t.nav.notes,   href: '/notes'   },
+    { label: t.nav.shop,    href: '/shop'    },
+    { label: t.nav.contact, href: '/contact' },
+  ];
 
   return (
     <html lang={lang} className={`${cormorant.variable} ${inter.variable}`}>
@@ -88,7 +98,7 @@ export default async function RootLayout({
         {/* Preload first background video on desktop so it's ready the moment JS enables video mode */}
         <link rel="preload" as="video" href="/videos/bg-01.mp4" type="video/mp4" media="(min-width: 768px)" />
         <SmoothScroll />
-        <LocaleSwitcher />
+        <TopBar navItems={navItems} />
         <PersistentBackground />
         <script
           type="application/ld+json"

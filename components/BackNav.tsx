@@ -3,7 +3,7 @@ interface BackNavProps {
   label?: string;
 }
 
-export default function BackNav({ href = '/#nav', label = 'Erik Sjøholm' }: BackNavProps) {
+export default function BackNav({ href = '/', label = 'Erik Sjøholm' }: BackNavProps) {
   return (
     <div style={{ marginBottom: '3.5rem' }}>
       <a
