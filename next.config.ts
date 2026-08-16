@@ -27,6 +27,10 @@ const nextConfig: NextConfig = {
       { source: "/:locale(de|es|sv|fi|it|fr|pt)/work",        destination: "/:locale/works",                             permanent: true },
       { source: "/:locale(de|es|sv|fi|it|fr|pt)/resonators",  destination: "https://eriksjoholm-newsletter.beehiiv.com", permanent: true },
 
+      // ── Album rename: next-album → langs-med-vagen-album ─────────────────
+      { source: '/works/next-album-collaboration-with-emil-nordstrom', destination: '/works/langs-med-vagen-album', permanent: true },
+      { source: '/:locale(en|de|es|sv|fi|it|fr|pt)/works/next-album-collaboration-with-emil-nordstrom', destination: '/:locale/works/langs-med-vagen-album', permanent: true },
+
       // ── Songs → Works (information architecture rename) ───────────────────
       { source: "/songs",                                           destination: "/works",          permanent: true },
       { source: "/:locale(en|de|es|sv|fi|it|fr|pt)/songs",        destination: "/:locale/works",  permanent: true },
