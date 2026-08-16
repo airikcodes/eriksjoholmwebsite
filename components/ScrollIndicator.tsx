@@ -9,11 +9,11 @@ export default function ScrollIndicator() {
       style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "0.5rem" }}
     >
       <svg
-        width="18"
-        height="11"
+        width="24"
+        height="14"
         viewBox="0 0 18 11"
         fill="none"
-        style={{ color: "#7A6F62" }}
+        style={{ color: "#C8922A" }}
       >
         <path
           d="M1 1L9 9L17 1"
