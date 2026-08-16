@@ -88,6 +88,7 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
     }
     const target =
       next === DEFAULT_LOCALE ? base : `/${next}${base === '/' ? '' : base}`;
+    // eslint-disable-next-line react-hooks/immutability
     document.cookie = `NEXT_LOCALE=${next}; path=/; max-age=${365 * 24 * 60 * 60}; SameSite=Lax`;
     if (target === pathname) { router.refresh(); } else { router.push(target); }
     close();
@@ -265,7 +266,7 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
               letterSpacing: '0.02em',
             }}>
               see also —{' '}
-              <a
+              <Link
                 href="/storyteller"
                 onClick={close}
                 tabIndex={open ? 0 : -1}
@@ -273,9 +274,9 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
                 className="hover:text-[#C8922A] transition-colors duration-150"
               >
                 Storyteller
-              </a>
+              </Link>
               {' · '}
-              <a
+              <Link
                 href="/sync"
                 onClick={close}
                 tabIndex={open ? 0 : -1}
@@ -283,7 +284,7 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
                 className="hover:text-[#C8922A] transition-colors duration-150"
               >
                 Sync licensing
-              </a>
+              </Link>
             </p>
 
             {/* Locale codes */}
