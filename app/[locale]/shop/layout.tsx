@@ -9,11 +9,11 @@ export default async function ShopLayout({ children }: { children: ReactNode }) 
 
   return (
     <CartProvider initialCart={initialCart}>
-      {/* Cart button — sits left of the locale switcher (right: 5rem clears its ~50px width at right: 1.5rem) */}
+      {/* Cart button — sits left of the folio + MENU toggle cluster (right: 9rem clears ~126px of combined width at right: 1.5rem) */}
       <div style={{
         position: 'fixed',
-        top: '1.25rem',
-        right: '5rem',
+        top: 'max(1.1rem, calc(env(safe-area-inset-top, 0px) + 0.6rem))',
+        right: '9rem',
         zIndex: 20,
         pointerEvents: 'auto',
       }}>
