@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import BackNav from '@/components/BackNav';
 import KeepInTouch from '@/components/KeepInTouch';
+import StudioPhotos from '@/components/StudioPhotos';
 import Link from 'next/link';
 import { works, albums, getWork, type Work } from '@/data/works';
 import { getDictionary, hasLocale } from '@/lib/dictionaries';
@@ -330,33 +331,7 @@ export default async function WorkPage({
 
           {/* ── Studio photos ── */}
           {work.photos && work.photos.length > 0 && (
-            <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
-              <p style={{
-                fontFamily:    'var(--font-inter)',
-                fontSize:      '0.45rem',
-                letterSpacing: '0.35em',
-                textTransform: 'uppercase',
-                color:         '#7A6F62',
-                marginBottom:  '1.5rem',
-              }}>
-                From the Studio
-              </p>
-              <div style={{
-                display:             'grid',
-                gridTemplateColumns: 'repeat(2, 1fr)',
-                gap:                 '0.5rem',
-              }}>
-                {work.photos.map((src, i) => (
-                  <img
-                    key={src}
-                    src={src}
-                    alt=""
-                    loading={i < 4 ? 'eager' : 'lazy'}
-                    style={{ width: '100%', height: 'auto', display: 'block' }}
-                  />
-                ))}
-              </div>
-            </div>
+            <StudioPhotos photos={work.photos} />
           )}
 
           {/* ── Singles so far (upcoming albums only) ── */}
