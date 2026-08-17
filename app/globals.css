@@ -237,6 +237,50 @@ a:hover .product-img {
   transform: scale(1.04);
 }
 
+/* ── Cover scatter (works page discovery layout) ──────────────────────── */
+@keyframes coverDrift {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-7px); }
+}
+.cover-drift {
+  animation: coverDrift 5.5s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .cover-drift { animation: none; }
+}
+
+/* Mobile: 2-column grid, no scatter */
+.cover-scatter-mobile  { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.875rem; }
+.cover-scatter-desktop { display: none; }
+
+@media (min-width: 640px) {
+  .cover-scatter-mobile  { display: none; }
+  .cover-scatter-desktop { display: block; }
+}
+
+/* Up Next: side-by-side on ≥540px, stacked below */
+.up-next-grid {
+  grid-template-columns: 1fr;
+}
+@media (min-width: 540px) {
+  .up-next-grid {
+    grid-template-columns: 1fr auto;
+  }
+}
+
+/* Professional zone: side-by-side on ≥560px */
+.pro-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+}
+@media (min-width: 560px) {
+  .pro-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+  }
+}
+
 /* ── Beehiiv post content ───────────────────────────────────────────────── */
 .notes-content {
   font-family: var(--font-inter), system-ui, sans-serif;
