@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import TopBar from "@/components/TopBar";
 import PersistentBackground from "@/components/PersistentBackground";
+import GradientBlur from "@/components/GradientBlur";
 import SmoothScroll from "@/components/SmoothScroll";
 import { getDictionary } from "@/lib/dictionaries";
 import "./globals.css";
@@ -100,6 +101,7 @@ export default async function RootLayout({
         <SmoothScroll />
         <TopBar navItems={navItems} />
         <PersistentBackground />
+        <GradientBlur />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
