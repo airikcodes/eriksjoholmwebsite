@@ -248,7 +248,7 @@ export default async function WorksPage({
             <p style={{ ...EYEBROW, marginBottom: '3rem' }}>{t.works.albumsAndEps}</p>
             <CoverScatter
               works={releasedAlbums}
-              getHref={(w) => `/works/${w.slug}`}
+              hrefBase="/works"
               sizeRange={[130, 210]}
               searchPlaceholder="Search releases…"
             />
@@ -260,7 +260,7 @@ export default async function WorksPage({
             <CoverScatter
               works={works}
               showFilter
-              getHref={(w) => `/works/${w.slug}`}
+              hrefBase="/works"
               sizeRange={[80, 140]}
               searchPlaceholder="Search songs…"
             />

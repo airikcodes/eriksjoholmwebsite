@@ -7,11 +7,12 @@ import type { Work } from '@/data/works';
 type Filter = 'all' | 'released' | 'unreleased';
 
 interface Props {
-  works:             Work[];
-  showFilter?:       boolean;
+  works:              Work[];
+  showFilter?:        boolean;
   searchPlaceholder?: string;
-  getHref:           (work: Work) => string;
-  sizeRange?:        [number, number]; // [minPx, maxPx] for scatter tiles
+  /** Base path for work links, e.g. "/works" — final href is `${hrefBase}/${work.slug}` */
+  hrefBase:           string;
+  sizeRange?:         [number, number]; // [minPx, maxPx] for scatter tiles
 }
 
 // Seeded LCG pseudo-random — same layout every render
@@ -67,10 +68,10 @@ const EYEBROW: React.CSSProperties = {
 
 export default function CoverScatter({
   works,
-  showFilter       = false,
+  showFilter        = false,
   searchPlaceholder = 'Search…',
-  getHref,
-  sizeRange        = [120, 200],
+  hrefBase,
+  sizeRange         = [120, 200],
 }: Props) {
   const [query,   setQuery]   = useState('');
   const [filter,  setFilter]  = useState<Filter>('all');
@@ -147,7 +148,7 @@ export default function CoverScatter({
           {filtered.map((work) => (
             <li key={work.id} style={{ borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
               <Link
-                href={getHref(work)}
+                href={`${hrefBase}/${work.slug}`}
                 className="group"
                 style={{ display: 'flex', gap: '1rem', alignItems: 'center', padding: '1.1rem 0', textDecoration: 'none' }}
               >
@@ -181,7 +182,7 @@ export default function CoverScatter({
           {/* Mobile: 2-column grid */}
           <div className="cover-scatter-mobile">
             {withCovers.map((work) => (
-              <Link key={work.id} href={getHref(work)} style={{ textDecoration: 'none', display: 'block' }}>
+              <Link key={work.id} href={`${hrefBase}/${work.slug}`} style={{ textDecoration: 'none', display: 'block' }}>
                 <div style={{
                   width:           '100%',
                   aspectRatio:     '1',
@@ -215,7 +216,7 @@ export default function CoverScatter({
               return (
                 <Link
                   key={work.id}
-                  href={getHref(work)}
+                  href={`${hrefBase}/${work.slug}`}
                   onMouseEnter={() => setHovered(work.id)}
                   onMouseLeave={() => setHovered(null)}
                   style={{
