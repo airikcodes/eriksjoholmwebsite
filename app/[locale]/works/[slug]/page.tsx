@@ -325,6 +325,37 @@ export default async function WorkPage({
             </div>
           )}
 
+          {/* ── Studio photos ── */}
+          {work.photos && work.photos.length > 0 && (
+            <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
+              <p style={{
+                fontFamily:    'var(--font-inter)',
+                fontSize:      '0.45rem',
+                letterSpacing: '0.35em',
+                textTransform: 'uppercase',
+                color:         '#7A6F62',
+                marginBottom:  '1.5rem',
+              }}>
+                From the Studio
+              </p>
+              <div style={{
+                display:             'grid',
+                gridTemplateColumns: 'repeat(2, 1fr)',
+                gap:                 '0.5rem',
+              }}>
+                {work.photos.map((src, i) => (
+                  <img
+                    key={src}
+                    src={src}
+                    alt=""
+                    loading={i < 4 ? 'eager' : 'lazy'}
+                    style={{ width: '100%', height: 'auto', display: 'block' }}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* ── Singles so far (upcoming albums only) ── */}
           {isUpcoming && trackWorks.length > 0 && (
             <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>

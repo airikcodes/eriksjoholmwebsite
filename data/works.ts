@@ -32,6 +32,8 @@ export interface Work {
   tracks?: string[];
   /** Slugs of related Notes on the website */
   relatedNotes?: string[];
+  /** Ordered list of photo paths (relative to /public) for a studio/promo gallery */
+  photos?: string[];
 }
 
 const SPOTIFY_ARTIST = 'https://open.spotify.com/artist/1UpcgaCHBwic2IqUQ3hHdp';
@@ -656,6 +658,28 @@ export const albums: Work[] = [
       'barndomsaren',
       'sanden-i-min-hand',
       'fri-som-en-fagel',
+    ],
+    photos: [
+      '/images/langs-med-vagen/lmv-11.jpg',
+      '/images/langs-med-vagen/lmv-07.jpg',
+      '/images/langs-med-vagen/lmv-01.jpg',
+      '/images/langs-med-vagen/lmv-04.jpg',
+      '/images/langs-med-vagen/lmv-03.jpg',
+      '/images/langs-med-vagen/lmv-13.jpg',
+      '/images/langs-med-vagen/lmv-09.jpg',
+      '/images/langs-med-vagen/lmv-16.jpg',
+      '/images/langs-med-vagen/lmv-02.jpg',
+      '/images/langs-med-vagen/lmv-05.jpg',
+      '/images/langs-med-vagen/lmv-06.jpg',
+      '/images/langs-med-vagen/lmv-08.jpg',
+      '/images/langs-med-vagen/lmv-10.jpg',
+      '/images/langs-med-vagen/lmv-12.jpg',
+      '/images/langs-med-vagen/lmv-14.jpg',
+      '/images/langs-med-vagen/lmv-15.jpg',
+      '/images/langs-med-vagen/lmv-17.jpg',
+      '/images/langs-med-vagen/lmv-18.jpg',
+      '/images/langs-med-vagen/lmv-19.jpg',
+      '/images/langs-med-vagen/lmv-20.jpg',
     ],
   },
 ];
