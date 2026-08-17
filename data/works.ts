@@ -34,6 +34,8 @@ export interface Work {
   relatedNotes?: string[];
   /** Ordered list of photo paths (relative to /public) for a studio/promo gallery */
   photos?: string[];
+  /** Bullet-point notes shown in a "Behind the record" section on album pages */
+  behindTheRecord?: string[];
 }
 
 const SPOTIFY_ARTIST = 'https://open.spotify.com/artist/1UpcgaCHBwic2IqUQ3hHdp';
@@ -60,6 +62,7 @@ export const works: Work[] = [
     coverImage:    'https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026ed0b3388394820c3aac27c5',
     spotifyUrl:    'https://open.spotify.com/track/2ALT61LKWHRLW3qvRpz3JI',
     tidalUrl:      TIDAL_ARTIST,
+    description:   'Written about Emil\'s family: his bond with his wife and daughter, and with his own parents. A cross-generational song about how people carry each other through life, joy or grief. "Lyckan kommer, lyckan går / var vi än i livet står / finns vi där för varandra."',
   },
   {
     id:            'night-is-long',
@@ -353,6 +356,7 @@ And you follow the gun`,
     coverImage:    'https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e028cc91fad2d8dc06c518ecf27',
     spotifyUrl:    'https://open.spotify.com/track/2x00pPFmK8lgkyPeW401Gu',
     tidalUrl:      tidalSearch('Barndomsåren Pargas'),
+    description:   'About Emil\'s childhood years in Pargas, growing up and starting to play music.',
   },
   {
     id:            'sanden-i-min-hand',
@@ -368,6 +372,7 @@ And you follow the gun`,
     coverImage:    'https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02a3617845d60b2e0a31a33e4d',
     spotifyUrl:    'https://open.spotify.com/track/5sxlnPchl6ib1vOrjJanxz',
     tidalUrl:      tidalSearch('Sanden I Min Hand'),
+    description:   'Inspired by Majors träsk in Malax, where Erik\'s father grew up and where Erik\'s sister now lives with her family. Written out of conversations with his father about the passing of time, mortality, and a melancholic attempt to accept death.',
   },
   {
     id:            'langs-med-vagen',
@@ -383,6 +388,7 @@ And you follow the gun`,
     coverImage:    'https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02a76303c4d3c06fcf1bfaf925',
     spotifyUrl:    'https://open.spotify.com/track/5xGo3coakkLQsrq5V3ArIp',
     tidalUrl:      tidalSearch('Längs Med Vägen'),
+    description:   'The title track, about Erik\'s connection to his childhood best friend Viktor — the two have known each other since they were a few months old. The song began as the speech Erik gave at Viktor\'s wedding.',
   },
   {
     id:            'fri-som-en-fagel',
@@ -398,6 +404,7 @@ And you follow the gun`,
     coverImage:    'https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e023a7b1d4dc5e3fe9605191636',
     spotifyUrl:    'https://open.spotify.com/track/0GOPIKvZioFI9CWyBwkt5S',
     tidalUrl:      tidalSearch('Fri Som En Fågel'),
+    description:   'About Erik\'s mother, for whom travel is freedom — kayak, hiking, train, bus, flight, bike, staying in motion by any means she can.',
   },
   {
     id:            'silent-empire',
@@ -649,8 +656,28 @@ export const albums: Work[] = [
     language:      'Swedish',
     meta:          'with Emil Nordström · Swedish',
     coverImage:    '/images/langs-med-vagen/lmv-07.jpg',
+    description:
+`Längs med vägen — "along the road" — is a Swedish-language album by Erik Sjøholm and Emil Nordström, twelve to fifteen songs written as a walk along the road of life: childhood memories at one end, reflections on old age at the other, and everything that happens in between. The songs are set in two places that shaped both writers — Österbotten, on the Swedish-speaking coast of Finland, and Pargas, further south near Turku.
+
+Erik and Emil met during their music studies in Jakobstad and have been playing together ever since — in bands, in orchestras, and now in this album. On record, the two roles split cleanly: Erik writes the lyrics and melodies and sings lead, working personal memory into something a listener with a different childhood can still recognize; Emil produces and arranges, building the soundscape each song sits inside.
+
+Recording ran through the summer of 2025 across a handful of specific rooms chosen for what they'd add to the sound: strings in Replot church, horns in Jakobstad, percussion in Vasa, and the core sessions at DeeKay Records Studios in Vaskiluoto. The promo and recording photography was shot at Midas Studio in Replot. The album was mixed by Emil Nordström, recorded by Stefan Backas, and mastered by Maria Triana in Amsterdam.`,
     credits: [
-      { name: 'Emil Nordström', role: 'Co-writer & Co-artist', url: 'https://emilnordstrom.com/portfolio' },
+      { name: 'Erik Sjøholm',     role: 'Lead vocals, backing vocals, some guitars' },
+      { name: 'Emil Nordström',   role: 'Production, arrangement, mixing, guitar', url: 'https://emilnordstrom.com/portfolio' },
+      { name: 'Stefan Backas',    role: 'Recording engineering' },
+      { name: 'Maria Triana',     role: 'Mastering (Amsterdam)' },
+      { name: 'Johnny Nordström', role: 'Piano, keys, organ' },
+      { name: 'Svante Sjöholm',   role: 'Piano' },
+      { name: 'Tuukka Aitoaho',   role: 'Drums and percussion' },
+      { name: 'Stefan Lindblom',  role: 'Bass' },
+      { name: 'Anders Sjölind',   role: 'Horn and string arrangements, horns' },
+      { name: 'Emma Strömbäck',   role: 'Cello' },
+      { name: 'Robin Käldström',  role: 'Horns' },
+    ],
+    behindTheRecord: [
+      'The album grew out of a shared goal: writing and recording entirely in Swedish, as a way of preserving stories and strengthening the Finland-Swedish language and culture the two grew up in.',
+      'Fifteen songs were sketched during writing sessions in June 2025, each tagged with a tempo and feel before arrangement — "Lycka" as a 4/4 ballad, "Fri som en fågel" with a slow, African-tinged beat, "Rådarens hamn" at a medium 4/4, and so on.',
     ],
     tracks: [
       'lycka',

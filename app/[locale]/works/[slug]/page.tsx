@@ -133,15 +133,18 @@ export default async function WorkPage({
           {/* ── Description ── */}
           {work.description && (
             <div style={{ paddingBottom: '4rem' }}>
-              <p style={{
-                fontFamily: 'var(--font-inter)',
-                fontSize:   '0.9rem',
-                color:      '#B8B0A6',
-                lineHeight: 1.9,
-                maxWidth:   '52ch',
-              }}>
-                {work.description}
-              </p>
+              {work.description.split('\n\n').map((para, i) => (
+                <p key={i} style={{
+                  fontFamily:   'var(--font-inter)',
+                  fontSize:     '0.9rem',
+                  color:        '#B8B0A6',
+                  lineHeight:   1.9,
+                  maxWidth:     '52ch',
+                  marginBottom: '1.25rem',
+                }}>
+                  {para}
+                </p>
+              ))}
             </div>
           )}
 
@@ -413,11 +416,62 @@ export default async function WorkPage({
                           {track.meta}
                         </p>
                       )}
+                      {track.description && (
+                        <p style={{
+                          fontFamily: 'var(--font-inter)',
+                          fontSize:   '0.75rem',
+                          color:      'rgba(140,128,118,0.6)',
+                          lineHeight: 1.65,
+                          marginTop:  '0.5rem',
+                          maxWidth:   '44ch',
+                        }}>
+                          {track.description}
+                        </p>
+                      )}
                     </div>
                     <span style={{ fontFamily: 'var(--font-inter)', fontSize: '0.5rem', color: '#7A6F62' }}>→</span>
                   </Link>
                 ))}
               </div>
+            </div>
+          )}
+
+          {/* ── Behind the record ── */}
+          {work.behindTheRecord && work.behindTheRecord.length > 0 && (
+            <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
+              <p style={{
+                fontFamily:    'var(--font-inter)',
+                fontSize:      '0.45rem',
+                letterSpacing: '0.35em',
+                textTransform: 'uppercase',
+                color:         '#7A6F62',
+                marginBottom:  '2rem',
+              }}>
+                Behind the record
+              </p>
+              <ul style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', listStyle: 'none', padding: 0, margin: 0 }}>
+                {work.behindTheRecord.map((note, i) => (
+                  <li key={i} style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                    <span style={{
+                      flexShrink:  0,
+                      marginTop:   '0.55em',
+                      width:       '4px',
+                      height:      '4px',
+                      borderRadius:'50%',
+                      background:  'rgba(200,146,42,0.5)',
+                    }} />
+                    <p style={{
+                      fontFamily: 'var(--font-inter)',
+                      fontSize:   '0.85rem',
+                      color:      '#B8B0A6',
+                      lineHeight: 1.85,
+                      maxWidth:   '52ch',
+                    }}>
+                      {note}
+                    </p>
+                  </li>
+                ))}
+              </ul>
             </div>
           )}
 
