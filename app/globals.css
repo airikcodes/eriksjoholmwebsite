@@ -237,6 +237,15 @@ a:hover .product-img {
   transform: scale(1.04);
 }
 
+/* ── Language prompt slide-in ─────────────────────────────────────────── */
+@keyframes promptIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  @keyframes promptIn { from { opacity: 0; } to { opacity: 1; } }
+}
+
 /* ── Cover scatter (works page discovery layout) ──────────────────────── */
 @keyframes coverDrift {
   0%, 100% { transform: translateY(0); }

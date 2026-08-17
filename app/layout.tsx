@@ -1,9 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
 import TopBar from "@/components/TopBar";
+import LangPrompt from "@/components/LangPrompt";
 import PersistentBackground from "@/components/PersistentBackground";
 import GradientBlur from "@/components/GradientBlur";
 import SmoothScroll from "@/components/SmoothScroll";
@@ -11,6 +12,11 @@ import { getDictionary } from "@/lib/dictionaries";
 import "./globals.css";
 
 const validLocales = ['en', 'de', 'es', 'sv', 'fi', 'it', 'fr', 'pt'];
+
+function parseAcceptLanguage(header: string): string {
+  const first = header.split(',')[0]?.trim() ?? '';
+  return first.split(/[-;]/)[0]?.toLowerCase() ?? '';
+}
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -72,10 +78,21 @@ export default async function RootLayout({
   const cookieStore  = await cookies();
   const cookieLocale = cookieStore.get('NEXT_LOCALE')?.value ?? 'en';
   const lang         = validLocales.includes(cookieLocale) ? cookieLocale : 'en';
+  const headersList  = await headers();
+  const detected     = parseAcceptLanguage(headersList.get('accept-language') ?? '');
   const t            = await getDictionary(lang as Parameters<typeof getDictionary>[0]);
   const navItems = [
     { label: t.nav.about,   href: '/about'   },
-    { label: t.nav.works,   href: '/works'   },
+    {
+      label: t.nav.works,
+      href:  '/works',
+      sections: [
+        { label: 'Albums & EPs',   anchor: 'albums'        },
+        { label: 'Songs',          anchor: 'songs'         },
+        { label: 'Sync Licensing', anchor: 'sync'          },
+        { label: 'Songs For You',  anchor: 'songs-for-you' },
+      ],
+    },
     { label: t.nav.live,    href: '/live'    },
     { label: t.nav.notes,   href: '/notes'   },
     { label: t.nav.shop,    href: '/shop'    },
@@ -100,6 +117,7 @@ export default async function RootLayout({
         <link rel="preload" as="video" href="/videos/bg-01.mp4" type="video/mp4" media="(min-width: 768px)" />
         <SmoothScroll />
         <TopBar navItems={navItems} />
+        <LangPrompt detectedLocale={detected} currentLocale={lang} />
         <PersistentBackground />
         <GradientBlur />
         <script

@@ -44,10 +44,8 @@ function pageNumber(pathname: string): number | null {
   return null;
 }
 
-interface NavItem {
-  label: string;
-  href: string;
-}
+interface NavSection { label: string; anchor: string; }
+interface NavItem    { label: string; href: string; sections?: NavSection[]; }
 
 export default function TopBar({ navItems }: { navItems: NavItem[] }) {
   const pathname  = usePathname();
@@ -57,8 +55,11 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
 
   const [open, setOpen]             = useState(false);
   const [hoveredEntry, setHovered]  = useState<number | null>(null);
-  const toggleRef  = useRef<HTMLButtonElement>(null);
-  const overlayRef = useRef<HTMLDivElement>(null);
+  const [langOpen, setLangOpen]     = useState(false);
+  const [expanded, setExpanded]     = useState<Set<number>>(new Set<number>());
+  const toggleRef     = useRef<HTMLButtonElement>(null);
+  const overlayRef    = useRef<HTMLDivElement>(null);
+  const langExpandRef = useRef<HTMLDivElement>(null);
 
   // Close on Escape; trap Tab focus inside the overlay
   useEffect(() => {
@@ -97,10 +98,35 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
     return () => { document.body.style.overflow = ''; };
   }, [open]);
 
+  // Reset transient overlay state when overlay closes
+  useEffect(() => {
+    if (!open) {
+      setLangOpen(false);
+      setExpanded(new Set<number>());
+    }
+  }, [open]);
+
+  // Focus first locale button when lang picker expands
+  useEffect(() => {
+    if (langOpen) {
+      requestAnimationFrame(() => {
+        langExpandRef.current?.querySelector<HTMLElement>('button')?.focus();
+      });
+    }
+  }, [langOpen]);
+
   function close() {
     setOpen(false);
     setHovered(null);
     toggleRef.current?.focus();
+  }
+
+  function toggleExpand(i: number) {
+    setExpanded((prev) => {
+      const next = new Set(prev);
+      if (next.has(i)) { next.delete(i); } else { next.add(i); }
+      return next;
+    });
   }
 
   function switchLocale(next: string) {
@@ -220,79 +246,171 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
             <div style={{ height: '1px', background: 'rgba(255,255,255,0.07)' }} />
 
             {navItems.map((item, i) => {
-              const hot = hoveredEntry === i;
+              const hot   = hoveredEntry === i;
+              const isExp = expanded.has(i);
               return (
                 <div
                   key={item.href}
                   onMouseEnter={() => setHovered(i)}
                   onMouseLeave={() => setHovered(null)}
                 >
-                  <Link
-                    href={item.href}
-                    onClick={close}
-                    tabIndex={open ? 0 : -1}
-                    style={{
-                      display:        'block',
-                      textDecoration: 'none',
-                      padding:        'clamp(0.85rem, 2vh, 1.15rem) 0',
-                      outline:        'none',
-                    }}
-                  >
-                    {/* Title row: label + leader dots + number */}
-                    <div style={{ display: 'flex', alignItems: 'flex-end', width: '100%' }}>
-                      <span
-                        className="font-[family-name:var(--font-cormorant)] font-light"
-                        style={{
-                          fontSize:      'clamp(1.4rem, 3vw, 2rem)',
-                          letterSpacing: '0.02em',
-                          color:         hot ? '#E8E0D4' : 'rgba(232,224,212,0.65)',
-                          lineHeight:    1.15,
-                          transition:    'color 150ms ease',
+                  {/* Title row: Link + optional expand toggle side-by-side */}
+                  <div style={{ display: 'flex', alignItems: 'stretch' }}>
+                    <Link
+                      href={item.href}
+                      onClick={close}
+                      tabIndex={open ? 0 : -1}
+                      style={{
+                        flex:           1,
+                        display:        'block',
+                        textDecoration: 'none',
+                        padding:        'clamp(0.85rem, 2vh, 1.15rem) 0',
+                        outline:        'none',
+                      }}
+                    >
+                      <div style={{ display: 'flex', alignItems: 'flex-end', width: '100%' }}>
+                        <span
+                          className="font-[family-name:var(--font-cormorant)] font-light"
+                          style={{
+                            fontSize:      'clamp(1.4rem, 3vw, 2rem)',
+                            letterSpacing: '0.02em',
+                            color:         hot ? '#E8E0D4' : 'rgba(232,224,212,0.65)',
+                            lineHeight:    1.15,
+                            transition:    'color 150ms ease',
+                            flexShrink:    0,
+                          }}
+                        >
+                          {item.label}
+                        </span>
+
+                        <span style={{
+                          flex:         1,
+                          display:      'block',
+                          borderBottom: `1px dotted ${hot ? 'rgba(200,146,42,0.4)' : 'rgba(140,128,118,0.2)'}`,
+                          margin:       '0 0.85rem 0.3em',
+                          transition:   'border-color 150ms ease',
+                        }} />
+
+                        <span style={{
+                          fontFamily:    'var(--font-inter)',
+                          fontSize:      '0.72rem',
+                          letterSpacing: '0.1em',
+                          color:         hot ? 'rgba(200,146,42,0.75)' : 'rgba(140,128,118,0.3)',
+                          lineHeight:    1,
+                          paddingBottom: '0.15em',
                           flexShrink:    0,
-                        }}
-                      >
-                        {item.label}
-                      </span>
+                          transition:    'color 150ms ease',
+                        }}>
+                          {String(i + 1).padStart(2, '0')}
+                        </span>
+                      </div>
 
-                      {/* Dotted leader */}
-                      <span style={{
-                        flex:         1,
-                        display:      'block',
-                        borderBottom: `1px dotted ${hot ? 'rgba(200,146,42,0.4)' : 'rgba(140,128,118,0.2)'}`,
-                        margin:       '0 0.85rem 0.3em',
-                        transition:   'border-color 150ms ease',
-                      }} />
-
-                      {/* Two-digit number */}
-                      <span style={{
+                      <p style={{
                         fontFamily:    'var(--font-inter)',
-                        fontSize:      '0.72rem',
-                        letterSpacing: '0.1em',
-                        color:         hot ? 'rgba(200,146,42,0.75)' : 'rgba(140,128,118,0.3)',
-                        lineHeight:    1,
-                        paddingBottom: '0.15em',
-                        flexShrink:    0,
+                        fontSize:      '0.67rem',
+                        fontStyle:     'italic',
+                        letterSpacing: '0.01em',
+                        color:         hot ? 'rgba(140,128,118,0.8)' : 'rgba(140,128,118,0.38)',
+                        marginTop:     '0.3rem',
                         transition:    'color 150ms ease',
                       }}>
-                        {String(i + 1).padStart(2, '0')}
-                      </span>
+                        {SUBTITLES[item.href] ?? ''}
+                      </p>
+                    </Link>
+
+                    {/* Section expand toggle — only for entries with defined sections */}
+                    {item.sections && (
+                      <button
+                        onClick={() => toggleExpand(i)}
+                        tabIndex={open ? 0 : -1}
+                        aria-expanded={isExp}
+                        aria-controls={`nav-secs-${i}`}
+                        aria-label={`${isExp ? 'Hide' : 'Show'} sections for ${item.label}`}
+                        style={{
+                          background:  'none',
+                          border:      'none',
+                          cursor:      'pointer',
+                          padding:     '0 0.2rem 0 0.75rem',
+                          alignSelf:   'center',
+                          color:       hot ? 'rgba(140,128,118,0.6)' : 'rgba(140,128,118,0.28)',
+                          lineHeight:  1,
+                          transition:  'color 150ms ease',
+                          flexShrink:  0,
+                        }}
+                      >
+                        <span
+                          aria-hidden="true"
+                          style={{
+                            display:    'inline-block',
+                            fontSize:   '0.65rem',
+                            transition: 'transform 220ms cubic-bezier(0.4,0,0.2,1)',
+                            transform:  isExp ? 'rotate(180deg)' : 'rotate(0deg)',
+                          }}
+                        >
+                          ∨
+                        </span>
+                      </button>
+                    )}
+                  </div>
+
+                  {/* Sub-entries (section links) */}
+                  {item.sections && isExp && (
+                    <div
+                      id={`nav-secs-${i}`}
+                      style={{ paddingBottom: '0.6rem' }}
+                    >
+                      {item.sections.map((s) => (
+                        <Link
+                          key={s.anchor}
+                          href={`${item.href}#${s.anchor}`}
+                          onClick={close}
+                          tabIndex={open ? 0 : -1}
+                          className="group"
+                          style={{
+                            display:        'flex',
+                            alignItems:     'flex-end',
+                            padding:        '0.3rem 0',
+                            textDecoration: 'none',
+                            outline:        'none',
+                          }}
+                        >
+                          {/* Indent */}
+                          <span style={{ width: '1.75rem', flexShrink: 0 }} />
+                          <span
+                            className="font-[family-name:var(--font-cormorant)] font-light group-hover:text-[rgba(232,224,212,0.8)] transition-colors duration-150"
+                            style={{
+                              fontSize:      'clamp(0.85rem, 2vw, 1.15rem)',
+                              letterSpacing: '0.02em',
+                              color:         'rgba(232,224,212,0.35)',
+                              lineHeight:    1.15,
+                              flexShrink:    0,
+                            }}
+                          >
+                            {s.label}
+                          </span>
+                          <span style={{
+                            flex:         1,
+                            display:      'block',
+                            borderBottom: '1px dotted rgba(120,108,96,0.14)',
+                            margin:       '0 0.65rem 0.25em',
+                          }} />
+                          <span
+                            className="group-hover:text-[rgba(200,146,42,0.55)] transition-colors duration-150"
+                            style={{
+                              fontFamily:  'var(--font-inter)',
+                              fontSize:    '0.55rem',
+                              color:       'rgba(120,108,96,0.25)',
+                              flexShrink:  0,
+                              paddingBottom: '0.15em',
+                            }}
+                          >
+                            →
+                          </span>
+                        </Link>
+                      ))}
                     </div>
+                  )}
 
-                    {/* Subtitle */}
-                    <p style={{
-                      fontFamily:    'var(--font-inter)',
-                      fontSize:      '0.67rem',
-                      fontStyle:     'italic',
-                      letterSpacing: '0.01em',
-                      color:         hot ? 'rgba(140,128,118,0.8)' : 'rgba(140,128,118,0.38)',
-                      marginTop:     '0.3rem',
-                      transition:    'color 150ms ease',
-                    }}>
-                      {SUBTITLES[item.href] ?? ''}
-                    </p>
-                  </Link>
-
-                  {/* Hairline divider */}
                   <div style={{ height: '1px', background: 'rgba(255,255,255,0.07)' }} />
                 </div>
               );
@@ -338,39 +456,86 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
               </Link>
             </p>
 
-            {/* Locale codes */}
-            <div
-              role="group"
-              aria-label="Language selector"
-              style={{ display: 'flex', gap: '0.3rem', flexWrap: 'wrap' }}
-            >
-              {LOCALES.map((l) => (
+            {/* Compact locale switcher — shows current language; expands to all on click */}
+            {langOpen ? (
+              <div
+                ref={langExpandRef}
+                role="group"
+                aria-label="Language selector"
+                style={{ display: 'flex', gap: '0.3rem', flexWrap: 'wrap', alignItems: 'center' }}
+              >
+                {LOCALES.map((l) => (
+                  <button
+                    key={l}
+                    onClick={() => switchLocale(l)}
+                    aria-label={`Switch to ${l.toUpperCase()}`}
+                    aria-current={l === current ? 'true' : undefined}
+                    tabIndex={open ? 0 : -1}
+                    style={{
+                      background:          'none',
+                      border:              'none',
+                      cursor:              'pointer',
+                      color:               l === current ? 'rgba(255,255,255,0.85)' : 'rgba(140,128,118,0.35)',
+                      fontFamily:          'var(--font-inter)',
+                      fontSize:            '0.58rem',
+                      letterSpacing:       '0.18em',
+                      textTransform:       'uppercase',
+                      padding:             '0.25rem 0.2rem',
+                      lineHeight:          1,
+                      textDecoration:      l === current ? 'underline' : 'none',
+                      textUnderlineOffset: '3px',
+                      transition:          'color 150ms ease',
+                    }}
+                  >
+                    {l.toUpperCase()}
+                  </button>
+                ))}
                 <button
-                  key={l}
-                  onClick={() => switchLocale(l)}
-                  aria-label={`Switch to ${l.toUpperCase()}`}
-                  aria-current={l === current ? 'true' : undefined}
+                  onClick={() => setLangOpen(false)}
                   tabIndex={open ? 0 : -1}
+                  aria-label="Close language picker"
                   style={{
-                    background:      'none',
-                    border:          'none',
-                    cursor:          'pointer',
-                    color:           l === current ? 'rgba(255,255,255,0.85)' : 'rgba(140,128,118,0.35)',
-                    fontFamily:      'var(--font-inter)',
-                    fontSize:        '0.58rem',
-                    letterSpacing:   '0.18em',
-                    textTransform:   'uppercase',
-                    padding:         '0.25rem 0.2rem',
-                    lineHeight:      1,
-                    textDecoration:  l === current ? 'underline' : 'none',
-                    textUnderlineOffset: '3px',
-                    transition:      'color 150ms ease',
+                    background: 'none',
+                    border:     'none',
+                    cursor:     'pointer',
+                    color:      'rgba(140,128,118,0.35)',
+                    fontSize:   '0.9rem',
+                    lineHeight: 1,
+                    padding:    '0.25rem 0.3rem',
+                    transition: 'color 150ms ease',
                   }}
                 >
-                  {l.toUpperCase()}
+                  ×
                 </button>
-              ))}
-            </div>
+              </div>
+            ) : (
+              <button
+                onClick={() => setLangOpen(true)}
+                tabIndex={open ? 0 : -1}
+                aria-label={`Language: ${current.toUpperCase()}. Press to change.`}
+                aria-expanded={langOpen}
+                aria-haspopup="true"
+                style={{
+                  background:    'none',
+                  border:        'none',
+                  cursor:        'pointer',
+                  color:         'rgba(255,255,255,0.85)',
+                  fontFamily:    'var(--font-inter)',
+                  fontSize:      '0.58rem',
+                  letterSpacing: '0.18em',
+                  textTransform: 'uppercase',
+                  padding:       '0.25rem 0',
+                  lineHeight:    1,
+                  display:       'flex',
+                  alignItems:    'center',
+                  gap:           '0.3rem',
+                  transition:    'color 150ms ease',
+                }}
+              >
+                {current.toUpperCase()}
+                <span aria-hidden="true" style={{ fontSize: '0.7rem', opacity: 0.4, lineHeight: 1 }}>›</span>
+              </button>
+            )}
           </div>
 
         </div>

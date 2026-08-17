@@ -244,7 +244,7 @@ export default async function WorksPage({
           )}
 
           {/* ── Albums & EPs (scatter) ── */}
-          <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '5rem', paddingBottom: '5rem' }}>
+          <div id="albums" style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '5rem', paddingBottom: '5rem' }}>
             <p style={{ ...EYEBROW, marginBottom: '3rem' }}>{t.works.albumsAndEps}</p>
             <CoverScatter
               works={releasedAlbums}
@@ -255,7 +255,7 @@ export default async function WorksPage({
           </div>
 
           {/* ── Songs (scatter) ── */}
-          <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '5rem', paddingBottom: '5rem' }}>
+          <div id="songs" style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '5rem', paddingBottom: '5rem' }}>
             <p style={{ ...EYEBROW, marginBottom: '3rem' }}>{t.works.songs}</p>
             <CoverScatter
               works={works}
@@ -272,7 +272,7 @@ export default async function WorksPage({
             ZONE B — PROFESSIONAL SERVICES
             Full-bleed section with its own darker tint
         ══════════════════════════════════════════════════════ */}
-        <div style={{
+        <div id="sync" style={{
           background:  'rgba(5,4,3,0.82)',
           borderTop:   '1px solid rgba(255,255,255,0.05)',
           borderBottom:'1px solid rgba(255,255,255,0.05)',
@@ -324,7 +324,7 @@ export default async function WorksPage({
             </div>
 
             {/* Songs For You */}
-            <div>
+            <div id="songs-for-you">
               <p style={{ ...EYEBROW, marginBottom: '1rem' }}>{t.songs.forYou.eyebrow}</p>
               <h2
                 className="font-[family-name:var(--font-cormorant)] font-light"
