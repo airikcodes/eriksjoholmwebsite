@@ -16,11 +16,32 @@ const SUBTITLES: Record<string, string> = {
   '/contact': 'get in touch',
 };
 
+// Ordered list of nav paths — defines the 01-06 folio numbering
+const NAV_PATHS = ['/about', '/works', '/live', '/notes', '/shop', '/contact'];
+
 function getLocale(pathname: string): string {
   for (const l of LOCALES) {
     if (pathname === `/${l}` || pathname.startsWith(`/${l}/`)) return l;
   }
   return DEFAULT_LOCALE;
+}
+
+// Strip locale prefix to get a bare path, e.g. /sv/works/lycka → /works/lycka
+function barePath(pathname: string): string {
+  for (const l of LOCALES) {
+    if (pathname === `/${l}`) return '/';
+    if (pathname.startsWith(`/${l}/`)) return pathname.slice(l.length + 1);
+  }
+  return pathname;
+}
+
+// Return 1-based index into NAV_PATHS, or null for homepage / unlisted pages
+function pageNumber(pathname: string): number | null {
+  const bare = barePath(pathname);
+  for (let i = 0; i < NAV_PATHS.length; i++) {
+    if (bare === NAV_PATHS[i] || bare.startsWith(`${NAV_PATHS[i]}/`)) return i + 1;
+  }
+  return null;
 }
 
 interface NavItem {
@@ -32,6 +53,7 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
   const pathname  = usePathname();
   const router    = useRouter();
   const current   = getLocale(pathname);
+  const folio     = pageNumber(pathname);
 
   const [open, setOpen]             = useState(false);
   const [hoveredEntry, setHovered]  = useState<number | null>(null);
@@ -96,33 +118,62 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
 
   return (
     <>
-      {/* ── Toggle ──────────────────────────────────────────────────────── */}
-      <button
-        ref={toggleRef}
-        onClick={() => setOpen((o) => !o)}
-        aria-label="Toggle navigation"
-        aria-expanded={open}
-        aria-controls="nav-overlay"
-        style={{
-          position:      'fixed',
-          top:           'max(1.5rem, calc(env(safe-area-inset-top, 0px) + 0.75rem))',
-          right:         'max(1.5rem, env(safe-area-inset-right, 0px))',
-          zIndex:        60,
-          background:    'none',
-          border:        'none',
-          cursor:        'pointer',
-          color:         open ? 'rgba(255,255,255,0.9)' : 'rgba(200,146,42,0.75)',
-          fontFamily:    'var(--font-inter)',
-          fontSize:      '0.6rem',
-          letterSpacing: '0.22em',
-          textTransform: 'uppercase',
-          padding:       '0.3rem 0',
-          lineHeight:    1,
-          transition:    'color 180ms ease',
-        }}
-      >
-        {open ? 'Close' : 'Menu'}
-      </button>
+      {/* ── Toggle + folio ──────────────────────────────────────────────── */}
+      <div style={{
+        position:    'fixed',
+        top:         'max(1.5rem, calc(env(safe-area-inset-top, 0px) + 0.75rem))',
+        right:       'max(1.5rem, env(safe-area-inset-right, 0px))',
+        zIndex:      60,
+        display:     'flex',
+        alignItems:  'center',
+        gap:         '1.25rem',
+      }}>
+
+        {/* Folio — page number in the index, e.g. "03 / 06". Hidden on
+            the overlay is open and on pages outside the six nav entries. */}
+        {folio !== null && (
+          <span
+            aria-hidden="true"
+            className="font-[family-name:var(--font-cormorant)] font-light"
+            style={{
+              fontSize:      '0.75rem',
+              letterSpacing: '0.08em',
+              color:         'rgba(232,224,212,0.3)',
+              lineHeight:    1,
+              userSelect:    'none',
+              opacity:       open ? 0 : 1,
+              transition:    'opacity 200ms ease',
+            }}
+          >
+            {String(folio).padStart(2, '0')} / {String(NAV_PATHS.length).padStart(2, '0')}
+          </span>
+        )}
+
+        {/* Menu toggle */}
+        <button
+          ref={toggleRef}
+          onClick={() => setOpen((o) => !o)}
+          aria-label="Toggle navigation"
+          aria-expanded={open}
+          aria-controls="nav-overlay"
+          style={{
+            background:    'none',
+            border:        'none',
+            cursor:        'pointer',
+            color:         open ? 'rgba(255,255,255,0.9)' : 'rgba(200,146,42,0.75)',
+            fontFamily:    'var(--font-inter)',
+            fontSize:      '0.6rem',
+            letterSpacing: '0.22em',
+            textTransform: 'uppercase',
+            padding:       '0.3rem 0',
+            lineHeight:    1,
+            transition:    'color 180ms ease',
+          }}
+        >
+          {open ? 'Close' : 'Menu'}
+        </button>
+
+      </div>
 
       {/* ── Overlay ─────────────────────────────────────────────────────── */}
       <div
