@@ -183,19 +183,48 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
           aria-expanded={open}
           aria-controls="nav-overlay"
           style={{
-            background:    'none',
-            border:        'none',
-            cursor:        'pointer',
-            color:         open ? 'rgba(255,255,255,0.9)' : 'rgba(200,146,42,0.75)',
-            fontFamily:    'var(--font-inter)',
-            fontSize:      '0.6rem',
-            letterSpacing: '0.22em',
-            textTransform: 'uppercase',
-            padding:       '0.3rem 0',
-            lineHeight:    1,
-            transition:    'color 180ms ease',
+            background:           open ? 'rgba(255,255,255,0.06)' : 'rgba(13,11,9,0.55)',
+            border:               open ? '1px solid rgba(255,255,255,0.18)' : '1px solid rgba(200,146,42,0.55)',
+            borderRadius:         '2px',
+            backdropFilter:       'blur(8px)',
+            WebkitBackdropFilter: 'blur(8px)',
+            cursor:               'pointer',
+            color:                open ? 'rgba(255,255,255,0.9)' : '#C8922A',
+            fontFamily:           'var(--font-inter)',
+            fontSize:             '0.62rem',
+            letterSpacing:        '0.22em',
+            textTransform:        'uppercase',
+            padding:              '0.5rem 0.85rem',
+            lineHeight:           1,
+            display:              'flex',
+            alignItems:           'center',
+            gap:                  '0.55rem',
+            transition:           'color 180ms ease, border-color 180ms ease, background 180ms ease',
           }}
         >
+          {/* Hamburger / close lines */}
+          <svg
+            aria-hidden="true"
+            width="12" height="9"
+            viewBox="0 0 12 9"
+            fill="none"
+            style={{ flexShrink: 0, transition: 'opacity 180ms ease' }}
+          >
+            {open ? (
+              /* × mark */
+              <>
+                <line x1="1" y1="1" x2="11" y2="8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                <line x1="11" y1="1" x2="1" y2="8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              </>
+            ) : (
+              /* three bars */
+              <>
+                <line x1="0" y1="1"   x2="12" y2="1"   stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                <line x1="0" y1="4.5" x2="12" y2="4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                <line x1="0" y1="8"   x2="12" y2="8"   stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              </>
+            )}
+          </svg>
           {open ? 'Close' : 'Menu'}
         </button>
 
@@ -274,7 +303,7 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
                           style={{
                             fontSize:      'clamp(1.4rem, 3vw, 2rem)',
                             letterSpacing: '0.02em',
-                            color:         hot ? '#E8E0D4' : 'rgba(232,224,212,0.65)',
+                            color:         hot ? '#E8E0D4' : 'rgba(232,224,212,0.78)',
                             lineHeight:    1.15,
                             transition:    'color 150ms ease',
                             flexShrink:    0,

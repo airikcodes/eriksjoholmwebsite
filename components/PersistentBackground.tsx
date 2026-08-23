@@ -28,7 +28,7 @@ const images = [
 
 const CYCLE_MS = 30_000;
 const LOCALE_HOME_RE = /^\/([a-z]{2})?\/?$/;
-const bgFilter = "brightness(0.62) contrast(0.88) saturate(0.82)";
+const bgFilter = "brightness(0.72) contrast(0.88) saturate(0.85)";
 
 // ── Icons ────────────────────────────────────────────────────────────────────
 
@@ -245,7 +245,7 @@ export default function PersistentBackground() {
       {/* Vignette */}
       <div aria-hidden="true" style={{
         position: "fixed", inset: 0, zIndex: 1, pointerEvents: "none",
-        background: "radial-gradient(ellipse 100% 100% at 50% 50%, transparent 40%, rgba(0,0,0,0.45) 100%)",
+        background: "radial-gradient(ellipse 100% 100% at 50% 50%, transparent 45%, rgba(0,0,0,0.30) 100%)",
       }} />
 
       {/* Sound controls — only shown once video is playing */}
