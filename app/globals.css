@@ -290,6 +290,12 @@ a:hover .product-img {
   }
 }
 
+/* ── Studio photo grid ──────────────────────────────────────────────────── */
+.studio-photo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.375rem; }
+@media (min-width: 560px) {
+  .studio-photo-grid { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+}
+
 /* ── Funder logos ───────────────────────────────────────────────────────── */
 .funder-logo { opacity: 0.65; transition: opacity 200ms ease; display: inline-block; }
 .funder-logo:hover { opacity: 1; }

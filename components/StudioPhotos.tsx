@@ -3,7 +3,7 @@
 import { useState } from 'react';
 
 export default function StudioPhotos({ photos }: { photos: string[] }) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
 
   return (
     <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '3rem', paddingBottom: '3rem' }}>
@@ -21,6 +21,8 @@ export default function StudioPhotos({ photos }: { photos: string[] }) {
           border:         'none',
           cursor:         'pointer',
           padding:        '0.25rem 0',
+          marginBottom:   open ? '1.75rem' : '0',
+          transition:     'margin-bottom 0.35s ease',
         }}
       >
         <span style={{
@@ -58,25 +60,21 @@ export default function StudioPhotos({ photos }: { photos: string[] }) {
         </span>
       </button>
 
-      {/* Collapsible grid — grid-template-rows trick for smooth height animation */}
+      {/* Collapsible grid */}
       <div style={{
         display:          'grid',
         gridTemplateRows: open ? '1fr' : '0fr',
         transition:       'grid-template-rows 0.55s cubic-bezier(0.4, 0, 0.2, 1)',
       }}>
         <div style={{ overflow: 'hidden' }}>
-          <div style={{
-            display:             'grid',
-            gridTemplateColumns: 'repeat(2, 1fr)',
-            gap:                 '0.5rem',
-            paddingTop:          '2rem',
-          }}>
+          {/* 3-col on ≥560px, 2-col below */}
+          <div className="studio-photo-grid">
             {photos.map((src, i) => (
               <img
                 key={src}
                 src={src}
                 alt=""
-                loading={i < 4 ? 'eager' : 'lazy'}
+                loading={i < 6 ? 'eager' : 'lazy'}
                 style={{ width: '100%', height: 'auto', display: 'block' }}
               />
             ))}

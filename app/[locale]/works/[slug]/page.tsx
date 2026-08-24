@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import BackNav from '@/components/BackNav';
 import KeepInTouch from '@/components/KeepInTouch';
 import StudioPhotos from '@/components/StudioPhotos';
+import AlbumBg from '@/components/AlbumBg';
 import Link from 'next/link';
 import { works, albums, getWork, type Work } from '@/data/works';
 import { getDictionary, hasLocale } from '@/lib/dictionaries';
@@ -70,16 +71,20 @@ export default async function WorkPage({
   return (
     <main className="min-h-screen" style={{ background: '#0D0B09', color: '#E8E0D4' }}>
 
-      {/* Fixed background */}
-      <div style={{ position: 'fixed', inset: 0, zIndex: 0 }}>
-        <div style={{
-          position:           'absolute', inset: 0,
-          backgroundImage:    'url(/images/bg/bg-01.jpg)',
-          backgroundSize:     'cover',
-          backgroundPosition: 'center top',
-          opacity:            0.07,
-        }} />
-      </div>
+      {/* Fixed background — project photos if available, else static fallback */}
+      {work.photos && work.photos.length > 0 ? (
+        <AlbumBg photos={work.photos} />
+      ) : (
+        <div style={{ position: 'fixed', inset: 0, zIndex: 0 }}>
+          <div style={{
+            position:           'absolute', inset: 0,
+            backgroundImage:    'url(/images/bg/bg-01.jpg)',
+            backgroundSize:     'cover',
+            backgroundPosition: 'center top',
+            opacity:            0.07,
+          }} />
+        </div>
+      )}
 
       <div className="relative" style={{ zIndex: 1 }}>
         <div style={{ maxWidth: '680px', margin: '0 auto', padding: '0 1.5rem' }}>
