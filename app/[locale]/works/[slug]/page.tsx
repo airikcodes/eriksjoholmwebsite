@@ -537,6 +537,43 @@ export default async function WorkPage({
             </div>
           )}
 
+          {/* ── Supported by ── */}
+          {work.funders && work.funders.length > 0 && (
+            <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
+              <p style={{
+                fontFamily:    'var(--font-inter)',
+                fontSize:      '0.45rem',
+                letterSpacing: '0.35em',
+                textTransform: 'uppercase',
+                color:         '#7A6F62',
+                marginBottom:  '2rem',
+              }}>
+                Supported by
+              </p>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem', alignItems: 'center' }}>
+                {work.funders.map((funder) => (
+                  <a
+                    key={funder.url}
+                    href={funder.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={funder.name}
+                    style={{ display: 'inline-block', opacity: 0.65, transition: 'opacity 200ms ease' }}
+                    onMouseEnter={(e) => (e.currentTarget.style.opacity = '1')}
+                    onMouseLeave={(e) => (e.currentTarget.style.opacity = '0.65')}
+                  >
+                    <img
+                      src={funder.logo}
+                      alt={funder.logoAlt ?? funder.name}
+                      height={38}
+                      style={{ height: '38px', width: 'auto', display: 'block' }}
+                    />
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* ── Keep in touch ── */}
           <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '5rem', paddingBottom: '9rem' }}>
             <KeepInTouch

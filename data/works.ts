@@ -36,6 +36,8 @@ export interface Work {
   photos?: string[];
   /** Bullet-point notes shown in a "Behind the record" section on album pages */
   behindTheRecord?: string[];
+  /** Funding organisations shown at the bottom of the page */
+  funders?: Array<{ name: string; url: string; logo: string; logoAlt?: string }>;
 }
 
 const SPOTIFY_ARTIST = 'https://open.spotify.com/artist/1UpcgaCHBwic2IqUQ3hHdp';
@@ -685,6 +687,14 @@ Recording ran through the summer of 2025 across a handful of specific rooms chos
       'barndomsaren',
       'sanden-i-min-hand',
       'fri-som-en-fagel',
+    ],
+    funders: [
+      {
+        name:    'Svenska kulturfonden',
+        url:     'https://www.kulturfonden.fi',
+        logo:    '/images/svenska-kulturfonden-logo.png',
+        logoAlt: 'Svenska kulturfonden',
+      },
     ],
     photos: [
       '/images/langs-med-vagen/lmv-11.jpg',
