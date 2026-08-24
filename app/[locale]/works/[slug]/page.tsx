@@ -558,9 +558,7 @@ export default async function WorkPage({
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={funder.name}
-                    style={{ display: 'inline-block', opacity: 0.65, transition: 'opacity 200ms ease' }}
-                    onMouseEnter={(e) => (e.currentTarget.style.opacity = '1')}
-                    onMouseLeave={(e) => (e.currentTarget.style.opacity = '0.65')}
+                    className="funder-logo"
                   >
                     <img
                       src={funder.logo}

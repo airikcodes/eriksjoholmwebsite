@@ -290,6 +290,10 @@ a:hover .product-img {
   }
 }
 
+/* ── Funder logos ───────────────────────────────────────────────────────── */
+.funder-logo { opacity: 0.65; transition: opacity 200ms ease; display: inline-block; }
+.funder-logo:hover { opacity: 1; }
+
 /* ── Beehiiv post content ───────────────────────────────────────────────── */
 .notes-content {
   font-family: var(--font-inter), system-ui, sans-serif;
