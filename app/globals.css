@@ -246,25 +246,37 @@ a:hover .product-img {
   @keyframes promptIn { from { opacity: 0; } to { opacity: 1; } }
 }
 
-/* ── Cover scatter (works page discovery layout) ──────────────────────── */
-@keyframes coverDrift {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-7px); }
+/* ── Cover grid (works page discovery layout) ──────────────────────────
+   Structured, non-randomized grid — 2 columns on mobile, --cover-grid-cols
+   (set per-instance via inline style) at ≥640px. */
+.cover-grid {
+  display:               grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap:            1.1rem;
+  row-gap:               2rem;
 }
-.cover-drift {
-  animation: coverDrift 5.5s ease-in-out infinite;
-}
-@media (prefers-reduced-motion: reduce) {
-  .cover-drift { animation: none; }
-}
-
-/* Mobile: 2-column grid, no scatter */
-.cover-scatter-mobile  { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.875rem; }
-.cover-scatter-desktop { display: none; }
 
 @media (min-width: 640px) {
-  .cover-scatter-mobile  { display: none; }
-  .cover-scatter-desktop { display: block; }
+  .cover-grid {
+    grid-template-columns: repeat(var(--cover-grid-cols, 3), 1fr);
+    column-gap: 1.5rem;
+    row-gap:    2.5rem;
+  }
+}
+
+.cover-grid-tile {
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.group:hover .cover-grid-tile {
+  transform:  translateY(-4px);
+  border-color: rgba(200,146,42,0.65);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cover-grid-tile,
+  .group:hover .cover-grid-tile { transition: none; transform: none; }
 }
 
 /* Up Next: side-by-side on ≥540px, stacked below */

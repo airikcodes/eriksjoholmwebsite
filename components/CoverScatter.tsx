@@ -12,45 +12,8 @@ interface Props {
   searchPlaceholder?: string;
   /** Base path for work links, e.g. "/works" — final href is `${hrefBase}/${work.slug}` */
   hrefBase:           string;
-  sizeRange?:         [number, number]; // [minPx, maxPx] for scatter tiles
-}
-
-// Seeded LCG pseudo-random — same layout every render
-function lcg(seed: number) {
-  let s = seed | 0;
-  return () => {
-    s = (Math.imul(1664525, s) + 1013904223) | 0;
-    return (s >>> 0) / 0x100000000;
-  };
-}
-
-const COL_W = 680; // conservative column width for position clamping
-
-interface Tile { leftPct: number; topPx: number; sizePx: number; deg: number; delay: number; }
-
-function buildLayout(n: number, minSz: number, maxSz: number): { tiles: Tile[]; h: number } {
-  const tiles: Tile[] = [];
-  let y = 0;
-  for (let i = 0; i < n; i++) {
-    const r = lcg(i * 53 + 17);
-    // Size: larger for earlier works
-    const t      = n > 1 ? Math.min(i / (n - 1), 1) : 0;
-    const sizePx = Math.round(maxSz - t * (maxSz - minSz));
-    // Two-zone stagger: left / right
-    const isLeft = i % 2 === 0;
-    const rawMin = isLeft ? 2  : 47;
-    const rawMax = isLeft ? 40 : 80;
-    const maxL   = ((COL_W - sizePx) / COL_W) * 100;
-    const xMin   = rawMin;
-    const xMax   = Math.min(rawMax, maxL);
-    const leftPct = xMin + r() * Math.max(0, xMax - xMin);
-    const deg   = (r() - 0.5) * 5;
-    const delay = r() * 3;
-    tiles.push({ leftPct, topPx: y, sizePx, deg, delay });
-    y += sizePx + 16 + r() * 34;
-  }
-  const last = tiles[tiles.length - 1];
-  return { tiles, h: last ? last.topPx + last.sizePx + 40 : 0 };
+  /** Grid column count at desktop width (≥640px). Mobile is always 2. */
+  columns?:           number;
 }
 
 const EYEBROW: React.CSSProperties = {
@@ -71,11 +34,10 @@ export default function CoverScatter({
   showFilter        = false,
   searchPlaceholder = 'Search…',
   hrefBase,
-  sizeRange         = [120, 200],
+  columns           = 3,
 }: Props) {
-  const [query,   setQuery]   = useState('');
-  const [filter,  setFilter]  = useState<Filter>('all');
-  const [hovered, setHovered] = useState<string | null>(null);
+  const [query,  setQuery]  = useState('');
+  const [filter, setFilter] = useState<Filter>('all');
 
   const q          = query.toLowerCase().trim();
   const isSearching = q.length > 0 || (showFilter && filter !== 'all');
@@ -89,13 +51,7 @@ export default function CoverScatter({
     return true;
   }), [works, filter, q, showFilter]);
 
-  const withCovers  = filtered.filter(w => w.coverImage);
-  const [min, max]  = sizeRange;
-  const { tiles, h } = useMemo(
-    () => buildLayout(withCovers.length, min, max),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [withCovers.length, min, max]
-  );
+  const withCovers = filtered.filter(w => w.coverImage);
 
   return (
     <div>
@@ -176,108 +132,81 @@ export default function CoverScatter({
         </ul>
       )}
 
-      {/* ── Scatter view (default) ── */}
+      {/* ── Grid view (default) — structured, no tilt/randomization ── */}
       {!isSearching && withCovers.length > 0 && (
-        <>
-          {/* Mobile: 2-column grid */}
-          <div className="cover-scatter-mobile">
-            {withCovers.map((work) => (
-              <Link key={work.id} href={`${hrefBase}/${work.slug}`} style={{ textDecoration: 'none', display: 'block' }}>
-                <div style={{
-                  width:           '100%',
-                  aspectRatio:     '1',
-                  maskImage:       'radial-gradient(ellipse 90% 90% at 50% 50%, black 60%, transparent 100%)',
-                  WebkitMaskImage: 'radial-gradient(ellipse 90% 90% at 50% 50%, black 60%, transparent 100%)',
-                  overflow:        'hidden',
-                }}>
-                  <img
-                    src={work.coverImage!}
-                    alt=""
-                    loading="lazy"
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', opacity: 0.96 }}
-                  />
-                </div>
-                <p
-                  className="font-[family-name:var(--font-cormorant)] font-light"
-                  style={{ fontSize: '0.8rem', color: '#E8E0D4', marginTop: '0.4rem', lineHeight: 1.2 }}
-                >
-                  {work.title}
-                </p>
-              </Link>
-            ))}
-          </div>
-
-          {/* Desktop: absolute-position scatter */}
-          <div className="cover-scatter-desktop" style={{ position: 'relative', height: `${h}px` }}>
-            {withCovers.map((work, i) => {
-              const tile = tiles[i];
-              if (!tile) return null;
-              const hot = hovered === work.id;
-              return (
-                <Link
-                  key={work.id}
-                  href={`${hrefBase}/${work.slug}`}
-                  onMouseEnter={() => setHovered(work.id)}
-                  onMouseLeave={() => setHovered(null)}
+        <div
+          className="cover-grid"
+          style={{ '--cover-grid-cols': columns } as React.CSSProperties}
+        >
+          {withCovers.map((work, i) => (
+            <Link
+              key={work.id}
+              href={`${hrefBase}/${work.slug}`}
+              className="group"
+              style={{ textDecoration: 'none', display: 'block' }}
+            >
+              <div
+                className="cover-grid-tile"
+                style={{
+                  position:     'relative',
+                  aspectRatio:  '1',
+                  overflow:     'hidden',
+                  borderRadius: '2px',
+                  border:       '1px solid rgba(200,146,42,0.22)',
+                }}
+              >
+                <img
+                  src={work.coverImage!}
+                  alt=""
+                  loading={i < 6 ? 'eager' : 'lazy'}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                />
+                <span
                   style={{
-                    position:        'absolute',
-                    left:            `${tile.leftPct.toFixed(2)}%`,
-                    top:             `${tile.topPx}px`,
-                    width:           `${tile.sizePx}px`,
-                    transform:       `rotate(${tile.deg.toFixed(2)}deg)`,
-                    transformOrigin: 'center center',
-                    textDecoration:  'none',
-                    zIndex:          hot ? 2 : 1,
+                    position:      'absolute',
+                    top:           '0.5rem',
+                    left:          '0.5rem',
+                    fontFamily:    'var(--font-inter)',
+                    fontSize:      '0.42rem',
+                    letterSpacing: '0.1em',
+                    color:         'rgba(232,224,212,0.85)',
+                    background:    'rgba(13,11,9,0.55)',
+                    padding:       '0.18rem 0.4rem',
+                    borderRadius:  '2px',
                   }}
                 >
-                  <div className="cover-drift" style={{ animationDelay: `${tile.delay.toFixed(2)}s` }}>
-                    {/* Image with feathered radial edges */}
-                    <div style={{
-                      width:           tile.sizePx,
-                      height:          tile.sizePx,
-                      maskImage:       'radial-gradient(ellipse 92% 92% at 50% 50%, black 78%, transparent 100%)',
-                      WebkitMaskImage: 'radial-gradient(ellipse 92% 92% at 50% 50%, black 78%, transparent 100%)',
-                      overflow:        'hidden',
-                      opacity:         hot ? 1 : 0.94,
-                      transform:       hot ? 'scale(1.035)' : 'scale(1)',
-                      filter:          hot ? 'drop-shadow(0 14px 28px rgba(0,0,0,0.5))' : 'drop-shadow(0 0 0 rgba(0,0,0,0))',
-                      transition:      'opacity 220ms ease, transform 260ms ease, filter 260ms ease',
-                    }}>
-                      <img
-                        src={work.coverImage!}
-                        alt=""
-                        loading={i < 4 ? 'eager' : 'lazy'}
-                        width={tile.sizePx}
-                        height={tile.sizePx}
-                        style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-                      />
-                    </div>
-                    {/* Title — appears on hover */}
-                    <div style={{
-                      marginTop:  '0.5rem',
-                      textAlign:  'center',
-                      opacity:    hot ? 1 : 0.5,
-                      transform:  hot ? 'translateY(0)' : 'translateY(2px)',
-                      transition: 'opacity 200ms ease, transform 200ms ease',
-                    }}>
-                      <p
-                        className="font-[family-name:var(--font-cormorant)] font-light"
-                        style={{ fontSize: '0.82rem', color: '#E8E0D4', lineHeight: 1.2 }}
-                      >
-                        {work.title}
-                      </p>
-                      {work.meta && (
-                        <p style={{ fontFamily: 'var(--font-inter)', fontSize: '0.44rem', color: '#7A6F62', letterSpacing: '0.1em', textTransform: 'uppercase', marginTop: '0.2rem' }}>
-                          {work.meta}
-                        </p>
-                      )}
-                    </div>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-        </>
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+              </div>
+
+              <p
+                className="font-[family-name:var(--font-cormorant)] font-light group-hover:text-[#C8922A] transition-colors duration-200"
+                style={{
+                  fontSize:      'clamp(0.95rem, 1.8vw, 1.15rem)',
+                  color:         '#E8E0D4',
+                  lineHeight:    1.2,
+                  marginTop:     '0.65rem',
+                }}
+              >
+                {work.title}
+              </p>
+              {work.meta && (
+                <p
+                  style={{
+                    fontFamily:    'var(--font-inter)',
+                    fontSize:      '0.44rem',
+                    letterSpacing: '0.1em',
+                    textTransform: 'uppercase',
+                    color:         '#7A6F62',
+                    marginTop:     '0.25rem',
+                  }}
+                >
+                  {work.meta}
+                </p>
+              )}
+            </Link>
+          ))}
+        </div>
       )}
     </div>
   );

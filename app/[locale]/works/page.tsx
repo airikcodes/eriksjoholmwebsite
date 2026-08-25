@@ -249,7 +249,7 @@ export default async function WorksPage({
             <CoverScatter
               works={releasedAlbums}
               hrefBase="/works"
-              sizeRange={[130, 210]}
+              columns={3}
               searchPlaceholder="Search releases…"
             />
           </div>
@@ -261,7 +261,7 @@ export default async function WorksPage({
               works={works}
               showFilter
               hrefBase="/works"
-              sizeRange={[80, 140]}
+              columns={4}
               searchPlaceholder="Search songs…"
             />
           </div>
