@@ -402,3 +402,13 @@ a:hover .product-img {
 /* Strip leftover Beehiiv font/color inline styles from divs/spans */
 .notes-content div { font-size: inherit !important; color: inherit !important; }
 .notes-content span { font-size: inherit !important; }
+
+/* Menu toggle — replace harsh default focus ring with the site's amber accent,
+   and only show it for keyboard focus (not mouse clicks). */
+.menu-toggle-btn:focus {
+  outline: none;
+}
+.menu-toggle-btn:focus-visible {
+  outline: 2px solid rgba(200,146,42,0.6);
+  outline-offset: 3px;
+}

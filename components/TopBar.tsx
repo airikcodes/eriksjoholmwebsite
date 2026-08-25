@@ -55,6 +55,7 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
 
   const [open, setOpen]             = useState(false);
   const [hoveredEntry, setHovered]  = useState<number | null>(null);
+  const [menuHover, setMenuHover]   = useState(false);
   const [langOpen, setLangOpen]     = useState(false);
   const [expanded, setExpanded]     = useState<Set<number>>(new Set<number>());
   const toggleRef     = useRef<HTMLButtonElement>(null);
@@ -178,18 +179,21 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
         {/* Menu toggle */}
         <button
           ref={toggleRef}
+          className="menu-toggle-btn"
           onClick={() => setOpen((o) => !o)}
+          onMouseEnter={() => setMenuHover(true)}
+          onMouseLeave={() => setMenuHover(false)}
           aria-label="Toggle navigation"
           aria-expanded={open}
           aria-controls="nav-overlay"
           style={{
-            background:           open ? 'rgba(255,255,255,0.06)' : 'rgba(13,11,9,0.55)',
-            border:               open ? '1px solid rgba(255,255,255,0.18)' : '1px solid rgba(200,146,42,0.55)',
+            background:           open ? (menuHover ? 'rgba(255,255,255,0.10)' : 'rgba(255,255,255,0.06)') : (menuHover ? 'rgba(13,11,9,0.75)' : 'rgba(13,11,9,0.55)'),
+            border:                open ? (menuHover ? '1px solid rgba(255,255,255,0.28)' : '1px solid rgba(255,255,255,0.18)') : (menuHover ? '1px solid rgba(200,146,42,0.85)' : '1px solid rgba(200,146,42,0.55)'),
             borderRadius:         '2px',
             backdropFilter:       'blur(8px)',
             WebkitBackdropFilter: 'blur(8px)',
             cursor:               'pointer',
-            color:                open ? 'rgba(255,255,255,0.9)' : '#C8922A',
+            color:                 open ? (menuHover ? '#ffffff' : 'rgba(255,255,255,0.9)') : (menuHover ? '#E0A83A' : '#C8922A'),
             fontFamily:           'var(--font-inter)',
             fontSize:             '0.62rem',
             letterSpacing:        '0.22em',
