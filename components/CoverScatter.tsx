@@ -47,7 +47,7 @@ function buildLayout(n: number, minSz: number, maxSz: number): { tiles: Tile[]; 
     const deg   = (r() - 0.5) * 5;
     const delay = r() * 3;
     tiles.push({ leftPct, topPx: y, sizePx, deg, delay });
-    y += sizePx + 28 + r() * 60;
+    y += sizePx + 16 + r() * 34;
   }
   const last = tiles[tiles.length - 1];
   return { tiles, h: last ? last.topPx + last.sizePx + 40 : 0 };
@@ -194,7 +194,7 @@ export default function CoverScatter({
                     src={work.coverImage!}
                     alt=""
                     loading="lazy"
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', opacity: 0.82 }}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', opacity: 0.96 }}
                   />
                 </div>
                 <p
@@ -235,11 +235,13 @@ export default function CoverScatter({
                     <div style={{
                       width:           tile.sizePx,
                       height:          tile.sizePx,
-                      maskImage:       'radial-gradient(ellipse 90% 90% at 50% 50%, black 55%, transparent 100%)',
-                      WebkitMaskImage: 'radial-gradient(ellipse 90% 90% at 50% 50%, black 55%, transparent 100%)',
+                      maskImage:       'radial-gradient(ellipse 92% 92% at 50% 50%, black 78%, transparent 100%)',
+                      WebkitMaskImage: 'radial-gradient(ellipse 92% 92% at 50% 50%, black 78%, transparent 100%)',
                       overflow:        'hidden',
-                      opacity:         hot ? 1 : 0.78,
-                      transition:      'opacity 220ms ease',
+                      opacity:         hot ? 1 : 0.94,
+                      transform:       hot ? 'scale(1.035)' : 'scale(1)',
+                      filter:          hot ? 'drop-shadow(0 14px 28px rgba(0,0,0,0.5))' : 'drop-shadow(0 0 0 rgba(0,0,0,0))',
+                      transition:      'opacity 220ms ease, transform 260ms ease, filter 260ms ease',
                     }}>
                       <img
                         src={work.coverImage!}
@@ -254,8 +256,8 @@ export default function CoverScatter({
                     <div style={{
                       marginTop:  '0.5rem',
                       textAlign:  'center',
-                      opacity:    hot ? 1 : 0,
-                      transform:  hot ? 'translateY(0)' : 'translateY(4px)',
+                      opacity:    hot ? 1 : 0.5,
+                      transform:  hot ? 'translateY(0)' : 'translateY(2px)',
                       transition: 'opacity 200ms ease, transform 200ms ease',
                     }}>
                       <p
