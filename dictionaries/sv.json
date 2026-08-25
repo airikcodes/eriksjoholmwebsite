@@ -80,7 +80,8 @@
       "label": "Kommande",
       "noShows": "Inga datum annonserade ännu.",
       "notesFirst": "När konserter bekräftas får Notes-prenumeranter höra det först.",
-      "subscribeBtn": "Prenumerera på Notes"
+      "subscribeBtn": "Prenumerera på Notes",
+      "pastCount": "{count} scener hittills, i {countries} länder — nästa skrivs fortfarande."
     },
     "concertSeries": {
       "label": "Konsertsvit",

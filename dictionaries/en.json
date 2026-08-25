@@ -80,7 +80,8 @@
       "label": "Upcoming",
       "noShows": "No dates announced yet.",
       "notesFirst": "When shows are confirmed, subscribers to Notes hear first.",
-      "subscribeBtn": "Subscribe to Notes"
+      "subscribeBtn": "Subscribe to Notes",
+      "pastCount": "{count} stages so far, across {countries} countries — the next one is still being written."
     },
     "concertSeries": {
       "label": "Concert series",

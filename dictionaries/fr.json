@@ -80,7 +80,8 @@
       "label": "À venir",
       "noShows": "Aucune date annoncée pour l'instant.",
       "notesFirst": "Lorsque des concerts sont confirmés, les abonnés à Notes sont les premiers informés.",
-      "subscribeBtn": "S'abonner à Notes"
+      "subscribeBtn": "S'abonner à Notes",
+      "pastCount": "{count} scènes jusqu'ici, dans {countries} pays — la prochaine est encore en train de s'écrire."
     },
     "concertSeries": {
       "label": "Série de concerts",

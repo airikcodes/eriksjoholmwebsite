@@ -80,7 +80,8 @@
       "label": "Tulevat",
       "noShows": "Päivämääriä ei ole vielä ilmoitettu.",
       "notesFirst": "Kun konsertit vahvistetaan, Notes-tilaajat kuulevat siitä ensimmäisinä.",
-      "subscribeBtn": "Tilaa Notes"
+      "subscribeBtn": "Tilaa Notes",
+      "pastCount": "{count} lavaa tähän mennessä, {countries} maassa — seuraava on vielä kirjoitteilla."
     },
     "concertSeries": {
       "label": "Konserttisarja",

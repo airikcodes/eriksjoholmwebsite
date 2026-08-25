@@ -40,6 +40,12 @@ export default async function LivePage({
   const t = await getDictionary(locale);
   const l = t.live;
 
+  const pastCountText = pastEvents.length > 0
+    ? l.upcoming.pastCount
+        .replace('{count}', String(pastEvents.length))
+        .replace('{countries}', String(new Set(pastEvents.map((e) => e.country)).size))
+    : null;
+
   return (
     <main className="min-h-screen" style={{ background: '#0D0B09', color: '#E8E0D4' }}>
 
@@ -116,10 +122,22 @@ export default async function LivePage({
                   color:      '#B8B0A6',
                   lineHeight: 1.85,
                   maxWidth:   '44ch',
-                  marginBottom: '3rem',
+                  marginBottom: pastCountText ? '0.75rem' : '3rem',
                 }}>
                   {l.upcoming.notesFirst}
                 </p>
+                {pastCountText && (
+                  <p style={{
+                    fontFamily: 'var(--font-inter)',
+                    fontSize:   '0.85rem',
+                    color:      '#7A6F62',
+                    lineHeight: 1.7,
+                    maxWidth:   '44ch',
+                    marginBottom: '3rem',
+                  }}>
+                    {pastCountText}
+                  </p>
+                )}
               </>
             ) : (
               <ul style={{ borderTop: '1px solid rgba(255,255,255,0.07)', marginBottom: '3rem' }}>
