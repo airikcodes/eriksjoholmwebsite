@@ -52,7 +52,7 @@ export default async function ShopPage({
             <BackNav />
             <p style={{
               fontFamily: 'var(--font-inter)',
-              fontSize: '0.48rem',
+              fontSize: '0.7rem',
               letterSpacing: '0.35em',
               textTransform: 'uppercase',
               color: '#7A6F62',
@@ -79,8 +79,8 @@ export default async function ShopPage({
             {available.length === 0 ? (
               <p style={{
                 fontFamily: 'var(--font-inter)',
-                fontSize: '0.875rem',
-                color: '#7A6F62',
+                fontSize: '1rem',
+                color: '#B8B0A6',
               }}>
                 Nothing here yet — check back soon.
               </p>

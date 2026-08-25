@@ -208,7 +208,7 @@ function FilterChip({
       onClick={onClick}
       style={{
         fontFamily: "var(--font-inter)",
-        fontSize: "0.58rem",
+        fontSize: "0.7rem",
         letterSpacing: "0.16em",
         textTransform: "uppercase",
         padding: "0.45rem 1rem",
@@ -256,7 +256,7 @@ export default function SyncCatalog() {
 
           {/* Tempo */}
           <div>
-            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.6rem", letterSpacing: "0.25em", textTransform: "uppercase", color: "#7A6F62", marginBottom: "0.75rem" }}>
+            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.25em", textTransform: "uppercase", color: "#7A6F62", marginBottom: "0.75rem" }}>
               Tempo
             </p>
             <div className="flex flex-wrap gap-2">
@@ -268,7 +268,7 @@ export default function SyncCatalog() {
 
           {/* Mood */}
           <div>
-            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.6rem", letterSpacing: "0.25em", textTransform: "uppercase", color: "#7A6F62", marginBottom: "0.75rem" }}>
+            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.25em", textTransform: "uppercase", color: "#7A6F62", marginBottom: "0.75rem" }}>
               Mood
             </p>
             <div className="flex flex-wrap gap-2">
@@ -280,7 +280,7 @@ export default function SyncCatalog() {
 
           {/* Use case */}
           <div>
-            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.6rem", letterSpacing: "0.25em", textTransform: "uppercase", color: "#7A6F62", marginBottom: "0.75rem" }}>
+            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.25em", textTransform: "uppercase", color: "#7A6F62", marginBottom: "0.75rem" }}>
               Use case
             </p>
             <div className="flex flex-wrap gap-2">
@@ -294,7 +294,7 @@ export default function SyncCatalog() {
 
         {/* Count + clear */}
         <div className="flex items-center gap-5 mt-5 pt-4" style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}>
-          <span style={{ fontFamily: "var(--font-inter)", fontSize: "0.48rem", letterSpacing: "0.12em", color: "#7A6F62" }}>
+          <span style={{ fontFamily: "var(--font-inter)", fontSize: "0.58rem", letterSpacing: "0.12em", color: "#B8B0A6" }}>
             {filtered.length} of {syncCatalog.length} tracks
           </span>
           {hasFilter && (
@@ -350,7 +350,7 @@ export default function SyncCatalog() {
                       {track.tempo}
                     </span>
                     {track.languages && (
-                      <span style={{ fontFamily: "var(--font-inter)", fontSize: "0.44rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#7A6F62" }}>
+                      <span style={{ fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#7A6F62" }}>
                         {track.languages}
                       </span>
                     )}
@@ -391,7 +391,7 @@ export default function SyncCatalog() {
                   className="group-hover:text-[#1DB954] transition-colors duration-150"
                   style={{
                     fontFamily: "var(--font-inter)",
-                    fontSize: "0.62rem",
+                    fontSize: "0.7rem",
                     letterSpacing: "0.18em",
                     textTransform: "uppercase",
                     color: "#7A6F62",
@@ -409,7 +409,7 @@ export default function SyncCatalog() {
       </ul>
 
       {filtered.length === 0 && (
-        <p className="text-center py-20" style={{ fontFamily: "var(--font-inter)", fontSize: "0.78rem", color: "#7A6F62" }}>
+        <p className="text-center py-20" style={{ fontFamily: "var(--font-inter)", fontSize: "0.78rem", color: "#B8B0A6" }}>
           No tracks match those filters.{" "}
           <button
             onClick={clearAll}

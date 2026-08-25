@@ -82,7 +82,7 @@ export default function CartDrawer() {
         }}>
           <p style={{
             fontFamily: 'var(--font-inter)',
-            fontSize: '0.48rem',
+            fontSize: '0.7rem',
             letterSpacing: '0.35em',
             textTransform: 'uppercase',
             color: '#7A6F62',
@@ -96,7 +96,7 @@ export default function CartDrawer() {
               background: 'none',
               border: 'none',
               cursor: 'pointer',
-              color: '#7A6F62',
+              color: '#B8B0A6',
               padding: '0.25rem',
               lineHeight: 1,
               transition: 'color 200ms',
@@ -116,8 +116,8 @@ export default function CartDrawer() {
           {isEmpty ? (
             <p style={{
               fontFamily: 'var(--font-inter)',
-              fontSize: '0.875rem',
-              color: '#7A6F62',
+              fontSize: '1rem',
+              color: '#B8B0A6',
               paddingTop: '2rem',
             }}>
               Nothing here yet.
@@ -170,7 +170,7 @@ export default function CartDrawer() {
                       <p style={{
                         fontFamily: 'var(--font-inter)',
                         fontSize: '0.7rem',
-                        color: '#7A6F62',
+                        color: '#B8B0A6',
                         marginBottom: '0.5rem',
                       }}>
                         {label} · Qty {item.quantity}
@@ -192,7 +192,7 @@ export default function CartDrawer() {
                         border: 'none',
                         cursor: isPending ? 'not-allowed' : 'pointer',
                         color: '#7A6F62',
-                        fontSize: '0.6rem',
+                        fontSize: '0.7rem',
                         letterSpacing: '0.1em',
                         textTransform: 'uppercase',
                         fontFamily: 'var(--font-inter)',

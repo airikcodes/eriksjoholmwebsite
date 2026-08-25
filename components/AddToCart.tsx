@@ -42,7 +42,7 @@ export default function AddToCart({ variants }: { variants: FWVariant[] }) {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
           <p style={{
             fontFamily: 'var(--font-inter)',
-            fontSize: '0.6rem',
+            fontSize: '0.7rem',
             letterSpacing: '0.2em',
             textTransform: 'uppercase',
             color: '#7A6F62',

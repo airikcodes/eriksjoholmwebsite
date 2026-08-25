@@ -340,7 +340,7 @@ function ResultCard({ track, onDismiss }: { track: Track; onDismiss: (id: string
               style={{
                 fontFamily: "var(--font-inter)",
                 fontSize:   "0.78rem",
-                color:      "#7A6F62",
+                color:      "#B8B0A6",
                 marginTop:  "0.5rem",
                 lineHeight: 1.55,
               }}
@@ -355,7 +355,7 @@ function ResultCard({ track, onDismiss }: { track: Track; onDismiss: (id: string
                 href={track.spotifyLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ fontFamily: "var(--font-inter)", fontSize: "0.52rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#7A6F62" }}
+                style={{ fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#7A6F62" }}
                 className="hover:text-[#1DB954] transition-colors duration-200"
               >
                 Spotify →
@@ -364,7 +364,7 @@ function ResultCard({ track, onDismiss }: { track: Track; onDismiss: (id: string
                 href={track.tidalLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ fontFamily: "var(--font-inter)", fontSize: "0.52rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#7A6F62" }}
+                style={{ fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#7A6F62" }}
                 className="hover:text-[#00FFFF] transition-colors duration-200"
               >
                 Tidal →
@@ -400,7 +400,7 @@ function ResultCard({ track, onDismiss }: { track: Track; onDismiss: (id: string
             href={track.tidalLink}
             target="_blank"
             rel="noopener noreferrer"
-            style={{ display: "inline-block", marginTop: "0.6rem", fontFamily: "var(--font-inter)", fontSize: "0.52rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#7A6F62" }}
+            style={{ display: "inline-block", marginTop: "0.6rem", fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#7A6F62" }}
             className="hover:text-[#00FFFF] transition-colors duration-200"
           >
             Also on Tidal →
@@ -526,7 +526,7 @@ export default function SongConcierge({
           }}
           className="concierge-input"
           placeholder={placeholder}
-          style={{ width: "100%", padding: "1rem 3rem 1rem 1.25rem", fontSize: "0.875rem", letterSpacing: "0.02em", fontFamily: "var(--font-inter)" }}
+          style={{ width: "100%", padding: "1.1rem 3rem 1.1rem 1.25rem", fontSize: "0.95rem", letterSpacing: "0.02em", fontFamily: "var(--font-inter)" }}
         />
         <button
           type="submit"
@@ -542,7 +542,7 @@ export default function SongConcierge({
 
       {/* Chips */}
       <div className="mt-5 text-center">
-        <p className="concierge-or" style={{ fontFamily: "var(--font-inter)", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "0.75rem" }}>
+        <p className="concierge-or" style={{ fontFamily: "var(--font-inter)", fontSize: "0.68rem", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "0.85rem" }}>
           {orLabel}
         </p>
         <div className="flex flex-wrap justify-center gap-2">
@@ -551,7 +551,7 @@ export default function SongConcierge({
               key={chip.id}
               onClick={() => handleChip(chip.id)}
               className={`concierge-chip${activeChip === chip.id ? " active" : ""}`}
-              style={{ fontFamily: "var(--font-inter)", fontSize: "0.58rem", letterSpacing: "0.18em", textTransform: "uppercase", padding: "0.45rem 1rem", background: "transparent", cursor: "pointer", whiteSpace: "nowrap" }}
+              style={{ fontFamily: "var(--font-inter)", fontSize: "0.72rem", letterSpacing: "0.14em", textTransform: "uppercase", padding: "0.6rem 1.25rem", background: "rgba(255,255,255,0.03)", cursor: "pointer", whiteSpace: "nowrap" }}
             >
               {chip.label}
             </button>

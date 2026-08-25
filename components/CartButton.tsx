@@ -16,7 +16,7 @@ export default function CartButton() {
         display: 'flex',
         alignItems: 'center',
         gap: '0.5rem',
-        color: '#7A6F62',
+        color: '#B8B0A6',
         padding: '0.5rem',
         transition: 'color 200ms ease',
       }}

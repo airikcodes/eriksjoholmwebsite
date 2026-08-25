@@ -57,7 +57,7 @@ export default async function Sync({
             <BackNav />
             <p style={{
               fontFamily: "var(--font-inter)",
-              fontSize: "0.48rem",
+              fontSize: "0.7rem",
               letterSpacing: "0.35em",
               textTransform: "uppercase",
               color: "#7A6F62",
@@ -79,8 +79,8 @@ export default async function Sync({
             <span className="block" style={{ width: "2rem", height: "1px", background: "#C8922A", margin: "2.5rem 0" }} />
             <p style={{
               fontFamily: "var(--font-inter)",
-              fontSize: "0.875rem",
-              color: "#7A6F62",
+              fontSize: "1rem",
+              color: "#B8B0A6",
               lineHeight: 1.85,
               maxWidth: "52ch",
             }}>
@@ -93,7 +93,7 @@ export default async function Sync({
             <div className="flex items-baseline justify-between gap-4" style={{ marginBottom: "3rem" }}>
               <p style={{
                 fontFamily: "var(--font-inter)",
-                fontSize: "0.45rem",
+                fontSize: "0.7rem",
                 letterSpacing: "0.35em",
                 textTransform: "uppercase",
                 color: "#7A6F62",
@@ -127,7 +127,7 @@ export default async function Sync({
           <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: "5rem", paddingBottom: "5rem" }}>
             <p style={{
               fontFamily: "var(--font-inter)",
-              fontSize: "0.45rem",
+              fontSize: "0.7rem",
               letterSpacing: "0.35em",
               textTransform: "uppercase",
               color: "#7A6F62",
@@ -157,7 +157,7 @@ export default async function Sync({
                   <p style={{
                     fontFamily: "var(--font-inter)",
                     fontSize: "0.78rem",
-                    color: "#7A6F62",
+                    color: "#B8B0A6",
                     lineHeight: 1.8,
                   }}>
                     {desc}
@@ -171,7 +171,7 @@ export default async function Sync({
           <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: "5rem", paddingBottom: "9rem" }}>
             <p style={{
               fontFamily: "var(--font-inter)",
-              fontSize: "0.45rem",
+              fontSize: "0.7rem",
               letterSpacing: "0.35em",
               textTransform: "uppercase",
               color: "#7A6F62",
@@ -192,8 +192,8 @@ export default async function Sync({
             </h2>
             <p style={{
               fontFamily: "var(--font-inter)",
-              fontSize: "0.82rem",
-              color: "#7A6F62",
+              fontSize: "0.9rem",
+              color: "#B8B0A6",
               lineHeight: 1.85,
               maxWidth: "48ch",
               marginBottom: "2.25rem",

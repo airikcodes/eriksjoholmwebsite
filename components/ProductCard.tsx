@@ -63,8 +63,8 @@ export default function ProductCard({ product, locale }: { product: FWProduct; l
         </p>
         <p style={{
           fontFamily: 'var(--font-inter)',
-          fontSize: '0.8rem',
-          color: '#7A6F62',
+          fontSize: '0.85rem',
+          color: '#B8B0A6',
           letterSpacing: '0.05em',
         }}>
           {fmt(lowestPrice.value, lowestPrice.currency)}

@@ -14,7 +14,7 @@ export default function BackNav({ href = '/', label = 'Erik Sjøholm' }: BackNav
           alignItems: 'center',
           gap: '0.75rem',
           textDecoration: 'none',
-          color: '#7A6F62',
+          color: '#B8B0A6',
         }}
       >
         <span

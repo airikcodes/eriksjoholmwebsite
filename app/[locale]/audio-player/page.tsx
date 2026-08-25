@@ -32,7 +32,7 @@ export default async function AudioPlayerPage({
           <BackNav />
           <p style={{
             fontFamily:    'var(--font-inter)',
-            fontSize:      '0.45rem',
+            fontSize:      '0.7rem',
             letterSpacing: '0.35em',
             textTransform: 'uppercase',
             color:         '#7A6F62',

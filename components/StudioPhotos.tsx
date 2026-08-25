@@ -27,7 +27,7 @@ export default function StudioPhotos({ photos }: { photos: string[] }) {
       >
         <span style={{
           fontFamily:    'var(--font-inter)',
-          fontSize:      '0.45rem',
+          fontSize:      '0.7rem',
           letterSpacing: '0.35em',
           textTransform: 'uppercase',
           color:         open ? '#B8B0A6' : '#7A6F62',
@@ -48,7 +48,7 @@ export default function StudioPhotos({ photos }: { photos: string[] }) {
           <svg
             width="10" height="6" viewBox="0 0 10 6" fill="none"
             style={{
-              color:      '#7A6F62',
+              color:      '#B8B0A6',
               transform:   open ? 'rotate(180deg)' : 'rotate(0deg)',
               transition: 'transform 0.35s ease',
               flexShrink: 0,

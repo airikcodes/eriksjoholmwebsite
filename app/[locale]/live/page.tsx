@@ -62,7 +62,7 @@ export default async function LivePage({
             <BackNav />
             <p style={{
               fontFamily:    'var(--font-inter)',
-              fontSize:      '0.48rem',
+              fontSize:      '0.7rem',
               letterSpacing: '0.35em',
               textTransform: 'uppercase',
               color:         '#7A6F62',
@@ -88,7 +88,7 @@ export default async function LivePage({
           <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '5rem', paddingBottom: '5rem' }}>
             <p style={{
               fontFamily:    'var(--font-inter)',
-              fontSize:      '0.45rem',
+              fontSize:      '0.7rem',
               letterSpacing: '0.35em',
               textTransform: 'uppercase',
               color:         '#7A6F62',
@@ -112,8 +112,8 @@ export default async function LivePage({
                 </p>
                 <p style={{
                   fontFamily: 'var(--font-inter)',
-                  fontSize:   '0.875rem',
-                  color:      '#7A6F62',
+                  fontSize:   '1rem',
+                  color:      '#B8B0A6',
                   lineHeight: 1.85,
                   maxWidth:   '44ch',
                   marginBottom: '3rem',
@@ -140,8 +140,8 @@ export default async function LivePage({
                       )}
                       <p style={{
                         fontFamily: 'var(--font-inter)',
-                        fontSize:   '0.65rem',
-                        color:      '#7A6F62',
+                        fontSize:   '0.75rem',
+                        color:      '#B8B0A6',
                         letterSpacing: '0.08em',
                       }}>
                         {event.venue ? `${event.venue} · ` : ''}{event.city}, {event.country}
@@ -166,7 +166,7 @@ export default async function LivePage({
                           rel="noopener noreferrer"
                           style={{
                             fontFamily: 'var(--font-inter)',
-                            fontSize: '0.45rem',
+                            fontSize: '0.7rem',
                             letterSpacing: '0.22em',
                             textTransform: 'uppercase',
                             color: '#7A6F62',
@@ -191,7 +191,7 @@ export default async function LivePage({
           <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '5rem', paddingBottom: '5rem' }}>
             <p style={{
               fontFamily:    'var(--font-inter)',
-              fontSize:      '0.45rem',
+              fontSize:      '0.7rem',
               letterSpacing: '0.35em',
               textTransform: 'uppercase',
               color:         '#7A6F62',
@@ -212,8 +212,8 @@ export default async function LivePage({
             </h2>
             <p style={{
               fontFamily: 'var(--font-inter)',
-              fontSize:   '0.875rem',
-              color:      '#7A6F62',
+              fontSize:   '1rem',
+              color:      '#B8B0A6',
               lineHeight: 1.9,
               maxWidth:   '50ch',
               marginBottom: '2rem',
@@ -222,8 +222,8 @@ export default async function LivePage({
             </p>
             <p style={{
               fontFamily: 'var(--font-inter)',
-              fontSize:   '0.875rem',
-              color:      '#7A6F62',
+              fontSize:   '1rem',
+              color:      '#B8B0A6',
               lineHeight: 1.9,
               maxWidth:   '50ch',
               marginBottom: '2.5rem',
@@ -237,7 +237,7 @@ export default async function LivePage({
             <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '5rem', paddingBottom: '5rem' }}>
               <p style={{
                 fontFamily:    'var(--font-inter)',
-                fontSize:      '0.45rem',
+                fontSize:      '0.7rem',
                 letterSpacing: '0.35em',
                 textTransform: 'uppercase',
                 color:         '#7A6F62',
@@ -260,8 +260,8 @@ export default async function LivePage({
                     </p>
                     <p style={{
                       fontFamily:    'var(--font-inter)',
-                      fontSize:      '0.62rem',
-                      color:         '#7A6F62',
+                      fontSize:      '0.72rem',
+                      color:         '#B8B0A6',
                       letterSpacing: '0.08em',
                       flexShrink:    0,
                       marginTop:     '0.3rem',
@@ -278,7 +278,7 @@ export default async function LivePage({
           <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '5rem', paddingBottom: '9rem' }}>
             <p style={{
               fontFamily:    'var(--font-inter)',
-              fontSize:      '0.45rem',
+              fontSize:      '0.7rem',
               letterSpacing: '0.35em',
               textTransform: 'uppercase',
               color:         '#7A6F62',
@@ -299,8 +299,8 @@ export default async function LivePage({
             </h2>
             <p style={{
               fontFamily: 'var(--font-inter)',
-              fontSize:   '0.875rem',
-              color:      '#7A6F62',
+              fontSize:   '1rem',
+              color:      '#B8B0A6',
               lineHeight: 1.9,
               maxWidth:   '48ch',
               marginBottom: '2rem',
@@ -323,7 +323,7 @@ export default async function LivePage({
                 href="/contact"
                 style={{
                   fontFamily:    'var(--font-inter)',
-                  fontSize:      '0.55rem',
+                  fontSize:      '0.7rem',
                   letterSpacing: '0.25em',
                   textTransform: 'uppercase',
                   color:         '#7A6F62',

@@ -56,7 +56,7 @@ export default function SongsAccordion({ songs }: { songs: Song[] }) {
                   {song.meta && (
                     <p style={{
                       fontFamily: "var(--font-inter)",
-                      fontSize: "0.58rem",
+                      fontSize: "0.7rem",
                       letterSpacing: "0.12em",
                       textTransform: "uppercase",
                       color: "#7A6F62",
@@ -69,8 +69,8 @@ export default function SongsAccordion({ songs }: { songs: Song[] }) {
               </div>
               <span
                 style={{
-                  color: "#7A6F62",
-                  fontSize: "1.2rem",
+                  color: "#B8B0A6",
+                  fontSize: "1rem",
                   lineHeight: 1,
                   flexShrink: 0,
                   display: "flex",
@@ -99,7 +99,7 @@ export default function SongsAccordion({ songs }: { songs: Song[] }) {
                   <div style={{ marginBottom: "3rem" }}>
                     <p style={{
                       fontFamily: "var(--font-inter)",
-                      fontSize: "0.42rem",
+                      fontSize: "0.7rem",
                       letterSpacing: "0.32em",
                       textTransform: "uppercase",
                       color: "#7A6F62",
@@ -129,7 +129,7 @@ export default function SongsAccordion({ songs }: { songs: Song[] }) {
                   <div style={{ marginBottom: "2.5rem" }}>
                     <p style={{
                       fontFamily: "var(--font-inter)",
-                      fontSize: "0.42rem",
+                      fontSize: "0.7rem",
                       letterSpacing: "0.32em",
                       textTransform: "uppercase",
                       color: "#7A6F62",
@@ -153,7 +153,7 @@ export default function SongsAccordion({ songs }: { songs: Song[] }) {
                   <div>
                     <p style={{
                       fontFamily: "var(--font-inter)",
-                      fontSize: "0.42rem",
+                      fontSize: "0.7rem",
                       letterSpacing: "0.32em",
                       textTransform: "uppercase",
                       color: "#7A6F62",

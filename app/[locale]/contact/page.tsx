@@ -82,7 +82,7 @@ export default async function Contact({
 
             <p style={{
               fontFamily: "var(--font-inter)",
-              fontSize: "0.45rem",
+              fontSize: "0.7rem",
               letterSpacing: "0.35em",
               textTransform: "uppercase",
               color: "#7A6F62",
@@ -106,7 +106,7 @@ export default async function Contact({
 
             <p style={{
               fontFamily: "var(--font-inter)",
-              fontSize: "0.45rem",
+              fontSize: "0.7rem",
               letterSpacing: "0.35em",
               textTransform: "uppercase",
               color: "#7A6F62",
@@ -134,8 +134,8 @@ export default async function Contact({
                     className="mt-1 sm:mt-0 sm:text-right sm:max-w-[16rem]"
                     style={{
                       fontFamily: "var(--font-inter)",
-                      fontSize: "0.75rem",
-                      color: "#7A6F62",
+                      fontSize: "0.85rem",
+                      color: "#B8B0A6",
                       lineHeight: 1.7,
                     }}
                   >
@@ -151,7 +151,7 @@ export default async function Contact({
 
             <p style={{
               fontFamily: "var(--font-inter)",
-              fontSize: "0.45rem",
+              fontSize: "0.7rem",
               letterSpacing: "0.35em",
               textTransform: "uppercase",
               color: "#7A6F62",
@@ -172,8 +172,8 @@ export default async function Contact({
             </h2>
             <p style={{
               fontFamily: "var(--font-inter)",
-              fontSize: "0.875rem",
-              color: "#7A6F62",
+              fontSize: "1rem",
+              color: "#B8B0A6",
               lineHeight: 1.9,
               maxWidth: "52ch",
               marginBottom: "2.5rem",
@@ -182,8 +182,8 @@ export default async function Contact({
             </p>
             <p style={{
               fontFamily: "var(--font-inter)",
-              fontSize: "0.82rem",
-              color: "#7A6F62",
+              fontSize: "0.9rem",
+              color: "#B8B0A6",
               lineHeight: 1.8,
               marginBottom: "1.5rem",
             }}>
@@ -206,7 +206,7 @@ export default async function Contact({
           <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: "5rem", paddingBottom: "5rem" }}>
             <p style={{
               fontFamily: "var(--font-inter)",
-              fontSize: "0.45rem",
+              fontSize: "0.7rem",
               letterSpacing: "0.35em",
               textTransform: "uppercase",
               color: "#7A6F62",
@@ -220,7 +220,7 @@ export default async function Contact({
                 style={{
                   fontFamily: "var(--font-inter)",
                   fontSize: "0.78rem",
-                  color: "#7A6F62",
+                  color: "#B8B0A6",
                   letterSpacing: "0.03em",
                   borderBottom: "1px solid rgba(122,111,98,0.25)",
                   paddingBottom: "2px",
@@ -235,7 +235,7 @@ export default async function Contact({
                 style={{
                   fontFamily: "var(--font-inter)",
                   fontSize: "0.78rem",
-                  color: "#7A6F62",
+                  color: "#B8B0A6",
                   letterSpacing: "0.03em",
                   borderBottom: "1px solid rgba(122,111,98,0.25)",
                   paddingBottom: "2px",
@@ -253,7 +253,7 @@ export default async function Contact({
 
             <p style={{
               fontFamily: "var(--font-inter)",
-              fontSize: "0.45rem",
+              fontSize: "0.7rem",
               letterSpacing: "0.35em",
               textTransform: "uppercase",
               color: "#7A6F62",
@@ -271,8 +271,8 @@ export default async function Contact({
                   className={`${hover} transition-colors duration-200`}
                   style={{
                     fontFamily: "var(--font-inter)",
-                    fontSize: "0.82rem",
-                    color: "#7A6F62",
+                    fontSize: "0.9rem",
+                    color: "#B8B0A6",
                     letterSpacing: "0.03em",
                     padding: "0.5rem 0",
                     display: "block",

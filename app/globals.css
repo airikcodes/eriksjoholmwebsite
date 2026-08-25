@@ -12,6 +12,14 @@
   --color-text:    #1C1A17;
   --color-muted:   #8C8076;
   --color-accent:  #C8922A;
+
+  /* ── Dark-theme reading type scale (2026-08-25 legibility pass) ───────────
+     Headline serif stays thin/light — that's the site's voice. These tokens
+     are for anything meant to be actually READ: body paragraphs and the
+     small uppercase "eyebrow" labels used throughout as section tags. */
+  --color-ink-primary:   #E8E0D4;  /* headlines, primary copy */
+  --color-ink-body:      #B8B0A6;  /* reading paragraphs — was #7A6F62, ~4:1 contrast on #0D0B09 */
+  --color-ink-meta:      #7A6F62;  /* decorative/tertiary only — folio numbers, hairline captions */
 }
 
 * {
@@ -87,6 +95,77 @@ body {
 }
 .concierge-input:focus        { border-color: rgba(255,255,255,0.75); background: rgba(255,255,255,0.10); }
 .concierge-input::placeholder { color: rgba(255,255,255,0.38); }
+
+/* ── Reading type scale (2026-08-25 legibility pass) ──────────────────────
+   .eyebrow-label: section tags / breadcrumbs / folio-adjacent labels.
+   Previously set ad-hoc per page at 0.42–0.55rem — too small to read at a
+   glance, especially combined with wide letter-spacing. Raised size + a
+   medium weight so the caps stay legible instead of dissolving into texture. */
+.eyebrow-label {
+  font-family:    var(--font-inter), system-ui, sans-serif;
+  font-size:      0.7rem;
+  font-weight:    500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color:          var(--color-ink-meta);
+}
+
+/* .body-copy: actual reading paragraphs (bios, song stories, descriptions).
+   Was routinely 0.875–0.95rem in font-weight 300 at ~4:1 contrast — small,
+   thin, and dim all at once. This is deliberately NOT thin: headline serif
+   keeps the elegant weight, body copy needs to carry its own legibility. */
+.body-copy {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 400;
+  font-size:   1rem;
+  line-height: 1.7;
+  color:       var(--color-ink-body);
+}
+
+/* .text-scrim: wrap around any copy block sitting directly on photography.
+   Guarantees contrast regardless of what tone the underlying image is,
+   instead of relying on a light vignette that varies photo to photo. */
+.text-scrim {
+  position: relative;
+}
+.text-scrim::before {
+  content: '';
+  position: absolute;
+  inset: -1.25rem -1.5rem;
+  background: radial-gradient(ellipse at center, rgba(13,11,9,0.7) 0%, rgba(13,11,9,0.42) 65%, transparent 100%);
+  z-index: -1;
+  border-radius: 4px;
+}
+
+/* ── Pill buttons + form inputs — more physical presence ───────────────────
+   Was hairline borders + transparent fill + 8–9px labels; reads as barely
+   tappable. Slightly larger label, a faint fill so it registers as UI. */
+.pill-btn {
+  font-family:    var(--font-inter), system-ui, sans-serif;
+  font-size:      0.72rem;
+  font-weight:    500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding:        0.6rem 1.3rem;
+  background:     rgba(255,255,255,0.03);
+  border-radius:  2px;
+  transition:     background 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+.pill-btn:hover {
+  background: rgba(255,255,255,0.06);
+}
+
+.form-input {
+  background:   rgba(255,255,255,0.05);
+  border-style: solid;
+  border-width: 1px;
+  padding:      0.85rem 1.1rem;
+  font-size:    0.95rem;
+  transition:   border-color 180ms ease, background 180ms ease;
+}
+.form-input:focus {
+  background: rgba(255,255,255,0.08);
+}
 
 /* Scroll-triggered reveal */
 .reveal {

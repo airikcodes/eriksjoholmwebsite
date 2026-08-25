@@ -34,8 +34,8 @@ export default async function KeepInTouch({ variant = 'generic', locale = 'en', 
       </p>
       <p style={{
         fontFamily:   'var(--font-inter)',
-        fontSize:     '0.875rem',
-        color:        '#7A6F62',
+        fontSize:     '1rem',
+        color:        '#B8B0A6',
         lineHeight:   1.8,
         maxWidth:     '40ch',
         marginBottom: '2rem',

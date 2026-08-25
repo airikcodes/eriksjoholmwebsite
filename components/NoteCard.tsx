@@ -27,7 +27,7 @@ export default function NoteCard({ note, locale, readMoreLabel = 'Read →' }: {
           {date && (
             <p style={{
               fontFamily:    'var(--font-inter)',
-              fontSize:      '0.45rem',
+              fontSize:      '0.7rem',
               letterSpacing: '0.3em',
               textTransform: 'uppercase',
               color:         '#7A6F62',
@@ -53,8 +53,8 @@ export default function NoteCard({ note, locale, readMoreLabel = 'Read →' }: {
           {note.excerpt && (
             <p style={{
               fontFamily: 'var(--font-inter)',
-              fontSize:   '0.82rem',
-              color:      '#7A6F62',
+              fontSize:   '0.9rem',
+              color:      '#B8B0A6',
               lineHeight: 1.75,
               maxWidth:   '48ch',
               marginBottom: '1rem',
@@ -67,7 +67,7 @@ export default function NoteCard({ note, locale, readMoreLabel = 'Read →' }: {
             className="group-hover:text-[#C8922A] transition-colors duration-200"
             style={{
               fontFamily:    'var(--font-inter)',
-              fontSize:      '0.45rem',
+              fontSize:      '0.7rem',
               letterSpacing: '0.2em',
               textTransform: 'uppercase',
               color:         '#7A6F62',

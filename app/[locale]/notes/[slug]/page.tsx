@@ -91,7 +91,7 @@ export default async function NotePost({
             {date && (
               <p style={{
                 fontFamily:    'var(--font-inter)',
-                fontSize:      '0.48rem',
+                fontSize:      '0.7rem',
                 letterSpacing: '0.32em',
                 textTransform: 'uppercase',
                 color:         '#7A6F62',
@@ -117,8 +117,8 @@ export default async function NotePost({
             {note.excerpt && (
               <p style={{
                 fontFamily: 'var(--font-inter)',
-                fontSize:   '0.95rem',
-                color:      '#7A6F62',
+                fontSize:   '1rem',
+                color:      '#B8B0A6',
                 lineHeight: 1.75,
                 maxWidth:   '44ch',
               }}>
@@ -153,7 +153,7 @@ export default async function NotePost({
               href="/notes"
               style={{
                 fontFamily:    'var(--font-inter)',
-                fontSize:      '0.48rem',
+                fontSize:      '0.7rem',
                 letterSpacing: '0.25em',
                 textTransform: 'uppercase',
                 color:         '#7A6F62',

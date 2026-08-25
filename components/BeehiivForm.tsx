@@ -66,12 +66,12 @@ export default function BeehiivForm({
         style={{
           flex: '1 1 220px',
           minWidth: 0,
-          background: 'rgba(255,255,255,0.04)',
-          border: '1px solid rgba(255,255,255,0.12)',
+          background: 'rgba(255,255,255,0.05)',
+          border: '1px solid rgba(255,255,255,0.16)',
           color: '#E8E0D4',
           fontFamily: 'var(--font-inter)',
-          fontSize: '0.82rem',
-          padding: '0.7rem 1rem',
+          fontSize: '0.95rem',
+          padding: '0.85rem 1.1rem',
           outline: 'none',
           borderRadius: 0,
         }}
@@ -80,14 +80,14 @@ export default function BeehiivForm({
         type="submit"
         disabled={state === 'loading'}
         style={{
-          background: 'transparent',
+          background: 'rgba(200,146,42,0.06)',
           border: '1px solid rgba(200,146,42,0.5)',
           color: '#C8922A',
           fontFamily: 'var(--font-inter)',
-          fontSize: '0.45rem',
-          letterSpacing: '0.28em',
+          fontSize: '0.72rem',
+          letterSpacing: '0.2em',
           textTransform: 'uppercase',
-          padding: '0.7rem 1.5rem',
+          padding: '0.85rem 1.6rem',
           cursor: state === 'loading' ? 'not-allowed' : 'pointer',
           opacity: state === 'loading' ? 0.5 : 1,
           transition: 'border-color 0.2s, color 0.2s',
@@ -112,8 +112,8 @@ export default function BeehiivForm({
         <p style={{
           width: '100%',
           fontFamily: 'var(--font-inter)',
-          fontSize: '0.75rem',
-          color: '#7A6F62',
+          fontSize: '0.85rem',
+          color: '#B8B0A6',
           marginTop: '0.5rem',
         }}>
           {errorMsg}

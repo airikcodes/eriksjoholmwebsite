@@ -54,9 +54,9 @@ export default function CustomSongPlayer({ songs, playlistUrl }: Props) {
             </p>
             <span style={{
               fontFamily:    'var(--font-inter)',
-              fontSize:      '0.5rem',
+              fontSize:      '0.6rem',
               letterSpacing: '0.18em',
-              color:         '#7A6F62',
+              color:         '#B8B0A6',
               flexShrink:    0,
             }}>
               →
@@ -72,7 +72,7 @@ export default function CustomSongPlayer({ songs, playlistUrl }: Props) {
         style={{
           display:        'inline-block',
           fontFamily:     'var(--font-inter)',
-          fontSize:       '0.48rem',
+          fontSize:       '0.7rem',
           letterSpacing:  '0.2em',
           textTransform:  'uppercase',
           color:          '#7A6F62',

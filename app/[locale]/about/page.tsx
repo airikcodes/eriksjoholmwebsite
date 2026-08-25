@@ -92,7 +92,7 @@ export default async function About({
             <span className="block" style={{ width: "2rem", height: "1px", background: "#C8922A", margin: "1.5rem auto" }} />
             <p style={{
               fontFamily: "var(--font-inter)",
-              fontSize: "0.52rem",
+              fontSize: "0.7rem",
               letterSpacing: "0.35em",
               textTransform: "uppercase",
               color: "#7A6F62",
@@ -117,8 +117,8 @@ export default async function About({
               <div className="space-y-8">
                 <p style={{
                   fontFamily: "var(--font-inter)",
-                  fontSize: "0.875rem",
-                  color: "#7A6F62",
+                  fontSize: "1rem",
+                  color: "#B8B0A6",
                   lineHeight: 1.9,
                 }}>
                   {a.bio2}
@@ -126,8 +126,8 @@ export default async function About({
 
                 <p style={{
                   fontFamily: "var(--font-inter)",
-                  fontSize: "0.875rem",
-                  color: "#7A6F62",
+                  fontSize: "1rem",
+                  color: "#B8B0A6",
                   lineHeight: 1.9,
                 }}>
                   {a.bio3}
@@ -158,7 +158,7 @@ export default async function About({
 
               <p style={{
                 fontFamily: "var(--font-inter)",
-                fontSize: "0.45rem",
+                fontSize: "0.7rem",
                 letterSpacing: "0.35em",
                 textTransform: "uppercase",
                 color: "#7A6F62",
@@ -172,7 +172,7 @@ export default async function About({
                 <div>
                   <p style={{
                     fontFamily: "var(--font-inter)",
-                    fontSize: "0.45rem",
+                    fontSize: "0.7rem",
                     letterSpacing: "0.35em",
                     textTransform: "uppercase",
                     color: "#7A6F62",
@@ -185,7 +185,7 @@ export default async function About({
                       href="https://open.spotify.com/artist/1UpcgaCHBwic2IqUQ3hHdp"
                       target="_blank" rel="noopener noreferrer"
                       className="block hover:text-[#1DB954] transition-colors duration-200"
-                      style={{ fontFamily: "var(--font-inter)", fontSize: "0.82rem", color: "#7A6F62", letterSpacing: "0.03em", padding: "0.25rem 0" }}
+                      style={{ fontFamily: "var(--font-inter)", fontSize: "0.9rem", color: "#B8B0A6", letterSpacing: "0.03em", padding: "0.25rem 0" }}
                     >
                       Spotify →
                     </a>
@@ -193,7 +193,7 @@ export default async function About({
                       href="https://tidal.com/artist/47687355"
                       target="_blank" rel="noopener noreferrer"
                       className="block hover:text-[#00FFFF] transition-colors duration-200"
-                      style={{ fontFamily: "var(--font-inter)", fontSize: "0.82rem", color: "#7A6F62", letterSpacing: "0.03em", padding: "0.25rem 0" }}
+                      style={{ fontFamily: "var(--font-inter)", fontSize: "0.9rem", color: "#B8B0A6", letterSpacing: "0.03em", padding: "0.25rem 0" }}
                     >
                       Tidal →
                     </a>
@@ -203,7 +203,7 @@ export default async function About({
                 <div>
                   <p style={{
                     fontFamily: "var(--font-inter)",
-                    fontSize: "0.45rem",
+                    fontSize: "0.7rem",
                     letterSpacing: "0.35em",
                     textTransform: "uppercase",
                     color: "#7A6F62",
@@ -216,7 +216,7 @@ export default async function About({
                       href="https://www.instagram.com/eriksjoholmofficial"
                       target="_blank" rel="noopener noreferrer"
                       className="block hover:text-[#E8E0D4] transition-colors duration-200"
-                      style={{ fontFamily: "var(--font-inter)", fontSize: "0.82rem", color: "#7A6F62", letterSpacing: "0.03em", padding: "0.25rem 0" }}
+                      style={{ fontFamily: "var(--font-inter)", fontSize: "0.9rem", color: "#B8B0A6", letterSpacing: "0.03em", padding: "0.25rem 0" }}
                     >
                       Instagram →
                     </a>
@@ -224,7 +224,7 @@ export default async function About({
                       href="https://facebook.com/eriksjoholmffofficial/"
                       target="_blank" rel="noopener noreferrer"
                       className="block hover:text-[#1877F2] transition-colors duration-200"
-                      style={{ fontFamily: "var(--font-inter)", fontSize: "0.82rem", color: "#7A6F62", letterSpacing: "0.03em", padding: "0.25rem 0" }}
+                      style={{ fontFamily: "var(--font-inter)", fontSize: "0.9rem", color: "#B8B0A6", letterSpacing: "0.03em", padding: "0.25rem 0" }}
                     >
                       Facebook →
                     </a>
@@ -232,7 +232,7 @@ export default async function About({
                       href="https://www.youtube.com/eriksjoholmofficial"
                       target="_blank" rel="noopener noreferrer"
                       className="block hover:text-[#FF0000] transition-colors duration-200"
-                      style={{ fontFamily: "var(--font-inter)", fontSize: "0.82rem", color: "#7A6F62", letterSpacing: "0.03em", padding: "0.25rem 0" }}
+                      style={{ fontFamily: "var(--font-inter)", fontSize: "0.9rem", color: "#B8B0A6", letterSpacing: "0.03em", padding: "0.25rem 0" }}
                     >
                       YouTube →
                     </a>
@@ -240,14 +240,14 @@ export default async function About({
                       href="https://www.linkedin.com/in/eriksjoholmofficial1717/"
                       target="_blank" rel="noopener noreferrer"
                       className="block hover:text-[#0A66C2] transition-colors duration-200"
-                      style={{ fontFamily: "var(--font-inter)", fontSize: "0.82rem", color: "#7A6F62", letterSpacing: "0.03em", padding: "0.25rem 0" }}
+                      style={{ fontFamily: "var(--font-inter)", fontSize: "0.9rem", color: "#B8B0A6", letterSpacing: "0.03em", padding: "0.25rem 0" }}
                     >
                       LinkedIn →
                     </a>
                     <Link
                       href="/notes"
                       className="block hover:text-[#C8922A] transition-colors duration-200"
-                      style={{ fontFamily: "var(--font-inter)", fontSize: "0.82rem", color: "#7A6F62", letterSpacing: "0.03em", padding: "0.25rem 0" }}
+                      style={{ fontFamily: "var(--font-inter)", fontSize: "0.9rem", color: "#B8B0A6", letterSpacing: "0.03em", padding: "0.25rem 0" }}
                     >
                       Notes →
                     </Link>
@@ -257,7 +257,7 @@ export default async function About({
                 <div>
                   <p style={{
                     fontFamily: "var(--font-inter)",
-                    fontSize: "0.45rem",
+                    fontSize: "0.7rem",
                     letterSpacing: "0.35em",
                     textTransform: "uppercase",
                     color: "#7A6F62",
@@ -268,7 +268,7 @@ export default async function About({
                   <a
                     href="mailto:erik@eriksjoholm.com"
                     className="block hover:text-[#C8922A] transition-colors duration-200"
-                    style={{ fontFamily: "var(--font-inter)", fontSize: "0.82rem", color: "#7A6F62", letterSpacing: "0.03em", padding: "0.25rem 0" }}
+                    style={{ fontFamily: "var(--font-inter)", fontSize: "0.9rem", color: "#B8B0A6", letterSpacing: "0.03em", padding: "0.25rem 0" }}
                   >
                     erik@eriksjoholm.com
                   </a>
@@ -277,7 +277,7 @@ export default async function About({
                 <div>
                   <p style={{
                     fontFamily: "var(--font-inter)",
-                    fontSize: "0.45rem",
+                    fontSize: "0.7rem",
                     letterSpacing: "0.35em",
                     textTransform: "uppercase",
                     color: "#7A6F62",
@@ -289,21 +289,21 @@ export default async function About({
                     <Link
                       href="/works"
                       className="block hover:text-[#E8E0D4] transition-colors duration-200"
-                      style={{ fontFamily: "var(--font-inter)", fontSize: "0.82rem", color: "#7A6F62", letterSpacing: "0.03em", padding: "0.25rem 0" }}
+                      style={{ fontFamily: "var(--font-inter)", fontSize: "0.9rem", color: "#B8B0A6", letterSpacing: "0.03em", padding: "0.25rem 0" }}
                     >
                       {a.works}
                     </Link>
                     <Link
                       href="/storyteller"
                       className="block hover:text-[#E8E0D4] transition-colors duration-200"
-                      style={{ fontFamily: "var(--font-inter)", fontSize: "0.82rem", color: "#7A6F62", letterSpacing: "0.03em", padding: "0.25rem 0" }}
+                      style={{ fontFamily: "var(--font-inter)", fontSize: "0.9rem", color: "#B8B0A6", letterSpacing: "0.03em", padding: "0.25rem 0" }}
                     >
                       {a.theStoryteller}
                     </Link>
                     <Link
                       href="/sync"
                       className="block hover:text-[#E8E0D4] transition-colors duration-200"
-                      style={{ fontFamily: "var(--font-inter)", fontSize: "0.82rem", color: "#7A6F62", letterSpacing: "0.03em", padding: "0.25rem 0" }}
+                      style={{ fontFamily: "var(--font-inter)", fontSize: "0.9rem", color: "#B8B0A6", letterSpacing: "0.03em", padding: "0.25rem 0" }}
                     >
                       {a.syncLicensing}
                     </Link>

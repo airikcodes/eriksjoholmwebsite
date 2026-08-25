@@ -87,7 +87,7 @@ export default function WorksSearch({ works, defaultLimit = 3 }: Props) {
               onClick={() => setFilter(f)}
               style={{
                 ...btnBase,
-                color: filter === f ? '#C8922A' : '#7A6F62',
+                color: filter === f ? '#C8922A' : '#B8B0A6',
               }}
             >
               {f === 'all' ? 'All' : f === 'released' ? 'Released' : 'Unreleased'}
@@ -98,7 +98,7 @@ export default function WorksSearch({ works, defaultLimit = 3 }: Props) {
 
       {/* ── List ── */}
       {filtered.length === 0 ? (
-        <p style={{ fontFamily: 'var(--font-inter)', fontSize: '0.875rem', color: '#7A6F62', paddingTop: '2rem' }}>
+        <p style={{ fontFamily: 'var(--font-inter)', fontSize: '1rem', color: '#B8B0A6', paddingTop: '2rem' }}>
           No songs found.
         </p>
       ) : (
@@ -144,7 +144,7 @@ export default function WorksSearch({ works, defaultLimit = 3 }: Props) {
                       {work.meta && (
                         <p style={{
                           fontFamily:    'var(--font-inter)',
-                          fontSize:      '0.55rem',
+                          fontSize:      '0.7rem',
                           letterSpacing: '0.12em',
                           textTransform: 'uppercase',
                           color:         '#7A6F62',
@@ -156,8 +156,8 @@ export default function WorksSearch({ works, defaultLimit = 3 }: Props) {
                     </div>
                   </div>
                   <span style={{
-                    color:      '#7A6F62',
-                    fontSize:   '1.2rem',
+                    color:      '#B8B0A6',
+                    fontSize:   '1rem',
                     lineHeight: 1,
                     flexShrink: 0,
                     display:    'flex',
@@ -184,7 +184,7 @@ export default function WorksSearch({ works, defaultLimit = 3 }: Props) {
                         <div style={{ marginBottom: '2rem' }}>
                           <p style={{
                             fontFamily:    'var(--font-inter)',
-                            fontSize:      '0.42rem',
+                            fontSize:      '0.7rem',
                             letterSpacing: '0.32em',
                             textTransform: 'uppercase',
                             color:         '#7A6F62',
@@ -208,7 +208,7 @@ export default function WorksSearch({ works, defaultLimit = 3 }: Props) {
                         <div>
                           <p style={{
                             fontFamily:    'var(--font-inter)',
-                            fontSize:      '0.42rem',
+                            fontSize:      '0.7rem',
                             letterSpacing: '0.32em',
                             textTransform: 'uppercase',
                             color:         '#7A6F62',
@@ -262,7 +262,7 @@ export default function WorksSearch({ works, defaultLimit = 3 }: Props) {
             border:        'none',
             cursor:        'pointer',
             fontFamily:    'var(--font-inter)',
-            fontSize:      '0.48rem',
+            fontSize:      '0.7rem',
             letterSpacing: '0.25em',
             textTransform: 'uppercase',
             color:         '#7A6F62',

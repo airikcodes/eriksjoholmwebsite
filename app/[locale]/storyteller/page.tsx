@@ -41,7 +41,7 @@ const sectionPad: React.CSSProperties = {
 
 const eyebrowStyle: React.CSSProperties = {
   fontFamily: "var(--font-inter)",
-  fontSize: "0.48rem",
+  fontSize: "0.7rem",
   letterSpacing: "0.35em",
   textTransform: "uppercase" as const,
   color: "#7A6F62",
@@ -60,8 +60,8 @@ const sectionHeading: React.CSSProperties = {
 
 const bodyText: React.CSSProperties = {
   fontFamily: "var(--font-inter)",
-  fontSize: "0.875rem",
-  color: "#7A6F62",
+  fontSize: "1rem",
+  color: "#B8B0A6",
   lineHeight: 1.8,
 };
 
@@ -112,7 +112,7 @@ export default async function Storyteller({
 
             <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center" }}>
 
-              <p style={{ ...eyebrowStyle, color: "#7A6F62", marginBottom: "2rem" }}>
+              <p style={{ ...eyebrowStyle, color: "#B8B0A6", marginBottom: "2rem" }}>
                 {st.eyebrow}
               </p>
 
@@ -147,8 +147,8 @@ export default async function Storyteller({
               <p
                 style={{
                   fontFamily: "var(--font-inter)",
-                  fontSize: "0.8rem",
-                  color: "#7A6F62",
+                  fontSize: "0.85rem",
+                  color: "#B8B0A6",
                   lineHeight: 1.7,
                   maxWidth: "42ch",
                   marginBottom: "2.5rem",
@@ -212,8 +212,8 @@ export default async function Storyteller({
                     <p
                       style={{
                         fontFamily: "var(--font-inter)",
-                        fontSize: "0.65rem",
-                        color: "#7A6F62",
+                        fontSize: "0.75rem",
+                        color: "#B8B0A6",
                         lineHeight: 1.5,
                       }}
                     >
@@ -281,8 +281,8 @@ export default async function Storyteller({
                     <p
                       style={{
                         fontFamily: "var(--font-inter)",
-                        fontSize: "0.6rem",
-                        color: "#7A6F62",
+                        fontSize: "0.7rem",
+                        color: "#B8B0A6",
                       }}
                     >
                       {location}
@@ -330,8 +330,8 @@ export default async function Storyteller({
               <p
                 style={{
                   fontFamily: "var(--font-inter)",
-                  fontSize: "0.65rem",
-                  color: "#7A6F62",
+                  fontSize: "0.75rem",
+                  color: "#B8B0A6",
                   marginTop: "1rem",
                   letterSpacing: "0.05em",
                 }}
@@ -374,8 +374,8 @@ export default async function Storyteller({
                     <p
                       style={{
                         fontFamily: "var(--font-inter)",
-                        fontSize: "0.75rem",
-                        color: "#7A6F62",
+                        fontSize: "0.85rem",
+                        color: "#B8B0A6",
                         lineHeight: 1.7,
                       }}
                     >
@@ -388,8 +388,8 @@ export default async function Storyteller({
               <p
                 style={{
                   fontFamily: "var(--font-inter)",
-                  fontSize: "0.65rem",
-                  color: "#7A6F62",
+                  fontSize: "0.75rem",
+                  color: "#B8B0A6",
                   marginTop: "3rem",
                   paddingTop: "2rem",
                   borderTop: "1px solid rgba(255,255,255,0.07)",
@@ -442,7 +442,7 @@ export default async function Storyteller({
                       <dt
                         style={{
                           fontFamily: "var(--font-inter)",
-                          fontSize: "0.45rem",
+                          fontSize: "0.7rem",
                           letterSpacing: "0.25em",
                           textTransform: "uppercase",
                           color: "#7A6F62",
@@ -487,7 +487,7 @@ export default async function Storyteller({
                       <dt
                         style={{
                           fontFamily: "var(--font-inter)",
-                          fontSize: "0.45rem",
+                          fontSize: "0.7rem",
                           letterSpacing: "0.25em",
                           textTransform: "uppercase",
                           color: "#7A6F62",
@@ -540,7 +540,7 @@ export default async function Storyteller({
                     style={{
                       fontFamily: "var(--font-inter)",
                       fontSize: "0.78rem",
-                      color: "#7A6F62",
+                      color: "#B8B0A6",
                       lineHeight: 1.7,
                       marginBottom: "1.5rem",
                     }}
@@ -584,7 +584,7 @@ export default async function Storyteller({
                     style={{
                       fontFamily: "var(--font-inter)",
                       fontSize: "0.78rem",
-                      color: "#7A6F62",
+                      color: "#B8B0A6",
                       lineHeight: 1.7,
                       marginBottom: "1.5rem",
                     }}

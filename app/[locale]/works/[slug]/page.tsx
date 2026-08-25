@@ -95,7 +95,7 @@ export default async function WorkPage({
 
             <p style={{
               fontFamily:    'var(--font-inter)',
-              fontSize:      '0.48rem',
+              fontSize:      '0.7rem',
               letterSpacing: '0.32em',
               textTransform: 'uppercase',
               color:         '#7A6F62',
@@ -123,7 +123,7 @@ export default async function WorkPage({
             {work.meta && (
               <p style={{
                 fontFamily:    'var(--font-inter)',
-                fontSize:      '0.6rem',
+                fontSize:      '0.7rem',
                 letterSpacing: '0.12em',
                 textTransform: 'uppercase',
                 color:         '#7A6F62',
@@ -159,7 +159,7 @@ export default async function WorkPage({
             <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
               <p style={{
                 fontFamily:    'var(--font-inter)',
-                fontSize:      '0.45rem',
+                fontSize:      '0.7rem',
                 letterSpacing: '0.35em',
                 textTransform: 'uppercase',
                 color:         '#7A6F62',
@@ -176,7 +176,7 @@ export default async function WorkPage({
                     className="hover:text-[#1DB954] transition-colors duration-200"
                     style={{
                       fontFamily:    'var(--font-inter)',
-                      fontSize:      '0.52rem',
+                      fontSize:      '0.7rem',
                       letterSpacing: '0.2em',
                       textTransform: 'uppercase',
                       color:         '#7A6F62',
@@ -195,7 +195,7 @@ export default async function WorkPage({
                     className="hover:text-[#00FFFF] transition-colors duration-200"
                     style={{
                       fontFamily:    'var(--font-inter)',
-                      fontSize:      '0.52rem',
+                      fontSize:      '0.7rem',
                       letterSpacing: '0.2em',
                       textTransform: 'uppercase',
                       color:         '#7A6F62',
@@ -215,7 +215,7 @@ export default async function WorkPage({
             <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
               <p style={{
                 fontFamily:    'var(--font-inter)',
-                fontSize:      '0.45rem',
+                fontSize:      '0.7rem',
                 letterSpacing: '0.35em',
                 textTransform: 'uppercase',
                 color:         '#7A6F62',
@@ -247,7 +247,7 @@ export default async function WorkPage({
             <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
               <p style={{
                 fontFamily:    'var(--font-inter)',
-                fontSize:      '0.45rem',
+                fontSize:      '0.7rem',
                 letterSpacing: '0.35em',
                 textTransform: 'uppercase',
                 color:         '#7A6F62',
@@ -274,7 +274,7 @@ export default async function WorkPage({
                 <div key={i}>
                   <p style={{
                     fontFamily:    'var(--font-inter)',
-                    fontSize:      '0.45rem',
+                    fontSize:      '0.7rem',
                     letterSpacing: '0.35em',
                     textTransform: 'uppercase',
                     color:         '#7A6F62',
@@ -303,7 +303,7 @@ export default async function WorkPage({
                     </h2>
                     <p style={{
                       fontFamily:    'var(--font-inter)',
-                      fontSize:      '0.52rem',
+                      fontSize:      '0.7rem',
                       letterSpacing: '0.15em',
                       textTransform: 'uppercase',
                       color:         '#7A6F62',
@@ -344,7 +344,7 @@ export default async function WorkPage({
             <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
               <p style={{
                 fontFamily:    'var(--font-inter)',
-                fontSize:      '0.45rem',
+                fontSize:      '0.7rem',
                 letterSpacing: '0.35em',
                 textTransform: 'uppercase',
                 color:         '#7A6F62',
@@ -409,7 +409,7 @@ export default async function WorkPage({
                         </p>
                       )}
                     </div>
-                    <span style={{ fontFamily: 'var(--font-inter)', fontSize: '0.5rem', color: '#7A6F62' }}>→</span>
+                    <span style={{ fontFamily: 'var(--font-inter)', fontSize: '0.6rem', color: '#B8B0A6' }}>→</span>
                   </Link>
                 ))}
               </div>
@@ -421,7 +421,7 @@ export default async function WorkPage({
             <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
               <p style={{
                 fontFamily:    'var(--font-inter)',
-                fontSize:      '0.45rem',
+                fontSize:      '0.7rem',
                 letterSpacing: '0.35em',
                 textTransform: 'uppercase',
                 color:         '#7A6F62',
@@ -460,7 +460,7 @@ export default async function WorkPage({
             <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
               <p style={{
                 fontFamily:    'var(--font-inter)',
-                fontSize:      '0.45rem',
+                fontSize:      '0.7rem',
                 letterSpacing: '0.35em',
                 textTransform: 'uppercase',
                 color:         '#7A6F62',
@@ -494,7 +494,7 @@ export default async function WorkPage({
             <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
               <p style={{
                 fontFamily:    'var(--font-inter)',
-                fontSize:      '0.45rem',
+                fontSize:      '0.7rem',
                 letterSpacing: '0.35em',
                 textTransform: 'uppercase',
                 color:         '#7A6F62',
@@ -529,8 +529,8 @@ export default async function WorkPage({
                     )}
                     <p style={{
                       fontFamily:    'var(--font-inter)',
-                      fontSize:      '0.6rem',
-                      color:         '#7A6F62',
+                      fontSize:      '0.7rem',
+                      color:         '#B8B0A6',
                       letterSpacing: '0.08em',
                       marginTop:     '0.2rem',
                     }}>
@@ -547,7 +547,7 @@ export default async function WorkPage({
             <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
               <p style={{
                 fontFamily:    'var(--font-inter)',
-                fontSize:      '0.45rem',
+                fontSize:      '0.7rem',
                 letterSpacing: '0.35em',
                 textTransform: 'uppercase',
                 color:         '#7A6F62',

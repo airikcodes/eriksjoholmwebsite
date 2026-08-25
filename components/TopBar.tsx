@@ -241,7 +241,7 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
           {/* ── INDEX kicker ──────────────────────────────────────────────── */}
           <p style={{
             fontFamily:    'var(--font-inter)',
-            fontSize:      '0.45rem',
+            fontSize:      '0.7rem',
             letterSpacing: '0.42em',
             textTransform: 'uppercase',
             color:         '#7A6F62',

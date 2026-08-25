@@ -28,6 +28,19 @@ export default function AlbumBg({ photos }: { photos: string[] }) {
           }}
         />
       ))}
+      {/* Reading scrim — the photo layer above is already dimmed via a
+          brightness filter (not opacity), so mid-tones/highlights can still
+          sit close to the reading copy that overlays it. This gradient adds
+          a touch more consistent darkening left/top, where the title and
+          story paragraph live, without flattening the photo everywhere. */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'linear-gradient(115deg, rgba(13,11,9,0.55) 0%, rgba(13,11,9,0.32) 42%, rgba(13,11,9,0.15) 70%)',
+        }}
+      />
     </div>
   );
 }

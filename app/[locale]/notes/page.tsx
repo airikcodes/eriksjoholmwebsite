@@ -61,7 +61,7 @@ export default async function NotesIndex({
             <BackNav />
             <p style={{
               fontFamily:    'var(--font-inter)',
-              fontSize:      '0.48rem',
+              fontSize:      '0.7rem',
               letterSpacing: '0.35em',
               textTransform: 'uppercase',
               color:         '#7A6F62',
@@ -83,8 +83,8 @@ export default async function NotesIndex({
             </h1>
             <p style={{
               fontFamily: 'var(--font-inter)',
-              fontSize:   '0.875rem',
-              color:      '#7A6F62',
+              fontSize:   '1rem',
+              color:      '#B8B0A6',
               lineHeight: 1.85,
               maxWidth:   '44ch',
             }}>
@@ -97,8 +97,8 @@ export default async function NotesIndex({
             {notes.length === 0 ? (
               <p style={{
                 fontFamily: 'var(--font-inter)',
-                fontSize:   '0.875rem',
-                color:      '#7A6F62',
+                fontSize:   '1rem',
+                color:      '#B8B0A6',
                 paddingTop: '3.5rem',
               }}>
                 {n.noPostsYet}

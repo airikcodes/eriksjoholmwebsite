@@ -54,15 +54,15 @@ export default function AlbumsSearch({ albums, defaultLimit = 3 }: Props) {
       {albums.length === 0 ? (
         <p style={{
           fontFamily: 'var(--font-inter)',
-          fontSize:   '0.875rem',
-          color:      '#7A6F62',
+          fontSize:   '1rem',
+          color:      '#B8B0A6',
           lineHeight: 1.75,
           paddingTop: '1rem',
         }}>
           Albums and EPs coming soon.
         </p>
       ) : filtered.length === 0 ? (
-        <p style={{ fontFamily: 'var(--font-inter)', fontSize: '0.875rem', color: '#7A6F62', paddingTop: '1rem' }}>
+        <p style={{ fontFamily: 'var(--font-inter)', fontSize: '1rem', color: '#B8B0A6', paddingTop: '1rem' }}>
           No releases found.
         </p>
       ) : (
@@ -106,9 +106,9 @@ export default function AlbumsSearch({ albums, defaultLimit = 3 }: Props) {
                     {album.year && (
                       <span style={{
                         fontFamily:    'var(--font-inter)',
-                        fontSize:      '0.55rem',
+                        fontSize:      '0.65rem',
                         letterSpacing: '0.1em',
-                        color:         '#7A6F62',
+                        color:         '#B8B0A6',
                       }}>
                         {album.year}
                       </span>
@@ -125,9 +125,9 @@ export default function AlbumsSearch({ albums, defaultLimit = 3 }: Props) {
                     {album.meta && (
                       <span style={{
                         fontFamily:    'var(--font-inter)',
-                        fontSize:      '0.55rem',
+                        fontSize:      '0.65rem',
                         letterSpacing: '0.08em',
-                        color:         '#7A6F62',
+                        color:         '#B8B0A6',
                       }}>
                         {album.meta}
                       </span>
@@ -145,7 +145,7 @@ export default function AlbumsSearch({ albums, defaultLimit = 3 }: Props) {
                       className="hover:text-[#1DB954] transition-colors duration-200"
                       style={{
                         fontFamily:    'var(--font-inter)',
-                        fontSize:      '0.48rem',
+                        fontSize:      '0.7rem',
                         letterSpacing: '0.15em',
                         textTransform: 'uppercase',
                         color:         '#7A6F62',
@@ -163,7 +163,7 @@ export default function AlbumsSearch({ albums, defaultLimit = 3 }: Props) {
                       className="hover:text-[#00FFFF] transition-colors duration-200"
                       style={{
                         fontFamily:    'var(--font-inter)',
-                        fontSize:      '0.48rem',
+                        fontSize:      '0.7rem',
                         letterSpacing: '0.15em',
                         textTransform: 'uppercase',
                         color:         '#7A6F62',
@@ -172,7 +172,7 @@ export default function AlbumsSearch({ albums, defaultLimit = 3 }: Props) {
                       Tidal
                     </a>
                   )}
-                  <span style={{ fontFamily: 'var(--font-inter)', fontSize: '0.5rem', color: '#7A6F62' }}>
+                  <span style={{ fontFamily: 'var(--font-inter)', fontSize: '0.6rem', color: '#B8B0A6' }}>
                     →
                   </span>
                 </div>
@@ -192,7 +192,7 @@ export default function AlbumsSearch({ albums, defaultLimit = 3 }: Props) {
             border:        'none',
             cursor:        'pointer',
             fontFamily:    'var(--font-inter)',
-            fontSize:      '0.48rem',
+            fontSize:      '0.7rem',
             letterSpacing: '0.25em',
             textTransform: 'uppercase',
             color:         '#7A6F62',

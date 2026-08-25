@@ -125,8 +125,8 @@ export default async function ProductPage({
               {product.description && (
                 <p style={{
                   fontFamily: 'var(--font-inter)',
-                  fontSize: '0.875rem',
-                  color: '#7A6F62',
+                  fontSize: '1rem',
+                  color: '#B8B0A6',
                   lineHeight: 1.85,
                   marginBottom: '2.5rem',
                   maxWidth: '42ch',

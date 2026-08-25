@@ -180,7 +180,7 @@ export default function AudioPlayer({ src, title, meta, artworkUrl, index }: Pro
           <p
             style={{
               fontFamily:    'var(--font-inter)',
-              fontSize:      '0.5rem',
+              fontSize:      '0.7rem',
               letterSpacing: '0.12em',
               textTransform: 'uppercase',
               color:         '#7A6F62',
@@ -236,8 +236,8 @@ export default function AudioPlayer({ src, title, meta, artworkUrl, index }: Pro
       <span
         style={{
           fontFamily:        'var(--font-inter)',
-          fontSize:          '0.5rem',
-          color:             '#7A6F62',
+          fontSize:          '0.6rem',
+          color:             '#B8B0A6',
           flexShrink:        0,
           fontVariantNumeric: 'tabular-nums',
         }}

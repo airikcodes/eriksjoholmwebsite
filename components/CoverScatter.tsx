@@ -18,7 +18,7 @@ interface Props {
 
 const EYEBROW: React.CSSProperties = {
   fontFamily:    'var(--font-inter)',
-  fontSize:      '0.45rem',
+  fontSize:      '0.7rem',
   letterSpacing: '0.35em',
   textTransform: 'uppercase' as const,
   color:         '#7A6F62',
@@ -82,7 +82,7 @@ export default function CoverScatter({
               <button
                 key={f}
                 onClick={() => setFilter(f)}
-                style={{ ...EYEBROW, color: filter === f ? '#C8922A' : '#7A6F62' }}
+                style={{ ...EYEBROW, color: filter === f ? '#C8922A' : '#B8B0A6' }}
               >
                 {f === 'all' ? 'All' : f === 'released' ? 'Released' : 'Unreleased'}
               </button>
@@ -93,7 +93,7 @@ export default function CoverScatter({
 
       {/* ── Empty state ── */}
       {filtered.length === 0 && (
-        <p style={{ fontFamily: 'var(--font-inter)', fontSize: '0.875rem', color: '#7A6F62', paddingTop: '1rem' }}>
+        <p style={{ fontFamily: 'var(--font-inter)', fontSize: '1rem', color: '#B8B0A6', paddingTop: '1rem' }}>
           Nothing found.
         </p>
       )}
@@ -120,12 +120,12 @@ export default function CoverScatter({
                     {work.title}
                   </p>
                   {work.meta && (
-                    <p style={{ fontFamily: 'var(--font-inter)', fontSize: '0.5rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#7A6F62', marginTop: '0.2rem' }}>
+                    <p style={{ fontFamily: 'var(--font-inter)', fontSize: '0.7rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#7A6F62', marginTop: '0.2rem' }}>
                       {work.meta}
                     </p>
                   )}
                 </div>
-                <span style={{ marginLeft: 'auto', fontFamily: 'var(--font-inter)', fontSize: '0.5rem', color: '#7A6F62', flexShrink: 0 }}>→</span>
+                <span style={{ marginLeft: 'auto', fontFamily: 'var(--font-inter)', fontSize: '0.6rem', color: '#B8B0A6', flexShrink: 0 }}>→</span>
               </Link>
             </li>
           ))}
@@ -194,7 +194,7 @@ export default function CoverScatter({
                 <p
                   style={{
                     fontFamily:    'var(--font-inter)',
-                    fontSize:      '0.44rem',
+                    fontSize:      '0.7rem',
                     letterSpacing: '0.1em',
                     textTransform: 'uppercase',
                     color:         '#7A6F62',

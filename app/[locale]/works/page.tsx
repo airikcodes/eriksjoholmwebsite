@@ -32,7 +32,7 @@ const releasedAlbums = albums.filter(a => a.releaseStatus !== 'upcoming');
 
 const EYEBROW: React.CSSProperties = {
   fontFamily:    'var(--font-inter)',
-  fontSize:      '0.45rem',
+  fontSize:      '0.7rem',
   letterSpacing: '0.35em',
   textTransform: 'uppercase',
   color:         '#7A6F62',
@@ -91,8 +91,8 @@ export default async function WorksPage({
 
             <p style={{
               fontFamily:   'var(--font-inter)',
-              fontSize:     '0.875rem',
-              color:        '#7A6F62',
+              fontSize:     '1rem',
+              color:        '#B8B0A6',
               lineHeight:   1.85,
               maxWidth:     '50ch',
               marginBottom: '2rem',
@@ -106,7 +106,7 @@ export default async function WorksPage({
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-[#1DB954] transition-colors duration-200"
-                style={{ fontFamily: 'var(--font-inter)', fontSize: '0.52rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#7A6F62', borderBottom: '1px solid rgba(122,111,98,0.3)', paddingBottom: '2px' }}
+                style={{ fontFamily: 'var(--font-inter)', fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#7A6F62', borderBottom: '1px solid rgba(122,111,98,0.3)', paddingBottom: '2px' }}
               >
                 {t.songs.fullCatalogueSpotify}
               </a>
@@ -115,7 +115,7 @@ export default async function WorksPage({
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-[#00FFFF] transition-colors duration-200"
-                style={{ fontFamily: 'var(--font-inter)', fontSize: '0.52rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#7A6F62', borderBottom: '1px solid rgba(122,111,98,0.3)', paddingBottom: '2px' }}
+                style={{ fontFamily: 'var(--font-inter)', fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#7A6F62', borderBottom: '1px solid rgba(122,111,98,0.3)', paddingBottom: '2px' }}
               >
                 {t.songs.fullCatalogueTidal}
               </a>
@@ -166,13 +166,13 @@ export default async function WorksPage({
                       {work.title}
                     </p>
                     {work.meta && (
-                      <p style={{ fontFamily: 'var(--font-inter)', fontSize: '0.52rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#7A6F62', marginTop: '0.4rem' }}>
+                      <p style={{ fontFamily: 'var(--font-inter)', fontSize: '0.7rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#7A6F62', marginTop: '0.4rem' }}>
                         {work.meta}
                       </p>
                     )}
                   </div>
 
-                  <span style={{ fontFamily: 'var(--font-inter)', fontSize: '0.5rem', letterSpacing: '0.18em', color: '#7A6F62', flexShrink: 0 }}>→</span>
+                  <span style={{ fontFamily: 'var(--font-inter)', fontSize: '0.6rem', letterSpacing: '0.18em', color: '#B8B0A6', flexShrink: 0 }}>→</span>
                 </Link>
               ))}
             </div>
@@ -300,7 +300,7 @@ export default async function WorksPage({
               >
                 {t.sync.title}
               </h2>
-              <p style={{ fontFamily: 'var(--font-inter)', fontSize: '0.8rem', color: '#7A6F62', lineHeight: 1.85, marginBottom: '2rem', maxWidth: '36ch' }}>
+              <p style={{ fontFamily: 'var(--font-inter)', fontSize: '0.85rem', color: '#B8B0A6', lineHeight: 1.85, marginBottom: '2rem', maxWidth: '36ch' }}>
                 {t.sync.intro}
               </p>
               <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
@@ -315,7 +315,7 @@ export default async function WorksPage({
                   href="https://eriksjoholmofficial.disco.ac/cat/1272966979"
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ fontFamily: 'var(--font-inter)', fontSize: '0.48rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#7A6F62', borderBottom: '1px solid rgba(122,111,98,0.3)', paddingBottom: '2px', textDecoration: 'none' }}
+                  style={{ fontFamily: 'var(--font-inter)', fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#7A6F62', borderBottom: '1px solid rgba(122,111,98,0.3)', paddingBottom: '2px', textDecoration: 'none' }}
                   className="hover:text-[#C8922A] hover:border-[#C8922A] transition-colors duration-200"
                 >
                   {t.sync.openOnDisco}
@@ -332,7 +332,7 @@ export default async function WorksPage({
               >
                 {t.songs.forYou.title}
               </h2>
-              <p style={{ fontFamily: 'var(--font-inter)', fontSize: '0.8rem', color: '#7A6F62', lineHeight: 1.85, marginBottom: '2rem', maxWidth: '36ch' }}>
+              <p style={{ fontFamily: 'var(--font-inter)', fontSize: '0.85rem', color: '#B8B0A6', lineHeight: 1.85, marginBottom: '2rem', maxWidth: '36ch' }}>
                 {t.songs.forYou.desc}
               </p>
               <CustomSongPlayer songs={featuredCustomSongs} playlistUrl={CUSTOM_SONGS_PLAYLIST_URL} />
