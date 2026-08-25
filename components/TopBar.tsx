@@ -8,16 +8,17 @@ const LOCALES = ['en', 'de', 'es', 'sv', 'fi', 'it', 'fr', 'pt'];
 const DEFAULT_LOCALE = 'en';
 
 const SUBTITLES: Record<string, string> = {
-  '/about':   'the story so far',
-  '/works':   'songs and recordings',
-  '/live':    'shows and dates',
-  '/notes':   'journal entries',
-  '/shop':    'merch and prints',
-  '/contact': 'get in touch',
+  '/about':        'the story so far',
+  '/works':        'songs and recordings',
+  '/live':         'shows and dates',
+  '/notes':        'journal entries',
+  '/shop':         'merch and prints',
+  '/contact':      'get in touch',
+  '/audio-player': 'hear a track',
 };
 
-// Ordered list of nav paths — defines the 01-06 folio numbering
-const NAV_PATHS = ['/about', '/works', '/live', '/notes', '/shop', '/contact'];
+// Ordered list of nav paths — defines the 01-07 folio numbering
+const NAV_PATHS = ['/about', '/works', '/live', '/notes', '/shop', '/contact', '/audio-player'];
 
 function getLocale(pathname: string): string {
   for (const l of LOCALES) {
