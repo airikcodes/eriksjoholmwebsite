@@ -206,29 +206,6 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
             transition:           'color 180ms ease, border-color 180ms ease, background 180ms ease',
           }}
         >
-          {/* Hamburger / close lines */}
-          <svg
-            aria-hidden="true"
-            width="12" height="9"
-            viewBox="0 0 12 9"
-            fill="none"
-            style={{ flexShrink: 0, transition: 'opacity 180ms ease' }}
-          >
-            {open ? (
-              /* × mark */
-              <>
-                <line x1="1" y1="1" x2="11" y2="8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                <line x1="11" y1="1" x2="1" y2="8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-              </>
-            ) : (
-              /* three bars */
-              <>
-                <line x1="0" y1="1"   x2="12" y2="1"   stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                <line x1="0" y1="4.5" x2="12" y2="4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                <line x1="0" y1="8"   x2="12" y2="8"   stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-              </>
-            )}
-          </svg>
           {open ? 'Close' : 'Menu'}
         </button>
 
