@@ -696,6 +696,9 @@ Recording ran through the summer of 2025 across a handful of specific rooms chos
         logoAlt: 'Svenska kulturfonden',
       },
     ],
+    // NOTE: lmv-21..lmv-40 were an accidental re-upload duplicating lmv-01..lmv-20
+    // pixel-for-pixel (confirmed via perceptual hash, 2026-08-29) — removed from
+    // both this list and the /public folder rather than kept as dead weight.
     photos: [
       '/images/langs-med-vagen/lmv-11.jpg',
       '/images/langs-med-vagen/lmv-07.jpg',
@@ -717,26 +720,6 @@ Recording ran through the summer of 2025 across a handful of specific rooms chos
       '/images/langs-med-vagen/lmv-18.jpg',
       '/images/langs-med-vagen/lmv-19.jpg',
       '/images/langs-med-vagen/lmv-20.jpg',
-      '/images/langs-med-vagen/lmv-21.jpg',
-      '/images/langs-med-vagen/lmv-22.jpg',
-      '/images/langs-med-vagen/lmv-23.jpg',
-      '/images/langs-med-vagen/lmv-24.jpg',
-      '/images/langs-med-vagen/lmv-25.jpg',
-      '/images/langs-med-vagen/lmv-26.jpg',
-      '/images/langs-med-vagen/lmv-27.jpg',
-      '/images/langs-med-vagen/lmv-28.jpg',
-      '/images/langs-med-vagen/lmv-29.jpg',
-      '/images/langs-med-vagen/lmv-30.jpg',
-      '/images/langs-med-vagen/lmv-31.jpg',
-      '/images/langs-med-vagen/lmv-32.jpg',
-      '/images/langs-med-vagen/lmv-33.jpg',
-      '/images/langs-med-vagen/lmv-34.jpg',
-      '/images/langs-med-vagen/lmv-35.jpg',
-      '/images/langs-med-vagen/lmv-36.jpg',
-      '/images/langs-med-vagen/lmv-37.jpg',
-      '/images/langs-med-vagen/lmv-38.jpg',
-      '/images/langs-med-vagen/lmv-39.jpg',
-      '/images/langs-med-vagen/lmv-40.jpg',
     ],
   },
 ];
