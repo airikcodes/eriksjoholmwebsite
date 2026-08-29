@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import BackNav from '@/components/BackNav';
 import KeepInTouch from '@/components/KeepInTouch';
 import StudioPhotos from '@/components/StudioPhotos';
+import SinglesList from '@/components/SinglesList';
 import AlbumBg from '@/components/AlbumBg';
 import Link from 'next/link';
 import { works, albums, getWork, type Work } from '@/data/works';
@@ -341,79 +342,7 @@ export default async function WorkPage({
 
           {/* ── Singles so far (upcoming albums only) ── */}
           {isUpcoming && trackWorks.length > 0 && (
-            <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
-              <p style={{
-                fontFamily:    'var(--font-inter)',
-                fontSize:      '0.7rem',
-                letterSpacing: '0.35em',
-                textTransform: 'uppercase',
-                color:         '#7A6F62',
-                marginBottom:  '2rem',
-              }}>
-                {t.works.singlesSoFarLabel}
-              </p>
-              <div style={{ display: 'flex', flexDirection: 'column' }}>
-                {trackWorks.map((track) => (
-                  <Link
-                    key={track.slug}
-                    href={`/${locale}/works/${track.slug}`}
-                    style={{
-                      display:        'grid',
-                      gridTemplateColumns: track.coverImage ? '44px 1fr auto' : '1fr auto',
-                      gap:            '1rem',
-                      alignItems:     'center',
-                      padding:        '1rem 0',
-                      borderBottom:   '1px solid rgba(255,255,255,0.05)',
-                      textDecoration: 'none',
-                    }}
-                    className="group"
-                  >
-                    {track.coverImage && (
-                      <img
-                        src={track.coverImage}
-                        alt=""
-                        width={44}
-                        height={44}
-                        style={{ width: 44, height: 44, objectFit: 'cover', opacity: 0.8 }}
-                      />
-                    )}
-                    <div>
-                      <p
-                        className="font-[family-name:var(--font-cormorant)] font-light group-hover:text-[#C8922A] transition-colors duration-200"
-                        style={{ fontSize: 'clamp(0.95rem, 2.2vw, 1.2rem)', color: '#E8E0D4', lineHeight: 1.25 }}
-                      >
-                        {track.title}
-                      </p>
-                      {track.meta && (
-                        <p style={{
-                          fontFamily:    'var(--font-inter)',
-                          fontSize:      '0.52rem',
-                          letterSpacing: '0.1em',
-                          textTransform: 'uppercase',
-                          color:         '#5A5248',
-                          marginTop:     '0.2rem',
-                        }}>
-                          {track.meta}
-                        </p>
-                      )}
-                      {track.description && (
-                        <p style={{
-                          fontFamily: 'var(--font-inter)',
-                          fontSize:   '0.75rem',
-                          color:      'rgba(140,128,118,0.6)',
-                          lineHeight: 1.65,
-                          marginTop:  '0.5rem',
-                          maxWidth:   '44ch',
-                        }}>
-                          {track.description}
-                        </p>
-                      )}
-                    </div>
-                    <span style={{ fontFamily: 'var(--font-inter)', fontSize: '0.6rem', color: '#B8B0A6' }}>→</span>
-                  </Link>
-                ))}
-              </div>
-            </div>
+            <SinglesList tracks={trackWorks} locale={locale} label={t.works.singlesSoFarLabel} />
           )}
 
           {/* ── Behind the record ── */}
