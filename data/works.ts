@@ -24,6 +24,8 @@ export interface Work {
   coverImage?: string;
   spotifyUrl?: string;
   tidalUrl?: string;
+  /** Direct public URL to an R2-hosted audio file, for in-site playback via AudioPlayer */
+  audioUrl?: string;
   lyrics?: string;
   story?: string;
   description?: string;

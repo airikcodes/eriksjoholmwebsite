@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import type { Work } from '@/data/works';
+import AudioPlayer from '@/components/AudioPlayer';
 
 function spotifyTrackId(url?: string): string | null {
   if (!url) return null;
@@ -35,7 +36,11 @@ export default function SinglesList({
       </p>
       <div style={{ display: 'flex', flexDirection: 'column' }}>
         {tracks.map((track) => {
+          // Prefer real in-site playback (R2-hosted file) once one exists for
+          // this track; fall back to Spotify's public embed for released
+          // singles that don't have an audioUrl yet.
           const trackId = spotifyTrackId(track.spotifyUrl);
+          const playable = Boolean(track.audioUrl || trackId);
           const isOpen = openSlug === track.slug;
           return (
             <div key={track.slug} style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
@@ -96,7 +101,7 @@ export default function SinglesList({
                   <span style={{ fontFamily: 'var(--font-inter)', fontSize: '0.6rem', color: '#B8B0A6' }}>→</span>
                 </Link>
 
-                {trackId && (
+                {playable && (
                   <button
                     type="button"
                     aria-label={isOpen ? `Hide player for ${track.title}` : `Play ${track.title}`}
@@ -130,17 +135,26 @@ export default function SinglesList({
                 )}
               </div>
 
-              {isOpen && trackId && (
+              {isOpen && (
                 <div style={{ paddingBottom: '1.25rem' }}>
-                  <iframe
-                    src={`https://open.spotify.com/embed/track/${trackId}?utm_source=generator&theme=0`}
-                    width="100%"
-                    height="80"
-                    style={{ borderRadius: '8px', border: 'none' }}
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                    loading="lazy"
-                    title={`${track.title} — Spotify player`}
-                  />
+                  {track.audioUrl ? (
+                    <AudioPlayer
+                      src={track.audioUrl}
+                      title={track.title}
+                      meta={track.meta}
+                      artworkUrl={track.coverImage}
+                    />
+                  ) : trackId ? (
+                    <iframe
+                      src={`https://open.spotify.com/embed/track/${trackId}?utm_source=generator&theme=0`}
+                      width="100%"
+                      height="80"
+                      style={{ borderRadius: '8px', border: 'none' }}
+                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                      loading="lazy"
+                      title={`${track.title} — Spotify player`}
+                    />
+                  ) : null}
                 </div>
               )}
             </div>
