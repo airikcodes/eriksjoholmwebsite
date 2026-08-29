@@ -1,9 +1,18 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 export default function StudioPhotos({ photos }: { photos: string[] }) {
   const [open, setOpen] = useState(true);
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  const scrollByAmount = (dir: 1 | -1) => {
+    const el = trackRef.current;
+    if (!el) return;
+    const card = el.querySelector<HTMLElement>('[data-photo-card]');
+    const step = card ? card.getBoundingClientRect().width + 10 : el.clientWidth * 0.8;
+    el.scrollBy({ left: dir * step, behavior: 'smooth' });
+  };
 
   return (
     <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '3rem', paddingBottom: '3rem' }}>
@@ -60,24 +69,46 @@ export default function StudioPhotos({ photos }: { photos: string[] }) {
         </span>
       </button>
 
-      {/* Collapsible grid */}
+      {/* Collapsible carousel */}
       <div style={{
         display:          'grid',
         gridTemplateRows: open ? '1fr' : '0fr',
         transition:       'grid-template-rows 0.55s cubic-bezier(0.4, 0, 0.2, 1)',
       }}>
         <div style={{ overflow: 'hidden' }}>
-          {/* 3-col on ≥560px, 2-col below */}
-          <div className="studio-photo-grid">
-            {photos.map((src, i) => (
-              <img
-                key={src}
-                src={src}
-                alt=""
-                loading={i < 6 ? 'eager' : 'lazy'}
-                style={{ width: '100%', height: 'auto', display: 'block' }}
-              />
-            ))}
+          <div style={{ position: 'relative' }}>
+            <div className="studio-photo-track" ref={trackRef}>
+              {photos.map((src, i) => (
+                <div className="studio-photo-card" data-photo-card key={src}>
+                  <img
+                    src={src}
+                    alt=""
+                    loading={i < 3 ? 'eager' : 'lazy'}
+                    style={{ width: '100%', height: '100%', display: 'block', objectFit: 'cover' }}
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* Desktop-only nav arrows; horizontal scroll/swipe always works on touch */}
+            <button
+              aria-label="Previous photos"
+              onClick={() => scrollByAmount(-1)}
+              className="studio-photo-nav studio-photo-nav-prev"
+            >
+              <svg width="7" height="12" viewBox="0 0 7 12" fill="none">
+                <path d="M6 1L1 6L6 11" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+            <button
+              aria-label="Next photos"
+              onClick={() => scrollByAmount(1)}
+              className="studio-photo-nav studio-photo-nav-next"
+            >
+              <svg width="7" height="12" viewBox="0 0 7 12" fill="none">
+                <path d="M1 1L6 6L1 11" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
           </div>
         </div>
       </div>
