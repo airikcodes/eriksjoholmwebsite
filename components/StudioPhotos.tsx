@@ -96,8 +96,8 @@ export default function StudioPhotos({ photos }: { photos: string[] }) {
               onClick={() => scrollByAmount(-1)}
               className="studio-photo-nav studio-photo-nav-prev"
             >
-              <svg width="7" height="12" viewBox="0 0 7 12" fill="none">
-                <path d="M6 1L1 6L6 11" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
+              <svg width="9" height="14" viewBox="0 0 9 14" fill="none">
+                <path d="M7.5 1L1.5 7L7.5 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
             <button
@@ -105,8 +105,8 @@ export default function StudioPhotos({ photos }: { photos: string[] }) {
               onClick={() => scrollByAmount(1)}
               className="studio-photo-nav studio-photo-nav-next"
             >
-              <svg width="7" height="12" viewBox="0 0 7 12" fill="none">
-                <path d="M1 1L6 6L1 11" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
+              <svg width="9" height="14" viewBox="0 0 9 14" fill="none">
+                <path d="M1.5 1L7.5 7L1.5 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
           </div>
