@@ -55,6 +55,12 @@ export default async function Contact({
           backgroundSize: "cover", backgroundPosition: "center",
           opacity: 0.08,
         }} />
+        {/* Scrim: bg-05.jpg is a high-contrast portrait (same issue found on
+            the About page's bg-03.jpg) — even at low opacity its bright
+            areas show through enough to reduce legibility of the contact
+            details sitting on top. Flat dark overlay keeps the texture
+            while guaranteeing text contrast. */}
+        <div style={{ position: "absolute", inset: 0, background: "rgba(13,11,9,0.55)" }} />
       </div>
 
       <div className="relative" style={{ zIndex: 1 }}>
