@@ -48,6 +48,12 @@ export default async function About({
           backgroundSize: "cover", backgroundPosition: "center",
           opacity: 0.08,
         }} />
+        {/* Scrim: bg-03.jpg is a high-contrast spotlit portrait, so even at
+            low opacity its bright areas show through enough to reduce
+            legibility of the bio text sitting on top. A flat dark overlay
+            keeps the texture while guaranteeing text contrast, matching the
+            scrim pattern used on individual work pages (AlbumBg). */}
+        <div style={{ position: "absolute", inset: 0, background: "rgba(13,11,9,0.55)" }} />
       </div>
 
       <div className="relative" style={{ zIndex: 1 }}>
