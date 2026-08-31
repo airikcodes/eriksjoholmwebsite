@@ -251,6 +251,25 @@ export default async function Contact({
               >
                 {c.syncLink}
               </a>
+              {/* The professional record lives on its own site; the letters and
+                  CVs that cite eriksjoholm.com had no route to it from here. */}
+              <a
+                href="https://portfolio.eriksjoholm.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontSize: "0.78rem",
+                  color: "#B8B0A6",
+                  letterSpacing: "0.03em",
+                  borderBottom: "1px solid rgba(122,111,98,0.25)",
+                  paddingBottom: "2px",
+                  width: "fit-content",
+                }}
+                className="hover:text-[#C8922A] hover:border-[#C8922A] transition-colors duration-200"
+              >
+                {c.portfolioLink}
+              </a>
             </div>
           </div>
 

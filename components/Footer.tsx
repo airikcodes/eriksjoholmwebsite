@@ -28,6 +28,15 @@ export default function Footer() {
           </a>
           <span className="w-px h-3 bg-white/10" />
           <a
+            href="https://portfolio.eriksjoholm.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[0.6rem] tracking-[0.25em] uppercase text-[#444444] hover:text-white transition-colors duration-300"
+          >
+            Portfolio
+          </a>
+          <span className="w-px h-3 bg-white/10" />
+          <a
             href="mailto:erik@eriksjoholm.com"
             className="text-[0.6rem] tracking-[0.25em] uppercase text-[#444444] hover:text-white transition-colors duration-300"
           >
