@@ -9,7 +9,10 @@
 // Add a new subdomain here; no other code changes needed for the rewrite itself.
 export const SUBDOMAIN_ROUTES: Record<string, string> = {
   "sync.eriksjoholm.com": "/sync",
-  "storyteller.eriksjoholm.com": "/storyteller",
+  // storyteller.eriksjoholm.com moved to The Crater (sjoholm-productions-test
+  // Vercel project) — Vercel routes that hostname to a different project
+  // entirely now, so this app never sees it. eriksjoholm.com/storyteller
+  // still 301s there via next.config.ts.
 };
 
 export const SUBDOMAIN_HOSTS = new Set(Object.keys(SUBDOMAIN_ROUTES));
