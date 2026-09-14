@@ -9,12 +9,12 @@ export const metadata: Metadata = {
   title: "GLENN — Erik Sjøholm",
   description:
     "GLENN: The Things We Don't Speak About — a storytelling concert by Erik Sjøholm. Book for festivals, theatres, and cultural venues.",
-  alternates: { canonical: "https://eriksjoholm.com/storyteller" },
+  alternates: { canonical: "https://storyteller.eriksjoholm.com" },
   openGraph: {
     title: "GLENN — Erik Sjøholm",
     description:
       "GLENN: The Things We Don't Speak About — a storytelling concert by Erik Sjøholm. Book for festivals, theatres, and cultural venues.",
-    url: "https://eriksjoholm.com/storyteller",
+    url: "https://storyteller.eriksjoholm.com",
     images: [{ url: "/images/portrait.jpg", width: 800, height: 800, alt: "Erik Sjøholm" }],
     type: "website",
   },

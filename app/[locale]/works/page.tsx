@@ -305,7 +305,7 @@ export default async function WorksPage({
               </p>
               <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
                 <Link
-                  href="/sync"
+                  href="https://sync.eriksjoholm.com"
                   style={{ display: 'inline-block', border: '1px solid rgba(200,146,42,0.45)', color: '#C8922A', fontFamily: 'var(--font-inter)', fontSize: '0.48rem', letterSpacing: '0.28em', textTransform: 'uppercase', padding: '0.7rem 1.5rem', textDecoration: 'none', transition: 'border-color 200ms, color 200ms' }}
                   className="hover:border-[#C8922A] hover:text-[#E8E0D4] transition-all duration-200"
                 >

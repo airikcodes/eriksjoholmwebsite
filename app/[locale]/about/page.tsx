@@ -300,14 +300,14 @@ export default async function About({
                       {a.works}
                     </Link>
                     <Link
-                      href="/storyteller"
+                      href="https://storyteller.eriksjoholm.com"
                       className="block hover:text-[#E8E0D4] transition-colors duration-200"
                       style={{ fontFamily: "var(--font-inter)", fontSize: "0.9rem", color: "#B8B0A6", letterSpacing: "0.03em", padding: "0.25rem 0" }}
                     >
                       {a.theStoryteller}
                     </Link>
                     <Link
-                      href="/sync"
+                      href="https://sync.eriksjoholm.com"
                       className="block hover:text-[#E8E0D4] transition-colors duration-200"
                       style={{ fontFamily: "var(--font-inter)", fontSize: "0.9rem", color: "#B8B0A6", letterSpacing: "0.03em", padding: "0.25rem 0" }}
                     >

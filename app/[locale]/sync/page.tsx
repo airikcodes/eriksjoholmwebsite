@@ -8,12 +8,12 @@ export const metadata: Metadata = {
   title: "Sync Licensing — Erik Sjøholm",
   description:
     "Original music available for film, TV, advertising, and other media. One-stop licensing — single agreement clears master and publishing rights.",
-  alternates: { canonical: "https://eriksjoholm.com/sync" },
+  alternates: { canonical: "https://sync.eriksjoholm.com" },
   openGraph: {
     title: "Sync Licensing — Erik Sjøholm",
     description:
       "Original music for film, TV, advertising, and other media. One-stop licensing, single agreement.",
-    url: "https://eriksjoholm.com/sync",
+    url: "https://sync.eriksjoholm.com",
     images: [{ url: "/images/portrait.jpg", width: 800, height: 800, alt: "Erik Sjøholm" }],
     type: "website",
   },

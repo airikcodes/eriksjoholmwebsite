@@ -222,7 +222,7 @@ export default async function Contact({
             </p>
             <div className="flex flex-col gap-3">
               <a
-                href="/storyteller"
+                href="https://storyteller.eriksjoholm.com"
                 style={{
                   fontFamily: "var(--font-inter)",
                   fontSize: "0.78rem",
@@ -237,7 +237,7 @@ export default async function Contact({
                 {c.glennLink}
               </a>
               <a
-                href="/sync"
+                href="https://sync.eriksjoholm.com"
                 style={{
                   fontFamily: "var(--font-inter)",
                   fontSize: "0.78rem",

@@ -447,7 +447,7 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
             }}>
               see also —{' '}
               <Link
-                href="/storyteller"
+                href="https://storyteller.eriksjoholm.com"
                 onClick={close}
                 tabIndex={open ? 0 : -1}
                 style={{ color: 'inherit', textDecoration: 'none' }}
@@ -457,7 +457,7 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
               </Link>
               {' · '}
               <Link
-                href="/sync"
+                href="https://sync.eriksjoholm.com"
                 onClick={close}
                 tabIndex={open ? 0 : -1}
                 style={{ color: 'inherit', textDecoration: 'none' }}
