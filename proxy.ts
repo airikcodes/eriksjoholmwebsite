@@ -30,7 +30,24 @@ function getLocale(request: NextRequest): string {
   return defaultLocale;
 }
 
+// Subdomains that serve a single existing page at their own root, always in the
+// default locale. eriksjoholm.com itself is untouched — only these exact
+// hostnames are rewritten, and only their "/" request. Add a new subdomain
+// here; no other code changes needed for the rewrite itself.
+const SUBDOMAIN_ROUTES: Record<string, string> = {
+  "sync.eriksjoholm.com": "/sync",
+  "storyteller.eriksjoholm.com": "/storyteller",
+};
+
 export function proxy(request: NextRequest) {
+  const hostname = (request.headers.get("host") ?? "").split(":")[0];
+  const subdomainTarget = SUBDOMAIN_ROUTES[hostname];
+  if (subdomainTarget && request.nextUrl.pathname === "/") {
+    const url = request.nextUrl.clone();
+    url.pathname = `/${defaultLocale}${subdomainTarget}`;
+    return NextResponse.rewrite(url);
+  }
+
   const { pathname } = request.nextUrl;
 
   const hasLocalePrefix = locales.some(
