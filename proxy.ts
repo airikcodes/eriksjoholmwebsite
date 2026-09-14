@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
+import { SUBDOMAIN_ROUTES } from '@/lib/subdomain-routes';
 
 const locales = ['en', 'de', 'es', 'sv', 'fi', 'it', 'fr', 'pt'];
 const defaultLocale = 'en';
@@ -29,15 +30,6 @@ function getLocale(request: NextRequest): string {
 
   return defaultLocale;
 }
-
-// Subdomains that serve a single existing page at their own root, always in the
-// default locale. eriksjoholm.com itself is untouched — only these exact
-// hostnames are rewritten, and only their "/" request. Add a new subdomain
-// here; no other code changes needed for the rewrite itself.
-const SUBDOMAIN_ROUTES: Record<string, string> = {
-  "sync.eriksjoholm.com": "/sync",
-  "storyteller.eriksjoholm.com": "/storyteller",
-};
 
 export function proxy(request: NextRequest) {
   const hostname = (request.headers.get("host") ?? "").split(":")[0];

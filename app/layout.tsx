@@ -80,6 +80,7 @@ export default async function RootLayout({
   const lang         = validLocales.includes(cookieLocale) ? cookieLocale : 'en';
   const headersList  = await headers();
   const detected     = parseAcceptLanguage(headersList.get('accept-language') ?? '');
+  const host         = headersList.get('host') ?? '';
   const t            = await getDictionary(lang as Parameters<typeof getDictionary>[0]);
   const navItems = [
     { label: t.nav.about,   href: '/about'   },
@@ -119,7 +120,7 @@ export default async function RootLayout({
         <SmoothScroll />
         <TopBar navItems={navItems} />
         <LangPrompt detectedLocale={detected} currentLocale={lang} />
-        <PersistentBackground />
+        <PersistentBackground host={host} />
         <GradientBlur />
         <script
           type="application/ld+json"

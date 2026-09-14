@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
+import { SUBDOMAIN_HOSTS } from "@/lib/subdomain-routes";
 
 const videos = [
   "/videos/bg-01.mp4",
@@ -79,9 +80,15 @@ const glassBtn: React.CSSProperties = {
 // Two-slot video approach: slot A plays, slot B preloads next. On each
 // 30-second cycle they swap roles and the outgoing slot loads the one after.
 
-export default function PersistentBackground() {
+export default function PersistentBackground({ host = "" }: { host?: string }) {
   const pathname = usePathname();
-  const isHome   = LOCALE_HOME_RE.test(pathname);
+  // On sync.eriksjoholm.com / storyteller.eriksjoholm.com, proxy.ts rewrites
+  // "/" to "/en/sync" etc. internally, but that's transparent to the browser —
+  // usePathname() still reports "/", which would otherwise match
+  // LOCALE_HOME_RE and wrongly trigger the homepage's video background on
+  // those subdomains. Treat any subdomain host as never-home, full stop.
+  const isSubdomain = SUBDOMAIN_HOSTS.has(host.split(":")[0]);
+  const isHome   = !isSubdomain && LOCALE_HOME_RE.test(pathname);
 
   const [imgIdx, setImgIdx]      = useState(0);
   const [flip, setFlip]          = useState(false); // false = slot A active, true = slot B active
