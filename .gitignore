@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# photographer master deliveries (web exports live alongside as lmv-NN.jpg)
+public/images/**/*PromoPhotos_Folder/
