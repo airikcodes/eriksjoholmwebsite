@@ -234,8 +234,13 @@
       },
       {
         "label": "Catalogue",
-        "title": "~300 chansons originales",
-        "desc": "Matériel d'auteur-compositeur en anglais et dans les langues scandinaves. Atmosphérique, narratif, ancré émotionnellement."
+        "title": "323 titres, prêts à licencier",
+        "desc": "Plus de mille chansons écrites à ce jour ; 323 sont entièrement prêtes pour la licence — taguées par ambiance, tempo et usage, pour qu'un brief se recherche plutôt qu'il ne se devine."
+      },
+      {
+        "label": "Droits",
+        "title": "Enregistrés et documentés",
+        "desc": "PRO : Teosto (Finlande), IPI 533999211. Deux tiers du catalogue de livraison sont écrits et enregistrés par Erik seul — les détails de répartition accompagnent chaque co-écriture."
       },
       {
         "label": "Livraison",
@@ -245,7 +250,9 @@
     ],
     "getInTouch": "Prendre contact",
     "sendABrief": "Envoyer un brief.",
-    "contactDesc": "Que vous ayez une scène précise, une référence d'ambiance ou souhaitiez simplement explorer le catalogue — contactez directement. Devis personnalisés pour tous les formats de projets."
+    "contactDesc": "Que vous ayez une scène précise, une référence d'ambiance ou souhaitiez simplement explorer le catalogue — contactez directement. Devis personnalisés pour tous les formats de projets.",
+    "referenceLabel": "Points de repère",
+    "referenceArtists": "Damien Rice, José González, Ólafur Arnalds, Bon Iver — mélodique, atmosphérique, conçu pour accompagner l'image."
   },
   "notes": {
     "eyebrow": "Notes",

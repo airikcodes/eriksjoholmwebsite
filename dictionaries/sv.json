@@ -234,8 +234,13 @@
       },
       {
         "label": "Katalog",
-        "title": "~300 originallåtar",
-        "desc": "Singer-songwriter-material på engelska och skandinaviska språk. Atmosfäriskt, berättande, emotionellt förankrat."
+        "title": "323 låtar, klara för licens",
+        "desc": "Över tusen låtar skrivna hittills; 323 är helt förberedda för licensiering — taggade efter stämning, tempo och användningsområde så att en brief kan sökas fram, inte gissas."
+      },
+      {
+        "label": "Rättigheter",
+        "title": "Registrerat och dokumenterat",
+        "desc": "PRO: Teosto (Finland), IPI 533999211. Två tredjedelar av leveranskatalogen är skriven och inspelad av Erik ensam — delningsdetaljer följer med varje samplåt."
       },
       {
         "label": "Leverans",
@@ -245,7 +250,9 @@
     ],
     "getInTouch": "Ta kontakt",
     "sendABrief": "Skicka en brief.",
-    "contactDesc": "Oavsett om du har en specifik scen, en stämningsreferens eller bara vill utforska katalogen — kontakta direkt. Individuella offerter för alla projektstorlekar."
+    "contactDesc": "Oavsett om du har en specifik scen, en stämningsreferens eller bara vill utforska katalogen — kontakta direkt. Individuella offerter för alla projektstorlekar.",
+    "referenceLabel": "Referenspunkter",
+    "referenceArtists": "Damien Rice, José González, Ólafur Arnalds, Bon Iver — melodiskt, atmosfäriskt, gjort för att ligga under bild."
   },
   "notes": {
     "eyebrow": "Anteckningar",

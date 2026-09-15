@@ -234,8 +234,13 @@
       },
       {
         "label": "Katalogi",
-        "title": "~300 alkuperäiskappaletta",
-        "desc": "Singer-songwriter-materiaalia englannin ja skandinaavisten kielten kirjossa. Tunnelmallista, kerronnallista, tunteellisesti ankkuroitua."
+        "title": "323 kappaletta, lisenssivalmiina",
+        "desc": "Yli tuhat kappaletta kirjoitettu tähän mennessä; 323 on täysin valmiina lisensointiin — tunnelman, tempon ja käyttötarkoituksen mukaan tagattuna, jotta briefi voidaan hakea, ei arvata."
+      },
+      {
+        "label": "Oikeudet",
+        "title": "Rekisteröity ja dokumentoitu",
+        "desc": "PRO: Teosto (Suomi), IPI 533999211. Kaksi kolmasosaa toimituskatalogista on Erikin yksin kirjoittama ja äänitettävä — jakotiedot kulkevat jokaisen yhteiskirjoituksen mukana."
       },
       {
         "label": "Toimitus",
@@ -245,7 +250,9 @@
     ],
     "getInTouch": "Ota yhteyttä",
     "sendABrief": "Lähetä brief.",
-    "contactDesc": "Oli kyseessä sitten tietty kohtaus, tunnelmaviite tai halu tutustua katalogiin — ota suoraan yhteyttä. Räätälöidyt tarjoukset kaikenkokoisille projekteille."
+    "contactDesc": "Oli kyseessä sitten tietty kohtaus, tunnelmaviite tai halu tutustua katalogiin — ota suoraan yhteyttä. Räätälöidyt tarjoukset kaikenkokoisille projekteille.",
+    "referenceLabel": "Vertailukohdat",
+    "referenceArtists": "Damien Rice, José González, Ólafur Arnalds, Bon Iver — melodista, tunnelmallista, tehty istumaan kuvan alle."
   },
   "notes": {
     "eyebrow": "Muistiinpanot",

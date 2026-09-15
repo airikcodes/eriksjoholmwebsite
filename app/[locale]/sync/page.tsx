@@ -86,6 +86,28 @@ export default async function Sync({
             }}>
               {s.intro}
             </p>
+            {s.referenceArtists && (
+              <p style={{
+                fontFamily: "var(--font-inter)",
+                fontSize: "0.82rem",
+                color: "#C8922A",
+                lineHeight: 1.7,
+                maxWidth: "52ch",
+                marginTop: "1.5rem",
+              }}>
+                <span style={{
+                  display: "block",
+                  fontSize: "0.62rem",
+                  letterSpacing: "0.2em",
+                  textTransform: "uppercase",
+                  color: "#B8B0A6",
+                  marginBottom: "0.5rem",
+                }}>
+                  {s.referenceLabel}
+                </span>
+                {s.referenceArtists}
+              </p>
+            )}
           </div>
 
           {/* ── Catalogue ── */}
@@ -135,7 +157,7 @@ export default async function Sync({
             }}>
               {s.whatYouGet}
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-12">
               {s.specs.map(({ label, title, desc }) => (
                 <div key={label}>
                   <p style={{

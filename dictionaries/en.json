@@ -234,8 +234,13 @@
       },
       {
         "label": "Catalog",
-        "title": "~300 original songs",
-        "desc": "Singer-songwriter material across English and Scandinavian languages. Atmospheric, narrative, emotionally grounded."
+        "title": "323 songs, cleared and ready",
+        "desc": "Over a thousand songs written to date; 323 are fully prepared for licensing — tagged by mood, tempo and use case so a brief can be searched, not guessed at."
+      },
+      {
+        "label": "Rights",
+        "title": "Registered and documented",
+        "desc": "PRO: Teosto (Finland), IPI 533999211. Two-thirds of the delivery catalogue is written and recorded by Erik alone — split details travel with every co-write."
       },
       {
         "label": "Delivery",
@@ -245,7 +250,9 @@
     ],
     "getInTouch": "Get in touch",
     "sendABrief": "Send a brief.",
-    "contactDesc": "Whether you have a specific scene, a mood reference, or just want to explore the catalog — reach out directly. Custom quotes available for all project sizes."
+    "contactDesc": "Whether you have a specific scene, a mood reference, or just want to explore the catalog — reach out directly. Custom quotes available for all project sizes.",
+    "referenceLabel": "Reference points",
+    "referenceArtists": "Damien Rice, José González, Ólafur Arnalds, Bon Iver — melodic, atmospheric, built to sit under picture."
   },
   "notes": {
     "eyebrow": "Notes",

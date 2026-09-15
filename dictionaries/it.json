@@ -234,8 +234,13 @@
       },
       {
         "label": "Catalogo",
-        "title": "~300 canzoni originali",
-        "desc": "Materiale singer-songwriter in inglese e lingue scandinave. Atmosferico, narrativo, emotivamente radicato."
+        "title": "323 brani, pronti alla licenza",
+        "desc": "Oltre mille brani scritti finora; 323 sono completamente pronti per la licenza — taggati per atmosfera, tempo e utilizzo, così un brief si può cercare, non indovinare."
+      },
+      {
+        "label": "Diritti",
+        "title": "Registrati e documentati",
+        "desc": "PRO: Teosto (Finlandia), IPI 533999211. Due terzi del catalogo disponibile sono scritti e registrati da Erik da solo — i dettagli di ripartizione accompagnano ogni co-scrittura."
       },
       {
         "label": "Consegna",
@@ -245,7 +250,9 @@
     ],
     "getInTouch": "Contattaci",
     "sendABrief": "Invia un brief.",
-    "contactDesc": "Che tu abbia una scena specifica, un riferimento d'atmosfera o voglia semplicemente esplorare il catalogo — contattaci direttamente. Preventivi personalizzati per progetti di ogni dimensione."
+    "contactDesc": "Che tu abbia una scena specifica, un riferimento d'atmosfera o voglia semplicemente esplorare il catalogo — contattaci direttamente. Preventivi personalizzati per progetti di ogni dimensione.",
+    "referenceLabel": "Punti di riferimento",
+    "referenceArtists": "Damien Rice, José González, Ólafur Arnalds, Bon Iver — melodico, atmosferico, pensato per stare sotto l'immagine."
   },
   "notes": {
     "eyebrow": "Note",

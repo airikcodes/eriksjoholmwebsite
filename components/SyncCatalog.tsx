@@ -1,8 +1,7 @@
 "use client";
 
 import { useState } from "react";
-
-const SPOTIFY_ARTIST = "https://open.spotify.com/artist/1UpcgaCHBwic2IqUQ3hHdp";
+import AudioPlayer from "@/components/AudioPlayer";
 
 export type Track = {
   title: string;
@@ -10,7 +9,11 @@ export type Track = {
   moods: string[];
   uses: string[];
   languages?: string;
-  spotifyLink: string;
+  /** Full Spotify track URL — only set when a genuine public single exists for this exact track. */
+  spotifyLink?: string;
+  /** Direct public URL to an R2-hosted audio file, for real in-page playback (preferred over the Spotify embed). */
+  audioUrl?: string;
+  coverImage?: string;
   notes?: string;
 };
 
@@ -28,8 +31,10 @@ export const syncCatalog: Track[] = [
     tempo: "Mid-tempo",
     moods: ["Uplifting", "Warm", "Joyful"],
     uses: ["Lifestyle", "Summer campaigns", "Feel-good drama", "Brands"],
-    spotifyLink: SPOTIFY_ARTIST,
-    notes: "Latest release · 2025",
+    spotifyLink: "https://open.spotify.com/track/2ALT61LKWHRLW3qvRpz3JI",
+    audioUrl: "https://pub-6f6cd6567cbc4f74936c2036ae7bca61.r2.dev/Lycka_Sjoholm_Nordstrom.mp3",
+    coverImage: "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026ed0b3388394820c3aac27c5",
+    notes: "Latest release · with Emil Nordström",
     languages: "Swedish",
   },
   {
@@ -94,6 +99,8 @@ export const syncCatalog: Track[] = [
     moods: ["Childhood", "Memory", "Innocent"],
     uses: ["Coming of age", "Memory sequences", "Documentary"],
     spotifyLink: "https://open.spotify.com/track/2x00pPFmK8lgkyPeW401Gu",
+    audioUrl: "https://pub-6f6cd6567cbc4f74936c2036ae7bca61.r2.dev/Barndoms%C3%A5ren%20%28Pargas%2098%29_Sjoholm_Nordstrom.mp3",
+    coverImage: "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e028cc91fad2d8dc06c518ecf27",
     notes: "with Emil Nordström",
     languages: "Swedish",
   },
@@ -102,56 +109,58 @@ export const syncCatalog: Track[] = [
     tempo: "Slow",
     moods: ["Tender", "Sacred", "Protective"],
     uses: ["Spiritual content", "Drama", "Emotional peaks", "Loss"],
-    spotifyLink: SPOTIFY_ARTIST,
   },
   {
     title: "One Last Waltz",
     tempo: "Slow",
     moods: ["Elegant", "Bittersweet", "Final"],
     uses: ["Dance scenes", "Romance", "Endings", "Period drama"],
-    spotifyLink: SPOTIFY_ARTIST,
+    spotifyLink: "https://open.spotify.com/track/5mqLS6AqVNBCxak7g4oUO8",
   },
   {
     title: "The Origin Of Love",
     tempo: "Slow",
     moods: ["Profound", "Romantic", "Deep"],
     uses: ["Romance", "Wedding", "Drama", "Emotional climax"],
-    spotifyLink: SPOTIFY_ARTIST,
   },
   {
     title: "The Letter",
     tempo: "Slow",
     moods: ["Intimate", "Nostalgic", "Written"],
     uses: ["Period drama", "Long-distance", "Epistolary narratives"],
-    spotifyLink: SPOTIFY_ARTIST,
   },
   {
     title: "If You Believe",
     tempo: "Mid-tempo",
     moods: ["Hopeful", "Faith", "Inspiring"],
     uses: ["Inspirational content", "Documentary", "Brand campaigns"],
-    spotifyLink: SPOTIFY_ARTIST,
+    spotifyLink: "https://open.spotify.com/track/4fX8PDpstnvD1jTPLecaco",
+    notes: "with Mistasy",
   },
   {
     title: "Ray Of Light",
     tempo: "Mid-tempo",
     moods: ["Uplifting", "Bright", "Recovery"],
     uses: ["Recovery stories", "Hope", "Charity", "Campaigns"],
-    spotifyLink: SPOTIFY_ARTIST,
+    spotifyLink: "https://open.spotify.com/track/2vsvxI57LT953u4MHHJ02I",
   },
   {
     title: "Compromise",
     tempo: "Mid-tempo",
     moods: ["Tense", "Conflicted", "Honest"],
     uses: ["Relationship drama", "Conflict scenes", "Indie film"],
-    spotifyLink: SPOTIFY_ARTIST,
+    spotifyLink: "https://open.spotify.com/track/3RY2VzIlJA3iYHGrZR0wCW",
+    notes: "2016 · Walkabout",
   },
   {
     title: "Sanden I Min Hand",
     tempo: "Slow",
     moods: ["Poetic", "Fleeting", "Nordic"],
     uses: ["Art house", "Philosophical", "Documentary", "Short film"],
-    spotifyLink: SPOTIFY_ARTIST,
+    spotifyLink: "https://open.spotify.com/track/5sxlnPchl6ib1vOrjJanxz",
+    audioUrl: "https://pub-6f6cd6567cbc4f74936c2036ae7bca61.r2.dev/Sanden%20i%20mind%20hand__Sjoholm_Nordstrom.mp3",
+    coverImage: "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02a3617845d60b2e0a31a33e4d",
+    notes: "with Emil Nordström",
     languages: "Swedish",
   },
   {
@@ -159,7 +168,10 @@ export const syncCatalog: Track[] = [
     tempo: "Mid-tempo",
     moods: ["Journey", "Reflective", "Travelling"],
     uses: ["Road trip", "Travel documentary", "Adventure"],
-    spotifyLink: SPOTIFY_ARTIST,
+    spotifyLink: "https://open.spotify.com/track/5xGo3coakkLQsrq5V3ArIp",
+    audioUrl: "https://pub-6f6cd6567cbc4f74936c2036ae7bca61.r2.dev/L%C3%A4ngs%20med%20v%C3%A4gen__Sjoholm_Nordstrom.mp3",
+    coverImage: "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02a76303c4d3c06fcf1bfaf925",
+    notes: "with Emil Nordström",
     languages: "Swedish",
   },
   {
@@ -167,21 +179,18 @@ export const syncCatalog: Track[] = [
     tempo: "Uptempo",
     moods: ["Vibrant", "Warm", "Mediterranean"],
     uses: ["Travel", "Lifestyle", "Summer", "European content"],
-    spotifyLink: SPOTIFY_ARTIST,
   },
   {
     title: "In The Beginning",
     tempo: "Slow",
     moods: ["Epic", "Origin", "Cinematic"],
     uses: ["Documentary", "Nature", "Epic drama", "Opening sequences"],
-    spotifyLink: SPOTIFY_ARTIST,
   },
   {
     title: "Sooner Or Later",
     tempo: "Mid-tempo",
     moods: ["Patient", "Inevitable", "Resigned"],
     uses: ["Drama", "Contemplative", "Indie film", "Character studies"],
-    spotifyLink: SPOTIFY_ARTIST,
   },
 ];
 
@@ -196,9 +205,15 @@ const ALL_USES = [
 
 const TEMPO_COLORS: Record<Track["tempo"], { bg: string; color: string }> = {
   "Slow":       { bg: "rgba(200,146,42,0.15)",  color: "#C8922A" },
-  "Mid-tempo":  { bg: "rgba(255,255,255,0.06)", color: "#7A6F62" },
-  "Uptempo":    { bg: "rgba(29,185,84,0.12)",   color: "#1DB954" },
+  "Mid-tempo":  { bg: "rgba(255,255,255,0.06)", color: "#B8B0A6" },
+  "Uptempo":    { bg: "rgba(29,185,84,0.14)",   color: "#1DB954" },
 };
+
+function spotifyTrackId(url?: string): string | null {
+  if (!url) return null;
+  const match = url.match(/track\/([A-Za-z0-9]+)/);
+  return match ? match[1] : null;
+}
 
 function FilterChip({
   label, active, onClick,
@@ -213,7 +228,7 @@ function FilterChip({
         textTransform: "uppercase",
         padding: "0.45rem 1rem",
         border: `1px solid ${active ? "#C8922A" : "rgba(255,255,255,0.1)"}`,
-        color: active ? "#C8922A" : "#7A6F62",
+        color: active ? "#C8922A" : "#B8B0A6",
         background: active ? "rgba(200,146,42,0.08)" : "transparent",
         cursor: "pointer",
         transition: "border-color 150ms, color 150ms, background 150ms",
@@ -228,6 +243,7 @@ export default function SyncCatalog() {
   const [activeMood,  setActiveMood]  = useState<string | null>(null);
   const [activeUse,   setActiveUse]   = useState<string | null>(null);
   const [activeTempo, setActiveTempo] = useState<Track["tempo"] | null>(null);
+  const [openTitle,   setOpenTitle]   = useState<string | null>(null);
 
   const filtered = syncCatalog.filter((t) => {
     if (activeMood  && !t.moods.some(m => m.toLowerCase().includes(activeMood.toLowerCase()))) return false;
@@ -256,7 +272,7 @@ export default function SyncCatalog() {
 
           {/* Tempo */}
           <div>
-            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.25em", textTransform: "uppercase", color: "#7A6F62", marginBottom: "0.75rem" }}>
+            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.25em", textTransform: "uppercase", color: "#B8B0A6", marginBottom: "0.75rem" }}>
               Tempo
             </p>
             <div className="flex flex-wrap gap-2">
@@ -268,7 +284,7 @@ export default function SyncCatalog() {
 
           {/* Mood */}
           <div>
-            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.25em", textTransform: "uppercase", color: "#7A6F62", marginBottom: "0.75rem" }}>
+            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.25em", textTransform: "uppercase", color: "#B8B0A6", marginBottom: "0.75rem" }}>
               Mood
             </p>
             <div className="flex flex-wrap gap-2">
@@ -280,7 +296,7 @@ export default function SyncCatalog() {
 
           {/* Use case */}
           <div>
-            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.25em", textTransform: "uppercase", color: "#7A6F62", marginBottom: "0.75rem" }}>
+            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.25em", textTransform: "uppercase", color: "#B8B0A6", marginBottom: "0.75rem" }}>
               Use case
             </p>
             <div className="flex flex-wrap gap-2">
@@ -294,13 +310,13 @@ export default function SyncCatalog() {
 
         {/* Count + clear */}
         <div className="flex items-center gap-5 mt-5 pt-4" style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}>
-          <span style={{ fontFamily: "var(--font-inter)", fontSize: "0.58rem", letterSpacing: "0.12em", color: "#B8B0A6" }}>
+          <span style={{ fontFamily: "var(--font-inter)", fontSize: "0.72rem", letterSpacing: "0.1em", color: "#B8B0A6" }}>
             {filtered.length} of {syncCatalog.length} tracks
           </span>
           {hasFilter && (
             <button
               onClick={clearAll}
-              style={{ fontFamily: "var(--font-inter)", fontSize: "0.48rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#C8922A", cursor: "pointer" }}
+              style={{ fontFamily: "var(--font-inter)", fontSize: "0.68rem", letterSpacing: "0.14em", textTransform: "uppercase", color: "#C8922A", cursor: "pointer" }}
             >
               Clear ×
             </button>
@@ -310,7 +326,16 @@ export default function SyncCatalog() {
 
       {/* ── Track list ── */}
       <ul style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}>
-        {filtered.map((track, i) => (
+        {filtered.map((track, i) => {
+          const trackId  = spotifyTrackId(track.spotifyLink);
+          const playable = Boolean(track.audioUrl || trackId);
+          const isOpen   = openTitle === track.title;
+          const requestSubject = encodeURIComponent(`Track request: ${track.title}`);
+          const requestBody    = encodeURIComponent(
+            `Hi Erik,\n\nCould you send a preview of "${track.title}" from the sync catalogue?\n\n`
+          );
+
+          return (
           <li
             key={track.title}
             className="group"
@@ -322,11 +347,11 @@ export default function SyncCatalog() {
               <div className="flex items-center gap-5 min-w-0">
                 <span style={{
                   fontFamily: "var(--font-inter)",
-                  fontSize: "0.48rem",
-                  color: "rgba(200,146,42,0.35)",
-                  letterSpacing: "0.08em",
+                  fontSize: "0.62rem",
+                  color: "rgba(200,146,42,0.55)",
+                  letterSpacing: "0.05em",
                   flexShrink: 0,
-                  width: "1.4rem",
+                  width: "1.6rem",
                 }}>
                   {String(i + 1).padStart(2, "0")}
                 </span>
@@ -340,22 +365,22 @@ export default function SyncCatalog() {
                   <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-2">
                     <span style={{
                       fontFamily: "var(--font-inter)",
-                      fontSize: "0.44rem",
-                      letterSpacing: "0.18em",
+                      fontSize: "0.62rem",
+                      letterSpacing: "0.14em",
                       textTransform: "uppercase",
-                      padding: "0.22rem 0.6rem",
+                      padding: "0.26rem 0.65rem",
                       background: TEMPO_COLORS[track.tempo].bg,
                       color: TEMPO_COLORS[track.tempo].color,
                     }}>
                       {track.tempo}
                     </span>
                     {track.languages && (
-                      <span style={{ fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#7A6F62" }}>
+                      <span style={{ fontFamily: "var(--font-inter)", fontSize: "0.68rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#8C7F70" }}>
                         {track.languages}
                       </span>
                     )}
                     {track.notes && (
-                      <span style={{ fontFamily: "var(--font-inter)", fontSize: "0.44rem", letterSpacing: "0.08em", color: "rgba(122,111,98,0.7)" }}>
+                      <span style={{ fontFamily: "var(--font-inter)", fontSize: "0.68rem", letterSpacing: "0.02em", color: "#8C7F70" }}>
                         {track.notes}
                       </span>
                     )}
@@ -363,7 +388,7 @@ export default function SyncCatalog() {
                 </div>
               </div>
 
-              {/* Right: mood tags + listen */}
+              {/* Right: mood tags + listen / request */}
               <div className="flex items-center gap-5 shrink-0">
                 <div className="hidden sm:flex flex-wrap justify-end gap-1.5" style={{ maxWidth: "11rem" }}>
                   {track.moods.slice(0, 2).map((m) => (
@@ -371,10 +396,10 @@ export default function SyncCatalog() {
                       key={m}
                       style={{
                         fontFamily: "var(--font-inter)",
-                        fontSize: "0.42rem",
-                        letterSpacing: "0.12em",
+                        fontSize: "0.62rem",
+                        letterSpacing: "0.08em",
                         textTransform: "uppercase",
-                        padding: "0.22rem 0.6rem",
+                        padding: "0.26rem 0.65rem",
                         background: "rgba(200,146,42,0.07)",
                         border: "1px solid rgba(200,146,42,0.18)",
                         color: "#C8922A",
@@ -384,28 +409,74 @@ export default function SyncCatalog() {
                     </span>
                   ))}
                 </div>
-                <a
-                  href={track.spotifyLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group-hover:text-[#1DB954] transition-colors duration-150"
-                  style={{
-                    fontFamily: "var(--font-inter)",
-                    fontSize: "0.7rem",
-                    letterSpacing: "0.18em",
-                    textTransform: "uppercase",
-                    color: "#7A6F62",
-                    flexShrink: 0,
-                    padding: "0.4rem 0",
-                  }}
-                >
-                  Listen →
-                </a>
+                {playable ? (
+                  <button
+                    type="button"
+                    onClick={() => setOpenTitle(isOpen ? null : track.title)}
+                    aria-expanded={isOpen}
+                    className="transition-colors duration-150"
+                    style={{
+                      fontFamily: "var(--font-inter)",
+                      fontSize: "0.72rem",
+                      letterSpacing: "0.16em",
+                      textTransform: "uppercase",
+                      color: isOpen ? "#1DB954" : "#B8B0A6",
+                      background: "none",
+                      border: "none",
+                      cursor: "pointer",
+                      flexShrink: 0,
+                      padding: "0.4rem 0",
+                    }}
+                  >
+                    {isOpen ? "Close ×" : "Listen ▸"}
+                  </button>
+                ) : (
+                  <a
+                    href={`mailto:erik@eriksjoholm.com?subject=${requestSubject}&body=${requestBody}`}
+                    className="transition-colors duration-150 hover:text-[#C8922A]"
+                    style={{
+                      fontFamily: "var(--font-inter)",
+                      fontSize: "0.72rem",
+                      letterSpacing: "0.1em",
+                      textTransform: "uppercase",
+                      color: "#8C7F70",
+                      flexShrink: 0,
+                      padding: "0.4rem 0",
+                      textAlign: "right",
+                    }}
+                  >
+                    Request preview →
+                  </a>
+                )}
               </div>
 
             </div>
+
+            {isOpen && (
+              <div style={{ marginTop: "1.25rem", paddingLeft: "2.1rem" }}>
+                {track.audioUrl ? (
+                  <AudioPlayer
+                    src={track.audioUrl}
+                    title={track.title}
+                    meta={track.notes}
+                    artworkUrl={track.coverImage}
+                  />
+                ) : trackId ? (
+                  <iframe
+                    src={`https://open.spotify.com/embed/track/${trackId}?utm_source=generator&theme=0`}
+                    width="100%"
+                    height="80"
+                    style={{ borderRadius: "8px", border: "none" }}
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"
+                    title={`${track.title} — Spotify player`}
+                  />
+                ) : null}
+              </div>
+            )}
           </li>
-        ))}
+          );
+        })}
       </ul>
 
       {filtered.length === 0 && (
