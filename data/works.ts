@@ -96,6 +96,28 @@ export const works: Work[] = [
     coverImage:    'https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0248bb1b76bfb10f76e72d6cae',
     spotifyUrl:    'https://open.spotify.com/track/7KAFu2ouup81IBB6AnQZkM',
     tidalUrl:      tidalSearch('Midnight Sun'),
+    lyrics:
+`I’d like to talk about society
+I’d like to talk about peace
+I’d like to talk about humanity
+so much we’d do for love, so much we’d do to be remembered
+
+Shine like the midnight sun
+and hold up a light in the dark
+I’ll give my love for the lonely
+I’ll give my love for the only thing I wanna give my attention to
+is to make your heart beat twice
+
+I’d like to stand up like Mandela
+I’d like to write a song like John Lennons
+I’d like to speak like Martin Luther King
+so much we’d do for love, so much we’d do to be remembered
+
+Shine like the midnight sun
+and hold up a light in the dark
+I’ll give my love for the lonely
+I’ll give my love for the only thing I wanna give my attention to
+is to make your heart beat twice`,
   },
 
   // ── Solo songs ─────────────────────────────────────────────────────────────
@@ -166,6 +188,26 @@ And you follow the gun`,
     coverImage:    'https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e020f153dc346e5135fc50c96e1',
     spotifyUrl:    'https://open.spotify.com/track/2vsvxI57LT953u4MHHJ02I',
     tidalUrl:      tidalSearch('Ray of Light'),
+    lyrics:
+`I’ve been watching the sun go down, down in the sea
+I’ve been telling you we’ve got to be free, we got to be free
+people say we got to have hope, you got to have hope
+I’ve got a ray of light over my head on my way home
+
+I’ve got a ray of light over my head on my way home tonight
+a ray of light over my head on my way home
+I’ve got a ray of light over my head on my way home tonight
+a ray of light over my head on my way home
+
+and so we listen to the sound of the ocean waves eating the shore
+yeah, we listen to the breathing of peace surrounding it all
+we need to get a grit stone to edge our perfect insanity
+and so we listen to the sound of reality to light up the road
+
+I’ve got a ray of light over my head on my way home tonight
+a ray of light over my head on my way home
+I’ve got a ray of light over my head on my way home tonight
+a ray of light over my head on my way home`,
   },
   {
     id:            'ashes',
@@ -178,6 +220,59 @@ And you follow the gun`,
     coverImage:    'https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0256cb815bf3ed91d4650047b2',
     spotifyUrl:    'https://open.spotify.com/track/6tcU3CmHiLKfbRNyTL5Evo',
     tidalUrl:      tidalSearch('Ashes'),
+    lyrics:
+`Raking through the ashes of a burnt-out fire
+Find the traces of a part of my life
+Written once in black and white a sign
+You and I had planned a new life
+
+Like the fire, our love once burned so bright
+The flame died there was no light
+No spark
+No ember
+That could again ignite
+Now all that's left is lonely nights
+
+Lonely nights, lonely nights
+The ashes of our dreams
+Lonely nights lonely nights
+All good things
+Come to an end
+
+It was written in the stars as our love shone bright
+Our souls met and danced 'til the morning light
+Our loving stopped and we were done
+Faded like a mist in the morning sun
+
+Like the fire, our love once burned so bright
+The flame died there was no light
+No spark
+No ember
+That could again ignite
+Now all that's left is lonely nights
+
+Lonely nights, lonely nights
+The ashes of our dreams
+Lonely nights lonely nights
+All good things
+Come to an end
+
+Little did I know it would come to this
+Betrayed by desire for a stolen kiss
+Planning for another life without me
+Running from a future that will never be
+
+Lonely nights, lonely nights
+The ashes of our love
+Lonely nights lonely nights
+All good things
+Come to an end
+
+Lonely nights, lonely nights
+The ashes of our dreams
+Lonely nights lonely nights
+All good things
+Come to an end`,
   },
   {
     id:            'matsawana',
@@ -190,6 +285,46 @@ And you follow the gun`,
     coverImage:    'https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02350ba1fef0246915e4b7986a',
     spotifyUrl:    'https://open.spotify.com/track/0ap55kADfSNkisbVEWJWrr',
     tidalUrl:      tidalSearch('Matsawana'),
+    lyrics:
+`sha boom sha boom shiriki boom owayo wee // 4x
+
+Matsawana came to see me
+she took my temple
+in the middle of the night
+she took my life
+
+Matsawana, Matsawana
+
+sha boom sha boom shiriki boom owayo wee // 4x
+
+from the day I was born
+Matsawana-naa-na
+she hold me in her arms
+Matsawana-naa-na
+she guide me through life
+Matsawana-naa-na
+then she take me away
+Matsawana-naa-na
+
+sha boom sha boom shiriki boom owayo wee // 4x
+
+Matsawana came to see me…
+
+Matsawana, Matsawana
+
+SOLO
+
+Away wue wue wue wue
+she took my temple
+Away wue wue wue wue
+she took my life
+
+Matsawana, Matsawana
+
+A shadow wolf (came to me ) at night
+stared at me in the dark
+I only saw the reflections of two bright eyes
+and I knew it was the same as before`,
   },
   {
     id:            'min-karaste-syster',
@@ -220,6 +355,36 @@ And you follow the gun`,
     coverImage:    'https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e020f153dc346e5135fc50c96e1',
     spotifyUrl:    'https://open.spotify.com/track/3RY2VzIlJA3iYHGrZR0wCW',
     tidalUrl:      tidalSearch('Compromise Walkabout'),
+    lyrics:
+`Do you wanna get real close
+do you wanna get some real?
+Do you wanna get to know somebody
+without letting anybody know you
+
+you see, there´s one and two
+split fifty each
+you give and take
+and she gives and takes
+
+and you compromise
+as much responsible we are
+and you learn to live
+in understanding of each other
+
+well you like your flow
+when you´re on your own
+and you would like to keep it tight
+when you’re looking at a georgious sight
+
+but there´s one and two
+split fifty each
+you give and take
+and she gives and takes
+
+and you compromise
+as much responsible we are
+and you learn to live
+in understanding of each other`,
   },
   {
     id:            'ease-it-up',
@@ -234,6 +399,39 @@ And you follow the gun`,
     coverImage:    'https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e020f153dc346e5135fc50c96e1',
     spotifyUrl:    'https://open.spotify.com/track/020SW1gGtspFqRALqmZPCg',
     tidalUrl:      tidalSearch('Ease It Up Walkabout'),
+    lyrics:
+`Rest your bones
+until the feeling grows
+rest your heart
+until you get the spark
+
+ease it up
+ease it up
+ease it up
+ease it up
+
+Close your eyes
+and take a deep breath
+follow your body
+once you catch it
+find some peace
+find some peace
+
+ease it up
+ease it up
+
+I could fool you by making a move
+faster than eyes or ears can touch
+are you following something such
+you can’t reach
+
+take heed of all around
+let your feet take balance of the ground
+suddenly you´re sharp and clear
+as a starry night
+
+ease it up
+ease it up`,
   },
   {
     id:            'out-of-reach',
@@ -248,6 +446,31 @@ And you follow the gun`,
     coverImage:    'https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e020f153dc346e5135fc50c96e1',
     spotifyUrl:    'https://open.spotify.com/track/0kY3CamGuB2nWGUCqSJ3Zt',
     tidalUrl:      tidalSearch('Out of Reach Walkabout'),
+    lyrics:
+`Yesterday, I sat alone
+I looked around, at everything you’ve done
+Yesterday I, realized how much I love you
+
+Yesterday, I thought of you
+Of what you’re doing and, how you do
+Yesterday I, I thought of you
+
+Would you let me reach you?
+Would you let me reach you?
+
+Yesterday, I woke up to see you
+I woke up to hear you, I woke up to feel you
+Yesterday I, realized, how much I need you
+
+Would you let me reach you?
+Would you let me reach you?
+
+I thought of feeling and, I thought of faith
+I thought of reasons why, people forsake
+I thought of freedom, would you, let somebody get close to you?
+
+Would you let me reach you?
+Would you let me reach you?`,
   },
   {
     id:            'speak-up',
@@ -262,6 +485,37 @@ And you follow the gun`,
     coverImage:    'https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e020f153dc346e5135fc50c96e1',
     spotifyUrl:    'https://open.spotify.com/track/4DhaMpIF4IxovxS1mdbg3u',
     tidalUrl:      tidalSearch('Speak Up Walkabout'),
+    lyrics:
+`share your worries, let your worries out now
+share your troubles, let your troubles go
+share your heart now, let me know how you feel inside
+it’s allright, I’ve got you, I’ve got you
+we’ve got ya, we’ve got ya, we’ve got ya…
+
+speak up brother, tell me what is on your heart
+oh sister,
+speak up brother, tell me what is on your heart
+oh sister,
+
+when I stay low, I let you go
+I stay alone, and get cold
+because of no peace at home
+in my soul, I grow old, I get heavy
+and there is no love no love no love until I let know
+
+speak up brother, tell me what is on your heart
+oh sister,
+speak up brother, tell me what is on your heart
+oh sister,
+
+dreams become real by sharing your heart
+and we become free when sharing our love
+
+so speak up brother
+speak sister
+
+let your feelings out
+let your heart pour out`,
   },
   {
     id:            'waves',
@@ -276,6 +530,29 @@ And you follow the gun`,
     coverImage:    'https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e020f153dc346e5135fc50c96e1',
     spotifyUrl:    'https://open.spotify.com/track/3vL4KyXs2XFYXkiYCV2hg3',
     tidalUrl:      tidalSearch('Waves Walkabout'),
+    lyrics:
+`I want to talk about times
+As I feel them move
+I want to talk about the line,
+that I see everyday
+I want to talk about times
+Everything goes around
+
+Like an ocean, times change
+And we sail across the waves
+Like how we circle round the sun
+We will return to where we begun
+
+To keep stable, to keep able
+Keep turning, keep moving
+it’s about a balance between opposites
+they keep as low, as high
+until the end of time it seems
+
+Like an ocean, times change
+And we sail across the waves
+Like how we circle round the sun
+We will return to where we begun`,
   },
 
   // ── Collaborations ─────────────────────────────────────────────────────────
@@ -358,6 +635,44 @@ And you follow the gun`,
     coverImage:    'https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02788af0fc581b37226b2b54ec',
     spotifyUrl:    'https://open.spotify.com/track/5NGZlytj1yXPqCZp9zexhr',
     tidalUrl:      tidalSearch('Välkommen hem'),
+    lyrics:
+`Välkommen hem, stig in i tamburen
+ta av dina skor, häng upp din jacka
+liten blir stor, du e mycket äldre sen du for
+
+kom slå dej ner, sätt dej i soffan
+berätta om allt, allt som har hänt
+du sa du ha träffa en typ som ha kommit dej närmare för varje dag
+
+du sa ja visste nog vem han va…
+
+spring, spring, spring nu fattas ingenting
+fall, fall, fall i varandras armar
+ta min hand och håll den livet ut
+spring, spring, spring hjärtan store i brand
+fall, fall, fall tillsammans i en dröm
+och gör den till verklighet
+
+har ni sett vad vi gjort, vi har renoverat
+köket e stort nu, de ryms många flera
+här kan vi andas, här kan vi leva, i lugn och fred
+
+vill du ha lite plättar? vi kan också dela
+minns du den gång, då vi brände dem hela
+jag vill sjunga alla sånger vi sjöng
+dom handla om en vanlig dag
+
+alla minnen som vi har…
+
+spring, spring, spring nu fattas ingenting
+fall, fall, fall i varandras armar
+ta min hand och håll den livet ut
+spring, spring, spring hjärtan store i brand
+fall, fall, fall tillsammans i en dröm
+och gör den till verklighet
+
+om en framtid för två, tindrar stjärnorna i natten
+av en kärlek så stor…`,
   },
   {
     id:            'barndomsaren',
@@ -465,6 +780,54 @@ And you follow the gun`,
     coverImage:    'https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e026b9585ef4d70c4d54996b0e6',
     spotifyUrl:    'https://open.spotify.com/track/41gzQJyF7HXQWy4I31K2on',
     tidalUrl:      tidalSearch('Dark Dog Onemac Project'),
+    lyrics:
+`There is no rhyme
+There's no reason
+As to who it bites
+Does what it pleases
+The dark dog
+Is it waiting for me?
+I hope we never meet
+
+'Cause the dark dog is waiting
+The dark dog is waiting
+And it doesn't really matter
+If it's day or night
+'Cause the dark dog is waiting ....
+Is it waiting for me?
+
+Where shadows fall
+Inside my mind
+A silent hunter
+Bides it's time
+When it strikes
+What will it take?
+The dark dog
+Could seal your fate
+
+The dark dog is waiting
+The dark dog is waiting
+And it doesn't really matter
+If it's day or night
+'Cause the dark dog is waiting ....
+Is it waiting for me?
+
+All my joyful memories
+Are fading painfully
+You're my darkest enemy
+Are you waiting for me?
+Are you waiting for me?
+
+The dark dog is waiting
+The dark dog is waiting
+And it doesn't really matter
+If it's day or night
+'Cause the dark dog is waiting
+The dark dog is waiting
+The dark dog is waiting
+And it doesn't really matter
+If it's day or night
+'Cause the dark dog is waiting`,
   },
   {
     id:            'birds-stopped-singing',
@@ -478,6 +841,47 @@ And you follow the gun`,
     coverImage:    'https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e025875dad838fff17427748907',
     spotifyUrl:    'https://open.spotify.com/track/5dH4UAFiWRDeLJ0uQqNNax',
     tidalUrl:      tidalSearch('The Birds Stopped Singing Onemac Project'),
+    lyrics:
+`The house of the people
+Once proud as it stood
+We're living in a
+Wilderness of mirrors
+Where nothing we see
+Is what it seems
+
+The birds stopped singing in Lafayette Park
+As a dark bird of war light up the park
+
+So the poisonous gas
+Chocked the voices of peace
+And the bible held high
+In the hand of the beast
+The birds stopped singing in the Lafayette Park
+As the bird of war light up the dark
+
+The devil walked up to the church
+And proudly held aloft
+A book he said was the bible
+But was just the art of the steal
+
+So the poisonous gas
+Brought tears to the eyes
+The storm troopers armed
+With batons and gas
+Cleared a path through the crowd
+So the devil could pass
+To the steps of St. Johns
+
+Choked the voices of peace
+The bible held up high
+In the hand of the thief
+
+I don't want pity
+I want change
+I'm not sad
+I'm not sorry
+I'm angry
+I'm tired`,
   },
   {
     id:            'in-the-darkness',
@@ -491,6 +895,45 @@ And you follow the gun`,
     coverImage:    'https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02d7dcc7841b6b0395cbcbce86',
     spotifyUrl:    'https://open.spotify.com/track/0QMBB1W9oJEiSX8jEfoLvN',
     tidalUrl:      tidalSearch('In the Darkness Onemac Project'),
+    lyrics:
+`I heard the shadow footsteps slowly creeping down the hall
+I heard the silent shadow knock so gently on the door
+Was my mind just playing tricks on me?
+Did I hear some voices call?
+In the darkness of the shadows
+There was nothing there at all
+
+When they want to hold the power in a game they keep the ball
+To retain their power and influence they give the rest fuck all
+Was my mind just playing tricks on me?
+Did I hear the voices call?
+In the darkness of the shadows
+There was nothing there at all
+
+When the poor kids went to school they had no books just cold damp walls
+While the rich kids got the cash and more to build their golden halls
+Did the government say stop this?
+Did you hear our voices call?
+In the darkness of the shadows
+There was nothing there at all
+
+Deny them education if they're dumb they will not know
+That the truth is not the lies you tell, the facts you'll never show
+Truth is the key to freedom for
+To make our voices heard
+From the darkness of the shadows
+Let them hear our freedom call
+From the darkness of the shadows
+Let them hear our freedom call
+
+In the darkness of the shadows
+There was nothing there at all
+
+They were calling out for guidance
+But nobody heard their call
+Keep them all in darkness and
+In the darkness of the shadows
+There was nothing there at all`,
   },
   {
     id:            'youre-my-brother',
@@ -517,6 +960,53 @@ And you follow the gun`,
     coverImage:    'https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02d2b9298342f4409bcb9870db',
     spotifyUrl:    'https://open.spotify.com/track/4a2P8QynLCHRqx3EMgk9dY',
     tidalUrl:      tidalSearch('This Is Your World Onemac Project'),
+    lyrics:
+`Welcome to this world
+You're a beauty to behold
+Your journey's just beginning
+Your stories will unfold
+
+Walk a path that you choose
+Discover who you are
+Mistakes should not define but
+Make you stronger as you learn
+
+You know this is your world
+It's your time to explore
+You can make it anywhere
+You know this is your world
+It's your time to explore
+You can open any door
+
+Your life is yours to live
+So take a leap of faith
+Find what brings you joy
+The rest will fall into place
+
+Our love will help to guide you
+You'll make your mark one day
+So keep striving for happiness
+Follow all your dreams
+
+You know this is your world
+It's your time to explore
+You can make it anywhere
+You know this is your world
+It's your time to explore
+You can open any door
+
+You know this is your world
+It's your time to explore
+You can make it anywhere
+You know this is your world
+It's your time to explore
+You can open any door
+
+Georgie
+Georgie
+You can open any door
+Georgie
+You can open any door`,
   },
   {
     id:            'winter-is-coming',
@@ -530,6 +1020,62 @@ And you follow the gun`,
     coverImage:    'https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0237c96ca762e4402fa5511ef0',
     spotifyUrl:    'https://open.spotify.com/track/2CsxdofuJr6kTQUScABy7P',
     tidalUrl:      tidalSearch('Winter Is Coming Onemac Project'),
+    lyrics:
+`There's a sadness in your eyes
+I see the tracks of the tears you cry
+The mask of your smiling face can't hide them
+Though you try
+
+You sat alone under the stars
+Made a wish under the moon
+For a love that would bring you home
+It couldn't come too soon
+
+Winter is coming
+You're outside in the cold
+All you have to do is
+Take my hand
+There's a fire inside
+To keep you safe and warm
+There's a promise in my heart
+That I'll give you all my love
+I can only promise you
+I'll give you my all my love
+And all that I am
+And all that I am
+
+When we're so far apart
+We share two loving hearts
+We look up at the midnight moon
+And wish upon the same stars
+
+Winter is coming
+You're outside in the cold
+All you have to do is
+Take my hand
+There's a fire inside
+To keep you safe and warm
+There's a promise in my heart
+That I'll give you all my love
+I can only promise you
+I'll give you my all my love
+And all that I am
+And all that I am
+
+All you have to do is
+Take my hand
+
+When trouble comes your way
+And there are no games to play
+I'll always be beside you
+Though I'm a thousand miles away
+
+Winter is coming
+You're outside in the cold
+All you have to do is
+Take my hand
+All you have to do is
+Take my hand`,
   },
   {
     id:            'christmas-eve-with-you',
@@ -543,6 +1089,53 @@ And you follow the gun`,
     coverImage:    'https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0213dfbcba11309079bae1e71b',
     spotifyUrl:    'https://open.spotify.com/track/1qCDAIZD1maMONNZSUmaFZ',
     tidalUrl:      tidalSearch('Christmas Eve with You Onemac Project'),
+    lyrics:
+`When the soft snow starts to fall
+Oh! the beauty of it all
+By the warm fire's gentle glow
+There's no place I'd rather go
+
+I'm spending Christmas Eve with you
+As the brightest stars shine through
+In your arms, it feels so right
+Wrapped in love, a special night
+Oh! it's Christmas, Christmas Eve with you
+Every wish and every dream come true
+Just us two, our love renewed
+Oh, it's Christmas Eve with you
+
+City streets are soft and white
+Twinkling lights light up the night
+Every carol softly sung
+Takes me back when we were young
+
+I'm spending Christmas Eve with you
+As the brightest stars shine through
+In your arms, it feels so right
+Wrapped in love, a special night
+Oh! it's Christmas, Christmas Eve with you
+Every wish and every dream come true
+Just us two, our love renewed
+Oh, it's Christmas Eve with you
+
+Let the bells ring, let them chime
+For this love that's yours and mine
+Underneath the mistletoe
+Where our hearts are all aglow
+
+I'm spending Christmas Eve with you
+As the brightest stars shine through
+In your arms, it feels so right
+Wrapped in love, a special night
+Oh! it's Christmas, Christmas Eve
+Every wish and every dream come true
+Just us two, our love renewed
+Oh, it's Christmas Eve with you
+
+Yes, it's Christmas Eve again
+With your love, we're one again
+Hold me close, the whole night through
+Oh! it's Christmas Eve with you`,
   },
 ];
 
@@ -598,6 +1191,36 @@ export const albums: Work[] = [
     coverImage:    'https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02d286d7c995606b8a72a60d1a',
     spotifyUrl:    'https://open.spotify.com/album/4Tu9xwfp1fx70M4IDTHVug',
     tidalUrl:      tidalSearch('Put On a Smile Piteå Sessions'),
+    lyrics:
+`Two follow the one
+And you follow the gun
+
+Thoughts are filling our heads
+Minds are turning insane
+Capture a picture
+When you're out of control
+Watching a moment
+
+And when nothing makes no sense
+Just put on a smile
+
+Find a key to relief
+When time is locking it out
+Slow down a motion
+Catch the reflection of past
+Searching a true line
+
+And when nothing else makes no sense
+At all
+Just put on a smile
+
+Look around
+Everything's fine
+What's wrong right now
+Everything's fine
+
+Two follow the one
+And you follow the gun`,
   },
   {
     id:            'one-last-waltz-acoustic',
