@@ -18,7 +18,7 @@ const SUBTITLES: Record<string, string> = {
 };
 
 // Ordered list of nav paths — defines the 01-07 folio numbering
-const NAV_PATHS = ['/about', '/works', '/live', '/notes', '/shop', '/contact', '/audio-player'];
+const NAV_PATHS = ['/about', '/works', '/live', '/notes', '/shop', '/contact'];
 
 function getLocale(pathname: string): string {
   for (const l of LOCALES) {

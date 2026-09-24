@@ -97,8 +97,8 @@ export default async function RootLayout({
     { label: t.nav.live,    href: '/live'    },
     { label: t.nav.notes,   href: '/notes'   },
     { label: t.nav.shop,    href: '/shop'    },
-    { label: t.nav.contact,     href: '/contact'      },
-    { label: t.nav.audioPlayer, href: '/audio-player' },
+    { label: t.nav.contact, href: '/contact' },
+    // Audio Player hidden from the menu for now (page still exists at /audio-player)
   ];
 
   return (
