@@ -1,7 +1,7 @@
 {
   "nav": {
     "about": "About",
-    "works": "Works",
+    "works": "Artworks",
     "live": "Live",
     "notes": "Notes",
     "shop": "Shop",
@@ -73,7 +73,7 @@
     "explore": "Explore",
     "theStoryteller": "The Storyteller →",
     "syncLicensing": "Sync Licensing →",
-    "works": "Works →"
+    "works": "Artworks →"
   },
   "songs": {
     "eyebrow": "Lyrics & Stories",

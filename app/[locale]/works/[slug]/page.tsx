@@ -92,7 +92,7 @@ export default async function WorkPage({
 
           {/* ── Header ── */}
           <div style={{ paddingTop: '5.5rem', paddingBottom: '4rem' }}>
-            <BackNav href="/works" label="Works" />
+            <BackNav href="/works" label="Artworks" />
 
             <p style={{
               fontFamily:    'var(--font-inter)',
