@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
 
-const LOCALES = ['en', 'de', 'es', 'sv', 'fi', 'it', 'fr', 'pt'];
+const LOCALES = ['en', 'de', 'sv', 'es'];
 const DEFAULT_LOCALE = 'en';
 
 const SUBTITLES: Record<string, string> = {

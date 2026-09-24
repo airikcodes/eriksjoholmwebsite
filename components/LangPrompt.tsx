@@ -5,40 +5,28 @@ import { usePathname, useRouter } from 'next/navigation';
 
 const STORAGE_KEY    = 'lang-prompt-v1';
 const DEFAULT_LOCALE = 'en';
-const ALL_LOCALES    = ['en', 'de', 'es', 'sv', 'fi', 'it', 'fr', 'pt'];
+const ALL_LOCALES    = ['en', 'de', 'sv', 'es'];
 const SUPPORTED      = ALL_LOCALES.filter(l => l !== DEFAULT_LOCALE);
 
 // Questions in the visitor's language
 const QUESTION: Record<string, string> = {
   de: 'Auf Deutsch lesen?',
-  es: '¿Leer en Español?',
   sv: 'Läs på Svenska?',
-  fi: 'Lue Suomeksi?',
-  it: 'Leggere in Italiano?',
-  fr: 'Lire en Français?',
-  pt: 'Ler em Português?',
+  es: '¿Leer en Español?',
 };
 
 // Affirmative in the visitor's language
 const YES: Record<string, string> = {
   de: 'Ja',
-  es: 'Sí',
   sv: 'Ja',
-  fi: 'Kyllä',
-  it: 'Sì',
-  fr: 'Oui',
-  pt: 'Sim',
+  es: 'Sí',
 };
 
 // Dismiss labels for screen readers (in the visitor's language)
 const DISMISS_LABEL: Record<string, string> = {
   de: 'Sprachvorschlag schließen',
-  es: 'Descartar sugerencia de idioma',
   sv: 'Stäng språkförslag',
-  fi: 'Sulje kieliehdotus',
-  it: 'Chiudi suggerimento lingua',
-  fr: 'Fermer la suggestion de langue',
-  pt: 'Fechar sugestão de idioma',
+  es: 'Descartar sugerencia de idioma',
 };
 
 function stripLocale(pathname: string): string {
