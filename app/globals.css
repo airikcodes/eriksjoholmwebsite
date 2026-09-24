@@ -823,3 +823,10 @@ a:hover .product-img {
   }
   .mail-inner   { padding: 8rem 1.25rem; }
 }
+
+/* Mailing list form: email field on top, Subscribe centered beneath it */
+.mail-form { max-width: 460px; }
+.mail-form form { flex-direction: column !important; align-items: stretch !important; gap: 1rem !important; }
+.mail-form form input { flex: none !important; width: 100%; }
+.mail-form form button { align-self: center; padding-left: 2.4rem !important; padding-right: 2.4rem !important; }
+.mail-form > p { text-align: center; }

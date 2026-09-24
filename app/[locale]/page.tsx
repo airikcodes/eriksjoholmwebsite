@@ -145,7 +145,7 @@ export default async function Home({
             <p className="body-copy" style={{ maxWidth: "40ch", marginBottom: "2.4rem", fontSize: "1.05rem" }}>
               {t.home.newsletter.body}
             </p>
-            <div style={{ maxWidth: "460px" }}>
+            <div className="mail-form">
               <BeehiivForm
                 subscribeLabel={t.form.subscribe}
                 successMsg={t.form.success}
