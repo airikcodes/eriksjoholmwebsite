@@ -3,20 +3,12 @@ import { Cormorant_Garamond, Inter } from "next/font/google";
 import { cookies, headers } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
-import TopBar from "@/components/TopBar";
-import LangPrompt from "@/components/LangPrompt";
 import PersistentBackground from "@/components/PersistentBackground";
 import GradientBlur from "@/components/GradientBlur";
 import SmoothScroll from "@/components/SmoothScroll";
-import { getDictionary } from "@/lib/dictionaries";
 import "./globals.css";
 
 const validLocales = ['en', 'de', 'es', 'sv', 'fi', 'it', 'fr', 'pt'];
-
-function parseAcceptLanguage(header: string): string {
-  const first = header.split(',')[0]?.trim() ?? '';
-  return first.split(/[-;]/)[0]?.toLowerCase() ?? '';
-}
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -79,25 +71,7 @@ export default async function RootLayout({
   const cookieLocale = cookieStore.get('NEXT_LOCALE')?.value ?? 'en';
   const lang         = validLocales.includes(cookieLocale) ? cookieLocale : 'en';
   const headersList  = await headers();
-  const detected     = parseAcceptLanguage(headersList.get('accept-language') ?? '');
   const host         = headersList.get('host') ?? '';
-  const t            = await getDictionary(lang as Parameters<typeof getDictionary>[0]);
-  const navItems = [
-    { label: t.nav.about,   href: '/about'   },
-    {
-      label: t.nav.works,
-      href:  '/works',
-      sections: [
-        { label: 'Sync Licensing', anchor: 'sync'          },
-        { label: 'Songs For You',  anchor: 'songs-for-you' },
-      ],
-    },
-    { label: t.nav.live,    href: '/live'    },
-    { label: t.nav.notes,   href: '/notes'   },
-    { label: t.nav.shop,    href: '/shop'    },
-    { label: t.nav.contact, href: '/contact' },
-    // Audio Player hidden from the menu for now (page still exists at /audio-player)
-  ];
 
   return (
     <html lang={lang} className={`${cormorant.variable} ${inter.variable}`}>
@@ -116,8 +90,6 @@ export default async function RootLayout({
         {/* Preload first background video on desktop so it's ready the moment JS enables video mode */}
         <link rel="preload" as="video" href="/videos/bg-01.mp4" type="video/mp4" media="(min-width: 768px)" />
         <SmoothScroll />
-        <TopBar navItems={navItems} />
-        <LangPrompt detectedLocale={detected} currentLocale={lang} />
         <PersistentBackground host={host} />
         <GradientBlur />
         <script
