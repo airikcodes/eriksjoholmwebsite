@@ -3,14 +3,10 @@
 import { usePathname, useRouter } from 'next/navigation';
 
 const LOCALES = [
-  { code: 'en', name: 'English'   },
-  { code: 'de', name: 'Deutsch'   },
-  { code: 'es', name: 'Español'   },
-  { code: 'sv', name: 'Svenska'   },
-  { code: 'fi', name: 'Suomi'     },
-  { code: 'it', name: 'Italiano'  },
-  { code: 'fr', name: 'Français'  },
-  { code: 'pt', name: 'Português' },
+  { code: 'en', name: 'English' },
+  { code: 'de', name: 'Deutsch' },
+  { code: 'sv', name: 'Svenska' },
+  { code: 'es', name: 'Español' },
 ];
 const DEFAULT_LOCALE = 'en';
 
