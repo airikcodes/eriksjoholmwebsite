@@ -14,7 +14,7 @@
       "syncLicensing": "Synkronoinnin lisensointi"
     },
     "portal": {
-      "eyebrow": "Kirjasto",
+      "eyebrow": "Musiikkia ja tarinoita",
       "heading": "Löydä teokset",
       "intro": "Albumeita, EP-levyjä, tarinankerrontakonsertti, singlejä ja tarinoita – kaikki rakennettu todellisista hetkistä. Aloita mistä haluat.",
       "kinds": {
@@ -31,9 +31,9 @@
       },
       "door": {
         "eyebrow": "Astu sisään",
-        "heading": "Kirjasto",
+        "heading": "Kaikki teokset",
         "body": "Kaikki yhdessä paikassa – jokainen albumi, EP, single, konsertti ja tarina, uusin ensin.",
-        "cta": "Astu kirjastoon"
+        "cta": "Katso kaikki teokset"
       }
     },
     "newsletter": {

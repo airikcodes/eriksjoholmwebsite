@@ -88,8 +88,6 @@ export default async function RootLayout({
       label: t.nav.works,
       href:  '/works',
       sections: [
-        { label: 'Albums & EPs',   anchor: 'albums'        },
-        { label: 'Songs',          anchor: 'songs'         },
         { label: 'Sync Licensing', anchor: 'sync'          },
         { label: 'Songs For You',  anchor: 'songs-for-you' },
       ],

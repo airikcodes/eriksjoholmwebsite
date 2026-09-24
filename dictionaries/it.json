@@ -14,7 +14,7 @@
       "syncLicensing": "Licenze Sync"
     },
     "portal": {
-      "eyebrow": "La biblioteca",
+      "eyebrow": "Musica e storie",
       "heading": "Scopri le opere",
       "intro": "Album, EP, un concerto di storytelling, singoli e storie: tutto costruito su momenti reali. Comincia da dove preferisci.",
       "kinds": {
@@ -31,9 +31,9 @@
       },
       "door": {
         "eyebrow": "Entra",
-        "heading": "La biblioteca",
+        "heading": "Tutte le opere",
         "body": "Tutto in un posto solo: ogni album, EP, singolo, il concerto e le storie, dal più recente.",
-        "cta": "Entra nella biblioteca"
+        "cta": "Vedi tutte le opere"
       }
     },
     "newsletter": {

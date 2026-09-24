@@ -112,7 +112,7 @@ export default function HomePortal({
       </Tile>
 
       {/* 4 — Singles */}
-      <Tile href="/library?type=singles" kicker={t.kinds.songs} title={t.titles.singles}>
+      <Tile href="/works?type=singles" kicker={t.kinds.songs} title={t.titles.singles}>
         <span className="portal-tile-media" aria-hidden="true">
           <span className="portal-mosaic">
             {singlesCovers.map((src) => (
@@ -169,7 +169,7 @@ export default function HomePortal({
       </Tile>
 
       {/* The door into the library */}
-      <Link href="/library" className="portal-door">
+      <Link href="/works" className="portal-door">
         <span>
           <span className="eyebrow-label" style={{ display: 'block', marginBottom: '0.9rem', color: '#D9A544' }}>
             {t.door.eyebrow}

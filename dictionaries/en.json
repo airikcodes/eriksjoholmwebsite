@@ -14,7 +14,7 @@
       "syncLicensing": "Sync Licensing"
     },
     "portal": {
-      "eyebrow": "The Library",
+      "eyebrow": "Music & stories",
       "heading": "Discover the artworks",
       "intro": "Albums, EPs, a storytelling concert, singles and stories — all built from real moments. Start wherever you like.",
       "kinds": {
@@ -31,9 +31,9 @@
       },
       "door": {
         "eyebrow": "Enter",
-        "heading": "The Library",
+        "heading": "All artworks",
         "body": "Everything in one place — every album, EP, single, concert and story, newest first.",
-        "cta": "Enter the library"
+        "cta": "See all artworks"
       }
     },
     "newsletter": {

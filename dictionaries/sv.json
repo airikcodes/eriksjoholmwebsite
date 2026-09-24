@@ -14,7 +14,7 @@
       "syncLicensing": "Synklicenser"
     },
     "portal": {
-      "eyebrow": "Biblioteket",
+      "eyebrow": "Musik & berättelser",
       "heading": "Upptäck verken",
       "intro": "Album, EP:er, en berättarkonsert, singlar och berättelser – allt byggt på verkliga ögonblick. Börja var du vill.",
       "kinds": {
@@ -31,9 +31,9 @@
       },
       "door": {
         "eyebrow": "Stig in",
-        "heading": "Biblioteket",
+        "heading": "Alla verk",
         "body": "Allt på ett ställe – varje album, EP, singel, konserten och berättelserna, det nyaste först.",
-        "cta": "Stig in i biblioteket"
+        "cta": "Se alla verk"
       }
     },
     "newsletter": {
