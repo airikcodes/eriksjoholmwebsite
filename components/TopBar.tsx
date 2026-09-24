@@ -3,9 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
-
-const LOCALES = ['en', 'de', 'sv', 'es'];
-const DEFAULT_LOCALE = 'en';
+import { LOCALE_CODES as LOCALES, DEFAULT_LOCALE } from '@/lib/locales';
 
 const SUBTITLES: Record<string, string> = {
   '/about':        'the story so far',

@@ -3,10 +3,11 @@
 import { useState, useEffect } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 
-const STORAGE_KEY    = 'lang-prompt-v1';
-const DEFAULT_LOCALE = 'en';
-const ALL_LOCALES    = ['en', 'de', 'sv', 'es'];
-const SUPPORTED      = ALL_LOCALES.filter(l => l !== DEFAULT_LOCALE);
+import { LOCALE_CODES, DEFAULT_LOCALE } from '@/lib/locales';
+
+const STORAGE_KEY = 'lang-prompt-v1';
+const ALL_LOCALES = LOCALE_CODES;
+const SUPPORTED   = ALL_LOCALES.filter(l => l !== DEFAULT_LOCALE);
 
 // Questions in the visitor's language
 const QUESTION: Record<string, string> = {
@@ -50,7 +51,7 @@ export default function LangPrompt({
 
   useEffect(() => {
     if (localStorage.getItem(STORAGE_KEY)) return;
-    if (!SUPPORTED.includes(detectedLocale))    return;
+    if (!SUPPORTED.includes(detectedLocale as typeof SUPPORTED[number]))    return;
     if (detectedLocale === currentLocale)        return;
     // Small delay so the page paints first
     const t = setTimeout(() => setVisible(true), 800);

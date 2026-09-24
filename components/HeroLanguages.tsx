@@ -1,14 +1,7 @@
 'use client';
 
 import { usePathname, useRouter } from 'next/navigation';
-
-const LOCALES = [
-  { code: 'en', name: 'English' },
-  { code: 'de', name: 'Deutsch' },
-  { code: 'sv', name: 'Svenska' },
-  { code: 'es', name: 'Español' },
-];
-const DEFAULT_LOCALE = 'en';
+import { LOCALES, DEFAULT_LOCALE } from '@/lib/locales';
 
 function currentLocale(pathname: string): string {
   for (const { code } of LOCALES) {
