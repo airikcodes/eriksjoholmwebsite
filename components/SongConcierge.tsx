@@ -542,9 +542,6 @@ export default function SongConcierge({
 
       {/* Chips */}
       <div className="mt-5 text-center">
-        <p className="concierge-or" style={{ fontFamily: "var(--font-inter)", fontSize: "0.68rem", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "0.85rem" }}>
-          {orLabel}
-        </p>
         <div className="flex flex-wrap justify-center gap-2">
           {chips.map((chip) => (
             <button
