@@ -63,7 +63,7 @@ export default async function Home({
         />
       </section>
 
-      {/* ── Sections 2 + 3: one calm dark panel over the video ───────────
+      {/* ── Section 2: portal panel over the video ────────────────────────
           The hero above stays untouched. From here on the background video
           recedes behind a near-opaque wash so type and cover art read cleanly. */}
       <div
@@ -71,7 +71,7 @@ export default async function Home({
           position:   "relative",
           zIndex:     2,
           background:
-            "linear-gradient(to bottom, rgba(13,11,9,0) 0, rgba(13,11,9,0.9) 9rem, rgba(13,11,9,0.9) calc(100% - 9rem), rgba(13,11,9,0) 100%)",
+            "linear-gradient(to bottom, rgba(13,11,9,0) 0, rgba(13,11,9,0.9) 9rem)",
         }}
       >
         {/* ── Section 2: portal to the Library ─────────────── */}
@@ -113,40 +113,39 @@ export default async function Home({
             />
           </RevealSection>
         </section>
+      </div>
 
-        {/* ── Section 3: stay connected ────────────────────── */}
-        <section
-          id="stay-connected"
-          aria-labelledby="stay-connected-heading"
-          style={{
-            maxWidth:  "640px",
-            margin:    "0 auto",
-            padding:   "6rem 1.5rem 5rem",
-            textAlign: "center",
-          }}
-        >
+      {/* ── Section 3: the mailing list — its own full-height section ─────── */}
+      <section
+        id="mailing-list"
+        aria-labelledby="mailing-list-heading"
+        className="mail-section"
+      >
+        <div className="mail-bg" aria-hidden="true" />
+        <div className="mail-scrim" aria-hidden="true" />
+        <div className="mail-inner">
           <RevealSection>
-            <span className="block" style={{ width: "2rem", height: "1px", background: "#C8922A", margin: "0 auto 1.75rem" }} />
-            <p className="eyebrow-label" style={{ color: "#D9A544", marginBottom: "1.5rem" }}>
-              {t.home.newsletter.eyebrow}
-            </p>
+            <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.6rem" }}>
+              <span className="block" style={{ width: "2rem", height: "1px", background: "#C8922A" }} />
+              <p className="eyebrow-label" style={{ color: "#D9A544" }}>{t.home.newsletter.eyebrow}</p>
+            </div>
             <h2
-              id="stay-connected-heading"
+              id="mailing-list-heading"
               className="font-[family-name:var(--font-cormorant)] font-light"
               style={{
-                fontSize:      "clamp(2.4rem, 6.5vw, 4.2rem)",
-                lineHeight:    1,
+                fontSize:      "clamp(3rem, 8vw, 6rem)",
+                lineHeight:    0.98,
                 letterSpacing: "0.01em",
                 color:         "#E8E0D4",
-                marginBottom:  "1.4rem",
+                marginBottom:  "1.6rem",
               }}
             >
               {t.home.newsletter.heading}
             </h2>
-            <p className="body-copy" style={{ maxWidth: "42ch", margin: "0 auto 2.4rem" }}>
+            <p className="body-copy" style={{ maxWidth: "40ch", marginBottom: "2.4rem", fontSize: "1.05rem" }}>
               {t.home.newsletter.body}
             </p>
-            <div style={{ maxWidth: "440px", margin: "0 auto", textAlign: "left" }}>
+            <div style={{ maxWidth: "460px" }}>
               <BeehiivForm
                 subscribeLabel={t.form.subscribe}
                 successMsg={t.form.success}
@@ -154,13 +153,13 @@ export default async function Home({
               />
             </div>
           </RevealSection>
-        </section>
-      </div>
+        </div>
+      </section>
 
       {/* ── Footer ───────────────────────────────────────── */}
       <footer
         className="flex flex-col items-center justify-end gap-5 px-6 pb-10"
-        style={{ zIndex: 2, position: "relative", minHeight: "clamp(140px, 30vh, 280px)" }}
+        style={{ zIndex: 2, position: "relative", minHeight: "7rem", background: "#0D0B09" }}
       >
         {/* Copyright */}
         <div className="flex items-center gap-8">

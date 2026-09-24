@@ -777,3 +777,49 @@ a:hover .product-img {
   .lib-cover { transition: none; }
   .lib-row:hover .lib-cover { transform: none; }
 }
+
+/* ── Homepage: the mailing list as its own full-height section ────────────
+   Full viewport, its own photograph (bg-04, dark stage portrait) on the right,
+   copy on the left over the black of the frame. On phones the photo sits at
+   the top and the copy rises from the bottom. */
+.mail-section {
+  position:        relative;
+  z-index:         2;
+  overflow:        hidden;
+  min-height:      100svh;
+  display:         flex;
+  align-items:     flex-end;
+  background:      #0D0B09;
+  border-top:      1px solid rgba(255,255,255,0.06);
+}
+.mail-bg {
+  position:            absolute;
+  inset:               0;
+  background-image:    url(/images/bg/bg-04.jpg);
+  background-size:     cover;
+  background-position: 68% 18%;
+  opacity:             0.7;
+}
+.mail-scrim {
+  position:   absolute;
+  inset:      0;
+  background: linear-gradient(to top, #0D0B09 0%, rgba(13,11,9,0.92) 34%, rgba(13,11,9,0.25) 68%, rgba(13,11,9,0.55) 100%);
+}
+.mail-inner {
+  position:  relative;
+  width:     100%;
+  max-width: 1120px;
+  margin:    0 auto;
+  padding:   8rem 1.25rem 5rem;
+}
+@media (min-width: 900px) {
+  .mail-section { align-items: center; }
+  .mail-bg      { background-position: 72% 30%; }
+  .mail-scrim   {
+    background:
+      linear-gradient(to right, #0D0B09 0%, rgba(13,11,9,0.94) 30%, rgba(13,11,9,0.35) 62%, rgba(13,11,9,0.15) 100%),
+      linear-gradient(to top, #0D0B09 0%, rgba(13,11,9,0) 22%),
+      linear-gradient(to bottom, #0D0B09 0%, rgba(13,11,9,0) 18%);
+  }
+  .mail-inner   { padding: 8rem 1.25rem; }
+}
