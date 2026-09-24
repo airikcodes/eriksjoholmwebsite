@@ -830,3 +830,7 @@ a:hover .product-img {
 .mail-form form input { flex: none !important; width: 100%; }
 .mail-form form button { align-self: center; padding-left: 2.4rem !important; padding-right: 2.4rem !important; }
 .mail-form > p { text-align: center; }
+
+/* Homepage hero — language selector */
+.hero-lang:hover,
+.hero-lang:focus-visible { color: #E8E0D4 !important; }

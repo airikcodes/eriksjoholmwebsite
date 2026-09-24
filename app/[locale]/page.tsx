@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import SongConcierge from "@/components/SongConcierge";
+import HeroLanguages from "@/components/HeroLanguages";
 import HomePortal from "@/components/HomePortal";
 import RevealSection from "@/components/RevealSection";
 import BeehiivForm from "@/components/BeehiivForm";
@@ -61,6 +62,7 @@ export default async function Home({
           chipMostPlayed={t.concierge.chips.mostPlayed}
           chipUnexpected={t.concierge.chips.unexpected}
         />
+        <HeroLanguages />
       </section>
 
       {/* ── Section 2: portal panel over the video ────────────────────────
