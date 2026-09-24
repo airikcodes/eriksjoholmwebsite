@@ -48,23 +48,23 @@ export default async function Home({
     <main style={{ background: "transparent" }}>
       {/* ── Hero: Concierge ──────────────────────────────── */}
       <section
-        className="relative flex flex-col items-center px-5 sm:px-6"
-        style={{ minHeight: "100svh", zIndex: 2, position: "relative", paddingBottom: "max(1.5rem, calc(env(safe-area-inset-bottom, 0px) + 1rem))" }}
+        className="relative flex flex-col items-center justify-center px-5 sm:px-6 py-16"
+        style={{ minHeight: "100svh", zIndex: 2, position: "relative" }}
       >
-        <div style={{ flex: 1, display: "flex", alignItems: "center", width: "100%", justifyContent: "center" }}>
-          <SongConcierge
-            preamble={t.concierge.preamble}
-            heading={t.concierge.heading}
-            timeSlots={t.concierge.timeSlots}
-            timeReplace={t.concierge.timeReplace}
-            placeholder={t.concierge.placeholder}
-            orLabel={t.concierge.or}
-            chipLatest={t.concierge.chips.latest}
-            chipMostPlayed={t.concierge.chips.mostPlayed}
-            chipUnexpected={t.concierge.chips.unexpected}
-          />
+        <SongConcierge
+          preamble={t.concierge.preamble}
+          heading={t.concierge.heading}
+          timeSlots={t.concierge.timeSlots}
+          timeReplace={t.concierge.timeReplace}
+          placeholder={t.concierge.placeholder}
+          orLabel={t.concierge.or}
+          chipLatest={t.concierge.chips.latest}
+          chipMostPlayed={t.concierge.chips.mostPlayed}
+          chipUnexpected={t.concierge.chips.unexpected}
+        />
+        <div style={{ marginTop: "2.5rem" }}>
+          <HeroLanguages />
         </div>
-        <HeroLanguages />
       </section>
 
       {/* ── Section 2: portal panel over the video ────────────────────────
