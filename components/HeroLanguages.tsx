@@ -45,15 +45,12 @@ export default function HeroLanguages() {
       role="group"
       aria-label="Language"
       style={{
-        position:       'absolute',
-        left:           0,
-        right:          0,
-        bottom:         'max(1.75rem, calc(env(safe-area-inset-bottom, 0px) + 1rem))',
         display:        'flex',
         justifyContent: 'center',
         flexWrap:       'wrap',
         gap:            '0.35rem 1.1rem',
         padding:        '0 1rem',
+        width:          '100%',
       }}
     >
       {LOCALES.map(({ code, name }) => {
