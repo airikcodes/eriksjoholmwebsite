@@ -12,6 +12,34 @@
     "footer": {
       "storyteller": "Narrador",
       "syncLicensing": "Licencias Sync"
+    },
+    "portal": {
+      "eyebrow": "La biblioteca",
+      "heading": "Descubre las obras",
+      "intro": "Álbumes, EPs, un concierto de narración, sencillos e historias, todo construido a partir de momentos reales. Empieza por donde quieras.",
+      "kinds": {
+        "album": "Álbum",
+        "ep": "EP",
+        "live": "En directo",
+        "songs": "Canciones",
+        "notes": "Notas"
+      },
+      "titles": {
+        "concert": "Concierto de narración",
+        "singles": "Sencillos",
+        "stories": "Historias"
+      },
+      "door": {
+        "eyebrow": "Entrar",
+        "heading": "La biblioteca",
+        "body": "Todo en un solo lugar: cada álbum, EP, sencillo, el concierto y las historias, lo más reciente primero.",
+        "cta": "Entrar en la biblioteca"
+      }
+    },
+    "newsletter": {
+      "eyebrow": "La lista de correo",
+      "heading": "Mantente en contacto",
+      "body": "Una carta de vez en cuando: canciones nuevas, conciertos y las historias detrás. Sin calendario, sin ruido."
     }
   },
   "concierge": {
@@ -295,5 +323,24 @@
     "subscribe": "Suscribirse",
     "success": "Estás dentro. Espera la primera carta.",
     "error": "Algo salió mal — inténtalo de nuevo o escribe a sjoholm.e@gmail.com."
+  },
+  "library": {
+    "eyebrow": "Biblioteca",
+    "title": "La biblioteca",
+    "intro": "Todo lo que ha creado Erik Sjøholm en un solo lugar: álbumes, EPs, sencillos, un concierto de narración y las historias que los acompañan.",
+    "filterLabel": "Filtrar la biblioteca",
+    "filters": {
+      "all": "Todo",
+      "albums": "Álbumes",
+      "eps": "EPs",
+      "singles": "Sencillos",
+      "storytelling": "Narración",
+      "stories": "Historias"
+    },
+    "ongoing": "En curso",
+    "undated": "Más del catálogo",
+    "comingSoon": "Próximamente",
+    "concertMeta": "Narración en vivo y música",
+    "storiesMeta": "Notas del camino"
   }
 }

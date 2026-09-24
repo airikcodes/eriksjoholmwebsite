@@ -12,6 +12,34 @@
     "footer": {
       "storyteller": "Berättaren",
       "syncLicensing": "Synklicenser"
+    },
+    "portal": {
+      "eyebrow": "Biblioteket",
+      "heading": "Upptäck verken",
+      "intro": "Album, EP:er, en berättarkonsert, singlar och berättelser – allt byggt på verkliga ögonblick. Börja var du vill.",
+      "kinds": {
+        "album": "Album",
+        "ep": "EP",
+        "live": "Live",
+        "songs": "Låtar",
+        "notes": "Anteckningar"
+      },
+      "titles": {
+        "concert": "Berättarkonsert",
+        "singles": "Singlar",
+        "stories": "Berättelser"
+      },
+      "door": {
+        "eyebrow": "Stig in",
+        "heading": "Biblioteket",
+        "body": "Allt på ett ställe – varje album, EP, singel, konserten och berättelserna, det nyaste först.",
+        "cta": "Stig in i biblioteket"
+      }
+    },
+    "newsletter": {
+      "eyebrow": "E-postlistan",
+      "heading": "Håll kontakten",
+      "body": "Ett brev då och då – nya låtar, konserter och historierna bakom. Inget schema, inget brus."
     }
   },
   "concierge": {
@@ -295,5 +323,24 @@
     "subscribe": "Prenumerera",
     "success": "Du är med. Håll utkik efter det första brevet.",
     "error": "Något gick fel — försök igen eller skriv till sjoholm.e@gmail.com."
+  },
+  "library": {
+    "eyebrow": "Bibliotek",
+    "title": "Biblioteket",
+    "intro": "Allt Erik Sjøholm har gjort, på ett ställe – album, EP:er, singlar, en berättarkonsert och berättelserna som hör till.",
+    "filterLabel": "Filtrera biblioteket",
+    "filters": {
+      "all": "Allt",
+      "albums": "Album",
+      "eps": "EP:er",
+      "singles": "Singlar",
+      "storytelling": "Berättande",
+      "stories": "Berättelser"
+    },
+    "ongoing": "Pågående",
+    "undated": "Mer ur katalogen",
+    "comingSoon": "Kommer snart",
+    "concertMeta": "Levande berättande och musik",
+    "storiesMeta": "Anteckningar från vägen"
   }
 }

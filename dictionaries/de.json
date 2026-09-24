@@ -12,6 +12,34 @@
     "footer": {
       "storyteller": "Geschichtenerzähler",
       "syncLicensing": "Sync-Lizenzierung"
+    },
+    "portal": {
+      "eyebrow": "Die Bibliothek",
+      "heading": "Entdecke die Werke",
+      "intro": "Alben, EPs, ein Storytelling-Konzert, Singles und Geschichten – alle aus echten Momenten gebaut. Fang an, wo du magst.",
+      "kinds": {
+        "album": "Album",
+        "ep": "EP",
+        "live": "Live",
+        "songs": "Songs",
+        "notes": "Notizen"
+      },
+      "titles": {
+        "concert": "Storytelling-Konzert",
+        "singles": "Singles",
+        "stories": "Geschichten"
+      },
+      "door": {
+        "eyebrow": "Eintreten",
+        "heading": "Die Bibliothek",
+        "body": "Alles an einem Ort – jedes Album, jede EP, jede Single, das Konzert und die Geschichten, das Neueste zuerst.",
+        "cta": "Bibliothek betreten"
+      }
+    },
+    "newsletter": {
+      "eyebrow": "Die Mailingliste",
+      "heading": "Bleib verbunden",
+      "body": "Ab und zu ein Brief – neue Songs, Konzerte und die Geschichten dahinter. Kein Fahrplan, kein Lärm."
     }
   },
   "concierge": {
@@ -295,5 +323,24 @@
     "subscribe": "Abonnieren",
     "success": "Du bist dabei. Halte Ausschau nach dem ersten Brief.",
     "error": "Etwas ist schiefgelaufen — versuche es erneut oder schreibe an sjoholm.e@gmail.com."
+  },
+  "library": {
+    "eyebrow": "Bibliothek",
+    "title": "Die Bibliothek",
+    "intro": "Alles, was Erik Sjøholm gemacht hat, an einem Ort – Alben, EPs, Singles, ein Storytelling-Konzert und die Geschichten dazu.",
+    "filterLabel": "Bibliothek filtern",
+    "filters": {
+      "all": "Alle",
+      "albums": "Alben",
+      "eps": "EPs",
+      "singles": "Singles",
+      "storytelling": "Storytelling",
+      "stories": "Geschichten"
+    },
+    "ongoing": "Laufend",
+    "undated": "Mehr aus dem Katalog",
+    "comingSoon": "Demnächst",
+    "concertMeta": "Live-Erzählung und Musik",
+    "storiesMeta": "Notizen von unterwegs"
   }
 }

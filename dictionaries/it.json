@@ -12,6 +12,34 @@
     "footer": {
       "storyteller": "Narratore",
       "syncLicensing": "Licenze Sync"
+    },
+    "portal": {
+      "eyebrow": "La biblioteca",
+      "heading": "Scopri le opere",
+      "intro": "Album, EP, un concerto di storytelling, singoli e storie: tutto costruito su momenti reali. Comincia da dove preferisci.",
+      "kinds": {
+        "album": "Album",
+        "ep": "EP",
+        "live": "Dal vivo",
+        "songs": "Canzoni",
+        "notes": "Note"
+      },
+      "titles": {
+        "concert": "Concerto di storytelling",
+        "singles": "Singoli",
+        "stories": "Storie"
+      },
+      "door": {
+        "eyebrow": "Entra",
+        "heading": "La biblioteca",
+        "body": "Tutto in un posto solo: ogni album, EP, singolo, il concerto e le storie, dal più recente.",
+        "cta": "Entra nella biblioteca"
+      }
+    },
+    "newsletter": {
+      "eyebrow": "La mailing list",
+      "heading": "Resta in contatto",
+      "body": "Una lettera ogni tanto: nuove canzoni, concerti e le storie dietro. Nessun calendario, nessun rumore."
     }
   },
   "concierge": {
@@ -295,5 +323,24 @@
     "subscribe": "Iscriviti",
     "success": "Sei dentro. Aspetta la prima lettera.",
     "error": "Qualcosa è andato storto — riprova o scrivi a sjoholm.e@gmail.com."
+  },
+  "library": {
+    "eyebrow": "Biblioteca",
+    "title": "La biblioteca",
+    "intro": "Tutto ciò che Erik Sjøholm ha creato, in un unico posto: album, EP, singoli, un concerto di storytelling e le storie che li accompagnano.",
+    "filterLabel": "Filtra la biblioteca",
+    "filters": {
+      "all": "Tutto",
+      "albums": "Album",
+      "eps": "EP",
+      "singles": "Singoli",
+      "storytelling": "Storytelling",
+      "stories": "Storie"
+    },
+    "ongoing": "In corso",
+    "undated": "Altro dal catalogo",
+    "comingSoon": "In arrivo",
+    "concertMeta": "Storytelling dal vivo e musica",
+    "storiesMeta": "Appunti dalla strada"
   }
 }

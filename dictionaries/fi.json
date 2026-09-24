@@ -12,6 +12,34 @@
     "footer": {
       "storyteller": "Tarinankerrontakonsertti",
       "syncLicensing": "Synkronoinnin lisensointi"
+    },
+    "portal": {
+      "eyebrow": "Kirjasto",
+      "heading": "Löydä teokset",
+      "intro": "Albumeita, EP-levyjä, tarinankerrontakonsertti, singlejä ja tarinoita – kaikki rakennettu todellisista hetkistä. Aloita mistä haluat.",
+      "kinds": {
+        "album": "Albumi",
+        "ep": "EP",
+        "live": "Live",
+        "songs": "Kappaleet",
+        "notes": "Muistiinpanot"
+      },
+      "titles": {
+        "concert": "Tarinankerrontakonsertti",
+        "singles": "Singlet",
+        "stories": "Tarinat"
+      },
+      "door": {
+        "eyebrow": "Astu sisään",
+        "heading": "Kirjasto",
+        "body": "Kaikki yhdessä paikassa – jokainen albumi, EP, single, konsertti ja tarina, uusin ensin.",
+        "cta": "Astu kirjastoon"
+      }
+    },
+    "newsletter": {
+      "eyebrow": "Postituslista",
+      "heading": "Pysy mukana",
+      "body": "Kirje silloin tällöin – uusia kappaleita, konsertteja ja niiden takana olevia tarinoita. Ei aikataulua, ei melua."
     }
   },
   "concierge": {
@@ -295,5 +323,24 @@
     "subscribe": "Tilaa",
     "success": "Olet mukana. Odota ensimmäistä kirjettä.",
     "error": "Jotain meni pieleen — yritä uudelleen tai kirjoita osoitteeseen sjoholm.e@gmail.com."
+  },
+  "library": {
+    "eyebrow": "Kirjasto",
+    "title": "Kirjasto",
+    "intro": "Kaikki mitä Erik Sjøholm on tehnyt yhdessä paikassa – albumit, EP:t, singlet, tarinankerrontakonsertti ja niihin liittyvät tarinat.",
+    "filterLabel": "Suodata kirjastoa",
+    "filters": {
+      "all": "Kaikki",
+      "albums": "Albumit",
+      "eps": "EP:t",
+      "singles": "Singlet",
+      "storytelling": "Tarinankerronta",
+      "stories": "Tarinat"
+    },
+    "ongoing": "Käynnissä",
+    "undated": "Lisää katalogista",
+    "comingSoon": "Tulossa pian",
+    "concertMeta": "Elävää tarinankerrontaa ja musiikkia",
+    "storiesMeta": "Muistiinpanoja tien päältä"
   }
 }

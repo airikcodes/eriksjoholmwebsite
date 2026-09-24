@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import SongConcierge from "@/components/SongConcierge";
+import HomePortal from "@/components/HomePortal";
+import RevealSection from "@/components/RevealSection";
+import BeehiivForm from "@/components/BeehiivForm";
+import { getNotes } from "@/lib/notes";
 import { getDictionary, hasLocale } from "@/lib/dictionaries";
 
 export const metadata: Metadata = {
@@ -33,6 +37,7 @@ export default async function Home({
   const { locale } = await params;
   if (!hasLocale(locale)) notFound();
   const t = await getDictionary(locale);
+  const notes = await getNotes();
 
   return (
     <>
@@ -57,6 +62,100 @@ export default async function Home({
           chipUnexpected={t.concierge.chips.unexpected}
         />
       </section>
+
+      {/* ── Sections 2 + 3: one calm dark panel over the video ───────────
+          The hero above stays untouched. From here on the background video
+          recedes behind a near-opaque wash so type and cover art read cleanly. */}
+      <div
+        style={{
+          position:   "relative",
+          zIndex:     2,
+          background:
+            "linear-gradient(to bottom, rgba(13,11,9,0) 0, rgba(13,11,9,0.9) 9rem, rgba(13,11,9,0.9) calc(100% - 9rem), rgba(13,11,9,0) 100%)",
+        }}
+      >
+        {/* ── Section 2: portal to the Library ─────────────── */}
+        <section
+          id="library"
+          aria-labelledby="library-heading"
+          style={{ maxWidth: "1120px", margin: "0 auto", padding: "8rem 1.25rem 6rem" }}
+        >
+          <RevealSection>
+            <div style={{ marginBottom: "3.25rem" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.5rem" }}>
+                <span className="block" style={{ width: "2rem", height: "1px", background: "#C8922A" }} />
+                <p className="eyebrow-label" style={{ color: "#D9A544" }}>{t.home.portal.eyebrow}</p>
+              </div>
+              <h2
+                id="library-heading"
+                className="font-[family-name:var(--font-cormorant)] font-light"
+                style={{
+                  fontSize:      "clamp(2.7rem, 7.5vw, 5.4rem)",
+                  lineHeight:    0.98,
+                  letterSpacing: "0.01em",
+                  color:         "#E8E0D4",
+                  marginBottom:  "1.5rem",
+                }}
+              >
+                {t.home.portal.heading}
+              </h2>
+              <p className="body-copy" style={{ maxWidth: "46ch" }}>
+                {t.home.portal.intro}
+              </p>
+            </div>
+          </RevealSection>
+
+          <RevealSection>
+            <HomePortal
+              t={t.home.portal}
+              comingSoon={t.library.comingSoon}
+              latestNoteTitle={notes[0]?.title}
+            />
+          </RevealSection>
+        </section>
+
+        {/* ── Section 3: stay connected ────────────────────── */}
+        <section
+          id="stay-connected"
+          aria-labelledby="stay-connected-heading"
+          style={{
+            maxWidth:  "640px",
+            margin:    "0 auto",
+            padding:   "6rem 1.5rem 5rem",
+            textAlign: "center",
+          }}
+        >
+          <RevealSection>
+            <span className="block" style={{ width: "2rem", height: "1px", background: "#C8922A", margin: "0 auto 1.75rem" }} />
+            <p className="eyebrow-label" style={{ color: "#D9A544", marginBottom: "1.5rem" }}>
+              {t.home.newsletter.eyebrow}
+            </p>
+            <h2
+              id="stay-connected-heading"
+              className="font-[family-name:var(--font-cormorant)] font-light"
+              style={{
+                fontSize:      "clamp(2.4rem, 6.5vw, 4.2rem)",
+                lineHeight:    1,
+                letterSpacing: "0.01em",
+                color:         "#E8E0D4",
+                marginBottom:  "1.4rem",
+              }}
+            >
+              {t.home.newsletter.heading}
+            </h2>
+            <p className="body-copy" style={{ maxWidth: "42ch", margin: "0 auto 2.4rem" }}>
+              {t.home.newsletter.body}
+            </p>
+            <div style={{ maxWidth: "440px", margin: "0 auto", textAlign: "left" }}>
+              <BeehiivForm
+                subscribeLabel={t.form.subscribe}
+                successMsg={t.form.success}
+                errorMsg={t.form.error}
+              />
+            </div>
+          </RevealSection>
+        </section>
+      </div>
 
       {/* ── Footer ───────────────────────────────────────── */}
       <footer

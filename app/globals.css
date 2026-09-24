@@ -603,3 +603,177 @@ a:hover .product-img {
 @keyframes audioPlayerSpin {
   to { transform: rotate(360deg); }
 }
+
+/* ── Homepage: Library portal (section 2) ─────────────────────────────────
+   Structured, non-random grid in the same visual language as the Works
+   cover-grid: sharp 2px corners, amber hairline, always-visible titles.
+   Mobile: lead tile full width, everything else 2-up.
+   ≥900px: 12-col — lead is a 6×2 block, four 3-col tiles beside it, then
+   Walkabout / Endless / the "enter the library" door on the last row. */
+.portal-grid {
+  display:               grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap:                   0.9rem;
+}
+.portal-tile {
+  position:      relative;
+  display:       block;
+  overflow:      hidden;
+  isolation:     isolate;
+  aspect-ratio:  1;
+  border-radius: 2px;
+  border:        1px solid rgba(200,146,42,0.22);
+  background:    #14110d;
+  text-decoration: none;
+  transition:    transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+.portal-tile--lead { grid-column: 1 / -1; aspect-ratio: 4 / 5; }
+.portal-tile-media {
+  position: absolute;
+  inset:    0;
+  z-index:  -2;
+}
+.portal-tile-media img {
+  width:      100%;
+  height:     100%;
+  object-fit: cover;
+  display:    block;
+  transition: transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.portal-tile-shade {
+  position:   absolute;
+  inset:      0;
+  z-index:    -1;
+  background: linear-gradient(to top, rgba(10,8,6,0.9) 0%, rgba(10,8,6,0.4) 42%, rgba(10,8,6,0) 72%);
+}
+.portal-tile-text {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding:  1rem 1.1rem 1.05rem;
+}
+.portal-tile:hover,
+.portal-tile:focus-visible {
+  transform:    translateY(-4px);
+  border-color: rgba(200,146,42,0.7);
+  box-shadow:   0 14px 30px rgba(0,0,0,0.45);
+}
+.portal-tile:hover .portal-tile-media img,
+.portal-tile:focus-visible .portal-tile-media img { transform: scale(1.035); }
+.portal-tile:focus-visible { outline: 2px solid #C8922A; outline-offset: 3px; }
+
+/* Singles tile: 2×2 mosaic of the latest single covers */
+.portal-mosaic { display: grid; grid-template-columns: 1fr 1fr; width: 100%; height: 100%; }
+.portal-mosaic img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Stories tile: typographic, no photograph */
+.portal-tile--type { background: linear-gradient(155deg, #1d1710 0%, #100d09 62%, #0d0b09 100%); }
+
+/* The door into /library */
+.portal-door {
+  display:         flex;
+  flex-direction:  column;
+  justify-content: space-between;
+  gap:             1.5rem;
+  grid-column:     1 / -1;
+  padding:         1.75rem 1.5rem;
+  border-radius:   2px;
+  border:          1px solid rgba(200,146,42,0.4);
+  background:      rgba(200,146,42,0.05);
+  text-decoration: none;
+  transition:      border-color 220ms ease, background 220ms ease, transform 220ms ease;
+}
+.portal-door:hover,
+.portal-door:focus-visible {
+  border-color: rgba(200,146,42,0.9);
+  background:   rgba(200,146,42,0.09);
+  transform:    translateY(-4px);
+}
+.portal-door:focus-visible { outline: 2px solid #C8922A; outline-offset: 3px; }
+.portal-door-cta { transition: letter-spacing 220ms ease; }
+.portal-door:hover .portal-door-cta { letter-spacing: 0.3em; }
+
+@media (min-width: 640px) and (max-width: 899px) {
+  .portal-tile--lead { aspect-ratio: 16 / 10; }
+}
+@media (min-width: 900px) {
+  .portal-grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+  .portal-tile--lead { grid-row: span 2; aspect-ratio: auto; }
+  .portal-tile       { grid-column: span 3; }
+  .portal-tile--lead { grid-column: span 6; }
+  .portal-door       { grid-column: span 6; padding: 2.25rem 2.25rem; }
+  .portal-tile-text  { padding: 1.25rem 1.35rem 1.35rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .portal-tile, .portal-door, .portal-tile-media img, .portal-door-cta { transition: none; }
+  .portal-tile:hover, .portal-tile:focus-visible, .portal-door:hover, .portal-door:focus-visible { transform: none; }
+  .portal-tile:hover .portal-tile-media img { transform: none; }
+}
+
+/* ── Library page (danielhjerppe-style index) ─────────────────────────────
+   Year in the left gutter, one row per work: square cover, title, quiet meta. */
+.lib-year-group {
+  display:               grid;
+  grid-template-columns: 1fr;
+  gap:                   1.25rem;
+  padding:               2.5rem 0 1rem;
+  border-top:            1px solid rgba(255,255,255,0.07);
+}
+@media (min-width: 720px) {
+  .lib-year-group { grid-template-columns: 8.5rem 1fr; gap: 2rem; }
+  .lib-year { position: sticky; top: 5.5rem; align-self: start; }
+}
+.lib-row {
+  display:               grid;
+  grid-template-columns: 72px 1fr;
+  gap:                   1.1rem;
+  align-items:           center;
+  padding:               0.85rem 0;
+  text-decoration:       none;
+  border-bottom:         1px solid rgba(255,255,255,0.05);
+}
+.lib-row:last-child { border-bottom: none; }
+@media (min-width: 720px) {
+  .lib-row { grid-template-columns: 88px 1fr; gap: 1.4rem; }
+}
+.lib-row:hover .lib-title,
+.lib-row:focus-visible .lib-title { color: #C8922A !important; }
+.lib-row .lib-title { transition: color 200ms ease; }
+@media (max-width: 539px) { .lib-links { display: none !important; } }
+.lib-cover {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  display: block;
+  border-radius: 2px;
+  border: 1px solid rgba(200,146,42,0.18);
+  background: #14110d;
+  transition: border-color 200ms ease, transform 200ms ease;
+}
+.lib-row:hover .lib-cover,
+.lib-row:focus-visible .lib-cover { border-color: rgba(200,146,42,0.65); transform: translateY(-2px); }
+.lib-row:focus-visible { outline: 2px solid #C8922A; outline-offset: 2px; }
+.lib-filter {
+  font-family:    var(--font-inter), system-ui, sans-serif;
+  font-size:      0.72rem;
+  font-weight:    500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding:        0.55rem 1.05rem;
+  border-radius:  2px;
+  border:         1px solid rgba(255,255,255,0.14);
+  background:     rgba(255,255,255,0.03);
+  color:          #B8B0A6;
+  text-decoration: none;
+  transition:     border-color 180ms ease, color 180ms ease, background 180ms ease;
+}
+.lib-filter:hover { color: #E8E0D4; border-color: rgba(200,146,42,0.5); }
+.lib-filter[aria-current="true"] {
+  color: #0D0B09; background: #C8922A; border-color: #C8922A;
+}
+@media (prefers-reduced-motion: reduce) {
+  .lib-cover { transition: none; }
+  .lib-row:hover .lib-cover { transform: none; }
+}

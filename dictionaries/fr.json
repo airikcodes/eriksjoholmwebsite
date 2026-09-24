@@ -12,6 +12,34 @@
     "footer": {
       "storyteller": "Conteur",
       "syncLicensing": "Licences Sync"
+    },
+    "portal": {
+      "eyebrow": "La bibliothèque",
+      "heading": "Découvrez les œuvres",
+      "intro": "Albums, EP, un concert de conte, singles et histoires – tout est né de moments vécus. Commencez par où vous voulez.",
+      "kinds": {
+        "album": "Album",
+        "ep": "EP",
+        "live": "En concert",
+        "songs": "Chansons",
+        "notes": "Notes"
+      },
+      "titles": {
+        "concert": "Concert de conte",
+        "singles": "Singles",
+        "stories": "Histoires"
+      },
+      "door": {
+        "eyebrow": "Entrer",
+        "heading": "La bibliothèque",
+        "body": "Tout au même endroit : chaque album, EP, single, le concert et les histoires, du plus récent au plus ancien.",
+        "cta": "Entrer dans la bibliothèque"
+      }
+    },
+    "newsletter": {
+      "eyebrow": "La liste de diffusion",
+      "heading": "Restons en contact",
+      "body": "Une lettre de temps en temps – nouvelles chansons, concerts et les histoires qui les entourent. Pas de calendrier, pas de bruit."
     }
   },
   "concierge": {
@@ -295,5 +323,24 @@
     "subscribe": "S'abonner",
     "success": "Tu es inscrit. Guette la première lettre.",
     "error": "Quelque chose s’est mal passé — réessaie ou écris à sjoholm.e@gmail.com."
+  },
+  "library": {
+    "eyebrow": "Bibliothèque",
+    "title": "La bibliothèque",
+    "intro": "Tout ce qu’Erik Sjøholm a créé, au même endroit : albums, EP, singles, un concert de conte et les histoires qui les accompagnent.",
+    "filterLabel": "Filtrer la bibliothèque",
+    "filters": {
+      "all": "Tout",
+      "albums": "Albums",
+      "eps": "EP",
+      "singles": "Singles",
+      "storytelling": "Conte",
+      "stories": "Histoires"
+    },
+    "ongoing": "En cours",
+    "undated": "Plus du catalogue",
+    "comingSoon": "Bientôt",
+    "concertMeta": "Conte et musique en direct",
+    "storiesMeta": "Notes de la route"
   }
 }

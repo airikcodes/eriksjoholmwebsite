@@ -12,6 +12,34 @@
     "footer": {
       "storyteller": "Storyteller",
       "syncLicensing": "Sync Licensing"
+    },
+    "portal": {
+      "eyebrow": "The Library",
+      "heading": "Discover the artworks",
+      "intro": "Albums, EPs, a storytelling concert, singles and stories — all built from real moments. Start wherever you like.",
+      "kinds": {
+        "album": "Album",
+        "ep": "EP",
+        "live": "Live",
+        "songs": "Songs",
+        "notes": "Notes"
+      },
+      "titles": {
+        "concert": "Storytelling concert",
+        "singles": "Singles",
+        "stories": "Stories"
+      },
+      "door": {
+        "eyebrow": "Enter",
+        "heading": "The Library",
+        "body": "Everything in one place — every album, EP, single, concert and story, newest first.",
+        "cta": "Enter the library"
+      }
+    },
+    "newsletter": {
+      "eyebrow": "The mailing list",
+      "heading": "Stay connected",
+      "body": "An occasional letter — new songs, concerts, and the stories behind them. No schedule, no noise."
     }
   },
   "concierge": {
@@ -295,5 +323,24 @@
     "subscribe": "Subscribe",
     "success": "You’re in. Watch for the first letter.",
     "error": "Something went wrong — try again or write to sjoholm.e@gmail.com."
+  },
+  "library": {
+    "eyebrow": "Library",
+    "title": "The Library",
+    "intro": "Everything Erik Sjøholm has made, in one place — albums, EPs, singles, a storytelling concert, and the stories that go with them.",
+    "filterLabel": "Filter the library",
+    "filters": {
+      "all": "All",
+      "albums": "Albums",
+      "eps": "EPs",
+      "singles": "Singles",
+      "storytelling": "Storytelling",
+      "stories": "Stories"
+    },
+    "ongoing": "Ongoing",
+    "undated": "More from the catalogue",
+    "comingSoon": "Coming soon",
+    "concertMeta": "Live storytelling and music",
+    "storiesMeta": "Notes from the road"
   }
 }

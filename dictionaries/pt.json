@@ -12,6 +12,34 @@
     "footer": {
       "storyteller": "Contador de histórias",
       "syncLicensing": "Licenciamento Sync"
+    },
+    "portal": {
+      "eyebrow": "A biblioteca",
+      "heading": "Descubra as obras",
+      "intro": "Álbuns, EPs, um concerto de contação de histórias, singles e histórias – tudo construído a partir de momentos reais. Comece por onde quiser.",
+      "kinds": {
+        "album": "Álbum",
+        "ep": "EP",
+        "live": "Ao vivo",
+        "songs": "Canções",
+        "notes": "Notas"
+      },
+      "titles": {
+        "concert": "Concerto de contação de histórias",
+        "singles": "Singles",
+        "stories": "Histórias"
+      },
+      "door": {
+        "eyebrow": "Entrar",
+        "heading": "A biblioteca",
+        "body": "Tudo num só lugar: cada álbum, EP, single, o concerto e as histórias, do mais recente ao mais antigo.",
+        "cta": "Entrar na biblioteca"
+      }
+    },
+    "newsletter": {
+      "eyebrow": "A lista de e-mail",
+      "heading": "Fique em contacto",
+      "body": "Uma carta de vez em quando – canções novas, concertos e as histórias por trás. Sem calendário, sem ruído."
     }
   },
   "concierge": {
@@ -295,5 +323,24 @@
     "subscribe": "Subscrever",
     "success": "Estás dentro. Aguarda a primeira carta.",
     "error": "Algo correu mal — tenta de novo ou escreve para sjoholm.e@gmail.com."
+  },
+  "library": {
+    "eyebrow": "Biblioteca",
+    "title": "A biblioteca",
+    "intro": "Tudo o que Erik Sjøholm criou, num só lugar: álbuns, EPs, singles, um concerto de contação de histórias e as histórias que os acompanham.",
+    "filterLabel": "Filtrar a biblioteca",
+    "filters": {
+      "all": "Tudo",
+      "albums": "Álbuns",
+      "eps": "EPs",
+      "singles": "Singles",
+      "storytelling": "Contação",
+      "stories": "Histórias"
+    },
+    "ongoing": "Em curso",
+    "undated": "Mais do catálogo",
+    "comingSoon": "Em breve",
+    "concertMeta": "Histórias e música ao vivo",
+    "storiesMeta": "Notas da estrada"
   }
 }
