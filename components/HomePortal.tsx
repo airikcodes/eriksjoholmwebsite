@@ -90,7 +90,7 @@ export default function HomePortal({
   comingSoon:       string;
   latestNoteTitle?: string;
 }) {
-  const singlesCovers = ['lycka', 'barndomsaren', 'langs-med-vagen', 'sanden-i-min-hand']
+  const singlesCovers = ['stanna', 'lycka', 'barndomsaren', 'langs-med-vagen']
     .map(cover)
     .filter((c): c is string => !!c);
 
@@ -163,9 +163,9 @@ export default function HomePortal({
         <Media src={cover('walkabout')} />
       </Tile>
 
-      {/* 7 — Endless */}
-      <Tile href="/works/endless-ep" kicker={t.kinds.ep} title="Endless">
-        <Media src={cover('endless-ep')} />
+      {/* 7 — Stanna */}
+      <Tile href="/works/stanna" kicker={t.kinds.songs} title="Stanna">
+        <Media src={cover('stanna')} />
       </Tile>
 
       {/* The door into the library */}
