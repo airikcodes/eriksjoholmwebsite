@@ -29,7 +29,7 @@ const images = [
 
 const CYCLE_MS = 30_000;
 const LOCALE_HOME_RE = /^\/([a-z]{2})?\/?$/;
-const bgFilter = "brightness(0.72) contrast(0.88) saturate(0.85)";
+const bgFilter = "brightness(0.85) contrast(0.92) saturate(1)"; // was 0.72/0.88/0.85 — let the site's own color through
 
 // ── Icons ────────────────────────────────────────────────────────────────────
 
@@ -199,7 +199,7 @@ export default function PersistentBackground({ host = "" }: { host?: string }) {
   if (!isHome) return null;
 
   if (reducedMotion) {
-    return <div style={{ position: "fixed", inset: 0, zIndex: 0, background: "#0d0d0d", pointerEvents: "none" }} />;
+    return <div style={{ position: "fixed", inset: 0, zIndex: 0, background: "#14100C", pointerEvents: "none" }} />;
   }
 
   const videoStyle: React.CSSProperties = {

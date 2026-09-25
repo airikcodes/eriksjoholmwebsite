@@ -122,7 +122,7 @@ export default function AudioPlayer({ src, title, meta, artworkUrl, index }: Pro
           borderRadius:    '2px',
           border:          hover ? '1px solid rgba(200,146,42,0.85)' : '1px solid rgba(200,146,42,0.55)',
           background:      hover ? 'rgba(13,11,9,0.75)' : 'rgba(13,11,9,0.55)',
-          color:           hover ? '#E0A83A' : '#C8922A',
+          color:           hover ? '#E0A93A' : '#C8922A',
           cursor:          'pointer',
           display:         'flex',
           alignItems:      'center',

@@ -88,7 +88,7 @@ export default async function Home({
             <div style={{ marginBottom: "3.25rem" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.5rem" }}>
                 <span className="block" style={{ width: "2rem", height: "1px", background: "#C8922A" }} />
-                <p className="eyebrow-label" style={{ color: "#D9A544" }}>{t.home.portal.eyebrow}</p>
+                <p className="eyebrow-label" style={{ color: "#C8922A" }}>{t.home.portal.eyebrow}</p>
               </div>
               <h2
                 id="library-heading"
@@ -131,7 +131,7 @@ export default async function Home({
           <RevealSection>
             <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.6rem" }}>
               <span className="block" style={{ width: "2rem", height: "1px", background: "#C8922A" }} />
-              <p className="eyebrow-label" style={{ color: "#D9A544" }}>{t.home.newsletter.eyebrow}</p>
+              <p className="eyebrow-label" style={{ color: "#C8922A" }}>{t.home.newsletter.eyebrow}</p>
             </div>
             <h2
               id="mailing-list-heading"

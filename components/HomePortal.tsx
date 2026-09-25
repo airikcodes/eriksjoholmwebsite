@@ -17,9 +17,12 @@ const KICKER: React.CSSProperties = {
   fontWeight:    500,
   letterSpacing: '0.26em',
   textTransform: 'uppercase',
-  color:         '#D9A544',
+  color:         '#C8922A',
   marginBottom:  '0.4rem',
 };
+
+// One cool accent, reserved only for the LIVE tag — everything else stays warm gold.
+const LIVE_ACCENT = '#5B9AA0';
 
 function cover(slug: string): string | undefined {
   return getWork(slug)?.coverImage;
@@ -29,19 +32,20 @@ interface TileProps {
   href:      string;
   external?: boolean;
   kicker:    string;
+  kickerColor?: string;
   title:     string;
   lead?:     boolean;
   className?: string;
   children:  React.ReactNode;
 }
 
-function Tile({ href, external, kicker, title, lead, className = '', children }: TileProps) {
+function Tile({ href, external, kicker, kickerColor, title, lead, className = '', children }: TileProps) {
   const cls = `portal-tile ${lead ? 'portal-tile--lead' : ''} ${className}`.trim();
   const inner = (
     <>
       {children}
       <span className="portal-tile-text">
-        <span style={{ display: 'block', ...KICKER }}>{kicker}</span>
+        <span style={{ display: 'block', ...KICKER, ...(kickerColor ? { color: kickerColor } : {}) }}>{kicker}</span>
         <span
           className="font-[family-name:var(--font-cormorant)]"
           style={{
@@ -107,7 +111,7 @@ export default function HomePortal({
       </Tile>
 
       {/* 3 — Storytelling concert (lives on its own site) */}
-      <Tile external href={STORYTELLER_URL} kicker={t.kinds.live} title={t.titles.concert}>
+      <Tile external href={STORYTELLER_URL} kicker={t.kinds.live} kickerColor={LIVE_ACCENT} title={t.titles.concert}>
         <Media src="/images/home/storytelling-concert.jpg" position="62% 50%" />
       </Tile>
 
@@ -171,7 +175,7 @@ export default function HomePortal({
       {/* The door into the library */}
       <Link href="/works" className="portal-door">
         <span>
-          <span className="eyebrow-label" style={{ display: 'block', marginBottom: '0.9rem', color: '#D9A544' }}>
+          <span className="eyebrow-label" style={{ display: 'block', marginBottom: '0.9rem', color: '#C8922A' }}>
             {t.door.eyebrow}
           </span>
           <span

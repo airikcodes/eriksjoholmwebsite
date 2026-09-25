@@ -12,6 +12,9 @@
   --color-text:    #1C1A17;
   --color-muted:   #8C8076;
   --color-accent:  #C8922A;
+  --color-accent-bright: #E0A93A;  /* hover/active only — was drifting between #E0A83A and #E0A93A */
+  --color-live:    #5B9AA0;        /* one cool accent, reserved for the LIVE tag only */
+  --color-void:    #14100C;        /* warm charcoal base — was flat #000000 on every non-home page */
 
   /* ── Dark-theme reading type scale (2026-08-25 legibility pass) ───────────
      Headline serif stays thin/light — that's the site's voice. These tokens
@@ -30,7 +33,7 @@
 
 html {
   scroll-behavior: auto; /* Lenis handles smooth scrolling — CSS smooth conflicts with it */
-  background-color: #000000;
+  background-color: var(--color-void);
 }
 
 body {
@@ -447,14 +450,14 @@ a:hover .product-img {
   height: 2.5rem;
   border-radius: 50%;
   border: none;
-  background: #C8922A;
+  background: var(--color-accent);
   color: #0D0B09;
   cursor: pointer;
   box-shadow: 0 2px 14px rgba(0,0,0,0.5);
   transition: background 200ms ease, transform 150ms ease, opacity 200ms ease;
   z-index: 2;
 }
-.studio-photo-nav:hover { background: #E0A93A; transform: translateY(-50%) scale(1.07); }
+.studio-photo-nav:hover { background: var(--color-accent-bright); transform: translateY(-50%) scale(1.07); }
 .studio-photo-nav:active { transform: translateY(-50%) scale(0.96); }
 .studio-photo-nav:disabled { opacity: 0; pointer-events: none; }
 /* Inset (not negative) so the button never gets clipped by the collapsible

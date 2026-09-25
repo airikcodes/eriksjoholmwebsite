@@ -192,7 +192,7 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
             backdropFilter:       'blur(8px)',
             WebkitBackdropFilter: 'blur(8px)',
             cursor:               'pointer',
-            color:                 open ? (menuHover ? '#ffffff' : 'rgba(255,255,255,0.9)') : (menuHover ? '#E0A83A' : '#C8922A'),
+            color:                 open ? (menuHover ? '#ffffff' : 'rgba(255,255,255,0.9)') : (menuHover ? '#E0A93A' : '#C8922A'),
             fontFamily:           'var(--font-inter)',
             fontSize:             '0.62rem',
             letterSpacing:        '0.22em',
