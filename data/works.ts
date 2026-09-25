@@ -756,6 +756,46 @@ av en kärlek så stor…`,
     coverImage:    'https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02260f62f2a1fc9602fa2d662c',
     spotifyUrl:    'https://open.spotify.com/track/6BYAYynES64GQgdBpHXvii',
     tidalUrl:      tidalSearch('Stanna Sjøholm Nordström'),
+    lyrics:
+`Håll om mig hårt du
+Medan jag finns här
+Håll om mig hårt du
+Om du har mig kär
+Kommer du vara där för mig?
+Fastän jag förändras
+Med tiderna, med tiderna
+
+Du går ifrån mig
+Fast jag inte vill
+Klart jag förstår dig
+Det är så som det går till
+Alla ska förändras
+Med tiderna, med tiderna
+
+Om du kunde stanna
+Om vi kunde stanna kvar
+För evigt som en stenstaty i stan
+
+Vad är det som stannar?
+Vad är det som stannar kvar?
+Ett minne blott av allting som vi var
+Är det allt som vi har?
+
+Att släppa taget
+Våga svara ja
+Minns ännu dagen
+Orden som du sa
+Kommer du ihåg mig?
+Fastän vi förändrats
+
+Om du kunde stanna
+Om vi kunde stanna kvar
+För evigt som en stenstaty i stan
+
+Vad är det som stannar?
+Vad är det som stannar kvar?
+Ett minne blott av allting som vi var
+Är det allt som vi har?`,
   },
   {
     id:            'silent-empire',
