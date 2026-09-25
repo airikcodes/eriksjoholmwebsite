@@ -540,8 +540,10 @@ export default function SongConcierge({
         </button>
       </form>
 
-      {/* Chips — full width of the input box, three equal columns */}
-      <div className="mt-12">
+      {/* Chips — full width of the input box, three equal columns.
+          Margin set inline: a sitewide `* { margin: 0 }` reset in globals.css
+          sits outside Tailwind's layers and silently beats mt-* utilities. */}
+      <div style={{ marginTop: "3rem" }}>
         <div className="flex gap-2">
           {chips.map((chip) => (
             <button
@@ -557,7 +559,7 @@ export default function SongConcierge({
       </div>
 
       {results.length > 0 && (
-        <div className="flex flex-col gap-3 mt-8">
+        <div className="flex flex-col gap-3" style={{ marginTop: "2rem" }}>
           {results.map((track) => (
             <ResultCard key={track.id} track={track} onDismiss={handleDismiss} />
           ))}
