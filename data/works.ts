@@ -1308,7 +1308,7 @@ And you follow the gun`,
     featured:      false,
     language:      'Swedish',
     meta:          'with Emil Nordström · Swedish',
-    coverImage:    '/images/langs-med-vagen/lmv-07.jpg',
+    coverImage:    'https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02a76303c4d3c06fcf1bfaf925',
     description:
 `Längs med vägen — "along the road" — is a Swedish-language album by Erik Sjøholm and Emil Nordström, twelve to fifteen songs written as a walk along the road of life: childhood memories at one end, reflections on old age at the other, and everything that happens in between. The songs are set in two places that shaped both writers — Österbotten, on the Swedish-speaking coast of Finland, and Pargas, further south near Turku.
 

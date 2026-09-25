@@ -94,45 +94,65 @@ export default async function WorkPage({
           <div style={{ paddingTop: '5.5rem', paddingBottom: '4rem' }}>
             <BackNav href="/works" label="Artworks" />
 
-            <p style={{
-              fontFamily:    'var(--font-inter)',
-              fontSize:      '0.7rem',
-              letterSpacing: '0.32em',
-              textTransform: 'uppercase',
-              color:         '#7A6F62',
-              marginBottom:  '1.5rem',
-            }}>
-              {work.workType === 'collaboration'
-                ? `${work.year ?? ''} · Collaboration`.trim().replace(/^· /, '')
-                : work.workType === 'song'
-                ? `${work.year ?? ''} · Song`.trim().replace(/^· /, '')
-                : `${work.year ?? ''} · ${work.workType}`.trim().replace(/^· /, '')}
-            </p>
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '2rem', marginTop: '2rem', flexWrap: 'wrap' }}>
+              {work.coverImage && (
+                <img
+                  src={work.coverImage}
+                  alt={work.title}
+                  style={{
+                    width: '140px',
+                    height: '140px',
+                    objectFit: 'cover',
+                    borderRadius: '2px',
+                    flexShrink: 0,
+                    opacity: 0.92,
+                    boxShadow: '0 8px 32px rgba(0,0,0,0.55)',
+                  }}
+                />
+              )}
 
-            <h1
-              className="font-[family-name:var(--font-cormorant)] font-light"
-              style={{
-                fontSize:     'clamp(2.2rem, 7vw, 4rem)',
-                color:        '#E8E0D4',
-                letterSpacing:'0.01em',
-                lineHeight:   1.05,
-              }}
-            >
-              {work.title}
-            </h1>
+              <div style={{ minWidth: 0, paddingTop: '0.25rem' }}>
+                <p style={{
+                  fontFamily:    'var(--font-inter)',
+                  fontSize:      '0.7rem',
+                  letterSpacing: '0.32em',
+                  textTransform: 'uppercase',
+                  color:         '#7A6F62',
+                  marginBottom:  '1rem',
+                }}>
+                  {work.workType === 'collaboration'
+                    ? `${work.year ?? ''} · Collaboration`.trim().replace(/^· /, '')
+                    : work.workType === 'song'
+                    ? `${work.year ?? ''} · Song`.trim().replace(/^· /, '')
+                    : `${work.year ?? ''} · ${work.workType}`.trim().replace(/^· /, '')}
+                </p>
 
-            {work.meta && (
-              <p style={{
-                fontFamily:    'var(--font-inter)',
-                fontSize:      '0.7rem',
-                letterSpacing: '0.12em',
-                textTransform: 'uppercase',
-                color:         '#7A6F62',
-                marginTop:     '1rem',
-              }}>
-                {work.meta}
-              </p>
-            )}
+                <h1
+                  className="font-[family-name:var(--font-cormorant)] font-light"
+                  style={{
+                    fontSize:     'clamp(2rem, 6vw, 3.5rem)',
+                    color:        '#E8E0D4',
+                    letterSpacing:'0.01em',
+                    lineHeight:   1.05,
+                  }}
+                >
+                  {work.title}
+                </h1>
+
+                {work.meta && (
+                  <p style={{
+                    fontFamily:    'var(--font-inter)',
+                    fontSize:      '0.7rem',
+                    letterSpacing: '0.12em',
+                    textTransform: 'uppercase',
+                    color:         '#7A6F62',
+                    marginTop:     '0.9rem',
+                  }}>
+                    {work.meta}
+                  </p>
+                )}
+              </div>
+            </div>
 
             <span className="block" style={{ width: '2rem', height: '1px', background: '#C8922A', marginTop: '2.5rem' }} />
           </div>
