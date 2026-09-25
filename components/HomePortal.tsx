@@ -98,7 +98,7 @@ export default function HomePortal({
     <div className="portal-grid">
       {/* 1 — Längs med vägen (lead) */}
       <Tile lead href="/works/langs-med-vagen-album" kicker={`${t.kinds.album} · ${comingSoon}`} title="Längs med vägen">
-        <Media src="/images/langs-med-vagen/lmv-07.jpg" position="50% 22%" />
+        <Media src={cover('langs-med-vagen-album')} position="50% 50%" />
       </Tile>
 
       {/* 2 — Glenn (EP) */}
