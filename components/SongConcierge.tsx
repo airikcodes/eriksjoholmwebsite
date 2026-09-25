@@ -541,7 +541,7 @@ export default function SongConcierge({
       </form>
 
       {/* Chips */}
-      <div className="mt-9 text-center">
+      <div className="mt-12 text-center">
         <div className="flex flex-wrap justify-center gap-2">
           {chips.map((chip) => (
             <button
