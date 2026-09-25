@@ -540,15 +540,15 @@ export default function SongConcierge({
         </button>
       </form>
 
-      {/* Chips */}
-      <div className="mt-12 text-center">
-        <div className="flex flex-wrap justify-center gap-2">
+      {/* Chips — full width of the input box, three equal columns */}
+      <div className="mt-12">
+        <div className="flex gap-2">
           {chips.map((chip) => (
             <button
               key={chip.id}
               onClick={() => handleChip(chip.id)}
-              className={`concierge-chip${activeChip === chip.id ? " active" : ""}`}
-              style={{ fontFamily: "var(--font-inter)", fontSize: "0.72rem", letterSpacing: "0.14em", textTransform: "uppercase", padding: "0.6rem 1.25rem", background: "rgba(255,255,255,0.03)", cursor: "pointer", whiteSpace: "nowrap" }}
+              className={`concierge-chip flex-1${activeChip === chip.id ? " active" : ""}`}
+              style={{ fontFamily: "var(--font-inter)", fontSize: "clamp(0.62rem, 2.4vw, 0.72rem)", letterSpacing: "0.1em", textTransform: "uppercase", padding: "0.75rem 0.4rem", background: "rgba(255,255,255,0.03)", cursor: "pointer", textAlign: "center", lineHeight: 1.3 }}
             >
               {chip.label}
             </button>
