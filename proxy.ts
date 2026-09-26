@@ -46,7 +46,12 @@ export function proxy(request: NextRequest) {
     (l) => pathname === `/${l}` || pathname.startsWith(`/${l}/`)
   );
 
-  if (hasLocalePrefix) return NextResponse.next();
+  if (hasLocalePrefix) {
+    // Tell the root layout which language this URL is in, so <html lang> follows the address (not just the cookie).
+    const headers = new Headers(request.headers);
+    headers.set('x-locale', pathname.split('/')[1]);
+    return NextResponse.next({ request: { headers } });
+  }
 
   const locale = getLocale(request);
 
@@ -54,7 +59,9 @@ export function proxy(request: NextRequest) {
     // Rewrite internally so app/[locale]/ receives 'en' as the segment
     const url = request.nextUrl.clone();
     url.pathname = `/en${pathname === '/' ? '' : pathname}`;
-    return NextResponse.rewrite(url);
+    const headers = new Headers(request.headers);
+    headers.set('x-locale', 'en');
+    return NextResponse.rewrite(url, { request: { headers } });
   }
 
   // Redirect to locale-prefixed URL and persist the preference

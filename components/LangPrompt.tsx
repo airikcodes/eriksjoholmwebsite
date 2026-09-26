@@ -14,6 +14,10 @@ const QUESTION: Record<string, string> = {
   de: 'Auf Deutsch lesen?',
   sv: 'Läs på Svenska?',
   es: '¿Leer en Español?',
+  fi: 'Lue suomeksi?',
+  fr: 'Lire en français ?',
+  it: 'Leggere in italiano?',
+  pt: 'Ler em português?',
 };
 
 // Affirmative in the visitor's language
@@ -21,6 +25,10 @@ const YES: Record<string, string> = {
   de: 'Ja',
   sv: 'Ja',
   es: 'Sí',
+  fi: 'Kyllä',
+  fr: 'Oui',
+  it: 'Sì',
+  pt: 'Sim',
 };
 
 // Dismiss labels for screen readers (in the visitor's language)
@@ -28,6 +36,10 @@ const DISMISS_LABEL: Record<string, string> = {
   de: 'Sprachvorschlag schließen',
   sv: 'Stäng språkförslag',
   es: 'Descartar sugerencia de idioma',
+  fi: 'Sulje kielehdotus',
+  fr: 'Fermer la suggestion de langue',
+  it: 'Chiudi il suggerimento della lingua',
+  pt: 'Fechar sugestão de idioma',
 };
 
 function stripLocale(pathname: string): string {

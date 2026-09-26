@@ -72,9 +72,11 @@ export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   const cookieStore  = await cookies();
-  const cookieLocale = cookieStore.get('NEXT_LOCALE')?.value ?? 'en';
-  const lang         = validLocales.includes(cookieLocale) ? cookieLocale : 'en';
   const headersList  = await headers();
+  // The URL's language wins (set by proxy.ts); the cookie is only a fallback (e.g. subdomain rewrites).
+  const pathLocale   = headersList.get('x-locale') ?? '';
+  const cookieLocale = cookieStore.get('NEXT_LOCALE')?.value ?? 'en';
+  const lang         = validLocales.includes(pathLocale) ? pathLocale : validLocales.includes(cookieLocale) ? cookieLocale : 'en';
   const host         = headersList.get('host') ?? '';
 
   return (
