@@ -12,22 +12,8 @@ import { usePathname } from "next/navigation";
  * no two passes look the same. It is kept mostly on screen and never intercepts the
  * pointer. multiply-blended so text and covers stay legible beneath it. Light theme,
  * on every page, in the light theme only (visibility: globals.css). It lives in the root layout, so it
- * keeps floating across page changes; each navigation re-rolls its route. Its colour drifts through a
- * small palette as you scroll.
+ * keeps floating across page changes; each navigation re-rolls its route.
  */
-// Sun → coral → fjord → moss → lilac → back to sun.
-const PALETTE: Array<[number, number, number]> = [
-  [242, 179, 61], [232, 115, 90], [79, 143, 163], [123, 174, 106], [169, 139, 199],
-];
-function paletteAt(t: number): string {
-  const n = PALETTE.length;
-  const x = ((t % 1) + 1) % 1 * n;
-  const i = Math.floor(x) % n, f = x - Math.floor(x);
-  const a = PALETTE[i], b = PALETTE[(i + 1) % n];
-  const e = f * f * (3 - 2 * f);
-  return `rgb(${a.map((v, k) => Math.round(v + (b[k] - v) * e)).join(",")})`;
-}
-
 export default function SunOrb() {
   const ref = useRef<HTMLDivElement>(null);
   const reroll = useRef<(() => void) | null>(null);
@@ -50,7 +36,6 @@ export default function SunOrb() {
     let ampY = rnd(0.2, 0.34);
 
     const vw0 = window.innerWidth, vh0 = window.innerHeight;
-    let huePhase = rnd(0, 1);
     const s = { x: vw0 * rnd(0.1, 0.9), y: vh0 * rnd(0.3, 0.9), vx: 0, vy: 0, sc: 1, vsc: 0 };
     let lastY = window.scrollY, lastDir = 0, raf = 0;
 
@@ -58,7 +43,6 @@ export default function SunOrb() {
       const vw = window.innerWidth, vh = window.innerHeight;
       phase = rnd(0, Math.PI * 2); phase2 = rnd(0, Math.PI * 2);
       laps = rnd(0.7, 2.4); ampX = rnd(0.28, 0.44); ampY = rnd(0.16, 0.36);
-      huePhase = rnd(0, 1);
       lastY = window.scrollY; lastDir = 0;
       s.vx += rnd(-1, 1) * vw * 0.04; s.vy += rnd(-1, 1) * vh * 0.04;
     };
@@ -115,7 +99,6 @@ export default function SunOrb() {
         if (s.y > maxY) { s.y = maxY; s.vy = -Math.abs(s.vy) * 0.6; }
         s.sc = Math.min(1.15, Math.max(0.45, s.sc));
       }
-      el.style.background = paletteAt(huePhase + p * 1.6);
       el.style.width = el.style.height = `${size}px`;
       el.style.transform = `translate3d(${s.x - size / 2}px, ${s.y - size / 2}px, 0) scale(${s.sc})`;
       raf = requestAnimationFrame(tick);
