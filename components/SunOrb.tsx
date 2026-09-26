@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 
 /**
- * The sun by day, the moon by night: one flat circle that wanders the site as you scroll.
+ * The sun by day, the moon by night: one circle that wanders the site as you scroll. Always a full circle (no phases).
  *
  * It is a small spring simulation rather than a fixed path: scroll position sets a loose
  * home for the sun, but every scroll adds random impulses, every change of direction
@@ -58,25 +58,11 @@ function photoHoles(): Hole[] {
 
 const SUN_VIDEOS = Array.from({ length: 12 }, (_, i) => `/videos/bg-${String(i + 1).padStart(2, "0")}.mp4`);
 
-// Moon phase → SVG path of the lit part. p: 0 new … 0.5 full … 1 new (synodic month from a known new moon).
-function moonPhase(now = Date.now()): number {
-  return ((((now - Date.UTC(2000, 0, 6, 18, 14)) / 864e5) / 29.53059) % 1 + 1) % 1;
-}
-function litPath(p: number): string {
-  const k = Math.abs(Math.cos(2 * Math.PI * p)).toFixed(3);      // terminator half-width: 1 at new/full, 0 at quarters
-  const crescent = p < 0.25 || p > 0.75;                          // less than half lit
-  return p < 0.5
-    ? `M0 -1 A1 1 0 0 1 0 1 A${k} 1 0 0 ${crescent ? 0 : 1} 0 -1 Z`   // waxing: lit on the right
-    : `M0 -1 A1 1 0 0 0 0 1 A${k} 1 0 0 ${crescent ? 1 : 0} 0 -1 Z`;  // waning: lit on the left
-}
-
 export default function SunOrb() {
   const ref = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const reroll = useRef<(() => void) | null>(null);
   const pathname = usePathname();
-  const [lit, setLit] = useState("");
-  useEffect(() => { setLit(litPath(moonPhase())); }, []);
 
   // New page: new route and a random kick, so the sun never sits in the same corner on arrival.
   useEffect(() => { reroll.current?.(); }, [pathname]);
@@ -241,8 +227,7 @@ export default function SunOrb() {
             <stop offset="0" stopColor="#FFF3D2" stopOpacity="0.34" /><stop offset="0.7" stopColor="#F6E4B8" stopOpacity="0.22" /><stop offset="1" stopColor="#EAD7A6" stopOpacity="0.15" />
           </radialGradient>
         </defs>
-        <circle r="1" className="moon-dark" />
-        {lit && <path d={lit} className="moon-lit" />}
+        <circle r="1" className="moon-lit" />
       </svg>
     </div>
   );
