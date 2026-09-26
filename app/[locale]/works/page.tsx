@@ -98,7 +98,7 @@ export default async function WorksPage({
         <div className="page-photo" style={{
           position: "absolute", inset: 0,
           backgroundImage: "url(/images/banners/works.jpg)",
-          backgroundSize: "cover", backgroundPosition: "70% 45%",
+          backgroundSize: "cover", backgroundPosition: "70% 35%",
           opacity: 'calc(0.06 * var(--ghost-k))',
           filter: 'var(--ghost-filter)',
           mixBlendMode: 'var(--ghost-blend)' as React.CSSProperties['mixBlendMode'],

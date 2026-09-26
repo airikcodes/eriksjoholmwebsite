@@ -1055,10 +1055,11 @@ html[data-theme="light"] .portal-tile:focus-visible { box-shadow: none; }
 
 /* Inner pages: the photograph becomes a crisp full-colour band across the top of the
    page, hard edge below it, paper beneath (was a faint fixed ghost behind the text). */
+html[data-theme="light"] { --banner-h: clamp(18rem, 34vw, 32rem); }   /* ~3:1 on desktop, so wide photos are barely cropped */
 html[data-theme="light"] .page-photo-wrap {
   position:   absolute !important;
   inset:      0 0 auto 0 !important;
-  height:     clamp(15rem, 42vh, 30rem);
+  height:     var(--banner-h);
   overflow:   hidden;
 }
 html[data-theme="light"] .page-photo {
@@ -1067,7 +1068,7 @@ html[data-theme="light"] .page-photo {
   mix-blend-mode:      normal !important;
 }
 html[data-theme="light"] .page-photo-wrap > div:not(.page-photo) { display: none; }   /* old scrim */
-html[data-theme="light"] .page-photo-wrap + div { padding-top: clamp(15rem, 42vh, 30rem); }
+html[data-theme="light"] .page-photo-wrap + div { padding-top: var(--banner-h); }
 
 /* Newsletter: the sign-up owns its section — flat paper, centred, nothing beside it.
    (The video bands above and below carry the imagery.) */

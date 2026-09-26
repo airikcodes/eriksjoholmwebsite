@@ -44,7 +44,7 @@ export default async function Sync({
         <div className="page-photo" style={{
           position: "absolute", inset: 0,
           backgroundImage: "url(/images/banners/sync.jpg)",
-          backgroundSize: "cover", backgroundPosition: "53% 12%",
+          backgroundSize: "cover", backgroundPosition: "53% 20%",
           opacity: 'calc(0.08 * var(--ghost-k))',
           filter: 'var(--ghost-filter)',
           mixBlendMode: 'var(--ghost-blend)' as React.CSSProperties['mixBlendMode'],

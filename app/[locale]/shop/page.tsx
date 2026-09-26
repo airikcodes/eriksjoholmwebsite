@@ -39,7 +39,7 @@ export default async function ShopPage({
         <div className="page-photo" style={{
           position: 'absolute', inset: 0,
           backgroundImage: 'url(/images/banners/shop.jpg)',
-          backgroundSize: 'cover', backgroundPosition: "40% 50%",
+          backgroundSize: 'cover', backgroundPosition: "40% 40%",
           opacity: 'calc(0.05 * var(--ghost-k))',
           filter: 'var(--ghost-filter)',
           mixBlendMode: 'var(--ghost-blend)' as React.CSSProperties['mixBlendMode'],
