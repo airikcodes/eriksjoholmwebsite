@@ -1032,16 +1032,6 @@ html[data-theme="light"][data-home] .concierge-chip { font-size: clamp(0.66rem, 
 /* Work pages: no full-bleed photo behind the text — flat paper, cover art carries the image. */
 html[data-theme="light"] .album-bg { display: none; }
 
-/* Mailing list: hard split — paper for the copy, the photograph in full colour beside it. */
-html[data-theme="light"] .mail-bg    { opacity: 1; }
-html[data-theme="light"] .mail-scrim {
-  background: linear-gradient(to top, var(--page-solid) 0 56%, transparent 56% 100%);
-}
-@media (min-width: 900px) {
-  html[data-theme="light"] .mail-scrim {
-    background: linear-gradient(to right, var(--page-solid) 0 46%, transparent 46% 100%);
-  }
-}
 
 /* ── Nordic minimalism (light) ─────────────────────────────────────────────
    Flat, quiet, exact: no glass, no blur, no glow. Surfaces are paper, edges
@@ -1054,16 +1044,6 @@ html[data-theme="light"] .menu-toggle-btn {
 html[data-theme="light"] .portal-tile:hover,
 html[data-theme="light"] .portal-tile:focus-visible { box-shadow: none; }
 
-/* Mailing list: keep the copy strictly in the paper column (left of the cut). */
-@media (min-width: 900px) {
-  html[data-theme="light"] .mail-inner {
-    margin:        0;
-    max-width:     46vw;
-    padding-left:  clamp(1.25rem, 6vw, 6rem);
-    padding-right: clamp(1.5rem, 4vw, 4rem);
-  }
-  html[data-theme="light"] .mail-inner h2 { font-size: clamp(2.6rem, 4.6vw, 4.8rem) !important; }
-}
 
 /* Inner pages: the photograph becomes a crisp full-colour band across the top of the
    page, hard edge below it, paper beneath (was a faint fixed ghost behind the text). */
@@ -1081,3 +1061,28 @@ html[data-theme="light"] .page-photo {
 }
 html[data-theme="light"] .page-photo-wrap > div:not(.page-photo) { display: none; }   /* old scrim */
 html[data-theme="light"] .page-photo-wrap + div { padding-top: clamp(15rem, 42vh, 30rem); }
+
+/* Newsletter: the sign-up owns its section — flat paper, centred, nothing beside it.
+   (The video bands above and below carry the imagery.) */
+html[data-theme="light"] .mail-bg,
+html[data-theme="light"] .mail-scrim { display: none; }
+html[data-theme="light"] .mail-section { align-items: center; background: var(--page-solid); }
+html[data-theme="light"] .mail-inner {
+  margin:     0 auto;
+  max-width:  46rem;
+  padding:    6rem 1.5rem;
+  text-align: center;
+}
+html[data-theme="light"] .mail-inner > div > div:first-child { justify-content: center; }   /* eyebrow row */
+html[data-theme="light"] .mail-inner h2 { font-size: clamp(2.6rem, 6.4vw, 5rem) !important; line-height: 1.05 !important; }
+html[data-theme="light"] .mail-inner .body-copy {
+  margin-left:  auto;
+  margin-right: auto;
+  font-size:    clamp(1.05rem, 1.6vw, 1.25rem) !important;
+  max-width:    34ch !important;
+}
+html[data-theme="light"] .mail-form { margin: 0 auto; max-width: 34rem; }
+html[data-theme="light"] .mail-form form input {
+  font-size: 1.1rem !important;
+  padding:   1.35rem 1.5rem !important;
+}
