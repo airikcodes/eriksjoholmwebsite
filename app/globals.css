@@ -1336,9 +1336,4 @@ html { --water-h: clamp(96px, 16vh, 190px); }
   -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 100%);
           mask-image: linear-gradient(to bottom, #000 0%, transparent 100%);
 }
-/* the surface: just a hairline of light */
-.water::before {
-  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1px; z-index: 2;
-  background: linear-gradient(90deg, transparent, rgba(var(--fg-rgb), 0.22) 30%, rgba(var(--fg-rgb), 0.22) 70%, transparent);
-}
 @media print { .water { display: none; } }
