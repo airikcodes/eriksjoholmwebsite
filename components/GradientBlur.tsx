@@ -21,6 +21,7 @@ export default function GradientBlur() {
         <div
           key={i}
           aria-hidden="true"
+          className="gradient-blur"
           style={{
             position:            'fixed',
             bottom:              0,

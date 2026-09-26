@@ -40,8 +40,8 @@ export default async function Sync({
     <main className="min-h-screen" style={{ background: "var(--page-solid)", color: "var(--color-ink-primary)" }}>
 
       {/* Fixed background */}
-      <div style={{ position: "fixed", inset: 0, zIndex: 0 }}>
-        <div style={{
+      <div className="page-photo-wrap" style={{ position: "fixed", inset: 0, zIndex: 0 }}>
+        <div className="page-photo" style={{
           position: "absolute", inset: 0,
           backgroundImage: "url(/images/bg/bg-02.jpg)",
           backgroundSize: "cover", backgroundPosition: "center",
