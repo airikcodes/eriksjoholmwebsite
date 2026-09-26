@@ -38,7 +38,7 @@ export default function AlbumBg({ photos }: { photos: string[] }) {
         style={{
           position: 'absolute',
           inset: 0,
-          background: 'linear-gradient(115deg, rgba(13,11,9,0.55) 0%, rgba(13,11,9,0.32) 42%, rgba(13,11,9,0.15) 70%)',
+          background: 'linear-gradient(115deg, rgba(var(--page-rgb),0.55) 0%, rgba(var(--page-rgb),0.32) 42%, rgba(var(--page-rgb),0.15) 70%)',
         }}
       />
     </div>

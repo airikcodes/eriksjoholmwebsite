@@ -16,12 +16,12 @@ export default function CartButton() {
         display: 'flex',
         alignItems: 'center',
         gap: '0.5rem',
-        color: '#B8B0A6',
+        color: 'var(--color-ink-body)',
         padding: '0.5rem',
         transition: 'color 200ms ease',
       }}
-      onMouseEnter={(e) => (e.currentTarget.style.color = '#E8E0D4')}
-      onMouseLeave={(e) => (e.currentTarget.style.color = '#7A6F62')}
+      onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-ink-primary)')}
+      onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-ink-meta)')}
     >
       {/* Bag icon */}
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -34,7 +34,7 @@ export default function CartButton() {
           fontFamily: 'var(--font-inter)',
           fontSize: '0.6rem',
           letterSpacing: '0.1em',
-          color: '#C8922A',
+          color: 'var(--accent-ink)',
           minWidth: '1rem',
           textAlign: 'center',
         }}>

@@ -74,7 +74,7 @@ export default async function WorkPage({
   const albumWork: Work | undefined = work.album ? getWork(work.album) : undefined;
 
   return (
-    <main className="min-h-screen" style={{ background: '#0D0B09', color: '#E8E0D4' }}>
+    <main className="min-h-screen" style={{ background: 'var(--page-solid)', color: 'var(--color-ink-primary)' }}>
 
       {/* Fixed background — project photos if available, else static fallback */}
       {work.photos && work.photos.length > 0 ? (
@@ -121,7 +121,7 @@ export default async function WorkPage({
                   fontSize:      '0.7rem',
                   letterSpacing: '0.32em',
                   textTransform: 'uppercase',
-                  color:         '#7A6F62',
+                  color:         'var(--color-ink-meta)',
                   marginBottom:  '1rem',
                 }}>
                   {work.workType === 'collaboration'
@@ -135,7 +135,7 @@ export default async function WorkPage({
                   className="font-[family-name:var(--font-cormorant)] font-light"
                   style={{
                     fontSize:     'clamp(2rem, 6vw, 3.5rem)',
-                    color:        '#E8E0D4',
+                    color:        'var(--color-ink-primary)',
                     letterSpacing:'0.01em',
                     lineHeight:   1.05,
                   }}
@@ -149,7 +149,7 @@ export default async function WorkPage({
                     fontSize:      '0.7rem',
                     letterSpacing: '0.12em',
                     textTransform: 'uppercase',
-                    color:         '#7A6F62',
+                    color:         'var(--color-ink-meta)',
                     marginTop:     '0.9rem',
                   }}>
                     {work.meta}
@@ -162,14 +162,14 @@ export default async function WorkPage({
                     fontSize:      '0.7rem',
                     letterSpacing: '0.12em',
                     textTransform: 'uppercase',
-                    color:         '#7A6F62',
+                    color:         'var(--color-ink-meta)',
                     marginTop:     '0.9rem',
                   }}>
                     From the album{' '}
                     <Link
                       href={`/${locale}/works/${albumWork.slug}`}
-                      className="hover:text-[#E8E0D4] transition-colors duration-200"
-                      style={{ color: '#C8922A', textDecoration: 'none', borderBottom: '1px solid rgba(200,146,42,0.35)', paddingBottom: '1px' }}
+                      className="hover:text-[color:var(--color-ink-primary)] transition-colors duration-200"
+                      style={{ color: 'var(--accent-ink)', textDecoration: 'none', borderBottom: '1px solid rgba(200,146,42,0.35)', paddingBottom: '1px' }}
                     >
                       {albumWork.title} →
                     </Link>
@@ -188,7 +188,7 @@ export default async function WorkPage({
                 <p key={i} style={{
                   fontFamily:   'var(--font-inter)',
                   fontSize:     '0.9rem',
-                  color:        '#B8B0A6',
+                  color:        'var(--color-ink-body)',
                   lineHeight:   1.9,
                   maxWidth:     '52ch',
                   marginBottom: '1.25rem',
@@ -201,13 +201,13 @@ export default async function WorkPage({
 
           {/* ── Listen (released only) ── */}
           {!isUpcoming && (work.spotifyUrl || work.tidalUrl) && (
-            <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
+            <div style={{ borderTop: '1px solid rgba(var(--fg-rgb),0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
               <p style={{
                 fontFamily:    'var(--font-inter)',
                 fontSize:      '0.7rem',
                 letterSpacing: '0.35em',
                 textTransform: 'uppercase',
-                color:         '#7A6F62',
+                color:         'var(--color-ink-meta)',
                 marginBottom:  '2rem',
               }}>
                 {t.works.listen}
@@ -224,8 +224,8 @@ export default async function WorkPage({
                       fontSize:      '0.7rem',
                       letterSpacing: '0.2em',
                       textTransform: 'uppercase',
-                      color:         '#7A6F62',
-                      borderBottom:  '1px solid rgba(122,111,98,0.3)',
+                      color:         'var(--color-ink-meta)',
+                      borderBottom:  '1px solid rgba(var(--meta-rgb),0.3)',
                       paddingBottom: '2px',
                     }}
                   >
@@ -243,8 +243,8 @@ export default async function WorkPage({
                       fontSize:      '0.7rem',
                       letterSpacing: '0.2em',
                       textTransform: 'uppercase',
-                      color:         '#7A6F62',
-                      borderBottom:  '1px solid rgba(122,111,98,0.3)',
+                      color:         'var(--color-ink-meta)',
+                      borderBottom:  '1px solid rgba(var(--meta-rgb),0.3)',
                       paddingBottom: '2px',
                     }}
                   >
@@ -267,13 +267,13 @@ export default async function WorkPage({
 
           {/* ── Lyrics (no translations) ── */}
           {work.lyrics && !work.lyricsTranslations && (
-            <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
+            <div style={{ borderTop: '1px solid rgba(var(--fg-rgb),0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
               <p style={{
                 fontFamily:    'var(--font-inter)',
                 fontSize:      '0.7rem',
                 letterSpacing: '0.35em',
                 textTransform: 'uppercase',
-                color:         '#7A6F62',
+                color:         'var(--color-ink-meta)',
                 marginBottom:  '2rem',
               }}>
                 {t.works.theLyric}
@@ -286,7 +286,7 @@ export default async function WorkPage({
                   className="font-[family-name:var(--font-cormorant)] font-light italic"
                   style={{
                     fontSize:   'clamp(1rem, 2vw, 1.2rem)',
-                    color:      'rgba(232,224,212,0.75)',
+                    color:      'rgba(var(--ink-rgb),0.75)',
                     lineHeight: 2.1,
                     whiteSpace: 'pre-line',
                   }}
@@ -299,13 +299,13 @@ export default async function WorkPage({
 
           {/* ── Story ── */}
           {work.story && (
-            <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
+            <div style={{ borderTop: '1px solid rgba(var(--fg-rgb),0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
               <p style={{
                 fontFamily:    'var(--font-inter)',
                 fontSize:      '0.7rem',
                 letterSpacing: '0.35em',
                 textTransform: 'uppercase',
-                color:         '#7A6F62',
+                color:         'var(--color-ink-meta)',
                 marginBottom:  '1.5rem',
               }}>
                 {t.works.theStory}
@@ -313,7 +313,7 @@ export default async function WorkPage({
               <p style={{
                 fontFamily: 'var(--font-inter)',
                 fontSize:   '0.9rem',
-                color:      '#B8B0A6',
+                color:      'var(--color-ink-body)',
                 lineHeight: 1.9,
                 maxWidth:   '52ch',
               }}>
@@ -324,7 +324,7 @@ export default async function WorkPage({
 
           {/* ── Collaborator spotlight (any credit with a url) ── */}
           {work.credits && work.credits.some(c => c.url) && (
-            <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
+            <div style={{ borderTop: '1px solid rgba(var(--fg-rgb),0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
               {work.credits.filter(c => c.url).map((credit, i) => (
                 <div key={i}>
                   <p style={{
@@ -332,7 +332,7 @@ export default async function WorkPage({
                     fontSize:      '0.7rem',
                     letterSpacing: '0.35em',
                     textTransform: 'uppercase',
-                    color:         '#7A6F62',
+                    color:         'var(--color-ink-meta)',
                     marginBottom:  '2rem',
                   }}>
                     In collaboration with
@@ -345,10 +345,10 @@ export default async function WorkPage({
                     className="group"
                   >
                     <h2
-                      className="font-[family-name:var(--font-cormorant)] font-light group-hover:text-[#C8922A] transition-colors duration-200"
+                      className="font-[family-name:var(--font-cormorant)] font-light group-hover:text-[color:var(--accent-ink)] transition-colors duration-200"
                       style={{
                         fontSize:     'clamp(2rem, 6vw, 3rem)',
-                        color:        '#E8E0D4',
+                        color:        'var(--color-ink-primary)',
                         letterSpacing:'0.01em',
                         lineHeight:   1.05,
                         marginBottom: '0.6rem',
@@ -361,7 +361,7 @@ export default async function WorkPage({
                       fontSize:      '0.7rem',
                       letterSpacing: '0.15em',
                       textTransform: 'uppercase',
-                      color:         '#7A6F62',
+                      color:         'var(--color-ink-meta)',
                       marginBottom:  '1.75rem',
                     }}>
                       {credit.role}
@@ -376,7 +376,7 @@ export default async function WorkPage({
                         fontSize:      '0.52rem',
                         letterSpacing: '0.18em',
                         textTransform: 'uppercase',
-                        color:         '#C8922A',
+                        color:         'var(--accent-ink)',
                         borderBottom:  '1px solid rgba(200,146,42,0.35)',
                         paddingBottom: '3px',
                       }}
@@ -401,13 +401,13 @@ export default async function WorkPage({
 
           {/* ── Behind the record ── */}
           {work.behindTheRecord && work.behindTheRecord.length > 0 && (
-            <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
+            <div style={{ borderTop: '1px solid rgba(var(--fg-rgb),0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
               <p style={{
                 fontFamily:    'var(--font-inter)',
                 fontSize:      '0.7rem',
                 letterSpacing: '0.35em',
                 textTransform: 'uppercase',
-                color:         '#7A6F62',
+                color:         'var(--color-ink-meta)',
                 marginBottom:  '2rem',
               }}>
                 Behind the record
@@ -426,7 +426,7 @@ export default async function WorkPage({
                     <p style={{
                       fontFamily: 'var(--font-inter)',
                       fontSize:   '0.85rem',
-                      color:      '#B8B0A6',
+                      color:      'var(--color-ink-body)',
                       lineHeight: 1.85,
                       maxWidth:   '52ch',
                     }}>
@@ -440,13 +440,13 @@ export default async function WorkPage({
 
           {/* ── From the Notes ── */}
           {work.relatedNotes && work.relatedNotes.length > 0 && (
-            <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
+            <div style={{ borderTop: '1px solid rgba(var(--fg-rgb),0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
               <p style={{
                 fontFamily:    'var(--font-inter)',
                 fontSize:      '0.7rem',
                 letterSpacing: '0.35em',
                 textTransform: 'uppercase',
-                color:         '#7A6F62',
+                color:         'var(--color-ink-meta)',
                 marginBottom:  '2rem',
               }}>
                 {t.works.fromTheNotes}
@@ -460,10 +460,10 @@ export default async function WorkPage({
                       fontFamily:    'var(--font-inter)',
                       fontSize:      '0.72rem',
                       letterSpacing: '0.08em',
-                      color:         '#C8922A',
+                      color:         'var(--accent-ink)',
                       textDecoration: 'none',
                     }}
-                    className="hover:text-[#E8E0D4] transition-colors duration-200"
+                    className="hover:text-[color:var(--color-ink-primary)] transition-colors duration-200"
                   >
                     {t.works.readInNotes}
                   </Link>
@@ -474,13 +474,13 @@ export default async function WorkPage({
 
           {/* ── Part of an album ── */}
           {albumWork && (
-            <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
+            <div style={{ borderTop: '1px solid rgba(var(--fg-rgb),0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
               <p style={{
                 fontFamily:    'var(--font-inter)',
                 fontSize:      '0.7rem',
                 letterSpacing: '0.35em',
                 textTransform: 'uppercase',
-                color:         '#7A6F62',
+                color:         'var(--color-ink-meta)',
                 marginBottom:  '2rem',
               }}>
                 Part of the album
@@ -501,8 +501,8 @@ export default async function WorkPage({
                 )}
                 <div style={{ minWidth: 0 }}>
                   <p
-                    className="font-[family-name:var(--font-cormorant)] font-light group-hover:text-[#C8922A] transition-colors duration-200"
-                    style={{ fontSize: 'clamp(1.3rem, 3vw, 1.8rem)', color: '#E8E0D4', lineHeight: 1.15 }}
+                    className="font-[family-name:var(--font-cormorant)] font-light group-hover:text-[color:var(--accent-ink)] transition-colors duration-200"
+                    style={{ fontSize: 'clamp(1.3rem, 3vw, 1.8rem)', color: 'var(--color-ink-primary)', lineHeight: 1.15 }}
                   >
                     {albumWork.title}
                   </p>
@@ -512,7 +512,7 @@ export default async function WorkPage({
                       fontSize:      '0.65rem',
                       letterSpacing: '0.12em',
                       textTransform: 'uppercase',
-                      color:         '#7A6F62',
+                      color:         'var(--color-ink-meta)',
                       marginTop:     '0.4rem',
                     }}>
                       {albumWork.meta}
@@ -523,7 +523,7 @@ export default async function WorkPage({
                     fontSize:      '0.65rem',
                     letterSpacing: '0.15em',
                     textTransform: 'uppercase',
-                    color:         '#C8922A',
+                    color:         'var(--accent-ink)',
                     marginTop:     '0.9rem',
                   }}>
                     See the album →
@@ -535,13 +535,13 @@ export default async function WorkPage({
 
           {/* ── Credits ── */}
           {work.credits && work.credits.length > 0 && (
-            <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
+            <div style={{ borderTop: '1px solid rgba(var(--fg-rgb),0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
               <p style={{
                 fontFamily:    'var(--font-inter)',
                 fontSize:      '0.7rem',
                 letterSpacing: '0.35em',
                 textTransform: 'uppercase',
-                color:         '#7A6F62',
+                color:         'var(--color-ink-meta)',
                 marginBottom:  '2rem',
               }}>
                 {t.works.credits}
@@ -551,22 +551,22 @@ export default async function WorkPage({
                   <li
                     key={i}
                     className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between sm:gap-6"
-                    style={{ borderBottom: '1px solid rgba(255,255,255,0.05)', padding: '1rem 0' }}
+                    style={{ borderBottom: '1px solid rgba(var(--fg-rgb),0.05)', padding: '1rem 0' }}
                   >
                     {credit.url ? (
                       <a
                         href={credit.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-[family-name:var(--font-cormorant)] font-light hover:text-[#C8922A] transition-colors duration-200"
-                        style={{ fontSize: 'clamp(0.9rem, 2vw, 1.1rem)', color: '#E8E0D4', textDecoration: 'none' }}
+                        className="font-[family-name:var(--font-cormorant)] font-light hover:text-[color:var(--accent-ink)] transition-colors duration-200"
+                        style={{ fontSize: 'clamp(0.9rem, 2vw, 1.1rem)', color: 'var(--color-ink-primary)', textDecoration: 'none' }}
                       >
                         {credit.name} ↗
                       </a>
                     ) : (
                       <p
                         className="font-[family-name:var(--font-cormorant)] font-light"
-                        style={{ fontSize: 'clamp(0.9rem, 2vw, 1.1rem)', color: '#E8E0D4' }}
+                        style={{ fontSize: 'clamp(0.9rem, 2vw, 1.1rem)', color: 'var(--color-ink-primary)' }}
                       >
                         {credit.name}
                       </p>
@@ -574,7 +574,7 @@ export default async function WorkPage({
                     <p style={{
                       fontFamily:    'var(--font-inter)',
                       fontSize:      '0.7rem',
-                      color:         '#B8B0A6',
+                      color:         'var(--color-ink-body)',
                       letterSpacing: '0.08em',
                       marginTop:     '0.2rem',
                     }}>
@@ -588,13 +588,13 @@ export default async function WorkPage({
 
           {/* ── Supported by ── */}
           {work.funders && work.funders.length > 0 && (
-            <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
+            <div style={{ borderTop: '1px solid rgba(var(--fg-rgb),0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
               <p style={{
                 fontFamily:    'var(--font-inter)',
                 fontSize:      '0.7rem',
                 letterSpacing: '0.35em',
                 textTransform: 'uppercase',
-                color:         '#7A6F62',
+                color:         'var(--color-ink-meta)',
                 marginBottom:  '2rem',
               }}>
                 Supported by
@@ -622,7 +622,7 @@ export default async function WorkPage({
           )}
 
           {/* ── Keep in touch ── */}
-          <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '5rem', paddingBottom: '9rem' }}>
+          <div style={{ borderTop: '1px solid rgba(var(--fg-rgb),0.07)', paddingTop: '5rem', paddingBottom: '9rem' }}>
             <KeepInTouch
               variant="work"
               locale={locale}

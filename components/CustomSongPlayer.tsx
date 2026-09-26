@@ -8,7 +8,7 @@ interface Props {
 export default function CustomSongPlayer({ songs, playlistUrl }: Props) {
   return (
     <div>
-      <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', marginBottom: '2.5rem' }}>
+      <div style={{ borderTop: '1px solid rgba(var(--fg-rgb),0.07)', marginBottom: '2.5rem' }}>
         {songs.map((song, i) => (
           <a
             key={song.title}
@@ -21,7 +21,7 @@ export default function CustomSongPlayer({ songs, playlistUrl }: Props) {
               gap:                 '1.25rem',
               alignItems:          'center',
               padding:             '1.5rem 0',
-              borderBottom:        '1px solid rgba(255,255,255,0.06)',
+              borderBottom:        '1px solid rgba(var(--fg-rgb),0.06)',
               textDecoration:      'none',
             }}
             className="group"
@@ -42,10 +42,10 @@ export default function CustomSongPlayer({ songs, playlistUrl }: Props) {
               style={{ width: 52, height: 52, objectFit: 'cover', opacity: 0.85 }}
             />
             <p
-              className="font-[family-name:var(--font-cormorant)] font-light group-hover:text-[#C8922A] transition-colors duration-200"
+              className="font-[family-name:var(--font-cormorant)] font-light group-hover:text-[color:var(--accent-ink)] transition-colors duration-200"
               style={{
                 fontSize:      'clamp(1.1rem, 2.8vw, 1.55rem)',
-                color:         '#E8E0D4',
+                color:         'var(--color-ink-primary)',
                 lineHeight:    1.2,
                 letterSpacing: '0.01em',
               }}
@@ -66,13 +66,13 @@ export default function CustomSongPlayer({ songs, playlistUrl }: Props) {
           fontSize:       '0.7rem',
           letterSpacing:  '0.2em',
           textTransform:  'uppercase',
-          color:          '#7A6F62',
-          borderBottom:   '1px solid rgba(122,111,98,0.3)',
+          color:          'var(--color-ink-meta)',
+          borderBottom:   '1px solid rgba(var(--meta-rgb),0.3)',
           paddingBottom:  '2px',
           textDecoration: 'none',
           marginBottom:   '2.5rem',
         }}
-        className="hover:text-[#C8922A] hover:border-[#C8922A] transition-colors duration-200"
+        className="hover:text-[color:var(--accent-ink)] hover:border-[#C8922A] transition-colors duration-200"
       >
         Hear more examples →
       </a>

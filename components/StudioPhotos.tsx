@@ -143,7 +143,7 @@ export default function StudioPhotos({ photos }: { photos: string[] }) {
   }, [photos, updateEdgesAndProgress]);
 
   return (
-    <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '3rem', paddingBottom: '3rem' }}>
+    <div style={{ borderTop: '1px solid rgba(var(--fg-rgb),0.07)', paddingTop: '3rem', paddingBottom: '3rem' }}>
 
       {/* Toggle row */}
       <button
@@ -167,7 +167,7 @@ export default function StudioPhotos({ photos }: { photos: string[] }) {
           fontSize:      '0.7rem',
           letterSpacing: '0.35em',
           textTransform: 'uppercase',
-          color:         open ? '#B8B0A6' : '#7A6F62',
+          color:         open ? 'var(--color-ink-body)' : 'var(--color-ink-meta)',
           transition:    'color 200ms ease',
         }}>
           From the Studio
@@ -178,14 +178,14 @@ export default function StudioPhotos({ photos }: { photos: string[] }) {
             fontFamily:    'var(--font-inter)',
             fontSize:      '0.45rem',
             letterSpacing: '0.15em',
-            color:         'rgba(122,111,98,0.45)',
+            color:         'rgba(var(--meta-rgb),0.45)',
           }}>
             {photos.length} photos
           </span>
           <svg
             width="10" height="6" viewBox="0 0 10 6" fill="none"
             style={{
-              color:      '#B8B0A6',
+              color:      'var(--color-ink-body)',
               transform:   open ? 'rotate(180deg)' : 'rotate(0deg)',
               transition: 'transform 0.35s ease',
               flexShrink: 0,

@@ -29,7 +29,7 @@ export default async function AudioPlayerPage({
   const t = await getDictionary(locale);
 
   return (
-    <main className="min-h-screen" style={{ background: '#0D0B09', color: '#E8E0D4' }}>
+    <main className="min-h-screen" style={{ background: 'var(--page-solid)', color: 'var(--color-ink-primary)' }}>
       <div style={{ maxWidth: '760px', margin: '0 auto', padding: '0 1.5rem' }}>
         <div style={{ paddingTop: '5.5rem', paddingBottom: '3rem' }}>
           <BackNav />
@@ -38,14 +38,14 @@ export default async function AudioPlayerPage({
             fontSize:      '0.7rem',
             letterSpacing: '0.35em',
             textTransform: 'uppercase',
-            color:         '#7A6F62',
+            color:         'var(--color-ink-meta)',
             marginBottom:  '1.25rem',
           }}>
             {t.nav.audioPlayer}
           </p>
           <h1
             className="font-[family-name:var(--font-cormorant)] font-light"
-            style={{ fontSize: 'clamp(2.5rem, 7vw, 4.5rem)', color: '#E8E0D4', marginBottom: '1.5rem' }}
+            style={{ fontSize: 'clamp(2.5rem, 7vw, 4.5rem)', color: 'var(--color-ink-primary)', marginBottom: '1.5rem' }}
           >
             Audio Player
           </h1>
@@ -53,7 +53,7 @@ export default async function AudioPlayerPage({
           <p style={{
             fontFamily:   'var(--font-inter)',
             fontSize:     '1rem',
-            color:        '#B8B0A6',
+            color:        'var(--color-ink-body)',
             lineHeight:   1.85,
             maxWidth:     '48ch',
             marginBottom: '2.5rem',
@@ -61,7 +61,7 @@ export default async function AudioPlayerPage({
             A first taste from the catalogue, hosted directly on the site — more tracks join as they&rsquo;re mastered and uploaded.
           </p>
 
-          <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}>
+          <div style={{ borderTop: '1px solid rgba(var(--fg-rgb),0.07)' }}>
             <AudioPlayer
               index={1}
               title="Old town"
@@ -79,8 +79,8 @@ export default async function AudioPlayerPage({
               className="hover:text-[#1DB954] transition-colors duration-200"
               style={{
                 fontFamily: 'var(--font-inter)', fontSize: '0.7rem', letterSpacing: '0.2em',
-                textTransform: 'uppercase', color: '#7A6F62',
-                borderBottom: '1px solid rgba(122,111,98,0.3)', paddingBottom: '2px',
+                textTransform: 'uppercase', color: 'var(--color-ink-meta)',
+                borderBottom: '1px solid rgba(var(--meta-rgb),0.3)', paddingBottom: '2px',
               }}
             >
               Full catalogue on Spotify →
@@ -92,8 +92,8 @@ export default async function AudioPlayerPage({
               className="hover:text-[#00FFFF] transition-colors duration-200"
               style={{
                 fontFamily: 'var(--font-inter)', fontSize: '0.7rem', letterSpacing: '0.2em',
-                textTransform: 'uppercase', color: '#7A6F62',
-                borderBottom: '1px solid rgba(122,111,98,0.3)', paddingBottom: '2px',
+                textTransform: 'uppercase', color: 'var(--color-ink-meta)',
+                borderBottom: '1px solid rgba(var(--meta-rgb),0.3)', paddingBottom: '2px',
               }}
             >
               Full catalogue on Tidal →

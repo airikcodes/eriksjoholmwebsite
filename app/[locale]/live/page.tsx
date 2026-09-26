@@ -47,7 +47,7 @@ export default async function LivePage({
     : null;
 
   return (
-    <main className="min-h-screen" style={{ background: '#0D0B09', color: '#E8E0D4' }}>
+    <main className="min-h-screen" style={{ background: 'var(--page-solid)', color: 'var(--color-ink-primary)' }}>
 
       {/* Fixed background */}
       <div style={{ position: 'fixed', inset: 0, zIndex: 0 }}>
@@ -71,7 +71,7 @@ export default async function LivePage({
               fontSize:      '0.7rem',
               letterSpacing: '0.35em',
               textTransform: 'uppercase',
-              color:         '#7A6F62',
+              color:         'var(--color-ink-meta)',
               marginBottom:  '1.25rem',
             }}>
               {l.eyebrow}
@@ -80,7 +80,7 @@ export default async function LivePage({
               className="font-[family-name:var(--font-cormorant)] font-light"
               style={{
                 fontSize:     'clamp(3rem, 9vw, 6rem)',
-                color:        '#E8E0D4',
+                color:        'var(--color-ink-primary)',
                 letterSpacing:'0.02em',
                 lineHeight:   0.95,
               }}
@@ -91,13 +91,13 @@ export default async function LivePage({
           </div>
 
           {/* ── Upcoming ── */}
-          <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '5rem', paddingBottom: '5rem' }}>
+          <div style={{ borderTop: '1px solid rgba(var(--fg-rgb),0.07)', paddingTop: '5rem', paddingBottom: '5rem' }}>
             <p style={{
               fontFamily:    'var(--font-inter)',
               fontSize:      '0.7rem',
               letterSpacing: '0.35em',
               textTransform: 'uppercase',
-              color:         '#7A6F62',
+              color:         'var(--color-ink-meta)',
               marginBottom:  '3rem',
             }}>
               {l.upcoming.label}
@@ -109,7 +109,7 @@ export default async function LivePage({
                   className="font-[family-name:var(--font-cormorant)] font-light"
                   style={{
                     fontSize:     'clamp(1.4rem, 3.5vw, 2rem)',
-                    color:        '#E8E0D4',
+                    color:        'var(--color-ink-primary)',
                     lineHeight:   1.3,
                     marginBottom: '1.5rem',
                   }}
@@ -119,7 +119,7 @@ export default async function LivePage({
                 <p style={{
                   fontFamily: 'var(--font-inter)',
                   fontSize:   '1rem',
-                  color:      '#B8B0A6',
+                  color:      'var(--color-ink-body)',
                   lineHeight: 1.85,
                   maxWidth:   '44ch',
                   marginBottom: pastCountText ? '0.75rem' : '3rem',
@@ -130,7 +130,7 @@ export default async function LivePage({
                   <p style={{
                     fontFamily: 'var(--font-inter)',
                     fontSize:   '0.85rem',
-                    color:      '#7A6F62',
+                    color:      'var(--color-ink-meta)',
                     lineHeight: 1.7,
                     maxWidth:   '44ch',
                     marginBottom: '3rem',
@@ -140,18 +140,18 @@ export default async function LivePage({
                 )}
               </>
             ) : (
-              <ul style={{ borderTop: '1px solid rgba(255,255,255,0.07)', marginBottom: '3rem' }}>
+              <ul style={{ borderTop: '1px solid rgba(var(--fg-rgb),0.07)', marginBottom: '3rem' }}>
                 {upcomingEvents.map((event) => (
                   <li
                     key={event.id}
                     className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between sm:gap-6"
-                    style={{ borderBottom: '1px solid rgba(255,255,255,0.07)', padding: '1.75rem 0' }}
+                    style={{ borderBottom: '1px solid rgba(var(--fg-rgb),0.07)', padding: '1.75rem 0' }}
                   >
                     <div>
                       {event.title && (
                         <p
                           className="font-[family-name:var(--font-cormorant)] font-light"
-                          style={{ fontSize: 'clamp(1rem, 2.5vw, 1.3rem)', color: '#E8E0D4', marginBottom: '0.35rem' }}
+                          style={{ fontSize: 'clamp(1rem, 2.5vw, 1.3rem)', color: 'var(--color-ink-primary)', marginBottom: '0.35rem' }}
                         >
                           {event.title}
                         </p>
@@ -159,7 +159,7 @@ export default async function LivePage({
                       <p style={{
                         fontFamily: 'var(--font-inter)',
                         fontSize:   '0.75rem',
-                        color:      '#B8B0A6',
+                        color:      'var(--color-ink-body)',
                         letterSpacing: '0.08em',
                       }}>
                         {event.venue ? `${event.venue} · ` : ''}{event.city}, {event.country}
@@ -170,7 +170,7 @@ export default async function LivePage({
                         <p style={{
                           fontFamily: 'var(--font-inter)',
                           fontSize:   '0.62rem',
-                          color:      '#C8922A',
+                          color:      'var(--accent-ink)',
                           letterSpacing: '0.08em',
                           marginBottom: event.ticketUrl ? '0.5rem' : 0,
                         }}>
@@ -187,11 +187,11 @@ export default async function LivePage({
                             fontSize: '0.7rem',
                             letterSpacing: '0.22em',
                             textTransform: 'uppercase',
-                            color: '#7A6F62',
-                            borderBottom: '1px solid rgba(122,111,98,0.3)',
+                            color: 'var(--color-ink-meta)',
+                            borderBottom: '1px solid rgba(var(--meta-rgb),0.3)',
                             paddingBottom: '2px',
                           }}
-                          className="hover:text-[#C8922A] hover:border-[#C8922A] transition-colors duration-200"
+                          className="hover:text-[color:var(--accent-ink)] hover:border-[#C8922A] transition-colors duration-200"
                         >
                           Tickets →
                         </a>
@@ -206,13 +206,13 @@ export default async function LivePage({
           </div>
 
           {/* ── Songs of the Seasons ── */}
-          <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '5rem', paddingBottom: '5rem' }}>
+          <div style={{ borderTop: '1px solid rgba(var(--fg-rgb),0.07)', paddingTop: '5rem', paddingBottom: '5rem' }}>
             <p style={{
               fontFamily:    'var(--font-inter)',
               fontSize:      '0.7rem',
               letterSpacing: '0.35em',
               textTransform: 'uppercase',
-              color:         '#7A6F62',
+              color:         'var(--color-ink-meta)',
               marginBottom:  '1.25rem',
             }}>
               {l.concertSeries.label}
@@ -221,7 +221,7 @@ export default async function LivePage({
               className="font-[family-name:var(--font-cormorant)] font-light"
               style={{
                 fontSize:     'clamp(2rem, 5vw, 3.5rem)',
-                color:        '#E8E0D4',
+                color:        'var(--color-ink-primary)',
                 lineHeight:   1.05,
                 marginBottom: '2rem',
               }}
@@ -231,7 +231,7 @@ export default async function LivePage({
             <p style={{
               fontFamily: 'var(--font-inter)',
               fontSize:   '1rem',
-              color:      '#B8B0A6',
+              color:      'var(--color-ink-body)',
               lineHeight: 1.9,
               maxWidth:   '50ch',
               marginBottom: '2rem',
@@ -241,7 +241,7 @@ export default async function LivePage({
             <p style={{
               fontFamily: 'var(--font-inter)',
               fontSize:   '1rem',
-              color:      '#B8B0A6',
+              color:      'var(--color-ink-body)',
               lineHeight: 1.9,
               maxWidth:   '50ch',
               marginBottom: '2.5rem',
@@ -252,34 +252,34 @@ export default async function LivePage({
 
           {/* ── Past stages ── */}
           {pastEvents.length > 0 && (
-            <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '5rem', paddingBottom: '5rem' }}>
+            <div style={{ borderTop: '1px solid rgba(var(--fg-rgb),0.07)', paddingTop: '5rem', paddingBottom: '5rem' }}>
               <p style={{
                 fontFamily:    'var(--font-inter)',
                 fontSize:      '0.7rem',
                 letterSpacing: '0.35em',
                 textTransform: 'uppercase',
-                color:         '#7A6F62',
+                color:         'var(--color-ink-meta)',
                 marginBottom:  '0',
               }}>
                 {l.pastStages}
               </p>
-              <ul style={{ borderTop: '1px solid rgba(255,255,255,0.07)', marginTop: '1.25rem' }}>
+              <ul style={{ borderTop: '1px solid rgba(var(--fg-rgb),0.07)', marginTop: '1.25rem' }}>
                 {pastEvents.map((event) => (
                   <li
                     key={event.id}
                     className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between sm:gap-6"
-                    style={{ borderBottom: '1px solid rgba(255,255,255,0.07)', padding: '1.6rem 0' }}
+                    style={{ borderBottom: '1px solid rgba(var(--fg-rgb),0.07)', padding: '1.6rem 0' }}
                   >
                     <p
                       className="font-[family-name:var(--font-cormorant)] font-light"
-                      style={{ fontSize: 'clamp(1rem, 2.2vw, 1.2rem)', color: '#E8E0D4' }}
+                      style={{ fontSize: 'clamp(1rem, 2.2vw, 1.2rem)', color: 'var(--color-ink-primary)' }}
                     >
                       {event.venue ?? event.title ?? event.city}
                     </p>
                     <p style={{
                       fontFamily:    'var(--font-inter)',
                       fontSize:      '0.72rem',
-                      color:         '#B8B0A6',
+                      color:         'var(--color-ink-body)',
                       letterSpacing: '0.08em',
                       flexShrink:    0,
                       marginTop:     '0.3rem',
@@ -293,13 +293,13 @@ export default async function LivePage({
           )}
 
           {/* ── Contact for shows ── */}
-          <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '5rem', paddingBottom: '9rem' }}>
+          <div style={{ borderTop: '1px solid rgba(var(--fg-rgb),0.07)', paddingTop: '5rem', paddingBottom: '9rem' }}>
             <p style={{
               fontFamily:    'var(--font-inter)',
               fontSize:      '0.7rem',
               letterSpacing: '0.35em',
               textTransform: 'uppercase',
-              color:         '#7A6F62',
+              color:         'var(--color-ink-meta)',
               marginBottom:  '1.25rem',
             }}>
               {l.getInTouch.label}
@@ -308,7 +308,7 @@ export default async function LivePage({
               className="font-[family-name:var(--font-cormorant)] font-light"
               style={{
                 fontSize:     'clamp(2rem, 5vw, 3.5rem)',
-                color:        '#E8E0D4',
+                color:        'var(--color-ink-primary)',
                 lineHeight:   1.05,
                 marginBottom: '1.75rem',
               }}
@@ -318,7 +318,7 @@ export default async function LivePage({
             <p style={{
               fontFamily: 'var(--font-inter)',
               fontSize:   '1rem',
-              color:      '#B8B0A6',
+              color:      'var(--color-ink-body)',
               lineHeight: 1.9,
               maxWidth:   '48ch',
               marginBottom: '2rem',
@@ -328,11 +328,11 @@ export default async function LivePage({
             <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
               <a
                 href="mailto:erik@eriksjoholm.com"
-                className="font-[family-name:var(--font-cormorant)] font-light hover:text-[#E8E0D4] transition-colors duration-200"
+                className="font-[family-name:var(--font-cormorant)] font-light hover:text-[color:var(--color-ink-primary)] transition-colors duration-200"
                 style={{
                   fontSize:     'clamp(1.1rem, 2.5vw, 1.45rem)',
                   letterSpacing:'0.03em',
-                  color:        '#C8922A',
+                  color:        'var(--accent-ink)',
                 }}
               >
                 erik@eriksjoholm.com
@@ -344,12 +344,12 @@ export default async function LivePage({
                   fontSize:      '0.7rem',
                   letterSpacing: '0.25em',
                   textTransform: 'uppercase',
-                  color:         '#7A6F62',
-                  borderBottom:  '1px solid rgba(122,111,98,0.35)',
+                  color:         'var(--color-ink-meta)',
+                  borderBottom:  '1px solid rgba(var(--meta-rgb),0.35)',
                   paddingBottom: '2px',
                   display:       'inline-block',
                 }}
-                className="hover:text-[#C8922A] hover:border-[#C8922A] transition-colors duration-200"
+                className="hover:text-[color:var(--accent-ink)] hover:border-[#C8922A] transition-colors duration-200"
               >
                 {l.getInTouch.contactPage}
               </Link>

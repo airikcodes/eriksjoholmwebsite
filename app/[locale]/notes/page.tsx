@@ -40,7 +40,7 @@ export default async function NotesIndex({
   const notes = await getNotes();
 
   return (
-    <main className="min-h-screen" style={{ background: '#0D0B09', color: '#E8E0D4' }}>
+    <main className="min-h-screen" style={{ background: 'var(--page-solid)', color: 'var(--color-ink-primary)' }}>
 
       {/* Fixed background */}
       <div style={{ position: 'fixed', inset: 0, zIndex: 0 }}>
@@ -64,7 +64,7 @@ export default async function NotesIndex({
               fontSize:      '0.7rem',
               letterSpacing: '0.35em',
               textTransform: 'uppercase',
-              color:         '#7A6F62',
+              color:         'var(--color-ink-meta)',
               marginBottom:  '1.25rem',
             }}>
               {n.eyebrow}
@@ -73,7 +73,7 @@ export default async function NotesIndex({
               className="font-[family-name:var(--font-cormorant)] font-light"
               style={{
                 fontSize:     'clamp(2.8rem, 8vw, 5.5rem)',
-                color:        '#E8E0D4',
+                color:        'var(--color-ink-primary)',
                 letterSpacing:'0.02em',
                 lineHeight:   0.95,
                 marginBottom: '1.75rem',
@@ -84,7 +84,7 @@ export default async function NotesIndex({
             <p style={{
               fontFamily: 'var(--font-inter)',
               fontSize:   '1rem',
-              color:      '#B8B0A6',
+              color:      'var(--color-ink-body)',
               lineHeight: 1.85,
               maxWidth:   '44ch',
             }}>
@@ -93,12 +93,12 @@ export default async function NotesIndex({
           </div>
 
           {/* ── Note list ── */}
-          <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}>
+          <div style={{ borderTop: '1px solid rgba(var(--fg-rgb),0.07)' }}>
             {notes.length === 0 ? (
               <p style={{
                 fontFamily: 'var(--font-inter)',
                 fontSize:   '1rem',
-                color:      '#B8B0A6',
+                color:      'var(--color-ink-body)',
                 paddingTop: '3.5rem',
               }}>
                 {n.noPostsYet}
@@ -114,7 +114,7 @@ export default async function NotesIndex({
 
           {/* ── Keep in touch ── */}
           <div style={{
-            borderTop:     '1px solid rgba(255,255,255,0.07)',
+            borderTop:     '1px solid rgba(var(--fg-rgb),0.07)',
             paddingTop:    '4rem',
             paddingBottom: '9rem',
           }}>

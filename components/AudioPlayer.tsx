@@ -91,7 +91,7 @@ export default function AudioPlayer({ src, title, meta, artworkUrl, index }: Pro
         gap:          '1.25rem',
         alignItems:   'center',
         padding:      '1.5rem 0',
-        borderBottom: '1px solid rgba(255,255,255,0.06)',
+        borderBottom: '1px solid rgba(var(--fg-rgb),0.06)',
       }}
     >
       <audio ref={audioRef} src={src} preload="none" />
@@ -121,7 +121,7 @@ export default function AudioPlayer({ src, title, meta, artworkUrl, index }: Pro
           flexShrink:      0,
           borderRadius:    '2px',
           border:          hover ? '1px solid rgba(200,146,42,0.85)' : '1px solid rgba(200,146,42,0.55)',
-          background:      hover ? 'rgba(13,11,9,0.75)' : 'rgba(13,11,9,0.55)',
+          background:      hover ? 'rgba(var(--page-rgb),0.75)' : 'rgba(var(--page-rgb),0.55)',
           color:           hover ? '#E0A93A' : '#C8922A',
           cursor:          'pointer',
           display:         'flex',
@@ -169,7 +169,7 @@ export default function AudioPlayer({ src, title, meta, artworkUrl, index }: Pro
           className="font-[family-name:var(--font-cormorant)] font-light"
           style={{
             fontSize:      'clamp(1.1rem, 2.8vw, 1.55rem)',
-            color:         '#E8E0D4',
+            color:         'var(--color-ink-primary)',
             lineHeight:    1.2,
             letterSpacing: '0.01em',
           }}
@@ -183,7 +183,7 @@ export default function AudioPlayer({ src, title, meta, artworkUrl, index }: Pro
               fontSize:      '0.7rem',
               letterSpacing: '0.12em',
               textTransform: 'uppercase',
-              color:         '#7A6F62',
+              color:         'var(--color-ink-meta)',
               marginTop:     '0.2rem',
             }}
           >
@@ -196,7 +196,7 @@ export default function AudioPlayer({ src, title, meta, artworkUrl, index }: Pro
             marginTop:    '0.65rem',
             position:     'relative',
             height:       3,
-            background:   'rgba(255,255,255,0.08)',
+            background:   'rgba(var(--fg-rgb),0.08)',
             borderRadius: '2px',
           }}
         >
@@ -237,7 +237,7 @@ export default function AudioPlayer({ src, title, meta, artworkUrl, index }: Pro
         style={{
           fontFamily:        'var(--font-inter)',
           fontSize:          '0.6rem',
-          color:             '#B8B0A6',
+          color:             'var(--color-ink-body)',
           flexShrink:        0,
           fontVariantNumeric: 'tabular-nums',
         }}

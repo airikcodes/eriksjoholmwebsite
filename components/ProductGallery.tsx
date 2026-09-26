@@ -13,7 +13,7 @@ export default function ProductGallery({ images, alt }: Props) {
   const [active, setActive] = useState(0);
 
   if (images.length === 0) {
-    return <div style={{ aspectRatio: '1/1', background: 'rgba(255,255,255,0.03)' }} />;
+    return <div style={{ aspectRatio: '1/1', background: 'rgba(var(--fg-rgb),0.03)' }} />;
   }
 
   const main = images[active];
@@ -25,7 +25,7 @@ export default function ProductGallery({ images, alt }: Props) {
         aspectRatio: '1 / 1',
         position: 'relative',
         overflow: 'hidden',
-        background: 'rgba(255,255,255,0.03)',
+        background: 'rgba(var(--fg-rgb),0.03)',
         marginBottom: images.length > 1 ? '0.875rem' : 0,
       }}>
         <Image
@@ -53,7 +53,7 @@ export default function ProductGallery({ images, alt }: Props) {
                 aspectRatio: '1/1',
                 position: 'relative',
                 overflow: 'hidden',
-                background: 'rgba(255,255,255,0.03)',
+                background: 'rgba(var(--fg-rgb),0.03)',
                 border: i === active
                   ? '1px solid rgba(200,146,42,0.8)'
                   : '1px solid transparent',

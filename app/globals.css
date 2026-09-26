@@ -40,6 +40,11 @@
   --tile-title:   #F1EADF;                 /* portal tile title (sits on photo shade) */
   --tile-kicker:  #C8922A;
   --tile-note:    #B8B0A6;
+  --fg-rgb:       255,255,255;             /* 'foreground' for hairlines/fills: white on dark, ink on light */
+  --ink-rgb:      232,224,212;
+  --meta-rgb:     122,111,98;
+  --muted-rgb:    140,128,118;
+  --accent-ink-hover: #E0A93A;
   --section-wash-a: 0.9;                   /* opacity of the page wash behind homepage section 2 */
 }
 
@@ -153,7 +158,7 @@ body {
   content: '';
   position: absolute;
   inset: -1.25rem -1.5rem;
-  background: radial-gradient(ellipse at center, rgba(13,11,9,0.7) 0%, rgba(13,11,9,0.42) 65%, transparent 100%);
+  background: radial-gradient(ellipse at center, rgba(var(--page-rgb),0.7) 0%, rgba(var(--page-rgb),0.42) 65%, transparent 100%);
   z-index: -1;
   border-radius: 4px;
 }
@@ -168,16 +173,16 @@ body {
   letter-spacing: 0.16em;
   text-transform: uppercase;
   padding:        0.6rem 1.3rem;
-  background:     rgba(255,255,255,0.03);
+  background:     rgba(var(--fg-rgb),0.03);
   border-radius:  2px;
   transition:     background 180ms ease, border-color 180ms ease, color 180ms ease;
 }
 .pill-btn:hover {
-  background: rgba(255,255,255,0.06);
+  background: rgba(var(--fg-rgb),0.06);
 }
 
 .form-input {
-  background:   rgba(255,255,255,0.05);
+  background:   rgba(var(--fg-rgb),0.05);
   border-style: solid;
   border-width: 1px;
   padding:      0.85rem 1.1rem;
@@ -185,7 +190,7 @@ body {
   transition:   border-color 180ms ease, background 180ms ease;
 }
 .form-input:focus {
-  background: rgba(255,255,255,0.08);
+  background: rgba(var(--fg-rgb),0.08);
 }
 
 /* Scroll-triggered reveal */
@@ -441,7 +446,7 @@ a:hover .product-img {
   overflow: hidden;
   border-radius: 2px;
   scroll-snap-align: center;
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(var(--fg-rgb),0.08);
   transition: transform 260ms ease, border-color 260ms ease, box-shadow 260ms ease;
 }
 @media (min-width: 560px) {
@@ -488,7 +493,7 @@ a:hover .product-img {
 .studio-photo-progress {
   position: relative;
   height: 2px;
-  background: rgba(255,255,255,0.08);
+  background: rgba(var(--fg-rgb),0.08);
   border-radius: 2px;
   margin-top: 0.9rem;
   max-width: 140px;
@@ -512,7 +517,7 @@ a:hover .product-img {
   font-family: var(--font-inter), system-ui, sans-serif;
   font-size: 0.95rem;
   line-height: 1.95;
-  color: #B8B0A6;
+  color: var(--color-ink-body);
 }
 .notes-content > *:first-child { margin-top: 0; }
 .notes-content p { margin-bottom: 1.5em; }
@@ -561,12 +566,12 @@ a:hover .product-img {
 }
 .notes-content hr {
   border: none;
-  border-top: 1px solid rgba(255,255,255,0.07);
+  border-top: 1px solid rgba(var(--fg-rgb),0.07);
   margin: 3.5em 0;
 }
 .notes-content pre {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.07);
+  background: rgba(var(--fg-rgb),0.04);
+  border: 1px solid rgba(var(--fg-rgb),0.07);
   padding: 1.25rem;
   overflow-x: auto;
   font-size: 0.82rem;
@@ -740,7 +745,7 @@ a:hover .product-img {
   grid-template-columns: 1fr;
   gap:                   1.25rem;
   padding:               2.5rem 0 1rem;
-  border-top:            1px solid rgba(255,255,255,0.07);
+  border-top:            1px solid rgba(var(--fg-rgb),0.07);
 }
 @media (min-width: 720px) {
   .lib-year-group { grid-template-columns: 8.5rem 1fr; gap: 2rem; }
@@ -753,7 +758,7 @@ a:hover .product-img {
   align-items:           center;
   padding:               0.85rem 0;
   text-decoration:       none;
-  border-bottom:         1px solid rgba(255,255,255,0.05);
+  border-bottom:         1px solid rgba(var(--fg-rgb),0.05);
 }
 .lib-row:last-child { border-bottom: none; }
 @media (min-width: 720px) {
@@ -784,13 +789,13 @@ a:hover .product-img {
   text-transform: uppercase;
   padding:        0.55rem 1.05rem;
   border-radius:  2px;
-  border:         1px solid rgba(255,255,255,0.14);
-  background:     rgba(255,255,255,0.03);
-  color:          #B8B0A6;
+  border:         1px solid rgba(var(--fg-rgb),0.14);
+  background:     rgba(var(--fg-rgb),0.03);
+  color:          var(--color-ink-body);
   text-decoration: none;
   transition:     border-color 180ms ease, color 180ms ease, background 180ms ease;
 }
-.lib-filter:hover { color: #E8E0D4; border-color: rgba(200,146,42,0.5); }
+.lib-filter:hover { color: var(--color-ink-primary); border-color: rgba(200,146,42,0.5); }
 .lib-filter[aria-current="true"] {
   color: #0D0B09; background: #C8922A; border-color: #C8922A;
 }
@@ -877,14 +882,6 @@ a:hover .product-img {
 html[data-theme="light"][data-home] {
   --bg-filter: brightness(1.06) contrast(0.9) saturate(0.92);
 
-  /* menu button (closed state) — dark amber on a cream glass pill */
-  --menu-bg:            rgba(247,243,238,0.62);
-  --menu-bg-hover:      rgba(247,243,238,0.88);
-  --menu-border:        rgba(122,84,16,0.55);
-  --menu-border-hover:  rgba(122,84,16,0.9);
-  --menu-fg:            #7A5410;   /* 6.1:1 on #F7F3EE */
-  --menu-fg-hover:      #5E3F08;
-
   /* language row */
   --lang-active: #1C1A17;
   --lang-idle:   rgba(28,26,23,0.74);
@@ -936,7 +933,20 @@ html[data-theme="light"][data-home] .concierge-input::placeholder { color: rgba(
    classes (.body-copy, .eyebrow-label) read these tokens, and every other page
    is still hardcoded dark, so the overrides must not leak there yet. Drop
    [data-home] from this block once the remaining pages are tokenised. */
-html[data-theme="light"][data-home] {
+html[data-theme="light"] {
+  --color-void:        #F7F3EE;
+  /* menu button (closed state) — dark amber on a cream glass pill */
+  --menu-bg:            rgba(247,243,238,0.72);
+  --menu-bg-hover:      rgba(247,243,238,0.92);
+  --menu-border:        rgba(122,84,16,0.55);
+  --menu-border-hover:  rgba(122,84,16,0.9);
+  --menu-fg:            #7A5410;   /* 6.1:1 on #F7F3EE */
+  --menu-fg-hover:      #5E3F08;
+  --fg-rgb:            28,26,23;
+  --ink-rgb:           28,26,23;
+  --meta-rgb:          110,100,89;
+  --muted-rgb:         100,90,80;
+  --accent-ink-hover:  #5E3F08;
   --color-ink-primary: #1C1A17;
   --color-ink-body:    #4A433A;   /* 8.8:1 on #F7F3EE */
   --color-ink-meta:    #6E6459;   /* 5.2:1 */

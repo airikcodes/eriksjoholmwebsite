@@ -14,7 +14,7 @@ export default function NoteCard({ note, locale, readMoreLabel = 'Read →' }: {
     >
       <article
         style={{
-          borderBottom:        '1px solid rgba(255,255,255,0.07)',
+          borderBottom:        '1px solid rgba(var(--fg-rgb),0.07)',
           paddingTop:          '2.75rem',
           paddingBottom:       '2.75rem',
           display:             'grid',
@@ -30,7 +30,7 @@ export default function NoteCard({ note, locale, readMoreLabel = 'Read →' }: {
               fontSize:      '0.7rem',
               letterSpacing: '0.3em',
               textTransform: 'uppercase',
-              color:         '#7A6F62',
+              color:         'var(--color-ink-meta)',
               marginBottom:  '0.85rem',
             }}>
               {date}
@@ -38,10 +38,10 @@ export default function NoteCard({ note, locale, readMoreLabel = 'Read →' }: {
           )}
 
           <h2
-            className="font-[family-name:var(--font-cormorant)] font-light group-hover:text-[#C8922A] transition-colors duration-200"
+            className="font-[family-name:var(--font-cormorant)] font-light group-hover:text-[color:var(--accent-ink)] transition-colors duration-200"
             style={{
               fontSize:     'clamp(1.35rem, 3vw, 1.9rem)',
-              color:        '#E8E0D4',
+              color:        'var(--color-ink-primary)',
               lineHeight:   1.1,
               marginBottom: note.excerpt ? '0.7rem' : '1rem',
               letterSpacing:'0.01em',
@@ -54,7 +54,7 @@ export default function NoteCard({ note, locale, readMoreLabel = 'Read →' }: {
             <p style={{
               fontFamily: 'var(--font-inter)',
               fontSize:   '0.9rem',
-              color:      '#B8B0A6',
+              color:      'var(--color-ink-body)',
               lineHeight: 1.75,
               maxWidth:   '48ch',
               marginBottom: '1rem',
@@ -64,13 +64,13 @@ export default function NoteCard({ note, locale, readMoreLabel = 'Read →' }: {
           )}
 
           <span
-            className="group-hover:text-[#C8922A] transition-colors duration-200"
+            className="group-hover:text-[color:var(--accent-ink)] transition-colors duration-200"
             style={{
               fontFamily:    'var(--font-inter)',
               fontSize:      '0.7rem',
               letterSpacing: '0.2em',
               textTransform: 'uppercase',
-              color:         '#7A6F62',
+              color:         'var(--color-ink-meta)',
             }}
           >
             {readMoreLabel}

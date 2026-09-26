@@ -23,13 +23,13 @@ export default function SinglesList({
   const [openSlug, setOpenSlug] = useState<string | null>(null);
 
   return (
-    <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
+    <div style={{ borderTop: '1px solid rgba(var(--fg-rgb),0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
       <p style={{
         fontFamily:    'var(--font-inter)',
         fontSize:      '0.7rem',
         letterSpacing: '0.35em',
         textTransform: 'uppercase',
-        color:         '#7A6F62',
+        color:         'var(--color-ink-meta)',
         marginBottom:  '2rem',
       }}>
         {label}
@@ -43,7 +43,7 @@ export default function SinglesList({
           const playable = Boolean(track.audioUrl || trackId);
           const isOpen = openSlug === track.slug;
           return (
-            <div key={track.slug} style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+            <div key={track.slug} style={{ borderBottom: '1px solid rgba(var(--fg-rgb),0.05)' }}>
               <div className="group" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '1rem 0' }}>
                 <Link
                   href={`/${locale}/works/${track.slug}`}
@@ -68,8 +68,8 @@ export default function SinglesList({
                   )}
                   <div style={{ minWidth: 0 }}>
                     <p
-                      className="font-[family-name:var(--font-cormorant)] font-light group-hover:text-[#C8922A] transition-colors duration-200"
-                      style={{ fontSize: 'clamp(0.95rem, 2.2vw, 1.2rem)', color: '#E8E0D4', lineHeight: 1.25 }}
+                      className="font-[family-name:var(--font-cormorant)] font-light group-hover:text-[color:var(--accent-ink)] transition-colors duration-200"
+                      style={{ fontSize: 'clamp(0.95rem, 2.2vw, 1.2rem)', color: 'var(--color-ink-primary)', lineHeight: 1.25 }}
                     >
                       {track.title}
                     </p>
@@ -79,7 +79,7 @@ export default function SinglesList({
                         fontSize:      '0.52rem',
                         letterSpacing: '0.1em',
                         textTransform: 'uppercase',
-                        color:         '#5A5248',
+                        color:         'var(--color-ink-meta)',
                         marginTop:     '0.2rem',
                       }}>
                         {track.meta}
@@ -89,7 +89,7 @@ export default function SinglesList({
                       <p style={{
                         fontFamily: 'var(--font-inter)',
                         fontSize:   '0.75rem',
-                        color:      'rgba(140,128,118,0.6)',
+                        color:      'rgba(var(--muted-rgb),0.6)',
                         lineHeight: 1.65,
                         marginTop:  '0.5rem',
                         maxWidth:   '44ch',
@@ -116,7 +116,7 @@ export default function SinglesList({
                       borderRadius: '50%',
                       border:       isOpen ? '1px solid #C8922A' : '1px solid rgba(200,146,42,0.4)',
                       background:   isOpen ? '#C8922A' : 'transparent',
-                      color:        isOpen ? '#0D0B09' : '#C8922A',
+                      color:        isOpen ? 'var(--page-solid)' : '#C8922A',
                       cursor:       'pointer',
                       transition:   'background 200ms ease, border-color 200ms ease',
                     }}

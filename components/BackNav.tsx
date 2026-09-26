@@ -8,13 +8,13 @@ export default function BackNav({ href = '/', label = 'Erik Sjøholm' }: BackNav
     <div style={{ marginBottom: '3.5rem' }}>
       <a
         href={href}
-        className="hover:text-[#C8922A] transition-colors duration-200"
+        className="hover:text-[color:var(--accent-ink)] transition-colors duration-200"
         style={{
           display: 'inline-flex',
           alignItems: 'center',
           gap: '0.75rem',
           textDecoration: 'none',
-          color: '#B8B0A6',
+          color: 'var(--color-ink-body)',
         }}
       >
         <span

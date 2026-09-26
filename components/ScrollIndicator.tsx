@@ -13,7 +13,7 @@ export default function ScrollIndicator() {
         height="14"
         viewBox="0 0 18 11"
         fill="none"
-        style={{ color: "#C8922A" }}
+        style={{ color: "var(--accent-ink)" }}
       >
         <path
           d="M1 1L9 9L17 1"

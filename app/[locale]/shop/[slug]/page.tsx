@@ -65,7 +65,7 @@ export default async function ProductPage({
   );
 
   return (
-    <main className="min-h-screen" style={{ background: '#0D0B09', color: '#E8E0D4' }}>
+    <main className="min-h-screen" style={{ background: 'var(--page-solid)', color: 'var(--color-ink-primary)' }}>
 
       {/* Fixed background */}
       <div style={{ position: 'fixed', inset: 0, zIndex: 0 }}>
@@ -103,7 +103,7 @@ export default async function ProductPage({
                 className="font-[family-name:var(--font-cormorant)] font-light"
                 style={{
                   fontSize: 'clamp(2rem, 5vw, 3rem)',
-                  color: '#E8E0D4',
+                  color: 'var(--color-ink-primary)',
                   letterSpacing: '0.02em',
                   lineHeight: 1.05,
                   marginBottom: '0.75rem',
@@ -115,7 +115,7 @@ export default async function ProductPage({
               <p style={{
                 fontFamily: 'var(--font-inter)',
                 fontSize: '1rem',
-                color: '#C8922A',
+                color: 'var(--accent-ink)',
                 marginBottom: '2rem',
                 letterSpacing: '0.02em',
               }}>
@@ -126,7 +126,7 @@ export default async function ProductPage({
                 <p style={{
                   fontFamily: 'var(--font-inter)',
                   fontSize: '1rem',
-                  color: '#B8B0A6',
+                  color: 'var(--color-ink-body)',
                   lineHeight: 1.85,
                   marginBottom: '2.5rem',
                   maxWidth: '42ch',

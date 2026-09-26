@@ -286,7 +286,7 @@ function ResultCard({ track, onDismiss }: { track: Track; onDismiss: (id: string
     <div
       className="card-settle"
       style={{
-        background:     "rgba(10,8,6,0.92)",
+        background:     "rgba(var(--page-rgb),0.92)",
         border:         "1px solid rgba(200,146,42,0.2)",
         backdropFilter: "blur(16px)",
         overflow:       "hidden",
@@ -319,7 +319,7 @@ function ResultCard({ track, onDismiss }: { track: Track; onDismiss: (id: string
         <div style={{ flex: 1, minWidth: 0 }}>
           <p
             className="font-[family-name:var(--font-cormorant)] font-light"
-            style={{ fontSize: "1.25rem", color: "#E8E0D4", lineHeight: 1.2 }}
+            style={{ fontSize: "1.25rem", color: "var(--color-ink-primary)", lineHeight: 1.2 }}
           >
             {track.title}
           </p>
@@ -340,7 +340,7 @@ function ResultCard({ track, onDismiss }: { track: Track; onDismiss: (id: string
               style={{
                 fontFamily: "var(--font-inter)",
                 fontSize:   "0.78rem",
-                color:      "#B8B0A6",
+                color:      "var(--color-ink-body)",
                 marginTop:  "0.5rem",
                 lineHeight: 1.55,
               }}
@@ -355,7 +355,7 @@ function ResultCard({ track, onDismiss }: { track: Track; onDismiss: (id: string
                 href={track.spotifyLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#7A6F62" }}
+                style={{ fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--color-ink-meta)" }}
                 className="hover:text-[#1DB954] transition-colors duration-200"
               >
                 Spotify →
@@ -364,7 +364,7 @@ function ResultCard({ track, onDismiss }: { track: Track; onDismiss: (id: string
                 href={track.tidalLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#7A6F62" }}
+                style={{ fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--color-ink-meta)" }}
                 className="hover:text-[#00FFFF] transition-colors duration-200"
               >
                 Tidal →
@@ -378,7 +378,7 @@ function ResultCard({ track, onDismiss }: { track: Track; onDismiss: (id: string
           onClick={() => onDismiss(track.id)}
           aria-label="Dismiss"
           style={{ color: "rgba(200,146,42,0.3)", fontSize: "1.25rem", lineHeight: 1, flexShrink: 0 }}
-          className="hover:text-[#C8922A] transition-colors duration-200"
+          className="hover:text-[color:var(--accent-ink)] transition-colors duration-200"
         >
           ×
         </button>
@@ -400,7 +400,7 @@ function ResultCard({ track, onDismiss }: { track: Track; onDismiss: (id: string
             href={track.tidalLink}
             target="_blank"
             rel="noopener noreferrer"
-            style={{ display: "inline-block", marginTop: "0.6rem", fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#7A6F62" }}
+            style={{ display: "inline-block", marginTop: "0.6rem", fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--color-ink-meta)" }}
             className="hover:text-[#00FFFF] transition-colors duration-200"
           >
             Also on Tidal →
@@ -550,7 +550,7 @@ export default function SongConcierge({
               key={chip.id}
               onClick={() => handleChip(chip.id)}
               className={`concierge-chip flex-1${activeChip === chip.id ? " active" : ""}`}
-              style={{ fontFamily: "var(--font-inter)", fontSize: "clamp(0.62rem, 2.4vw, 0.72rem)", letterSpacing: "0.1em", textTransform: "uppercase", padding: "0.75rem 0.4rem", background: "rgba(255,255,255,0.03)", cursor: "pointer", textAlign: "center", lineHeight: 1.3 }}
+              style={{ fontFamily: "var(--font-inter)", fontSize: "clamp(0.62rem, 2.4vw, 0.72rem)", letterSpacing: "0.1em", textTransform: "uppercase", padding: "0.75rem 0.4rem", background: "rgba(var(--fg-rgb),0.03)", cursor: "pointer", textAlign: "center", lineHeight: 1.3 }}
             >
               {chip.label}
             </button>

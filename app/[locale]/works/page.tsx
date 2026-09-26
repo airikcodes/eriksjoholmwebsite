@@ -39,7 +39,7 @@ const EYEBROW: React.CSSProperties = {
   fontSize:      '0.7rem',
   letterSpacing: '0.35em',
   textTransform: 'uppercase',
-  color:         '#7A6F62',
+  color:         'var(--color-ink-meta)',
 };
 
 const META_LINK: React.CSSProperties = {
@@ -48,9 +48,9 @@ const META_LINK: React.CSSProperties = {
   fontWeight:    500,
   letterSpacing: '0.16em',
   textTransform: 'uppercase',
-  color:         '#7A6F62',
+  color:         'var(--color-ink-meta)',
   textDecoration: 'none',
-  borderBottom:  '1px solid rgba(122,111,98,0.35)',
+  borderBottom:  '1px solid rgba(var(--meta-rgb),0.35)',
   paddingBottom: '2px',
 };
 
@@ -92,7 +92,7 @@ export default async function WorksPage({
   }
 
   return (
-    <main className="min-h-screen" style={{ background: '#0D0B09', color: '#E8E0D4' }}>
+    <main className="min-h-screen" style={{ background: 'var(--page-solid)', color: 'var(--color-ink-primary)' }}>
       <div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 1.5rem' }}>
 
         {/* ── Header ── */}
@@ -102,7 +102,7 @@ export default async function WorksPage({
             className="font-[family-name:var(--font-cormorant)] font-light"
             style={{
               fontSize:      'clamp(3rem, 9vw, 6rem)',
-              color:         '#E8E0D4',
+              color:         'var(--color-ink-primary)',
               letterSpacing: '0.02em',
               lineHeight:    0.95,
               marginBottom:  '2rem',
@@ -163,7 +163,7 @@ export default async function WorksPage({
                 style={{
                   fontSize:   g.year ? 'clamp(2rem, 5vw, 3rem)' : '1.15rem',
                   lineHeight: 1,
-                  color:      g.year ? '#E8E0D4' : '#B8B0A6',
+                  color:      g.year ? 'var(--color-ink-primary)' : 'var(--color-ink-body)',
                   letterSpacing: g.year ? '0.01em' : '0.02em',
                   fontStyle:  g.year ? 'normal' : 'italic',
                 }}
@@ -188,16 +188,16 @@ export default async function WorksPage({
     ══════════════════════════════════════════════════════ */}
     <div id="sync" style={{
       background:  'rgba(5,4,3,0.82)',
-      borderTop:   '1px solid rgba(255,255,255,0.05)',
-      borderBottom:'1px solid rgba(255,255,255,0.05)',
+      borderTop:   '1px solid rgba(var(--fg-rgb),0.05)',
+      borderBottom:'1px solid rgba(var(--fg-rgb),0.05)',
     }}>
       {/* Separator label */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', padding: '0 1.5rem', paddingTop: '4rem' }}>
-        <span style={{ flex: 1, height: '1px', background: 'rgba(255,255,255,0.05)' }} />
-        <span style={{ fontFamily: 'var(--font-inter)', fontSize: '0.4rem', letterSpacing: '0.4em', textTransform: 'uppercase', color: '#4A4540', whiteSpace: 'nowrap' }}>
+        <span style={{ flex: 1, height: '1px', background: 'rgba(var(--fg-rgb),0.05)' }} />
+        <span style={{ fontFamily: 'var(--font-inter)', fontSize: '0.4rem', letterSpacing: '0.4em', textTransform: 'uppercase', color: 'var(--color-ink-meta)', whiteSpace: 'nowrap' }}>
           For professionals
         </span>
-        <span style={{ flex: 1, height: '1px', background: 'rgba(255,255,255,0.05)' }} />
+        <span style={{ flex: 1, height: '1px', background: 'rgba(var(--fg-rgb),0.05)' }} />
       </div>
 
       {/* Two-column service cards */}
@@ -210,18 +210,18 @@ export default async function WorksPage({
           <p style={{ ...EYEBROW, marginBottom: '1rem' }}>{t.sync.eyebrow}</p>
           <h2
             className="font-[family-name:var(--font-cormorant)] font-light"
-            style={{ fontSize: 'clamp(1.6rem, 4vw, 2.4rem)', color: '#E8E0D4', lineHeight: 1.05, letterSpacing: '0.01em', marginBottom: '1.25rem' }}
+            style={{ fontSize: 'clamp(1.6rem, 4vw, 2.4rem)', color: 'var(--color-ink-primary)', lineHeight: 1.05, letterSpacing: '0.01em', marginBottom: '1.25rem' }}
           >
             {t.sync.title}
           </h2>
-          <p style={{ fontFamily: 'var(--font-inter)', fontSize: '0.85rem', color: '#B8B0A6', lineHeight: 1.85, marginBottom: '2rem', maxWidth: '36ch' }}>
+          <p style={{ fontFamily: 'var(--font-inter)', fontSize: '0.85rem', color: 'var(--color-ink-body)', lineHeight: 1.85, marginBottom: '2rem', maxWidth: '36ch' }}>
             {t.sync.intro}
           </p>
           <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
             <Link
               href="https://sync.eriksjoholm.com"
-              style={{ display: 'inline-block', border: '1px solid rgba(200,146,42,0.45)', color: '#C8922A', fontFamily: 'var(--font-inter)', fontSize: '0.48rem', letterSpacing: '0.28em', textTransform: 'uppercase', padding: '0.7rem 1.5rem', textDecoration: 'none', transition: 'border-color 200ms, color 200ms' }}
-              className="hover:border-[#C8922A] hover:text-[#E8E0D4] transition-all duration-200"
+              style={{ display: 'inline-block', border: '1px solid rgba(200,146,42,0.45)', color: 'var(--accent-ink)', fontFamily: 'var(--font-inter)', fontSize: '0.48rem', letterSpacing: '0.28em', textTransform: 'uppercase', padding: '0.7rem 1.5rem', textDecoration: 'none', transition: 'border-color 200ms, color 200ms' }}
+              className="hover:border-[#C8922A] hover:text-[color:var(--color-ink-primary)] transition-all duration-200"
             >
               {t.songs.sync.cta}
             </Link>
@@ -229,8 +229,8 @@ export default async function WorksPage({
               href="https://eriksjoholmofficial.disco.ac/cat/1272966979"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ fontFamily: 'var(--font-inter)', fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#7A6F62', borderBottom: '1px solid rgba(122,111,98,0.3)', paddingBottom: '2px', textDecoration: 'none' }}
-              className="hover:text-[#C8922A] hover:border-[#C8922A] transition-colors duration-200"
+              style={{ fontFamily: 'var(--font-inter)', fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--color-ink-meta)', borderBottom: '1px solid rgba(var(--meta-rgb),0.3)', paddingBottom: '2px', textDecoration: 'none' }}
+              className="hover:text-[color:var(--accent-ink)] hover:border-[#C8922A] transition-colors duration-200"
             >
               {t.sync.openOnDisco}
             </a>
@@ -242,18 +242,18 @@ export default async function WorksPage({
           <p style={{ ...EYEBROW, marginBottom: '1rem' }}>{t.songs.forYou.eyebrow}</p>
           <h2
             className="font-[family-name:var(--font-cormorant)] font-light"
-            style={{ fontSize: 'clamp(1.6rem, 4vw, 2.4rem)', color: '#E8E0D4', lineHeight: 1.05, letterSpacing: '0.01em', marginBottom: '1.25rem' }}
+            style={{ fontSize: 'clamp(1.6rem, 4vw, 2.4rem)', color: 'var(--color-ink-primary)', lineHeight: 1.05, letterSpacing: '0.01em', marginBottom: '1.25rem' }}
           >
             {t.songs.forYou.title}
           </h2>
-          <p style={{ fontFamily: 'var(--font-inter)', fontSize: '0.85rem', color: '#B8B0A6', lineHeight: 1.85, marginBottom: '2rem', maxWidth: '36ch' }}>
+          <p style={{ fontFamily: 'var(--font-inter)', fontSize: '0.85rem', color: 'var(--color-ink-body)', lineHeight: 1.85, marginBottom: '2rem', maxWidth: '36ch' }}>
             {t.songs.forYou.desc}
           </p>
           <CustomSongPlayer songs={featuredCustomSongs} playlistUrl={CUSTOM_SONGS_PLAYLIST_URL} />
           <Link
             href="/contact"
-            style={{ display: 'inline-block', marginTop: '2rem', border: '1px solid rgba(200,146,42,0.45)', color: '#C8922A', fontFamily: 'var(--font-inter)', fontSize: '0.48rem', letterSpacing: '0.28em', textTransform: 'uppercase', padding: '0.7rem 1.5rem', textDecoration: 'none' }}
-            className="hover:border-[#C8922A] hover:text-[#E8E0D4] transition-all duration-200"
+            style={{ display: 'inline-block', marginTop: '2rem', border: '1px solid rgba(200,146,42,0.45)', color: 'var(--accent-ink)', fontFamily: 'var(--font-inter)', fontSize: '0.48rem', letterSpacing: '0.28em', textTransform: 'uppercase', padding: '0.7rem 1.5rem', textDecoration: 'none' }}
+            className="hover:border-[#C8922A] hover:text-[color:var(--color-ink-primary)] transition-all duration-200"
           >
             {t.songs.forYou.cta}
           </Link>
@@ -263,7 +263,7 @@ export default async function WorksPage({
 
 
       <div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 1.5rem' }}>
-        <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '5rem', paddingBottom: '9rem' }}>
+        <div style={{ borderTop: '1px solid rgba(var(--fg-rgb),0.07)', paddingTop: '5rem', paddingBottom: '9rem' }}>
           <KeepInTouch variant="works" locale={locale} />
         </div>
       </div>
@@ -288,7 +288,7 @@ function Row({ entry: e, kind, soon }: { entry: LibraryEntry; kind: string; soon
       <span style={{ minWidth: 0 }}>
         <span
           className="font-[family-name:var(--font-cormorant)] font-light lib-title"
-          style={{ display: 'block', fontSize: 'clamp(1.25rem, 3vw, 1.65rem)', lineHeight: 1.15, color: '#E8E0D4' }}
+          style={{ display: 'block', fontSize: 'clamp(1.25rem, 3vw, 1.65rem)', lineHeight: 1.15, color: 'var(--color-ink-primary)' }}
         >
           {e.title}
         </span>
@@ -301,7 +301,7 @@ function Row({ entry: e, kind, soon }: { entry: LibraryEntry; kind: string; soon
             fontWeight:    500,
             letterSpacing: '0.12em',
             textTransform: 'uppercase',
-            color:         '#9A8F82',
+            color:         'var(--color-ink-body)',
             lineHeight:    1.6,
           }}
         >
@@ -314,7 +314,7 @@ function Row({ entry: e, kind, soon }: { entry: LibraryEntry; kind: string; soon
   );
 
   return (
-    <li style={{ display: 'flex', alignItems: 'center', gap: '1rem', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+    <li style={{ display: 'flex', alignItems: 'center', gap: '1rem', borderBottom: '1px solid rgba(var(--fg-rgb),0.05)' }}>
       {e.external ? (
         <a href={e.href} target="_blank" rel="noopener noreferrer" className="lib-row group" style={{ flex: 1, minWidth: 0 }}>
           {inner}

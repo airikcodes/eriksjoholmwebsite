@@ -1,9 +1,9 @@
 // Pre-paint theme bootstrap (prototype). Inlined at the top of <body> so
 // <html data-theme / data-home> is correct before the first paint.
 //
-// Modes (opt-in only — default stays "dark" so production is unchanged):
+// Modes (DEFAULT below is 'light' while we design the bright site; production/main is unaffected until merged):
 //   ?theme=light | dark | auto   -> remembered in localStorage
-//   ?theme=reset                 -> forget it, back to dark
+//   ?theme=reset                 -> forget it, back to the default
 // "auto" follows the visitor's local clock with an approximate seasonal
 // sunrise/sunset (northern-hemisphere, ~47°N) and a short dawn/dusk blend.
 //
@@ -18,9 +18,10 @@
 export const THEME_SCRIPT = `(function(){
   var d=document.documentElement;
   var KEY='theme-preview';
+  var DEFAULT='light'; // design phase: bright by default. Later: 'auto'.
   function fromUrl(){try{var m=/[?&]theme=(light|dark|auto|reset)\\b/.exec(location.search);return m&&m[1]}catch(e){}return null}
   function get(){try{return localStorage.getItem(KEY)}catch(e){}return null}
-  function put(v){try{if(v==='reset'||v==='dark')localStorage.removeItem(KEY);else localStorage.setItem(KEY,v)}catch(e){}}
+  function put(v){try{if(v==='reset')localStorage.removeItem(KEY);else localStorage.setItem(KEY,v)}catch(e){}}
   function ss(x,a,b){x=Math.min(1,Math.max(0,(x-a)/(b-a)));return x*x*(3-2*x)}
   function daylight(n){
     var h=n.getHours()+n.getMinutes()/60;
@@ -31,7 +32,7 @@ export const THEME_SCRIPT = `(function(){
   }
   function apply(){
     var u=fromUrl(); if(u)put(u);
-    var mode=u&&u!=='reset'?u:(u==='reset'?'dark':(get()||'dark'));
+    var mode=u&&u!=='reset'?u:(u==='reset'?DEFAULT:(get()||DEFAULT));
     var theme='dark', wash=0;
     if(mode==='light'){theme='light';wash=0.45}
     else if(mode==='auto'){var dl=daylight(new Date());theme=dl>=0.5?'light':'dark';wash=theme==='light'?0.22+0.23*((dl-0.5)/0.5):0}

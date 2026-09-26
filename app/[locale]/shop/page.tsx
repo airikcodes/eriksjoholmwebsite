@@ -32,7 +32,7 @@ export default async function ShopPage({
   const available = products.filter((p) => p.state.type === 'AVAILABLE');
 
   return (
-    <main className="min-h-screen" style={{ background: '#0D0B09', color: '#E8E0D4' }}>
+    <main className="min-h-screen" style={{ background: 'var(--page-solid)', color: 'var(--color-ink-primary)' }}>
 
       {/* Fixed background */}
       <div style={{ position: 'fixed', inset: 0, zIndex: 0 }}>
@@ -55,7 +55,7 @@ export default async function ShopPage({
               fontSize: '0.7rem',
               letterSpacing: '0.35em',
               textTransform: 'uppercase',
-              color: '#7A6F62',
+              color: 'var(--color-ink-meta)',
               marginBottom: '1.25rem',
             }}>
               Shop
@@ -64,7 +64,7 @@ export default async function ShopPage({
               className="font-[family-name:var(--font-cormorant)] font-light"
               style={{
                 fontSize: 'clamp(2.8rem, 8vw, 5rem)',
-                color: '#E8E0D4',
+                color: 'var(--color-ink-primary)',
                 letterSpacing: '0.02em',
                 lineHeight: 0.95,
                 marginBottom: '1.5rem',
@@ -75,12 +75,12 @@ export default async function ShopPage({
           </div>
 
           {/* ── Product grid ── */}
-          <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '3rem', paddingBottom: '9rem' }}>
+          <div style={{ borderTop: '1px solid rgba(var(--fg-rgb),0.07)', paddingTop: '3rem', paddingBottom: '9rem' }}>
             {available.length === 0 ? (
               <p style={{
                 fontFamily: 'var(--font-inter)',
                 fontSize: '1rem',
-                color: '#B8B0A6',
+                color: 'var(--color-ink-body)',
               }}>
                 Nothing here yet — check back soon.
               </p>

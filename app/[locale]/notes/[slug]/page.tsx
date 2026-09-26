@@ -68,7 +68,7 @@ export default async function NotePost({
   const date = formatNoteDate(note.date, locale);
 
   return (
-    <main className="min-h-screen" style={{ background: '#0D0B09', color: '#E8E0D4' }}>
+    <main className="min-h-screen" style={{ background: 'var(--page-solid)', color: 'var(--color-ink-primary)' }}>
 
       {/* Fixed background */}
       <div style={{ position: 'fixed', inset: 0, zIndex: 0 }}>
@@ -94,7 +94,7 @@ export default async function NotePost({
                 fontSize:      '0.7rem',
                 letterSpacing: '0.32em',
                 textTransform: 'uppercase',
-                color:         '#7A6F62',
+                color:         'var(--color-ink-meta)',
                 marginBottom:  '1.5rem',
               }}>
                 {date}
@@ -105,7 +105,7 @@ export default async function NotePost({
               className="font-[family-name:var(--font-cormorant)] font-light"
               style={{
                 fontSize:     'clamp(2.2rem, 6vw, 3.75rem)',
-                color:        '#E8E0D4',
+                color:        'var(--color-ink-primary)',
                 letterSpacing:'0.01em',
                 lineHeight:   1.05,
                 marginBottom: note.excerpt ? '1.25rem' : 0,
@@ -118,7 +118,7 @@ export default async function NotePost({
               <p style={{
                 fontFamily: 'var(--font-inter)',
                 fontSize:   '1rem',
-                color:      '#B8B0A6',
+                color:      'var(--color-ink-body)',
                 lineHeight: 1.75,
                 maxWidth:   '44ch',
               }}>
@@ -140,7 +140,7 @@ export default async function NotePost({
 
           {/* ── Keep in touch ── */}
           <div style={{
-            borderTop:     '1px solid rgba(255,255,255,0.07)',
+            borderTop:     '1px solid rgba(var(--fg-rgb),0.07)',
             paddingTop:    '4rem',
             paddingBottom: '2rem',
           }}>
@@ -156,12 +156,12 @@ export default async function NotePost({
                 fontSize:      '0.7rem',
                 letterSpacing: '0.25em',
                 textTransform: 'uppercase',
-                color:         '#7A6F62',
-                borderBottom:  '1px solid rgba(122,111,98,0.35)',
+                color:         'var(--color-ink-meta)',
+                borderBottom:  '1px solid rgba(var(--meta-rgb),0.35)',
                 paddingBottom: '2px',
                 textDecoration:'none',
               }}
-              className="hover:text-[#C8922A] hover:border-[#C8922A] transition-colors duration-200"
+              className="hover:text-[color:var(--accent-ink)] hover:border-[#C8922A] transition-colors duration-200"
             >
               ← {n.backToNotes}
             </a>

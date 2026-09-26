@@ -45,7 +45,7 @@ export default function AddToCart({ variants }: { variants: FWVariant[] }) {
             fontSize: '0.7rem',
             letterSpacing: '0.2em',
             textTransform: 'uppercase',
-            color: '#7A6F62',
+            color: 'var(--color-ink-meta)',
           }}>
             Option
           </p>
@@ -66,8 +66,8 @@ export default function AddToCart({ variants }: { variants: FWVariant[] }) {
                     background: 'transparent',
                     border: active
                       ? '1px solid rgba(200,146,42,0.8)'
-                      : '1px solid rgba(255,255,255,0.1)',
-                    color: active ? '#C8922A' : avail ? '#E8E0D4' : '#3A3730',
+                      : '1px solid rgba(var(--fg-rgb),0.1)',
+                    color: active ? '#C8922A' : avail ? 'var(--color-ink-primary)' : '#3A3730',
                     cursor: avail ? 'pointer' : 'not-allowed',
                     transition: 'border-color 200ms, color 200ms',
                     textDecoration: avail ? 'none' : 'line-through',
@@ -86,7 +86,7 @@ export default function AddToCart({ variants }: { variants: FWVariant[] }) {
         disabled={!canAdd || status === 'loading'}
         style={{
           background: 'transparent',
-          border: `1px solid ${canAdd ? 'rgba(200,146,42,0.6)' : 'rgba(255,255,255,0.08)'}`,
+          border: `1px solid ${canAdd ? 'rgba(200,146,42,0.6)' : 'rgba(var(--fg-rgb),0.08)'}`,
           color: canAdd ? '#C8922A' : '#3A3730',
           fontFamily: 'var(--font-inter)',
           fontSize: '0.5rem',
@@ -101,11 +101,11 @@ export default function AddToCart({ variants }: { variants: FWVariant[] }) {
         onMouseEnter={(e) => {
           if (canAdd && status === 'idle') {
             e.currentTarget.style.borderColor = '#C8922A';
-            e.currentTarget.style.color = '#E8E0D4';
+            e.currentTarget.style.color = 'var(--color-ink-primary)';
           }
         }}
         onMouseLeave={(e) => {
-          e.currentTarget.style.borderColor = canAdd ? 'rgba(200,146,42,0.6)' : 'rgba(255,255,255,0.08)';
+          e.currentTarget.style.borderColor = canAdd ? 'rgba(200,146,42,0.6)' : 'rgba(var(--fg-rgb),0.08)';
           e.currentTarget.style.color = canAdd ? '#C8922A' : '#3A3730';
         }}
       >

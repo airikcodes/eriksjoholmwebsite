@@ -37,7 +37,7 @@ export default async function Sync({
   const s = t.sync;
 
   return (
-    <main className="min-h-screen" style={{ background: "#0D0B09", color: "#E8E0D4" }}>
+    <main className="min-h-screen" style={{ background: "var(--page-solid)", color: "var(--color-ink-primary)" }}>
 
       {/* Fixed background */}
       <div style={{ position: "fixed", inset: 0, zIndex: 0 }}>
@@ -60,7 +60,7 @@ export default async function Sync({
               fontSize: "0.7rem",
               letterSpacing: "0.35em",
               textTransform: "uppercase",
-              color: "#7A6F62",
+              color: "var(--color-ink-meta)",
               marginBottom: "1.25rem",
             }}>
               {s.eyebrow}
@@ -69,7 +69,7 @@ export default async function Sync({
               className="font-[family-name:var(--font-cormorant)] font-light"
               style={{
                 fontSize: "clamp(3rem, 9vw, 6rem)",
-                color: "#E8E0D4",
+                color: "var(--color-ink-primary)",
                 letterSpacing: "0.02em",
                 lineHeight: 0.95,
               }}
@@ -80,7 +80,7 @@ export default async function Sync({
             <p style={{
               fontFamily: "var(--font-inter)",
               fontSize: "1rem",
-              color: "#B8B0A6",
+              color: "var(--color-ink-body)",
               lineHeight: 1.85,
               maxWidth: "52ch",
             }}>
@@ -90,7 +90,7 @@ export default async function Sync({
               <p style={{
                 fontFamily: "var(--font-inter)",
                 fontSize: "0.82rem",
-                color: "#C8922A",
+                color: "var(--accent-ink)",
                 lineHeight: 1.7,
                 maxWidth: "52ch",
                 marginTop: "1.5rem",
@@ -100,7 +100,7 @@ export default async function Sync({
                   fontSize: "0.62rem",
                   letterSpacing: "0.2em",
                   textTransform: "uppercase",
-                  color: "#B8B0A6",
+                  color: "var(--color-ink-body)",
                   marginBottom: "0.5rem",
                 }}>
                   {s.referenceLabel}
@@ -111,14 +111,14 @@ export default async function Sync({
           </div>
 
           {/* ── Catalogue ── */}
-          <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: "5rem", paddingBottom: "5rem" }}>
+          <div style={{ borderTop: "1px solid rgba(var(--fg-rgb),0.07)", paddingTop: "5rem", paddingBottom: "5rem" }}>
             <div className="flex items-baseline justify-between gap-4" style={{ marginBottom: "3rem" }}>
               <p style={{
                 fontFamily: "var(--font-inter)",
                 fontSize: "0.7rem",
                 letterSpacing: "0.35em",
                 textTransform: "uppercase",
-                color: "#7A6F62",
+                color: "var(--color-ink-meta)",
               }}>
                 {s.catalogueLabel}
               </p>
@@ -131,7 +131,7 @@ export default async function Sync({
                   fontSize: "0.48rem",
                   letterSpacing: "0.15em",
                   textTransform: "uppercase",
-                  color: "#C8922A",
+                  color: "var(--accent-ink)",
                   flexShrink: 0,
                   textDecoration: "none",
                   borderBottom: "1px solid rgba(200,146,42,0.35)",
@@ -146,13 +146,13 @@ export default async function Sync({
           </div>
 
           {/* ── Specs ── */}
-          <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: "5rem", paddingBottom: "5rem" }}>
+          <div style={{ borderTop: "1px solid rgba(var(--fg-rgb),0.07)", paddingTop: "5rem", paddingBottom: "5rem" }}>
             <p style={{
               fontFamily: "var(--font-inter)",
               fontSize: "0.7rem",
               letterSpacing: "0.35em",
               textTransform: "uppercase",
-              color: "#7A6F62",
+              color: "var(--color-ink-meta)",
               marginBottom: "3.5rem",
             }}>
               {s.whatYouGet}
@@ -165,21 +165,21 @@ export default async function Sync({
                     fontSize: "0.42rem",
                     letterSpacing: "0.35em",
                     textTransform: "uppercase",
-                    color: "#C8922A",
+                    color: "var(--accent-ink)",
                     marginBottom: "0.85rem",
                   }}>
                     {label}
                   </p>
                   <p
                     className="font-[family-name:var(--font-cormorant)] font-light"
-                    style={{ fontSize: "1.25rem", color: "#E8E0D4", marginBottom: "0.65rem", lineHeight: 1.15 }}
+                    style={{ fontSize: "1.25rem", color: "var(--color-ink-primary)", marginBottom: "0.65rem", lineHeight: 1.15 }}
                   >
                     {title}
                   </p>
                   <p style={{
                     fontFamily: "var(--font-inter)",
                     fontSize: "0.78rem",
-                    color: "#B8B0A6",
+                    color: "var(--color-ink-body)",
                     lineHeight: 1.8,
                   }}>
                     {desc}
@@ -190,13 +190,13 @@ export default async function Sync({
           </div>
 
           {/* ── Contact ── */}
-          <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: "5rem", paddingBottom: "9rem" }}>
+          <div style={{ borderTop: "1px solid rgba(var(--fg-rgb),0.07)", paddingTop: "5rem", paddingBottom: "9rem" }}>
             <p style={{
               fontFamily: "var(--font-inter)",
               fontSize: "0.7rem",
               letterSpacing: "0.35em",
               textTransform: "uppercase",
-              color: "#7A6F62",
+              color: "var(--color-ink-meta)",
               marginBottom: "1.25rem",
             }}>
               {s.getInTouch}
@@ -205,7 +205,7 @@ export default async function Sync({
               className="font-[family-name:var(--font-cormorant)] font-light"
               style={{
                 fontSize: "clamp(2rem, 5vw, 3.5rem)",
-                color: "#E8E0D4",
+                color: "var(--color-ink-primary)",
                 lineHeight: 1.05,
                 marginBottom: "1.75rem",
               }}
@@ -215,7 +215,7 @@ export default async function Sync({
             <p style={{
               fontFamily: "var(--font-inter)",
               fontSize: "0.9rem",
-              color: "#B8B0A6",
+              color: "var(--color-ink-body)",
               lineHeight: 1.85,
               maxWidth: "48ch",
               marginBottom: "2.25rem",
@@ -224,10 +224,10 @@ export default async function Sync({
             </p>
             <a
               href="mailto:erik@eriksjoholm.com"
-              className="font-[family-name:var(--font-cormorant)] font-light hover:text-[#E8E0D4] transition-colors duration-200"
+              className="font-[family-name:var(--font-cormorant)] font-light hover:text-[color:var(--color-ink-primary)] transition-colors duration-200"
               style={{
                 fontSize: "clamp(1.2rem, 3vw, 1.75rem)",
-                color: "#C8922A",
+                color: "var(--accent-ink)",
               }}
             >
               erik@eriksjoholm.com

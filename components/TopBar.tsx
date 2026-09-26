@@ -164,7 +164,7 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
             style={{
               fontSize:      '0.75rem',
               letterSpacing: '0.08em',
-              color:         'rgba(232,224,212,0.3)',
+              color:         'rgba(var(--ink-rgb),0.3)',
               lineHeight:    1,
               userSelect:    'none',
               opacity:       open ? 0 : 1,
@@ -186,13 +186,13 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
           aria-expanded={open}
           aria-controls="nav-overlay"
           style={{
-            background:           open ? (menuHover ? 'rgba(255,255,255,0.10)' : 'rgba(255,255,255,0.06)') : (menuHover ? 'var(--menu-bg-hover, rgba(13,11,9,0.75))' : 'var(--menu-bg, rgba(13,11,9,0.55))'),
-            border:                open ? (menuHover ? '1px solid rgba(255,255,255,0.28)' : '1px solid rgba(255,255,255,0.18)') : (menuHover ? '1px solid var(--menu-border-hover, rgba(200,146,42,0.85))' : '1px solid var(--menu-border, rgba(200,146,42,0.55))'),
+            background:           open ? (menuHover ? 'rgba(var(--fg-rgb),0.10)' : 'rgba(var(--fg-rgb),0.06)') : (menuHover ? 'var(--menu-bg-hover, rgba(var(--page-rgb),0.75))' : 'var(--menu-bg, rgba(var(--page-rgb),0.55))'),
+            border:                open ? (menuHover ? '1px solid rgba(var(--fg-rgb),0.28)' : '1px solid rgba(var(--fg-rgb),0.18)') : (menuHover ? '1px solid var(--menu-border-hover, rgba(200,146,42,0.85))' : '1px solid var(--menu-border, rgba(200,146,42,0.55))'),
             borderRadius:         '2px',
             backdropFilter:       'blur(8px)',
             WebkitBackdropFilter: 'blur(8px)',
             cursor:               'pointer',
-            color:                 open ? (menuHover ? '#ffffff' : 'rgba(255,255,255,0.9)') : (menuHover ? 'var(--menu-fg-hover, #E0A93A)' : 'var(--menu-fg, #C8922A)'),
+            color:                 open ? (menuHover ? 'var(--color-ink-primary)' : 'rgba(var(--fg-rgb),0.9)') : (menuHover ? 'var(--menu-fg-hover, #E0A93A)' : 'var(--menu-fg, #C8922A)'),
             fontFamily:           'var(--font-inter)',
             fontSize:             '0.62rem',
             letterSpacing:        '0.22em',
@@ -221,7 +221,7 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
           position:             'fixed',
           inset:                0,
           zIndex:               55,
-          background:           'rgba(10, 8, 6, 0.97)',
+          background:           'rgba(var(--page-rgb),0.97)',
           backdropFilter:       'blur(4px)',
           WebkitBackdropFilter: 'blur(4px)',
           overflowY:            'auto',
@@ -242,7 +242,7 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
             fontSize:      '0.7rem',
             letterSpacing: '0.42em',
             textTransform: 'uppercase',
-            color:         '#7A6F62',
+            color:         'var(--color-ink-meta)',
             marginBottom:  '2rem',
             userSelect:    'none',
           }}>
@@ -252,7 +252,7 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
           {/* ── Nav entries ───────────────────────────────────────────────── */}
           <nav aria-label="Main navigation">
             {/* Top hairline */}
-            <div style={{ height: '1px', background: 'rgba(255,255,255,0.07)' }} />
+            <div style={{ height: '1px', background: 'rgba(var(--fg-rgb),0.07)' }} />
 
             {navItems.map((item, i) => {
               const hot   = hoveredEntry === i;
@@ -283,7 +283,7 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
                           style={{
                             fontSize:      'clamp(1.4rem, 3vw, 2rem)',
                             letterSpacing: '0.02em',
-                            color:         hot ? '#E8E0D4' : 'rgba(232,224,212,0.78)',
+                            color:         hot ? 'var(--color-ink-primary)' : 'rgba(var(--ink-rgb),0.78)',
                             lineHeight:    1.15,
                             transition:    'color 150ms ease',
                             flexShrink:    0,
@@ -295,7 +295,7 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
                         <span style={{
                           flex:         1,
                           display:      'block',
-                          borderBottom: `1px dotted ${hot ? 'rgba(200,146,42,0.4)' : 'rgba(140,128,118,0.2)'}`,
+                          borderBottom: `1px dotted ${hot ? 'rgba(200,146,42,0.4)' : 'rgba(var(--muted-rgb),0.2)'}`,
                           margin:       '0 0.85rem 0.3em',
                           transition:   'border-color 150ms ease',
                         }} />
@@ -304,7 +304,7 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
                           fontFamily:    'var(--font-inter)',
                           fontSize:      '0.72rem',
                           letterSpacing: '0.1em',
-                          color:         hot ? 'rgba(200,146,42,0.75)' : 'rgba(140,128,118,0.3)',
+                          color:         hot ? 'rgba(200,146,42,0.75)' : 'rgba(var(--muted-rgb),0.3)',
                           lineHeight:    1,
                           paddingBottom: '0.15em',
                           flexShrink:    0,
@@ -319,7 +319,7 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
                         fontSize:      '0.67rem',
                         fontStyle:     'italic',
                         letterSpacing: '0.01em',
-                        color:         hot ? 'rgba(140,128,118,0.8)' : 'rgba(140,128,118,0.38)',
+                        color:         hot ? 'rgba(var(--muted-rgb),0.8)' : 'rgba(var(--muted-rgb),0.38)',
                         marginTop:     '0.3rem',
                         transition:    'color 150ms ease',
                       }}>
@@ -341,7 +341,7 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
                           cursor:      'pointer',
                           padding:     '0 0.2rem 0 0.75rem',
                           alignSelf:   'center',
-                          color:       hot ? 'rgba(140,128,118,0.6)' : 'rgba(140,128,118,0.28)',
+                          color:       hot ? 'rgba(var(--muted-rgb),0.6)' : 'rgba(var(--muted-rgb),0.28)',
                           lineHeight:  1,
                           transition:  'color 150ms ease',
                           flexShrink:  0,
@@ -386,11 +386,11 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
                           {/* Indent */}
                           <span style={{ width: '1.75rem', flexShrink: 0 }} />
                           <span
-                            className="font-[family-name:var(--font-cormorant)] font-light group-hover:text-[rgba(232,224,212,0.8)] transition-colors duration-150"
+                            className="font-[family-name:var(--font-cormorant)] font-light group-hover:text-[color:rgba(var(--ink-rgb),0.8)] transition-colors duration-150"
                             style={{
                               fontSize:      'clamp(0.85rem, 2vw, 1.15rem)',
                               letterSpacing: '0.02em',
-                              color:         'rgba(232,224,212,0.35)',
+                              color:         'rgba(var(--ink-rgb),0.35)',
                               lineHeight:    1.15,
                               flexShrink:    0,
                             }}
@@ -400,7 +400,7 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
                           <span style={{
                             flex:         1,
                             display:      'block',
-                            borderBottom: '1px dotted rgba(120,108,96,0.14)',
+                            borderBottom: '1px dotted rgba(var(--meta-rgb),0.14)',
                             margin:       '0 0.65rem 0.25em',
                           }} />
                         </Link>
@@ -408,7 +408,7 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
                     </div>
                   )}
 
-                  <div style={{ height: '1px', background: 'rgba(255,255,255,0.07)' }} />
+                  <div style={{ height: '1px', background: 'rgba(var(--fg-rgb),0.07)' }} />
                 </div>
               );
             })}
@@ -428,7 +428,7 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
               fontFamily:    'var(--font-inter)',
               fontSize:      '0.62rem',
               fontStyle:     'italic',
-              color:         'rgba(140,128,118,0.45)',
+              color:         'rgba(var(--muted-rgb),0.45)',
               letterSpacing: '0.02em',
             }}>
               see also —{' '}
@@ -437,7 +437,7 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
                 onClick={close}
                 tabIndex={open ? 0 : -1}
                 style={{ color: 'inherit', textDecoration: 'none' }}
-                className="hover:text-[#C8922A] transition-colors duration-150"
+                className="hover:text-[color:var(--accent-ink)] transition-colors duration-150"
               >
                 Storyteller
               </Link>
@@ -447,7 +447,7 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
                 onClick={close}
                 tabIndex={open ? 0 : -1}
                 style={{ color: 'inherit', textDecoration: 'none' }}
-                className="hover:text-[#C8922A] transition-colors duration-150"
+                className="hover:text-[color:var(--accent-ink)] transition-colors duration-150"
               >
                 Sync licensing
               </Link>
@@ -472,7 +472,7 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
                       background:          'none',
                       border:              'none',
                       cursor:              'pointer',
-                      color:               l === current ? 'rgba(255,255,255,0.85)' : 'rgba(140,128,118,0.35)',
+                      color:               l === current ? 'rgba(var(--fg-rgb),0.85)' : 'rgba(var(--muted-rgb),0.35)',
                       fontFamily:          'var(--font-inter)',
                       fontSize:            '0.58rem',
                       letterSpacing:       '0.18em',
@@ -495,7 +495,7 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
                     background: 'none',
                     border:     'none',
                     cursor:     'pointer',
-                    color:      'rgba(140,128,118,0.35)',
+                    color:      'rgba(var(--muted-rgb),0.35)',
                     fontSize:   '0.9rem',
                     lineHeight: 1,
                     padding:    '0.25rem 0.3rem',
@@ -516,7 +516,7 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
                   background:    'none',
                   border:        'none',
                   cursor:        'pointer',
-                  color:         'rgba(255,255,255,0.85)',
+                  color:         'rgba(var(--fg-rgb),0.85)',
                   fontFamily:    'var(--font-inter)',
                   fontSize:      '0.58rem',
                   letterSpacing: '0.18em',

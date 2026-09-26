@@ -204,8 +204,8 @@ const ALL_USES = [
 ];
 
 const TEMPO_COLORS: Record<Track["tempo"], { bg: string; color: string }> = {
-  "Slow":       { bg: "rgba(200,146,42,0.15)",  color: "#C8922A" },
-  "Mid-tempo":  { bg: "rgba(255,255,255,0.06)", color: "#B8B0A6" },
+  "Slow":       { bg: "rgba(200,146,42,0.15)",  color: "var(--accent-ink)" },
+  "Mid-tempo":  { bg: "rgba(var(--fg-rgb),0.06)", color: "var(--color-ink-body)" },
   "Uptempo":    { bg: "rgba(29,185,84,0.14)",   color: "#1DB954" },
 };
 
@@ -227,8 +227,8 @@ function FilterChip({
         letterSpacing: "0.16em",
         textTransform: "uppercase",
         padding: "0.45rem 1rem",
-        border: `1px solid ${active ? "#C8922A" : "rgba(255,255,255,0.1)"}`,
-        color: active ? "#C8922A" : "#B8B0A6",
+        border: `1px solid ${active ? "#C8922A" : "rgba(var(--fg-rgb),0.1)"}`,
+        color: active ? "#C8922A" : "var(--color-ink-body)",
         background: active ? "rgba(200,146,42,0.08)" : "transparent",
         cursor: "pointer",
         transition: "border-color 150ms, color 150ms, background 150ms",
@@ -263,8 +263,8 @@ export default function SyncCatalog() {
 
       {/* ── Filter panel ── */}
       <div style={{
-        background: "rgba(255,255,255,0.02)",
-        border: "1px solid rgba(255,255,255,0.06)",
+        background: "rgba(var(--fg-rgb),0.02)",
+        border: "1px solid rgba(var(--fg-rgb),0.06)",
         padding: "1.75rem",
         marginBottom: "2.5rem",
       }}>
@@ -272,7 +272,7 @@ export default function SyncCatalog() {
 
           {/* Tempo */}
           <div>
-            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.25em", textTransform: "uppercase", color: "#B8B0A6", marginBottom: "0.75rem" }}>
+            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--color-ink-body)", marginBottom: "0.75rem" }}>
               Tempo
             </p>
             <div className="flex flex-wrap gap-2">
@@ -284,7 +284,7 @@ export default function SyncCatalog() {
 
           {/* Mood */}
           <div>
-            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.25em", textTransform: "uppercase", color: "#B8B0A6", marginBottom: "0.75rem" }}>
+            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--color-ink-body)", marginBottom: "0.75rem" }}>
               Mood
             </p>
             <div className="flex flex-wrap gap-2">
@@ -296,7 +296,7 @@ export default function SyncCatalog() {
 
           {/* Use case */}
           <div>
-            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.25em", textTransform: "uppercase", color: "#B8B0A6", marginBottom: "0.75rem" }}>
+            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--color-ink-body)", marginBottom: "0.75rem" }}>
               Use case
             </p>
             <div className="flex flex-wrap gap-2">
@@ -309,14 +309,14 @@ export default function SyncCatalog() {
         </div>
 
         {/* Count + clear */}
-        <div className="flex items-center gap-5 mt-5 pt-4" style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}>
-          <span style={{ fontFamily: "var(--font-inter)", fontSize: "0.72rem", letterSpacing: "0.1em", color: "#B8B0A6" }}>
+        <div className="flex items-center gap-5 mt-5 pt-4" style={{ borderTop: "1px solid rgba(var(--fg-rgb),0.05)" }}>
+          <span style={{ fontFamily: "var(--font-inter)", fontSize: "0.72rem", letterSpacing: "0.1em", color: "var(--color-ink-body)" }}>
             {filtered.length} of {syncCatalog.length} tracks
           </span>
           {hasFilter && (
             <button
               onClick={clearAll}
-              style={{ fontFamily: "var(--font-inter)", fontSize: "0.68rem", letterSpacing: "0.14em", textTransform: "uppercase", color: "#C8922A", cursor: "pointer" }}
+              style={{ fontFamily: "var(--font-inter)", fontSize: "0.68rem", letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--accent-ink)", cursor: "pointer" }}
             >
               Clear ×
             </button>
@@ -325,7 +325,7 @@ export default function SyncCatalog() {
       </div>
 
       {/* ── Track list ── */}
-      <ul style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}>
+      <ul style={{ borderTop: "1px solid rgba(var(--fg-rgb),0.07)" }}>
         {filtered.map((track, i) => {
           const trackId  = spotifyTrackId(track.spotifyLink);
           const playable = Boolean(track.audioUrl || trackId);
@@ -339,7 +339,7 @@ export default function SyncCatalog() {
           <li
             key={track.title}
             className="group"
-            style={{ borderBottom: "1px solid rgba(255,255,255,0.07)", padding: "1.75rem 0" }}
+            style={{ borderBottom: "1px solid rgba(var(--fg-rgb),0.07)", padding: "1.75rem 0" }}
           >
             <div className="flex items-center justify-between gap-4">
 
@@ -358,7 +358,7 @@ export default function SyncCatalog() {
                 <div className="min-w-0">
                   <p
                     className="font-[family-name:var(--font-cormorant)] font-light"
-                    style={{ fontSize: "clamp(1rem, 2.2vw, 1.3rem)", color: "#E8E0D4", lineHeight: 1.2 }}
+                    style={{ fontSize: "clamp(1rem, 2.2vw, 1.3rem)", color: "var(--color-ink-primary)", lineHeight: 1.2 }}
                   >
                     {track.title}
                   </p>
@@ -375,12 +375,12 @@ export default function SyncCatalog() {
                       {track.tempo}
                     </span>
                     {track.languages && (
-                      <span style={{ fontFamily: "var(--font-inter)", fontSize: "0.68rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#8C7F70" }}>
+                      <span style={{ fontFamily: "var(--font-inter)", fontSize: "0.68rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--color-ink-meta)" }}>
                         {track.languages}
                       </span>
                     )}
                     {track.notes && (
-                      <span style={{ fontFamily: "var(--font-inter)", fontSize: "0.68rem", letterSpacing: "0.02em", color: "#8C7F70" }}>
+                      <span style={{ fontFamily: "var(--font-inter)", fontSize: "0.68rem", letterSpacing: "0.02em", color: "var(--color-ink-meta)" }}>
                         {track.notes}
                       </span>
                     )}
@@ -402,7 +402,7 @@ export default function SyncCatalog() {
                         padding: "0.26rem 0.65rem",
                         background: "rgba(200,146,42,0.07)",
                         border: "1px solid rgba(200,146,42,0.18)",
-                        color: "#C8922A",
+                        color: "var(--accent-ink)",
                       }}
                     >
                       {m}
@@ -420,7 +420,7 @@ export default function SyncCatalog() {
                       fontSize: "0.72rem",
                       letterSpacing: "0.16em",
                       textTransform: "uppercase",
-                      color: isOpen ? "#1DB954" : "#B8B0A6",
+                      color: isOpen ? "#1DB954" : "var(--color-ink-body)",
                       background: "none",
                       border: "none",
                       cursor: "pointer",
@@ -433,13 +433,13 @@ export default function SyncCatalog() {
                 ) : (
                   <a
                     href={`mailto:erik@eriksjoholm.com?subject=${requestSubject}&body=${requestBody}`}
-                    className="transition-colors duration-150 hover:text-[#C8922A]"
+                    className="transition-colors duration-150 hover:text-[color:var(--accent-ink)]"
                     style={{
                       fontFamily: "var(--font-inter)",
                       fontSize: "0.72rem",
                       letterSpacing: "0.1em",
                       textTransform: "uppercase",
-                      color: "#8C7F70",
+                      color: "var(--color-ink-meta)",
                       flexShrink: 0,
                       padding: "0.4rem 0",
                       textAlign: "right",
@@ -480,11 +480,11 @@ export default function SyncCatalog() {
       </ul>
 
       {filtered.length === 0 && (
-        <p className="text-center py-20" style={{ fontFamily: "var(--font-inter)", fontSize: "0.78rem", color: "#B8B0A6" }}>
+        <p className="text-center py-20" style={{ fontFamily: "var(--font-inter)", fontSize: "0.78rem", color: "var(--color-ink-body)" }}>
           No tracks match those filters.{" "}
           <button
             onClick={clearAll}
-            style={{ color: "#C8922A", cursor: "pointer" }}
+            style={{ color: "var(--accent-ink)", cursor: "pointer" }}
           >
             Clear all
           </button>

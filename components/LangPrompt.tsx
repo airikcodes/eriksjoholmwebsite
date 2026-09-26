@@ -91,8 +91,8 @@ export default function LangPrompt({
         display:              'flex',
         alignItems:           'center',
         gap:                  '1rem',
-        background:           'rgba(16,12,9,0.97)',
-        border:               '1px solid rgba(255,255,255,0.08)',
+        background:           'rgba(var(--page-rgb),0.97)',
+        border:               '1px solid rgba(var(--fg-rgb),0.08)',
         padding:              '0.75rem 0.9rem 0.75rem 1.25rem',
         backdropFilter:       'blur(8px)',
         WebkitBackdropFilter: 'blur(8px)',
@@ -102,7 +102,7 @@ export default function LangPrompt({
     >
       <span
         className="font-[family-name:var(--font-cormorant)] font-light"
-        style={{ fontSize: '1rem', color: 'rgba(232,224,212,0.65)', letterSpacing: '0.01em', lineHeight: 1, whiteSpace: 'nowrap' }}
+        style={{ fontSize: '1rem', color: 'rgba(var(--ink-rgb),0.65)', letterSpacing: '0.01em', lineHeight: 1, whiteSpace: 'nowrap' }}
       >
         {question}
       </span>
@@ -114,7 +114,7 @@ export default function LangPrompt({
           border:        'none',
           borderBottom:  '1px solid rgba(200,146,42,0.4)',
           cursor:        'pointer',
-          color:         '#C8922A',
+          color:         'var(--accent-ink)',
           fontFamily:    'var(--font-inter)',
           fontSize:      '0.5rem',
           letterSpacing: '0.22em',
@@ -135,7 +135,7 @@ export default function LangPrompt({
           background:  'none',
           border:      'none',
           cursor:      'pointer',
-          color:       'rgba(122,111,98,0.45)',
+          color:       'rgba(var(--meta-rgb),0.45)',
           fontSize:    '1rem',
           lineHeight:  1,
           padding:     '0.1rem 0.2rem',

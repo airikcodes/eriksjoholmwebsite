@@ -28,7 +28,7 @@ export default function ProductCard({ product, locale }: { product: FWProduct; l
       <div style={{
         aspectRatio: '1 / 1',
         overflow: 'hidden',
-        background: 'rgba(255,255,255,0.03)',
+        background: 'rgba(var(--fg-rgb),0.03)',
         marginBottom: '1.25rem',
         position: 'relative',
       }}>
@@ -42,7 +42,7 @@ export default function ProductCard({ product, locale }: { product: FWProduct; l
             className="product-img"
           />
         ) : (
-          <div style={{ width: '100%', height: '100%', background: 'rgba(255,255,255,0.04)' }} />
+          <div style={{ width: '100%', height: '100%', background: 'rgba(var(--fg-rgb),0.04)' }} />
         )}
       </div>
 
@@ -53,7 +53,7 @@ export default function ProductCard({ product, locale }: { product: FWProduct; l
           style={{
             fontSize: 'clamp(1.25rem, 3vw, 1.6rem)',
             fontWeight: 300,
-            color: '#E8E0D4',
+            color: 'var(--color-ink-primary)',
             letterSpacing: '0.02em',
             lineHeight: 1.15,
             marginBottom: '0.4rem',
@@ -64,7 +64,7 @@ export default function ProductCard({ product, locale }: { product: FWProduct; l
         <p style={{
           fontFamily: 'var(--font-inter)',
           fontSize: '0.85rem',
-          color: '#B8B0A6',
+          color: 'var(--color-ink-body)',
           letterSpacing: '0.05em',
         }}>
           {fmt(lowestPrice.value, lowestPrice.currency)}

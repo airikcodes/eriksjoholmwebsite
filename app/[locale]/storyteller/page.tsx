@@ -44,7 +44,7 @@ const eyebrowStyle: React.CSSProperties = {
   fontSize: "0.7rem",
   letterSpacing: "0.35em",
   textTransform: "uppercase" as const,
-  color: "#7A6F62",
+  color: "var(--color-ink-meta)",
   marginBottom: "1rem",
 };
 
@@ -52,7 +52,7 @@ const sectionHeading: React.CSSProperties = {
   fontFamily: "var(--font-cormorant)",
   fontWeight: 300,
   fontSize: "clamp(2rem, 5vw, 3.5rem)",
-  color: "#E8E0D4",
+  color: "var(--color-ink-primary)",
   letterSpacing: "0.03em",
   lineHeight: 1.05,
   marginBottom: "2rem",
@@ -61,12 +61,12 @@ const sectionHeading: React.CSSProperties = {
 const bodyText: React.CSSProperties = {
   fontFamily: "var(--font-inter)",
   fontSize: "1rem",
-  color: "#B8B0A6",
+  color: "var(--color-ink-body)",
   lineHeight: 1.8,
 };
 
 const divider: React.CSSProperties = {
-  borderTop: "1px solid rgba(255,255,255,0.07)",
+  borderTop: "1px solid rgba(var(--fg-rgb),0.07)",
 };
 
 export default async function Storyteller({
@@ -80,7 +80,7 @@ export default async function Storyteller({
   const st = t.storyteller;
 
   return (
-    <main style={{ background: "#0D0B09", color: "#E8E0D4" }}>
+    <main style={{ background: "var(--page-solid)", color: "var(--color-ink-primary)" }}>
 
       {/* Fixed background */}
       <div style={{ position: "fixed", inset: 0, zIndex: 0 }}>
@@ -112,7 +112,7 @@ export default async function Storyteller({
 
             <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center" }}>
 
-              <p style={{ ...eyebrowStyle, color: "#B8B0A6", marginBottom: "2rem" }}>
+              <p style={{ ...eyebrowStyle, color: "var(--color-ink-body)", marginBottom: "2rem" }}>
                 {st.eyebrow}
               </p>
 
@@ -120,7 +120,7 @@ export default async function Storyteller({
                 className="font-[family-name:var(--font-cormorant)] font-light"
                 style={{
                   fontSize: "clamp(5rem, 16vw, 9rem)",
-                  color: "#E8E0D4",
+                  color: "var(--color-ink-primary)",
                   letterSpacing: "0.04em",
                   lineHeight: 0.92,
                   marginBottom: "1.5rem",
@@ -135,7 +135,7 @@ export default async function Storyteller({
                   fontStyle: "italic",
                   fontWeight: 300,
                   fontSize: "clamp(1.1rem, 2.8vw, 1.6rem)",
-                  color: "rgba(232,224,212,0.7)",
+                  color: "rgba(var(--ink-rgb),0.7)",
                   letterSpacing: "0.02em",
                   lineHeight: 1.4,
                   marginBottom: "1.25rem",
@@ -148,7 +148,7 @@ export default async function Storyteller({
                 style={{
                   fontFamily: "var(--font-inter)",
                   fontSize: "0.85rem",
-                  color: "#B8B0A6",
+                  color: "var(--color-ink-body)",
                   lineHeight: 1.7,
                   maxWidth: "42ch",
                   marginBottom: "2.5rem",
@@ -160,11 +160,11 @@ export default async function Storyteller({
               <div>
                 <a
                   href="#trailer"
-                  className="hover:bg-[#C8922A] hover:text-[#0D0B09] transition-all duration-200"
+                  className="hover:bg-[#C8922A] hover:text-[color:var(--page-solid)] transition-all duration-200"
                   style={{
                     display: "inline-block",
                     border: "1px solid #C8922A",
-                    color: "#C8922A",
+                    color: "var(--accent-ink)",
                     padding: "0.7rem 2rem",
                     fontFamily: "var(--font-inter)",
                     fontSize: "0.5rem",
@@ -205,7 +205,7 @@ export default async function Storyteller({
                   <div key={title}>
                     <p
                       className="font-[family-name:var(--font-cormorant)] font-light"
-                      style={{ fontSize: "1.05rem", color: "#E8E0D4", lineHeight: 1.3, marginBottom: "0.4rem" }}
+                      style={{ fontSize: "1.05rem", color: "var(--color-ink-primary)", lineHeight: 1.3, marginBottom: "0.4rem" }}
                     >
                       {title}
                     </p>
@@ -213,7 +213,7 @@ export default async function Storyteller({
                       style={{
                         fontFamily: "var(--font-inter)",
                         fontSize: "0.75rem",
-                        color: "#B8B0A6",
+                        color: "var(--color-ink-body)",
                         lineHeight: 1.5,
                       }}
                     >
@@ -259,7 +259,7 @@ export default async function Storyteller({
                         fontStyle: "italic",
                         fontWeight: 300,
                         fontSize: "clamp(1rem, 2vw, 1.2rem)",
-                        color: "#E8E0D4",
+                        color: "var(--color-ink-primary)",
                         lineHeight: 1.6,
                         marginBottom: "1rem",
                       }}
@@ -272,7 +272,7 @@ export default async function Storyteller({
                         fontSize: "0.55rem",
                         letterSpacing: "0.2em",
                         textTransform: "uppercase",
-                        color: "#C8922A",
+                        color: "var(--accent-ink)",
                         marginBottom: "0.15rem",
                       }}
                     >
@@ -282,7 +282,7 @@ export default async function Storyteller({
                       style={{
                         fontFamily: "var(--font-inter)",
                         fontSize: "0.7rem",
-                        color: "#B8B0A6",
+                        color: "var(--color-ink-body)",
                       }}
                     >
                       {location}
@@ -331,7 +331,7 @@ export default async function Storyteller({
                 style={{
                   fontFamily: "var(--font-inter)",
                   fontSize: "0.75rem",
-                  color: "#B8B0A6",
+                  color: "var(--color-ink-body)",
                   marginTop: "1rem",
                   letterSpacing: "0.05em",
                 }}
@@ -355,7 +355,7 @@ export default async function Storyteller({
                   <div key={name}>
                     <p
                       className="font-[family-name:var(--font-cormorant)] font-light"
-                      style={{ fontSize: "1.15rem", color: "#E8E0D4", marginBottom: "0.35rem" }}
+                      style={{ fontSize: "1.15rem", color: "var(--color-ink-primary)", marginBottom: "0.35rem" }}
                     >
                       {name}
                     </p>
@@ -365,7 +365,7 @@ export default async function Storyteller({
                         fontSize: "0.48rem",
                         letterSpacing: "0.25em",
                         textTransform: "uppercase",
-                        color: "#C8922A",
+                        color: "var(--accent-ink)",
                         marginBottom: "0.85rem",
                       }}
                     >
@@ -375,7 +375,7 @@ export default async function Storyteller({
                       style={{
                         fontFamily: "var(--font-inter)",
                         fontSize: "0.85rem",
-                        color: "#B8B0A6",
+                        color: "var(--color-ink-body)",
                         lineHeight: 1.7,
                       }}
                     >
@@ -389,10 +389,10 @@ export default async function Storyteller({
                 style={{
                   fontFamily: "var(--font-inter)",
                   fontSize: "0.75rem",
-                  color: "#B8B0A6",
+                  color: "var(--color-ink-body)",
                   marginTop: "3rem",
                   paddingTop: "2rem",
-                  borderTop: "1px solid rgba(255,255,255,0.07)",
+                  borderTop: "1px solid rgba(var(--fg-rgb),0.07)",
                 }}
               >
                 {st.fundingNote}
@@ -430,7 +430,7 @@ export default async function Storyteller({
                     fontSize: "0.48rem",
                     letterSpacing: "0.3em",
                     textTransform: "uppercase",
-                    color: "#C8922A",
+                    color: "var(--accent-ink)",
                     marginBottom: "1.25rem",
                   }}
                 >
@@ -445,7 +445,7 @@ export default async function Storyteller({
                           fontSize: "0.7rem",
                           letterSpacing: "0.25em",
                           textTransform: "uppercase",
-                          color: "#7A6F62",
+                          color: "var(--color-ink-meta)",
                           marginBottom: "0.25rem",
                         }}
                       >
@@ -455,7 +455,7 @@ export default async function Storyteller({
                         style={{
                           fontFamily: "var(--font-inter)",
                           fontSize: "0.8rem",
-                          color: "#E8E0D4",
+                          color: "var(--color-ink-primary)",
                           lineHeight: 1.6,
                           margin: 0,
                         }}
@@ -475,7 +475,7 @@ export default async function Storyteller({
                     fontSize: "0.48rem",
                     letterSpacing: "0.3em",
                     textTransform: "uppercase",
-                    color: "#C8922A",
+                    color: "var(--accent-ink)",
                     marginBottom: "1.25rem",
                   }}
                 >
@@ -490,7 +490,7 @@ export default async function Storyteller({
                           fontSize: "0.7rem",
                           letterSpacing: "0.25em",
                           textTransform: "uppercase",
-                          color: "#7A6F62",
+                          color: "var(--color-ink-meta)",
                           marginBottom: "0.25rem",
                         }}
                       >
@@ -500,7 +500,7 @@ export default async function Storyteller({
                         style={{
                           fontFamily: "var(--font-inter)",
                           fontSize: "0.8rem",
-                          color: "#E8E0D4",
+                          color: "var(--color-ink-primary)",
                           lineHeight: 1.6,
                           margin: 0,
                         }}
@@ -527,12 +527,12 @@ export default async function Storyteller({
                 <div
                   style={{
                     padding: "2rem",
-                    border: "1px solid rgba(255,255,255,0.07)",
+                    border: "1px solid rgba(var(--fg-rgb),0.07)",
                   }}
                 >
                   <h3
                     className="font-[family-name:var(--font-cormorant)] font-light"
-                    style={{ fontSize: "1.5rem", color: "#E8E0D4", marginBottom: "0.75rem" }}
+                    style={{ fontSize: "1.5rem", color: "var(--color-ink-primary)", marginBottom: "0.75rem" }}
                   >
                     {st.seeTheShow}
                   </h3>
@@ -540,7 +540,7 @@ export default async function Storyteller({
                     style={{
                       fontFamily: "var(--font-inter)",
                       fontSize: "0.78rem",
-                      color: "#B8B0A6",
+                      color: "var(--color-ink-body)",
                       lineHeight: 1.7,
                       marginBottom: "1.5rem",
                     }}
@@ -549,11 +549,11 @@ export default async function Storyteller({
                   </p>
                   <Link
                     href="/notes"
-                    className="hover:bg-[#E8E0D4] hover:text-[#0D0B09] transition-all duration-200"
+                    className="hover:bg-[color:var(--color-ink-primary)] hover:text-[color:var(--page-solid)] transition-all duration-200"
                     style={{
                       display: "inline-block",
-                      border: "1px solid #E8E0D4",
-                      color: "#E8E0D4",
+                      border: "1px solid var(--color-ink-primary)",
+                      color: "var(--color-ink-primary)",
                       padding: "0.6rem 1.5rem",
                       fontFamily: "var(--font-inter)",
                       fontSize: "0.48rem",
@@ -576,7 +576,7 @@ export default async function Storyteller({
                 >
                   <h3
                     className="font-[family-name:var(--font-cormorant)] font-light"
-                    style={{ fontSize: "1.5rem", color: "#E8E0D4", marginBottom: "0.75rem" }}
+                    style={{ fontSize: "1.5rem", color: "var(--color-ink-primary)", marginBottom: "0.75rem" }}
                   >
                     {st.bookGlenn}
                   </h3>
@@ -584,7 +584,7 @@ export default async function Storyteller({
                     style={{
                       fontFamily: "var(--font-inter)",
                       fontSize: "0.78rem",
-                      color: "#B8B0A6",
+                      color: "var(--color-ink-body)",
                       lineHeight: 1.7,
                       marginBottom: "1.5rem",
                     }}
@@ -593,11 +593,11 @@ export default async function Storyteller({
                   </p>
                   <Link
                     href="/contact"
-                    className="hover:bg-[#C8922A] hover:text-[#0D0B09] transition-all duration-200"
+                    className="hover:bg-[#C8922A] hover:text-[color:var(--page-solid)] transition-all duration-200"
                     style={{
                       display: "inline-block",
                       border: "1px solid #C8922A",
-                      color: "#C8922A",
+                      color: "var(--accent-ink)",
                       padding: "0.6rem 1.5rem",
                       fontFamily: "var(--font-inter)",
                       fontSize: "0.48rem",

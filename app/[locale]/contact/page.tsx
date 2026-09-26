@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 };
 
 const social = [
-  { label: "Instagram", href: "https://www.instagram.com/eriksjoholmofficial",        hover: "hover:text-[#E8E0D4]" },
+  { label: "Instagram", href: "https://www.instagram.com/eriksjoholmofficial",        hover: "hover:text-[color:var(--color-ink-primary)]" },
   { label: "Facebook",  href: "https://facebook.com/eriksjoholmffofficial/",           hover: "hover:text-[#1877F2]" },
   { label: "YouTube",   href: "https://www.youtube.com/eriksjoholmofficial",           hover: "hover:text-[#FF0000]" },
   { label: "LinkedIn",  href: "https://www.linkedin.com/in/eriksjoholmofficial1717/",  hover: "hover:text-[#0A66C2]" },
@@ -45,7 +45,7 @@ export default async function Contact({
   const c = t.contact;
 
   return (
-    <main className="min-h-screen" style={{ background: "#0D0B09", color: "#E8E0D4" }}>
+    <main className="min-h-screen" style={{ background: "var(--page-solid)", color: "var(--color-ink-primary)" }}>
 
       {/* Fixed background */}
       <div style={{ position: "fixed", inset: 0, zIndex: 0 }}>
@@ -60,7 +60,7 @@ export default async function Contact({
             areas show through enough to reduce legibility of the contact
             details sitting on top. Flat dark overlay keeps the texture
             while guaranteeing text contrast. */}
-        <div style={{ position: "absolute", inset: 0, background: "rgba(13,11,9,0.55)" }} />
+        <div style={{ position: "absolute", inset: 0, background: "rgba(var(--page-rgb),0.55)" }} />
       </div>
 
       <div className="relative" style={{ zIndex: 1 }}>
@@ -73,7 +73,7 @@ export default async function Contact({
               className="font-[family-name:var(--font-cormorant)] font-light"
               style={{
                 fontSize: "clamp(3rem, 9vw, 6rem)",
-                color: "#E8E0D4",
+                color: "var(--color-ink-primary)",
                 letterSpacing: "0.02em",
                 lineHeight: 0.95,
               }}
@@ -84,25 +84,25 @@ export default async function Contact({
           </div>
 
           {/* ── Write directly ── */}
-          <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: "5rem", paddingBottom: "5rem" }}>
+          <div style={{ borderTop: "1px solid rgba(var(--fg-rgb),0.07)", paddingTop: "5rem", paddingBottom: "5rem" }}>
 
             <p style={{
               fontFamily: "var(--font-inter)",
               fontSize: "0.7rem",
               letterSpacing: "0.35em",
               textTransform: "uppercase",
-              color: "#7A6F62",
+              color: "var(--color-ink-meta)",
               marginBottom: "1.25rem",
             }}>
               {c.writeDirectly}
             </p>
             <a
               href="mailto:erik@eriksjoholm.com"
-              className="font-[family-name:var(--font-cormorant)] font-light hover:text-[#E8E0D4] transition-colors duration-200"
+              className="font-[family-name:var(--font-cormorant)] font-light hover:text-[color:var(--color-ink-primary)] transition-colors duration-200"
               style={{
                 fontSize: "clamp(1.2rem, 3vw, 1.75rem)",
                 letterSpacing: "0.03em",
-                color: "#C8922A",
+                color: "var(--accent-ink)",
                 display: "block",
                 marginBottom: "4rem",
               }}
@@ -115,24 +115,24 @@ export default async function Contact({
               fontSize: "0.7rem",
               letterSpacing: "0.35em",
               textTransform: "uppercase",
-              color: "#7A6F62",
+              color: "var(--color-ink-meta)",
               marginBottom: "0",
             }}>
               {c.whatThisIsAbout}
             </p>
-            <ul style={{ borderTop: "1px solid rgba(255,255,255,0.07)", marginTop: "1.25rem" }}>
+            <ul style={{ borderTop: "1px solid rgba(var(--fg-rgb),0.07)", marginTop: "1.25rem" }}>
               {c.topics.map((topic) => (
                 <li
                   key={topic.title}
                   className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between sm:gap-6"
                   style={{
-                    borderBottom: "1px solid rgba(255,255,255,0.07)",
+                    borderBottom: "1px solid rgba(var(--fg-rgb),0.07)",
                     padding: "1.75rem 0",
                   }}
                 >
                   <p
                     className="font-[family-name:var(--font-cormorant)] font-light"
-                    style={{ fontSize: "clamp(1rem, 2.2vw, 1.2rem)", color: "#E8E0D4" }}
+                    style={{ fontSize: "clamp(1rem, 2.2vw, 1.2rem)", color: "var(--color-ink-primary)" }}
                   >
                     {topic.title}
                   </p>
@@ -141,7 +141,7 @@ export default async function Contact({
                     style={{
                       fontFamily: "var(--font-inter)",
                       fontSize: "0.85rem",
-                      color: "#B8B0A6",
+                      color: "var(--color-ink-body)",
                       lineHeight: 1.7,
                     }}
                   >
@@ -153,14 +153,14 @@ export default async function Contact({
           </div>
 
           {/* ── Songs For You ── */}
-          <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: "5rem", paddingBottom: "5rem" }}>
+          <div style={{ borderTop: "1px solid rgba(var(--fg-rgb),0.07)", paddingTop: "5rem", paddingBottom: "5rem" }}>
 
             <p style={{
               fontFamily: "var(--font-inter)",
               fontSize: "0.7rem",
               letterSpacing: "0.35em",
               textTransform: "uppercase",
-              color: "#7A6F62",
+              color: "var(--color-ink-meta)",
               marginBottom: "1.25rem",
             }}>
               {c.commission}
@@ -169,7 +169,7 @@ export default async function Contact({
               className="font-[family-name:var(--font-cormorant)] font-light"
               style={{
                 fontSize: "clamp(2rem, 5vw, 3.5rem)",
-                color: "#E8E0D4",
+                color: "var(--color-ink-primary)",
                 lineHeight: 1.05,
                 marginBottom: "2rem",
               }}
@@ -179,7 +179,7 @@ export default async function Contact({
             <p style={{
               fontFamily: "var(--font-inter)",
               fontSize: "1rem",
-              color: "#B8B0A6",
+              color: "var(--color-ink-body)",
               lineHeight: 1.9,
               maxWidth: "52ch",
               marginBottom: "2.5rem",
@@ -189,7 +189,7 @@ export default async function Contact({
             <p style={{
               fontFamily: "var(--font-inter)",
               fontSize: "0.9rem",
-              color: "#B8B0A6",
+              color: "var(--color-ink-body)",
               lineHeight: 1.8,
               marginBottom: "1.5rem",
             }}>
@@ -197,11 +197,11 @@ export default async function Contact({
             </p>
             <a
               href="mailto:erik@eriksjoholm.com"
-              className="font-[family-name:var(--font-cormorant)] font-light hover:text-[#E8E0D4] transition-colors duration-200"
+              className="font-[family-name:var(--font-cormorant)] font-light hover:text-[color:var(--color-ink-primary)] transition-colors duration-200"
               style={{
                 fontSize: "clamp(1.1rem, 2.5vw, 1.45rem)",
                 letterSpacing: "0.03em",
-                color: "#C8922A",
+                color: "var(--accent-ink)",
               }}
             >
               erik@eriksjoholm.com
@@ -209,13 +209,13 @@ export default async function Contact({
           </div>
 
           {/* ── For professionals ── */}
-          <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: "5rem", paddingBottom: "5rem" }}>
+          <div style={{ borderTop: "1px solid rgba(var(--fg-rgb),0.07)", paddingTop: "5rem", paddingBottom: "5rem" }}>
             <p style={{
               fontFamily: "var(--font-inter)",
               fontSize: "0.7rem",
               letterSpacing: "0.35em",
               textTransform: "uppercase",
-              color: "#7A6F62",
+              color: "var(--color-ink-meta)",
               marginBottom: "1.5rem",
             }}>
               {c.forProfessionals}
@@ -226,13 +226,13 @@ export default async function Contact({
                 style={{
                   fontFamily: "var(--font-inter)",
                   fontSize: "0.78rem",
-                  color: "#B8B0A6",
+                  color: "var(--color-ink-body)",
                   letterSpacing: "0.03em",
-                  borderBottom: "1px solid rgba(122,111,98,0.25)",
+                  borderBottom: "1px solid rgba(var(--meta-rgb),0.25)",
                   paddingBottom: "2px",
                   width: "fit-content",
                 }}
-                className="hover:text-[#C8922A] hover:border-[#C8922A] transition-colors duration-200"
+                className="hover:text-[color:var(--accent-ink)] hover:border-[#C8922A] transition-colors duration-200"
               >
                 {c.glennLink}
               </a>
@@ -241,13 +241,13 @@ export default async function Contact({
                 style={{
                   fontFamily: "var(--font-inter)",
                   fontSize: "0.78rem",
-                  color: "#B8B0A6",
+                  color: "var(--color-ink-body)",
                   letterSpacing: "0.03em",
-                  borderBottom: "1px solid rgba(122,111,98,0.25)",
+                  borderBottom: "1px solid rgba(var(--meta-rgb),0.25)",
                   paddingBottom: "2px",
                   width: "fit-content",
                 }}
-                className="hover:text-[#C8922A] hover:border-[#C8922A] transition-colors duration-200"
+                className="hover:text-[color:var(--accent-ink)] hover:border-[#C8922A] transition-colors duration-200"
               >
                 {c.syncLink}
               </a>
@@ -260,13 +260,13 @@ export default async function Contact({
                 style={{
                   fontFamily: "var(--font-inter)",
                   fontSize: "0.78rem",
-                  color: "#B8B0A6",
+                  color: "var(--color-ink-body)",
                   letterSpacing: "0.03em",
-                  borderBottom: "1px solid rgba(122,111,98,0.25)",
+                  borderBottom: "1px solid rgba(var(--meta-rgb),0.25)",
                   paddingBottom: "2px",
                   width: "fit-content",
                 }}
-                className="hover:text-[#C8922A] hover:border-[#C8922A] transition-colors duration-200"
+                className="hover:text-[color:var(--accent-ink)] hover:border-[#C8922A] transition-colors duration-200"
               >
                 {c.portfolioLink}
               </a>
@@ -274,14 +274,14 @@ export default async function Contact({
           </div>
 
           {/* ── Elsewhere ── */}
-          <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: "5rem", paddingBottom: "9rem" }}>
+          <div style={{ borderTop: "1px solid rgba(var(--fg-rgb),0.07)", paddingTop: "5rem", paddingBottom: "9rem" }}>
 
             <p style={{
               fontFamily: "var(--font-inter)",
               fontSize: "0.7rem",
               letterSpacing: "0.35em",
               textTransform: "uppercase",
-              color: "#7A6F62",
+              color: "var(--color-ink-meta)",
               marginBottom: "2.5rem",
             }}>
               {c.elsewhere}
@@ -297,7 +297,7 @@ export default async function Contact({
                   style={{
                     fontFamily: "var(--font-inter)",
                     fontSize: "0.9rem",
-                    color: "#B8B0A6",
+                    color: "var(--color-ink-body)",
                     letterSpacing: "0.03em",
                     padding: "0.5rem 0",
                     display: "block",

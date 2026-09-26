@@ -42,13 +42,13 @@ export default function LyricsTranslations({
   const text = isOriginal ? original : translations[active];
 
   return (
-    <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
+    <div style={{ borderTop: '1px solid rgba(var(--fg-rgb),0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
       <p style={{
         fontFamily:    'var(--font-inter)',
         fontSize:      '0.7rem',
         letterSpacing: '0.35em',
         textTransform: 'uppercase',
-        color:         '#7A6F62',
+        color:         'var(--color-ink-meta)',
         marginBottom:  '1.5rem',
       }}>
         {label}
@@ -69,13 +69,13 @@ export default function LyricsTranslations({
               aria-selected={selected}
               lang={code}
               onClick={() => setActive(code)}
-              className="hover:text-[#E8E0D4] transition-colors duration-200"
+              className="hover:text-[color:var(--color-ink-primary)] transition-colors duration-200"
               style={{
                 fontFamily:    'var(--font-inter)',
                 fontSize:      '0.7rem',
                 letterSpacing: '0.14em',
                 textTransform: 'uppercase',
-                color:         selected ? '#C8922A' : '#7A6F62',
+                color:         selected ? '#C8922A' : 'var(--color-ink-meta)',
                 background:    'none',
                 border:        'none',
                 borderBottom:  selected ? '1px solid #C8922A' : '1px solid transparent',
@@ -95,7 +95,7 @@ export default function LyricsTranslations({
           fontSize:      '0.62rem',
           letterSpacing: '0.2em',
           textTransform: 'uppercase',
-          color:         '#5A5248',
+          color:         'var(--color-ink-meta)',
           marginBottom:  '1.25rem',
         }}>
           {TRANSLATION_WORD[active]} · {LANGUAGE_NAMES[originalLanguage]} → {LANGUAGE_NAMES[active]}
@@ -109,7 +109,7 @@ export default function LyricsTranslations({
           className="font-[family-name:var(--font-cormorant)] font-light italic"
           style={{
             fontSize:   'clamp(1rem, 2vw, 1.2rem)',
-            color:      'rgba(232,224,212,0.75)',
+            color:      'rgba(var(--ink-rgb),0.75)',
             lineHeight: 2.1,
             whiteSpace: 'pre-line',
           }}
