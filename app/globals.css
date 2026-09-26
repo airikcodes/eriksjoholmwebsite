@@ -1204,17 +1204,14 @@ html.theme-fade, html.theme-fade *, html.theme-fade *::before, html.theme-fade *
 /* Night: the sun becomes the moon — a soft screen-blended disc drawn with today's real phase (SVG in SunOrb). */
 html[data-tone="night"] .sun-orb {
   display: block;
-  position: fixed; left: 0; top: 0; z-index: 40; pointer-events: none;
+  position: fixed; left: 0; top: 0; z-index: -1; pointer-events: none;   /* behind the page: text and photos always sit on top of the moon */
   border-radius: 50%;
-  overflow: hidden;
-  opacity: 0.4;
-  mix-blend-mode: screen;
   will-change: transform;
 }
-/* the moon is drawn as SVG so the terminator is a true ellipse (crescent, quarter, gibbous, full) */
+html[data-tone="night"] .sun-orb[data-mode="video"] { overflow: hidden; }
 .moon-svg { display: none; }
-html[data-tone="night"] .moon-svg { display: block; position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
-html[data-tone="night"] .moon-dark  { fill: rgba(232,228,214,0.13); }   /* the unlit side, faintly (earthshine) */
+html[data-tone="night"] .moon-svg { display: block; position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; filter: drop-shadow(0 0 2.6vmin rgba(255,214,120,0.42)); }
+html[data-tone="night"] .moon-dark  { fill: rgba(248,201,94,0.12); }   /* the unlit side, faintly (earthshine) */
 html[data-theme="light"]:not([data-tone="night"]) .sun-orb {
   display: block;
   position: fixed; left: 0; top: 0; z-index: 40; pointer-events: none;
@@ -1226,6 +1223,7 @@ html[data-theme="light"]:not([data-tone="night"]) .sun-orb {
 }
 html[data-theme="light"] .sun-orb video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s ease; }
 html[data-theme="light"] .sun-orb[data-mode="video"] { mix-blend-mode: normal; opacity: 1; }
+html[data-tone="night"] .sun-orb[data-mode="video"] .moon-svg { display: none; }
 html[data-theme="light"] .sun-orb[data-mode="video"] .moon-svg { display: none; }
 html[data-theme="light"] .sun-orb[data-mode="video"] video { opacity: 1; }
 html.sun-hover, html.sun-hover * { cursor: pointer !important; }
@@ -1307,3 +1305,14 @@ html[data-theme="light"][data-tone="night"] ::-webkit-scrollbar-track { backgrou
 html[data-theme="light"][data-tone="night"] img,
 html[data-theme="light"][data-tone="night"] .page-photo { filter: brightness(0.86) saturate(0.95) !important; }
 html[data-theme="light"][data-tone="night"] .page-photo-wrap::after { background: #C98F2E; }
+
+/* Night: the moon lives behind the page, so the paper itself must be see-through (the html canvas is the
+   same dusk paper), and the homepage's hidden video/photo layers are switched off. Photos, cards and
+   fields keep their own backgrounds and simply sit in front of the moon. */
+html[data-theme="light"][data-tone="night"] main,
+html[data-theme="light"][data-tone="night"] footer,
+html[data-theme="light"][data-tone="night"] .hero-section,
+html[data-theme="light"][data-tone="night"] .library-wrap,
+html[data-theme="light"][data-tone="night"] .mail-section { background: transparent !important; }
+html[data-theme="light"][data-tone="night"] .bg-slideshow,
+html[data-theme="light"][data-tone="night"] .bg-solid { display: none !important; }

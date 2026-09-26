@@ -176,7 +176,8 @@ export default function SunOrb() {
           ? `M${x1.toFixed(1)} ${y1.toFixed(1)}H${x2.toFixed(1)}V${y2.toFixed(1)}H${x1.toFixed(1)}Z`
           : `M${(x1 + q).toFixed(1)} ${y1.toFixed(1)}H${(x2 - q).toFixed(1)}A${q.toFixed(1)} ${q.toFixed(1)} 0 0 1 ${x2.toFixed(1)} ${(y1 + q).toFixed(1)}V${(y2 - q).toFixed(1)}A${q.toFixed(1)} ${q.toFixed(1)} 0 0 1 ${(x2 - q).toFixed(1)} ${y2.toFixed(1)}H${(x1 + q).toFixed(1)}A${q.toFixed(1)} ${q.toFixed(1)} 0 0 1 ${x1.toFixed(1)} ${(y2 - q).toFixed(1)}V${(y1 + q).toFixed(1)}A${q.toFixed(1)} ${q.toFixed(1)} 0 0 1 ${(x1 + q).toFixed(1)} ${y1.toFixed(1)}Z`;
       }
-      el.style.clipPath = `path(evenodd, "${d}")`;
+      // by day the sun overlays the page and is cut away over photos; at night the moon sits *behind* the page, so photos are naturally on top
+      el.style.clipPath = document.documentElement.dataset.tone === "night" ? "none" : `path(evenodd, "${d}")`;
       raf = requestAnimationFrame(tick);
     };
 
@@ -234,14 +235,14 @@ export default function SunOrb() {
   return (
     <div ref={ref} className="sun-orb" aria-hidden="true">
       <video ref={videoRef} muted playsInline preload="none" tabIndex={-1} />
-      <svg className="moon-svg" viewBox="-1 -1 2 2" aria-hidden="true">
+      <svg className="moon-svg" viewBox="-1.05 -1.05 2.1 2.1" aria-hidden="true">
         <defs>
           <radialGradient id="moon-grad" cx="0.38" cy="0.34" r="0.9">
-            <stop offset="0" stopColor="#F6F3E8" /><stop offset="0.6" stopColor="#E4E0CF" /><stop offset="1" stopColor="#C9C4B2" />
+            <stop offset="0" stopColor="#FFF4CC" /><stop offset="0.5" stopColor="#FFD067" /><stop offset="1" stopColor="#F2A93A" />
           </radialGradient>
         </defs>
         <circle r="1" className="moon-dark" />
-        {lit && <path d={lit} fill="url(#moon-grad)" />}
+        {lit && <path d={lit} fill="url(#moon-grad)" stroke="#FFF6D8" strokeWidth="0.03" strokeLinejoin="round" />}
       </svg>
     </div>
   );
