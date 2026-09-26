@@ -1202,7 +1202,7 @@ html.theme-fade, html.theme-fade *, html.theme-fade *::before, html.theme-fade *
   transition: background-color 1.2s ease, color 1.2s ease, border-color 1.2s ease, fill 1.2s ease, stroke 1.2s ease !important;
 }
 /* Night: the sun becomes the moon — a soft screen-blended glow with the real phase (--moon-x set in SunOrb). */
-html[data-theme="dark"] .sun-orb {
+html[data-tone="night"] .sun-orb {
   display: block;
   position: fixed; left: 0; top: 0; z-index: 40; pointer-events: none;
   border-radius: 50%;
@@ -1213,13 +1213,13 @@ html[data-theme="dark"] .sun-orb {
   will-change: transform;
   overflow: hidden;
 }
-html[data-theme="dark"] .sun-orb::after {
+html[data-tone="night"] .sun-orb::after {
   content: ""; position: absolute; inset: 0; border-radius: 50%;
   background: rgba(8,7,6,0.94);
   transform: translateX(var(--moon-x, -100%));
 }
-html[data-theme="dark"] .sun-orb video { display: none; }
-html[data-theme="light"] .sun-orb {
+html[data-tone="night"] .sun-orb video { display: none; }
+html[data-theme="light"]:not([data-tone="night"]) .sun-orb {
   display: block;
   position: fixed; left: 0; top: 0; z-index: 40; pointer-events: none;
   border-radius: 50%;
@@ -1228,7 +1228,85 @@ html[data-theme="light"] .sun-orb {
   will-change: transform;
   overflow: hidden;
 }
-html[data-theme="light"] .sun-orb video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s ease; }
-html[data-theme="light"] .sun-orb[data-mode="video"] { mix-blend-mode: normal; }
-html[data-theme="light"] .sun-orb[data-mode="video"] video { opacity: 1; }
+html[data-theme="light"]:not([data-tone="night"]) .sun-orb video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s ease; }
+html[data-theme="light"]:not([data-tone="night"]) .sun-orb[data-mode="video"] { mix-blend-mode: normal; }
+html[data-theme="light"]:not([data-tone="night"]) .sun-orb[data-mode="video"] video { opacity: 1; }
 html.sun-hover, html.sun-hover * { cursor: pointer !important; }
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   NIGHT TONE — the bright design, just darkened (2026-09-26)
+   Same layout, photography, banners and hard edges as the day; only the paper and
+   ink change (warm dusk paper, cream ink) and photos dim a little. Applied by
+   lib/theme-script.ts as data-tone="night" (auto after sunset, or ?theme=dark).
+   The previous full-black dark theme is kept on the branch dark-theme-archive.
+   ══════════════════════════════════════════════════════════════════════════ */
+html[data-theme="light"][data-tone="night"] {
+  --color-void:        #2A2622;
+  --menu-bg:            rgba(42,38,34,0.72);
+  --menu-bg-hover:      rgba(42,38,34,0.92);
+  --menu-border:        rgba(232,181,88,0.55);
+  --menu-border-hover:  rgba(232,181,88,0.9);
+  --menu-fg:            #E8B558;
+  --menu-fg-hover:      #F3C876;
+  --fg-rgb:            243,237,227;
+  --ink-rgb:           243,237,227;
+  --meta-rgb:          178,167,150;
+  --muted-rgb:         205,195,180;
+  --color-ink-primary: #F3EDE3;
+  --color-ink-body:    #D5CCBE;
+  --color-ink-meta:    #ADA292;
+  --accent-ink:        #E8B558;
+  --accent-ink-hover:  #F3C876;
+  --page-rgb:          42,38,34;
+  --page-solid:        #2A2622;
+  --hairline:          rgba(243,237,227,0.14);
+  --field-bg:          rgba(255,255,255,0.06);
+  --field-border:      rgba(243,237,227,0.30);
+  --footer-ink:        rgba(243,237,227,0.62);
+  --tile-bg:           #37322C;
+  --color-bg:          #2A2622;
+  --color-text:        #F3EDE3;
+  --color-border:      rgba(243,237,227,0.12);
+}
+html[data-theme="light"][data-tone="night"][data-home] {
+  --lang-active: #F3EDE3;
+  --lang-idle:   rgba(243,237,227,0.75);
+  --lang-halo:   none;
+}
+html[data-theme="light"][data-tone="night"][data-home] .bg-solid { background: #2A2622; }
+html[data-theme="light"][data-tone="night"][data-home] .concierge-preamble { color: rgba(243,237,227,0.86); }
+html[data-theme="light"][data-tone="night"][data-home] .concierge-heading  { color: #F3EDE3; }
+html[data-theme="light"][data-tone="night"][data-home] .concierge-tagline  { color: rgba(243,237,227,0.75); }
+html[data-theme="light"][data-tone="night"][data-home] .concierge-or       { color: rgba(243,237,227,0.75); }
+html[data-theme="light"][data-tone="night"][data-home] .concierge-btn      { color: rgba(243,237,227,0.75); }
+html[data-theme="light"][data-tone="night"][data-home] .concierge-btn:hover { color: #F3EDE3; }
+html[data-theme="light"][data-tone="night"][data-home] .concierge-preamble,
+html[data-theme="light"][data-tone="night"][data-home] .concierge-heading,
+html[data-theme="light"][data-tone="night"][data-home] .concierge-tagline,
+html[data-theme="light"][data-tone="night"][data-home] .concierge-or { text-shadow: none; }
+html[data-theme="light"][data-tone="night"][data-home] .concierge-chip {
+  color:        rgba(243,237,227,0.85);
+  border-color: rgba(243,237,227,0.32);
+  background:   rgba(243,237,227,0.05);
+}
+html[data-theme="light"][data-tone="night"][data-home] .concierge-chip:hover  { color: #F3EDE3; border-color: rgba(243,237,227,0.6); }
+html[data-theme="light"][data-tone="night"][data-home] .concierge-chip.active { color: #F3EDE3; border-color: rgba(243,237,227,0.9); }
+html[data-theme="light"][data-tone="night"][data-home] .concierge-input {
+  background:   rgba(255,255,255,0.06);
+  border-color: rgba(243,237,227,0.32);
+  color:        #F3EDE3;
+}
+html[data-theme="light"][data-tone="night"][data-home] .concierge-input:focus        { border-color: rgba(243,237,227,0.75); background: rgba(255,255,255,0.09); }
+html[data-theme="light"][data-tone="night"][data-home] .concierge-input::placeholder { color: rgba(243,237,227,0.5); }
+html[data-theme="light"][data-tone="night"][data-home] .portal-tile--type {
+  --tile-type-bg: linear-gradient(155deg, #3A352F 0%, #37322C 62%, #322E28 100%);
+  --tile-title:   #F3EDE3;
+  --tile-kicker:  #E8B558;
+  --tile-note:    #D5CCBE;
+}
+html[data-theme="light"][data-tone="night"] ::-webkit-scrollbar-track { background: #2A2622; }
+/* photos dim a little at night — still full colour, still hard-edged */
+html[data-theme="light"][data-tone="night"] img,
+html[data-theme="light"][data-tone="night"] .page-photo { filter: brightness(0.86) saturate(0.95) !important; }
+html[data-theme="light"][data-tone="night"] .page-photo-wrap::after { background: #C98F2E; }

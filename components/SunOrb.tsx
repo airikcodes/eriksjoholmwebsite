@@ -54,7 +54,7 @@ export default function SunOrb() {
     if (!el) return;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const rnd = (a = 0, b = 1) => a + Math.random() * (b - a);
-    const isLight = () => document.documentElement.dataset.theme === "light";
+    const isLight = () => document.documentElement.dataset.tone !== "night";   // the sun (day) turns into video; the moon (night) is only a glow
 
     // Moon moonPhase (0 new … 0.5 full … 1 new) from a known new moon; drives the crescent shadow at night.
     const moonPhase = ((Date.now() - Date.UTC(2000, 0, 6, 18, 14)) / 864e5 / 29.53059 % 1 + 1) % 1;
