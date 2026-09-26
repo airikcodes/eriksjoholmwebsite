@@ -199,7 +199,7 @@ export default async function WorksPage({
         Full-bleed section with its own darker tint
     ══════════════════════════════════════════════════════ */}
     <div id="sync" style={{
-      background:  'rgba(5,4,3,0.82)',
+      background:  'rgba(var(--fg-rgb),0.04)',   // a quiet tint of the ink colour: slightly darker than paper by day, lighter at night
       borderTop:   '1px solid rgba(var(--fg-rgb),0.05)',
       borderBottom:'1px solid rgba(var(--fg-rgb),0.05)',
     }}>
