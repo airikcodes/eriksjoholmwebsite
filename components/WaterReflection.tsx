@@ -46,6 +46,15 @@ export default function WaterReflection() {
       const r = main.getBoundingClientRect();
       mainTop = r.top + window.scrollY; mainLeft = r.left + window.scrollX;
       const clone = main.cloneNode(true) as HTMLElement;
+      // Fixed/sticky elements (photo band, back links, cart…) belong to the viewport, not the page: inside the
+      // transformed mirror they would land at its top-left corner. Drop them from the copy (pair by DOM order).
+      const realEls = main.querySelectorAll<HTMLElement>("*");
+      const cloneEls = clone.querySelectorAll<HTMLElement>("*");
+      realEls.forEach((el, i) => {
+        const pos = getComputedStyle(el).position;
+        if (pos === "fixed" || pos === "sticky") cloneEls[i]?.setAttribute("data-drop", "");
+      });
+      clone.querySelectorAll("[data-drop]").forEach((n) => n.remove());
       clone.querySelectorAll("video, canvas, iframe, audio, script, noscript").forEach((n) => n.remove());
       clone.querySelectorAll("[id]").forEach((n) => n.removeAttribute("id"));
       clone.querySelectorAll("[for]").forEach((n) => n.removeAttribute("for"));
