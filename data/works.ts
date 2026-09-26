@@ -69,6 +69,301 @@ export const works: Work[] = [
     spotifyUrl:    'https://open.spotify.com/track/2ALT61LKWHRLW3qvRpz3JI',
     tidalUrl:      TIDAL_ARTIST,
     audioUrl:      'https://pub-6f6cd6567cbc4f74936c2036ae7bca61.r2.dev/Lycka_Sjoholm_Nordstrom.mp3',
+    lyrics:
+`Vi ringer regelbundet
+Hon frågar alltid hur jag mår
+Och hon är den som kan förstå mig
+
+Alltid lugnet i min storm
+Genom glädje, genom sorg
+
+Så liten var jag då
+Hjälplös i din hand
+Nu finns jag här
+För dig
+
+Han känner pulsen
+Litar på känslan
+Att vägen alltid leder hem
+
+Så liten var jag då
+Hjälplös i din hand
+Nu finns jag här
+För dig
+
+Din starka vilja
+De kan va svårt för mig
+Att acceptera våra gränser
+
+Så liten var du då
+Hjälplös i min hand
+Nu finns vi här
+För dig
+
+Lyckan kommer, lyckan går
+Var vi än i livet står
+Finns vi där för varandra
+Finns vi där`,
+    lyricsTranslations: {
+      en:
+`We call each other regularly
+She always asks how I'm doing
+And she's the one who can understand me
+
+Always the calm in my storm
+Through joy, through sorrow
+
+So small I was then
+Helpless in your hand
+Now I'm here
+For you
+
+He feels the pulse
+Trusts the feeling
+That the road always leads home
+
+So small I was then
+Helpless in your hand
+Now I'm here
+For you
+
+Your strong will
+It can be hard for me
+To accept our limits
+
+So small you were then
+Helpless in my hand
+Now we're here
+For you
+
+Happiness comes, happiness goes
+Wherever we stand in life
+We are there for each other
+We are there`,
+      de:
+`Wir telefonieren regelmäßig
+Sie fragt immer, wie es mir geht
+Und sie ist die, die mich verstehen kann
+
+Immer die Ruhe in meinem Sturm
+Durch Freude, durch Trauer
+
+So klein war ich damals
+Hilflos in deiner Hand
+Jetzt bin ich da
+Für dich
+
+Er spürt den Puls
+Vertraut dem Gefühl
+Dass der Weg immer nach Hause führt
+
+So klein war ich damals
+Hilflos in deiner Hand
+Jetzt bin ich da
+Für dich
+
+Dein starker Wille
+Es kann schwer für mich sein
+Unsere Grenzen zu akzeptieren
+
+So klein warst du damals
+Hilflos in meiner Hand
+Jetzt sind wir da
+Für dich
+
+Das Glück kommt, das Glück geht
+Wo wir im Leben auch stehen
+Sind wir füreinander da
+Sind wir da`,
+      es:
+`Nos llamamos con regularidad
+Ella siempre me pregunta cómo estoy
+Y es la que puede entenderme
+
+Siempre la calma en mi tormenta
+En la alegría, en el dolor
+
+Tan pequeño era yo entonces
+Indefenso en tu mano
+Ahora estoy aquí
+Para ti
+
+Él siente el pulso
+Confía en el presentimiento
+De que el camino siempre lleva a casa
+
+Tan pequeño era yo entonces
+Indefenso en tu mano
+Ahora estoy aquí
+Para ti
+
+Tu fuerte voluntad
+Puede ser difícil para mí
+Aceptar nuestros límites
+
+Tan pequeña eras tú entonces
+Indefensa en mi mano
+Ahora estamos aquí
+Para ti
+
+La felicidad viene, la felicidad se va
+Estemos donde estemos en la vida
+Estamos ahí el uno para el otro
+Estamos ahí`,
+      fi:
+`Soitamme toisillemme säännöllisesti
+Hän kysyy aina, mitä minulle kuuluu
+Ja hän on se, joka osaa ymmärtää minua
+
+Aina tyyneys myrskyssäni
+Ilon läpi, surun läpi
+
+Niin pieni olin silloin
+Avuton sinun kädessäsi
+Nyt olen tässä
+Sinua varten
+
+Hän tuntee sykkeen
+Luottaa tunteeseen
+Että tie vie aina kotiin
+
+Niin pieni olin silloin
+Avuton sinun kädessäsi
+Nyt olen tässä
+Sinua varten
+
+Sinun vahva tahtosi
+Voi olla minulle vaikeaa
+Hyväksyä rajamme
+
+Niin pieni olit silloin
+Avuton minun kädessäni
+Nyt olemme tässä
+Sinua varten
+
+Onni tulee, onni menee
+Missä elämässä sitten seisommekin
+Olemme siellä toisiamme varten
+Olemme siellä`,
+      it:
+`Ci sentiamo regolarmente
+Lei mi chiede sempre come sto
+Ed è lei che riesce a capirmi
+
+Sempre la calma nella mia tempesta
+Attraverso la gioia, attraverso il dolore
+
+Così piccolo ero allora
+Indifeso nella tua mano
+Ora sono qui
+Per te
+
+Lui sente il battito
+Si fida del sentimento
+Che la strada porta sempre a casa
+
+Così piccolo ero allora
+Indifeso nella tua mano
+Ora sono qui
+Per te
+
+La tua forte volontà
+Per me può essere difficile
+Accettare i nostri limiti
+
+Così piccola eri allora
+Indifesa nella mia mano
+Ora siamo qui
+Per te
+
+La felicità viene, la felicità va
+Ovunque siamo nella vita
+Ci siamo l'uno per l'altro
+Ci siamo`,
+      fr:
+`On s'appelle régulièrement
+Elle me demande toujours comment je vais
+Et c'est elle qui sait me comprendre
+
+Toujours le calme dans ma tempête
+Dans la joie, dans le chagrin
+
+Si petit j'étais alors
+Sans défense dans ta main
+Maintenant je suis là
+Pour toi
+
+Il sent le pouls
+Fait confiance au sentiment
+Que le chemin mène toujours à la maison
+
+Si petit j'étais alors
+Sans défense dans ta main
+Maintenant je suis là
+Pour toi
+
+Ta forte volonté
+Peut être difficile pour moi
+D'accepter nos limites
+
+Si petite tu étais alors
+Sans défense dans ma main
+Maintenant nous sommes là
+Pour toi
+
+Le bonheur vient, le bonheur s'en va
+Où que nous en soyons dans la vie
+Nous sommes là l'un pour l'autre
+Nous sommes là`,
+      pt:
+`Ligamo-nos com regularidade
+Ela pergunta sempre como estou
+E é ela quem consegue compreender-me
+
+Sempre a calma na minha tempestade
+Na alegria, na tristeza
+
+Tão pequeno eu era então
+Indefeso na tua mão
+Agora estou aqui
+Por ti
+
+Ele sente o pulso
+Confia no sentimento
+De que o caminho leva sempre a casa
+
+Tão pequeno eu era então
+Indefeso na tua mão
+Agora estou aqui
+Por ti
+
+A tua forte vontade
+Pode ser difícil para mim
+Aceitar os nossos limites
+
+Tão pequena eras então
+Indefesa na minha mão
+Agora estamos aqui
+Por ti
+
+A felicidade vem, a felicidade vai
+Onde quer que estejamos na vida
+Estamos lá uns pelos outros
+Estamos lá`,
+    },
+    credits: [
+      { name: 'Erik Sjøholm',      role: 'Lyrics, lead vocals, backing vocals' },
+      { name: 'Emil Nordström',    role: 'Lyrics, production, arrangement, mixing, acoustic guitar' },
+      { name: 'Anders Sjölind',    role: 'String arrangements' },
+      // TODO: add Krista's surname before publishing
+      { name: 'Krista',            role: 'Violin, viola' },
+      { name: 'Emma Strömbäck',    role: 'Cello' },
+      { name: 'Johnny Nordström',  role: 'Piano' },
+      { name: 'Tuukka Aitoaho',    role: 'Drums' },
+      { name: 'Stefan Lindblom',   role: 'Ukulele bass' },
+      { name: 'Stefan Backas',     role: 'Recording engineering' },
+      { name: 'Maria Triana',      role: 'Mastering (Amsterdam)' },
+    ],
     description:   'Written about Emil\'s family: his bond with his wife and daughter, and with his own parents. A cross-generational song about how people carry each other through life, joy or grief. "Lyckan kommer, lyckan går / var vi än i livet står / finns vi där för varandra."',
   },
   {
@@ -691,6 +986,17 @@ av en kärlek så stor…`,
     spotifyUrl:    'https://open.spotify.com/track/2x00pPFmK8lgkyPeW401Gu',
     tidalUrl:      tidalSearch('Barndomsåren Pargas'),
     audioUrl:      'https://pub-6f6cd6567cbc4f74936c2036ae7bca61.r2.dev/Barndoms%C3%A5ren%20%28Pargas%2098%29_Sjoholm_Nordstrom.mp3',
+    credits: [
+      { name: 'Erik Sjøholm',      role: 'Lyrics, lead vocals, backing vocals' },
+      { name: 'Emil Nordström',    role: 'Lyrics, production, arrangement, mixing, acoustic and electric guitar' },
+      { name: 'Johnny Nordström',  role: 'Electric piano, organ' },
+      { name: 'Tuukka Aitoaho',    role: 'Drums, percussion' },
+      { name: 'Stefan Lindblom',   role: 'Bass' },
+      { name: 'Anders Sjölind',    role: 'Trumpet (including solo), trombone' },
+      { name: 'Robin Käldström',   role: 'Saxophone' },
+      { name: 'Stefan Backas',     role: 'Recording engineering' },
+      { name: 'Maria Triana',      role: 'Mastering (Amsterdam)' },
+    ],
     description:   'About Emil\'s childhood years in Pargas, growing up and starting to play music.',
   },
   {
@@ -708,6 +1014,411 @@ av en kärlek så stor…`,
     spotifyUrl:    'https://open.spotify.com/track/5sxlnPchl6ib1vOrjJanxz',
     tidalUrl:      tidalSearch('Sanden I Min Hand'),
     audioUrl:      'https://pub-6f6cd6567cbc4f74936c2036ae7bca61.r2.dev/Sanden%20i%20mind%20hand__Sjoholm_Nordstrom.mp3',
+    lyrics:
+`De är tyst ner vid träsket
+Spegelblankt och kallt
+Kommer hem
+Mitt i natten, utan svar
+
+Vandrar ner, ner till vattnet
+Medan dimman sveper in
+Ekar storlommens skrik
+Över sjön
+
+Som sanden i min hand
+Min tid den rinner ut
+Hur skall man leva livet?
+Vem tar mina beslut?
+
+Som sanden i min hand
+Lämnar något kvar?
+När livet som vi lever
+Rinner ut
+Som sanden i min hand
+
+Sitter kvar, ner vid stranden
+I ett tidlöst andetag
+Ovanför
+Drar en satellit förbi
+
+Känner doften av hösten
+Som när natten blir till dag
+Kan vi födas igen
+I gryningen?
+
+Som sanden i min hand
+Min tid den rinner ut
+Hur skall man leva livet?
+Vem tar mina beslut?
+
+Som sanden i min hand
+Lämnar något kvar?
+När livet som vi lever
+Rinner ut
+Som sanden i min hand
+
+Hur skall man leva livet?
+Vem tar mina beslut?
+När livet som vi lever
+Rinner ut
+
+Som sanden i min hand`,
+    lyricsTranslations: {
+      en:
+`It's quiet down by the marsh
+Mirror-smooth and cold
+Coming home
+In the middle of the night, without an answer
+
+Walking down, down to the water
+As the mist rolls in
+The cry of the loon echoes
+Over the lake
+
+Like the sand in my hand
+My time is running out
+How should one live life?
+Who makes my decisions?
+
+Like the sand in my hand
+Does anything remain?
+As the life we live
+Runs out
+Like the sand in my hand
+
+Sitting still, down by the shore
+In a timeless breath
+Above
+A satellite drifts by
+
+Feeling the scent of autumn
+Like when night turns to day
+Can we be born again
+At dawn?
+
+Like the sand in my hand
+My time is running out
+How should one live life?
+Who makes my decisions?
+
+Like the sand in my hand
+Does anything remain?
+As the life we live
+Runs out
+Like the sand in my hand
+
+How should one live life?
+Who makes my decisions?
+As the life we live
+Runs out
+
+Like the sand in my hand`,
+      de:
+`Es ist still unten am Moor
+Spiegelglatt und kalt
+Ich komme heim
+Mitten in der Nacht, ohne Antwort
+
+Ich gehe hinunter, hinunter zum Wasser
+Während der Nebel hereinzieht
+Der Ruf des Prachttauchers hallt
+Über den See
+
+Wie der Sand in meiner Hand
+Meine Zeit rinnt dahin
+Wie soll man das Leben leben?
+Wer trifft meine Entscheidungen?
+
+Wie der Sand in meiner Hand
+Bleibt etwas zurück?
+Wenn das Leben, das wir leben
+Verrinnt
+Wie der Sand in meiner Hand
+
+Ich sitze noch da, unten am Ufer
+In einem zeitlosen Atemzug
+Darüber
+Zieht ein Satellit vorbei
+
+Ich rieche den Duft des Herbstes
+Wie wenn die Nacht zum Tag wird
+Können wir wieder geboren werden
+In der Morgendämmerung?
+
+Wie der Sand in meiner Hand
+Meine Zeit rinnt dahin
+Wie soll man das Leben leben?
+Wer trifft meine Entscheidungen?
+
+Wie der Sand in meiner Hand
+Bleibt etwas zurück?
+Wenn das Leben, das wir leben
+Verrinnt
+Wie der Sand in meiner Hand
+
+Wie soll man das Leben leben?
+Wer trifft meine Entscheidungen?
+Wenn das Leben, das wir leben
+Verrinnt
+
+Wie der Sand in meiner Hand`,
+      es:
+`Todo está en silencio junto a la ciénaga
+Lisa como un espejo y fría
+Vuelvo a casa
+En mitad de la noche, sin respuesta
+
+Bajo caminando, bajo hasta el agua
+Mientras la niebla lo envuelve todo
+Resuena el grito del colimbo ártico
+Sobre el lago
+
+Como la arena en mi mano
+Mi tiempo se acaba
+¿Cómo se debe vivir la vida?
+¿Quién toma mis decisiones?
+
+Como la arena en mi mano
+¿Queda algo?
+Cuando la vida que vivimos
+Se escurre
+Como la arena en mi mano
+
+Me quedo sentado, junto a la orilla
+En un aliento atemporal
+Arriba
+Pasa un satélite
+
+Siento el olor del otoño
+Como cuando la noche se hace día
+¿Podemos nacer de nuevo
+En el amanecer?
+
+Como la arena en mi mano
+Mi tiempo se acaba
+¿Cómo se debe vivir la vida?
+¿Quién toma mis decisiones?
+
+Como la arena en mi mano
+¿Queda algo?
+Cuando la vida que vivimos
+Se escurre
+Como la arena en mi mano
+
+¿Cómo se debe vivir la vida?
+¿Quién toma mis decisiones?
+Cuando la vida que vivimos
+Se escurre
+
+Como la arena en mi mano`,
+      fi:
+`Hiljaista on alhaalla lammella
+Peilikirkasta ja kylmää
+Tulen kotiin
+Keskellä yötä, ilman vastausta
+
+Kävelen alas, alas veden luo
+Kun sumu verhoaa kaiken
+Kuikan huuto kaikuu
+Järven yllä
+
+Kuin hiekka kädessäni
+Aikani valuu loppuun
+Miten elämää pitäisi elää?
+Kuka tekee päätökseni?
+
+Kuin hiekka kädessäni
+Jääkö jotain jäljelle?
+Kun elämä jota elämme
+Valuu loppuun
+Kuin hiekka kädessäni
+
+Istun yhä alhaalla rannalla
+Ajattomassa hengenvedossa
+Yläpuolella
+Satelliitti lipuu ohi
+
+Tunnen syksyn tuoksun
+Kuin kun yö muuttuu päiväksi
+Voimmeko syntyä uudelleen
+Aamunkoitteessa?
+
+Kuin hiekka kädessäni
+Aikani valuu loppuun
+Miten elämää pitäisi elää?
+Kuka tekee päätökseni?
+
+Kuin hiekka kädessäni
+Jääkö jotain jäljelle?
+Kun elämä jota elämme
+Valuu loppuun
+Kuin hiekka kädessäni
+
+Miten elämää pitäisi elää?
+Kuka tekee päätökseni?
+Kun elämä jota elämme
+Valuu loppuun
+
+Kuin hiekka kädessäni`,
+      it:
+`È silenzio laggiù vicino alla palude
+Liscia come uno specchio e fredda
+Torno a casa
+A notte fonda, senza risposta
+
+Scendo camminando, giù fino all'acqua
+Mentre la nebbia avvolge tutto
+Echeggia il grido della strolaga
+Sopra il lago
+
+Come la sabbia nella mia mano
+Il mio tempo scorre via
+Come si deve vivere la vita?
+Chi prende le mie decisioni?
+
+Come la sabbia nella mia mano
+Resta qualcosa?
+Quando la vita che viviamo
+Scorre via
+Come la sabbia nella mia mano
+
+Resto seduto, giù sulla riva
+In un respiro senza tempo
+Sopra
+Passa un satellite
+
+Sento il profumo dell'autunno
+Come quando la notte diventa giorno
+Possiamo nascere di nuovo
+All'alba?
+
+Come la sabbia nella mia mano
+Il mio tempo scorre via
+Come si deve vivere la vita?
+Chi prende le mie decisioni?
+
+Come la sabbia nella mia mano
+Resta qualcosa?
+Quando la vita che viviamo
+Scorre via
+Come la sabbia nella mia mano
+
+Come si deve vivere la vita?
+Chi prende le mie decisioni?
+Quando la vita che viviamo
+Scorre via
+
+Come la sabbia nella mia mano`,
+      fr:
+`Tout est silencieux près du marais
+Lisse comme un miroir et froid
+Je rentre à la maison
+En pleine nuit, sans réponse
+
+Je descends, je descends vers l'eau
+Tandis que la brume enveloppe tout
+Le cri du plongeon arctique résonne
+Sur le lac
+
+Comme le sable dans ma main
+Mon temps s'écoule
+Comment faut-il vivre sa vie ?
+Qui prend mes décisions ?
+
+Comme le sable dans ma main
+Reste-t-il quelque chose ?
+Quand la vie que nous vivons
+S'écoule
+Comme le sable dans ma main
+
+Je reste assis, en bas sur la rive
+Dans un souffle intemporel
+Au-dessus
+Un satellite passe
+
+Je sens l'odeur de l'automne
+Comme quand la nuit devient jour
+Pouvons-nous renaître
+À l'aube ?
+
+Comme le sable dans ma main
+Mon temps s'écoule
+Comment faut-il vivre sa vie ?
+Qui prend mes décisions ?
+
+Comme le sable dans ma main
+Reste-t-il quelque chose ?
+Quand la vie que nous vivons
+S'écoule
+Comme le sable dans ma main
+
+Comment faut-il vivre sa vie ?
+Qui prend mes décisions ?
+Quand la vie que nous vivons
+S'écoule
+
+Comme le sable dans ma main`,
+      pt:
+`Está silencioso junto ao pântano
+Liso como um espelho e frio
+Volto para casa
+No meio da noite, sem resposta
+
+Desço a caminhar, desço até à água
+Enquanto o nevoeiro envolve tudo
+Ecoa o grito da mobelha-árctica
+Sobre o lago
+
+Como a areia na minha mão
+O meu tempo escorre
+Como se deve viver a vida?
+Quem toma as minhas decisões?
+
+Como a areia na minha mão
+Fica alguma coisa?
+Quando a vida que vivemos
+Escorre
+Como a areia na minha mão
+
+Fico sentado, junto à margem
+Num sopro intemporal
+Por cima
+Passa um satélite
+
+Sinto o cheiro do outono
+Como quando a noite se torna dia
+Podemos nascer de novo
+Ao amanhecer?
+
+Como a areia na minha mão
+O meu tempo escorre
+Como se deve viver a vida?
+Quem toma as minhas decisões?
+
+Como a areia na minha mão
+Fica alguma coisa?
+Quando a vida que vivemos
+Escorre
+Como a areia na minha mão
+
+Como se deve viver a vida?
+Quem toma as minhas decisões?
+Quando a vida que vivemos
+Escorre
+
+Como a areia na minha mão`,
+    },
+    credits: [
+      { name: 'Erik Sjøholm',      role: 'Lyrics, lead vocals, backing vocals, acoustic guitar' },
+      { name: 'Emil Nordström',    role: 'Lyrics, production, arrangement, mixing, electric and baritone guitar' },
+      { name: 'Anders Sjölind',    role: 'Horn arrangements, trumpet, trombone, horn' },
+      { name: 'Robin Käldström',   role: 'Saxophone, clarinet, flute' },
+      { name: 'Johnny Nordström',  role: 'Piano' },
+      { name: 'Tuukka Aitoaho',    role: 'Drums, percussion' },
+      { name: 'Stefan Lindblom',   role: 'Bass' },
+      { name: 'Stefan Backas',     role: 'Recording engineering' },
+      { name: 'Maria Triana',      role: 'Mastering (Amsterdam)' },
+    ],
     description:   'Inspired by Majors träsk in Malax, where Erik\'s father grew up and where Erik\'s sister now lives with her family. Written out of conversations with his father about the passing of time, mortality, and a melancholic attempt to accept death.',
   },
   {
@@ -725,6 +1436,297 @@ av en kärlek så stor…`,
     spotifyUrl:    'https://open.spotify.com/track/5xGo3coakkLQsrq5V3ArIp',
     tidalUrl:      tidalSearch('Längs Med Vägen'),
     audioUrl:      'https://pub-6f6cd6567cbc4f74936c2036ae7bca61.r2.dev/L%C3%A4ngs%20med%20v%C3%A4gen__Sjoholm_Nordstrom.mp3',
+    lyrics:
+`Jag hämta Vasabladet, och knacka på din dörr
+du satt och åt din morgongröt som vanligt
+sen styrd vi stegen mot köpings
+ibland genom skogen, bakom häcken, över krigsgravarna
+
+När höstlöven föll över lönnsalens golv
+då gick vi där och tänkte på
+När vintersolen sken över snötäckta murar
+då låg vi där och vifta änglar i snön
+
+Längs med vägen
+
+Du tog mig med till malax if och sa,
+pass ti robban eller basti, och sen gjord ja självmål,
+som back är man närmare sitt eget..
+dom berätta nog sen,
+
+att vi ska röra oss framåt, vi ska lyssna på varann
+vi ska sikta mot tomrum och springa allt vi kan
+vi kan vinna vad som helst,
+om vi spelar tillsammans
+
+Längs med vägen
+
+Vi byggde borgar och slott, runtom Storms gårdsplan
+de va sköldar och svärd, de va hjältar å drama,
+vi försvara vårt hem, mot en svart fantasi
+
+va finns då än att förklara, en helt enkel poesi
+om att bara finnas till, om att leva som ett vi
+att ja e lycklig här me dej, i alla stunder vi får dela
+
+Längs med vägen
+Längs med vägen`,
+    lyricsTranslations: {
+      en:
+`I fetched the Vasabladet and knocked on your door
+You sat eating your morning porridge as usual
+Then we steered our steps toward the village centre
+Sometimes through the forest, behind the hedge, over the war graves
+
+When the autumn leaves fell over the floor of the maple grove
+We walked there, thinking of
+When the winter sun shone over snow-covered walls
+We lay there making angels in the snow
+
+Along the road
+
+You took me along to Malax IF and said,
+pass it to Robban or Basti, and then I scored an own goal,
+as a defender you're closer to your own..
+they probably told me afterwards,
+
+that we should move forward, we should listen to each other
+we should aim for the empty space and run as fast as we can
+we can win anything,
+if we play together
+
+Along the road
+
+We built castles and fortresses all around Storm's yard
+They were shields and swords, they were heroes and drama,
+we defended our home against a dark fantasy
+
+What is there left to explain, just simple poetry
+about simply being here, about living as one "we"
+that I'm happy here with you, in every moment we get to share
+
+Along the road
+Along the road`,
+      de:
+`Ich holte das Vasabladet und klopfte an deine Tür
+Du saßt da und aßt wie immer deinen Morgenbrei
+Dann lenkten wir unsere Schritte zum Dorfzentrum
+Manchmal durch den Wald, hinter der Hecke, über die Kriegsgräber
+
+Wenn das Herbstlaub auf den Boden des Ahornhains fiel
+Gingen wir dort und dachten an
+Wenn die Wintersonne über schneebedeckte Mauern schien
+Lagen wir dort und machten Engel im Schnee
+
+Entlang des Weges
+
+Du nahmst mich mit zu Malax IF und sagtest:
+Spiel ab an Robban oder Basti, und dann schoss ich ein Eigentor,
+als Verteidiger ist man dem eigenen näher..
+Sie haben es mir wohl später erzählt,
+
+dass wir vorwärts gehen sollen, dass wir einander zuhören sollen
+dass wir auf die freie Fläche zielen und rennen, so schnell wir können
+wir können alles gewinnen,
+wenn wir zusammenspielen
+
+Entlang des Weges
+
+Wir bauten Burgen und Schlösser rund um Storms Hof
+Es waren Schilde und Schwerter, es waren Helden und Drama,
+wir verteidigten unser Zuhause gegen eine dunkle Fantasie
+
+Was gibt es da noch zu erklären, einfach nur Poesie
+darüber, einfach da zu sein, als ein Wir zu leben
+dass ich hier mit dir glücklich bin, in allen Momenten, die wir teilen dürfen
+
+Entlang des Weges
+Entlang des Weges`,
+      es:
+`Fui a buscar el Vasabladet y llamé a tu puerta
+Estabas sentado tomando tus gachas de la mañana, como siempre
+Luego encaminamos nuestros pasos hacia el centro del pueblo
+A veces por el bosque, detrás del seto, sobre las tumbas de guerra
+
+Cuando las hojas de otoño caían sobre el suelo de la arboleda de arces
+Íbamos por allí pensando en
+Cuando el sol de invierno brillaba sobre los muros cubiertos de nieve
+Nos tumbábamos allí haciendo ángeles en la nieve
+
+A lo largo del camino
+
+Me llevaste al Malax IF y dijiste:
+pásasela a Robban o a Basti, y luego marqué un gol en propia puerta,
+de defensa estás más cerca de la tuya..
+probablemente me lo contaron después,
+
+que debemos avanzar, debemos escucharnos
+debemos apuntar al espacio vacío y correr todo lo que podamos
+podemos ganar lo que sea,
+si jugamos juntos
+
+A lo largo del camino
+
+Construíamos castillos y fortalezas alrededor del patio de los Storm
+Eran escudos y espadas, eran héroes y drama,
+defendíamos nuestro hogar contra una fantasía oscura
+
+¿Qué queda por explicar? Simplemente poesía
+sobre existir, sobre vivir como un nosotros
+que soy feliz aquí contigo, en todos los momentos que podemos compartir
+
+A lo largo del camino
+A lo largo del camino`,
+      fi:
+`Haen Vasabladetin ja koputin ovellesi
+Istuit syömässä aamupuuroasi kuten aina
+Sitten suuntasimme askeleemme kohti kylän keskustaa
+Välillä metsän halki, pensasaidan takaa, sankarihautojen yli
+
+Kun syyslehdet putosivat vaahterametsikön lattialle
+Silloin kuljimme siellä ja ajattelimme
+Kun talviaurinko paistoi lumipeitteisten muurien yllä
+Silloin makasimme siellä tekemässä lumienkeleitä
+
+Tietä pitkin
+
+Otit minut mukaan Malax IF:iin ja sanoit:
+syötä Robbanille tai Bastille, ja sitten tein omaan maaliin,
+puolustajana on lähempänä omaansa..
+he kertoivat sen kai myöhemmin,
+
+että meidän pitää edetä, meidän pitää kuunnella toisiamme
+meidän pitää tähdätä tyhjään tilaan ja juosta minkä ehdimme
+voimme voittaa mitä tahansa,
+jos pelaamme yhdessä
+
+Tietä pitkin
+
+Rakensimme linnoja ja kartanoita Stormin pihan ympärille
+Ne olivat kilpiä ja miekkoja, ne olivat sankareita ja draamaa,
+puolustimme kotiamme mustaa mielikuvitusta vastaan
+
+Mitä sitä sitten on selitettävää, aivan yksinkertaista runoutta
+pelkästä olemassaolosta, elämisestä yhtenä me
+että olen onnellinen täällä kanssasi, kaikissa hetkissä jotka saamme jakaa
+
+Tietä pitkin
+Tietä pitkin`,
+      it:
+`Prendevo il Vasabladet e bussavo alla tua porta
+Eri seduto a mangiare il tuo porridge del mattino, come al solito
+Poi dirigevamo i nostri passi verso il centro del paese
+A volte attraverso il bosco, dietro la siepe, sopra le tombe di guerra
+
+Quando le foglie d'autunno cadevano sul pavimento del bosco di aceri
+Camminavamo lì pensando a
+Quando il sole d'inverno splendeva sui muri coperti di neve
+Ci stendevamo lì a fare angeli nella neve
+
+Lungo la strada
+
+Mi portasti con te al Malax IF e dicesti:
+passa a Robban o a Basti, e poi feci autogol,
+da difensore sei più vicino al tuo..
+me l'avranno raccontato dopo,
+
+che dobbiamo andare avanti, dobbiamo ascoltarci
+dobbiamo puntare allo spazio vuoto e correre più che possiamo
+possiamo vincere qualsiasi cosa,
+se giochiamo insieme
+
+Lungo la strada
+
+Costruivamo castelli e fortezze intorno al cortile degli Storm
+Erano scudi e spade, erano eroi e dramma,
+difendevamo la nostra casa da una nera fantasia
+
+Cosa c'è ancora da spiegare, semplicemente poesia
+sull'esserci e basta, sul vivere come un noi
+che sono felice qui con te, in tutti i momenti che possiamo condividere
+
+Lungo la strada
+Lungo la strada`,
+      fr:
+`J'allais chercher le Vasabladet et je frappais à ta porte
+Tu étais assis à manger ta bouillie du matin, comme d'habitude
+Puis nous dirigions nos pas vers le centre du village
+Parfois à travers la forêt, derrière la haie, par-dessus les tombes de guerre
+
+Quand les feuilles d'automne tombaient sur le sol du bois d'érables
+Nous marchions là en pensant à
+Quand le soleil d'hiver brillait sur les murs couverts de neige
+Nous nous allongions là à faire des anges dans la neige
+
+Le long du chemin
+
+Tu m'as emmené au Malax IF et tu as dit :
+passe à Robban ou à Basti, et puis j'ai marqué contre mon camp,
+en défenseur, on est plus près du sien..
+ils me l'ont sans doute raconté plus tard,
+
+que nous devons avancer, que nous devons nous écouter
+que nous devons viser l'espace libre et courir aussi vite que nous pouvons
+nous pouvons gagner n'importe quoi,
+si nous jouons ensemble
+
+Le long du chemin
+
+Nous construisions des châteaux et des forteresses autour de la cour des Storm
+C'étaient des boucliers et des épées, c'étaient des héros et du drame,
+nous défendions notre foyer contre une sombre fantaisie
+
+Que reste-t-il à expliquer, simplement de la poésie
+sur le fait d'être là, de vivre comme un nous
+que je suis heureux ici avec toi, dans tous les moments que nous pouvons partager
+
+Le long du chemin
+Le long du chemin`,
+      pt:
+`Ia buscar o Vasabladet e batia à tua porta
+Estavas sentado a comer as tuas papas da manhã, como sempre
+Depois encaminhávamos os nossos passos para o centro da aldeia
+Às vezes pela floresta, atrás da sebe, por cima dos túmulos de guerra
+
+Quando as folhas de outono caíam no chão do bosque de bordos
+Passeávamos por ali a pensar em
+Quando o sol de inverno brilhava sobre os muros cobertos de neve
+Deitávamo-nos ali a fazer anjos na neve
+
+Ao longo do caminho
+
+Levaste-me contigo ao Malax IF e disseste:
+passa ao Robban ou ao Basti, e depois marquei um autogolo,
+como defesa estamos mais perto do nosso..
+devem ter-me contado depois,
+
+que devemos avançar, devemos ouvir-nos uns aos outros
+devemos apontar ao espaço vazio e correr o mais que pudermos
+podemos ganhar seja o que for,
+se jogarmos juntos
+
+Ao longo do caminho
+
+Construíamos castelos e fortalezas à volta do pátio dos Storm
+Eram escudos e espadas, eram heróis e drama,
+defendíamos a nossa casa contra uma fantasia sombria
+
+O que há ainda para explicar, simplesmente poesia
+sobre existir, sobre viver como um nós
+que estou feliz aqui contigo, em todos os momentos que podemos partilhar
+
+Ao longo do caminho
+Ao longo do caminho`,
+    },
+    credits: [
+      { name: 'Erik Sjøholm',      role: 'Lyrics, lead vocals, backing vocals, acoustic guitar' },
+      { name: 'Emil Nordström',    role: 'Lyrics, production, arrangement, mixing, electric guitar' },
+      { name: 'Johnny Nordström',  role: 'Electric piano, organ' },
+      { name: 'Tuukka Aitoaho',    role: 'Drums, percussion' },
+      { name: 'Stefan Lindblom',   role: 'Bass' },
+      { name: 'Stefan Backas',     role: 'Recording engineering' },
+      { name: 'Maria Triana',      role: 'Mastering (Amsterdam)' },
+    ],
     description:   'The title track, about Erik\'s connection to his childhood best friend Viktor — the two have known each other since they were a few months old. The song began as the speech Erik gave at Viktor\'s wedding.',
   },
   {
@@ -742,6 +1744,363 @@ av en kärlek så stor…`,
     spotifyUrl:    'https://open.spotify.com/track/0GOPIKvZioFI9CWyBwkt5S',
     tidalUrl:      tidalSearch('Fri Som En Fågel'),
     audioUrl:      'https://pub-6f6cd6567cbc4f74936c2036ae7bca61.r2.dev/Fri%20Som%20En%20F%C3%A5gel_Sjoholm_Nordstrom.mp3',
+    lyrics:
+`Boka en biljett
+Låt oss ta en liten tur
+Ut mot öppna horisonter
+Jag har ett äventyr på lur
+
+Vi kan flyga till Nepal
+Korsa Ryssland med ett tåg
+Åka båt i Nya Zeeland
+Flyga högt och dyka lågt
+
+Fri som en fågel
+Fri som en vind
+Här ut i världen
+Är jag fri, fri
+Fri som en fågel
+
+Hoppa in i min kajak
+Vi kan paddla höga kusten
+Längta bort till höga berg
+Jag känner alltid vandrings lusten
+
+Bestiga Kilimanjaros topp
+Pusta ut i Zansibar
+Ta ett dopp i medelhavet
+De finns så många resmål kvar
+
+Fri som en fågel
+Fri som en vind
+Här ut i världen
+Är jag fri, här är jag fri
+Fri som en fågel
+
+En resa jorden runt
+Mitt sinne är ännu ungt
+Jag ska resa jorden runt före jag
+Tar mitt sista andetag
+
+Fri som en fågel
+Fri som en vind
+Här ut i världen
+Är jag fri, här är jag fri
+Fri som en fågel`,
+    lyricsTranslations: {
+      en:
+`Book a ticket
+Let's take a little trip
+Out toward open horizons
+I've got an adventure lined up
+
+We can fly to Nepal
+Cross Russia by train
+Take a boat in New Zealand
+Fly high and dive deep
+
+Free as a bird
+Free as the wind
+Out here in the world
+I am free, free
+Free as a bird
+
+Jump into my kayak
+We can paddle the High Coast
+Long for the high mountains
+I always feel the urge to hike
+
+Climb to the top of Kilimanjaro
+Catch my breath in Zanzibar
+Take a dip in the Mediterranean
+There are so many destinations left
+
+Free as a bird
+Free as the wind
+Out here in the world
+I am free, here I am free
+Free as a bird
+
+A journey around the world
+My mind is still young
+I'm going to travel around the world before I
+Take my last breath
+
+Free as a bird
+Free as the wind
+Out here in the world
+I am free, here I am free
+Free as a bird`,
+      de:
+`Buch ein Ticket
+Lass uns einen kleinen Ausflug machen
+Hinaus zu offenen Horizonten
+Ich habe ein Abenteuer in petto
+
+Wir können nach Nepal fliegen
+Russland mit dem Zug durchqueren
+In Neuseeland Boot fahren
+Hoch fliegen und tief tauchen
+
+Frei wie ein Vogel
+Frei wie der Wind
+Hier draußen in der Welt
+Bin ich frei, frei
+Frei wie ein Vogel
+
+Spring in mein Kajak
+Wir können die Höga Kusten entlangpaddeln
+Sehnsucht nach den hohen Bergen
+Ich spüre immer die Wanderlust
+
+Den Gipfel des Kilimandscharo besteigen
+In Sansibar durchatmen
+Ein Bad im Mittelmeer nehmen
+Es gibt noch so viele Reiseziele
+
+Frei wie ein Vogel
+Frei wie der Wind
+Hier draußen in der Welt
+Bin ich frei, hier bin ich frei
+Frei wie ein Vogel
+
+Eine Reise um die Welt
+Mein Geist ist noch jung
+Ich werde um die Welt reisen, bevor ich
+Meinen letzten Atemzug tue
+
+Frei wie ein Vogel
+Frei wie der Wind
+Hier draußen in der Welt
+Bin ich frei, hier bin ich frei
+Frei wie ein Vogel`,
+      es:
+`Reserva un billete
+Hagamos un pequeño viaje
+Hacia horizontes abiertos
+Tengo una aventura preparada
+
+Podemos volar a Nepal
+Cruzar Rusia en tren
+Navegar en barco por Nueva Zelanda
+Volar alto y bucear a fondo
+
+Libre como un pájaro
+Libre como el viento
+Aquí fuera, en el mundo
+Soy libre, libre
+Libre como un pájaro
+
+Sube a mi kayak
+Podemos remar por la Costa Alta
+Anhelar las altas montañas
+Siempre siento las ganas de caminar
+
+Subir a la cima del Kilimanjaro
+Recobrar el aliento en Zanzíbar
+Darse un chapuzón en el Mediterráneo
+Quedan tantos destinos
+
+Libre como un pájaro
+Libre como el viento
+Aquí fuera, en el mundo
+Soy libre, aquí soy libre
+Libre como un pájaro
+
+Un viaje alrededor del mundo
+Mi mente aún es joven
+Voy a viajar alrededor del mundo antes de
+Dar mi último aliento
+
+Libre como un pájaro
+Libre como el viento
+Aquí fuera, en el mundo
+Soy libre, aquí soy libre
+Libre como un pájaro`,
+      fi:
+`Varaa lippu
+Tehdään pieni matka
+Kohti avoimia horisontteja
+Minulla on seikkailu tiedossa
+
+Voimme lentää Nepaliin
+Ylittää Venäjän junalla
+Matkustaa veneellä Uudessa-Seelannissa
+Lentää korkealle ja sukeltaa syvälle
+
+Vapaa kuin lintu
+Vapaa kuin tuuli
+Täällä maailmalla
+Olen vapaa, vapaa
+Vapaa kuin lintu
+
+Hyppää kajakkiini
+Voimme meloa Korkean rannikon
+Kaivata korkeille vuorille
+Tunnen aina vaellushalun
+
+Kiivetä Kilimanjaron huipulle
+Huokaista Sansibarissa
+Pulahtaa Välimereen
+Niin monta matkakohdetta on vielä jäljellä
+
+Vapaa kuin lintu
+Vapaa kuin tuuli
+Täällä maailmalla
+Olen vapaa, täällä olen vapaa
+Vapaa kuin lintu
+
+Matka maailman ympäri
+Mieleni on vielä nuori
+Aion matkustaa maailman ympäri ennen kuin
+Vedän viimeisen hengenvetoni
+
+Vapaa kuin lintu
+Vapaa kuin tuuli
+Täällä maailmalla
+Olen vapaa, täällä olen vapaa
+Vapaa kuin lintu`,
+      it:
+`Prenota un biglietto
+Facciamo un piccolo viaggio
+Verso orizzonti aperti
+Ho un'avventura in serbo
+
+Possiamo volare in Nepal
+Attraversare la Russia in treno
+Andare in barca in Nuova Zelanda
+Volare alto e immergerci in profondità
+
+Libero come un uccello
+Libero come il vento
+Qui fuori nel mondo
+Sono libero, libero
+Libero come un uccello
+
+Salta nel mio kayak
+Possiamo pagaiare lungo l'Alta Costa
+Desiderare le alte montagne
+Sento sempre la voglia di camminare
+
+Scalare la vetta del Kilimangiaro
+Riprendere fiato a Zanzibar
+Fare un tuffo nel Mediterraneo
+Ci sono ancora così tante mete
+
+Libero come un uccello
+Libero come il vento
+Qui fuori nel mondo
+Sono libero, qui sono libero
+Libero come un uccello
+
+Un viaggio intorno al mondo
+La mia mente è ancora giovane
+Viaggerò intorno al mondo prima di
+Prendere il mio ultimo respiro
+
+Libero come un uccello
+Libero come il vento
+Qui fuori nel mondo
+Sono libero, qui sono libero
+Libero come un uccello`,
+      fr:
+`Réserve un billet
+Faisons un petit voyage
+Vers des horizons ouverts
+J'ai une aventure en réserve
+
+On peut s'envoler pour le Népal
+Traverser la Russie en train
+Naviguer en bateau en Nouvelle-Zélande
+Voler haut et plonger profond
+
+Libre comme un oiseau
+Libre comme le vent
+Ici, dans le monde
+Je suis libre, libre
+Libre comme un oiseau
+
+Saute dans mon kayak
+On peut pagayer le long de la Côte Haute
+Rêver de hautes montagnes
+J'ai toujours envie de marcher
+
+Gravir le sommet du Kilimandjaro
+Reprendre son souffle à Zanzibar
+Faire trempette en Méditerranée
+Il reste tant de destinations
+
+Libre comme un oiseau
+Libre comme le vent
+Ici, dans le monde
+Je suis libre, ici je suis libre
+Libre comme un oiseau
+
+Un voyage autour du monde
+Mon esprit est encore jeune
+Je ferai le tour du monde avant de
+Prendre mon dernier souffle
+
+Libre comme un oiseau
+Libre comme le vent
+Ici, dans le monde
+Je suis libre, ici je suis libre
+Libre comme un oiseau`,
+      pt:
+`Reserva um bilhete
+Vamos fazer uma pequena viagem
+Rumo a horizontes abertos
+Tenho uma aventura guardada
+
+Podemos voar para o Nepal
+Atravessar a Rússia de comboio
+Andar de barco na Nova Zelândia
+Voar alto e mergulhar fundo
+
+Livre como um pássaro
+Livre como o vento
+Cá fora, no mundo
+Sou livre, livre
+Livre como um pássaro
+
+Salta para o meu caiaque
+Podemos remar pela Costa Alta
+Ter saudades das montanhas altas
+Sinto sempre o desejo de caminhar
+
+Subir ao cume do Kilimanjaro
+Recuperar o fôlego em Zanzibar
+Dar um mergulho no Mediterrâneo
+Ainda há tantos destinos
+
+Livre como um pássaro
+Livre como o vento
+Cá fora, no mundo
+Sou livre, aqui sou livre
+Livre como um pássaro
+
+Uma viagem à volta do mundo
+A minha mente ainda é jovem
+Vou viajar à volta do mundo antes de
+Dar o meu último suspiro
+
+Livre como um pássaro
+Livre como o vento
+Cá fora, no mundo
+Sou livre, aqui sou livre
+Livre como um pássaro`,
+    },
+    credits: [
+      { name: 'Erik Sjøholm',      role: 'Lyrics, lead vocals, backing vocals, acoustic guitar' },
+      { name: 'Emil Nordström',    role: 'Lyrics, production, arrangement, mixing, electric guitar' },
+      { name: 'Anders Sjölind',    role: 'Horn arrangements, trumpet' },
+      { name: 'Robin Käldström',   role: 'Saxophone (including solo)' },
+      { name: 'Johnny Nordström',  role: 'Electric piano, synthesizer, organ' },
+      { name: 'Tuukka Aitoaho',    role: 'Drums, percussion' },
+      { name: 'Stefan Lindblom',   role: 'Bass' },
+      { name: 'Stefan Backas',     role: 'Recording engineering' },
+      { name: 'Maria Triana',      role: 'Mastering (Amsterdam)' },
+    ],
     description:   'About Erik\'s mother, for whom travel is freedom — kayak, hiking, train, bus, flight, bike, staying in motion by any means she can.',
   },
   {
