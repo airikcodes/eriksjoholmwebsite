@@ -328,6 +328,10 @@ async function fetchLyricHits(q: string): Promise<Track[]> {
 
 function ResultCard({ track, onDismiss }: { track: Track; onDismiss: (id: string) => void }) {
   const trackId = extractTrackId(track.spotifyLink);
+  // The Spotify embed only comes in dark (or cover-tinted) — loud on paper — and three
+  // iframes per search are heavy. So it stays closed until someone asks for a preview.
+  const [playing, setPlaying] = useState(false);
+  const linkStyle = { fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "var(--color-ink-meta)" };
 
   return (
     <div
@@ -411,29 +415,26 @@ function ResultCard({ track, onDismiss }: { track: Track; onDismiss: (id: string
               {track.description}
             </p>
           )}
-          {/* Links — only shown when there's no embeddable player */}
-          {!trackId && (
-            <div style={{ display: "flex", gap: "1.25rem", marginTop: "0.75rem" }}>
-              <a
-                href={track.spotifyLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--color-ink-meta)" }}
-                className="hover:text-[#1DB954] transition-colors duration-200"
+          {/* Links — always quiet; the embedded preview opens on request */}
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "0.6rem 1.25rem", marginTop: "0.75rem" }}>
+            {trackId && (
+              <button
+                type="button"
+                onClick={() => setPlaying((v) => !v)}
+                aria-expanded={playing}
+                style={{ ...linkStyle, color: "var(--accent-ink)" }}
+                className="hover:opacity-70 transition-opacity duration-200"
               >
-                Spotify →
-              </a>
-              <a
-                href={track.tidalLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--color-ink-meta)" }}
-                className="hover:text-[#00FFFF] transition-colors duration-200"
-              >
-                Tidal →
-              </a>
-            </div>
-          )}
+                {playing ? "Close preview" : "Play preview"}
+              </button>
+            )}
+            <a href={track.spotifyLink} target="_blank" rel="noopener noreferrer" style={linkStyle} className="hover:text-[#1DB954] transition-colors duration-200">
+              Spotify →
+            </a>
+            <a href={track.tidalLink} target="_blank" rel="noopener noreferrer" style={linkStyle} className="hover:text-[#00FFFF] transition-colors duration-200">
+              Tidal →
+            </a>
+          </div>
         </div>
 
         {/* Dismiss */}
@@ -447,8 +448,8 @@ function ResultCard({ track, onDismiss }: { track: Track; onDismiss: (id: string
         </button>
       </div>
 
-      {/* Spotify embed + Tidal fallback link */}
-      {trackId && (
+      {/* Spotify embed — only loaded once a preview is requested */}
+      {trackId && playing && (
         <div style={{ padding: "0 1.25rem 1.25rem" }}>
           <iframe
             src={`https://open.spotify.com/embed/track/${trackId}?utm_source=generator&theme=0`}
@@ -459,15 +460,6 @@ function ResultCard({ track, onDismiss }: { track: Track; onDismiss: (id: string
             loading="lazy"
             style={{ display: "block" }}
           />
-          <a
-            href={track.tidalLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ display: "inline-block", marginTop: "0.6rem", fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--color-ink-meta)" }}
-            className="hover:text-[#00FFFF] transition-colors duration-200"
-          >
-            Also on Tidal →
-          </a>
         </div>
       )}
     </div>
