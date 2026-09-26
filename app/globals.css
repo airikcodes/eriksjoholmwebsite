@@ -1194,14 +1194,13 @@ html[data-theme="light"] .page-photo-wrap::after {
 html[data-theme="light"][data-home] .library-wrap { position: relative; overflow: hidden; }
 html[data-theme="light"][data-home] .library-wrap > * { position: relative; z-index: 1; }
 
-/* The travelling sun (components/SunOrb.tsx): homepage, light theme only. */
+/* The travelling sun (components/SunOrb.tsx): every page, light theme only. */
 .sun-orb { display: none; }
-html[data-theme="light"][data-home] .sun-orb {
+html[data-theme="light"] .sun-orb {
   display: block;
   position: fixed; left: 0; top: 0; z-index: 40; pointer-events: none;
   border-radius: 50%;
   background: var(--color-sun);
   mix-blend-mode: multiply;
   will-change: transform;
-  transition: background-color 0.7s ease;
 }

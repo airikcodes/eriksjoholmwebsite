@@ -7,6 +7,7 @@ import PersistentBackground from "@/components/PersistentBackground";
 import GradientBlur from "@/components/GradientBlur";
 import SmoothScroll from "@/components/SmoothScroll";
 import ThemeController from "@/components/ThemeController";
+import SunOrb from "@/components/SunOrb";
 import { THEME_SCRIPT } from "@/lib/theme-script";
 import "./globals.css";
 
@@ -81,6 +82,7 @@ export default async function RootLayout({
         {/* Theme bootstrap — sets data-theme / data-home before first paint (opt-in via ?theme=) */}
         <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
         <ThemeController />
+        <SunOrb />
         {/* Portrait mark — global home link, fixed top-left */}
         <Link href="/" className="portrait-mark" aria-label="Erik Sjøholm — Home">
           <Image
