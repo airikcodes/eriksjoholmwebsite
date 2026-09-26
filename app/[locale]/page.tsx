@@ -124,6 +124,9 @@ export default async function Home({
         </section>
       </div>
 
+      {/* Same full-colour video band between the Library and the mailing list (light theme only). */}
+      <div className="video-window" aria-hidden="true" />
+
       {/* ── Section 3: the mailing list — its own full-height section ─────── */}
       <section
         id="mailing-list"
