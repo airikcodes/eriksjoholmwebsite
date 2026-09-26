@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import SongConcierge from "@/components/SongConcierge";
 import HeroLanguages from "@/components/HeroLanguages";
 import HomePortal from "@/components/HomePortal";
+import SunOrb from "@/components/SunOrb";
 import RevealSection from "@/components/RevealSection";
 import BeehiivForm from "@/components/BeehiivForm";
 import { getNotes } from "@/lib/notes";
@@ -68,6 +69,8 @@ export default async function Home({
         </div>
         </div>
       </section>
+
+      <SunOrb />
 
       {/* Video band parked — see components/VideoBand.tsx to bring it back. */}
 

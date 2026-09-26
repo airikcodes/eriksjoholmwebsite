@@ -1169,17 +1169,6 @@ html[data-theme="light"][data-home] .library-wrap {
    One motif — a flat, hard-edged "midnight sun" circle — plus two quiet tinted grounds
    so the cream sections stop reading as blank. */
 html[data-theme="light"][data-home] .hero-section { position: relative; overflow: hidden; }
-html[data-theme="light"][data-home] .hero-section::before {
-  content:       "";
-  position:      absolute;
-  z-index:       0;
-  right:         -9vmin;
-  bottom:        -12vmin;
-  width:         52vmin;
-  height:        52vmin;
-  border-radius: 50%;
-  background:    var(--color-sun);
-}
 html[data-theme="light"][data-home] .hero-panel { position: relative; z-index: 1; }
 
 /* Library: sand ground so the covers sit on colour; a little more contrast for small labels. */
@@ -1189,18 +1178,8 @@ html[data-theme="light"][data-home] .library-wrap {
 }
 
 /* Newsletter: pale fjord ground with the sun peeking in from the top-left. */
-html[data-theme="light"] .mail-section { background: var(--color-sun); position: relative; overflow: hidden; }
-html[data-theme="light"] .mail-section::before {
-  content:       "";
-  position:      absolute;
-  left:          -14vmin;
-  top:           -14vmin;
-  width:         42vmin;
-  height:        42vmin;
-  border-radius: 50%;
-  background:    #2F5D6B;
-}
-html[data-theme="light"] .mail-inner { position: relative; z-index: 1; --color-ink-meta: #4A3A14; --accent-ink: #2F2408; }
+html[data-theme="light"] .mail-section { background: var(--page-solid); position: relative; overflow: hidden; }
+html[data-theme="light"] .mail-inner { position: relative; z-index: 1; --accent-ink: #6B4A0E; }
 
 /* Inner pages: a sun-coloured rule under the photo band. */
 html[data-theme="light"] .page-photo-wrap::after {
@@ -1213,8 +1192,16 @@ html[data-theme="light"] .page-photo-wrap::after {
 
 /* Library: same paper as the hero, with a deep-fjord circle as its colour element. */
 html[data-theme="light"][data-home] .library-wrap { position: relative; overflow: hidden; }
-html[data-theme="light"][data-home] .library-wrap::before {
-  content: ""; position: absolute; z-index: 0; right: -16vmin; top: -16vmin;
-  width: 40vmin; height: 40vmin; border-radius: 50%; background: #2F5D6B;
-}
 html[data-theme="light"][data-home] .library-wrap > * { position: relative; z-index: 1; }
+
+/* The travelling sun (components/SunOrb.tsx): homepage, light theme only. */
+.sun-orb { display: none; }
+html[data-theme="light"][data-home] .sun-orb {
+  display: block;
+  position: fixed; left: 0; top: 0; z-index: 40; pointer-events: none;
+  border-radius: 50%;
+  background: var(--color-sun);
+  mix-blend-mode: multiply;
+  will-change: transform;
+  transition: background-color 0.7s ease;
+}
