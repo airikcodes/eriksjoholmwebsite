@@ -4,11 +4,9 @@ import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 
 /**
- * A waterline at the bottom of every page. The page sinks into the water: a band across the bottom of the
- * viewport (height --water-h) shows a mirrored, softened copy of the page just above it, with soft focus,
- * fading with depth. The progressive blur (GradientBlur) still sits on top, so the reflection gets blurrier
- * the deeper it goes. Content emerges from the water as you scroll (body has matching bottom padding so the
- * end of the page can rise clear of it).
+ * A reflection layer at the bottom of every page: a band across the bottom of the viewport (height --water-h)
+ * shows a mirrored, softened copy of the page just above it, fading with depth. It is only *added* to the
+ * page: the live content underneath and the progressive blur (GradientBlur, which sits on top) are unchanged.
  *
  * The reflection is a decorative clone of <main>: inert, aria-hidden, no ids, no media elements. It is
  * re-cloned (debounced) when the page changes, and only repositioned on scroll.
