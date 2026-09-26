@@ -277,7 +277,48 @@ function matchFromText(input: string): Track[] {
   return [by("lycka"), by("night"), by("magari")];
 }
 
-type Track = (typeof catalog)[0];
+type Track = (typeof catalog)[0] & { matchedLine?: string };
+
+// ── Lyrics matching (server: /api/concierge, lib/lyrics-search.ts) ───────────
+interface LyricHit {
+  slug: string; title: string; meta?: string; coverImage?: string;
+  spotifyUrl?: string; tidalUrl?: string; description?: string;
+  line: string; lang: string; orig: boolean; score: number;
+}
+
+const normTitle = (t: string) =>
+  t.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]/g, "");
+
+function hitToTrack(hit: LyricHit): Track {
+  const existing = catalog.find((t) => t.id === hit.slug || normTitle(t.title) === normTitle(hit.title));
+  if (existing) return { ...existing, matchedLine: hit.line };
+  return {
+    id:          hit.slug,
+    title:       hit.title,
+    subtitle:    hit.meta ?? "Erik Sjøholm",
+    spotifyLink: hit.spotifyUrl ?? SPOTIFY_ARTIST,
+    tidalLink:   hit.tidalUrl ?? tidalSearch(hit.title),
+    coverArt:    hit.coverImage ?? null,
+    description: hit.description ?? "",
+    mood:        [],
+    matchedLine: hit.line,
+  };
+}
+
+async function fetchLyricHits(q: string): Promise<Track[]> {
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), 2500);
+  try {
+    const r = await fetch(`/api/concierge?q=${encodeURIComponent(q)}`, { signal: ctrl.signal });
+    if (!r.ok) return [];
+    const { hits } = (await r.json()) as { hits: LyricHit[] };
+    return hits.map(hitToTrack);
+  } catch {
+    return [];
+  } finally {
+    clearTimeout(timer);
+  }
+}
 
 function ResultCard({ track, onDismiss }: { track: Track; onDismiss: (id: string) => void }) {
   const trackId = extractTrackId(track.spotifyLink);
@@ -335,6 +376,22 @@ function ResultCard({ track, onDismiss }: { track: Track; onDismiss: (id: string
           >
             {track.subtitle}
           </p>
+          {track.matchedLine && (
+            <p
+              className="font-[family-name:var(--font-cormorant)]"
+              style={{
+                fontSize:   "1.05rem",
+                fontStyle:  "italic",
+                lineHeight: 1.4,
+                color:      "var(--color-ink-primary)",
+                marginTop:  "0.55rem",
+                paddingLeft: "0.7rem",
+                borderLeft: "2px solid rgba(200,146,42,0.55)",
+              }}
+            >
+              “{track.matchedLine}”
+            </p>
+          )}
           {track.description && (
             <p
               style={{
@@ -443,6 +500,7 @@ export default function SongConcierge({
   const [input, setInput]       = useState("");
   const [results, setResults]   = useState<Track[]>([]);
   const [activeChip, setActiveChip] = useState<string | null>(null);
+  const [busy, setBusy]       = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const [displayHeading, setDisplayHeading] = useState(heading);
@@ -463,11 +521,26 @@ export default function SongConcierge({
     { label: chipUnexpected, id: "night" },
   ];
 
-  function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    if (!input.trim()) return;
+    const q = input.trim();
+    if (!q || busy) return;
     setActiveChip(null);
-    setResults(matchFromText(input));
+    setBusy(true);
+    const mood = matchFromText(q);
+    // Lyrics first (they carry the matching line), then mood matches fill up to three.
+    const lyric = await fetchLyricHits(q);
+    const seen = new Set<string>();
+    const merged: Track[] = [];
+    for (const t of [...lyric, ...mood]) {
+      const k = normTitle(t.title);
+      if (seen.has(k)) continue;
+      seen.add(k);
+      merged.push(t);
+      if (merged.length === 3) break;
+    }
+    setResults(merged);
+    setBusy(false);
   }
 
   function handleChip(id: string) {
