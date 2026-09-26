@@ -85,7 +85,6 @@ export default async function RootLayout({
         {/* Theme bootstrap — sets data-theme / data-home before first paint (opt-in via ?theme=) */}
         <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
         <ThemeController />
-        <SunOrb />
         {/* Portrait mark — global home link, fixed top-left */}
         <Link href="/" className="portrait-mark" aria-label="Erik Sjøholm — Home">
           <Image
@@ -102,6 +101,7 @@ export default async function RootLayout({
         <SmoothScroll />
         <PersistentBackground host={host} />
         <WaterReflection />
+        <SunOrb />   {/* after the water so its reflection paints above the mirror */}
         <GradientBlur />
         <script
           type="application/ld+json"

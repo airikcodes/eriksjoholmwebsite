@@ -825,7 +825,6 @@ a:hover .product-img {
   display:         flex;
   align-items:     flex-end;
   background:      var(--page-solid);
-  border-top:      1px solid var(--hairline);
 }
 .mail-bg {
   position:            absolute;
@@ -1340,3 +1339,19 @@ html { --water-h: clamp(96px, 16vh, 190px); }
 /* the copy is made before sections have scrolled into view, so show every reveal-on-scroll block */
 .water-mirror .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
 @media print { .water { display: none; } }
+
+
+/* The sun/moon's reflection in the water band (drawn by SunOrb): same disc, mirrored about the waterline,
+   softened and fading with depth. Sits above the mirrored page, under the progressive blur. */
+.sun-reflect { display: none; }
+html[data-theme="light"] .sun-reflect {
+  position: fixed; left: 0; right: 0; bottom: 0; height: var(--water-h);
+  overflow: hidden; pointer-events: none; z-index: 4;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 100%);
+          mask-image: linear-gradient(to bottom, #000 0%, transparent 100%);
+}
+.sun-reflect-orb { position: absolute; left: 0; top: 0; border-radius: 50%; filter: blur(1.5px); will-change: transform; }
+html[data-tone="day"] .sun-reflect-orb { background: var(--color-sun); opacity: 0.7; mix-blend-mode: multiply; }
+html[data-tone="night"] .sun-reflect-orb {
+  background: radial-gradient(circle at 38% 34%, rgba(255,243,210,0.38), rgba(246,228,184,0.26) 70%, rgba(234,215,166,0.18));
+}

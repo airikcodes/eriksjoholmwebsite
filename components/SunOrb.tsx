@@ -61,6 +61,7 @@ const SUN_VIDEOS = Array.from({ length: 12 }, (_, i) => `/videos/bg-${String(i +
 export default function SunOrb() {
   const ref = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const reflectRef = useRef<HTMLDivElement>(null);
   const reroll = useRef<(() => void) | null>(null);
   const pathname = usePathname();
 
@@ -127,6 +128,19 @@ export default function SunOrb() {
       el.style.width = el.style.height = `${size}px`;
       const ox = s.x - size / 2, oy = s.y - size / 2, c = size / 2;
       el.style.transform = `translate3d(${ox}px, ${oy}px, 0) scale(${s.sc})`;
+      // Reflection in the water band: always there, like a moon low over a lake. It follows the disc's horizontal
+      // position and size; higher disc = deeper reflection. Drawn as a softly flattened ellipse, clipped by the band.
+      const rf = reflectRef.current, band = document.querySelector<HTMLElement>(".water");
+      if (rf && band) {
+        const wh = band.offsetHeight;
+        const cy = oy + size / 2;
+        const depth = 0.12 + 0.5 * Math.min(1, Math.max(0, 1 - cy / vh));   // 0 = at the waterline, 1 = bottom of the band
+        const rs = Math.min(s.sc, 1.6);
+        const o = rf.firstElementChild as HTMLElement;
+        rf.style.display = "";
+        o.style.width = o.style.height = `${size}px`;
+        o.style.transform = `translate3d(${ox}px, ${wh * depth - size / 2}px, 0) scale(${rs}, ${rs * 0.55})`;
+      }
       // clip the sun away over photos (coordinates converted into the element's own space)
       let d = `M0 0H${size}V${size}H0Z`;
       holes = photoHoles();
@@ -197,6 +211,10 @@ export default function SunOrb() {
   }, []);
 
   return (
+    <>
+    <div ref={reflectRef} className="sun-reflect" aria-hidden="true" style={{ display: "none" }}>
+      <div className="sun-reflect-orb" />
+    </div>
     <div ref={ref} className="sun-orb" aria-hidden="true">
       <video ref={videoRef} muted playsInline preload="none" tabIndex={-1} />
       <svg className="moon-svg" viewBox="-1.05 -1.05 2.1 2.1" aria-hidden="true">
@@ -208,5 +226,6 @@ export default function SunOrb() {
         <circle r="1" className="moon-lit" />
       </svg>
     </div>
+    </>
   );
 }
