@@ -1,7 +1,7 @@
 // Pre-paint theme bootstrap (prototype). Inlined at the top of <body> so
 // <html data-theme / data-home> is correct before the first paint.
 //
-// Modes. The default is 'light' (the site is bright); dark and auto are opt-in previews. Merging to main makes bright live:
+// Modes. The default is 'auto': bright by day, dark at night (the sun becomes a moon). light and dark pin one:
 //   ?theme=light | dark | auto   -> remembered in localStorage
 //   ?theme=reset                 -> forget it, back to the default
 // "auto" follows the visitor's local clock with an approximate seasonal
@@ -18,7 +18,7 @@
 export const THEME_SCRIPT = `(function(){
   var d=document.documentElement;
   var KEY='theme-preview';
-  var DEFAULT='light'; // decided 2026-09-26: the site is bright. ?theme=dark|auto remain as opt-in previews.
+  var DEFAULT='auto'; // day = bright, night = dark (sun by day, moon by night). ?theme=light|dark pins one.
   function fromUrl(){try{var m=/[?&]theme=(light|dark|auto|reset)\\b/.exec(location.search);return m&&m[1]}catch(e){}return null}
   function get(){try{return localStorage.getItem(KEY)}catch(e){}return null}
   function put(v){try{if(v==='reset')localStorage.removeItem(KEY);else localStorage.setItem(KEY,v)}catch(e){}}
@@ -36,6 +36,8 @@ export const THEME_SCRIPT = `(function(){
     var theme='dark', wash=0;
     if(mode==='light'){theme='light';wash=0.62}
     else if(mode==='auto'){var dl=daylight(new Date());theme=dl>=0.5?'light':'dark';wash=theme==='light'?0.3+0.32*((dl-0.5)/0.5):0}
+    var prev=d.getAttribute('data-theme');
+    if(prev&&prev!==theme){d.classList.add('theme-fade');setTimeout(function(){d.classList.remove('theme-fade')},1600)}
     d.setAttribute('data-theme',theme);
     d.setAttribute('data-theme-mode',mode);
     d.style.setProperty('--wash-a',wash.toFixed(3));

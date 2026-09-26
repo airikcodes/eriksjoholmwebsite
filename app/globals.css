@@ -1197,6 +1197,28 @@ html[data-theme="light"][data-home] .library-wrap > * { position: relative; z-in
 
 /* The travelling sun (components/SunOrb.tsx): every page, light theme only. */
 .sun-orb { display: none; }
+/* Dusk / dawn: colours cross-fade when the theme flips (class set by lib/theme-script.ts). */
+html.theme-fade, html.theme-fade *, html.theme-fade *::before, html.theme-fade *::after {
+  transition: background-color 1.2s ease, color 1.2s ease, border-color 1.2s ease, fill 1.2s ease, stroke 1.2s ease !important;
+}
+/* Night: the sun becomes the moon — a soft screen-blended glow with the real phase (--moon-x set in SunOrb). */
+html[data-theme="dark"] .sun-orb {
+  display: block;
+  position: fixed; left: 0; top: 0; z-index: 40; pointer-events: none;
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 34%, #F4F1E6 0%, #E6E2D2 55%, #CFCABA 100%);
+  opacity: 0.32;
+  mix-blend-mode: screen;
+  box-shadow: 0 0 6vmin 1.5vmin rgba(232,228,214,0.5);
+  will-change: transform;
+  overflow: hidden;
+}
+html[data-theme="dark"] .sun-orb::after {
+  content: ""; position: absolute; inset: 0; border-radius: 50%;
+  background: rgba(8,7,6,0.94);
+  transform: translateX(var(--moon-x, -100%));
+}
+html[data-theme="dark"] .sun-orb video { display: none; }
 html[data-theme="light"] .sun-orb {
   display: block;
   position: fixed; left: 0; top: 0; z-index: 40; pointer-events: none;
