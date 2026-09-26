@@ -77,7 +77,7 @@ export default function SunOrb() {
     // Route parameters, re-rolled whenever scroll direction flips.
     let phase = rnd(0, Math.PI * 2);
     let phase2 = rnd(0, Math.PI * 2);
-    let laps = rnd(0.35, 0.9);
+    let laps = rnd(0.25, 0.6);
     let ampX = rnd(0.32, 0.42);
     let ampY = rnd(0.2, 0.34);
 
@@ -88,7 +88,7 @@ export default function SunOrb() {
     reroll.current = () => {
       const vw = window.innerWidth, vh = window.innerHeight;
       phase = rnd(0, Math.PI * 2); phase2 = rnd(0, Math.PI * 2);
-      laps = rnd(0.35, 1.0); ampX = rnd(0.28, 0.44); ampY = rnd(0.16, 0.36);
+      laps = rnd(0.25, 0.7); ampX = rnd(0.28, 0.44); ampY = rnd(0.16, 0.36);
       lastY = window.scrollY; lastDir = 0;
       s.vx += rnd(-1, 1) * vw * 0.008; s.vy += rnd(-1, 1) * vh * 0.008;
     };
@@ -102,7 +102,7 @@ export default function SunOrb() {
       if (lastDir !== 0 && dir !== lastDir) {           // direction flipped: new route + a kick
         phase = rnd(0, Math.PI * 2);
         phase2 = rnd(0, Math.PI * 2);
-        laps = rnd(0.35, 1.0);
+        laps = rnd(0.25, 0.7);
         ampX = rnd(0.28, 0.44);
         ampY = rnd(0.16, 0.36);
         s.vx += rnd(-1, 1) * vw * 0.006;
@@ -126,18 +126,18 @@ export default function SunOrb() {
       const a = 2 * Math.PI * p * laps + phase;
       const b = 2 * Math.PI * p * (laps * 0.7 + 0.3) + phase2;
       const drift = reduce ? 0 : 1;
-      const tx = vw * (0.5 + ampX * Math.cos(a)) + drift * vw * 0.04 * Math.sin(t * 0.0003 + phase);
-      const ty = vh * (0.55 + ampY * Math.sin(b)) + drift * vh * 0.04 * Math.cos(t * 0.00025 + phase2);
+      const tx = vw * (0.5 + ampX * Math.cos(a)) + drift * vw * 0.04 * Math.sin(t * 0.00018 + phase);
+      const ty = vh * (0.55 + ampY * Math.sin(b)) + drift * vh * 0.04 * Math.cos(t * 0.00015 + phase2);
       // wide size range: from a tiny pearl (~0.15×) to a vast disc (~3×, bigger than the screen) as you travel down the page
       const k = 0.5 - 0.5 * Math.cos(a * 0.9 + phase2);
-      const tsc = 0.15 + 2.85 * k + 0.15 * Math.sin(t * 0.0004 + phase);
+      const tsc = 0.15 + 2.85 * k + 0.15 * Math.sin(t * 0.00025 + phase);
 
       if (reduce) {
         s.x = vw * 0.85; s.y = vh * 0.8; s.sc = 1;
       } else {
         // damped spring toward home; impulses from onScroll give the unpredictable overshoot
-        s.vx += (tx - s.x) * 0.0012; s.vy += (ty - s.y) * 0.0012; s.vsc += (tsc - s.sc) * 0.008;
-        s.vx *= 0.92; s.vy *= 0.92; s.vsc *= 0.88;
+        s.vx += (tx - s.x) * 0.0006; s.vy += (ty - s.y) * 0.0006; s.vsc += (tsc - s.sc) * 0.004;
+        s.vx *= 0.93; s.vy *= 0.93; s.vsc *= 0.9;
         s.x += s.vx; s.y += s.vy; s.sc += s.vsc;
         // stay mostly on screen
         const minX = -size * 0.15, maxX = vw + size * 0.15, minY = vh * 0.05, maxY = vh * 1.0;
