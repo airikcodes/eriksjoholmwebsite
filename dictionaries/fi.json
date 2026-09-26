@@ -58,7 +58,10 @@
       "mostPlayed": "Eniten soitettu",
       "unexpected": "Yllätys"
     },
-    "timeReplace": "juuri nyt"
+    "timeReplace": "juuri nyt",
+    "playPreview": "Toista esikuuntelu",
+    "closePreview": "Sulje esikuuntelu",
+    "dismiss": "Sulje"
   },
   "about": {
     "subtitle": "Singer-songwriter · Luzern",

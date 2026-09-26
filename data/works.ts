@@ -13,6 +13,8 @@ export interface Work {
   title: string;
   workType: WorkType;
   year?: number;
+  /** Optional 'YYYY', 'YYYY-MM' or 'YYYY-MM-DD'. Orders releases within a year (drives the Song Concierge's "Latest release"). */
+  releaseDate?: string;
   releaseStatus: ReleaseStatus;
   featured: boolean;
   featuredOrder?: number;
@@ -3025,6 +3027,7 @@ Vapaa kuin lintu`,
     title:         'Stanna',
     workType:      'collaboration',
     year:          2026,
+    releaseDate:   '2026-09',   // TODO: confirm exact release date — makes Stanna the newest release
     releaseStatus: 'released',
     featured:      false,
     language:      'Swedish',

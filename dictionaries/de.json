@@ -58,7 +58,10 @@
       "mostPlayed": "Meistgehört",
       "unexpected": "Überraschung"
     },
-    "timeReplace": "gerade"
+    "timeReplace": "gerade",
+    "playPreview": "Vorschau abspielen",
+    "closePreview": "Vorschau schließen",
+    "dismiss": "Schließen"
   },
   "about": {
     "subtitle": "Singer-Songwriter · Luzern",

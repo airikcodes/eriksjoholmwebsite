@@ -58,7 +58,10 @@
       "mostPlayed": "Mais tocada",
       "unexpected": "Surpresa"
     },
-    "timeReplace": "agora"
+    "timeReplace": "agora",
+    "playPreview": "Ouvir prévia",
+    "closePreview": "Fechar prévia",
+    "dismiss": "Dispensar"
   },
   "about": {
     "subtitle": "Cantor-compositor · Luzern",

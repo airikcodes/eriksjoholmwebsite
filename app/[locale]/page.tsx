@@ -4,6 +4,7 @@ import SongConcierge from "@/components/SongConcierge";
 import HeroLanguages from "@/components/HeroLanguages";
 import HomePortal from "@/components/HomePortal";
 import SunOrb from "@/components/SunOrb";
+import { getLatestRelease } from "@/lib/latest-release";
 import RevealSection from "@/components/RevealSection";
 import BeehiivForm from "@/components/BeehiivForm";
 import { getNotes } from "@/lib/notes";
@@ -60,6 +61,10 @@ export default async function Home({
           timeReplace={t.concierge.timeReplace}
           placeholder={t.concierge.placeholder}
           orLabel={t.concierge.or}
+          latest={getLatestRelease()}
+          playPreview={t.concierge.playPreview}
+          closePreview={t.concierge.closePreview}
+          dismiss={t.concierge.dismiss}
           chipLatest={t.concierge.chips.latest}
           chipMostPlayed={t.concierge.chips.mostPlayed}
           chipUnexpected={t.concierge.chips.unexpected}

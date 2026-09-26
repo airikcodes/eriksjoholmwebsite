@@ -58,7 +58,10 @@
       "mostPlayed": "Más escuchado",
       "unexpected": "Sorpresa"
     },
-    "timeReplace": "ahora mismo"
+    "timeReplace": "ahora mismo",
+    "playPreview": "Escuchar avance",
+    "closePreview": "Cerrar avance",
+    "dismiss": "Descartar"
   },
   "about": {
     "subtitle": "Cantautor · Luzern",

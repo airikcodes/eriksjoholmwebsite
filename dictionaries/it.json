@@ -58,7 +58,10 @@
       "mostPlayed": "Più ascoltata",
       "unexpected": "Sorpresa"
     },
-    "timeReplace": "adesso"
+    "timeReplace": "adesso",
+    "playPreview": "Ascolta l'anteprima",
+    "closePreview": "Chiudi l'anteprima",
+    "dismiss": "Chiudi"
   },
   "about": {
     "subtitle": "Singer-songwriter · Luzern",

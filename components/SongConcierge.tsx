@@ -18,7 +18,7 @@ const catalog = [
   {
     id:          "lycka",
     title:       "Lycka",
-    subtitle:    "Latest release · 2025",
+    subtitle:    "2026",
     spotifyLink: SPOTIFY_ARTIST,
     tidalLink:   tidalSearch("Lycka"),
     coverArt:    "https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026ed0b3388394820c3aac27c5",
@@ -326,7 +326,7 @@ async function fetchLyricHits(q: string): Promise<Track[]> {
   }
 }
 
-function ResultCard({ track, onDismiss }: { track: Track; onDismiss: (id: string) => void }) {
+function ResultCard({ track, onDismiss, playLabel, closeLabel, dismissLabel }: { track: Track; onDismiss: (id: string) => void; playLabel: string; closeLabel: string; dismissLabel: string }) {
   const trackId = extractTrackId(track.spotifyLink);
   // The Spotify embed only comes in dark (or cover-tinted) — loud on paper — and three
   // iframes per search are heavy. So it stays closed until someone asks for a preview.
@@ -426,7 +426,7 @@ function ResultCard({ track, onDismiss }: { track: Track; onDismiss: (id: string
                 style={{ ...linkStyle, color: "var(--accent-ink)" }}
                 className="hover:opacity-70 transition-opacity duration-200"
               >
-                {playing ? "Close preview" : "Play preview"}
+                {playing ? closeLabel : playLabel}
               </button>
             )}
             <a href={track.spotifyLink} target="_blank" rel="noopener noreferrer" style={linkStyle} className="hover:text-[#1DB954] transition-colors duration-200">
@@ -441,7 +441,7 @@ function ResultCard({ track, onDismiss }: { track: Track; onDismiss: (id: string
         {/* Dismiss */}
         <button
           onClick={() => onDismiss(track.id)}
-          aria-label="Dismiss"
+          aria-label={dismissLabel}
           style={{ color: "var(--color-ink-meta)", fontSize: "1.25rem", lineHeight: 1, flexShrink: 0 }}
           className="hover:text-[color:var(--accent-ink)] transition-colors duration-200"
         >
@@ -482,6 +482,11 @@ interface SongConciergeProps {
   chipMostPlayed?: string;
   chipUnexpected?: string;
   tagline?:        string;
+  playPreview?:    string;
+  closePreview?:   string;
+  dismiss?:        string;
+  /** Newest release, computed server-side from data/works.ts (lib/latest-release.ts). */
+  latest?:         { slug: string; title: string; meta?: string; coverImage?: string; spotifyUrl?: string; tidalUrl?: string; description?: string } | null;
 }
 
 export default function SongConcierge({
@@ -495,6 +500,10 @@ export default function SongConcierge({
   chipMostPlayed = "Most Played",
   chipUnexpected = "Unexpected",
   tagline        = "",
+  latest         = null,
+  playPreview    = "Play preview",
+  closePreview   = "Close preview",
+  dismiss        = "Dismiss",
 }: SongConciergeProps) {
   const [input, setInput]       = useState("");
   const [results, setResults]   = useState<Track[]>([]);
@@ -516,7 +525,7 @@ export default function SongConcierge({
   }, [heading, timeSlots]);
 
   const chips = [
-    { label: chipLatest,     id: "lycka" },
+    { label: chipLatest,     id: "latest" },
     { label: chipMostPlayed, id: "wake-up" },
     { label: chipUnexpected, id: "night" },
   ];
@@ -548,7 +557,12 @@ export default function SongConcierge({
   function handleChip(id: string) {
     setActiveChip(id);
     setInput("");
-    setResults([catalog.find((t) => t.id === id) ?? catalog[0]]);
+    if (id === "latest" && latest) {
+      setResults([hitToTrack({ slug: latest.slug, title: latest.title, meta: latest.meta, coverImage: latest.coverImage,
+        spotifyUrl: latest.spotifyUrl, tidalUrl: latest.tidalUrl, description: latest.description, line: "", lang: "", orig: true, score: 1 })]);
+    } else {
+      setResults([catalog.find((t) => t.id === (id === "latest" ? "lycka" : id)) ?? catalog[0]]);
+    }
     inputRef.current?.blur();
   }
 
@@ -636,7 +650,7 @@ export default function SongConcierge({
       {results.length > 0 && (
         <div ref={resultsRef} className="flex flex-col gap-3" style={{ marginTop: "2rem" }}>
           {results.map((track) => (
-            <ResultCard key={track.id} track={track} onDismiss={handleDismiss} />
+            <ResultCard key={track.id} track={track} onDismiss={handleDismiss} playLabel={playPreview} closeLabel={closePreview} dismissLabel={dismiss} />
           ))}
         </div>
       )}

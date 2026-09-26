@@ -58,7 +58,10 @@
       "mostPlayed": "Mest spelad",
       "unexpected": "Oväntat"
     },
-    "timeReplace": "just nu"
+    "timeReplace": "just nu",
+    "playPreview": "Spela förhandslyssning",
+    "closePreview": "Stäng förhandslyssning",
+    "dismiss": "Stäng"
   },
   "about": {
     "subtitle": "Singer-songwriter · Luzern",

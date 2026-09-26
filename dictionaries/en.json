@@ -58,7 +58,10 @@
       "mostPlayed": "Most Played",
       "unexpected": "Unexpected"
     },
-    "timeReplace": "right now"
+    "timeReplace": "right now",
+    "playPreview": "Play preview",
+    "closePreview": "Close preview",
+    "dismiss": "Dismiss"
   },
   "about": {
     "subtitle": "Singer-songwriter · Luzern",

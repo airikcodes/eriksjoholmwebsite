@@ -58,7 +58,10 @@
       "mostPlayed": "La plus écoutée",
       "unexpected": "Surprise"
     },
-    "timeReplace": "en ce moment"
+    "timeReplace": "en ce moment",
+    "playPreview": "Écouter un extrait",
+    "closePreview": "Fermer l'extrait",
+    "dismiss": "Fermer"
   },
   "about": {
     "subtitle": "Auteur-compositeur-interprète · Luzern",
