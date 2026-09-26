@@ -128,13 +128,15 @@ export default function SunOrb() {
       const drift = reduce ? 0 : 1;
       const tx = vw * (0.5 + ampX * Math.cos(a)) + drift * vw * 0.04 * Math.sin(t * 0.0003 + phase);
       const ty = vh * (0.55 + ampY * Math.sin(b)) + drift * vh * 0.04 * Math.cos(t * 0.00025 + phase2);
-      const tsc = 1 - 0.32 * (0.5 - 0.5 * Math.cos(a)) + 0.04 * Math.sin(t * 0.0003);
+      // wide size range: from a small pearl (~0.3×) to a great disc (~1.8×) as you travel down the page
+      const k = 0.5 - 0.5 * Math.cos(a * 0.9 + phase2);
+      const tsc = 0.3 + 1.5 * k + 0.12 * Math.sin(t * 0.0004 + phase);
 
       if (reduce) {
         s.x = vw * 0.85; s.y = vh * 0.8; s.sc = 1;
       } else {
         // damped spring toward home; impulses from onScroll give the unpredictable overshoot
-        s.vx += (tx - s.x) * 0.0025; s.vy += (ty - s.y) * 0.0025; s.vsc += (tsc - s.sc) * 0.004;
+        s.vx += (tx - s.x) * 0.0025; s.vy += (ty - s.y) * 0.0025; s.vsc += (tsc - s.sc) * 0.006;
         s.vx *= 0.9; s.vy *= 0.9; s.vsc *= 0.88;
         s.x += s.vx; s.y += s.vy; s.sc += s.vsc;
         // stay mostly on screen
@@ -143,7 +145,7 @@ export default function SunOrb() {
         if (s.x > maxX) { s.x = maxX; s.vx = -Math.abs(s.vx) * 0.2; }
         if (s.y < minY) { s.y = minY; s.vy = Math.abs(s.vy) * 0.2; }
         if (s.y > maxY) { s.y = maxY; s.vy = -Math.abs(s.vy) * 0.2; }
-        s.sc = Math.min(1.15, Math.max(0.45, s.sc));
+        s.sc = Math.min(2.0, Math.max(0.22, s.sc));
       }
       el.style.width = el.style.height = `${size}px`;
       const ox = s.x - size / 2, oy = s.y - size / 2, c = size / 2;
