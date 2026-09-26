@@ -1002,21 +1002,27 @@ html[data-theme="light"][data-home] {
 html[data-theme="light"][data-home] .bg-wash,
 html[data-theme="light"][data-home] .bg-vignette { display: none; }
 
-/* The concierge sits on a crisp paper panel over the full-colour video. */
-html[data-theme="light"][data-home] .hero-panel {
-  display:       block;
-  width:         100%;
-  max-width:     36rem;
-  background:    var(--page-solid);
-  padding:       2.75rem 1.5rem 2rem;
-  border-radius: 2px;
-}
-@media (min-width: 640px) {
-  html[data-theme="light"][data-home] .hero-panel { padding: 3.25rem 2.5rem 2.5rem; }
-}
+/* Hero = a hard split. Concierge on flat paper, the video in full colour beside it
+   (desktop) or above it (phone). The video layer stays fixed and shows through a
+   transparent "window" in the hero's background; everything else is solid paper. */
+html[data-theme="light"][data-home] .hero-panel { display: block; width: 100%; max-width: 34rem; }
 html[data-theme="light"][data-home] .hero-panel > div:first-child {
   padding-top:    0 !important;
   padding-bottom: 0 !important;
+}
+html[data-theme="light"][data-home] .hero-section {
+  background:    linear-gradient(to bottom, transparent 0 40svh, var(--page-solid) 40svh 100%);
+  padding-top:   calc(40svh + 2.5rem) !important;
+}
+html[data-theme="light"][data-home] .bg-slideshow { bottom: auto; height: 40svh; }
+@media (min-width: 900px) {
+  html[data-theme="light"][data-home] .hero-section {
+    background:    linear-gradient(to right, var(--page-solid) 0 50%, transparent 50% 100%);
+    padding-top:   4rem !important;
+    padding-right: calc(50% + 2rem) !important;
+    padding-left:  2rem !important;
+  }
+  html[data-theme="light"][data-home] .bg-slideshow { left: 50%; bottom: 0; height: auto; }
 }
 
 /* Work pages: no full-bleed photo behind the text — flat paper, cover art carries the image. */

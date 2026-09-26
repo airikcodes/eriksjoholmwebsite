@@ -48,7 +48,7 @@ export default async function Home({
     <main style={{ background: "transparent" }}>
       {/* ── Hero: Concierge ──────────────────────────────── */}
       <section
-        className="relative flex flex-col items-center justify-center"
+        className="hero-section relative flex flex-col items-center justify-center"
         style={{ minHeight: "100svh", zIndex: 2, position: "relative", padding: "4rem clamp(1.25rem, 5vw, 1.5rem)" }}
       >
         <div className="hero-panel">
