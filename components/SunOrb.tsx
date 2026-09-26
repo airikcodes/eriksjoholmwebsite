@@ -77,43 +77,20 @@ export default function SunOrb() {
     // Route parameters, re-rolled whenever scroll direction flips.
     let phase = rnd(0, Math.PI * 2);
     let phase2 = rnd(0, Math.PI * 2);
-    let laps = rnd(0.25, 0.6);
-    let ampX = rnd(0.32, 0.42);
-    let ampY = rnd(0.2, 0.34);
+    let laps = rnd(0.2, 0.45);
+    let ampX = rnd(0.22, 0.32);
+    let ampY = rnd(0.12, 0.2);
 
     const vw0 = window.innerWidth, vh0 = window.innerHeight;
     const s = { x: vw0 * rnd(0.1, 0.9), y: vh0 * rnd(0.3, 0.9), vx: 0, vy: 0, sc: 1, vsc: 0 };
-    let lastY = window.scrollY, lastDir = 0, raf = 0;
+    let raf = 0;
 
     reroll.current = () => {
-      const vw = window.innerWidth, vh = window.innerHeight;
       phase = rnd(0, Math.PI * 2); phase2 = rnd(0, Math.PI * 2);
-      laps = rnd(0.25, 0.7); ampX = rnd(0.28, 0.44); ampY = rnd(0.16, 0.36);
-      lastY = window.scrollY; lastDir = 0;
-      s.vx += rnd(-1, 1) * vw * 0.008; s.vy += rnd(-1, 1) * vh * 0.008;
+      laps = rnd(0.2, 0.45); ampX = rnd(0.22, 0.32); ampY = rnd(0.12, 0.2);
     };
 
-    const onScroll = () => {
-      const y = window.scrollY, dy = y - lastY;
-      lastY = y;
-      if (!dy || reduce) return;
-      const dir = Math.sign(dy);
-      const vw = window.innerWidth, vh = window.innerHeight;
-      if (lastDir !== 0 && dir !== lastDir) {           // direction flipped: new route + a kick
-        phase = rnd(0, Math.PI * 2);
-        phase2 = rnd(0, Math.PI * 2);
-        laps = rnd(0.25, 0.7);
-        ampX = rnd(0.28, 0.44);
-        ampY = rnd(0.16, 0.36);
-        s.vx += rnd(-1, 1) * vw * 0.006;
-        s.vy += rnd(-1, 1) * vh * 0.006;
-              }
-      lastDir = dir;
-      const push = Math.min(Math.abs(dy), 140);
-      s.vx += rnd(-1, 1) * push * 0.04;                // sideways jitter proportional to speed
-      s.vy += -dir * push * rnd(0.01, 0.06);           // lags / overshoots against the scroll
-    };
-
+    // Scrolling only moves the sun's 'home' (below). No kicks, no jitter, no direction-flip jumps: it just glides.
     const tick = (t: number) => {
       const vw = window.innerWidth, vh = window.innerHeight;
       const max = Math.max(1, document.documentElement.scrollHeight - vh);
@@ -134,16 +111,17 @@ export default function SunOrb() {
       if (reduce) {
         s.x = vw * 0.85; s.y = vh * 0.8; s.sc = 1;
       } else {
-        // damped spring toward home; impulses from onScroll give the unpredictable overshoot
-        s.vx += (tx - s.x) * 0.0006; s.vy += (ty - s.y) * 0.0006; s.vsc += (tsc - s.sc) * 0.0004;
-        s.vx *= 0.93; s.vy *= 0.93; s.vsc *= 0.94; s.vsc = Math.max(-0.0016, Math.min(0.0016, s.vsc));
-        s.x += s.vx; s.y += s.vy; s.sc += s.vsc;
+        // Calm glide: ease toward the target and never move faster than a slow walk.
+        const step = (d: number, k: number, max: number) => Math.max(-max, Math.min(max, d * k));
+        s.x += step(tx - s.x, 0.004, 0.7);
+        s.y += step(ty - s.y, 0.004, 0.7);
+        s.sc += step(tsc - s.sc, 0.004, 0.0012);
         // stay mostly on screen
         const minX = -size * 0.15, maxX = vw + size * 0.15, minY = vh * 0.05, maxY = vh * 1.0;
-        if (s.x < minX) { s.x = minX; s.vx = Math.abs(s.vx) * 0.2; }
-        if (s.x > maxX) { s.x = maxX; s.vx = -Math.abs(s.vx) * 0.2; }
-        if (s.y < minY) { s.y = minY; s.vy = Math.abs(s.vy) * 0.2; }
-        if (s.y > maxY) { s.y = maxY; s.vy = -Math.abs(s.vy) * 0.2; }
+        if (s.x < minX) s.x = minX;
+        if (s.x > maxX) s.x = maxX;
+        if (s.y < minY) s.y = minY;
+        if (s.y > maxY) s.y = maxY;
         s.sc = Math.min(3.3, Math.max(0.12, s.sc));
       }
       el.style.width = el.style.height = `${size}px`;
@@ -210,10 +188,9 @@ export default function SunOrb() {
     videoRef.current?.addEventListener("ended", onEnded);
     window.addEventListener("click", onClick);
     window.addEventListener("mousemove", onMove, { passive: true });
-    window.addEventListener("scroll", onScroll, { passive: true });
     raf = requestAnimationFrame(tick);
     return () => {
-      window.removeEventListener("scroll", onScroll); window.removeEventListener("click", onClick);
+      window.removeEventListener("click", onClick);
       window.removeEventListener("mousemove", onMove); window.removeEventListener("bg-audio", onAudio); videoRef.current?.removeEventListener("ended", onEnded);
       document.documentElement.classList.remove("sun-hover"); cancelAnimationFrame(raf);
     };
