@@ -11,6 +11,12 @@ import { usePathname } from "next/navigation";
  * The reflection is a decorative clone of <main>: inert, aria-hidden, no ids, no media elements. It is
  * re-cloned (debounced) when the page changes, and only repositioned on scroll.
  */
+// The page's own <main> — never the copy inside the water band (it comes first in the DOM, so a plain
+// querySelector("main") would find the clone and clone the clone, which collapses to width 0).
+function pageMain(): HTMLElement | null {
+  return ([...document.querySelectorAll("main")] as HTMLElement[]).find((m) => !m.closest(".water")) ?? null;
+}
+
 export default function WaterReflection() {
   const bandRef = useRef<HTMLDivElement>(null);
   const mirrorRef = useRef<HTMLDivElement>(null);
@@ -33,7 +39,7 @@ export default function WaterReflection() {
     const onScroll = () => { if (!raf) raf = requestAnimationFrame(place); };
 
     const rebuild = () => {
-      const main = document.querySelector("main") as HTMLElement | null;
+      const main = pageMain();
       src = main;
       mirror.textContent = "";
       if (!main) return;
@@ -57,7 +63,7 @@ export default function WaterReflection() {
     schedule();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", schedule);
-    const main = document.querySelector("main");
+    const main = pageMain();
     if (main) {
       mo = new MutationObserver(schedule);
       mo.observe(main, { childList: true, subtree: true, characterData: true });
