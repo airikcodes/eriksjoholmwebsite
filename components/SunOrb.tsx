@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 
 /**
@@ -40,11 +40,25 @@ function photoHoles(): Array<[number, number, number, number]> {
 
 const SUN_VIDEOS = Array.from({ length: 12 }, (_, i) => `/videos/bg-${String(i + 1).padStart(2, "0")}.mp4`);
 
+// Moon phase → SVG path of the lit part. p: 0 new … 0.5 full … 1 new (synodic month from a known new moon).
+function moonPhase(now = Date.now()): number {
+  return ((((now - Date.UTC(2000, 0, 6, 18, 14)) / 864e5) / 29.53059) % 1 + 1) % 1;
+}
+function litPath(p: number): string {
+  const k = Math.abs(Math.cos(2 * Math.PI * p)).toFixed(3);      // terminator half-width: 1 at new/full, 0 at quarters
+  const crescent = p < 0.25 || p > 0.75;                          // less than half lit
+  return p < 0.5
+    ? `M0 -1 A1 1 0 0 1 0 1 A${k} 1 0 0 ${crescent ? 0 : 1} 0 -1 Z`   // waxing: lit on the right
+    : `M0 -1 A1 1 0 0 0 0 1 A${k} 1 0 0 ${crescent ? 1 : 0} 0 -1 Z`;  // waning: lit on the left
+}
+
 export default function SunOrb() {
   const ref = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const reroll = useRef<(() => void) | null>(null);
   const pathname = usePathname();
+  const [lit, setLit] = useState("");
+  useEffect(() => { setLit(litPath(moonPhase())); }, []);
 
   // New page: new route and a random kick, so the sun never sits in the same corner on arrival.
   useEffect(() => { reroll.current?.(); }, [pathname]);
@@ -56,10 +70,6 @@ export default function SunOrb() {
     const rnd = (a = 0, b = 1) => a + Math.random() * (b - a);
     const isLight = () => document.documentElement.dataset.tone !== "night";   // the sun (day) turns into video; the moon (night) is only a glow
 
-    // Moon moonPhase (0 new … 0.5 full … 1 new) from a known new moon; drives the crescent shadow at night.
-    const moonPhase = ((Date.now() - Date.UTC(2000, 0, 6, 18, 14)) / 864e5 / 29.53059 % 1 + 1) % 1;
-    const shift = moonPhase < 0.5 ? -(moonPhase * 2) : 1 - (moonPhase - 0.5) * 2;   // shadow slides out left (waxing) / in from right (waning)
-    el.style.setProperty("--moon-x", `${(shift * 100).toFixed(1)}%`);
 
     // Route parameters, re-rolled whenever scroll direction flips.
     let phase = rnd(0, Math.PI * 2);
@@ -205,6 +215,16 @@ export default function SunOrb() {
   return (
     <div ref={ref} className="sun-orb" aria-hidden="true">
       <video ref={videoRef} muted playsInline preload="none" tabIndex={-1} />
+      <svg className="moon-svg" viewBox="-1 -1 2 2" aria-hidden="true">
+        <defs>
+          <radialGradient id="moon-grad" cx="0.38" cy="0.34" r="0.9">
+            <stop offset="0" stopColor="#F6F3E8" /><stop offset="0.6" stopColor="#E4E0CF" /><stop offset="1" stopColor="#C9C4B2" />
+          </radialGradient>
+        </defs>
+        <circle r="1" className="moon-dark" />
+        {lit && <path d={lit} fill="url(#moon-grad)" />}
+        {lit && <g className="moon-maria"><ellipse cx="-0.25" cy="-0.2" rx="0.28" ry="0.2" /><ellipse cx="0.12" cy="0.28" rx="0.22" ry="0.16" /><ellipse cx="0.38" cy="-0.35" rx="0.14" ry="0.1" /></g>}
+      </svg>
     </div>
   );
 }

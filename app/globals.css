@@ -1201,22 +1201,20 @@ html[data-theme="light"][data-home] .library-wrap > * { position: relative; z-in
 html.theme-fade, html.theme-fade *, html.theme-fade *::before, html.theme-fade *::after {
   transition: background-color 1.2s ease, color 1.2s ease, border-color 1.2s ease, fill 1.2s ease, stroke 1.2s ease !important;
 }
-/* Night: the sun becomes the moon — a soft screen-blended glow with the real phase (--moon-x set in SunOrb). */
+/* Night: the sun becomes the moon — a soft screen-blended disc drawn with today's real phase (SVG in SunOrb). */
 html[data-tone="night"] .sun-orb {
   display: block;
   position: fixed; left: 0; top: 0; z-index: 40; pointer-events: none;
   border-radius: 50%;
-  background: radial-gradient(circle at 38% 34%, #F4F1E6 0%, #E6E2D2 58%, rgba(207,202,186,0.55) 100%);   /* soft rim instead of a box-shadow glow (clip-path would square it off) */
-  opacity: 0.22;
+  opacity: 0.4;
   mix-blend-mode: screen;
   will-change: transform;
-  overflow: hidden;
 }
-html[data-tone="night"] .sun-orb::after {
-  content: ""; position: absolute; inset: 0; border-radius: 50%;
-  background: rgba(8,7,6,0.94);
-  transform: translateX(var(--moon-x, -100%));
-}
+/* the moon is drawn as SVG so the terminator is a true ellipse (crescent, quarter, gibbous, full) */
+.moon-svg { display: none; }
+html[data-tone="night"] .moon-svg { display: block; position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+html[data-tone="night"] .moon-dark  { fill: rgba(232,228,214,0.13); }   /* the unlit side, faintly (earthshine) */
+html[data-tone="night"] .moon-maria { fill: rgba(120,114,100,0.32); }
 html[data-tone="night"] .sun-orb video { display: none; }
 html[data-theme="light"]:not([data-tone="night"]) .sun-orb {
   display: block;
