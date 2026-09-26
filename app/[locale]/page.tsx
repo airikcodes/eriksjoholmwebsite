@@ -77,6 +77,7 @@ export default async function Home({
           The hero above stays untouched. From here on the background video
           recedes behind a near-opaque wash so type and cover art read cleanly. */}
       <div
+        className="library-wrap"
         style={{
           position:   "relative",
           zIndex:     2,
@@ -87,7 +88,7 @@ export default async function Home({
         <section
           id="library"
           aria-labelledby="library-heading"
-          style={{ maxWidth: "1120px", margin: "0 auto", padding: "8rem 1.25rem 6rem" }}
+          style={{ width: "100%", maxWidth: "1120px", margin: "0 auto", padding: "8rem 1.25rem 6rem" }}
         >
           <RevealSection>
             <div style={{ marginBottom: "3.25rem" }}>

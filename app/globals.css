@@ -1012,11 +1012,11 @@ html[data-theme="light"][data-home] .video-window {
   display:  block;
   position: relative;
   z-index:  2;
-  height:   clamp(18rem, 62vh, 42rem);
+  height:   100svh;      /* a full section: the video gets the whole screen, like every other section */
 }
 html[data-theme="light"][data-home] .hero-section {
   background:  var(--page-solid);
-  min-height:  calc(100svh - 7rem) !important;   /* the video band peeks in below the fold line */
+  min-height:  100svh !important;
 }
 html[data-theme="light"][data-home] .hero-panel   { display: block; width: 100%; max-width: 46rem; }
 html[data-theme="light"][data-home] .hero-panel > div:first-child {
@@ -1153,3 +1153,11 @@ html[data-theme="light"] .topbar-folio { display: none; }
 .portal-tile, .portal-door, .home-lib-img, .lib-cover { border-radius: var(--radius-m); }
 /* Any element with a full 1px border (cards, chips, tags, fields) is softened by default. */
 [style*="border: 1px solid"] { border-radius: var(--radius-s); }
+
+/* Full sections: hero, video, Library and newsletter each fill the screen (light theme). */
+html[data-theme="light"][data-home] .library-wrap {
+  min-height:     100svh;
+  display:        flex;
+  flex-direction: column;
+  justify-content: center;
+}
