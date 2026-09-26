@@ -1,7 +1,7 @@
 // Pre-paint theme bootstrap (prototype). Inlined at the top of <body> so
 // <html data-theme / data-home> is correct before the first paint.
 //
-// Modes (DEFAULT below is 'light' while we design the bright site; production/main is unaffected until merged):
+// Modes. The default is 'light' (the site is bright); dark and auto are opt-in previews. Merging to main makes bright live:
 //   ?theme=light | dark | auto   -> remembered in localStorage
 //   ?theme=reset                 -> forget it, back to the default
 // "auto" follows the visitor's local clock with an approximate seasonal
@@ -18,7 +18,7 @@
 export const THEME_SCRIPT = `(function(){
   var d=document.documentElement;
   var KEY='theme-preview';
-  var DEFAULT='light'; // design phase: bright by default. Later: 'auto'.
+  var DEFAULT='light'; // decided 2026-09-26: the site is bright. ?theme=dark|auto remain as opt-in previews.
   function fromUrl(){try{var m=/[?&]theme=(light|dark|auto|reset)\\b/.exec(location.search);return m&&m[1]}catch(e){}return null}
   function get(){try{return localStorage.getItem(KEY)}catch(e){}return null}
   function put(v){try{if(v==='reset')localStorage.removeItem(KEY);else localStorage.setItem(KEY,v)}catch(e){}}
