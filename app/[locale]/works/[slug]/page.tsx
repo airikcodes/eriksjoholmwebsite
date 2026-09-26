@@ -86,7 +86,9 @@ export default async function WorkPage({
             backgroundImage:    'url(/images/bg/bg-01.jpg)',
             backgroundSize:     'cover',
             backgroundPosition: 'center top',
-            opacity:            0.07,
+            opacity:            'calc(0.07 * var(--ghost-k))',
+            filter: 'var(--ghost-filter)',
+            mixBlendMode: 'var(--ghost-blend)' as React.CSSProperties['mixBlendMode'],
           }} />
         </div>
       )}

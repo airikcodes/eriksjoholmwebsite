@@ -23,7 +23,7 @@ export default function AlbumBg({ photos }: { photos: string[] }) {
           className={`bg-slide${i === idx ? ' active' : ''}`}
           style={{
             backgroundImage:    `url(${src})`,
-            filter:             'brightness(0.18) saturate(0.55)',
+            filter:             'var(--photo-filter)',
             backgroundPosition: 'center',
           }}
         />
@@ -38,7 +38,7 @@ export default function AlbumBg({ photos }: { photos: string[] }) {
         style={{
           position: 'absolute',
           inset: 0,
-          background: 'linear-gradient(115deg, rgba(var(--page-rgb),0.55) 0%, rgba(var(--page-rgb),0.32) 42%, rgba(var(--page-rgb),0.15) 70%)',
+          background: 'var(--album-scrim)',
         }}
       />
     </div>

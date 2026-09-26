@@ -45,6 +45,11 @@
   --meta-rgb:     122,111,98;
   --muted-rgb:    140,128,118;
   --accent-ink-hover: #E0A93A;
+  --photo-filter:  brightness(0.18) saturate(0.55);   /* full-bleed page photos (work pages) */
+  --album-scrim:   linear-gradient(115deg, rgba(var(--page-rgb),0.55) 0%, rgba(var(--page-rgb),0.32) 42%, rgba(var(--page-rgb),0.15) 70%);
+  --ghost-filter:  none;                 /* faint full-bleed page photos (About, Contact, Live, …) */
+  --ghost-blend:   normal;
+  --ghost-k:       1;
   --section-wash-a: 0.9;                   /* opacity of the page wash behind homepage section 2 */
 }
 
@@ -880,11 +885,11 @@ a:hover .product-img {
 .bg-wash     { background: rgba(247,243,238,var(--wash-a)); transition: background 1.2s ease; }
 
 html[data-theme="light"][data-home] {
-  --bg-filter: brightness(1.06) contrast(0.9) saturate(0.92);
+  --bg-filter: brightness(1.35) contrast(0.85) saturate(0.8);
 
   /* language row */
   --lang-active: #1C1A17;
-  --lang-idle:   rgba(28,26,23,0.74);
+  --lang-idle:   rgba(28,26,23,0.82);
   --lang-halo:   0 0 10px rgba(247,243,238,0.95), 0 0 22px rgba(247,243,238,0.7);
 }
 
@@ -944,8 +949,13 @@ html[data-theme="light"] {
   --menu-fg-hover:      #5E3F08;
   --fg-rgb:            28,26,23;
   --ink-rgb:           28,26,23;
-  --meta-rgb:          110,100,89;
-  --muted-rgb:         100,90,80;
+  --meta-rgb:          84,76,66;      /* darker than the dark-theme value: many uses are low-alpha */
+  --muted-rgb:         70,62,54;
+  --photo-filter:      brightness(1.25) saturate(0.4) contrast(0.85);
+  --ghost-filter:      invert(1) grayscale(1) contrast(0.9);   /* dark photo -> soft charcoal ghost on cream */
+  --ghost-blend:       multiply;
+  --ghost-k:           1.3;
+  --album-scrim:       linear-gradient(115deg, rgba(var(--page-rgb),0.86) 0%, rgba(var(--page-rgb),0.72) 45%, rgba(var(--page-rgb),0.5) 100%);
   --accent-ink-hover:  #5E3F08;
   --color-ink-primary: #1C1A17;
   --color-ink-body:    #4A433A;   /* 8.8:1 on #F7F3EE */

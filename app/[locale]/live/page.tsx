@@ -56,7 +56,9 @@ export default async function LivePage({
           backgroundImage:    'url(/images/bg/bg-04.jpg)',
           backgroundSize:     'cover',
           backgroundPosition: 'center',
-          opacity:            0.08,
+          opacity:            'calc(0.08 * var(--ghost-k))',
+          filter: 'var(--ghost-filter)',
+          mixBlendMode: 'var(--ghost-blend)' as React.CSSProperties['mixBlendMode'],
         }} />
       </div>
 

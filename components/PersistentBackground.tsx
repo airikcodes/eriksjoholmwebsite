@@ -59,9 +59,9 @@ function IconSoundOn() {
 
 const glassBtn: React.CSSProperties = {
   width: "44px", height: "44px", borderRadius: "50%",
-  background: "rgba(10,8,6,0.55)",
-  border: "1px solid rgba(200,146,42,0.35)",
-  color: "#C8922A",
+  background: "rgba(var(--page-rgb),0.6)",
+  border: "1px solid rgba(200,146,42,0.45)",
+  color: "var(--accent-ink)",
   display: "flex", alignItems: "center", justifyContent: "center",
   cursor: "pointer",
   backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)",
@@ -275,7 +275,7 @@ export default function PersistentBackground({ host = "" }: { host?: string }) {
               type="range" min="0" max="1" step="0.05" value={volume}
               onChange={(e) => setVolume(Number(e.target.value))}
               aria-label="Volume"
-              style={{ width: "72px", accentColor: "#C8922A", cursor: "pointer" }}
+              style={{ width: "72px", accentColor: "var(--accent-ink)", cursor: "pointer" }}
             />
           )}
           <button

@@ -10,7 +10,7 @@
 // data-theme = "light" | "dark"  -> ink/colour switch (hard flip at daylight 0.5)
 // data-home  = present on the homepage only (never on sync.* or other routes)
 // --wash-a   = opacity of the cream wash over the background media. Light theme only:
-//              explicit light = 0.45; auto ramps 0.22 -> 0.45 through the morning.
+//              explicit light = 0.62; auto ramps 0.30 -> 0.62 through the morning.
 //              It is 0 in the dark half so white ink never sits on a half-washed photo.
 //
 // Exposes window.__applyTheme so ThemeController can re-run it on client-side
@@ -34,8 +34,8 @@ export const THEME_SCRIPT = `(function(){
     var u=fromUrl(); if(u)put(u);
     var mode=u&&u!=='reset'?u:(u==='reset'?DEFAULT:(get()||DEFAULT));
     var theme='dark', wash=0;
-    if(mode==='light'){theme='light';wash=0.45}
-    else if(mode==='auto'){var dl=daylight(new Date());theme=dl>=0.5?'light':'dark';wash=theme==='light'?0.22+0.23*((dl-0.5)/0.5):0}
+    if(mode==='light'){theme='light';wash=0.62}
+    else if(mode==='auto'){var dl=daylight(new Date());theme=dl>=0.5?'light':'dark';wash=theme==='light'?0.3+0.32*((dl-0.5)/0.5):0}
     d.setAttribute('data-theme',theme);
     d.setAttribute('data-theme-mode',mode);
     d.style.setProperty('--wash-a',wash.toFixed(3));

@@ -49,7 +49,9 @@ export default async function NotesIndex({
           backgroundImage:    'url(/images/bg/bg-03.jpg)',
           backgroundSize:     'cover',
           backgroundPosition: 'center',
-          opacity:            0.06,
+          opacity:            'calc(0.06 * var(--ghost-k))',
+          filter: 'var(--ghost-filter)',
+          mixBlendMode: 'var(--ghost-blend)' as React.CSSProperties['mixBlendMode'],
         }} />
       </div>
 

@@ -89,7 +89,9 @@ export default async function Storyteller({
             position: "absolute", inset: 0,
             backgroundImage: "url(/images/bg/bg-02.jpg)",
             backgroundSize: "cover", backgroundPosition: "center",
-            opacity: 0.08,
+            opacity: 'calc(0.08 * var(--ghost-k))',
+            filter: 'var(--ghost-filter)',
+            mixBlendMode: 'var(--ghost-blend)' as React.CSSProperties['mixBlendMode'],
           }}
         />
       </div>

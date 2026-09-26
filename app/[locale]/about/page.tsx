@@ -46,7 +46,9 @@ export default async function About({
           position: "absolute", inset: 0,
           backgroundImage: "url(/images/bg/bg-03.jpg)",
           backgroundSize: "cover", backgroundPosition: "center",
-          opacity: 0.08,
+          opacity: 'calc(0.08 * var(--ghost-k))',
+          filter: 'var(--ghost-filter)',
+          mixBlendMode: 'var(--ghost-blend)' as React.CSSProperties['mixBlendMode'],
         }} />
         {/* Scrim: bg-03.jpg is a high-contrast spotlit portrait, so even at
             low opacity its bright areas show through enough to reduce
