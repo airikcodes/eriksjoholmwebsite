@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { getWork } from '@/data/works';
+import { getLatestRelease } from '@/lib/latest-release';
 import { STORYTELLER_URL } from '@/lib/library';
 
 export interface PortalCopy {
@@ -50,18 +51,21 @@ function Item({ href, external, kicker, title, src, position = 'center' }: ItemP
 export default function HomePortal({
   t,
   comingSoon,
+  latestLabel,
 }: {
   t:                PortalCopy;
   comingSoon:       string;
+  latestLabel:      string;   // translated "Latest release" (the concierge chip label)
   latestNoteTitle?: string;   // kept for the caller; the minimal layout no longer shows it
 }) {
+  const latest = getLatestRelease();   // from data/works.ts: always the newest release
   return (
     <div className="home-lib">
       <div className="home-lib-grid">
+        {latest && <Item href={`/works/${latest.slug}`} kicker={latestLabel} title={latest.title} src={latest.coverImage} />}
         <Item href="/works/langs-med-vagen-album" kicker={`${t.kinds.album} · ${comingSoon}`} title="Längs med vägen" src={cover('langs-med-vagen-album')} />
         <Item href="/works/glenn-ep" kicker={t.kinds.ep} title="Glenn" src={cover('glenn-ep')} />
         <Item external href={STORYTELLER_URL} kicker={t.kinds.live} title={t.titles.concert} src="/images/home/storytelling-concert.jpg" position="50% 50%" />
-        <Item href="/works/walkabout" kicker={t.kinds.album} title="Walkabout" src={cover('walkabout')} />
       </div>
       <div className="home-lib-links">
         <Link href="/works" className="home-lib-more">{t.door.cta}</Link>

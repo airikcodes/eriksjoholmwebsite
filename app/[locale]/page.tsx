@@ -123,6 +123,7 @@ export default async function Home({
             <HomePortal
               t={t.home.portal}
               comingSoon={t.library.comingSoon}
+              latestLabel={t.concierge.chips.latest}
               latestNoteTitle={notes[0]?.title}
             />
           </RevealSection>
