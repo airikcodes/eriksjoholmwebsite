@@ -77,7 +77,7 @@ export default function SunOrb() {
     // Route parameters, re-rolled whenever scroll direction flips.
     let phase = rnd(0, Math.PI * 2);
     let phase2 = rnd(0, Math.PI * 2);
-    let laps = rnd(0.8, 2.2);
+    let laps = rnd(0.35, 0.9);
     let ampX = rnd(0.32, 0.42);
     let ampY = rnd(0.2, 0.34);
 
@@ -88,7 +88,7 @@ export default function SunOrb() {
     reroll.current = () => {
       const vw = window.innerWidth, vh = window.innerHeight;
       phase = rnd(0, Math.PI * 2); phase2 = rnd(0, Math.PI * 2);
-      laps = rnd(0.7, 2.4); ampX = rnd(0.28, 0.44); ampY = rnd(0.16, 0.36);
+      laps = rnd(0.35, 1.0); ampX = rnd(0.28, 0.44); ampY = rnd(0.16, 0.36);
       lastY = window.scrollY; lastDir = 0;
       s.vx += rnd(-1, 1) * vw * 0.008; s.vy += rnd(-1, 1) * vh * 0.008;
     };
@@ -102,7 +102,7 @@ export default function SunOrb() {
       if (lastDir !== 0 && dir !== lastDir) {           // direction flipped: new route + a kick
         phase = rnd(0, Math.PI * 2);
         phase2 = rnd(0, Math.PI * 2);
-        laps = rnd(0.7, 2.4);
+        laps = rnd(0.35, 1.0);
         ampX = rnd(0.28, 0.44);
         ampY = rnd(0.16, 0.36);
         s.vx += rnd(-1, 1) * vw * 0.006;
@@ -136,8 +136,8 @@ export default function SunOrb() {
         s.x = vw * 0.85; s.y = vh * 0.8; s.sc = 1;
       } else {
         // damped spring toward home; impulses from onScroll give the unpredictable overshoot
-        s.vx += (tx - s.x) * 0.0025; s.vy += (ty - s.y) * 0.0025; s.vsc += (tsc - s.sc) * 0.006;
-        s.vx *= 0.9; s.vy *= 0.9; s.vsc *= 0.88;
+        s.vx += (tx - s.x) * 0.0012; s.vy += (ty - s.y) * 0.0012; s.vsc += (tsc - s.sc) * 0.006;
+        s.vx *= 0.92; s.vy *= 0.92; s.vsc *= 0.88;
         s.x += s.vx; s.y += s.vy; s.sc += s.vsc;
         // stay mostly on screen
         const minX = -size * 0.15, maxX = vw + size * 0.15, minY = vh * 0.05, maxY = vh * 1.0;
