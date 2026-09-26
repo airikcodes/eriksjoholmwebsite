@@ -172,9 +172,6 @@ export default function AlbumsSearch({ albums, defaultLimit = 3 }: Props) {
                       Tidal
                     </a>
                   )}
-                  <span style={{ fontFamily: 'var(--font-inter)', fontSize: '0.6rem', color: '#B8B0A6' }}>
-                    →
-                  </span>
                 </div>
               </Link>
             </li>

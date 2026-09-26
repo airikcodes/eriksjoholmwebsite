@@ -125,7 +125,6 @@ export default function CoverScatter({
                     </p>
                   )}
                 </div>
-                <span style={{ marginLeft: 'auto', fontFamily: 'var(--font-inter)', fontSize: '0.6rem', color: '#B8B0A6', flexShrink: 0 }}>→</span>
               </Link>
             </li>
           ))}

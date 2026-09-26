@@ -403,18 +403,6 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
                             borderBottom: '1px dotted rgba(120,108,96,0.14)',
                             margin:       '0 0.65rem 0.25em',
                           }} />
-                          <span
-                            className="group-hover:text-[rgba(200,146,42,0.55)] transition-colors duration-150"
-                            style={{
-                              fontFamily:  'var(--font-inter)',
-                              fontSize:    '0.55rem',
-                              color:       'rgba(120,108,96,0.25)',
-                              flexShrink:  0,
-                              paddingBottom: '0.15em',
-                            }}
-                          >
-                            →
-                          </span>
                         </Link>
                       ))}
                     </div>

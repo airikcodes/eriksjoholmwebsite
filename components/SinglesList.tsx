@@ -51,7 +51,7 @@ export default function SinglesList({
                     flex:                 1,
                     minWidth:             0,
                     display:              'grid',
-                    gridTemplateColumns:  track.coverImage ? '44px 1fr auto' : '1fr auto',
+                    gridTemplateColumns:  track.coverImage ? '44px 1fr' : '1fr',
                     gap:                  '1rem',
                     alignItems:           'center',
                     textDecoration:       'none',
@@ -98,7 +98,6 @@ export default function SinglesList({
                       </p>
                     )}
                   </div>
-                  <span style={{ fontFamily: 'var(--font-inter)', fontSize: '0.6rem', color: '#B8B0A6' }}>→</span>
                 </Link>
 
                 {playable && (

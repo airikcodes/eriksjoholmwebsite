@@ -52,15 +52,6 @@ export default function CustomSongPlayer({ songs, playlistUrl }: Props) {
             >
               {song.title}
             </p>
-            <span style={{
-              fontFamily:    'var(--font-inter)',
-              fontSize:      '0.6rem',
-              letterSpacing: '0.18em',
-              color:         '#B8B0A6',
-              flexShrink:    0,
-            }}>
-              →
-            </span>
           </a>
         ))}
       </div>
