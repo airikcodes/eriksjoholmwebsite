@@ -1316,3 +1316,33 @@ html[data-theme="light"][data-tone="night"] .library-wrap,
 html[data-theme="light"][data-tone="night"] .mail-section { background: transparent !important; }
 html[data-theme="light"][data-tone="night"] .bg-slideshow,
 html[data-theme="light"][data-tone="night"] .bg-solid { display: none !important; }
+
+
+/* ── Waterline (components/WaterReflection.tsx) ────────────────────────────────
+   The bottom of every page is water: a mirrored, softened copy of the page just above it, fading with depth. The progressive blur (GradientBlur, z 5) stays on top of it. */
+html { --water-h: clamp(96px, 16vh, 190px); }
+body { padding-bottom: var(--water-h); }   /* lets the end of the page rise clear of the water */
+.water {
+  position: fixed; left: 0; right: 0; bottom: 0; height: var(--water-h);
+  z-index: 4; pointer-events: none; overflow: hidden;
+  background: var(--page-solid);
+}
+.water-mirror {
+  position: absolute; left: 0; top: 0; width: 100%;
+  transform-origin: 0 0;
+  opacity: 0.68;
+  filter: blur(1.4px) saturate(0.95);
+  will-change: transform;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 100%);
+          mask-image: linear-gradient(to bottom, #000 0%, transparent 100%);
+}
+/* the surface: a hairline of light, and depth that sinks into the paper */
+.water::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1px; z-index: 2;
+  background: linear-gradient(90deg, transparent, rgba(var(--fg-rgb), 0.30) 30%, rgba(var(--fg-rgb), 0.30) 70%, transparent);
+}
+.water::after {
+  content: ""; position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(to bottom, rgba(var(--page-rgb), 0) 0%, rgba(var(--page-rgb), 0.4) 100%);
+}
+@media print { .water { display: none; } body { padding-bottom: 0; } }

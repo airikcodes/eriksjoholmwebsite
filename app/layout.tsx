@@ -8,6 +8,7 @@ import GradientBlur from "@/components/GradientBlur";
 import SmoothScroll from "@/components/SmoothScroll";
 import ThemeController from "@/components/ThemeController";
 import SunOrb from "@/components/SunOrb";
+import WaterReflection from "@/components/WaterReflection";
 import { THEME_SCRIPT } from "@/lib/theme-script";
 import "./globals.css";
 
@@ -98,6 +99,7 @@ export default async function RootLayout({
         <link rel="preload" as="video" href="/videos/bg-01.mp4" type="video/mp4" media="(min-width: 768px)" />
         <SmoothScroll />
         <PersistentBackground host={host} />
+        <WaterReflection />
         <GradientBlur />
         <script
           type="application/ld+json"
