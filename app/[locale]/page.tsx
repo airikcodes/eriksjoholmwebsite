@@ -75,7 +75,7 @@ export default async function Home({
           position:   "relative",
           zIndex:     2,
           background:
-            "linear-gradient(to bottom, rgba(13,11,9,0) 0, rgba(13,11,9,0.9) 9rem)",
+            "linear-gradient(to bottom, rgba(var(--page-rgb),0) 0, rgba(var(--page-rgb),var(--section-wash-a)) 9rem)",
         }}
       >
         {/* ── Section 2: portal to the Library ─────────────── */}
@@ -88,7 +88,7 @@ export default async function Home({
             <div style={{ marginBottom: "3.25rem" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.5rem" }}>
                 <span className="block" style={{ width: "2rem", height: "1px", background: "#C8922A" }} />
-                <p className="eyebrow-label" style={{ color: "#C8922A" }}>{t.home.portal.eyebrow}</p>
+                <p className="eyebrow-label" style={{ color: "var(--accent-ink)" }}>{t.home.portal.eyebrow}</p>
               </div>
               <h2
                 id="library-heading"
@@ -97,7 +97,7 @@ export default async function Home({
                   fontSize:      "clamp(2.7rem, 7.5vw, 5.4rem)",
                   lineHeight:    0.98,
                   letterSpacing: "0.01em",
-                  color:         "#E8E0D4",
+                  color:         "var(--color-ink-primary)",
                   marginBottom:  "1.5rem",
                 }}
               >
@@ -131,7 +131,7 @@ export default async function Home({
           <RevealSection>
             <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.6rem" }}>
               <span className="block" style={{ width: "2rem", height: "1px", background: "#C8922A" }} />
-              <p className="eyebrow-label" style={{ color: "#C8922A" }}>{t.home.newsletter.eyebrow}</p>
+              <p className="eyebrow-label" style={{ color: "var(--accent-ink)" }}>{t.home.newsletter.eyebrow}</p>
             </div>
             <h2
               id="mailing-list-heading"
@@ -140,7 +140,7 @@ export default async function Home({
                 fontSize:      "clamp(3rem, 8vw, 6rem)",
                 lineHeight:    0.98,
                 letterSpacing: "0.01em",
-                color:         "#E8E0D4",
+                color:         "var(--color-ink-primary)",
                 marginBottom:  "1.6rem",
               }}
             >
@@ -163,19 +163,19 @@ export default async function Home({
       {/* ── Footer ───────────────────────────────────────── */}
       <footer
         className="flex flex-col items-center justify-end gap-5 px-6 pb-10"
-        style={{ zIndex: 2, position: "relative", minHeight: "7rem", background: "#0D0B09" }}
+        style={{ zIndex: 2, position: "relative", minHeight: "7rem", background: "var(--page-solid)" }}
       >
         {/* Copyright */}
         <div className="flex items-center gap-8">
-          <p style={{ fontSize: "0.5rem", letterSpacing: "0.15em", color: "rgba(140,128,118,0.45)" }}>
+          <p style={{ fontSize: "0.5rem", letterSpacing: "0.15em", color: "var(--footer-ink)" }}>
             © {new Date().getFullYear()} Erik Sjøholm
           </p>
           <a
             href="https://www.instagram.com/eriksjoholmofficial"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ fontSize: "0.5rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(140,128,118,0.45)", padding: "0.5rem 0", display: "block" }}
-            className="hover:text-[#1C1A17] transition-colors duration-200"
+            style={{ fontSize: "0.5rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--footer-ink)", padding: "0.5rem 0", display: "block" }}
+            className="hover:text-[var(--accent-ink)] transition-colors duration-200"
           >
             @eriksjoholmofficial
           </a>

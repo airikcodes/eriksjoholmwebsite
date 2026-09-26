@@ -43,7 +43,7 @@ export default function BeehiivForm({
       <p style={{
         fontFamily: 'var(--font-inter)',
         fontSize: '0.8rem',
-        color: '#C8922A',
+        color: 'var(--accent-ink)',
         letterSpacing: '0.05em',
       }}>
         {successMsg}
@@ -66,9 +66,9 @@ export default function BeehiivForm({
         style={{
           flex: '1 1 220px',
           minWidth: 0,
-          background: 'rgba(255,255,255,0.05)',
-          border: '1px solid rgba(255,255,255,0.16)',
-          color: '#E8E0D4',
+          background: 'var(--field-bg)',
+          border: '1px solid var(--field-border)',
+          color: 'var(--color-ink-primary)',
           fontFamily: 'var(--font-inter)',
           fontSize: '0.95rem',
           padding: '0.85rem 1.1rem',
@@ -82,7 +82,7 @@ export default function BeehiivForm({
         style={{
           background: 'rgba(200,146,42,0.06)',
           border: '1px solid rgba(200,146,42,0.5)',
-          color: '#C8922A',
+          color: 'var(--accent-ink)',
           fontFamily: 'var(--font-inter)',
           fontSize: '0.72rem',
           letterSpacing: '0.2em',
@@ -96,13 +96,13 @@ export default function BeehiivForm({
         }}
         onMouseEnter={(e) => {
           if (state !== 'loading') {
-            (e.currentTarget as HTMLButtonElement).style.borderColor = '#C8922A';
-            (e.currentTarget as HTMLButtonElement).style.color = '#E8E0D4';
+            (e.currentTarget as HTMLButtonElement).style.borderColor = 'var(--accent-ink)';
+            (e.currentTarget as HTMLButtonElement).style.color = 'var(--color-ink-primary)';
           }
         }}
         onMouseLeave={(e) => {
           (e.currentTarget as HTMLButtonElement).style.borderColor = 'rgba(200,146,42,0.5)';
-          (e.currentTarget as HTMLButtonElement).style.color = '#C8922A';
+          (e.currentTarget as HTMLButtonElement).style.color = 'var(--accent-ink)';
         }}
       >
         {state === 'loading' ? '…' : subscribeLabel}
@@ -113,7 +113,7 @@ export default function BeehiivForm({
           width: '100%',
           fontFamily: 'var(--font-inter)',
           fontSize: '0.85rem',
-          color: '#B8B0A6',
+          color: 'var(--color-ink-body)',
           marginTop: '0.5rem',
         }}>
           {errorMsg}

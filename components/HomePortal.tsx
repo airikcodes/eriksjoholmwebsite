@@ -17,7 +17,7 @@ const KICKER: React.CSSProperties = {
   fontWeight:    500,
   letterSpacing: '0.26em',
   textTransform: 'uppercase',
-  color:         '#C8922A',
+  color:         'var(--tile-kicker)',
   marginBottom:  '0.4rem',
 };
 
@@ -54,7 +54,7 @@ function Tile({ href, external, kicker, kickerColor, title, lead, className = ''
             fontSize:      lead ? 'clamp(1.9rem, 4.2vw, 2.9rem)' : 'clamp(1.15rem, 2.4vw, 1.55rem)',
             lineHeight:    1.08,
             letterSpacing: '0.01em',
-            color:         '#F1EADF',
+            color:         'var(--tile-title)',
           }}
         >
           {title}
@@ -154,7 +154,7 @@ export default function HomePortal({
               fontSize:   'clamp(0.95rem, 1.7vw, 1.2rem)',
               fontStyle:  'italic',
               lineHeight: 1.3,
-              color:      '#B8B0A6',
+              color:      'var(--tile-note)',
             }}
           >
             {latestNoteTitle}
@@ -175,12 +175,12 @@ export default function HomePortal({
       {/* The door into the library */}
       <Link href="/works" className="portal-door">
         <span>
-          <span className="eyebrow-label" style={{ display: 'block', marginBottom: '0.9rem', color: '#C8922A' }}>
+          <span className="eyebrow-label" style={{ display: 'block', marginBottom: '0.9rem', color: 'var(--accent-ink)' }}>
             {t.door.eyebrow}
           </span>
           <span
             className="font-[family-name:var(--font-cormorant)] font-light"
-            style={{ display: 'block', fontSize: 'clamp(2rem, 4.5vw, 3.2rem)', lineHeight: 1.02, color: '#E8E0D4', marginBottom: '1rem' }}
+            style={{ display: 'block', fontSize: 'clamp(2rem, 4.5vw, 3.2rem)', lineHeight: 1.02, color: 'var(--color-ink-primary)', marginBottom: '1rem' }}
           >
             {t.door.heading}
           </span>
@@ -196,7 +196,7 @@ export default function HomePortal({
             fontWeight:    500,
             letterSpacing: '0.24em',
             textTransform: 'uppercase',
-            color:         '#C8922A',
+            color:         'var(--accent-ink)',
           }}
         >
           {t.door.cta} →

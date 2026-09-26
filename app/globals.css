@@ -23,6 +23,24 @@
   --color-ink-primary:   #E8E0D4;  /* headlines, primary copy */
   --color-ink-body:      #B8B0A6;  /* reading paragraphs — was #7A6F62, ~4:1 contrast on #0D0B09 */
   --color-ink-meta:      #7A6F62;  /* decorative/tertiary only — folio numbers, hairline captions */
+
+  /* ── Semantic theme tokens (2026-09-26) ───────────────────────────────────
+     Dark values here are the current look, unchanged. The light values live in
+     the html[data-theme="light"][data-home] block near the end of this file.
+     Use these instead of raw hex in new code. */
+  --accent-ink:   #C8922A;                 /* amber used AS TEXT (eyebrows, links, CTAs) */
+  --page-rgb:     13,11,9;                 /* page base as an r,g,b triple for rgba(var(--page-rgb), a) */
+  --page-solid:   #0D0B09;                 /* opaque page base (footer, mail section) */
+  --hairline:     rgba(255,255,255,0.06);  /* section dividers */
+  --field-bg:     rgba(255,255,255,0.05);  /* text inputs */
+  --field-border: rgba(255,255,255,0.16);
+  --footer-ink:   rgba(140,128,118,0.45);
+  --tile-bg:      #14110d;                 /* portal tile base behind cover art */
+  --tile-type-bg: linear-gradient(155deg, #1d1710 0%, #100d09 62%, #0d0b09 100%);
+  --tile-title:   #F1EADF;                 /* portal tile title (sits on photo shade) */
+  --tile-kicker:  #C8922A;
+  --tile-note:    #B8B0A6;
+  --section-wash-a: 0.9;                   /* opacity of the page wash behind homepage section 2 */
 }
 
 * {
@@ -626,7 +644,7 @@ a:hover .product-img {
   aspect-ratio:  1;
   border-radius: 2px;
   border:        1px solid rgba(200,146,42,0.22);
-  background:    #14110d;
+  background:    var(--tile-bg);
   text-decoration: none;
   transition:    transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
 }
@@ -669,7 +687,7 @@ a:hover .product-img {
 .portal-mosaic img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 /* Stories tile: typographic, no photograph */
-.portal-tile--type { background: linear-gradient(155deg, #1d1710 0%, #100d09 62%, #0d0b09 100%); }
+.portal-tile--type { background: var(--tile-type-bg); }
 
 /* The door into /library */
 .portal-door {
@@ -792,8 +810,8 @@ a:hover .product-img {
   min-height:      100svh;
   display:         flex;
   align-items:     flex-end;
-  background:      #0D0B09;
-  border-top:      1px solid rgba(255,255,255,0.06);
+  background:      var(--page-solid);
+  border-top:      1px solid var(--hairline);
 }
 .mail-bg {
   position:            absolute;
@@ -806,7 +824,7 @@ a:hover .product-img {
 .mail-scrim {
   position:   absolute;
   inset:      0;
-  background: linear-gradient(to top, #0D0B09 0%, rgba(13,11,9,0.92) 34%, rgba(13,11,9,0.25) 68%, rgba(13,11,9,0.55) 100%);
+  background: linear-gradient(to top, var(--page-solid) 0%, rgba(var(--page-rgb),0.92) 34%, rgba(var(--page-rgb),0.25) 68%, rgba(var(--page-rgb),0.55) 100%);
 }
 .mail-inner {
   position:  relative;
@@ -820,9 +838,9 @@ a:hover .product-img {
   .mail-bg      { background-position: 72% 30%; }
   .mail-scrim   {
     background:
-      linear-gradient(to right, #0D0B09 0%, rgba(13,11,9,0.94) 30%, rgba(13,11,9,0.35) 62%, rgba(13,11,9,0.15) 100%),
-      linear-gradient(to top, #0D0B09 0%, rgba(13,11,9,0) 22%),
-      linear-gradient(to bottom, #0D0B09 0%, rgba(13,11,9,0) 18%);
+      linear-gradient(to right, var(--page-solid) 0%, rgba(var(--page-rgb),0.94) 30%, rgba(var(--page-rgb),0.35) 62%, rgba(var(--page-rgb),0.15) 100%),
+      linear-gradient(to top, var(--page-solid) 0%, rgba(var(--page-rgb),0) 22%),
+      linear-gradient(to bottom, var(--page-solid) 0%, rgba(var(--page-rgb),0) 18%);
   }
   .mail-inner   { padding: 8rem 1.25rem; }
 }
@@ -836,7 +854,7 @@ a:hover .product-img {
 
 /* Homepage hero — language selector */
 .hero-lang:hover,
-.hero-lang:focus-visible { color: #E8E0D4 !important; }
+.hero-lang:focus-visible { color: var(--lang-active, #E8E0D4) !important; }
 
 /* ══════════════════════════════════════════════════════════════════════════
    THEME PROTOTYPE — light / auto hero (2026-09-26, staging only)
@@ -912,3 +930,39 @@ html[data-theme="light"][data-home] .concierge-input {
 }
 html[data-theme="light"][data-home] .concierge-input:focus        { border-color: rgba(28,26,23,0.75); background: rgba(255,255,255,0.7); }
 html[data-theme="light"][data-home] .concierge-input::placeholder { color: rgba(28,26,23,0.55); }
+
+/* ── Theme prototype, part 2 — homepage sections 2 + 3 and footer ─────────
+   Token overrides for the light theme. Still scoped to [data-home]: shared
+   classes (.body-copy, .eyebrow-label) read these tokens, and every other page
+   is still hardcoded dark, so the overrides must not leak there yet. Drop
+   [data-home] from this block once the remaining pages are tokenised. */
+html[data-theme="light"][data-home] {
+  --color-ink-primary: #1C1A17;
+  --color-ink-body:    #4A433A;   /* 8.8:1 on #F7F3EE */
+  --color-ink-meta:    #6E6459;   /* 5.2:1 */
+  --accent-ink:        #7A5410;   /* 6.1:1 */
+  --page-rgb:          247,243,238;
+  --page-solid:        #F7F3EE;
+  --hairline:          rgba(28,26,23,0.10);
+  --field-bg:          rgba(255,255,255,0.62);
+  --field-border:      rgba(28,26,23,0.28);
+  --footer-ink:        rgba(28,26,23,0.62);
+  --tile-bg:           #E9E1D6;
+  --section-wash-a:    1;         /* solid cream so section 2 meets the mail section without a tone step */
+}
+/* The typographic "Stories" tile has no photograph, so it flips to paper. */
+html[data-theme="light"][data-home] .portal-tile--type {
+  --tile-type-bg: linear-gradient(155deg, #F1EBE1 0%, #E9E1D6 62%, #E2D9CC 100%);
+  --tile-title:   #1C1A17;
+  --tile-kicker:  #7A5410;
+  --tile-note:    #4A433A;
+}
+/* Photo tiles keep their dark shade + light title in both themes; a warm
+   shadow instead of black reads better on cream. */
+html[data-theme="light"][data-home] .portal-tile:hover,
+html[data-theme="light"][data-home] .portal-tile:focus-visible { box-shadow: 0 14px 30px rgba(60,44,20,0.22); }
+html[data-theme="light"][data-home] .portal-door { background: rgba(200,146,42,0.08); }
+html[data-theme="light"][data-home] .portal-door:hover,
+html[data-theme="light"][data-home] .portal-door:focus-visible { background: rgba(200,146,42,0.14); }
+/* Mailing-list photograph is a dark stage portrait; let it breathe a little on cream. */
+html[data-theme="light"][data-home] .mail-bg { opacity: 0.85; }
