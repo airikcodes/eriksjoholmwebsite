@@ -239,7 +239,8 @@ const catalog = [
   },
 ];
 
-function matchFromText(input: string): Track[] {
+// Tracks whose mood words genuinely appear in the text (no guessing).
+function moodHits(input: string): Track[] {
   const lower = input.toLowerCase();
 
   const scored = catalog.map((track) => ({
@@ -250,12 +251,17 @@ function matchFromText(input: string): Track[] {
     ),
   }));
 
-  const hits = scored
+  return scored
     .filter((s) => s.score > 0)
     .sort((a, b) => b.score - a.score)
     .slice(0, 3)
     .map((s) => s.track);
+}
 
+function matchFromText(input: string): Track[] {
+  const lower = input.toLowerCase();
+
+  const hits = moodHits(input);
   if (hits.length > 0) return hits;
 
   const by = (id: string) => catalog.find((t) => t.id === id)!;
@@ -370,7 +376,7 @@ function ResultCard({ track, onDismiss }: { track: Track; onDismiss: (id: string
               fontSize:      "0.55rem",
               letterSpacing: "0.18em",
               textTransform: "uppercase",
-              color:         "rgba(200,146,42,0.45)",
+              color:         "var(--color-ink-meta)",
               marginTop:     "0.2rem",
             }}
           >
@@ -434,7 +440,7 @@ function ResultCard({ track, onDismiss }: { track: Track; onDismiss: (id: string
         <button
           onClick={() => onDismiss(track.id)}
           aria-label="Dismiss"
-          style={{ color: "rgba(200,146,42,0.3)", fontSize: "1.25rem", lineHeight: 1, flexShrink: 0 }}
+          style={{ color: "var(--color-ink-meta)", fontSize: "1.25rem", lineHeight: 1, flexShrink: 0 }}
           className="hover:text-[color:var(--accent-ink)] transition-colors duration-200"
         >
           ×
@@ -502,6 +508,7 @@ export default function SongConcierge({
   const [activeChip, setActiveChip] = useState<string | null>(null);
   const [busy, setBusy]       = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
+  const resultsRef = useRef<HTMLDivElement>(null);
 
   const [displayHeading, setDisplayHeading] = useState(heading);
   useEffect(() => {
@@ -527,9 +534,10 @@ export default function SongConcierge({
     if (!q || busy) return;
     setActiveChip(null);
     setBusy(true);
-    const mood = matchFromText(q);
-    // Lyrics first (they carry the matching line), then mood matches fill up to three.
+    // Lyrics first (they carry the matching line), then genuine mood matches. The guessed
+    // defaults only appear when nothing else matched, so results stay relevant.
     const lyric = await fetchLyricHits(q);
+    const mood  = moodHits(q);
     const seen = new Set<string>();
     const merged: Track[] = [];
     for (const t of [...lyric, ...mood]) {
@@ -539,8 +547,9 @@ export default function SongConcierge({
       merged.push(t);
       if (merged.length === 3) break;
     }
-    setResults(merged);
+    setResults(merged.length > 0 ? merged : matchFromText(q));
     setBusy(false);
+    requestAnimationFrame(() => resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" }));
   }
 
   function handleChip(id: string) {
@@ -632,7 +641,7 @@ export default function SongConcierge({
       </div>
 
       {results.length > 0 && (
-        <div className="flex flex-col gap-3" style={{ marginTop: "2rem" }}>
+        <div ref={resultsRef} className="flex flex-col gap-3" style={{ marginTop: "2rem" }}>
           {results.map((track) => (
             <ResultCard key={track.id} track={track} onDismiss={handleDismiss} />
           ))}

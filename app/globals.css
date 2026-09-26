@@ -1012,7 +1012,10 @@ html[data-theme="light"][data-home] .video-window {
   z-index:  2;
   height:   clamp(18rem, 62vh, 42rem);
 }
-html[data-theme="light"][data-home] .hero-section { background: var(--page-solid); }
+html[data-theme="light"][data-home] .hero-section {
+  background:  var(--page-solid);
+  min-height:  calc(100svh - 7rem) !important;   /* the video band peeks in below the fold line */
+}
 html[data-theme="light"][data-home] .hero-panel   { display: block; width: 100%; max-width: 46rem; }
 html[data-theme="light"][data-home] .hero-panel > div:first-child {
   max-width:      100% !important;
