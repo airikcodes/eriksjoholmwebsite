@@ -53,7 +53,7 @@ export default async function LivePage({
       <div className="page-photo-wrap" style={{ position: "fixed", inset: 0, zIndex: 0 }}>
         <div className="page-photo" style={{
           position:           'absolute', inset: 0,
-          backgroundImage:    'url(/images/bg/bg-04.jpg)',
+          backgroundImage:    'url(/images/langs-med-vagen/lmv-18.jpg)',
           backgroundSize:     'cover',
           backgroundPosition: "center 22%",
           opacity:            'calc(0.08 * var(--ghost-k))',

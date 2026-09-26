@@ -71,7 +71,7 @@ export default async function ProductPage({
       <div style={{ position: 'fixed', inset: 0, zIndex: 0 }}>
         <div style={{
           position: 'absolute', inset: 0,
-          backgroundImage: 'url(/images/bg/bg-03.jpg)',
+          backgroundImage: 'url(/images/langs-med-vagen/lmv-02.jpg)',
           backgroundSize: 'cover', backgroundPosition: 'center',
           opacity: 'calc(0.05 * var(--ghost-k))',
           filter: 'var(--ghost-filter)',

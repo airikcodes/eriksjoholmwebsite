@@ -51,7 +51,7 @@ export default async function Contact({
       <div className="page-photo-wrap" style={{ position: "fixed", inset: 0, zIndex: 0 }}>
         <div className="page-photo" style={{
           position: "absolute", inset: 0,
-          backgroundImage: "url(/images/bg/bg-05.jpg)",
+          backgroundImage: "url(/images/langs-med-vagen/lmv-15.jpg)",
           backgroundSize: "cover", backgroundPosition: "center 22%",
           opacity: 'calc(0.08 * var(--ghost-k))',
           filter: 'var(--ghost-filter)',
