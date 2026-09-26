@@ -221,7 +221,6 @@ export default function SunOrb() {
         </defs>
         <circle r="1" className="moon-dark" />
         {lit && <path d={lit} fill="url(#moon-grad)" />}
-        {lit && <g className="moon-maria"><ellipse cx="-0.25" cy="-0.2" rx="0.28" ry="0.2" /><ellipse cx="0.12" cy="0.28" rx="0.22" ry="0.16" /><ellipse cx="0.38" cy="-0.35" rx="0.14" ry="0.1" /></g>}
       </svg>
     </div>
   );
