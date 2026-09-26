@@ -8,9 +8,6 @@ const LANGUAGE_NAMES: Record<string, string> = {
   de: 'Deutsch',
   es: 'Español',
   fi: 'Suomi',
-  it: 'Italiano',
-  fr: 'Français',
-  pt: 'Português',
 };
 
 // The word "translation" in each site language, shown next to a translated lyric
@@ -19,31 +16,27 @@ const TRANSLATION_WORD: Record<string, string> = {
   de: 'Übersetzung',
   es: 'Traducción',
   fi: 'Käännös',
-  it: 'Traduzione',
-  fr: 'Traduction',
-  pt: 'Tradução',
 };
 
-const ORDER = ['sv', 'en', 'de', 'es', 'fi', 'it', 'fr', 'pt'];
+// Languages we offer lyric translations in (the original language is always shown too)
+const ORDER = ['sv', 'en', 'de', 'es', 'fi'];
 
 export default function LyricsTranslations({
   original,
   originalLanguage = 'sv',
   translations,
-  locale,
   label,
 }: {
   original: string;
   originalLanguage?: string;
   translations: Record<string, string>;
-  locale: string;
   label: string;
 }) {
   const available = ORDER.filter(
     (code) => code === originalLanguage || translations[code],
   );
-  const initial = available.includes(locale) ? locale : originalLanguage;
-  const [active, setActive] = useState<string>(initial);
+  // The song's original language is always shown first; translations are an option
+  const [active, setActive] = useState<string>(originalLanguage);
 
   const isOriginal = active === originalLanguage;
   const text = isOriginal ? original : translations[active];

@@ -261,7 +261,6 @@ export default async function WorkPage({
               original={work.lyrics}
               originalLanguage="sv"
               translations={work.lyricsTranslations as Record<string, string>}
-              locale={locale}
               label={t.works.theLyric}
             />
           )}
