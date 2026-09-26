@@ -963,7 +963,7 @@ html[data-theme="light"] {
   --color-sand:        #F3E6CE;   /* Library */
   --color-fjord:       #DCE8EA;   /* newsletter */
   --cover-shadow:      none;                /* flat, hard-edged cover art */
-  --section2-bg:       var(--color-sand);   /* hard edge under the hero, no fade */
+  --section2-bg:       var(--page-solid);   /* one paper tone site-wide */
   --album-scrim:       linear-gradient(115deg, rgba(var(--page-rgb),0.86) 0%, rgba(var(--page-rgb),0.72) 45%, rgba(var(--page-rgb),0.5) 100%);
   --accent-ink-hover:  #5E3F08;
   --color-ink-primary: #1C1A17;
@@ -1189,7 +1189,7 @@ html[data-theme="light"][data-home] .library-wrap {
 }
 
 /* Newsletter: pale fjord ground with the sun peeking in from the top-left. */
-html[data-theme="light"] .mail-section { background: var(--color-fjord); position: relative; overflow: hidden; }
+html[data-theme="light"] .mail-section { background: var(--color-sun); position: relative; overflow: hidden; }
 html[data-theme="light"] .mail-section::before {
   content:       "";
   position:      absolute;
@@ -1198,9 +1198,9 @@ html[data-theme="light"] .mail-section::before {
   width:         42vmin;
   height:        42vmin;
   border-radius: 50%;
-  background:    var(--color-sun);
+  background:    #2F5D6B;
 }
-html[data-theme="light"] .mail-inner { position: relative; z-index: 1; --color-ink-meta: #4F5B5E; --accent-ink: #6B4A0E; }
+html[data-theme="light"] .mail-inner { position: relative; z-index: 1; --color-ink-meta: #4A3A14; --accent-ink: #2F2408; }
 
 /* Inner pages: a sun-coloured rule under the photo band. */
 html[data-theme="light"] .page-photo-wrap::after {
@@ -1210,3 +1210,11 @@ html[data-theme="light"] .page-photo-wrap::after {
   height:     8px;
   background: var(--color-sun);
 }
+
+/* Library: same paper as the hero, with a deep-fjord circle as its colour element. */
+html[data-theme="light"][data-home] .library-wrap { position: relative; overflow: hidden; }
+html[data-theme="light"][data-home] .library-wrap::before {
+  content: ""; position: absolute; z-index: 0; right: -16vmin; top: -16vmin;
+  width: 40vmin; height: 40vmin; border-radius: 50%; background: #2F5D6B;
+}
+html[data-theme="light"][data-home] .library-wrap > * { position: relative; z-index: 1; }
