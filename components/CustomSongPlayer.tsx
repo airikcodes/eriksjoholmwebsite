@@ -74,7 +74,7 @@ export default function CustomSongPlayer({ songs, playlistUrl }: Props) {
         }}
         className="hover:text-[color:var(--accent-ink)] hover:border-[#C8922A] transition-colors duration-200"
       >
-        Hear more examples →
+        Hear more examples
       </a>
     </div>
   );

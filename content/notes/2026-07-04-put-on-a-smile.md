@@ -5,7 +5,7 @@ slug: put-on-a-smile
 excerpt: The lyric, in full.
 ---
 
-[Listen on Spotify →](https://open.spotify.com/track/5xrdXUnVS2hEPOMXAUImj5)
+[Listen on Spotify](https://open.spotify.com/track/5xrdXUnVS2hEPOMXAUImj5)
 
 ---
 

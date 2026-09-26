@@ -75,34 +75,34 @@
     "follow": "Följ",
     "contact": "Kontakt",
     "explore": "Utforska",
-    "theStoryteller": "Berättaren →",
-    "syncLicensing": "Synklicenser →",
-    "works": "Verk →"
+    "theStoryteller": "Berättaren",
+    "syncLicensing": "Synklicenser",
+    "works": "Verk"
   },
   "songs": {
     "eyebrow": "Texter & berättelser",
     "title": "Låtar",
     "featuredSongs": "{n} utvalda låtar från en katalog med över 300 egna kompositioner — med texter, historien bakom var och en och länkar för att lyssna.",
-    "fullCatalogueSpotify": "Hela katalogen på Spotify →",
-    "fullCatalogueTidal": "Hela katalogen på Tidal →",
+    "fullCatalogueSpotify": "Hela katalogen på Spotify",
+    "fullCatalogueTidal": "Hela katalogen på Tidal",
     "thereIsMore": "Det finns mer",
     "sync": {
       "eyebrow": "Musik för bild",
       "title": "Synklicenser",
       "desc": "Originallåtar tillgängliga för film, TV, reklam och interaktiva medier. One-stop-licensiering — master och förlag i ett enda avtal.",
-      "cta": "Bläddra i katalogen →"
+      "cta": "Bläddra i katalogen"
     },
     "forYou": {
       "eyebrow": "Något personligt",
       "title": "Songs For You",
       "desc": "En låt skriven från grunden för någon du älskar. Bröllop, milstolpar, ögonblick som förtjänar sin egen musik. Varje låt är skriven bara för dig.",
-      "cta": "Inled ett samtal →"
+      "cta": "Inled ett samtal"
     },
     "notes": {
       "eyebrow": "Bakom arbetet",
       "title": "Notes",
       "desc": "Ett nyhetsbrev om att skapa — vad det faktiskt krävs för att bygga ett kreativt liv. Texter innan de är klara, berättelser innan de berättas.",
-      "cta": "Prenumerera på Notes →"
+      "cta": "Prenumerera på Notes"
     }
   },
   "live": {
@@ -119,14 +119,14 @@
       "label": "Konsertsvit",
       "desc1": "En intim konsertsvit knuten till årets gång — fyra kvällar, fyra årstider, egna låtar skrivna för stunden. Små rum, nära lyssnande, ingen setlista upprepas.",
       "desc2": "Datum annonseras till Notes-prenumeranter först.",
-      "cta": "Gå med i listan →"
+      "cta": "Gå med i listan"
     },
     "pastStages": "Tidigare scener",
     "getInTouch": {
       "label": "Ta kontakt",
       "heading": "Vill du ha Erik på ditt evenemang?",
       "desc": "För konserter, festivaler och privata evenemang — kontakta direkt.",
-      "contactPage": "Kontaktsida →"
+      "contactPage": "Kontaktsida"
     }
   },
   "contact": {
@@ -156,9 +156,9 @@
     "songsForYouDesc": "En låt skriven för någon du älskar, för ett ögonblick som förtjänar sin egen musik. Bröllop, milstolpar, människor som betyder något. Varje låt skrivs från grunden, bara för dig.",
     "toBegin": "För att inleda ett samtal:",
     "forProfessionals": "För proffs",
-    "glennLink": "GLENN — Berättarkonserten →",
-    "syncLink": "Synklicenser →",
-    "portfolioLink": "Portfolio & CV →",
+    "glennLink": "GLENN — Berättarkonserten",
+    "syncLink": "Synklicenser",
+    "portfolioLink": "Portfolio & CV",
     "elsewhere": "På andra ställen"
   },
   "storyteller": {
@@ -256,7 +256,7 @@
     "title": "Musik för bild.",
     "intro": "Originallåtar och instrumentalstycken för film, TV, reklam och interaktiva medier. De flesta spår är one-stop — en enda licens reglerar både master- och publiceringsrättigheterna.",
     "catalogueLabel": "Katalog",
-    "openOnDisco": "Öppna på Disco →",
+    "openOnDisco": "Öppna på Disco",
     "whatYouGet": "Vad du får",
     "specs": [
       {
@@ -295,7 +295,7 @@
     "noPostsYet": "Inget här än — kika in snart.",
     "backToNotes": "Alla anteckningar",
     "subscribeDesc": "Varje brev direkt i din inkorg. Inget schema, inget brus — bara arbetet.",
-    "readMore": "Läs →"
+    "readMore": "Läs"
   },
   "works": {
     "featured": "Utvalda",
@@ -310,7 +310,7 @@
     "theStory": "Historien",
     "singlesSoFarLabel": "Hittills utgivna singlar",
     "fromTheNotes": "Från anteckningarna",
-    "readInNotes": "Läs i anteckningar →",
+    "readInNotes": "Läs i anteckningar",
     "credits": "Credits",
     "intro": "Låtar, inspelningar och andra konstnärliga verk — från en katalog med över 300 originalkompositioner."
   },

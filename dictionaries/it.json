@@ -75,34 +75,34 @@
     "follow": "Segui",
     "contact": "Contatti",
     "explore": "Esplora",
-    "theStoryteller": "Il narratore →",
-    "syncLicensing": "Licenze Sync →",
-    "works": "Opere →"
+    "theStoryteller": "Il narratore",
+    "syncLicensing": "Licenze Sync",
+    "works": "Opere"
   },
   "songs": {
     "eyebrow": "Testi & storie",
     "title": "Canzoni",
     "featuredSongs": "{n} canzoni in evidenza da un catalogo di oltre 300 composizioni originali — con testi, la storia dietro ciascuna e link per ascoltare.",
-    "fullCatalogueSpotify": "Catalogo completo su Spotify →",
-    "fullCatalogueTidal": "Catalogo completo su Tidal →",
+    "fullCatalogueSpotify": "Catalogo completo su Spotify",
+    "fullCatalogueTidal": "Catalogo completo su Tidal",
     "thereIsMore": "C'è altro",
     "sync": {
       "eyebrow": "Musica per immagine",
       "title": "Licenze Sync",
       "desc": "Canzoni originali disponibili per cinema, televisione, pubblicità e media interattivi. Licenza one-stop — master ed editoria in un unico accordo.",
-      "cta": "Sfoglia il catalogo →"
+      "cta": "Sfoglia il catalogo"
     },
     "forYou": {
       "eyebrow": "Qualcosa di personale",
       "title": "Songs For You",
       "desc": "Una canzone scritta da zero per qualcuno che ami. Matrimoni, traguardi, momenti che meritano la loro musica. Ognuna è scritta solo per te.",
-      "cta": "Inizia una conversazione →"
+      "cta": "Inizia una conversazione"
     },
     "notes": {
       "eyebrow": "Dietro il lavoro",
       "title": "Notes",
       "desc": "Una newsletter sul fare — cosa serve davvero per costruire una vita creativa. Testi prima di essere terminati, storie prima di essere raccontate.",
-      "cta": "Iscriviti a Notes →"
+      "cta": "Iscriviti a Notes"
     }
   },
   "live": {
@@ -119,14 +119,14 @@
       "label": "Serie di concerti",
       "desc1": "Una serie di concerti intimi legata al volgere dell'anno — quattro serate, quattro stagioni, canzoni originali scritte per il momento. Sale piccole, ascolto ravvicinato, nessuna scaletta ripetuta.",
       "desc2": "Le date vengono annunciate prima agli iscritti a Notes.",
-      "cta": "Unisciti alla lista →"
+      "cta": "Unisciti alla lista"
     },
     "pastStages": "Palchi passati",
     "getInTouch": {
       "label": "Contattaci",
       "heading": "Vuoi Erik al tuo evento?",
       "desc": "Per concerti, festival ed eventi privati — contattaci direttamente.",
-      "contactPage": "Pagina dei contatti →"
+      "contactPage": "Pagina dei contatti"
     }
   },
   "contact": {
@@ -156,9 +156,9 @@
     "songsForYouDesc": "Una canzone scritta per qualcuno che ami, per un momento che merita la sua musica. Matrimoni, traguardi, persone che contano. Ognuna viene scritta da zero, solo per te.",
     "toBegin": "Per iniziare una conversazione:",
     "forProfessionals": "Per professionisti",
-    "glennLink": "GLENN — Il concerto narrativo →",
-    "syncLink": "Licenze Sync →",
-    "portfolioLink": "Portfolio e CV →",
+    "glennLink": "GLENN — Il concerto narrativo",
+    "syncLink": "Licenze Sync",
+    "portfolioLink": "Portfolio e CV",
     "elsewhere": "Altrove"
   },
   "storyteller": {
@@ -256,7 +256,7 @@
     "title": "Musica per immagine.",
     "intro": "Canzoni originali e strumentali per cinema, televisione, pubblicità e media interattivi. La maggior parte dei brani è one-stop — un'unica licenza copre sia i diritti master che quelli editoriali.",
     "catalogueLabel": "Catalogo",
-    "openOnDisco": "Apri su Disco →",
+    "openOnDisco": "Apri su Disco",
     "whatYouGet": "Cosa ottieni",
     "specs": [
       {
@@ -295,7 +295,7 @@
     "noPostsYet": "Niente ancora qui — torna presto.",
     "backToNotes": "Tutte le note",
     "subscribeDesc": "Ogni lettera nella tua casella. Nessun programma, nessun rumore — solo il lavoro.",
-    "readMore": "Leggi →"
+    "readMore": "Leggi"
   },
   "works": {
     "featured": "In evidenza",
@@ -310,7 +310,7 @@
     "theStory": "La Storia",
     "singlesSoFarLabel": "Singoli finora",
     "fromTheNotes": "Dalle Note",
-    "readInNotes": "Leggi nelle Note →",
+    "readInNotes": "Leggi nelle Note",
     "credits": "Crediti",
     "intro": "Canzoni, registrazioni e altre opere artistiche — da un catalogo di oltre 300 composizioni originali."
   },

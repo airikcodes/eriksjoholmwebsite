@@ -75,34 +75,34 @@
     "follow": "Seuraa",
     "contact": "Yhteystiedot",
     "explore": "Tutki",
-    "theStoryteller": "Tarinankerrontakonsertti →",
-    "syncLicensing": "Synkronoinnin lisensointi →",
-    "works": "Teokset →"
+    "theStoryteller": "Tarinankerrontakonsertti",
+    "syncLicensing": "Synkronoinnin lisensointi",
+    "works": "Teokset"
   },
   "songs": {
     "eyebrow": "Sanoitukset & tarinat",
     "title": "Laulut",
     "featuredSongs": "{n} valittua laulua yli 300 alkuperäiskappaleen katalogista — sanoituksineen, jokaisen tarina taustoineen ja kuuntelulinkit.",
-    "fullCatalogueSpotify": "Koko katalogi Spotifyssa →",
-    "fullCatalogueTidal": "Koko katalogi Tidalissa →",
+    "fullCatalogueSpotify": "Koko katalogi Spotifyssa",
+    "fullCatalogueTidal": "Koko katalogi Tidalissa",
     "thereIsMore": "On muutakin",
     "sync": {
       "eyebrow": "Musiikkia kuvaan",
       "title": "Synkronoinnin lisensointi",
       "desc": "Alkuperäisiä lauluja elokuviin, televisioon, mainontaan ja interaktiivisiin medioihin. One-stop-lisensointi — master ja kustantaminen yhdessä sopimuksessa.",
-      "cta": "Selaa katalogi →"
+      "cta": "Selaa katalogi"
     },
     "forYou": {
       "eyebrow": "Jotain henkilökohtaista",
       "title": "Songs For You",
       "desc": "Laulu kirjoitettuna tyhjästä jollekin, jota rakastat. Häät, merkkipaalut, hetket, jotka ansaitsevat oman musiikkinsa. Jokainen on kirjoitettu vain sinulle.",
-      "cta": "Aloita keskustelu →"
+      "cta": "Aloita keskustelu"
     },
     "notes": {
       "eyebrow": "Työn takana",
       "title": "Notes",
       "desc": "Uutiskirje tekemisestä — mitä luovan elämän rakentaminen todella vaatii. Sanoituksia ennen valmistumistaan, tarinoita ennen kertomistaan.",
-      "cta": "Tilaa Notes →"
+      "cta": "Tilaa Notes"
     }
   },
   "live": {
@@ -119,14 +119,14 @@
       "label": "Konserttisarja",
       "desc1": "Intiimi konserttisarja sidottuna vuoden kiertokulkuun — neljä iltaa, neljä vuodenaikaa, hetkeen kirjoitettuja alkuperäiskappaleita. Pienet tilat, lähellä kuunteleminen, ei toistuvaa setlistiä.",
       "desc2": "Päivämäärät ilmoitetaan ensin Notes-tilaajille.",
-      "cta": "Liity listalle →"
+      "cta": "Liity listalle"
     },
     "pastStages": "Aiemmat lavat",
     "getInTouch": {
       "label": "Ota yhteyttä",
       "heading": "Haluatko Erikin tapahtumaasi?",
       "desc": "Konsertteja, festivaaleja ja yksityisiä tapahtumia varten — ota suoraan yhteyttä.",
-      "contactPage": "Yhteystietosivu →"
+      "contactPage": "Yhteystietosivu"
     }
   },
   "contact": {
@@ -156,9 +156,9 @@
     "songsForYouDesc": "Laulu kirjoitettuna jollekin, jota rakastat, hetkelle, joka ansaitsee oman musiikkinsa. Häät, merkkipaalut, merkitykselliset ihmiset. Jokainen kirjoitetaan tyhjästä, vain sinulle.",
     "toBegin": "Aloittaaksesi keskustelun:",
     "forProfessionals": "Ammattilaisille",
-    "glennLink": "GLENN — Tarinankerrontakonsertti →",
-    "syncLink": "Synkronoinnin lisensointi →",
-    "portfolioLink": "Portfolio ja CV →",
+    "glennLink": "GLENN — Tarinankerrontakonsertti",
+    "syncLink": "Synkronoinnin lisensointi",
+    "portfolioLink": "Portfolio ja CV",
     "elsewhere": "Muualla"
   },
   "storyteller": {
@@ -256,7 +256,7 @@
     "title": "Musiikkia kuvaan.",
     "intro": "Alkuperäisiä lauluja ja instrumentaaleja elokuviin, televisioon, mainontaan ja interaktiivisiin medioihin. Useimmat kappaleet ovat one-stop — yhdellä lisenssillä selvitetään sekä master- että julkaisuoikeudet.",
     "catalogueLabel": "Katalogi",
-    "openOnDisco": "Avaa Discossa →",
+    "openOnDisco": "Avaa Discossa",
     "whatYouGet": "Mitä saat",
     "specs": [
       {
@@ -295,7 +295,7 @@
     "noPostsYet": "Ei vielä mitään — tule pian takaisin.",
     "backToNotes": "Kaikki muistiinpanot",
     "subscribeDesc": "Jokainen kirje suoraan postilaatikkoosi. Ei aikataulua, ei melua — vain työ.",
-    "readMore": "Lue →"
+    "readMore": "Lue"
   },
   "works": {
     "featured": "Valitut",
@@ -310,7 +310,7 @@
     "theStory": "Tarina",
     "singlesSoFarLabel": "Tähänastiset singlet",
     "fromTheNotes": "Muistiinpanoista",
-    "readInNotes": "Lue Muistiinpanoissa →",
+    "readInNotes": "Lue Muistiinpanoissa",
     "credits": "Tekijät",
     "intro": "Kappaleita, äänitteitä ja muita taiteellisia teoksia — yli 300 originaaliteoksen katalogista."
   },

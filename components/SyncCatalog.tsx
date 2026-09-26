@@ -445,7 +445,7 @@ export default function SyncCatalog() {
                       textAlign: "right",
                     }}
                   >
-                    Request preview →
+                    Request preview
                   </a>
                 )}
               </div>

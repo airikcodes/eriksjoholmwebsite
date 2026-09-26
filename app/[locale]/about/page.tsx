@@ -195,7 +195,7 @@ export default async function About({
                       className="block hover:text-[#1DB954] transition-colors duration-200"
                       style={{ fontFamily: "var(--font-inter)", fontSize: "0.9rem", color: "var(--color-ink-body)", letterSpacing: "0.03em", padding: "0.25rem 0" }}
                     >
-                      Spotify →
+                      Spotify
                     </a>
                     <a
                       href="https://tidal.com/artist/47687355"
@@ -203,7 +203,7 @@ export default async function About({
                       className="block hover:text-[#00FFFF] transition-colors duration-200"
                       style={{ fontFamily: "var(--font-inter)", fontSize: "0.9rem", color: "var(--color-ink-body)", letterSpacing: "0.03em", padding: "0.25rem 0" }}
                     >
-                      Tidal →
+                      Tidal
                     </a>
                   </div>
                 </div>
@@ -226,7 +226,7 @@ export default async function About({
                       className="block hover:text-[color:var(--color-ink-primary)] transition-colors duration-200"
                       style={{ fontFamily: "var(--font-inter)", fontSize: "0.9rem", color: "var(--color-ink-body)", letterSpacing: "0.03em", padding: "0.25rem 0" }}
                     >
-                      Instagram →
+                      Instagram
                     </a>
                     <a
                       href="https://facebook.com/eriksjoholmffofficial/"
@@ -234,7 +234,7 @@ export default async function About({
                       className="block hover:text-[#1877F2] transition-colors duration-200"
                       style={{ fontFamily: "var(--font-inter)", fontSize: "0.9rem", color: "var(--color-ink-body)", letterSpacing: "0.03em", padding: "0.25rem 0" }}
                     >
-                      Facebook →
+                      Facebook
                     </a>
                     <a
                       href="https://www.youtube.com/eriksjoholmofficial"
@@ -242,7 +242,7 @@ export default async function About({
                       className="block hover:text-[#FF0000] transition-colors duration-200"
                       style={{ fontFamily: "var(--font-inter)", fontSize: "0.9rem", color: "var(--color-ink-body)", letterSpacing: "0.03em", padding: "0.25rem 0" }}
                     >
-                      YouTube →
+                      YouTube
                     </a>
                     <a
                       href="https://www.linkedin.com/in/eriksjoholmofficial1717/"
@@ -250,14 +250,14 @@ export default async function About({
                       className="block hover:text-[#0A66C2] transition-colors duration-200"
                       style={{ fontFamily: "var(--font-inter)", fontSize: "0.9rem", color: "var(--color-ink-body)", letterSpacing: "0.03em", padding: "0.25rem 0" }}
                     >
-                      LinkedIn →
+                      LinkedIn
                     </a>
                     <Link
                       href="/notes"
                       className="block hover:text-[color:var(--accent-ink)] transition-colors duration-200"
                       style={{ fontFamily: "var(--font-inter)", fontSize: "0.9rem", color: "var(--color-ink-body)", letterSpacing: "0.03em", padding: "0.25rem 0" }}
                     >
-                      Notes →
+                      Notes
                     </Link>
                   </div>
                 </div>

@@ -174,7 +174,7 @@ export default function SongsAccordion({ songs }: { songs: Song[] }) {
                           color: "#C8922A",
                         }}
                       >
-                        Spotify →
+                        Spotify
                       </a>
                       <a
                         href={song.tidal}
@@ -188,7 +188,7 @@ export default function SongsAccordion({ songs }: { songs: Song[] }) {
                           color: "#C8922A",
                         }}
                       >
-                        Tidal →
+                        Tidal
                       </a>
                     </div>
                   </div>

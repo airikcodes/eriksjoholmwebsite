@@ -75,34 +75,34 @@
     "follow": "Follow",
     "contact": "Contact",
     "explore": "Explore",
-    "theStoryteller": "The Storyteller →",
-    "syncLicensing": "Sync Licensing →",
-    "works": "Artworks →"
+    "theStoryteller": "The Storyteller",
+    "syncLicensing": "Sync Licensing",
+    "works": "Artworks"
   },
   "songs": {
     "eyebrow": "Lyrics & Stories",
     "title": "Songs",
     "featuredSongs": "{n} featured songs from a catalogue of over 300 original compositions — with lyrics, the story behind each, and links to listen.",
-    "fullCatalogueSpotify": "Full catalogue on Spotify →",
-    "fullCatalogueTidal": "Full catalogue on Tidal →",
+    "fullCatalogueSpotify": "Full catalogue on Spotify",
+    "fullCatalogueTidal": "Full catalogue on Tidal",
     "thereIsMore": "There is more",
     "sync": {
       "eyebrow": "Music for picture",
       "title": "Sync Licensing",
       "desc": "Original songs available for film, television, advertising, and interactive media. One-stop licensing — master and publishing in a single agreement.",
-      "cta": "Browse the catalogue →"
+      "cta": "Browse the catalogue"
     },
     "forYou": {
       "eyebrow": "Something personal",
       "title": "Songs For You",
       "desc": "A song written from scratch for someone you love. Weddings, milestones, moments that deserve their own music. Each one is written for you alone.",
-      "cta": "Begin a conversation →"
+      "cta": "Begin a conversation"
     },
     "notes": {
       "eyebrow": "Behind the work",
       "title": "Notes",
       "desc": "A newsletter about making — what it actually takes to build a creative life. Lyrics before they're finished, stories before they're told.",
-      "cta": "Subscribe to Notes →"
+      "cta": "Subscribe to Notes"
     }
   },
   "live": {
@@ -119,14 +119,14 @@
       "label": "Concert series",
       "desc1": "An intimate concert series tied to the turning of the year — four evenings, four seasons, original songs written for the moment. Small rooms, close listening, no setlist repeated.",
       "desc2": "Dates are announced to Notes subscribers first.",
-      "cta": "Join the list →"
+      "cta": "Join the list"
     },
     "pastStages": "Past stages",
     "getInTouch": {
       "label": "Get in touch",
       "heading": "Want Erik at your event?",
       "desc": "For concerts, festivals, and private events — reach out directly.",
-      "contactPage": "Contact page →"
+      "contactPage": "Contact page"
     }
   },
   "contact": {
@@ -156,9 +156,9 @@
     "songsForYouDesc": "A song written for someone you love, for a moment that deserves its own music. Weddings, milestones, people who matter. Each one is written from scratch, for you alone.",
     "toBegin": "To begin a conversation:",
     "forProfessionals": "For professionals",
-    "glennLink": "GLENN — The Storytelling Concert →",
-    "syncLink": "Sync Licensing →",
-    "portfolioLink": "Portfolio & CV →",
+    "glennLink": "GLENN — The Storytelling Concert",
+    "syncLink": "Sync Licensing",
+    "portfolioLink": "Portfolio & CV",
     "elsewhere": "Elsewhere"
   },
   "storyteller": {
@@ -256,7 +256,7 @@
     "title": "Music for picture.",
     "intro": "Original songs and instrumentals for film, television, advertising, and interactive media. Most tracks are one-stop — a single license clears both master and publishing rights.",
     "catalogueLabel": "Catalogue",
-    "openOnDisco": "Open on Disco →",
+    "openOnDisco": "Open on Disco",
     "whatYouGet": "What you get",
     "specs": [
       {
@@ -295,7 +295,7 @@
     "noPostsYet": "The first entry is on its way.",
     "backToNotes": "All notes",
     "subscribeDesc": "Get each letter in your inbox. No schedule, no noise — just the work.",
-    "readMore": "Read →"
+    "readMore": "Read"
   },
   "works": {
     "featured": "Featured",
@@ -310,7 +310,7 @@
     "theStory": "The Story",
     "singlesSoFarLabel": "Singles So Far",
     "fromTheNotes": "From the Notes",
-    "readInNotes": "Read in Notes →",
+    "readInNotes": "Read in Notes",
     "credits": "Credits",
     "intro": "Songs, recordings, and other artistic works — from a catalogue of over 300 original compositions."
   },

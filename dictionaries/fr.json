@@ -75,34 +75,34 @@
     "follow": "Suivre",
     "contact": "Contact",
     "explore": "Explorer",
-    "theStoryteller": "Le conteur →",
-    "syncLicensing": "Licences Sync →",
-    "works": "Œuvres →"
+    "theStoryteller": "Le conteur",
+    "syncLicensing": "Licences Sync",
+    "works": "Œuvres"
   },
   "songs": {
     "eyebrow": "Paroles & histoires",
     "title": "Chansons",
     "featuredSongs": "{n} chansons sélectionnées d'un catalogue de plus de 300 compositions originales — avec les paroles, l'histoire derrière chacune et des liens pour écouter.",
-    "fullCatalogueSpotify": "Catalogue complet sur Spotify →",
-    "fullCatalogueTidal": "Catalogue complet sur Tidal →",
+    "fullCatalogueSpotify": "Catalogue complet sur Spotify",
+    "fullCatalogueTidal": "Catalogue complet sur Tidal",
     "thereIsMore": "Il y a plus",
     "sync": {
       "eyebrow": "Musique pour l'image",
       "title": "Licences Sync",
       "desc": "Chansons originales disponibles pour le cinéma, la télévision, la publicité et les médias interactifs. Licence one-stop — droits master et éditoriaux en un seul accord.",
-      "cta": "Parcourir le catalogue →"
+      "cta": "Parcourir le catalogue"
     },
     "forYou": {
       "eyebrow": "Quelque chose de personnel",
       "title": "Songs For You",
       "desc": "Une chanson écrite de zéro pour quelqu'un que vous aimez. Mariages, étapes importantes, moments qui méritent leur propre musique. Chacune est écrite pour vous seul.",
-      "cta": "Commencer une conversation →"
+      "cta": "Commencer une conversation"
     },
     "notes": {
       "eyebrow": "Dans les coulisses",
       "title": "Notes",
       "desc": "Une newsletter sur la création — ce qu'il faut vraiment pour construire une vie artistique. Des paroles avant qu'elles soient terminées, des histoires avant qu'elles soient racontées.",
-      "cta": "S'abonner à Notes →"
+      "cta": "S'abonner à Notes"
     }
   },
   "live": {
@@ -119,14 +119,14 @@
       "label": "Série de concerts",
       "desc1": "Une série de concerts intimistes liée au rythme des saisons — quatre soirées, quatre saisons, des chansons originales écrites pour l'instant. Petites salles, écoute attentive, aucune setlist répétée.",
       "desc2": "Les dates sont annoncées en premier aux abonnés à Notes.",
-      "cta": "Rejoindre la liste →"
+      "cta": "Rejoindre la liste"
     },
     "pastStages": "Scènes passées",
     "getInTouch": {
       "label": "Prendre contact",
       "heading": "Vous voulez Erik à votre événement?",
       "desc": "Pour les concerts, festivals et événements privés — contactez directement.",
-      "contactPage": "Page de contact →"
+      "contactPage": "Page de contact"
     }
   },
   "contact": {
@@ -156,9 +156,9 @@
     "songsForYouDesc": "Une chanson écrite pour quelqu'un que vous aimez, pour un moment qui mérite sa propre musique. Mariages, étapes importantes, personnes qui comptent. Chacune est écrite de zéro, rien que pour vous.",
     "toBegin": "Pour commencer une conversation:",
     "forProfessionals": "Pour les professionnels",
-    "glennLink": "GLENN — Le concert de narration →",
-    "syncLink": "Licences Sync →",
-    "portfolioLink": "Portfolio & CV →",
+    "glennLink": "GLENN — Le concert de narration",
+    "syncLink": "Licences Sync",
+    "portfolioLink": "Portfolio & CV",
     "elsewhere": "Ailleurs"
   },
   "storyteller": {
@@ -256,7 +256,7 @@
     "title": "Musique pour l'image.",
     "intro": "Chansons originales et instrumentaux pour le cinéma, la télévision, la publicité et les médias interactifs. La plupart des titres sont one-stop — une seule licence couvre les droits master et éditoriaux.",
     "catalogueLabel": "Catalogue",
-    "openOnDisco": "Ouvrir sur Disco →",
+    "openOnDisco": "Ouvrir sur Disco",
     "whatYouGet": "Ce que vous obtenez",
     "specs": [
       {
@@ -295,7 +295,7 @@
     "noPostsYet": "Rien ici pour l'instant — revenez bientôt.",
     "backToNotes": "Toutes les notes",
     "subscribeDesc": "Chaque lettre dans ta boîte. Pas de calendrier, pas de bruit — juste le travail.",
-    "readMore": "Lire →"
+    "readMore": "Lire"
   },
   "works": {
     "featured": "À la une",
@@ -310,7 +310,7 @@
     "theStory": "L'Histoire",
     "singlesSoFarLabel": "Singles jusqu’ici",
     "fromTheNotes": "Des Notes",
-    "readInNotes": "Lire dans les Notes →",
+    "readInNotes": "Lire dans les Notes",
     "credits": "Crédits",
     "intro": "Chansons, enregistrements et autres œuvres artistiques — d'un catalogue de plus de 300 compositions originales."
   },

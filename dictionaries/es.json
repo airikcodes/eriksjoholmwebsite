@@ -75,34 +75,34 @@
     "follow": "Seguir",
     "contact": "Contacto",
     "explore": "Explorar",
-    "theStoryteller": "El narrador →",
-    "syncLicensing": "Licencias Sync →",
-    "works": "Obras →"
+    "theStoryteller": "El narrador",
+    "syncLicensing": "Licencias Sync",
+    "works": "Obras"
   },
   "songs": {
     "eyebrow": "Letras e historias",
     "title": "Canciones",
     "featuredSongs": "{n} canciones destacadas de un catálogo de más de 300 composiciones originales — con letras, la historia detrás de cada una y enlaces para escuchar.",
-    "fullCatalogueSpotify": "Catálogo completo en Spotify →",
-    "fullCatalogueTidal": "Catálogo completo en Tidal →",
+    "fullCatalogueSpotify": "Catálogo completo en Spotify",
+    "fullCatalogueTidal": "Catálogo completo en Tidal",
     "thereIsMore": "Hay más",
     "sync": {
       "eyebrow": "Música para imagen",
       "title": "Licencias Sync",
       "desc": "Canciones originales disponibles para cine, televisión, publicidad y medios interactivos. Licencia one-stop — máster y editorial en un solo acuerdo.",
-      "cta": "Ver el catálogo →"
+      "cta": "Ver el catálogo"
     },
     "forYou": {
       "eyebrow": "Algo personal",
       "title": "Songs For You",
       "desc": "Una canción escrita desde cero para alguien que amas. Bodas, momentos especiales, instantes que merecen su propia música. Cada una es escrita solo para ti.",
-      "cta": "Comenzar una conversación →"
+      "cta": "Comenzar una conversación"
     },
     "notes": {
       "eyebrow": "Detrás del trabajo",
       "title": "Notes",
       "desc": "Un boletín sobre el proceso creativo — lo que realmente hace falta para construir una vida artística. Letras antes de terminar, historias antes de contarse.",
-      "cta": "Suscribirse a Notes →"
+      "cta": "Suscribirse a Notes"
     }
   },
   "live": {
@@ -119,14 +119,14 @@
       "label": "Serie de conciertos",
       "desc1": "Una íntima serie de conciertos ligada al giro del año — cuatro veladas, cuatro estaciones, canciones originales escritas para el momento. Salas pequeñas, escucha atenta, sin repetir ningún repertorio.",
       "desc2": "Las fechas se anuncian primero a los suscriptores de Notes.",
-      "cta": "Unirse a la lista →"
+      "cta": "Unirse a la lista"
     },
     "pastStages": "Escenarios pasados",
     "getInTouch": {
       "label": "Ponerse en contacto",
       "heading": "¿Quieres a Erik en tu evento?",
       "desc": "Para conciertos, festivales y eventos privados — escríbenos directamente.",
-      "contactPage": "Página de contacto →"
+      "contactPage": "Página de contacto"
     }
   },
   "contact": {
@@ -156,9 +156,9 @@
     "songsForYouDesc": "Una canción escrita para alguien que amas, para un momento que merece su propia música. Bodas, hitos, personas que importan. Cada una se escribe desde cero, solo para ti.",
     "toBegin": "Para comenzar una conversación:",
     "forProfessionals": "Para profesionales",
-    "glennLink": "GLENN — El concierto narrativo →",
-    "syncLink": "Licencias Sync →",
-    "portfolioLink": "Portafolio y CV →",
+    "glennLink": "GLENN — El concierto narrativo",
+    "syncLink": "Licencias Sync",
+    "portfolioLink": "Portafolio y CV",
     "elsewhere": "En otros lugares"
   },
   "storyteller": {
@@ -256,7 +256,7 @@
     "title": "Música para imagen.",
     "intro": "Canciones originales e instrumentales para cine, televisión, publicidad y medios interactivos. La mayoría de los temas son one-stop — una sola licencia cubre tanto los derechos de máster como los editoriales.",
     "catalogueLabel": "Catálogo",
-    "openOnDisco": "Abrir en Disco →",
+    "openOnDisco": "Abrir en Disco",
     "whatYouGet": "Qué obtienes",
     "specs": [
       {
@@ -295,7 +295,7 @@
     "noPostsYet": "Nada aquí todavía — vuelve pronto.",
     "backToNotes": "Todas las notas",
     "subscribeDesc": "Cada carta en tu bandeja de entrada. Sin calendario, sin ruido — solo el trabajo.",
-    "readMore": "Leer →"
+    "readMore": "Leer"
   },
   "works": {
     "featured": "Destacados",
@@ -310,7 +310,7 @@
     "theStory": "La Historia",
     "singlesSoFarLabel": "Singles hasta ahora",
     "fromTheNotes": "De las Notas",
-    "readInNotes": "Leer en Notas →",
+    "readInNotes": "Leer en Notas",
     "credits": "Créditos",
     "intro": "Canciones, grabaciones y otras obras artísticas — de un catálogo de más de 300 composiciones originales."
   },

@@ -305,7 +305,7 @@ export default async function Contact({
                     display: "block",
                   }}
                 >
-                  {label} →
+                  {label}
                 </a>
               ))}
             </div>

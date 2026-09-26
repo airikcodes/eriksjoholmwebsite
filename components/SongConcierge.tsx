@@ -430,10 +430,10 @@ function ResultCard({ track, onDismiss, playLabel, closeLabel, dismissLabel }: {
               </button>
             )}
             <a href={track.spotifyLink} target="_blank" rel="noopener noreferrer" style={linkStyle} className="hover:text-[#1DB954] transition-colors duration-200">
-              Spotify →
+              Spotify
             </a>
             <a href={track.tidalLink} target="_blank" rel="noopener noreferrer" style={linkStyle} className="hover:text-[#00FFFF] transition-colors duration-200">
-              Tidal →
+              Tidal
             </a>
           </div>
         </div>

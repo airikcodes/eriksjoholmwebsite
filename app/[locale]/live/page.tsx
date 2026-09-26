@@ -195,7 +195,7 @@ export default async function LivePage({
                           }}
                           className="hover:text-[color:var(--accent-ink)] hover:border-[#C8922A] transition-colors duration-200"
                         >
-                          Tickets →
+                          Tickets
                         </a>
                       )}
                     </div>

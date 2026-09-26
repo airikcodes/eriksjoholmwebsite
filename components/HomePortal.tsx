@@ -64,8 +64,8 @@ export default function HomePortal({
         <Item href="/works/walkabout" kicker={t.kinds.album} title="Walkabout" src={cover('walkabout')} />
       </div>
       <div className="home-lib-links">
-        <Link href="/works" className="home-lib-more">{t.door.cta} →</Link>
-        <Link href="/notes" className="home-lib-more">{t.titles.stories} →</Link>
+        <Link href="/works" className="home-lib-more">{t.door.cta}</Link>
+        <Link href="/notes" className="home-lib-more">{t.titles.stories}</Link>
       </div>
     </div>
   );

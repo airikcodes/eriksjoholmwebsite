@@ -225,7 +225,7 @@ export default function WorksSearch({ works, defaultLimit = 3 }: Props) {
                                 className="hover:text-[#1DB954] transition-colors duration-200"
                                 style={{ fontFamily: 'var(--font-inter)', fontSize: '0.72rem', letterSpacing: '0.12em', color: '#C8922A' }}
                               >
-                                Spotify →
+                                Spotify
                               </a>
                             )}
                             {work.tidalUrl && (
@@ -236,7 +236,7 @@ export default function WorksSearch({ works, defaultLimit = 3 }: Props) {
                                 className="hover:text-[#00FFFF] transition-colors duration-200"
                                 style={{ fontFamily: 'var(--font-inter)', fontSize: '0.72rem', letterSpacing: '0.12em', color: '#C8922A' }}
                               >
-                                Tidal →
+                                Tidal
                               </a>
                             )}
                           </div>

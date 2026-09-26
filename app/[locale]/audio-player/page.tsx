@@ -83,7 +83,7 @@ export default async function AudioPlayerPage({
                 borderBottom: '1px solid rgba(var(--meta-rgb),0.3)', paddingBottom: '2px',
               }}
             >
-              Full catalogue on Spotify →
+              Full catalogue on Spotify
             </a>
             <a
               href={TIDAL_ARTIST}
@@ -96,7 +96,7 @@ export default async function AudioPlayerPage({
                 borderBottom: '1px solid rgba(var(--meta-rgb),0.3)', paddingBottom: '2px',
               }}
             >
-              Full catalogue on Tidal →
+              Full catalogue on Tidal
             </a>
           </div>
         </div>

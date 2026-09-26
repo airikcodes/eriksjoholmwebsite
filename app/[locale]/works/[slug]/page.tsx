@@ -173,7 +173,7 @@ export default async function WorkPage({
                       className="hover:text-[color:var(--color-ink-primary)] transition-colors duration-200"
                       style={{ color: 'var(--accent-ink)', textDecoration: 'none', borderBottom: '1px solid rgba(200,146,42,0.35)', paddingBottom: '1px' }}
                     >
-                      {albumWork.title} →
+                      {albumWork.title}
                     </Link>
                   </p>
                 )}
@@ -231,7 +231,7 @@ export default async function WorkPage({
                       paddingBottom: '2px',
                     }}
                   >
-                    Spotify →
+                    Spotify
                   </a>
                 )}
                 {work.tidalUrl && (
@@ -250,7 +250,7 @@ export default async function WorkPage({
                       paddingBottom: '2px',
                     }}
                   >
-                    Tidal →
+                    Tidal
                   </a>
                 )}
               </div>
@@ -383,7 +383,7 @@ export default async function WorkPage({
                         paddingBottom: '3px',
                       }}
                     >
-                      {credit.url!.replace(/^https?:\/\//, '')} →
+                      {credit.url!.replace(/^https?:\/\//, '')}
                     </span>
                   </a>
                 </div>
@@ -528,7 +528,7 @@ export default async function WorkPage({
                     color:         'var(--accent-ink)',
                     marginTop:     '0.9rem',
                   }}>
-                    See the album →
+                    See the album
                   </p>
                 </div>
               </Link>
@@ -563,7 +563,7 @@ export default async function WorkPage({
                         className="font-[family-name:var(--font-cormorant)] font-light hover:text-[color:var(--accent-ink)] transition-colors duration-200"
                         style={{ fontSize: 'clamp(0.9rem, 2vw, 1.1rem)', color: 'var(--color-ink-primary)', textDecoration: 'none' }}
                       >
-                        {credit.name} ↗
+                        {credit.name}
                       </a>
                     ) : (
                       <p
