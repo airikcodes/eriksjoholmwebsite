@@ -73,7 +73,7 @@ export default function BeehiivForm({
           fontSize: '0.95rem',
           padding: '0.85rem 1.1rem',
           outline: 'none',
-          borderRadius: 0,
+          borderRadius: 'var(--radius-s)',
         }}
       />
       <button
@@ -91,7 +91,7 @@ export default function BeehiivForm({
           cursor: state === 'loading' ? 'not-allowed' : 'pointer',
           opacity: state === 'loading' ? 0.5 : 1,
           transition: 'border-color 0.2s, color 0.2s',
-          borderRadius: 0,
+          borderRadius: 'var(--radius-s)',
           whiteSpace: 'nowrap',
         }}
         onMouseEnter={(e) => {

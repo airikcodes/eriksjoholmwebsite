@@ -309,7 +309,7 @@ export default async function Storyteller({
                   position: "relative",
                   width: "100%",
                   paddingBottom: "56.25%",
-                  borderRadius: "2px",
+                  borderRadius: "var(--radius-s)",
                   overflow: "hidden",
                   background: "#000",
                 }}

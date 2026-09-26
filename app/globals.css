@@ -52,6 +52,8 @@
   --ghost-k:       1;
   --cover-shadow:  0 8px 32px rgba(0,0,0,0.55);
   --section2-bg:   linear-gradient(to bottom, rgba(var(--page-rgb),0) 0, rgba(var(--page-rgb),0.9) 9rem);
+  --radius-s:      12px;                   /* buttons, inputs, chips, small boxes */
+  --radius-m:      18px;                   /* cards, covers, panels */
   --section-wash-a: 0.9;                   /* opacity of the page wash behind homepage section 2 */
 }
 
@@ -181,7 +183,7 @@ body {
   text-transform: uppercase;
   padding:        0.6rem 1.3rem;
   background:     rgba(var(--fg-rgb),0.03);
-  border-radius:  2px;
+  border-radius:  var(--radius-s);
   transition:     background 180ms ease, border-color 180ms ease, color 180ms ease;
 }
 .pill-btn:hover {
@@ -451,7 +453,7 @@ a:hover .product-img {
   max-width: 210px;
   aspect-ratio: 3 / 4;
   overflow: hidden;
-  border-radius: 2px;
+  border-radius: var(--radius-s);
   scroll-snap-align: center;
   border: 1px solid rgba(var(--fg-rgb),0.08);
   transition: transform 260ms ease, border-color 260ms ease, box-shadow 260ms ease;
@@ -501,7 +503,7 @@ a:hover .product-img {
   position: relative;
   height: 2px;
   background: rgba(var(--fg-rgb),0.08);
-  border-radius: 2px;
+  border-radius: var(--radius-s);
   margin-top: 0.9rem;
   max-width: 140px;
   overflow: hidden;
@@ -512,7 +514,7 @@ a:hover .product-img {
   left: 0;
   height: 100%;
   background: #C8922A;
-  border-radius: 2px;
+  border-radius: var(--radius-s);
 }
 
 /* ── Funder logos ───────────────────────────────────────────────────────── */
@@ -589,7 +591,7 @@ a:hover .product-img {
   color: #C8922A;
   background: rgba(200,146,42,0.1);
   padding: 0.1em 0.35em;
-  border-radius: 2px;
+  border-radius: var(--radius-s);
 }
 .notes-content pre code {
   background: none;
@@ -607,7 +609,7 @@ a:hover .product-img {
 .notes-content a[style*="background"] {
   display: inline-block;
   padding: 0.65em 1.5em;
-  border-radius: 2px;
+  border-radius: var(--radius-s);
   color: #E8E0D4 !important;
   text-decoration: none !important;
   font-size: 0.82rem;
@@ -654,7 +656,7 @@ a:hover .product-img {
   overflow:      hidden;
   isolation:     isolate;
   aspect-ratio:  1;
-  border-radius: 2px;
+  border-radius: var(--radius-s);
   border:        1px solid rgba(200,146,42,0.22);
   background:    var(--tile-bg);
   text-decoration: none;
@@ -709,7 +711,7 @@ a:hover .product-img {
   gap:             1.5rem;
   grid-column:     1 / -1;
   padding:         1.75rem 1.5rem;
-  border-radius:   2px;
+  border-radius:   var(--radius-s);
   border:          1px solid rgba(200,146,42,0.4);
   background:      rgba(200,146,42,0.05);
   text-decoration: none;
@@ -780,7 +782,7 @@ a:hover .product-img {
   aspect-ratio: 1;
   object-fit: cover;
   display: block;
-  border-radius: 2px;
+  border-radius: var(--radius-s);
   border: 1px solid rgba(200,146,42,0.18);
   background: #14110d;
   transition: border-color 200ms ease, transform 200ms ease;
@@ -795,7 +797,7 @@ a:hover .product-img {
   letter-spacing: 0.16em;
   text-transform: uppercase;
   padding:        0.55rem 1.05rem;
-  border-radius:  2px;
+  border-radius:  var(--radius-s);
   border:         1px solid rgba(var(--fg-rgb),0.14);
   background:     rgba(var(--fg-rgb),0.03);
   color:          var(--color-ink-body);
@@ -1142,3 +1144,12 @@ html[data-theme="light"] .mail-form form input {
 
 /* Folio ("03 / 06") is decorative and unreadable over the photo band — off in light. */
 html[data-theme="light"] .topbar-folio { display: none; }
+
+/* ── Soft corners (2026-09-26) ────────────────────────────────────────────────
+   Buttons, inputs and boxes get gently rounded corners. Full-bleed bands (video windows,
+   page photo bands, section edges) stay hard-cut on purpose. */
+.concierge-input, .concierge-chip, .pill-btn, .form-input, .lib-filter, .menu-toggle-btn,
+.home-lib-more { border-radius: var(--radius-s); }
+.portal-tile, .portal-door, .home-lib-img, .lib-cover { border-radius: var(--radius-m); }
+/* Any element with a full 1px border (cards, chips, tags, fields) is softened by default. */
+[style*="border: 1px solid"] { border-radius: var(--radius-s); }

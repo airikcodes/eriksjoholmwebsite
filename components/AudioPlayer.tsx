@@ -119,7 +119,7 @@ export default function AudioPlayer({ src, title, meta, artworkUrl, index }: Pro
           width:           40,
           height:          40,
           flexShrink:      0,
-          borderRadius:    '2px',
+          borderRadius:    'var(--radius-s)',
           border:          hover ? '1px solid rgba(200,146,42,0.85)' : '1px solid rgba(200,146,42,0.55)',
           background:      hover ? 'rgba(var(--page-rgb),0.75)' : 'rgba(var(--page-rgb),0.55)',
           color:           hover ? '#E0A93A' : '#C8922A',
@@ -197,7 +197,7 @@ export default function AudioPlayer({ src, title, meta, artworkUrl, index }: Pro
             position:     'relative',
             height:       3,
             background:   'rgba(var(--fg-rgb),0.08)',
-            borderRadius: '2px',
+            borderRadius: 'var(--radius-s)',
           }}
         >
           <div
@@ -209,7 +209,7 @@ export default function AudioPlayer({ src, title, meta, artworkUrl, index }: Pro
               bottom:       0,
               width:        `${pct}%`,
               background:   '#C8922A',
-              borderRadius: '2px',
+              borderRadius: 'var(--radius-s)',
               pointerEvents: 'none',
             }}
           />

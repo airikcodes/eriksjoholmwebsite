@@ -339,6 +339,7 @@ function ResultCard({ track, onDismiss }: { track: Track; onDismiss: (id: string
       style={{
         background:     "rgba(var(--page-rgb),0.92)",
         border:         "1px solid rgba(200,146,42,0.2)",
+        borderRadius:   "var(--radius-m)",
         backdropFilter: "blur(16px)",
         overflow:       "hidden",
       }}
@@ -352,7 +353,7 @@ function ResultCard({ track, onDismiss }: { track: Track; onDismiss: (id: string
             alt={track.title}
             width={68}
             height={68}
-            style={{ width: 68, height: 68, objectFit: "cover", flexShrink: 0, opacity: 0.9 }}
+            style={{ width: 68, height: 68, objectFit: "cover", flexShrink: 0, opacity: 0.9, borderRadius: "var(--radius-s)" }}
           />
         ) : (
           <div

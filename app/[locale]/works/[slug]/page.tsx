@@ -109,7 +109,7 @@ export default async function WorkPage({
                     width: '140px',
                     height: '140px',
                     objectFit: 'cover',
-                    borderRadius: '2px',
+                    borderRadius: 'var(--radius-m)',
                     flexShrink: 0,
                     opacity: 0.92,
                     boxShadow: 'var(--cover-shadow)',
@@ -498,7 +498,7 @@ export default async function WorkPage({
                     alt=""
                     width={72}
                     height={72}
-                    style={{ width: 72, height: 72, objectFit: 'cover', borderRadius: '2px', opacity: 0.9, flexShrink: 0 }}
+                    style={{ width: 72, height: 72, objectFit: 'cover', borderRadius: 'var(--radius-s)', opacity: 0.9, flexShrink: 0 }}
                   />
                 )}
                 <div style={{ minWidth: 0 }}>

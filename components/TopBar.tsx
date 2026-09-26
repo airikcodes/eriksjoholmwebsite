@@ -188,7 +188,7 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
           style={{
             background:           open ? (menuHover ? 'rgba(var(--fg-rgb),0.10)' : 'rgba(var(--fg-rgb),0.06)') : (menuHover ? 'var(--menu-bg-hover, rgba(var(--page-rgb),0.75))' : 'var(--menu-bg, rgba(var(--page-rgb),0.55))'),
             border:                open ? (menuHover ? '1px solid rgba(var(--fg-rgb),0.28)' : '1px solid rgba(var(--fg-rgb),0.18)') : (menuHover ? '1px solid var(--menu-border-hover, rgba(200,146,42,0.85))' : '1px solid var(--menu-border, rgba(200,146,42,0.55))'),
-            borderRadius:         '2px',
+            borderRadius:         'var(--radius-s)',
             backdropFilter:       'blur(8px)',
             WebkitBackdropFilter: 'blur(8px)',
             cursor:               'pointer',
