@@ -107,13 +107,11 @@ export default function SunOrb() {
         ampY = rnd(0.16, 0.36);
         s.vx += rnd(-1, 1) * vw * 0.006;
         s.vy += rnd(-1, 1) * vh * 0.006;
-        s.vsc += rnd(-0.008, 0.008);
-      }
+              }
       lastDir = dir;
       const push = Math.min(Math.abs(dy), 140);
       s.vx += rnd(-1, 1) * push * 0.04;                // sideways jitter proportional to speed
       s.vy += -dir * push * rnd(0.01, 0.06);           // lags / overshoots against the scroll
-      s.vsc += rnd(-1, 1) * push * 0.00008;
     };
 
     const tick = (t: number) => {
@@ -128,16 +126,17 @@ export default function SunOrb() {
       const drift = reduce ? 0 : 1;
       const tx = vw * (0.5 + ampX * Math.cos(a)) + drift * vw * 0.04 * Math.sin(t * 0.00018 + phase);
       const ty = vh * (0.55 + ampY * Math.sin(b)) + drift * vh * 0.04 * Math.cos(t * 0.00015 + phase2);
-      // wide size range: from a tiny pearl (~0.15×) to a vast disc (~3×, bigger than the screen) as you travel down the page
-      const k = 0.5 - 0.5 * Math.cos(a * 0.9 + phase2);
-      const tsc = 0.15 + 2.85 * k + 0.15 * Math.sin(t * 0.00025 + phase);
+      // Size breathes on its own, very slowly (about 80 s from smallest to largest and back), like a real moon
+      // rising and setting — it is not tied to how fast you scroll, so it never jumps.
+      const k = 0.5 - 0.5 * Math.cos((t / 80000) * 2 * Math.PI + phase2 + p * 1.2);
+      const tsc = 0.15 + 2.85 * k;
 
       if (reduce) {
         s.x = vw * 0.85; s.y = vh * 0.8; s.sc = 1;
       } else {
         // damped spring toward home; impulses from onScroll give the unpredictable overshoot
-        s.vx += (tx - s.x) * 0.0006; s.vy += (ty - s.y) * 0.0006; s.vsc += (tsc - s.sc) * 0.004;
-        s.vx *= 0.93; s.vy *= 0.93; s.vsc *= 0.9;
+        s.vx += (tx - s.x) * 0.0006; s.vy += (ty - s.y) * 0.0006; s.vsc += (tsc - s.sc) * 0.0004;
+        s.vx *= 0.93; s.vy *= 0.93; s.vsc *= 0.94; s.vsc = Math.max(-0.0016, Math.min(0.0016, s.vsc));
         s.x += s.vx; s.y += s.vy; s.sc += s.vsc;
         // stay mostly on screen
         const minX = -size * 0.15, maxX = vw + size * 0.15, minY = vh * 0.05, maxY = vh * 1.0;
