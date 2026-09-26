@@ -1337,4 +1337,6 @@ html { --water-h: clamp(96px, 16vh, 190px); }
   -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 100%);
           mask-image: linear-gradient(to bottom, #000 0%, transparent 100%);
 }
+/* the copy is made before sections have scrolled into view, so show every reveal-on-scroll block */
+.water-mirror .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
 @media print { .water { display: none; } }
