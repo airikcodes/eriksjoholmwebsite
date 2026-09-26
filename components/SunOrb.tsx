@@ -14,6 +14,29 @@ import { usePathname } from "next/navigation";
  * on every page, in the light theme only (visibility: globals.css). It lives in the root layout, so it
  * keeps floating across page changes; each navigation re-rolls its route.
  */
+
+// Photos, video and banners are never painted over: the sun is clipped away wherever one is on screen,
+// so it only ever moves across the white (paper) sections.
+const PHOTO_SELECTOR = 'img, video, canvas, iframe, .page-photo-wrap, [style*="background-image"]';
+
+function photoHoles(): Array<[number, number, number, number]> {
+  const vw = window.innerWidth, vh = window.innerHeight;
+  const out: Array<[number, number, number, number]> = [];
+  document.querySelectorAll<HTMLElement>(PHOTO_SELECTOR).forEach((el) => {
+    const r = el.getBoundingClientRect();
+    if (r.width < 48 || r.height < 48 || r.bottom < 0 || r.top > vh || r.right < 0 || r.left > vw) return;
+    const banner = el.classList.contains("page-photo-wrap");
+    if (!banner && r.width * r.height > vw * vh * 0.5) return;       // full-screen backdrops don't count
+    if (!banner) {
+      const cs = getComputedStyle(el);
+      if (cs.visibility === "hidden" || parseFloat(cs.opacity) < 0.05 || cs.display === "none") return;
+    }
+    out.push([r.left, r.top, r.right, r.bottom]);
+  });
+  // drop rects fully inside another (evenodd would otherwise cancel them out)
+  return out.filter((a, i) => !out.some((b, j) => j !== i && b[0] <= a[0] + 1 && b[1] <= a[1] + 1 && b[2] >= a[2] - 1 && b[3] >= a[3] - 1 && (b[2] - b[0]) * (b[3] - b[1]) > (a[2] - a[0]) * (a[3] - a[1]) - 4));
+}
+
 export default function SunOrb() {
   const ref = useRef<HTMLDivElement>(null);
   const reroll = useRef<(() => void) | null>(null);
@@ -100,7 +123,18 @@ export default function SunOrb() {
         s.sc = Math.min(1.15, Math.max(0.45, s.sc));
       }
       el.style.width = el.style.height = `${size}px`;
-      el.style.transform = `translate3d(${s.x - size / 2}px, ${s.y - size / 2}px, 0) scale(${s.sc})`;
+      const ox = s.x - size / 2, oy = s.y - size / 2, c = size / 2;
+      el.style.transform = `translate3d(${ox}px, ${oy}px, 0) scale(${s.sc})`;
+      // clip the sun away over photos (coordinates converted into the element's own space)
+      let d = `M0 0H${size}V${size}H0Z`;
+      for (const [l, t, r, b] of photoHoles()) {
+        const x1 = c + (l - ox - c) / s.sc, y1 = c + (t - oy - c) / s.sc;
+        const x2 = c + (r - ox - c) / s.sc, y2 = c + (b - oy - c) / s.sc;
+        if (x2 < 0 || y2 < 0 || x1 > size || y1 > size) continue;
+        const a = Math.max(0, x1), bb = Math.max(0, y1), e = Math.min(size, x2), f = Math.min(size, y2);
+        d += `M${a.toFixed(1)} ${bb.toFixed(1)}H${e.toFixed(1)}V${f.toFixed(1)}H${a.toFixed(1)}Z`;
+      }
+      el.style.clipPath = `path(evenodd, "${d}")`;
       raf = requestAnimationFrame(tick);
     };
 
