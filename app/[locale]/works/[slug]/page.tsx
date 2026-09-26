@@ -4,6 +4,7 @@ import BackNav from '@/components/BackNav';
 import KeepInTouch from '@/components/KeepInTouch';
 import StudioPhotos from '@/components/StudioPhotos';
 import SinglesList from '@/components/SinglesList';
+import LyricsTranslations from '@/components/LyricsTranslations';
 import AlbumBg from '@/components/AlbumBg';
 import Link from 'next/link';
 import { works, albums, getWork, type Work } from '@/data/works';
@@ -254,8 +255,19 @@ export default async function WorkPage({
             </div>
           )}
 
-          {/* ── Lyrics ── */}
-          {work.lyrics && (
+          {/* ── Lyrics, with translations when available ── */}
+          {work.lyrics && work.lyricsTranslations && (
+            <LyricsTranslations
+              original={work.lyrics}
+              originalLanguage="sv"
+              translations={work.lyricsTranslations as Record<string, string>}
+              locale={locale}
+              label={t.works.theLyric}
+            />
+          )}
+
+          {/* ── Lyrics (no translations) ── */}
+          {work.lyrics && !work.lyricsTranslations && (
             <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
               <p style={{
                 fontFamily:    'var(--font-inter)',

@@ -27,6 +27,8 @@ export interface Work {
   /** Direct public URL to an R2-hosted audio file, for in-site playback via AudioPlayer */
   audioUrl?: string;
   lyrics?: string;
+  /** Translations of `lyrics`, keyed by site locale (the original language is not repeated here) */
+  lyricsTranslations?: Partial<Record<'en' | 'de' | 'es' | 'sv' | 'fi' | 'it' | 'fr' | 'pt', string>>;
   story?: string;
   description?: string;
   credits?: WorkCredit[];
@@ -806,6 +808,288 @@ Vad är det som stannar?
 Vad är det som stannar kvar?
 Ett minne blott av allting som vi var
 Är det allt som vi har?`,
+    lyricsTranslations: {
+      en:
+`Hold me tight, you
+While I'm still here
+Hold me tight, you
+If you hold me dear
+Will you be there for me?
+Even as I change
+With the times, with the times
+
+You're walking away from me
+Though I don't want you to
+Of course I understand you
+That's just how it goes
+Everyone changes
+With the times, with the times
+
+If you could stay
+If we could stay
+Forever, like a stone statue in town
+
+What is it that stays?
+What is it that remains?
+Only a memory of all that we were
+Is that all we have?
+
+Letting go
+Daring to say yes
+I still remember the day
+The words you said
+Will you remember me?
+Even though we've changed
+
+If you could stay
+If we could stay
+Forever, like a stone statue in town
+
+What is it that stays?
+What is it that remains?
+Only a memory of all that we were
+Is that all we have?`,
+      de:
+`Halt mich fest, du
+Solange ich noch hier bin
+Halt mich fest, du
+Wenn du mich lieb hast
+Wirst du für mich da sein?
+Auch wenn ich mich verändere
+Mit der Zeit, mit der Zeit
+
+Du gehst von mir fort
+Obwohl ich es nicht will
+Natürlich verstehe ich dich
+So ist es eben
+Alle verändern sich
+Mit der Zeit, mit der Zeit
+
+Wenn du bleiben könntest
+Wenn wir bleiben könnten
+Für immer, wie eine Steinstatue in der Stadt
+
+Was bleibt?
+Was bleibt zurück?
+Nur eine Erinnerung an alles, was wir waren
+Ist das alles, was wir haben?
+
+Loszulassen
+Den Mut zu haben, Ja zu sagen
+Ich erinnere mich noch an den Tag
+An die Worte, die du sagtest
+Erinnerst du dich an mich?
+Auch wenn wir uns verändert haben
+
+Wenn du bleiben könntest
+Wenn wir bleiben könnten
+Für immer, wie eine Steinstatue in der Stadt
+
+Was bleibt?
+Was bleibt zurück?
+Nur eine Erinnerung an alles, was wir waren
+Ist das alles, was wir haben?`,
+      es:
+`Abrázame fuerte, tú
+Mientras siga aquí
+Abrázame fuerte, tú
+Si me tienes cariño
+¿Estarás ahí para mí?
+Aunque yo cambie
+Con el tiempo, con el tiempo
+
+Te alejas de mí
+Aunque yo no quiero
+Claro que te entiendo
+Así es como son las cosas
+Todos cambiamos
+Con el tiempo, con el tiempo
+
+Si pudieras quedarte
+Si pudiéramos quedarnos
+Para siempre, como una estatua de piedra en la ciudad
+
+¿Qué es lo que permanece?
+¿Qué es lo que se queda?
+Solo un recuerdo de todo lo que fuimos
+¿Es eso todo lo que tenemos?
+
+Soltar
+Atreverse a decir que sí
+Aún recuerdo el día
+Las palabras que dijiste
+¿Te acuerdas de mí?
+Aunque hayamos cambiado
+
+Si pudieras quedarte
+Si pudiéramos quedarnos
+Para siempre, como una estatua de piedra en la ciudad
+
+¿Qué es lo que permanece?
+¿Qué es lo que se queda?
+Solo un recuerdo de todo lo que fuimos
+¿Es eso todo lo que tenemos?`,
+      fi:
+`Halaa minua lujaa, sinä
+Niin kauan kuin olen täällä
+Halaa minua lujaa, sinä
+Jos pidät minusta
+Oletko siellä minua varten?
+Vaikka minä muutun
+Ajan myötä, ajan myötä
+
+Sinä lähdet luotani
+Vaikka en haluaisi
+Totta kai ymmärrän sinua
+Niin se vain menee
+Kaikki muuttuvat
+Ajan myötä, ajan myötä
+
+Jos voisit jäädä
+Jos voisimme jäädä
+Ikuisesti kuin kivipatsas kaupungissa
+
+Mikä jää?
+Mikä jää jäljelle?
+Vain muisto kaikesta mitä olimme
+Onko se kaikki mitä meillä on?
+
+Irti päästäminen
+Uskaltaa vastata kyllä
+Muistan vielä sen päivän
+Sanat jotka sanoit
+Muistatko minut?
+Vaikka olemme muuttuneet
+
+Jos voisit jäädä
+Jos voisimme jäädä
+Ikuisesti kuin kivipatsas kaupungissa
+
+Mikä jää?
+Mikä jää jäljelle?
+Vain muisto kaikesta mitä olimme
+Onko se kaikki mitä meillä on?`,
+      it:
+`Stringimi forte, tu
+Finché sono qui
+Stringimi forte, tu
+Se mi vuoi bene
+Ci sarai per me?
+Anche se cambio
+Con il tempo, con il tempo
+
+Te ne vai da me
+Anche se non voglio
+Certo che ti capisco
+È così che va
+Tutti cambiamo
+Con il tempo, con il tempo
+
+Se tu potessi restare
+Se potessimo restare
+Per sempre, come una statua di pietra in città
+
+Cosa resta?
+Cosa rimane?
+Solo un ricordo di tutto ciò che eravamo
+È tutto ciò che abbiamo?
+
+Lasciar andare
+Osare dire sì
+Ricordo ancora il giorno
+Le parole che dicesti
+Ti ricordi di me?
+Anche se siamo cambiati
+
+Se tu potessi restare
+Se potessimo restare
+Per sempre, come una statua di pietra in città
+
+Cosa resta?
+Cosa rimane?
+Solo un ricordo di tutto ciò che eravamo
+È tutto ciò che abbiamo?`,
+      fr:
+`Serre-moi fort, toi
+Tant que je suis encore là
+Serre-moi fort, toi
+Si tu tiens à moi
+Seras-tu là pour moi ?
+Même si je change
+Avec le temps, avec le temps
+
+Tu t'éloignes de moi
+Alors que je ne le veux pas
+Bien sûr, je te comprends
+C'est ainsi que les choses se passent
+Tout le monde change
+Avec le temps, avec le temps
+
+Si tu pouvais rester
+Si nous pouvions rester
+Pour toujours, comme une statue de pierre en ville
+
+Qu'est-ce qui reste ?
+Qu'est-ce qui demeure ?
+Seulement un souvenir de tout ce que nous étions
+Est-ce tout ce que nous avons ?
+
+Lâcher prise
+Oser répondre oui
+Je me souviens encore du jour
+Des mots que tu as dits
+Te souviens-tu de moi ?
+Même si nous avons changé
+
+Si tu pouvais rester
+Si nous pouvions rester
+Pour toujours, comme une statue de pierre en ville
+
+Qu'est-ce qui reste ?
+Qu'est-ce qui demeure ?
+Seulement un souvenir de tout ce que nous étions
+Est-ce tout ce que nous avons ?`,
+      pt:
+`Abraça-me com força, tu
+Enquanto ainda estou aqui
+Abraça-me com força, tu
+Se gostas de mim
+Estarás lá por mim?
+Mesmo que eu mude
+Com o tempo, com o tempo
+
+Afastas-te de mim
+Mesmo que eu não queira
+Claro que te compreendo
+É assim que as coisas são
+Todos mudamos
+Com o tempo, com o tempo
+
+Se pudesses ficar
+Se pudéssemos ficar
+Para sempre, como uma estátua de pedra na cidade
+
+O que é que fica?
+O que é que permanece?
+Apenas uma memória de tudo o que fomos
+Será tudo o que temos?
+
+Largar
+Ter coragem de dizer sim
+Ainda me lembro do dia
+Das palavras que disseste
+Lembras-te de mim?
+Mesmo que tenhamos mudado
+
+Se pudesses ficar
+Se pudéssemos ficar
+Para sempre, como uma estátua de pedra na cidade
+
+O que é que fica?
+O que é que permanece?
+Apenas uma memória de tudo o que fomos
+Será tudo o que temos?`,
+    },
   },
   {
     id:            'silent-empire',
