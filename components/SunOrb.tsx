@@ -68,7 +68,6 @@ export default function SunOrb() {
     if (!el) return;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const rnd = (a = 0, b = 1) => a + Math.random() * (b - a);
-    const isLight = () => document.documentElement.dataset.tone !== "night";   // the sun (day) turns into video; the moon (night) is only a glow
 
 
     // Route parameters, re-rolled whenever scroll direction flips.
@@ -167,7 +166,6 @@ export default function SunOrb() {
     const INTERACTIVE = "a, button, input, textarea, select, summary, label, [role=button], [role=link]";
 
     const onSun = (x: number, y: number) => {
-      if (!isLight()) return false;                       // only the sun turns into video; the moon is just a glow
       const r = (Math.min(window.innerWidth, window.innerHeight) * 0.52 * s.sc) / 2;
       if ((x - s.x) ** 2 + (y - s.y) ** 2 > r * r) return false;
       if (holes.some(([l, t, rr, b]) => x >= l && x <= rr && y >= t && y <= b)) return false;   // clipped away over photos
