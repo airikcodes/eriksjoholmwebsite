@@ -756,6 +756,16 @@ av en kärlek så stor…`,
     coverImage:    'https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02260f62f2a1fc9602fa2d662c',
     spotifyUrl:    'https://open.spotify.com/track/6BYAYynES64GQgdBpHXvii',
     tidalUrl:      tidalSearch('Stanna Sjøholm Nordström'),
+    description:   'A Swedish-language single from the album Längs med vägen, written and composed by Erik Sjøholm and Emil Nordström. It asks what stays when people and time change: "Om du kunde stanna, om vi kunde stanna kvar."',
+    credits: [
+      { name: 'Erik Sjøholm',     role: 'Words and music, lead vocals, backing vocals' },
+      { name: 'Emil Nordström',   role: 'Words and music, production, arrangement, mixing, guitars' },
+      { name: 'Johnny Nordström', role: 'Electric piano and synthesizer' },
+      { name: 'Tuukka Aitoaho',   role: 'Drums' },
+      { name: 'Stefan Lindblom',  role: 'Bass' },
+      { name: 'Stefan Backas',    role: 'Recording engineering' },
+      { name: 'Maria Triana',     role: 'Mastering (Amsterdam)' },
+    ],
     lyrics:
 `Håll om mig hårt du
 Medan jag finns här

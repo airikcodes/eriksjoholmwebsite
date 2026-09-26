@@ -69,6 +69,9 @@ export default async function WorkPage({
     ? work.tracks.map((s) => getWork(s)).filter(Boolean) as Work[]
     : [];
 
+  // If this work belongs to an album, resolve it so we can link back to it
+  const albumWork: Work | undefined = work.album ? getWork(work.album) : undefined;
+
   return (
     <main className="min-h-screen" style={{ background: '#0D0B09', color: '#E8E0D4' }}>
 
@@ -149,6 +152,26 @@ export default async function WorkPage({
                     marginTop:     '0.9rem',
                   }}>
                     {work.meta}
+                  </p>
+                )}
+
+                {albumWork && (
+                  <p style={{
+                    fontFamily:    'var(--font-inter)',
+                    fontSize:      '0.7rem',
+                    letterSpacing: '0.12em',
+                    textTransform: 'uppercase',
+                    color:         '#7A6F62',
+                    marginTop:     '0.9rem',
+                  }}>
+                    From the album{' '}
+                    <Link
+                      href={`/${locale}/works/${albumWork.slug}`}
+                      className="hover:text-[#E8E0D4] transition-colors duration-200"
+                      style={{ color: '#C8922A', textDecoration: 'none', borderBottom: '1px solid rgba(200,146,42,0.35)', paddingBottom: '1px' }}
+                    >
+                      {albumWork.title} →
+                    </Link>
                   </p>
                 )}
               </div>
@@ -435,6 +458,67 @@ export default async function WorkPage({
                   </Link>
                 ))}
               </div>
+            </div>
+          )}
+
+          {/* ── Part of an album ── */}
+          {albumWork && (
+            <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
+              <p style={{
+                fontFamily:    'var(--font-inter)',
+                fontSize:      '0.7rem',
+                letterSpacing: '0.35em',
+                textTransform: 'uppercase',
+                color:         '#7A6F62',
+                marginBottom:  '2rem',
+              }}>
+                Part of the album
+              </p>
+              <Link
+                href={`/${locale}/works/${albumWork.slug}`}
+                className="group"
+                style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', textDecoration: 'none' }}
+              >
+                {albumWork.coverImage && (
+                  <img
+                    src={albumWork.coverImage}
+                    alt=""
+                    width={72}
+                    height={72}
+                    style={{ width: 72, height: 72, objectFit: 'cover', borderRadius: '2px', opacity: 0.9, flexShrink: 0 }}
+                  />
+                )}
+                <div style={{ minWidth: 0 }}>
+                  <p
+                    className="font-[family-name:var(--font-cormorant)] font-light group-hover:text-[#C8922A] transition-colors duration-200"
+                    style={{ fontSize: 'clamp(1.3rem, 3vw, 1.8rem)', color: '#E8E0D4', lineHeight: 1.15 }}
+                  >
+                    {albumWork.title}
+                  </p>
+                  {albumWork.meta && (
+                    <p style={{
+                      fontFamily:    'var(--font-inter)',
+                      fontSize:      '0.65rem',
+                      letterSpacing: '0.12em',
+                      textTransform: 'uppercase',
+                      color:         '#7A6F62',
+                      marginTop:     '0.4rem',
+                    }}>
+                      {albumWork.meta}
+                    </p>
+                  )}
+                  <p style={{
+                    fontFamily:    'var(--font-inter)',
+                    fontSize:      '0.65rem',
+                    letterSpacing: '0.15em',
+                    textTransform: 'uppercase',
+                    color:         '#C8922A',
+                    marginTop:     '0.9rem',
+                  }}>
+                    See the album →
+                  </p>
+                </div>
+              </Link>
             </div>
           )}
 
