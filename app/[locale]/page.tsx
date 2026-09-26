@@ -69,6 +69,10 @@ export default async function Home({
         </div>
       </section>
 
+      {/* Light theme: the video gets its own full-colour band under the hero (hidden in dark,
+          where it plays behind the concierge as before). */}
+      <div className="video-window" aria-hidden="true" />
+
       {/* ── Section 2: portal panel over the video ────────────────────────
           The hero above stays untouched. From here on the background video
           recedes behind a near-opaque wash so type and cover art read cleanly. */}
