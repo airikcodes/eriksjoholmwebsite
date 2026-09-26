@@ -60,7 +60,7 @@ export default function HomePortal({
       <div className="home-lib-grid">
         <Item href="/works/langs-med-vagen-album" kicker={`${t.kinds.album} · ${comingSoon}`} title="Längs med vägen" src={cover('langs-med-vagen-album')} />
         <Item href="/works/glenn-ep" kicker={t.kinds.ep} title="Glenn" src={cover('glenn-ep')} />
-        <Item external href={STORYTELLER_URL} kicker={t.kinds.live} title={t.titles.concert} src="/images/home/storytelling-concert.jpg" position="62% 50%" />
+        <Item external href={STORYTELLER_URL} kicker={t.kinds.live} title={t.titles.concert} src="/images/home/storytelling-concert.jpg" position="50% 50%" />
         <Item href="/works/walkabout" kicker={t.kinds.album} title="Walkabout" src={cover('walkabout')} />
       </div>
       <div className="home-lib-links">
