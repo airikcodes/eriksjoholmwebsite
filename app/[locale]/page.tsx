@@ -65,6 +65,7 @@ export default async function Home({
           playPreview={t.concierge.playPreview}
           closePreview={t.concierge.closePreview}
           dismiss={t.concierge.dismiss}
+          noMatch={t.concierge.noMatch}
           chipLatest={t.concierge.chips.latest}
           chipMostPlayed={t.concierge.chips.mostPlayed}
           chipUnexpected={t.concierge.chips.unexpected}

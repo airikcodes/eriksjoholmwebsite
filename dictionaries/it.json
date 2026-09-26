@@ -61,7 +61,8 @@
     "timeReplace": "adesso",
     "playPreview": "Ascolta l'anteprima",
     "closePreview": "Chiudi l'anteprima",
-    "dismiss": "Chiudi"
+    "dismiss": "Chiudi",
+    "noMatch": "Niente di preciso per questa richiesta — ecco tre punti di partenza."
   },
   "about": {
     "subtitle": "Singer-songwriter · Luzern",

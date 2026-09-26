@@ -61,7 +61,8 @@
     "timeReplace": "agora",
     "playPreview": "Ouvir prévia",
     "closePreview": "Fechar prévia",
-    "dismiss": "Dispensar"
+    "dismiss": "Dispensar",
+    "noMatch": "Nada corresponde exatamente — aqui ficam três pontos de partida."
   },
   "about": {
     "subtitle": "Cantor-compositor · Luzern",

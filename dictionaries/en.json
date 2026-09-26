@@ -61,7 +61,8 @@
     "timeReplace": "right now",
     "playPreview": "Play preview",
     "closePreview": "Close preview",
-    "dismiss": "Dismiss"
+    "dismiss": "Dismiss",
+    "noMatch": "Nothing matches that exactly — here are three places to start."
   },
   "about": {
     "subtitle": "Singer-songwriter · Luzern",

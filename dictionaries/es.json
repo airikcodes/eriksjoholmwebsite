@@ -61,7 +61,8 @@
     "timeReplace": "ahora mismo",
     "playPreview": "Escuchar avance",
     "closePreview": "Cerrar avance",
-    "dismiss": "Descartar"
+    "dismiss": "Descartar",
+    "noMatch": "No encuentro nada exacto — aquí tienes tres lugares para empezar."
   },
   "about": {
     "subtitle": "Cantautor · Luzern",

@@ -61,7 +61,8 @@
     "timeReplace": "en ce moment",
     "playPreview": "Écouter un extrait",
     "closePreview": "Fermer l'extrait",
-    "dismiss": "Fermer"
+    "dismiss": "Fermer",
+    "noMatch": "Rien ne correspond exactement — voici trois façons d'entrer."
   },
   "about": {
     "subtitle": "Auteur-compositeur-interprète · Luzern",

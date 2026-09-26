@@ -311,16 +311,16 @@ function hitToTrack(hit: LyricHit): Track {
   };
 }
 
-async function fetchLyricHits(q: string): Promise<Track[]> {
+async function fetchLyricHits(q: string): Promise<{ tracks: Track[]; pure: boolean }> {
   const ctrl = new AbortController();
   const timer = setTimeout(() => ctrl.abort(), 2500);
   try {
     const r = await fetch(`/api/concierge?q=${encodeURIComponent(q)}`, { signal: ctrl.signal });
-    if (!r.ok) return [];
-    const { hits } = (await r.json()) as { hits: LyricHit[] };
-    return hits.map(hitToTrack);
+    if (!r.ok) return { tracks: [], pure: false };
+    const { hits, pure } = (await r.json()) as { hits: LyricHit[]; pure?: boolean };
+    return { tracks: hits.map(hitToTrack), pure: !!pure };
   } catch {
-    return [];
+    return { tracks: [], pure: false };
   } finally {
     clearTimeout(timer);
   }
@@ -485,6 +485,7 @@ interface SongConciergeProps {
   playPreview?:    string;
   closePreview?:   string;
   dismiss?:        string;
+  noMatch?:        string;
   /** Newest release, computed server-side from data/works.ts (lib/latest-release.ts). */
   latest?:         { slug: string; title: string; meta?: string; coverImage?: string; spotifyUrl?: string; tidalUrl?: string; description?: string } | null;
 }
@@ -504,11 +505,13 @@ export default function SongConcierge({
   playPreview    = "Play preview",
   closePreview   = "Close preview",
   dismiss        = "Dismiss",
+  noMatch        = "Nothing matches that exactly — here are three places to start.",
 }: SongConciergeProps) {
   const [input, setInput]       = useState("");
   const [results, setResults]   = useState<Track[]>([]);
   const [activeChip, setActiveChip] = useState<string | null>(null);
   const [busy, setBusy]       = useState(false);
+  const [notice, setNotice]   = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
   const resultsRef = useRef<HTMLDivElement>(null);
 
@@ -538,23 +541,40 @@ export default function SongConcierge({
     setBusy(true);
     // Lyrics first (they carry the matching line), then genuine mood matches. The guessed
     // defaults only appear when nothing else matched, so results stay relevant.
-    const lyric = await fetchLyricHits(q);
-    const mood  = moodHits(q);
-    const seen = new Set<string>();
-    const merged: Track[] = [];
-    for (const t of [...lyric, ...mood]) {
-      const k = normTitle(t.title);
-      if (seen.has(k)) continue;
-      seen.add(k);
-      merged.push(t);
-      if (merged.length === 3) break;
+    const { tracks: lyric, pure } = await fetchLyricHits(q);
+    if (pure && lyric.length > 0) {                 // "something new", "most popular", "in Swedish"…
+      setNotice("");
+      setResults(lyric);
+    } else {
+      const mood  = moodHits(q);
+      const seen = new Set<string>();
+      const merged: Track[] = [];
+      for (const t of [...lyric, ...mood]) {
+        const k = normTitle(t.title);
+        if (seen.has(k)) continue;
+        seen.add(k);
+        merged.push(t);
+        if (merged.length === 3) break;
+      }
+      if (merged.length > 0) { setNotice(""); setResults(merged); }
+      else { setNotice(noMatch); setResults(varietyPicks()); }   // honest miss + three different doors in
     }
-    setResults(merged.length > 0 ? merged : matchFromText(q));
     setBusy(false);
     requestAnimationFrame(() => resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" }));
   }
 
+  function varietyPicks(): Track[] {
+    const pool = catalog.filter((t) => t.id !== "wake-up");
+    const rnd = pool[Math.floor(Math.random() * pool.length)];
+    const lat = latest
+      ? hitToTrack({ slug: latest.slug, title: latest.title, meta: latest.meta, coverImage: latest.coverImage, spotifyUrl: latest.spotifyUrl, tidalUrl: latest.tidalUrl, description: latest.description, line: "", lang: "", orig: true, score: 1 })
+      : catalog[0];
+    const top = catalog.find((t) => t.id === "wake-up") ?? catalog[1];
+    return [lat, top, rnd].filter((t, i, a) => a.findIndex((x) => normTitle(x.title) === normTitle(t.title)) === i);
+  }
+
   function handleChip(id: string) {
+    setNotice("");
     setActiveChip(id);
     setInput("");
     if (id === "latest" && latest) {
@@ -611,7 +631,7 @@ export default function SongConcierge({
           value={input}
           onChange={(e) => {
             setInput(e.target.value);
-            if (results.length > 0 && !activeChip) setResults([]);
+            if (results.length > 0 && !activeChip) { setResults([]); setNotice(""); }
           }}
           className="concierge-input"
           placeholder={placeholder}
@@ -649,6 +669,9 @@ export default function SongConcierge({
 
       {results.length > 0 && (
         <div ref={resultsRef} className="flex flex-col gap-3" style={{ marginTop: "2rem" }}>
+          {notice && (
+            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.85rem", color: "var(--color-ink-meta)", textAlign: "center", margin: "0 0 0.5rem" }}>{notice}</p>
+          )}
           {results.map((track) => (
             <ResultCard key={track.id} track={track} onDismiss={handleDismiss} playLabel={playPreview} closeLabel={closePreview} dismissLabel={dismiss} />
           ))}

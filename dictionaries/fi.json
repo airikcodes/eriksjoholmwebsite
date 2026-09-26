@@ -61,7 +61,8 @@
     "timeReplace": "juuri nyt",
     "playPreview": "Toista esikuuntelu",
     "closePreview": "Sulje esikuuntelu",
-    "dismiss": "Sulje"
+    "dismiss": "Sulje",
+    "noMatch": "Tähän ei löydy täsmällistä osumaa — tässä kolme aloituskohtaa."
   },
   "about": {
     "subtitle": "Singer-songwriter · Luzern",

@@ -197,3 +197,120 @@ export function searchLyrics(query: string, limit = 3): LyricHit[] {
     }];
   });
 }
+
+
+// ── Intent + description matching (added on top of the lyric search) ────────────────────
+//
+// Real requests are not always lyrics: "something new", "your most popular song", "something
+// in Swedish", "surprise me". Those are recognised first and answered from the catalogue
+// (data/works.ts); everything else falls through to lyrics + description matching.
+
+export type ConciergeIntent = 'latest' | 'popular' | 'swedish' | 'english' | 'surprise';
+
+/** Manual, because works.ts carries no stream counts. Update when the numbers change. */
+export const MOST_PLAYED_SLUG = 'wake-up';
+
+const INTENTS: Array<[ConciergeIntent, RegExp]> = [
+  ['latest',   /\b(new|newest|latest|recent|recently|fresh|just (out|released)|nyaste|senaste|nytt|nya|neueste|neu|nuevo|reciente|uusin)\b/],
+  ['popular',  /\b(popular|most (played|streamed|listened)|best known|famous|biggest|hit|favou?rite|mest spelade|populär|beliebt|meistgehört|popular|suosituin)\b/],
+  ['swedish',  /\b(swedish|svenska|svenskt|schwedisch|sueco|ruotsi|på svenska|in swedish)\b/],
+  ['english',  /\b(english|engelska|englisch|inglés|ingles|englanti)\b/],
+  ['surprise', /\b(surprise|random|anything|överraska|slump|zufall|sorpresa|yllätä)\b/],
+];
+
+// Words that only carry the intent itself, so a query made of nothing else is "pure intent".
+const INTENT_FILLER = new Set('a an the me some something song songs music tune track one your you what which is are of to please give play in on im i want need'.split(' '));
+
+function detectIntent(q: string): { intent: ConciergeIntent; pure: boolean } | null {
+  const n = normalize(q);
+  for (const [intent, re] of INTENTS) {
+    const m = n.match(re);
+    if (!m) continue;
+    const rest = n.replace(re, ' ').match(/[a-z]+/g) ?? [];
+    const pure = rest.every((t) => INTENT_FILLER.has(t) || STOP.has(t));
+    return { intent, pure };
+  }
+  return null;
+}
+
+function releaseKey(w: Work): string { return w.releaseDate ?? String(w.year ?? 0); }
+
+function catalogSongs(): Work[] {
+  return works.filter((w) => w.releaseStatus === 'released' && !!w.spotifyUrl && /\/track\//.test(w.spotifyUrl));
+}
+
+function asHit(w: Work, line = '', score = 1): LyricHit {
+  return {
+    slug: w.slug, title: w.title, meta: w.meta, coverImage: w.coverImage, spotifyUrl: w.spotifyUrl,
+    tidalUrl: w.tidalUrl, description: w.description, line, lang: 'en', orig: true, score,
+  };
+}
+
+// Title + description + meta index, so songs without lyrics-in-the-index (or asked about by
+// theme: "father", "travel", "home") can still be found.
+let descIdx: Array<{ w: Work; set: Set<string> }> | null = null;
+function buildDesc() {
+  if (descIdx) return;
+  descIdx = catalogSongs().map((w) => ({ w, set: new Set(contentStems(`${w.title} ${w.title} ${w.description ?? ''} ${w.meta ?? ''}`)) }));
+}
+
+function searchDescriptions(query: string, limit: number): LyricHit[] {
+  buildDesc();
+  const qs = [...new Set(contentStems(query))];
+  if (!qs.length || !descIdx) return [];
+  const df = new Map<string, number>();
+  for (const d of descIdx) for (const s of d.set) df.set(s, (df.get(s) ?? 0) + 1);
+  const N = descIdx.length;
+  const out: Array<{ w: Work; score: number; matched: number }> = [];
+  for (const d of descIdx) {
+    let score = 0, matched = 0;
+    for (const s of qs) if (d.set.has(s)) { score += Math.log(1 + N / (1 + (df.get(s) ?? 0))); matched++; }
+    if (matched && (matched >= 2 || score >= 2.2)) out.push({ w: d.w, score, matched });
+  }
+  out.sort((a, b) => b.score - a.score);
+  return out.slice(0, limit).map((o) => asHit(o.w, '', Math.round(o.score * 100) / 100));
+}
+
+export interface ConciergeResult { intent: ConciergeIntent | null; pure: boolean; hits: LyricHit[]; random: boolean }
+
+export function conciergeSearch(query: string, limit = 3): ConciergeResult {
+  const songs = catalogSongs();
+  const newest = [...songs].sort((a, b) => (releaseKey(a) < releaseKey(b) ? 1 : -1));
+  const found = detectIntent(query);
+
+  if (found?.pure) {
+    switch (found.intent) {
+      case 'latest':  return { intent: 'latest', pure: true, hits: newest.slice(0, 1).map((w) => asHit(w)), random: false };
+      case 'popular': {
+        const top = songs.find((w) => w.slug === MOST_PLAYED_SLUG);
+        return { intent: 'popular', pure: true, hits: top ? [asHit(top)] : [], random: false };
+      }
+      case 'swedish':
+      case 'english': {
+        const want = found.intent === 'swedish' ? 'sv' : 'en';
+        return { intent: found.intent, pure: true, hits: newest.filter((w) => langOf(w) === want).slice(0, limit).map((w) => asHit(w)), random: false };
+      }
+      case 'surprise': {
+        const pool = [...songs].sort(() => Math.random() - 0.5).slice(0, 1);
+        return { intent: 'surprise', pure: true, hits: pool.map((w) => asHit(w)), random: true };
+      }
+    }
+  }
+
+  // Mixed query ("something sad in Swedish"): search normally, then apply the language filter.
+  const lang = found && (found.intent === 'swedish' || found.intent === 'english') ? (found.intent === 'swedish' ? 'sv' : 'en') : null;
+  const lyr = searchLyrics(query, 12);
+  const desc = searchDescriptions(query, 12).map((h) => ({ ...h, score: h.score * 0.8 }));
+  const seen = new Set<string>();
+  let merged: LyricHit[] = [];
+  for (const h of [...lyr, ...desc].sort((a, b) => b.score - a.score)) {
+    if (seen.has(h.slug)) continue;
+    seen.add(h.slug);
+    merged.push(h);
+  }
+  if (lang) {
+    const bySlug = new Map(works.map((w) => [w.slug, w]));
+    merged = merged.filter((h) => { const w = bySlug.get(h.slug); return w ? langOf(w) === lang : true; });
+  }
+  return { intent: found?.intent ?? null, pure: false, hits: merged.slice(0, limit), random: false };
+}

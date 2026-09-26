@@ -61,7 +61,8 @@
     "timeReplace": "just nu",
     "playPreview": "Spela förhandslyssning",
     "closePreview": "Stäng förhandslyssning",
-    "dismiss": "Stäng"
+    "dismiss": "Stäng",
+    "noMatch": "Inget matchar riktigt — här är tre ställen att börja."
   },
   "about": {
     "subtitle": "Singer-songwriter · Luzern",

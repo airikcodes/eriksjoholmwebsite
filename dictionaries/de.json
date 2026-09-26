@@ -61,7 +61,8 @@
     "timeReplace": "gerade",
     "playPreview": "Vorschau abspielen",
     "closePreview": "Vorschau schließen",
-    "dismiss": "Schließen"
+    "dismiss": "Schließen",
+    "noMatch": "Dazu finde ich nichts Passendes — hier sind drei Einstiege."
   },
   "about": {
     "subtitle": "Singer-Songwriter · Luzern",
