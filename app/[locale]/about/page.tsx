@@ -45,7 +45,7 @@ export default async function About({
         <div className="page-photo" style={{
           position: "absolute", inset: 0,
           backgroundImage: "url(/images/bg/bg-03.jpg)",
-          backgroundSize: "cover", backgroundPosition: "center",
+          backgroundSize: "cover", backgroundPosition: "center 22%",
           opacity: 'calc(0.08 * var(--ghost-k))',
           filter: 'var(--ghost-filter)',
           mixBlendMode: 'var(--ghost-blend)' as React.CSSProperties['mixBlendMode'],

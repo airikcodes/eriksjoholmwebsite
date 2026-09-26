@@ -1057,7 +1057,6 @@ html[data-theme="light"] .page-photo {
   opacity:             1 !important;
   filter:              none !important;
   mix-blend-mode:      normal !important;
-  background-position: center 22% !important;
 }
 html[data-theme="light"] .page-photo-wrap > div:not(.page-photo) { display: none; }   /* old scrim */
 html[data-theme="light"] .page-photo-wrap + div { padding-top: clamp(15rem, 42vh, 30rem); }
@@ -1137,3 +1136,6 @@ html[data-theme="light"] .mail-form form input {
   transition:     border-color 200ms ease;
 }
 .home-lib-more:hover, .home-lib-more:focus-visible { border-bottom-color: var(--accent-ink); }
+
+/* Folio ("03 / 06") is decorative and unreadable over the photo band — off in light. */
+html[data-theme="light"] .topbar-folio { display: none; }

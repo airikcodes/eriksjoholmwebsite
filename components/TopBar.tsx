@@ -160,7 +160,7 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
         {folio !== null && (
           <span
             aria-hidden="true"
-            className="font-[family-name:var(--font-cormorant)] font-light"
+            className="topbar-folio font-[family-name:var(--font-cormorant)] font-light"
             style={{
               fontSize:      '0.75rem',
               letterSpacing: '0.08em',

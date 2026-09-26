@@ -43,8 +43,8 @@ export default async function Sync({
       <div className="page-photo-wrap" style={{ position: "fixed", inset: 0, zIndex: 0 }}>
         <div className="page-photo" style={{
           position: "absolute", inset: 0,
-          backgroundImage: "url(/images/bg/bg-02.jpg)",
-          backgroundSize: "cover", backgroundPosition: "center",
+          backgroundImage: "url(/images/langs-med-vagen/lmv-17.jpg)",
+          backgroundSize: "cover", backgroundPosition: "center 50%",
           opacity: 'calc(0.08 * var(--ghost-k))',
           filter: 'var(--ghost-filter)',
           mixBlendMode: 'var(--ghost-blend)' as React.CSSProperties['mixBlendMode'],
