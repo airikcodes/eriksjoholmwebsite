@@ -1206,10 +1206,9 @@ html[data-tone="night"] .sun-orb {
   display: block;
   position: fixed; left: 0; top: 0; z-index: 40; pointer-events: none;
   border-radius: 50%;
-  background: radial-gradient(circle at 38% 34%, #F4F1E6 0%, #E6E2D2 55%, #CFCABA 100%);
-  opacity: 0.32;
+  background: radial-gradient(circle at 38% 34%, #F4F1E6 0%, #E6E2D2 58%, rgba(207,202,186,0.55) 100%);   /* soft rim instead of a box-shadow glow (clip-path would square it off) */
+  opacity: 0.22;
   mix-blend-mode: screen;
-  box-shadow: 0 0 6vmin 1.5vmin rgba(232,228,214,0.5);
   will-change: transform;
   overflow: hidden;
 }
