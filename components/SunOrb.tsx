@@ -44,7 +44,7 @@ export default function SunOrb() {
       phase = rnd(0, Math.PI * 2); phase2 = rnd(0, Math.PI * 2);
       laps = rnd(0.7, 2.4); ampX = rnd(0.28, 0.44); ampY = rnd(0.16, 0.36);
       lastY = window.scrollY; lastDir = 0;
-      s.vx += rnd(-1, 1) * vw * 0.04; s.vy += rnd(-1, 1) * vh * 0.04;
+      s.vx += rnd(-1, 1) * vw * 0.008; s.vy += rnd(-1, 1) * vh * 0.008;
     };
 
     const onScroll = () => {
@@ -59,15 +59,15 @@ export default function SunOrb() {
         laps = rnd(0.7, 2.4);
         ampX = rnd(0.28, 0.44);
         ampY = rnd(0.16, 0.36);
-        s.vx += rnd(-1, 1) * vw * 0.03;
-        s.vy += rnd(-1, 1) * vh * 0.03;
-        s.vsc += rnd(-0.05, 0.05);
+        s.vx += rnd(-1, 1) * vw * 0.006;
+        s.vy += rnd(-1, 1) * vh * 0.006;
+        s.vsc += rnd(-0.008, 0.008);
       }
       lastDir = dir;
       const push = Math.min(Math.abs(dy), 140);
-      s.vx += rnd(-1, 1) * push * 0.22;                // sideways jitter proportional to speed
-      s.vy += -dir * push * rnd(0.05, 0.3);            // lags / overshoots against the scroll
-      s.vsc += rnd(-1, 1) * push * 0.0006;
+      s.vx += rnd(-1, 1) * push * 0.04;                // sideways jitter proportional to speed
+      s.vy += -dir * push * rnd(0.01, 0.06);           // lags / overshoots against the scroll
+      s.vsc += rnd(-1, 1) * push * 0.00008;
     };
 
     const tick = (t: number) => {
@@ -80,23 +80,23 @@ export default function SunOrb() {
       const a = 2 * Math.PI * p * laps + phase;
       const b = 2 * Math.PI * p * (laps * 0.7 + 0.3) + phase2;
       const drift = reduce ? 0 : 1;
-      const tx = vw * (0.5 + ampX * Math.cos(a)) + drift * vw * 0.04 * Math.sin(t * 0.00051 + phase);
-      const ty = vh * (0.55 + ampY * Math.sin(b)) + drift * vh * 0.04 * Math.cos(t * 0.00043 + phase2);
-      const tsc = 1 - 0.32 * (0.5 - 0.5 * Math.cos(a)) + 0.04 * Math.sin(t * 0.0006);
+      const tx = vw * (0.5 + ampX * Math.cos(a)) + drift * vw * 0.04 * Math.sin(t * 0.0003 + phase);
+      const ty = vh * (0.55 + ampY * Math.sin(b)) + drift * vh * 0.04 * Math.cos(t * 0.00025 + phase2);
+      const tsc = 1 - 0.32 * (0.5 - 0.5 * Math.cos(a)) + 0.04 * Math.sin(t * 0.0003);
 
       if (reduce) {
         s.x = vw * 0.85; s.y = vh * 0.8; s.sc = 1;
       } else {
         // damped spring toward home; impulses from onScroll give the unpredictable overshoot
-        s.vx += (tx - s.x) * 0.012; s.vy += (ty - s.y) * 0.012; s.vsc += (tsc - s.sc) * 0.02;
-        s.vx *= 0.93; s.vy *= 0.93; s.vsc *= 0.9;
+        s.vx += (tx - s.x) * 0.0025; s.vy += (ty - s.y) * 0.0025; s.vsc += (tsc - s.sc) * 0.004;
+        s.vx *= 0.9; s.vy *= 0.9; s.vsc *= 0.88;
         s.x += s.vx; s.y += s.vy; s.sc += s.vsc;
         // stay mostly on screen
         const minX = -size * 0.15, maxX = vw + size * 0.15, minY = vh * 0.05, maxY = vh * 1.0;
-        if (s.x < minX) { s.x = minX; s.vx = Math.abs(s.vx) * 0.6; }
-        if (s.x > maxX) { s.x = maxX; s.vx = -Math.abs(s.vx) * 0.6; }
-        if (s.y < minY) { s.y = minY; s.vy = Math.abs(s.vy) * 0.6; }
-        if (s.y > maxY) { s.y = maxY; s.vy = -Math.abs(s.vy) * 0.6; }
+        if (s.x < minX) { s.x = minX; s.vx = Math.abs(s.vx) * 0.2; }
+        if (s.x > maxX) { s.x = maxX; s.vx = -Math.abs(s.vx) * 0.2; }
+        if (s.y < minY) { s.y = minY; s.vy = Math.abs(s.vy) * 0.2; }
+        if (s.y > maxY) { s.y = maxY; s.vy = -Math.abs(s.vy) * 0.2; }
         s.sc = Math.min(1.15, Math.max(0.45, s.sc));
       }
       el.style.width = el.style.height = `${size}px`;
