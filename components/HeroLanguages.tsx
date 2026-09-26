@@ -64,11 +64,11 @@ export default function HeroLanguages() {
               textTransform:       'uppercase',
               padding:             '0.5rem 0.15rem',
               lineHeight:          1,
-              color:               active ? '#E8E0D4' : 'rgba(232,224,212,0.5)',
+              color:               active ? 'var(--lang-active, #E8E0D4)' : 'var(--lang-idle, rgba(232,224,212,0.5))',
               textDecoration:      active ? 'underline' : 'none',
               textDecorationColor: '#C8922A',
               textUnderlineOffset: '6px',
-              textShadow:          '0 1px 8px rgba(13,11,9,0.85)',
+              textShadow:          'var(--lang-halo, 0 1px 8px rgba(13,11,9,0.85))',
               transition:          'color 150ms ease',
             }}
           >

@@ -29,7 +29,9 @@ const images = [
 
 const CYCLE_MS = 30_000;
 const LOCALE_HOME_RE = /^\/([a-z]{2})?\/?$/;
-const bgFilter = "brightness(0.85) contrast(0.92) saturate(1)"; // was 0.72/0.88/0.85 — let the site's own color through
+// Driven by --bg-filter (globals.css) so the light theme can brighten the media.
+// Dark default there is brightness(0.85) contrast(0.92) saturate(1).
+const bgFilter = "var(--bg-filter, brightness(0.85) contrast(0.92) saturate(1))";
 
 // ── Icons ────────────────────────────────────────────────────────────────────
 
@@ -199,7 +201,7 @@ export default function PersistentBackground({ host = "" }: { host?: string }) {
   if (!isHome) return null;
 
   if (reducedMotion) {
-    return <div style={{ position: "fixed", inset: 0, zIndex: 0, background: "#14100C", pointerEvents: "none" }} />;
+    return <div className="bg-solid" style={{ position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none" }} />;
   }
 
   const videoStyle: React.CSSProperties = {
@@ -249,10 +251,14 @@ export default function PersistentBackground({ host = "" }: { host?: string }) {
 
       </div>
 
-      {/* Vignette */}
-      <div aria-hidden="true" style={{
+      {/* Vignette — colour comes from globals.css so the light theme can swap it */}
+      <div aria-hidden="true" className="bg-vignette" style={{
         position: "fixed", inset: 0, zIndex: 1, pointerEvents: "none",
-        background: "radial-gradient(ellipse 100% 100% at 50% 50%, transparent 45%, rgba(0,0,0,0.30) 100%)",
+      }} />
+
+      {/* Cream wash — opacity is --wash-a (0 in dark, up to 0.55 in light/auto) */}
+      <div aria-hidden="true" className="bg-wash" style={{
+        position: "fixed", inset: 0, zIndex: 1, pointerEvents: "none",
       }} />
 
       {/* Sound controls — only shown once video is playing */}

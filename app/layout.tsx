@@ -6,6 +6,8 @@ import Link from "next/link";
 import PersistentBackground from "@/components/PersistentBackground";
 import GradientBlur from "@/components/GradientBlur";
 import SmoothScroll from "@/components/SmoothScroll";
+import ThemeController from "@/components/ThemeController";
+import { THEME_SCRIPT } from "@/lib/theme-script";
 import "./globals.css";
 
 const validLocales = ['en', 'de', 'es', 'sv', 'fi', 'it', 'fr', 'pt'];
@@ -74,8 +76,11 @@ export default async function RootLayout({
   const host         = headersList.get('host') ?? '';
 
   return (
-    <html lang={lang} className={`${cormorant.variable} ${inter.variable}`}>
+    <html lang={lang} className={`${cormorant.variable} ${inter.variable}`} suppressHydrationWarning>
       <body>
+        {/* Theme bootstrap — sets data-theme / data-home before first paint (opt-in via ?theme=) */}
+        <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
+        <ThemeController />
         {/* Portrait mark — global home link, fixed top-left */}
         <Link href="/" className="portrait-mark" aria-label="Erik Sjøholm — Home">
           <Image

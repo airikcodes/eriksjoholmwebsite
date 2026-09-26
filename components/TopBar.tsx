@@ -186,13 +186,13 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
           aria-expanded={open}
           aria-controls="nav-overlay"
           style={{
-            background:           open ? (menuHover ? 'rgba(255,255,255,0.10)' : 'rgba(255,255,255,0.06)') : (menuHover ? 'rgba(13,11,9,0.75)' : 'rgba(13,11,9,0.55)'),
-            border:                open ? (menuHover ? '1px solid rgba(255,255,255,0.28)' : '1px solid rgba(255,255,255,0.18)') : (menuHover ? '1px solid rgba(200,146,42,0.85)' : '1px solid rgba(200,146,42,0.55)'),
+            background:           open ? (menuHover ? 'rgba(255,255,255,0.10)' : 'rgba(255,255,255,0.06)') : (menuHover ? 'var(--menu-bg-hover, rgba(13,11,9,0.75))' : 'var(--menu-bg, rgba(13,11,9,0.55))'),
+            border:                open ? (menuHover ? '1px solid rgba(255,255,255,0.28)' : '1px solid rgba(255,255,255,0.18)') : (menuHover ? '1px solid var(--menu-border-hover, rgba(200,146,42,0.85))' : '1px solid var(--menu-border, rgba(200,146,42,0.55))'),
             borderRadius:         '2px',
             backdropFilter:       'blur(8px)',
             WebkitBackdropFilter: 'blur(8px)',
             cursor:               'pointer',
-            color:                 open ? (menuHover ? '#ffffff' : 'rgba(255,255,255,0.9)') : (menuHover ? '#E0A93A' : '#C8922A'),
+            color:                 open ? (menuHover ? '#ffffff' : 'rgba(255,255,255,0.9)') : (menuHover ? 'var(--menu-fg-hover, #E0A93A)' : 'var(--menu-fg, #C8922A)'),
             fontFamily:           'var(--font-inter)',
             fontSize:             '0.62rem',
             letterSpacing:        '0.22em',

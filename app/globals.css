@@ -837,3 +837,78 @@ a:hover .product-img {
 /* Homepage hero — language selector */
 .hero-lang:hover,
 .hero-lang:focus-visible { color: #E8E0D4 !important; }
+
+/* ══════════════════════════════════════════════════════════════════════════
+   THEME PROTOTYPE — light / auto hero (2026-09-26, staging only)
+   Opt-in via ?theme=light|dark|auto|reset (see lib/theme-script.ts).
+   Everything below is scoped to html[data-theme="light"][data-home], so the
+   dark default and every non-home page are untouched. Only the hero and the
+   pieces that sit on it (menu button, language row, background media) are
+   variable-driven so far; sections 2+ stay dark and the hero fades into them.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  --bg-filter: brightness(0.85) contrast(0.92) saturate(1);
+  --wash-a: 0;
+}
+
+.bg-solid    { background: #14100C; }
+.bg-vignette { background: radial-gradient(ellipse 100% 100% at 50% 50%, transparent 45%, rgba(0,0,0,0.30) 100%); }
+.bg-wash     { background: rgba(247,243,238,var(--wash-a)); transition: background 1.2s ease; }
+
+html[data-theme="light"][data-home] {
+  --bg-filter: brightness(1.06) contrast(0.9) saturate(0.92);
+
+  /* menu button (closed state) — dark amber on a cream glass pill */
+  --menu-bg:            rgba(247,243,238,0.62);
+  --menu-bg-hover:      rgba(247,243,238,0.88);
+  --menu-border:        rgba(122,84,16,0.55);
+  --menu-border-hover:  rgba(122,84,16,0.9);
+  --menu-fg:            #7A5410;   /* 6.1:1 on #F7F3EE */
+  --menu-fg-hover:      #5E3F08;
+
+  /* language row */
+  --lang-active: #1C1A17;
+  --lang-idle:   rgba(28,26,23,0.74);
+  --lang-halo:   0 0 10px rgba(247,243,238,0.95), 0 0 22px rgba(247,243,238,0.7);
+}
+
+html[data-theme="light"][data-home] .bg-solid    { background: #E9E1D6; }
+html[data-theme="light"][data-home] .bg-vignette {
+  background: radial-gradient(ellipse 100% 100% at 50% 50%, transparent 50%, rgba(247,243,238,0.32) 100%);
+}
+
+/* Concierge — dark ink with a light halo instead of white with a dark one */
+html[data-theme="light"][data-home] .concierge-preamble { color: rgba(28,26,23,0.86); }
+html[data-theme="light"][data-home] .concierge-heading  { color: #1C1A17; }
+html[data-theme="light"][data-home] .concierge-tagline  { color: rgba(28,26,23,0.78); }
+html[data-theme="light"][data-home] .concierge-or       { color: rgba(28,26,23,0.8); }
+html[data-theme="light"][data-home] .concierge-btn      { color: rgba(28,26,23,0.78); }
+html[data-theme="light"][data-home] .concierge-btn:hover { color: #1C1A17; }
+
+html[data-theme="light"][data-home] .concierge-preamble,
+html[data-theme="light"][data-home] .concierge-heading,
+html[data-theme="light"][data-home] .concierge-tagline,
+html[data-theme="light"][data-home] .concierge-or {
+  text-shadow:
+    0 0  8px rgba(247,243,238,1.00),
+    0 0 20px rgba(247,243,238,0.90),
+    0 0 45px rgba(247,243,238,0.65),
+    0 0 80px rgba(247,243,238,0.35);
+}
+
+html[data-theme="light"][data-home] .concierge-chip {
+  color:        rgba(28,26,23,0.82);
+  border-color: rgba(28,26,23,0.34);
+  background:   rgba(247,243,238,0.35);
+}
+html[data-theme="light"][data-home] .concierge-chip:hover  { color: #1C1A17; border-color: rgba(28,26,23,0.6); }
+html[data-theme="light"][data-home] .concierge-chip.active { color: #1C1A17; border-color: rgba(28,26,23,0.9); }
+
+html[data-theme="light"][data-home] .concierge-input {
+  background:   rgba(255,255,255,0.5);
+  border-color: rgba(28,26,23,0.34);
+  color:        #1C1A17;
+}
+html[data-theme="light"][data-home] .concierge-input:focus        { border-color: rgba(28,26,23,0.75); background: rgba(255,255,255,0.7); }
+html[data-theme="light"][data-home] .concierge-input::placeholder { color: rgba(28,26,23,0.55); }
