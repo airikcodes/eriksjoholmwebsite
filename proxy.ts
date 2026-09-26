@@ -5,29 +5,11 @@ import { SUBDOMAIN_ROUTES } from '@/lib/subdomain-routes';
 const locales = ['en', 'de', 'es', 'sv', 'fi', 'it', 'fr', 'pt'];
 const defaultLocale = 'en';
 
-const countryToLocale: Record<string, string> = {
-  DE: 'de', AT: 'de', CH: 'de',
-  ES: 'es', MX: 'es', AR: 'es', CL: 'es', CO: 'es', PE: 'es',
-  VE: 'es', EC: 'es', BO: 'es', PY: 'es', UY: 'es',
-  SE: 'sv',
-  FI: 'sv',
-  IT: 'it',
-  FR: 'fr', BE: 'fr', LU: 'fr', MC: 'fr',
-  PT: 'pt', BR: 'pt',
-};
-
+// English is the default for everyone. No guessing from country or browser language: the only thing that
+// changes it is a visitor's own choice in the language switcher (stored in the NEXT_LOCALE cookie).
 function getLocale(request: NextRequest): string {
   const saved = request.cookies.get('NEXT_LOCALE')?.value;
   if (saved && locales.includes(saved)) return saved;
-
-  const country = request.headers.get('x-vercel-ip-country') ?? '';
-  const geo = countryToLocale[country];
-  if (geo) return geo;
-
-  const accept = request.headers.get('accept-language') ?? '';
-  const lang = accept.split(',')[0]?.split('-')[0]?.toLowerCase() ?? '';
-  if (locales.includes(lang)) return lang;
-
   return defaultLocale;
 }
 

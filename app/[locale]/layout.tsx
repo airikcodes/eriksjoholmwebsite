@@ -1,15 +1,8 @@
 import { notFound } from 'next/navigation';
-import { headers } from 'next/headers';
 import TopBar from '@/components/TopBar';
-import LangPrompt from '@/components/LangPrompt';
 import { getDictionary } from '@/lib/dictionaries';
 
 const locales = ['en', 'de', 'es', 'sv', 'fi', 'it', 'fr', 'pt'];
-
-function parseAcceptLanguage(header: string): string {
-  const first = header.split(',')[0]?.trim() ?? '';
-  return first.split(/[-;]/)[0]?.toLowerCase() ?? '';
-}
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -42,13 +35,9 @@ export default async function LocaleLayout({
     { label: t.nav.contact, href: '/contact' },
   ];
 
-  const headersList = await headers();
-  const detected    = parseAcceptLanguage(headersList.get('accept-language') ?? '');
-
   return (
     <>
       <TopBar navItems={navItems} />
-      <LangPrompt detectedLocale={detected} currentLocale={locale} />
       {children}
     </>
   );
