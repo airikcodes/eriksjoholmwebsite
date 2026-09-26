@@ -236,6 +236,11 @@ export default function SunOrb() {
     <div ref={ref} className="sun-orb" aria-hidden="true">
       <video ref={videoRef} muted playsInline preload="none" tabIndex={-1} />
       <svg className="moon-svg" viewBox="-1.05 -1.05 2.1 2.1" aria-hidden="true">
+        <defs>
+          <radialGradient id="moon-grad" cx="0.38" cy="0.34" r="0.95">
+            <stop offset="0" stopColor="#FFF3D2" stopOpacity="0.34" /><stop offset="0.7" stopColor="#F6E4B8" stopOpacity="0.22" /><stop offset="1" stopColor="#EAD7A6" stopOpacity="0.15" />
+          </radialGradient>
+        </defs>
         <circle r="1" className="moon-dark" />
         {lit && <path d={lit} className="moon-lit" />}
       </svg>
