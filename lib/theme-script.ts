@@ -39,6 +39,8 @@ export const THEME_SCRIPT = `(function(){
     d.setAttribute('data-theme',theme);
     d.setAttribute('data-theme-mode',mode);
     d.style.setProperty('--wash-a',wash.toFixed(3));
+    var m=document.querySelector('meta[name="theme-color"]');if(!m){m=document.createElement('meta');m.name='theme-color';document.head.appendChild(m)}
+    m.setAttribute('content',theme==='light'?'#F7F3EE':'#0D0B09');
     var sub=/^(sync)\\./.test(location.hostname);
     var home=!sub&&/^\\/([a-z]{2})?\\/?$/.test(location.pathname);
     if(home)d.setAttribute('data-home','');else d.removeAttribute('data-home');

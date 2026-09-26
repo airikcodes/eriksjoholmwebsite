@@ -48,8 +48,8 @@ export default async function Home({
     <main style={{ background: "transparent" }}>
       {/* ── Hero: Concierge ──────────────────────────────── */}
       <section
-        className="relative flex flex-col items-center justify-center px-5 sm:px-6 py-16"
-        style={{ minHeight: "100svh", zIndex: 2, position: "relative" }}
+        className="relative flex flex-col items-center justify-center"
+        style={{ minHeight: "100svh", zIndex: 2, position: "relative", padding: "4rem clamp(1.25rem, 5vw, 1.5rem)" }}
       >
         <SongConcierge
           preamble={t.concierge.preamble}
