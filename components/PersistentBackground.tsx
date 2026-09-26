@@ -98,6 +98,7 @@ export default function PersistentBackground({ host = "" }: { host?: string }) {
   const [videoReady, setReady]   = useState(false); // true once first video fires `playing`
   const [muted, setMuted]        = useState(true);
   const [volume, setVolume]      = useState(0.6);
+  const [sunVideo, setSunVideo]  = useState(false); // the sun is showing a video: it takes over the sound
 
   const slotA        = useRef<HTMLVideoElement>(null);
   const slotB        = useRef<HTMLVideoElement>(null);
@@ -192,9 +193,20 @@ export default function PersistentBackground({ host = "" }: { host?: string }) {
     if (!videoEnabled.current) return;
     const active = flip ? slotB.current : slotA.current;
     if (!active) return;
-    active.muted  = muted;
+    active.muted  = muted || sunVideo;
     active.volume = volume;
-  }, [muted, volume, flip]);
+  }, [muted, volume, flip, sunVideo]);
+
+  // Share the sound state with the sun (components/SunOrb.tsx): one mute button, one volume.
+  useEffect(() => {
+    (window as unknown as { __bgAudio?: unknown }).__bgAudio = { muted, volume };
+    window.dispatchEvent(new CustomEvent("bg-audio", { detail: { muted, volume } }));
+  }, [muted, volume]);
+  useEffect(() => {
+    const on = (e: Event) => setSunVideo(!!(e as CustomEvent).detail?.on);
+    window.addEventListener("sun-video", on);
+    return () => window.removeEventListener("sun-video", on);
+  }, []);
 
   // ── Render ────────────────────────────────────────────────────────────────
 

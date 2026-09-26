@@ -157,8 +157,19 @@ export default function SunOrb() {
       const hit = document.elementFromPoint(x, y);
       return !(hit && hit.closest(INTERACTIVE));
     };
+    const applyAudio = () => {
+      const v = videoRef.current; if (!v) return;
+      const a = (window as unknown as { __bgAudio?: { muted: boolean; volume: number } }).__bgAudio;
+      v.muted = a ? a.muted : true; v.volume = a ? a.volume : 0.6;
+    };
+    const onAudio = (e: Event) => {
+      const d = (e as CustomEvent).detail as { muted: boolean; volume: number };
+      const v = videoRef.current; if (v) { v.muted = d.muted; v.volume = d.volume; }
+    };
+    window.addEventListener("bg-audio", onAudio);
     const playNext = () => {
       const v = videoRef.current; if (!v) return;
+      applyAudio();
       v.src = SUN_VIDEOS[vidIdx % SUN_VIDEOS.length]; vidIdx++;
       v.play().catch(() => {});
     };
@@ -166,6 +177,7 @@ export default function SunOrb() {
       if (reduce || !onSun(e.clientX, e.clientY)) return;
       const on = el.dataset.mode !== "video";
       el.dataset.mode = on ? "video" : "";
+      window.dispatchEvent(new CustomEvent("sun-video", { detail: { on } }));
       const v = videoRef.current;
       if (on) playNext(); else if (v) { v.pause(); }
     };
@@ -178,7 +190,7 @@ export default function SunOrb() {
     raf = requestAnimationFrame(tick);
     return () => {
       window.removeEventListener("scroll", onScroll); window.removeEventListener("click", onClick);
-      window.removeEventListener("mousemove", onMove); videoRef.current?.removeEventListener("ended", onEnded);
+      window.removeEventListener("mousemove", onMove); window.removeEventListener("bg-audio", onAudio); videoRef.current?.removeEventListener("ended", onEnded);
       document.documentElement.classList.remove("sun-hover"); cancelAnimationFrame(raf);
     };
   }, []);
