@@ -51,6 +51,7 @@ export default async function Home({
         className="relative flex flex-col items-center justify-center"
         style={{ minHeight: "100svh", zIndex: 2, position: "relative", padding: "4rem clamp(1.25rem, 5vw, 1.5rem)" }}
       >
+        <div className="hero-panel">
         <SongConcierge
           preamble={t.concierge.preamble}
           heading={t.concierge.heading}
@@ -65,6 +66,7 @@ export default async function Home({
         <div style={{ marginTop: "2.5rem" }}>
           <HeroLanguages />
         </div>
+        </div>
       </section>
 
       {/* ── Section 2: portal panel over the video ────────────────────────
@@ -74,8 +76,7 @@ export default async function Home({
         style={{
           position:   "relative",
           zIndex:     2,
-          background:
-            "linear-gradient(to bottom, rgba(var(--page-rgb),0) 0, rgba(var(--page-rgb),var(--section-wash-a)) 9rem)",
+          background: "var(--section2-bg)",
         }}
       >
         {/* ── Section 2: portal to the Library ─────────────── */}

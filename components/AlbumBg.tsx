@@ -16,7 +16,7 @@ export default function AlbumBg({ photos }: { photos: string[] }) {
   if (!photos.length) return null;
 
   return (
-    <div style={{ position: 'fixed', inset: 0, zIndex: 0, pointerEvents: 'none' }}>
+    <div className="album-bg" style={{ position: 'fixed', inset: 0, zIndex: 0, pointerEvents: 'none' }}>
       {photos.map((src, i) => (
         <div
           key={src}
