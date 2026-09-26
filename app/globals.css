@@ -959,8 +959,11 @@ html[data-theme="light"] {
   --ghost-filter:      invert(1) grayscale(1) contrast(0.9);   /* dark photo -> soft charcoal ghost on cream */
   --ghost-blend:       multiply;
   --ghost-k:           0;   /* clear cuts: no faint ghost photos behind pages */
+  --color-sun:         #F2B33D;   /* the one bright colour: flat, hard-edged shapes */
+  --color-sand:        #F3E6CE;   /* Library */
+  --color-fjord:       #DCE8EA;   /* newsletter */
   --cover-shadow:      none;                /* flat, hard-edged cover art */
-  --section2-bg:       var(--page-solid);   /* hard edge under the hero, no fade */
+  --section2-bg:       var(--color-sand);   /* hard edge under the hero, no fade */
   --album-scrim:       linear-gradient(115deg, rgba(var(--page-rgb),0.86) 0%, rgba(var(--page-rgb),0.72) 45%, rgba(var(--page-rgb),0.5) 100%);
   --accent-ink-hover:  #5E3F08;
   --color-ink-primary: #1C1A17;
@@ -1160,4 +1163,50 @@ html[data-theme="light"][data-home] .library-wrap {
   display:        flex;
   flex-direction: column;
   justify-content: center;
+}
+
+/* ── A colour element for every paper section (light) ─────────────────────────
+   One motif — a flat, hard-edged "midnight sun" circle — plus two quiet tinted grounds
+   so the cream sections stop reading as blank. */
+html[data-theme="light"][data-home] .hero-section { position: relative; overflow: hidden; }
+html[data-theme="light"][data-home] .hero-section::before {
+  content:       "";
+  position:      absolute;
+  z-index:       0;
+  right:         -9vmin;
+  bottom:        -12vmin;
+  width:         52vmin;
+  height:        52vmin;
+  border-radius: 50%;
+  background:    var(--color-sun);
+}
+html[data-theme="light"][data-home] .hero-panel { position: relative; z-index: 1; }
+
+/* Library: sand ground so the covers sit on colour; a little more contrast for small labels. */
+html[data-theme="light"][data-home] .library-wrap {
+  --color-ink-meta: #5C5348;
+  --accent-ink:     #6B4A0E;
+}
+
+/* Newsletter: pale fjord ground with the sun peeking in from the top-left. */
+html[data-theme="light"] .mail-section { background: var(--color-fjord); position: relative; overflow: hidden; }
+html[data-theme="light"] .mail-section::before {
+  content:       "";
+  position:      absolute;
+  left:          -14vmin;
+  top:           -14vmin;
+  width:         42vmin;
+  height:        42vmin;
+  border-radius: 50%;
+  background:    var(--color-sun);
+}
+html[data-theme="light"] .mail-inner { position: relative; z-index: 1; --color-ink-meta: #4F5B5E; --accent-ink: #6B4A0E; }
+
+/* Inner pages: a sun-coloured rule under the photo band. */
+html[data-theme="light"] .page-photo-wrap::after {
+  content:    "";
+  position:   absolute;
+  left: 0; right: 0; bottom: 0;
+  height:     8px;
+  background: var(--color-sun);
 }
