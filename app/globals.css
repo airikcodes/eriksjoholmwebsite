@@ -1319,19 +1319,20 @@ html[data-theme="light"][data-tone="night"] .bg-solid { display: none !important
 
 
 /* ── Reflection (components/WaterReflection.tsx) ──────────────────────────────
-   A mirrored, softened copy of the page just above the waterline, laid over the bottom of the viewport.
-   Nothing underneath is hidden or changed: the live page and the progressive blur (GradientBlur, z 5)
-   look exactly as before; the reflection is an added layer beneath the blur. */
+   The bottom of the viewport is water: an opaque band (paper colour) showing an upside-down, softened copy of the
+   page just above it, fading with depth. The progressive blur (GradientBlur, z 5) still sits on top of it, so
+   the reflection gets blurrier towards the very bottom, as the page did before. No line marks the surface. */
 html { --water-h: clamp(96px, 16vh, 190px); }
 .water {
   position: fixed; left: 0; right: 0; bottom: 0; height: var(--water-h);
   z-index: 4; pointer-events: none; overflow: hidden;
+  background: var(--page-solid);
 }
 .water-mirror {
   position: absolute; left: 0; top: 0; width: 100%;
   transform-origin: 0 0;
-  opacity: 0.42;
-  filter: blur(1.2px);
+  opacity: 0.6;
+  filter: blur(0.8px);
   will-change: transform;
   -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 100%);
           mask-image: linear-gradient(to bottom, #000 0%, transparent 100%);
