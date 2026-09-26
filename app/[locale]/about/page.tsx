@@ -44,8 +44,8 @@ export default async function About({
       <div className="page-photo-wrap" style={{ position: "fixed", inset: 0, zIndex: 0 }}>
         <div className="page-photo" style={{
           position: "absolute", inset: 0,
-          backgroundImage: "url(/images/langs-med-vagen/lmv-19.jpg)",
-          backgroundSize: "cover", backgroundPosition: "center 22%",
+          backgroundImage: "url(/images/banners/about.jpg)",
+          backgroundSize: "cover", backgroundPosition: "center",
           opacity: 'calc(0.08 * var(--ghost-k))',
           filter: 'var(--ghost-filter)',
           mixBlendMode: 'var(--ghost-blend)' as React.CSSProperties['mixBlendMode'],

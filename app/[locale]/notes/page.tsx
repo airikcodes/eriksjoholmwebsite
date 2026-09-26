@@ -46,9 +46,9 @@ export default async function NotesIndex({
       <div className="page-photo-wrap" style={{ position: "fixed", inset: 0, zIndex: 0 }}>
         <div className="page-photo" style={{
           position:           'absolute', inset: 0,
-          backgroundImage:    'url(/images/langs-med-vagen/lmv-16.jpg)',
+          backgroundImage:    'url(/images/banners/notes.jpg)',
           backgroundSize:     'cover',
-          backgroundPosition: "center 55%",
+          backgroundPosition: "center",
           opacity:            'calc(0.06 * var(--ghost-k))',
           filter: 'var(--ghost-filter)',
           mixBlendMode: 'var(--ghost-blend)' as React.CSSProperties['mixBlendMode'],

@@ -93,6 +93,18 @@ export default async function WorksPage({
 
   return (
     <main className="min-h-screen" style={{ background: 'var(--page-solid)', color: 'var(--color-ink-primary)' }}>
+      {/* Top photo band (light theme; a faint ghost in dark) */}
+      <div className="page-photo-wrap" style={{ position: "fixed", inset: 0, zIndex: 0 }}>
+        <div className="page-photo" style={{
+          position: "absolute", inset: 0,
+          backgroundImage: "url(/images/banners/works.jpg)",
+          backgroundSize: "cover", backgroundPosition: "center",
+          opacity: 'calc(0.06 * var(--ghost-k))',
+          filter: 'var(--ghost-filter)',
+          mixBlendMode: 'var(--ghost-blend)' as React.CSSProperties['mixBlendMode'],
+        }} />
+      </div>
+      <div className="relative" style={{ zIndex: 1 }}>
       <div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 1.5rem' }}>
 
         {/* ── Header ── */}
@@ -266,6 +278,7 @@ export default async function WorksPage({
         <div style={{ borderTop: '1px solid rgba(var(--fg-rgb),0.07)', paddingTop: '5rem', paddingBottom: '9rem' }}>
           <KeepInTouch variant="works" locale={locale} />
         </div>
+      </div>
       </div>
     </main>
   );

@@ -53,9 +53,9 @@ export default async function LivePage({
       <div className="page-photo-wrap" style={{ position: "fixed", inset: 0, zIndex: 0 }}>
         <div className="page-photo" style={{
           position:           'absolute', inset: 0,
-          backgroundImage:    'url(/images/langs-med-vagen/lmv-18.jpg)',
+          backgroundImage:    'url(/images/banners/live.jpg)',
           backgroundSize:     'cover',
-          backgroundPosition: "center 22%",
+          backgroundPosition: "center",
           opacity:            'calc(0.08 * var(--ghost-k))',
           filter: 'var(--ghost-filter)',
           mixBlendMode: 'var(--ghost-blend)' as React.CSSProperties['mixBlendMode'],
