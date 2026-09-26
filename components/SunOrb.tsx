@@ -19,9 +19,27 @@ import { usePathname } from "next/navigation";
 // so it only ever moves across the white (paper) sections.
 const PHOTO_SELECTOR = 'img, video, canvas, iframe, .page-photo-wrap, [style*="background-image"]';
 
-function photoHoles(): Array<[number, number, number, number]> {
+type Hole = [number, number, number, number, number];   // left, top, right, bottom, corner radius (px)
+
+function cornerRadius(el: HTMLElement, w: number, h: number): number {
+  // the element or a wrapper of (almost) the same size may carry the rounding (e.g. a round avatar)
+  let n: HTMLElement | null = el;
+  for (let i = 0; i < 3 && n; i++, n = n.parentElement) {
+    const r = n.getBoundingClientRect();
+    if (Math.abs(r.width - w) > 3 || Math.abs(r.height - h) > 3) break;
+    const cs = getComputedStyle(n);
+    const tl = cs.borderTopLeftRadius;
+    if (tl && tl !== "0px") {
+      const v = parseFloat(tl);
+      return tl.includes("%") ? (v / 100) * Math.min(w, h) : v;
+    }
+  }
+  return 0;
+}
+
+function photoHoles(): Hole[] {
   const vw = window.innerWidth, vh = window.innerHeight;
-  const out: Array<[number, number, number, number]> = [];
+  const out: Hole[] = [];
   document.querySelectorAll<HTMLElement>(PHOTO_SELECTOR).forEach((el) => {
     if (el.closest(".sun-orb")) return;
     const r = el.getBoundingClientRect();
@@ -32,7 +50,7 @@ function photoHoles(): Array<[number, number, number, number]> {
       const cs = getComputedStyle(el);
       if (cs.visibility === "hidden" || parseFloat(cs.opacity) < 0.05 || cs.display === "none") return;
     }
-    out.push([r.left, r.top, r.right, r.bottom]);
+    out.push([r.left, r.top, r.right, r.bottom, Math.min(cornerRadius(el, r.width, r.height), r.width / 2, r.height / 2)]);
   });
   // drop rects fully inside another (evenodd would otherwise cancel them out)
   return out.filter((a, i) => !out.some((b, j) => j !== i && b[0] <= a[0] + 1 && b[1] <= a[1] + 1 && b[2] >= a[2] - 1 && b[3] >= a[3] - 1 && (b[2] - b[0]) * (b[3] - b[1]) > (a[2] - a[0]) * (a[3] - a[1]) - 4));
@@ -148,19 +166,22 @@ export default function SunOrb() {
       let d = `M0 0H${size}V${size}H0Z`;
       holes = photoHoles();
       document.documentElement.classList.toggle("sun-hover", !!mouse && !reduce && onSun(mouse.x, mouse.y));
-      for (const [l, t, r, b] of holes) {
+      for (const [l, t, r, b, rad] of holes) {
         const x1 = c + (l - ox - c) / s.sc, y1 = c + (t - oy - c) / s.sc;
         const x2 = c + (r - ox - c) / s.sc, y2 = c + (b - oy - c) / s.sc;
         if (x2 < 0 || y2 < 0 || x1 > size || y1 > size) continue;
-        const a = Math.max(0, x1), bb = Math.max(0, y1), e = Math.min(size, x2), f = Math.min(size, y2);
-        d += `M${a.toFixed(1)} ${bb.toFixed(1)}H${e.toFixed(1)}V${f.toFixed(1)}H${a.toFixed(1)}Z`;
+        const q = Math.max(0, rad / s.sc);
+        // rounded rectangle (a full circle when the radius is half the side); evenodd cuts it out of the sun
+        d += q < 0.5
+          ? `M${x1.toFixed(1)} ${y1.toFixed(1)}H${x2.toFixed(1)}V${y2.toFixed(1)}H${x1.toFixed(1)}Z`
+          : `M${(x1 + q).toFixed(1)} ${y1.toFixed(1)}H${(x2 - q).toFixed(1)}A${q.toFixed(1)} ${q.toFixed(1)} 0 0 1 ${x2.toFixed(1)} ${(y1 + q).toFixed(1)}V${(y2 - q).toFixed(1)}A${q.toFixed(1)} ${q.toFixed(1)} 0 0 1 ${(x2 - q).toFixed(1)} ${y2.toFixed(1)}H${(x1 + q).toFixed(1)}A${q.toFixed(1)} ${q.toFixed(1)} 0 0 1 ${x1.toFixed(1)} ${(y2 - q).toFixed(1)}V${(y1 + q).toFixed(1)}A${q.toFixed(1)} ${q.toFixed(1)} 0 0 1 ${(x1 + q).toFixed(1)} ${y1.toFixed(1)}Z`;
       }
       el.style.clipPath = `path(evenodd, "${d}")`;
       raf = requestAnimationFrame(tick);
     };
 
     // ── Click the sun: it turns into the background videos (same size, same motion). Click again for yellow.
-    let holes: Array<[number, number, number, number]> = [];
+    let holes: Hole[] = [];
     let mouse: { x: number; y: number } | null = null;
     let vidIdx = Math.floor(Math.random() * SUN_VIDEOS.length);
     const INTERACTIVE = "a, button, input, textarea, select, summary, label, [role=button], [role=link]";
