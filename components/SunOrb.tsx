@@ -23,6 +23,7 @@ function photoHoles(): Array<[number, number, number, number]> {
   const vw = window.innerWidth, vh = window.innerHeight;
   const out: Array<[number, number, number, number]> = [];
   document.querySelectorAll<HTMLElement>(PHOTO_SELECTOR).forEach((el) => {
+    if (el.closest(".sun-orb")) return;
     const r = el.getBoundingClientRect();
     if (r.width < 48 || r.height < 48 || r.bottom < 0 || r.top > vh || r.right < 0 || r.left > vw) return;
     const banner = el.classList.contains("page-photo-wrap");
@@ -37,8 +38,11 @@ function photoHoles(): Array<[number, number, number, number]> {
   return out.filter((a, i) => !out.some((b, j) => j !== i && b[0] <= a[0] + 1 && b[1] <= a[1] + 1 && b[2] >= a[2] - 1 && b[3] >= a[3] - 1 && (b[2] - b[0]) * (b[3] - b[1]) > (a[2] - a[0]) * (a[3] - a[1]) - 4));
 }
 
+const SUN_VIDEOS = Array.from({ length: 12 }, (_, i) => `/videos/bg-${String(i + 1).padStart(2, "0")}.mp4`);
+
 export default function SunOrb() {
   const ref = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const reroll = useRef<(() => void) | null>(null);
   const pathname = usePathname();
 
@@ -127,7 +131,9 @@ export default function SunOrb() {
       el.style.transform = `translate3d(${ox}px, ${oy}px, 0) scale(${s.sc})`;
       // clip the sun away over photos (coordinates converted into the element's own space)
       let d = `M0 0H${size}V${size}H0Z`;
-      for (const [l, t, r, b] of photoHoles()) {
+      holes = photoHoles();
+      document.documentElement.classList.toggle("sun-hover", !!mouse && !reduce && onSun(mouse.x, mouse.y));
+      for (const [l, t, r, b] of holes) {
         const x1 = c + (l - ox - c) / s.sc, y1 = c + (t - oy - c) / s.sc;
         const x2 = c + (r - ox - c) / s.sc, y2 = c + (b - oy - c) / s.sc;
         if (x2 < 0 || y2 < 0 || x1 > size || y1 > size) continue;
@@ -138,10 +144,48 @@ export default function SunOrb() {
       raf = requestAnimationFrame(tick);
     };
 
+    // ── Click the sun: it turns into the background videos (same size, same motion). Click again for yellow.
+    let holes: Array<[number, number, number, number]> = [];
+    let mouse: { x: number; y: number } | null = null;
+    let vidIdx = Math.floor(Math.random() * SUN_VIDEOS.length);
+    const INTERACTIVE = "a, button, input, textarea, select, summary, label, [role=button], [role=link]";
+
+    const onSun = (x: number, y: number) => {
+      const r = (Math.min(window.innerWidth, window.innerHeight) * 0.52 * s.sc) / 2;
+      if ((x - s.x) ** 2 + (y - s.y) ** 2 > r * r) return false;
+      if (holes.some(([l, t, rr, b]) => x >= l && x <= rr && y >= t && y <= b)) return false;   // clipped away over photos
+      const hit = document.elementFromPoint(x, y);
+      return !(hit && hit.closest(INTERACTIVE));
+    };
+    const playNext = () => {
+      const v = videoRef.current; if (!v) return;
+      v.src = SUN_VIDEOS[vidIdx % SUN_VIDEOS.length]; vidIdx++;
+      v.play().catch(() => {});
+    };
+    const onClick = (e: MouseEvent) => {
+      if (reduce || !onSun(e.clientX, e.clientY)) return;
+      const on = el.dataset.mode !== "video";
+      el.dataset.mode = on ? "video" : "";
+      const v = videoRef.current;
+      if (on) playNext(); else if (v) { v.pause(); }
+    };
+    const onMove = (e: MouseEvent) => { mouse = { x: e.clientX, y: e.clientY }; };
+    const onEnded = () => playNext();
+    videoRef.current?.addEventListener("ended", onEnded);
+    window.addEventListener("click", onClick);
+    window.addEventListener("mousemove", onMove, { passive: true });
     window.addEventListener("scroll", onScroll, { passive: true });
     raf = requestAnimationFrame(tick);
-    return () => { window.removeEventListener("scroll", onScroll); cancelAnimationFrame(raf); };
+    return () => {
+      window.removeEventListener("scroll", onScroll); window.removeEventListener("click", onClick);
+      window.removeEventListener("mousemove", onMove); videoRef.current?.removeEventListener("ended", onEnded);
+      document.documentElement.classList.remove("sun-hover"); cancelAnimationFrame(raf);
+    };
   }, []);
 
-  return <div ref={ref} className="sun-orb" aria-hidden="true" />;
+  return (
+    <div ref={ref} className="sun-orb" aria-hidden="true">
+      <video ref={videoRef} muted playsInline preload="none" tabIndex={-1} />
+    </div>
+  );
 }

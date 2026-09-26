@@ -1203,4 +1203,9 @@ html[data-theme="light"] .sun-orb {
   background: var(--color-sun);
   mix-blend-mode: multiply;
   will-change: transform;
+  overflow: hidden;
 }
+html[data-theme="light"] .sun-orb video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s ease; }
+html[data-theme="light"] .sun-orb[data-mode="video"] { mix-blend-mode: normal; }
+html[data-theme="light"] .sun-orb[data-mode="video"] video { opacity: 1; }
+html.sun-hover, html.sun-hover * { cursor: pointer !important; }
