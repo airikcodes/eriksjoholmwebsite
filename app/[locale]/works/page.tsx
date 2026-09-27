@@ -94,6 +94,7 @@ export default async function WorksPage({
   return (
     <main className="min-h-screen" style={{ background: 'var(--page-solid)', color: 'var(--color-ink-primary)' }}>
       {/* Top photo band (light theme; a faint ghost in dark) */}
+      <link rel="preload" as="image" href="/images/banners/works.jpg" fetchPriority="high" />
       <div className="page-photo-wrap" style={{ position: "fixed", inset: 0, zIndex: 0 }}>
         <div className="page-photo" style={{
           position: "absolute", inset: 0,

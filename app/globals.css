@@ -1352,16 +1352,16 @@ html[data-theme="light"] .sun-reflect {
           mask-image: linear-gradient(to bottom, #000 0%, transparent 100%);
 }
 .sun-reflect-orb { position: absolute; left: 0; top: 0; border-radius: 50%; filter: blur(3px); will-change: transform; }
-html[data-tone="day"] .sun-reflect-orb { background: var(--color-sun); opacity: 0.5; mix-blend-mode: multiply; }
+html[data-tone="day"] .sun-reflect-orb { background: var(--color-sun); opacity: 0.32; mix-blend-mode: multiply; }
 html[data-tone="night"] .sun-reflect-orb {
-  background: radial-gradient(circle at 38% 34%, rgba(255,243,210,0.22), rgba(246,228,184,0.15) 70%, rgba(234,215,166,0.1));
+  background: radial-gradient(circle at 38% 34%, rgba(255,243,210,0.12), rgba(246,228,184,0.08) 70%, rgba(234,215,166,0.05));
 }
 
 
 /* Hide/show the sun and moon (button in SunOrb; choice remembered in localStorage) */
 /* Video mode: the reflection shows the same clip, flipped, instead of a plain disc */
 .sun-reflect-orb video { display: none; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: scaleY(-1); }
-.sun-reflect-orb[data-mode="video"] { background: none !important; mix-blend-mode: normal !important; overflow: hidden; opacity: 0.65; }
+.sun-reflect-orb[data-mode="video"] { background: none !important; mix-blend-mode: normal !important; overflow: hidden; opacity: 0.35; }
 .sun-reflect-orb[data-mode="video"] video { display: block; }
 html.sun-off .sun-orb, html.sun-off .sun-reflect { display: none !important; }
 .sun-toggle { display: none; }
