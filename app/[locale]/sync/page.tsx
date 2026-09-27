@@ -80,7 +80,7 @@ export default async function Sync({
               {s.title}
             </h1>
             <span className="block" style={{ width: "2rem", height: "1px", background: "#C8922A", margin: "2.5rem 0" }} />
-            <p style={{
+            <p className="hero-sub" style={{
               fontFamily: "var(--font-inter)",
               fontSize: "1rem",
               color: "var(--color-ink-body)",

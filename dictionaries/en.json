@@ -127,7 +127,8 @@
       "heading": "Want Erik at your event?",
       "desc": "For concerts, festivals, and private events — reach out directly.",
       "contactPage": "Contact page"
-    }
+    },
+    "subtitle": "Concerts, festivals and storytelling shows"
   },
   "contact": {
     "title": "Let's be in touch.",
@@ -159,7 +160,8 @@
     "glennLink": "GLENN — The Storytelling Concert",
     "syncLink": "Sync Licensing",
     "portfolioLink": "Portfolio & CV",
-    "elsewhere": "Elsewhere"
+    "elsewhere": "Elsewhere",
+    "subtitle": "Bookings, collaborations, press — or just a kind word"
   },
   "storyteller": {
     "eyebrow": "A Storytelling Concert",

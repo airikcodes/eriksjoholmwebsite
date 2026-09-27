@@ -75,6 +75,7 @@ export default async function ShopPage({
             >
               Carry something of it.
             </h1>
+            <p className="hero-sub">Merch and prints</p>
           </div>
 
           {/* ── Product grid ── */}

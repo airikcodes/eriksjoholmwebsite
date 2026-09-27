@@ -90,6 +90,7 @@ export default async function LivePage({
             >
               {l.title}
             </h1>
+            <p className="hero-sub">{l.subtitle}</p>
             <span className="block" style={{ width: '2rem', height: '1px', background: '#C8922A', marginTop: '2.5rem' }} />
           </div>
 

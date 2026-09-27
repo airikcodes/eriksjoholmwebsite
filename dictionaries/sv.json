@@ -127,7 +127,8 @@
       "heading": "Vill du ha Erik på ditt evenemang?",
       "desc": "För konserter, festivaler och privata evenemang — kontakta direkt.",
       "contactPage": "Kontaktsida"
-    }
+    },
+    "subtitle": "Konserter, festivaler och berättarkvällar"
   },
   "contact": {
     "title": "Låt oss hålla kontakten.",
@@ -159,7 +160,8 @@
     "glennLink": "GLENN — Berättarkonserten",
     "syncLink": "Synklicenser",
     "portfolioLink": "Portfolio & CV",
-    "elsewhere": "På andra ställen"
+    "elsewhere": "På andra ställen",
+    "subtitle": "Bokningar, samarbeten, press – eller bara ett vänligt ord"
   },
   "storyteller": {
     "eyebrow": "En berättarkonsert",

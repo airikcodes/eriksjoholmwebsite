@@ -99,7 +99,7 @@ export default async function About({
               Erik Sjøholm
             </h1>
             <span className="block" style={{ width: "2rem", height: "1px", background: "#C8922A", margin: "1.5rem auto" }} />
-            <p style={{
+            <p className="hero-sub" style={{
               fontFamily: "var(--font-inter)",
               fontSize: "0.7rem",
               letterSpacing: "0.35em",

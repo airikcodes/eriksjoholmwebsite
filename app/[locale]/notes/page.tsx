@@ -84,7 +84,7 @@ export default async function NotesIndex({
             >
               {n.title}
             </h1>
-            <p style={{
+            <p className="hero-sub" style={{
               fontFamily: 'var(--font-inter)',
               fontSize:   '1rem',
               color:      'var(--color-ink-body)',

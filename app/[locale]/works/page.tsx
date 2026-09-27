@@ -124,7 +124,7 @@ export default async function WorksPage({
             {t.nav.works}
           </h1>
           <span className="block" style={{ width: '2rem', height: '1px', background: '#C8922A', marginBottom: '2rem' }} />
-          <p className="body-copy" style={{ maxWidth: '52ch', marginBottom: '1.75rem' }}>{lib.intro}</p>
+          <p className="body-copy hero-sub" style={{ maxWidth: '52ch', marginBottom: '1.75rem' }}>{lib.intro}</p>
 
           <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', marginBottom: '2.25rem' }}>
             <a

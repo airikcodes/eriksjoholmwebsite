@@ -127,7 +127,8 @@
       "heading": "Erik bei deiner Veranstaltung?",
       "desc": "Für Konzerte, Festivals und private Veranstaltungen — direkt anfragen.",
       "contactPage": "Kontaktseite"
-    }
+    },
+    "subtitle": "Konzerte, Festivals und Erzählabende"
   },
   "contact": {
     "title": "Lass uns in Kontakt bleiben.",
@@ -159,7 +160,8 @@
     "glennLink": "GLENN — Das Storytelling-Konzert",
     "syncLink": "Sync-Lizenzierung",
     "portfolioLink": "Portfolio & Lebenslauf",
-    "elsewhere": "Anderswo"
+    "elsewhere": "Anderswo",
+    "subtitle": "Buchungen, Zusammenarbeit, Presse – oder einfach ein freundliches Wort"
   },
   "storyteller": {
     "eyebrow": "Ein Storytelling-Konzert",

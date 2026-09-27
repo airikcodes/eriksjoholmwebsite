@@ -127,7 +127,8 @@
       "heading": "Haluatko Erikin tapahtumaasi?",
       "desc": "Konsertteja, festivaaleja ja yksityisiä tapahtumia varten — ota suoraan yhteyttä.",
       "contactPage": "Yhteystietosivu"
-    }
+    },
+    "subtitle": "Konsertit, festivaalit ja tarinaillat"
   },
   "contact": {
     "title": "Pidetään yhteyttä.",
@@ -159,7 +160,8 @@
     "glennLink": "GLENN — Tarinankerrontakonsertti",
     "syncLink": "Synkronoinnin lisensointi",
     "portfolioLink": "Portfolio ja CV",
-    "elsewhere": "Muualla"
+    "elsewhere": "Muualla",
+    "subtitle": "Keikkatarjoukset, yhteistyö, lehdistö – tai vain kiltti sana"
   },
   "storyteller": {
     "eyebrow": "Tarinankerrontakonsertti",

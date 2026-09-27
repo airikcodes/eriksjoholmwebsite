@@ -127,7 +127,8 @@
       "heading": "Vuoi Erik al tuo evento?",
       "desc": "Per concerti, festival ed eventi privati — contattaci direttamente.",
       "contactPage": "Pagina dei contatti"
-    }
+    },
+    "subtitle": "Concerti, festival e serate di racconti"
   },
   "contact": {
     "title": "Restiamo in contatto.",
@@ -159,7 +160,8 @@
     "glennLink": "GLENN — Il concerto narrativo",
     "syncLink": "Licenze Sync",
     "portfolioLink": "Portfolio e CV",
-    "elsewhere": "Altrove"
+    "elsewhere": "Altrove",
+    "subtitle": "Prenotazioni, collaborazioni, stampa, o solo una parola gentile"
   },
   "storyteller": {
     "eyebrow": "Un concerto narrativo",
