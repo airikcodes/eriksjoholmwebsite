@@ -1345,6 +1345,7 @@ html { --water-h: clamp(96px, 16vh, 190px); }
    softened and fading with depth. Sits above the mirrored page, under the progressive blur. */
 .sun-reflect { display: none; }
 html[data-theme="light"] .sun-reflect {
+  display: block;
   position: fixed; left: 0; right: 0; bottom: 0; height: var(--water-h);
   overflow: hidden; pointer-events: none; z-index: 4;
   -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 100%);
