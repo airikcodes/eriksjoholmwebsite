@@ -92,7 +92,16 @@ export default function SunOrb() {
   const [hideLbl, showLbl] = HIDE_LABEL[lang] ?? HIDE_LABEL.en;
 
   // New page: new route and a random kick, so the sun never sits in the same corner on arrival.
-  useEffect(() => { reroll.current?.(); }, [pathname]);
+  useEffect(() => {
+    reroll.current?.();
+    // ...and it always arrives as the plain sun/moon, never still in video mode from the previous page.
+    const el = ref.current;
+    if (el && el.dataset.mode === "video") {
+      el.dataset.mode = "";
+      videoRef.current?.pause();
+      window.dispatchEvent(new CustomEvent("sun-video", { detail: { on: false } }));
+    }
+  }, [pathname]);
 
   useEffect(() => {
     const el = ref.current;
@@ -204,7 +213,11 @@ export default function SunOrb() {
       if ((x - s.x) ** 2 + (y - s.y) ** 2 > r * r) return false;
       if (holes.some(([l, t, rr, b]) => x >= l && x <= rr && y >= t && y <= b)) return false;   // clipped away over photos
       const hit = document.elementFromPoint(x, y);
-      return !(hit && hit.closest(INTERACTIVE));
+      if (!hit) return true;
+      if (hit.closest(INTERACTIVE)) return false;
+      let n: Element | null = hit;                      // anything that looks clickable (cards, rows) is not the moon
+      for (let i = 0; n && i < 6; i++, n = n.parentElement) if (getComputedStyle(n).cursor === "pointer") return false;
+      return true;
     };
     const applyAudio = () => {
       const v = videoRef.current; if (!v) return;
