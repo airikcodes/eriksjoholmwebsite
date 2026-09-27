@@ -177,12 +177,27 @@ export default function SunOrb() {
         const wh = band.offsetHeight;
         waterTop = vh - wh;
         const cyc = oy + size / 2;                      // viewport y of the disc's centre
-        const bandCy = K * (waterTop - cyc);            // mirrored centre, band coordinates (0 = waterline)
         const o = rf.firstElementChild as HTMLElement;
         rf.style.display = "";
         o.style.width = o.style.height = `${size}px`;
         o.dataset.mode = el.dataset.mode === "video" ? "video" : "";
-        o.style.transform = `translate3d(${ox}px, ${bandCy - size / 2}px, 0) scale(${s.sc * R}, ${s.sc * R * K})`;
+        const r = (size * s.sc * R) / 2;                // visible radius of the disc
+        const dy = waterTop - cyc;                      // > 0: disc centre is above the waterline
+        if (Math.abs(dy) < r) {
+          // The disc crosses the waterline: the reflection hangs from the cut, exactly as wide as the disc is there
+          // (never wider), and closes softly below like the lower half of a foreshortened circle.
+          const chord = 2 * Math.sqrt(r * r - dy * dy);
+          const k = chord / size;
+          o.style.display = "";
+          o.style.transform = `translate3d(${ox}px, ${-size / 2}px, 0) scale(${k}, ${k * K * 1.4})`;
+        } else if (dy > 0) {
+          // Disc entirely above the water: its whole foreshortened mirror image
+          const bandCy = K * dy;
+          o.style.display = "";
+          o.style.transform = `translate3d(${ox}px, ${bandCy - size / 2}px, 0) scale(${s.sc * R}, ${s.sc * R * K})`;
+        } else {
+          o.style.display = "none";                     // disc entirely under the waterline
+        }
       }
       // clip the sun away over photos (coordinates converted into the element's own space)
       let d = `M0 0H${size}V${size}H0Z`;
