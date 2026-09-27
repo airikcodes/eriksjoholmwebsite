@@ -160,6 +160,7 @@ export default function SunOrb() {
       // outline runs on continuously from the disc into its reflection. The real disc is cut off at the waterline
       // (below), exactly where the reflection starts.
       const K = 0.4;
+      const R = document.documentElement.dataset.tone === "night" ? 2 / 2.1 : 1;   // the moon SVG circle fills 2/2.1 of its box; the sun fills all of it
       const rf = reflectRef.current, band = document.querySelector<HTMLElement>(".water");
       let waterTop = vh;
       if (rf && band) {
@@ -170,7 +171,7 @@ export default function SunOrb() {
         const o = rf.firstElementChild as HTMLElement;
         rf.style.display = "";
         o.style.width = o.style.height = `${size}px`;
-        o.style.transform = `translate3d(${ox}px, ${bandCy - size / 2}px, 0) scale(${s.sc}, ${s.sc * K})`;
+        o.style.transform = `translate3d(${ox}px, ${bandCy - size / 2}px, 0) scale(${s.sc * R}, ${s.sc * R * K})`;
       }
       // clip the sun away over photos (coordinates converted into the element's own space)
       let d = `M0 0H${size}V${size}H0Z`;
