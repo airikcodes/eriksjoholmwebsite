@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useSyncExternalStore } from "react";
 import { usePathname } from "next/navigation";
 
 /**
@@ -56,6 +56,24 @@ function photoHoles(): Hole[] {
   return out.filter((a, i) => !out.some((b, j) => j !== i && b[0] <= a[0] + 1 && b[1] <= a[1] + 1 && b[2] >= a[2] - 1 && b[3] >= a[3] - 1 && (b[2] - b[0]) * (b[3] - b[1]) > (a[2] - a[0]) * (a[3] - a[1]) - 4));
 }
 
+const HIDE_KEY = "sun-orb-hidden";
+const HIDE_EVENT = "sun-orb-hidden-change";
+function subscribeHidden(cb: () => void) {
+  window.addEventListener(HIDE_EVENT, cb); window.addEventListener("storage", cb);
+  return () => { window.removeEventListener(HIDE_EVENT, cb); window.removeEventListener("storage", cb); };
+}
+function readHidden(): boolean { try { return localStorage.getItem(HIDE_KEY) === "1"; } catch { return false; } }
+const HIDE_LABEL: Record<string, [string, string]> = {
+  en: ["Hide the sun and moon", "Show the sun and moon"],
+  de: ["Sonne und Mond ausblenden", "Sonne und Mond einblenden"],
+  es: ["Ocultar el sol y la luna", "Mostrar el sol y la luna"],
+  sv: ["Dölj solen och månen", "Visa solen och månen"],
+  fi: ["Piilota aurinko ja kuu", "Näytä aurinko ja kuu"],
+  fr: ["Masquer le soleil et la lune", "Afficher le soleil et la lune"],
+  it: ["Nascondi il sole e la luna", "Mostra il sole e la luna"],
+  pt: ["Ocultar o sol e a lua", "Mostrar o sol e a lua"],
+};
+
 const SUN_VIDEOS = Array.from({ length: 12 }, (_, i) => `/videos/bg-${String(i + 1).padStart(2, "0")}.mp4`);
 
 export default function SunOrb() {
@@ -64,6 +82,14 @@ export default function SunOrb() {
   const reflectRef = useRef<HTMLDivElement>(null);
   const reroll = useRef<(() => void) | null>(null);
   const pathname = usePathname();
+  const hidden = useSyncExternalStore(subscribeHidden, readHidden, () => false);
+  const lang = useSyncExternalStore(subscribeHidden, () => document.documentElement.lang || "en", () => "en");
+  useEffect(() => { document.documentElement.classList.toggle("sun-off", hidden); }, [hidden]);
+  const toggle = () => {
+    try { localStorage.setItem(HIDE_KEY, hidden ? "0" : "1"); } catch {}
+    window.dispatchEvent(new Event(HIDE_EVENT));
+  };
+  const [hideLbl, showLbl] = HIDE_LABEL[lang] ?? HIDE_LABEL.en;
 
   // New page: new route and a random kick, so the sun never sits in the same corner on arrival.
   useEffect(() => { reroll.current?.(); }, [pathname]);
@@ -93,6 +119,7 @@ export default function SunOrb() {
 
     // Scrolling only moves the sun's 'home' (below). No kicks, no jitter, no direction-flip jumps: it just glides.
     const tick = (t: number) => {
+      if (document.documentElement.classList.contains("sun-off")) { raf = requestAnimationFrame(tick); return; }
       const vw = window.innerWidth, vh = window.innerHeight;
       const max = Math.max(1, document.documentElement.scrollHeight - vh);
       const p = reduce ? 0 : Math.min(1, Math.max(0, window.scrollY / max));
@@ -226,6 +253,19 @@ export default function SunOrb() {
         <circle r="1" className="moon-lit" />
       </svg>
     </div>
+    <button
+      type="button"
+      className="sun-toggle"
+      onClick={toggle}
+      aria-pressed={hidden}
+      aria-label={hidden ? showLbl : hideLbl}
+      title={hidden ? showLbl : hideLbl}
+    >
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="6" fill={hidden ? "none" : "currentColor"} fillOpacity="0.25" />
+        {hidden && <line x1="4" y1="20" x2="20" y2="4" />}
+      </svg>
+    </button>
     </>
   );
 }
