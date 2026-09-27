@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
+import Wordmark from '@/components/Wordmark';
 import { LOCALE_CODES as LOCALES, DEFAULT_LOCALE } from '@/lib/locales';
 
 const SUBTITLES: Record<string, string> = {
@@ -237,6 +238,7 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
         <div style={{ width: '100%', maxWidth: '620px' }}>
 
           {/* ── INDEX kicker ──────────────────────────────────────────────── */}
+          <Wordmark height="1.6rem" style={{ display: 'block', marginBottom: '1.25rem', color: 'var(--color-ink-primary)' }} />
           <p style={{
             fontFamily:    'var(--font-inter)',
             fontSize:      '0.7rem',

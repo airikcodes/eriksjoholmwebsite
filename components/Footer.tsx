@@ -1,3 +1,5 @@
+import Wordmark from "@/components/Wordmark";
+
 export default function Footer() {
   const year = new Date().getFullYear();
 
@@ -5,7 +7,7 @@ export default function Footer() {
     <footer className="border-t border-white/5 py-12 px-6 md:px-10">
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="font-[family-name:var(--font-cormorant)] text-sm text-[#444444] tracking-wider">
-          © {year} Erik Sjøholm
+          © {year} <Wordmark height="0.9em" style={{ verticalAlign: '-0.1em', marginLeft: '0.35em' }} />
         </p>
 
         <div className="flex items-center gap-8">

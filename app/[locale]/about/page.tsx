@@ -1,3 +1,4 @@
+import Wordmark from "@/components/Wordmark";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -96,7 +97,7 @@ export default async function About({
                 lineHeight: 1.05,
               }}
             >
-              Erik Sjøholm
+              <Wordmark height="0.62em" />
             </h1>
             <span className="block" style={{ width: "2rem", height: "1px", background: "#C8922A", margin: "1.5rem auto" }} />
             <p className="hero-sub" style={{
