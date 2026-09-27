@@ -14,6 +14,8 @@ export interface LiveEvent {
   /** Optional time, shown after the date, e.g. '15:30–16:30' */
   time?: string;
   venue?: string;
+  /** Optional small line under the venue, e.g. co-performers, language, age */
+  note?: string;
   city: string;
   country: string;
   eventType: EventType;
@@ -35,6 +37,7 @@ export const events: LiveEvent[] = [
     venue:     'DAI Heidelberg · International Children\'s Book Festival',
     city:      'Heidelberg',
     country:   'Germany',
+    note:      'With Kathleen Rappolt · German & English · ages 8+',
     eventType: 'storytelling-performance',
     ticketUrl: 'https://dai-heidelberg.reservix.de/p/reservix/group/549365',
     eventUrl:  'https://dai-heidelberg.de/en/events/2026-international-childrens-book-festival-58858/',

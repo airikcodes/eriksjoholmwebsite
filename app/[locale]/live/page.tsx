@@ -166,6 +166,11 @@ export default async function LivePage({
                       }}>
                         {event.venue ? `${event.venue} · ` : ''}{event.city}, {event.country}
                       </p>
+                      {event.note && (
+                        <p style={{ fontFamily: 'var(--font-inter)', fontSize: '0.72rem', color: 'var(--color-ink-meta)', letterSpacing: '0.06em', marginTop: '0.35rem' }}>
+                          {event.note}
+                        </p>
+                      )}
                     </div>
                     <div className="text-right mt-2 sm:mt-0 flex-shrink-0">
                       {event.date && (
