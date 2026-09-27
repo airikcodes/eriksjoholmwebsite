@@ -1054,7 +1054,7 @@ html[data-theme="light"] .portal-tile:focus-visible { box-shadow: none; }
 
 /* Inner pages: the photograph becomes a crisp full-colour band across the top of the
    page, hard edge below it, paper beneath (was a faint fixed ghost behind the text). */
-html[data-theme="light"] { --banner-h: clamp(18rem, 34vw, 32rem); }   /* ~3:1 on desktop, so wide photos are barely cropped */
+html[data-theme="light"] { --banner-h: clamp(10rem, 22vw, 20rem); }   /* slim strip (~4.5:1): photos are pre-cropped to 5:1, faces kept whole */
 html[data-theme="light"] .page-photo-wrap {
   position:   absolute !important;
   inset:      0 0 auto 0 !important;
