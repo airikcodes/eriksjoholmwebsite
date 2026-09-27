@@ -69,7 +69,7 @@ export default async function Sync({
               {s.eyebrow}
             </p>
             <h1
-              className="font-[family-name:var(--font-cormorant)] font-light"
+              className="font-[family-name:var(--font-cormorant)] font-light hero-title"
               style={{
                 fontSize: "clamp(3rem, 9vw, 6rem)",
                 color: "var(--color-ink-primary)",

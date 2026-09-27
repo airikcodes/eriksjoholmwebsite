@@ -88,7 +88,7 @@ export default async function About({
               />
             </div>
             <h1
-              className="font-[family-name:var(--font-cormorant)] font-light"
+              className="font-[family-name:var(--font-cormorant)] font-light hero-title"
               style={{
                 fontSize: "clamp(2rem, 6vw, 4.5rem)",
                 color: "var(--color-ink-primary)",

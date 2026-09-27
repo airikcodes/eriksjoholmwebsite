@@ -64,7 +64,7 @@ export default async function ShopPage({
               Shop
             </p>
             <h1
-              className="font-[family-name:var(--font-cormorant)] font-light"
+              className="font-[family-name:var(--font-cormorant)] font-light hero-title"
               style={{
                 fontSize: 'clamp(2.8rem, 8vw, 5rem)',
                 color: 'var(--color-ink-primary)',

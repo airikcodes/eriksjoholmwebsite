@@ -1054,7 +1054,7 @@ html[data-theme="light"] .portal-tile:focus-visible { box-shadow: none; }
 
 /* Inner pages: the photograph becomes a crisp full-colour band across the top of the
    page, hard edge below it, paper beneath (was a faint fixed ghost behind the text). */
-html[data-theme="light"] { --banner-h: clamp(10rem, 22vw, 20rem); }   /* slim strip (~4.5:1): photos are pre-cropped to 5:1, faces kept whole */
+html[data-theme="light"] { --banner-h: max(34rem, 100svh); }   /* full-section hero: the photo fills the first screen, the page title sits on it */
 html[data-theme="light"] .page-photo-wrap {
   position:   absolute !important;
   inset:      0 0 auto 0 !important;
@@ -1068,6 +1068,17 @@ html[data-theme="light"] .page-photo {
 }
 html[data-theme="light"] .page-photo-wrap > div:not(.page-photo) { display: none; }   /* old scrim */
 html[data-theme="light"] .page-photo-wrap + div { padding-top: var(--banner-h); }
+/* Hero: soft shade at the foot of the photo so the title reads; the h1 is lifted out of the header onto the photo */
+html[data-theme="light"] .page-photo-wrap::after {
+  content: ""; position: absolute; inset: auto 0 0 0; height: 55%; pointer-events: none;
+  background: linear-gradient(to top, rgba(20,14,8,0.62), rgba(20,14,8,0.28) 45%, transparent);
+}
+html[data-theme="light"] .hero-title {
+  position: absolute; top: calc(var(--banner-h) - clamp(2rem, 6vh, 4rem)); transform: translateY(-100%);
+  margin: 0 !important; color: #fff !important; font-weight: 400; text-shadow: 0 2px 28px rgba(0,0,0,0.35);
+  font-size: clamp(3.4rem, 11vw, 8rem) !important; max-width: min(900px, calc(100vw - 3rem));
+}
+html[data-theme="light"] .page-photo-wrap + div header { padding-top: 3rem !important; }
 
 /* Newsletter: the sign-up owns its section — flat paper, centred, nothing beside it.
    (The video bands above and below carry the imagery.) */

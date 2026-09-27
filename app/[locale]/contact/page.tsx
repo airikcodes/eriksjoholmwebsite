@@ -73,7 +73,7 @@ export default async function Contact({
           <div style={{ paddingTop: "5.5rem", paddingBottom: "4rem" }}>
             <BackNav />
             <h1
-              className="font-[family-name:var(--font-cormorant)] font-light"
+              className="font-[family-name:var(--font-cormorant)] font-light hero-title"
               style={{
                 fontSize: "clamp(3rem, 9vw, 6rem)",
                 color: "var(--color-ink-primary)",
