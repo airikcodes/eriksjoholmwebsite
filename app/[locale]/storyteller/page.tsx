@@ -50,7 +50,7 @@ const eyebrowStyle: React.CSSProperties = {
 
 const sectionHeading: React.CSSProperties = {
   fontFamily: "var(--font-cormorant)",
-  fontWeight: 300,
+  fontWeight: 400,
   fontSize: "clamp(2rem, 5vw, 3.5rem)",
   color: "var(--color-ink-primary)",
   letterSpacing: "0.03em",
@@ -135,7 +135,7 @@ export default async function Storyteller({
                 className="font-[family-name:var(--font-cormorant)]"
                 style={{
                   fontStyle: "italic",
-                  fontWeight: 300,
+                  fontWeight: 400,
                   fontSize: "clamp(1.1rem, 2.8vw, 1.6rem)",
                   color: "rgba(var(--ink-rgb),0.7)",
                   letterSpacing: "0.02em",
@@ -259,7 +259,7 @@ export default async function Storyteller({
                       className="font-[family-name:var(--font-cormorant)]"
                       style={{
                         fontStyle: "italic",
-                        fontWeight: 300,
+                        fontWeight: 400,
                         fontSize: "clamp(1rem, 2vw, 1.2rem)",
                         color: "var(--color-ink-primary)",
                         lineHeight: 1.6,

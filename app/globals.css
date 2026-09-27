@@ -1371,3 +1371,7 @@ html[data-theme="light"] .sun-toggle {
   transition: background 180ms ease, border-color 180ms ease;
 }
 .sun-toggle:hover, .sun-toggle:focus-visible { background: rgba(var(--page-rgb), 0.85); border-color: rgba(200,146,42,0.8); }
+
+/* Titles a tad thicker: Cormorant 300 -> 400 (unlayered, so it beats Tailwind's font-light) */
+h1, h2, h3 { font-weight: 400; }
+.notes-content h2, .notes-content h3, .notes-content h4 { font-weight: 400; }
