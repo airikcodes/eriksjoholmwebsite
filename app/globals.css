@@ -626,6 +626,7 @@ a:hover .product-img {
 
 /* Menu toggle — replace harsh default focus ring with the site's amber accent,
    and only show it for keyboard focus (not mouse clicks). */
+.menu-toggle-btn { min-height: 44px; }
 .menu-toggle-btn:focus {
   outline: none;
 }
@@ -1369,7 +1370,8 @@ html { --water-h: clamp(96px, 16vh, 190px); }
 /* the copy is made before sections have scrolled into view, so show every reveal-on-scroll block */
 .water-mirror .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
 @media print { .water { display: none; } }
-
+/* Inner pages: ensure the last content clears the fixed water band when scrolled to the bottom */
+main.min-h-screen { padding-bottom: max(var(--water-h, 96px), env(safe-area-inset-bottom, 0px)); }
 
 /* The sun/moon's reflection in the water band (drawn by SunOrb): same disc, mirrored about the waterline,
    softened and fading with depth. Sits above the mirrored page, under the progressive blur. */

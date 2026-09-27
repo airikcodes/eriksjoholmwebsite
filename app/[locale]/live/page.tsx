@@ -174,7 +174,7 @@ export default async function LivePage({
                         </p>
                       )}
                     </div>
-                    <div className="text-right mt-2 sm:mt-0 flex-shrink-0">
+                    <div className="mt-2 sm:mt-0 sm:text-right flex-shrink-0">
                       {event.date && (
                         <p style={{
                           fontFamily: 'var(--font-inter)',

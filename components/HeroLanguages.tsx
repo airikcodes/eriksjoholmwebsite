@@ -62,7 +62,7 @@ export default function HeroLanguages() {
               fontSize:            '0.62rem',
               letterSpacing:       '0.24em',
               textTransform:       'uppercase',
-              padding:             '0.5rem 0.15rem',
+              padding:             '0.75rem 0.25rem',
               lineHeight:          1,
               color:               active ? 'var(--lang-active, #E8E0D4)' : 'var(--lang-idle, rgba(232,224,212,0.5))',
               textDecoration:      active ? 'underline' : 'none',

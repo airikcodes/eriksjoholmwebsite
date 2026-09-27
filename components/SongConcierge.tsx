@@ -602,14 +602,14 @@ export default function SongConcierge({
       {preamble && (
         <p
           className="concierge-preamble font-[family-name:var(--font-cormorant)] font-light text-center"
-          style={{ fontSize: "clamp(1rem, 2.8vw, 1.35rem)", letterSpacing: "0.03em", lineHeight: 1.85, marginBottom: "1.1rem" }}
+          style={{ fontSize: "clamp(1.15rem, 2.8vw, 1.35rem)", letterSpacing: "0.03em", lineHeight: 1.85, marginBottom: "1.1rem" }}
         >
           {preamble}
         </p>
       )}
       <h2
         className="concierge-heading font-[family-name:var(--font-cormorant)] font-light text-center"
-        style={{ fontSize: "clamp(1.25rem, 3.8vw, 2rem)", lineHeight: 1.65, letterSpacing: "0.02em", marginBottom: tagline ? "0.9rem" : "2rem" }}
+        style={{ fontSize: "clamp(1.65rem, 3.8vw, 2rem)", lineHeight: 1.65, letterSpacing: "0.02em", marginBottom: tagline ? "0.9rem" : "2rem" }}
       >
         {displayHeading}
       </h2>

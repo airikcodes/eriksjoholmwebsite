@@ -197,7 +197,7 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
             fontSize:             '0.62rem',
             letterSpacing:        '0.22em',
             textTransform:        'uppercase',
-            padding:              '0.5rem 0.85rem',
+            padding:              '0.65rem 1rem',
             lineHeight:           1,
             display:              'flex',
             alignItems:           'center',
