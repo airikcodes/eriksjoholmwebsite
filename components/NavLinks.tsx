@@ -21,7 +21,7 @@ export default function NavLinks({ items }: { items: NavItem[] }) {
             href={item.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="room-link font-[family-name:var(--font-cormorant)] font-light"
+            className="room-link font-[family-name:var(--font-cormorant)] font-normal"
             style={{ fontSize: "clamp(1.8rem, 4vw, 3.5rem)", letterSpacing: "0.02em", textDecoration: "none" }}
           >
             {item.label}
@@ -30,7 +30,7 @@ export default function NavLinks({ items }: { items: NavItem[] }) {
           <Link
             key={item.href}
             href={item.href}
-            className="room-link font-[family-name:var(--font-cormorant)] font-light"
+            className="room-link font-[family-name:var(--font-cormorant)] font-normal"
             style={{ fontSize: "clamp(1.8rem, 4vw, 3.5rem)", letterSpacing: "0.02em" }}
           >
             {item.label}

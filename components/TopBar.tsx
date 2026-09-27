@@ -160,7 +160,7 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
         {folio !== null && (
           <span
             aria-hidden="true"
-            className="topbar-folio font-[family-name:var(--font-cormorant)] font-light"
+            className="topbar-folio font-[family-name:var(--font-cormorant)] font-normal"
             style={{
               fontSize:      '0.75rem',
               letterSpacing: '0.08em',
@@ -279,7 +279,7 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
                     >
                       <div style={{ display: 'flex', alignItems: 'flex-end', width: '100%' }}>
                         <span
-                          className="font-[family-name:var(--font-cormorant)] font-light"
+                          className="font-[family-name:var(--font-cormorant)] font-normal"
                           style={{
                             fontSize:      'clamp(1.4rem, 3vw, 2rem)',
                             letterSpacing: '0.02em',
@@ -386,7 +386,7 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
                           {/* Indent */}
                           <span style={{ width: '1.75rem', flexShrink: 0 }} />
                           <span
-                            className="font-[family-name:var(--font-cormorant)] font-light group-hover:text-[color:rgba(var(--ink-rgb),0.8)] transition-colors duration-150"
+                            className="font-[family-name:var(--font-cormorant)] font-normal group-hover:text-[color:rgba(var(--ink-rgb),0.8)] transition-colors duration-150"
                             style={{
                               fontSize:      'clamp(0.85rem, 2vw, 1.15rem)',
                               letterSpacing: '0.02em',
