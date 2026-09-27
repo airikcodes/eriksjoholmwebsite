@@ -1403,3 +1403,12 @@ html[data-theme="light"] .sun-toggle {
 /* Titles a tad thicker: Cormorant 300 -> 400 (unlayered, so it beats Tailwind's font-light) */
 h1, h2, h3 { font-weight: 400; }
 .notes-content h2, .notes-content h3, .notes-content h4 { font-weight: 400; }
+
+/* Night: the Library and newsletter sections re-pin the DAY ink (dark amber / dark grey) for contrast on cream —
+   on the dark night paper (and the moon) that made links, eyebrows and the Subscribe button nearly invisible. */
+html[data-theme="light"][data-tone="night"] .library-wrap,
+html[data-theme="light"][data-tone="night"] .mail-inner {
+  --accent-ink:       #E8B558;
+  --accent-ink-hover: #F3C876;
+  --color-ink-meta:   #ADA292;
+}
