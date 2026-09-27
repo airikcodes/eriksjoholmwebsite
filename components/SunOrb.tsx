@@ -155,22 +155,27 @@ export default function SunOrb() {
       el.style.width = el.style.height = `${size}px`;
       const ox = s.x - size / 2, oy = s.y - size / 2, c = size / 2;
       el.style.transform = `translate3d(${ox}px, ${oy}px, 0) scale(${s.sc})`;
-      // Reflection in the water band: always there, like a moon low over a lake. It follows the disc's horizontal
-      // position and size; higher disc = deeper reflection. Drawn as a softly flattened ellipse, clipped by the band.
+      // Reflection in the water band: a true mirror about the waterline, foreshortened (K) so that a disc up to
+      // ~1/K x the band height above the water still shows. Same width as the real disc at the waterline, so the
+      // outline runs on continuously from the disc into its reflection. The real disc is cut off at the waterline
+      // (below), exactly where the reflection starts.
+      const K = 0.4;
       const rf = reflectRef.current, band = document.querySelector<HTMLElement>(".water");
+      let waterTop = vh;
       if (rf && band) {
         const wh = band.offsetHeight;
-        const cy = oy + size / 2;
-        const depth = 0.12 + 0.5 * Math.min(1, Math.max(0, 1 - cy / vh));   // 0 = at the waterline, 1 = bottom of the band
-        const rs = Math.min(s.sc, 1.6);
+        waterTop = vh - wh;
+        const cyc = oy + size / 2;                      // viewport y of the disc's centre
+        const bandCy = K * (waterTop - cyc);            // mirrored centre, band coordinates (0 = waterline)
         const o = rf.firstElementChild as HTMLElement;
         rf.style.display = "";
         o.style.width = o.style.height = `${size}px`;
-        o.style.transform = `translate3d(${ox}px, ${wh * depth - size / 2}px, 0) scale(${rs}, ${rs * 0.55})`;
+        o.style.transform = `translate3d(${ox}px, ${bandCy - size / 2}px, 0) scale(${s.sc}, ${s.sc * K})`;
       }
       // clip the sun away over photos (coordinates converted into the element's own space)
       let d = `M0 0H${size}V${size}H0Z`;
       holes = photoHoles();
+      holes.push([0, waterTop, vw, vh, 0]);          // the disc stops at the waterline; the reflection carries on
       document.documentElement.classList.toggle("sun-hover", !!mouse && !reduce && onSun(mouse.x, mouse.y));
       for (const [l, t, r, b, rad] of holes) {
         const x1 = c + (l - ox - c) / s.sc, y1 = c + (t - oy - c) / s.sc;
