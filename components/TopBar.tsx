@@ -238,18 +238,7 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
         <div style={{ width: '100%', maxWidth: '620px' }}>
 
           {/* ── INDEX kicker ──────────────────────────────────────────────── */}
-          <Wordmark height="1.6rem" style={{ display: 'block', marginBottom: '1.25rem', color: 'var(--color-ink-primary)' }} />
-          <p style={{
-            fontFamily:    'var(--font-inter)',
-            fontSize:      '0.7rem',
-            letterSpacing: '0.42em',
-            textTransform: 'uppercase',
-            color:         'var(--color-ink-meta)',
-            marginBottom:  '2rem',
-            userSelect:    'none',
-          }}>
-            Index
-          </p>
+          <Wordmark height="1.5rem" style={{ display: 'block', marginTop: '3.5rem', marginBottom: '3rem', color: 'var(--color-ink-primary)' }} />
 
           {/* ── Nav entries ───────────────────────────────────────────────── */}
           <nav aria-label="Main navigation">
