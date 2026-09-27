@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useSyncExternalStore } from "react";
+import { useEffect, useLayoutEffect, useRef, useSyncExternalStore } from "react";
 import { usePathname } from "next/navigation";
 
 /**
@@ -101,7 +101,11 @@ export default function SunOrb() {
   const pathname = usePathname();
   const hidden = useSyncExternalStore(subscribeHidden, readHidden, () => false);
   const lang = useSyncExternalStore(subscribeHidden, () => document.documentElement.lang || "en", () => "en");
-  useEffect(() => { document.documentElement.classList.toggle("sun-off", hidden); }, [hidden]);
+  // Layout effect (not a passive one): applies before the browser paints, so this never
+  // shows the orb for a frame before hiding it again — the pre-paint bootstrap script
+  // (lib/sun-visibility-script.ts) already set the class correctly; this just keeps it in
+  // sync as the user toggles or the viewport crosses the mobile breakpoint.
+  useLayoutEffect(() => { document.documentElement.classList.toggle("sun-off", hidden); }, [hidden]);
   const toggle = () => {
     try { localStorage.setItem(HIDE_KEY, hidden ? "0" : "1"); } catch {}
     window.dispatchEvent(new Event(HIDE_EVENT));
@@ -190,8 +194,11 @@ export default function SunOrb() {
       const rf = reflectRef.current, band = document.querySelector<HTMLElement>(".water");
       let waterTop = vh;
       if (rf && band) {
-        const wh = band.offsetHeight;
-        waterTop = vh - wh;
+        // Read the band's actual on-screen top rather than deriving it from window.innerHeight:
+        // mobile browsers resize innerHeight as their address bar collapses/expands mid-scroll,
+        // and that live value can be a frame stale next to the band's real (already-rendered)
+        // position — the mismatch is what made the reflection visibly jump on phones.
+        waterTop = band.getBoundingClientRect().top;
         const cyc = oy + size / 2;                      // viewport y of the disc's centre
         const o = rf.firstElementChild as HTMLElement;
         rf.style.display = "";
@@ -215,10 +222,14 @@ export default function SunOrb() {
           o.style.display = "none";                     // disc entirely under the waterline
         }
       }
-      // clip the sun away over photos (coordinates converted into the element's own space)
+      // clip the sun away over photos (coordinates converted into the element's own space). Photo
+      // rects only move, relative to the viewport, when the page scrolls or resizes — not every
+      // frame — so the (fairly heavy, full-DOM) scan is skipped whenever neither has changed since
+      // the last frame. On phones this is the difference between a smooth glide and a stutter.
       let d = `M0 0H${size}V${size}H0Z`;
-      holes = photoHoles();
-      holes.push([0, waterTop, vw, vh, 0]);          // the disc stops at the waterline; the reflection carries on
+      const holesKeyNow = `${vw}x${vh}x${Math.round(window.scrollY)}`;
+      if (holesKeyNow !== holesKey) { cachedPhotoHoles = photoHoles(); holesKey = holesKeyNow; }
+      holes = cachedPhotoHoles.concat([[0, waterTop, vw, vh, 0]]);   // the disc stops at the waterline; the reflection carries on
       document.documentElement.classList.toggle("sun-hover", !!mouse && !reduce && onSun(mouse.x, mouse.y));
       for (const [l, t, r, b, rad] of holes) {
         const x1 = c + (l - ox - c) / s.sc, y1 = c + (t - oy - c) / s.sc;
@@ -237,6 +248,8 @@ export default function SunOrb() {
 
     // ── Click the sun: it turns into the background videos (same size, same motion). Click again for yellow.
     let holes: Hole[] = [];
+    let cachedPhotoHoles: Hole[] = [];
+    let holesKey = "";
     let mouse: { x: number; y: number } | null = null;
     let vidIdx = Math.floor(Math.random() * SUN_VIDEOS.length);
     const INTERACTIVE = "a, button, input, textarea, select, summary, label, [role=button], [role=link]";

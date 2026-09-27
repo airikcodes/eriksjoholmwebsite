@@ -10,6 +10,7 @@ import ThemeController from "@/components/ThemeController";
 import SunOrb from "@/components/SunOrb";
 import WaterReflection from "@/components/WaterReflection";
 import { THEME_SCRIPT } from "@/lib/theme-script";
+import { SUN_VISIBILITY_SCRIPT } from "@/lib/sun-visibility-script";
 import "./globals.css";
 
 const validLocales = ['en', 'de', 'es', 'sv', 'fi', 'it', 'fr', 'pt'];
@@ -84,6 +85,8 @@ export default async function RootLayout({
       <body>
         {/* Theme bootstrap — sets data-theme / data-home before first paint (opt-in via ?theme=) */}
         <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
+        {/* Sun/moon visibility bootstrap — phones with no stored choice start hidden, before first paint */}
+        <script dangerouslySetInnerHTML={{ __html: SUN_VISIBILITY_SCRIPT }} />
         <ThemeController />
         {/* Portrait mark — global home link, fixed top-left */}
         <Link href="/" className="portrait-mark" aria-label="Erik Sjøholm — Home">
