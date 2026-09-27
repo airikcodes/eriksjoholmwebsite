@@ -80,6 +80,7 @@ export default function SunOrb() {
   const ref = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const reflectRef = useRef<HTMLDivElement>(null);
+  const reflVideoRef = useRef<HTMLVideoElement>(null);
   const reroll = useRef<(() => void) | null>(null);
   const pathname = usePathname();
   const hidden = useSyncExternalStore(subscribeHidden, readHidden, () => false);
@@ -98,7 +99,7 @@ export default function SunOrb() {
     const el = ref.current;
     if (el && el.dataset.mode === "video") {
       el.dataset.mode = "";
-      videoRef.current?.pause();
+      videoRef.current?.pause(); reflVideoRef.current?.pause();
       window.dispatchEvent(new CustomEvent("sun-video", { detail: { on: false } }));
     }
   }, [pathname]);
@@ -180,6 +181,7 @@ export default function SunOrb() {
         const o = rf.firstElementChild as HTMLElement;
         rf.style.display = "";
         o.style.width = o.style.height = `${size}px`;
+        o.dataset.mode = el.dataset.mode === "video" ? "video" : "";
         o.style.transform = `translate3d(${ox}px, ${bandCy - size / 2}px, 0) scale(${s.sc * R}, ${s.sc * R * K})`;
       }
       // clip the sun away over photos (coordinates converted into the element's own space)
@@ -234,14 +236,21 @@ export default function SunOrb() {
       applyAudio();
       v.src = SUN_VIDEOS[vidIdx % SUN_VIDEOS.length]; vidIdx++;
       v.play().catch(() => {});
+      const rv = reflVideoRef.current;                  // the reflection plays the same clip, upside down
+      if (rv) { rv.muted = true; rv.src = v.src; rv.play().catch(() => {}); }
     };
+    const syncRefl = () => {
+      const v = videoRef.current, rv = reflVideoRef.current;
+      if (v && rv && Math.abs(rv.currentTime - v.currentTime) > 0.25) rv.currentTime = v.currentTime;
+    };
+    videoRef.current?.addEventListener("timeupdate", syncRefl);
     const onClick = (e: MouseEvent) => {
       if (reduce || !onSun(e.clientX, e.clientY)) return;
       const on = el.dataset.mode !== "video";
       el.dataset.mode = on ? "video" : "";
       window.dispatchEvent(new CustomEvent("sun-video", { detail: { on } }));
       const v = videoRef.current;
-      if (on) playNext(); else if (v) { v.pause(); }
+      if (on) playNext(); else { v?.pause(); reflVideoRef.current?.pause(); }
     };
     const onMove = (e: MouseEvent) => { mouse = { x: e.clientX, y: e.clientY }; };
     const onEnded = () => playNext();
@@ -259,7 +268,7 @@ export default function SunOrb() {
   return (
     <>
     <div ref={reflectRef} className="sun-reflect" aria-hidden="true" style={{ display: "none" }}>
-      <div className="sun-reflect-orb" />
+      <div className="sun-reflect-orb"><video ref={reflVideoRef} muted playsInline preload="none" tabIndex={-1} /></div>
     </div>
     <div ref={ref} className="sun-orb" aria-hidden="true">
       <video ref={videoRef} muted playsInline preload="none" tabIndex={-1} />
