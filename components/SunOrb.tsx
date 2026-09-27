@@ -58,11 +58,27 @@ function photoHoles(): Hole[] {
 
 const HIDE_KEY = "sun-orb-hidden";
 const HIDE_EVENT = "sun-orb-hidden-change";
+// Phones default to hidden (no explicit "0"/"1" choice yet) — a "1"/"0" the user set via the
+// toggle always wins, on any screen size, so this default only applies before their first tap.
+const MOBILE_QUERY = "(max-width: 640px)";
+function isMobile(): boolean { try { return window.matchMedia(MOBILE_QUERY).matches; } catch { return false; } }
 function subscribeHidden(cb: () => void) {
   window.addEventListener(HIDE_EVENT, cb); window.addEventListener("storage", cb);
-  return () => { window.removeEventListener(HIDE_EVENT, cb); window.removeEventListener("storage", cb); };
+  let mq: MediaQueryList | null = null;
+  try { mq = window.matchMedia(MOBILE_QUERY); mq.addEventListener("change", cb); } catch {}
+  return () => {
+    window.removeEventListener(HIDE_EVENT, cb); window.removeEventListener("storage", cb);
+    mq?.removeEventListener("change", cb);
+  };
 }
-function readHidden(): boolean { try { return localStorage.getItem(HIDE_KEY) === "1"; } catch { return false; } }
+function readHidden(): boolean {
+  try {
+    const v = localStorage.getItem(HIDE_KEY);
+    if (v === "1") return true;
+    if (v === "0") return false;
+    return isMobile();
+  } catch { return false; }
+}
 const HIDE_LABEL: Record<string, [string, string]> = {
   en: ["Hide the sun and moon", "Show the sun and moon"],
   de: ["Sonne und Mond ausblenden", "Sonne und Mond einblenden"],
