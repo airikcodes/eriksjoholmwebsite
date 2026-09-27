@@ -1148,26 +1148,32 @@ html[data-theme="light"] .mail-form form input {
 }
 .home-lib-item:hover .home-lib-title,
 .home-lib-item:focus-visible .home-lib-title { text-decoration-color: var(--accent-ink); }
-.home-lib-links { display: flex; flex-wrap: wrap; gap: 0.75rem 2.5rem; margin-top: 3.5rem; }
+.home-lib-links { display: flex; flex-wrap: wrap; gap: 0.85rem 1rem; margin-top: 3.5rem; }
 .home-lib-more {
-  font-family:    var(--font-inter), system-ui, sans-serif;
-  font-size:      0.72rem;
-  font-weight:    500;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color:          var(--accent-ink);
+  display:         inline-flex;
+  align-items:     center;
+  font-family:     var(--font-inter), system-ui, sans-serif;
+  font-size:       0.72rem;
+  font-weight:     500;
+  letter-spacing:  0.22em;
+  text-transform:  uppercase;
+  color:           var(--accent-ink);
   text-decoration: none;
-  padding-bottom: 0.3rem;
-  border-bottom:  1px solid transparent;
-  transition:     border-color 200ms ease;
+  padding:         0.95rem 1.7rem;
+  border:          1px solid var(--accent-ink);
+  border-radius:   999px;
+  background:      transparent;
+  transition:      background-color 200ms ease, color 200ms ease, border-color 200ms ease;
 }
-.home-lib-more:hover, .home-lib-more:focus-visible { border-bottom-color: var(--accent-ink); }
-/* Night: the dark gold vanishes on the dark page and on the moon — use the light ink, with a visible underline. */
+.home-lib-more:hover, .home-lib-more:focus-visible { background: var(--accent-ink); color: var(--page-solid); }
+/* Night: the dark gold vanished on the dark page and on the moon — light ink, a soft fill so the button reads on either. */
 html[data-tone="night"] .home-lib-more {
-  color: var(--color-ink-primary); border-bottom-color: rgba(var(--fg-rgb), 0.45);
-  text-shadow: 0 1px 10px rgba(0,0,0,0.35);
+  color: var(--color-ink-primary); border-color: rgba(var(--fg-rgb), 0.55);
+  background: rgba(var(--fg-rgb), 0.08);
 }
-html[data-tone="night"] .home-lib-more:hover, html[data-tone="night"] .home-lib-more:focus-visible { border-bottom-color: var(--color-ink-primary); }
+html[data-tone="night"] .home-lib-more:hover, html[data-tone="night"] .home-lib-more:focus-visible {
+  background: var(--color-ink-primary); color: var(--page-solid); border-color: var(--color-ink-primary);
+}
 
 /* Folio ("03 / 06") is decorative and unreadable over the photo band — off in light. */
 html[data-theme="light"] .topbar-folio { display: none; }
@@ -1175,8 +1181,8 @@ html[data-theme="light"] .topbar-folio { display: none; }
 /* ── Soft corners (2026-09-26) ────────────────────────────────────────────────
    Buttons, inputs and boxes get gently rounded corners. Full-bleed bands (video windows,
    page photo bands, section edges) stay hard-cut on purpose. */
-.concierge-input, .concierge-chip, .pill-btn, .form-input, .lib-filter, .menu-toggle-btn,
-.home-lib-more { border-radius: var(--radius-s); }
+.concierge-input, .concierge-chip, .pill-btn, .form-input, .lib-filter, .menu-toggle-btn { border-radius: var(--radius-s); }
+
 .portal-tile, .portal-door, .home-lib-img, .lib-cover { border-radius: var(--radius-m); }
 /* Any element with a full 1px border (cards, chips, tags, fields) is softened by default. */
 [style*="border: 1px solid"] { border-radius: var(--radius-s); }
