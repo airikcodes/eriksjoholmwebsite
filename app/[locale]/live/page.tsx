@@ -176,7 +176,7 @@ export default async function LivePage({
                           letterSpacing: '0.08em',
                           marginBottom: event.ticketUrl ? '0.5rem' : 0,
                         }}>
-                          {formatDate(event.date)}
+                          {formatDate(event.date)}{event.time ? ` · ${event.time}` : ''}
                         </p>
                       )}
                       {event.ticketUrl && (
@@ -196,6 +196,27 @@ export default async function LivePage({
                           className="hover:text-[color:var(--accent-ink)] hover:border-[#C8922A] transition-colors duration-200"
                         >
                           Tickets
+                        </a>
+                      )}
+                      {event.eventUrl && (
+                        <a
+                          href={event.eventUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={{
+                            display: 'inline-block',
+                            marginLeft: event.ticketUrl ? '1.25rem' : 0,
+                            fontFamily: 'var(--font-inter)',
+                            fontSize: '0.7rem',
+                            letterSpacing: '0.22em',
+                            textTransform: 'uppercase',
+                            color: 'var(--color-ink-meta)',
+                            borderBottom: '1px solid rgba(var(--meta-rgb),0.3)',
+                            paddingBottom: '2px',
+                          }}
+                          className="hover:text-[color:var(--accent-ink)] hover:border-[#C8922A] transition-colors duration-200"
+                        >
+                          Festival page
                         </a>
                       )}
                     </div>

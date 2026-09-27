@@ -11,6 +11,8 @@ export interface LiveEvent {
   title?: string;
   /** ISO date string YYYY-MM-DD */
   date?: string;
+  /** Optional time, shown after the date, e.g. '15:30–16:30' */
+  time?: string;
   venue?: string;
   city: string;
   country: string;
@@ -25,7 +27,19 @@ export interface LiveEvent {
 
 export const events: LiveEvent[] = [
   // ── Upcoming ────────────────────────────────────────────────────────────────
-  // (add upcoming events here as they are confirmed)
+  {
+    id:        'dai-heidelberg-2026',
+    title:     'Storytelling mit Musik – Freedombird',
+    date:      '2026-10-11',
+    time:      '15:30–16:30',
+    venue:     'DAI Heidelberg · International Children\'s Book Festival',
+    city:      'Heidelberg',
+    country:   'Germany',
+    eventType: 'storytelling-performance',
+    ticketUrl: 'https://dai-heidelberg.reservix.de/p/reservix/group/549365',
+    eventUrl:  'https://dai-heidelberg.de/en/events/2026-international-childrens-book-festival-58858/',
+    status:    'upcoming',
+  },
 
   // ── Past ────────────────────────────────────────────────────────────────────
   {
