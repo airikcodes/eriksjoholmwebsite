@@ -46,8 +46,39 @@ export default async function LivePage({
         .replace('{countries}', String(new Set(pastEvents.map((e) => e.country)).size))
     : null;
 
+  // Structured data: only upcoming shows — schema.org/Google guidance is to markup
+  // scheduled events, not a historical record of past ones.
+  const eventsJsonLd = upcomingEvents.map((e) => ({
+    '@context':  'https://schema.org',
+    '@type':     e.eventType === 'storytelling-performance' ? 'TheaterEvent' : 'MusicEvent',
+    '@id':       `https://eriksjoholm.com/live#${e.id}`,
+    name:        e.title ?? `Erik Sjøholm in ${e.city}`,
+    ...(e.date ? { startDate: e.date } : {}),
+    eventAttendanceMode:  'https://schema.org/OfflineEventAttendanceMode',
+    eventStatus:          'https://schema.org/EventScheduled',
+    location: {
+      '@type':  'Place',
+      name:     e.venue ?? `${e.city}, ${e.country}`,
+      address: {
+        '@type':          'PostalAddress',
+        addressLocality:  e.city,
+        addressCountry:   e.country,
+      },
+    },
+    performer: { '@id': 'https://eriksjoholm.com/#artist' },
+    ...(e.eventUrl ? { url: e.eventUrl } : {}),
+    ...(e.ticketUrl ? { offers: { '@type': 'Offer', url: e.ticketUrl, availability: 'https://schema.org/InStock' } } : {}),
+  }));
+
   return (
     <main className="min-h-screen" style={{ background: 'var(--page-solid)', color: 'var(--color-ink-primary)' }}>
+      {eventsJsonLd.map((e) => (
+        <script
+          key={e['@id']}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(e) }}
+        />
+      ))}
 
       {/* Fixed background */}
       <link rel="preload" as="image" href="/images/banners/live.jpg" fetchPriority="high" />

@@ -67,9 +67,28 @@ export default async function NotePost({
 
   const n = t.notes;
   const date = formatNoteDate(note.date, locale);
+  const url = `https://eriksjoholm.com/notes/${slug}`;
+
+  const jsonLd = {
+    '@context':        'https://schema.org',
+    '@type':           'BlogPosting',
+    '@id':              `${url}#article`,
+    headline:           note.title,
+    description:        note.excerpt ?? undefined,
+    datePublished:       note.date || undefined,
+    url,
+    mainEntityOfPage:   url,
+    image:              note.coverImage ?? 'https://eriksjoholm.com/images/portrait.jpg',
+    author:             { '@id': 'https://eriksjoholm.com/#artist' },
+    isPartOf:           { '@id': 'https://eriksjoholm.com/#website' },
+  };
 
   return (
     <main className="min-h-screen" style={{ background: 'var(--page-solid)', color: 'var(--color-ink-primary)' }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
 
       {/* Fixed background */}
       <div style={{ position: 'fixed', inset: 0, zIndex: 0 }}>

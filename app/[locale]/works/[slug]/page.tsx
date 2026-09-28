@@ -76,8 +76,56 @@ export default async function WorkPage({
   // The description in the visitor's site language, when we have one; English (the base field) otherwise
   const description = work.descriptionTranslations?.[locale as 'en' | 'de' | 'es' | 'sv' | 'fi' | 'fr' | 'it' | 'pt'] ?? work.description;
 
+  // ── Structured data (schema.org) ─────────────────────────────────────────
+  // Releases (albums/EPs) get MusicAlbum; individual tracks get MusicRecording.
+  // `storytelling` works have no clean schema.org music type, so they're skipped.
+  const workUrl   = `https://eriksjoholm.com/works/${slug}`;
+  const datePub   = work.releaseDate ?? (work.year ? String(work.year) : undefined);
+  const artistRef = { '@id': 'https://eriksjoholm.com/#artist' };
+
+  let musicJsonLd: Record<string, unknown> | null = null;
+  if (work.workType === 'album' || work.workType === 'ep') {
+    musicJsonLd = {
+      '@context':   'https://schema.org',
+      '@type':      'MusicAlbum',
+      '@id':        `${workUrl}#release`,
+      name:         work.title,
+      byArtist:     artistRef,
+      url:          workUrl,
+      ...(work.coverImage ? { image: work.coverImage } : {}),
+      ...(datePub ? { datePublished: datePub } : {}),
+      ...(description ? { description } : {}),
+      ...(work.workType === 'ep' ? { albumProductionType: 'https://schema.org/EPProductionType' } : {}),
+      ...(work.tracks && work.tracks.length > 0
+        ? { numTracks: work.tracks.length }
+        : {}),
+    };
+  } else if (work.workType === 'song' || work.workType === 'single' || work.workType === 'collaboration') {
+    musicJsonLd = {
+      '@context':   'https://schema.org',
+      '@type':      'MusicRecording',
+      '@id':        `${workUrl}#recording`,
+      name:         work.title,
+      byArtist:     artistRef,
+      url:          workUrl,
+      ...(work.coverImage ? { image: work.coverImage } : {}),
+      ...(datePub ? { datePublished: datePub } : {}),
+      ...(description ? { description } : {}),
+      ...(albumWork
+        ? { inAlbum: { '@type': 'MusicAlbum', name: albumWork.title, url: `https://eriksjoholm.com/works/${albumWork.slug}` } }
+        : {}),
+      ...(work.lyrics ? { lyrics: { '@type': 'CreativeWork', text: work.lyrics } } : {}),
+    };
+  }
+
   return (
     <main className="min-h-screen" style={{ background: 'var(--page-solid)', color: 'var(--color-ink-primary)' }}>
+      {musicJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(musicJsonLd) }}
+        />
+      )}
 
       {/* Fixed background — project photos if available, else static fallback */}
       {work.photos && work.photos.length > 0 ? (
