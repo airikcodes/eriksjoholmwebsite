@@ -224,20 +224,20 @@ export default function SunOrb() {
         o.dataset.mode = el.dataset.mode === "video" ? "video" : "";
         const r = (size * s.sc * R) / 2;                // visible radius of the disc
         const dy = waterTop - cyc;                      // > 0: disc centre is above the waterline
-        if (Math.abs(dy) < r) {
-          // The disc crosses the waterline: the reflection hangs from the cut, exactly as wide as the disc is there
-          // (never wider), and closes softly below like the lower half of a foreshortened circle.
-          const chord = 2 * Math.sqrt(r * r - dy * dy);
-          const k = chord / size;
-          o.style.display = "";
-          o.style.transform = `translate3d(${ox}px, ${-size / 2}px, 0) scale(${k}, ${k * K * 1.4})`;
-        } else if (dy > 0) {
-          // Disc entirely above the water: its whole foreshortened mirror image
+        if (dy > -r) {
+          // Always the disc's whole foreshortened mirror image, positioned so a point dy above the
+          // waterline lands K*dy below it — one formula for every position, above the water or
+          // crossing it. When part of this ellipse would sit above the waterline (close to, or
+          // dipping into, the water), the reflection band's own overflow:hidden crops it there.
+          // Because the shape underneath is a real (clipped) ellipse, that crop draws the correctly
+          // narrowing cap on its own — a second, separately-computed "crossing" shape previously
+          // stood in for this and didn't line up with this one at the handoff, which is what made
+          // the reflection visibly jump right as the disc reached the water.
           const bandCy = K * dy;
           o.style.display = "";
           o.style.transform = `translate3d(${ox}px, ${bandCy - size / 2}px, 0) scale(${s.sc * R}, ${s.sc * R * K})`;
         } else {
-          o.style.display = "none";                     // disc entirely under the waterline
+          o.style.display = "none";                     // disc entirely under the waterline: nothing to reflect
         }
       }
       // clip the sun away over photos (coordinates converted into the element's own space). Photo
