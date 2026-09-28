@@ -33,6 +33,8 @@ export interface Work {
   lyricsTranslations?: Partial<Record<'en' | 'de' | 'es' | 'sv' | 'fi', string>>;
   story?: string;
   description?: string;
+  /** Translations of `description`, keyed by site locale (the base `description` language is not repeated here) */
+  descriptionTranslations?: Partial<Record<'en' | 'de' | 'es' | 'sv' | 'fi', string>>;
   credits?: WorkCredit[];
   /** For albums/EPs: slugs of songs that appear on this release */
   tracks?: string[];
@@ -3036,7 +3038,48 @@ Vapaa kuin lintu`,
     coverImage:    'https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02260f62f2a1fc9602fa2d662c',
     spotifyUrl:    'https://open.spotify.com/track/6BYAYynES64GQgdBpHXvii',
     tidalUrl:      tidalSearch('Stanna Sjøholm Nordström'),
-    description:   'A Swedish-language single from the album Längs med vägen, written and composed by Erik Sjøholm and Emil Nordström. It asks what stays when people and time change: "Om du kunde stanna, om vi kunde stanna kvar."',
+    description:
+`Stanna is a song about wanting time to stand still. The chorus wishes we could stay here forever, like a stone statue in the city, unchanged and untouched by the years.
+
+But the song doesn't stay in that wish. It turns to a harder question: what is it that stays? Is a memory all that's left of everything we were, and everything we had?
+
+For me, the song comes from the people in my life: my parents, my relationships, the different versions of myself. You invest so much time in someone, and then one day that version of them is gone. Sometimes it's slow change. Sometimes it's an illness, and you miss the healthy person they used to be. You can't get that version back, and you can't get your own back either. Stanna sits in that frustration, and in the tenderness underneath it.
+
+It's a single from the album Längs med vägen, written together with my co-writer.`,
+    descriptionTranslations: {
+      sv:
+`Stanna handlar om att vilja att tiden ska stå still. I refrängen önskar man att man kunde stanna kvar för alltid, som en stenstaty i stan, oförändrad och orörd av åren.
+
+Men låten stannar inte i den önskan. Den vänder sig till en svårare fråga: vad är det som stannar kvar? Är ett minne allt som finns kvar av allt vi var, och allt vi hade?
+
+För mig kommer låten från människorna i mitt liv: mina föräldrar, mina relationer, mina olika versioner av mig själv. Man investerar så mycket tid i någon, och sedan en dag är den versionen av dem borta. Ibland är det en långsam förändring. Ibland är det en sjukdom, och man saknar den friska person som de en gång var. Man kan inte få tillbaka den versionen, och man kan inte få tillbaka sin egen heller. Stanna ligger i den frustrationen, och i ömheten som finns under den.
+
+Det är en singel från albumet Längs med vägen, skriven tillsammans med min medförfattare.`,
+      de:
+`Stanna ist ein Lied über den Wunsch, dass die Zeit stillsteht. Im Refrain wünscht man sich, für immer hier bleiben zu können, wie eine steinerne Statue in der Stadt, unverändert und unberührt von den Jahren.
+
+Aber das Lied bleibt nicht bei diesem Wunsch. Es wendet sich einer schwierigeren Frage zu: Was bleibt eigentlich? Ist eine Erinnerung alles, was von allem übrig bleibt, was wir waren, und allem, was wir hatten?
+
+Für mich kommt das Lied von den Menschen in meinem Leben: meinen Eltern, meinen Beziehungen, den verschiedenen Versionen meiner selbst. Man investiert so viel Zeit in jemanden, und eines Tages ist diese Version von ihm verschwunden. Manchmal ist es ein langsamer Wandel. Manchmal ist es eine Krankheit, und man vermisst den gesunden Menschen, der er einmal war. Diese Version bekommt man nicht zurück, und die eigene auch nicht. Stanna sitzt in dieser Frustration, und in der Zärtlichkeit, die darunterliegt.
+
+Es ist eine Single aus dem Album Längs med vägen, geschrieben zusammen mit meinem Co-Autor.`,
+      es:
+`Stanna es una canción sobre el deseo de que el tiempo se detenga. El estribillo desea que pudiéramos quedarnos aquí para siempre, como una estatua de piedra en la ciudad, inalterada e intacta por los años.
+
+Pero la canción no se queda en ese deseo. Se vuelve hacia una pregunta más difícil: ¿qué es lo que permanece? ¿Es un recuerdo todo lo que queda de todo lo que fuimos, y de todo lo que tuvimos?
+
+Para mí, la canción nace de las personas en mi vida: mis padres, mis relaciones, las distintas versiones de mí mismo. Inviertes tanto tiempo en alguien, y de repente, un día, esa versión de ellos desaparece. A veces es un cambio lento. A veces es una enfermedad, y extrañas a la persona sana que solían ser. No puedes recuperar esa versión, ni tampoco la tuya propia. Stanna se sitúa en esa frustración, y en la ternura que hay debajo de ella.
+
+Es un sencillo del álbum Längs med vägen, escrito junto a mi coautor.`,
+      fi:
+`Stanna kertoo halusta pysäyttää aika. Kertosäkeessä toivotaan, että voisimme jäädä tänne ikuisesti, kuin kivipatsas kaupungissa, muuttumattomana ja vuosien koskemattomana.
+
+Mutta laulu ei jää siihen toiveeseen. Se kääntyy vaikeampaan kysymykseen: mikä oikeastaan pysyy? Onko muisto kaikki, mitä jää jäljelle siitä, keitä olimme, ja kaikesta, mitä meillä oli?
+
+Minulle laulu syntyy elämäni ihmisistä: vanhemmistani, ihmissuhteistani, itseni eri versioista. Sijoitat niin paljon aikaa johonkuhun, ja sitten eräänä päivänä se versio hänestä on poissa. Joskus se on hidasta muutosta. Joskus se on sairaus, ja kaipaat sitä tervettä ihmistä, joka hän ennen oli. Sitä versiota ei saa takaisin, eikä omaansakaan. Stanna asuu siinä turhautumisessa, ja sen alla olevassa hellyydessä.
+
+Se on single albumilta Längs med vägen, kirjoitettu yhdessä kanssakirjoittajani kanssa.`,
+    },
     credits: [
       { name: 'Erik Sjøholm',     role: 'Words and music, lead vocals, backing vocals' },
       { name: 'Emil Nordström',   role: 'Words and music, production, arrangement, mixing, guitars' },

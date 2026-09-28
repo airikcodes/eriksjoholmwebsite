@@ -73,6 +73,9 @@ export default async function WorkPage({
   // If this work belongs to an album, resolve it so we can link back to it
   const albumWork: Work | undefined = work.album ? getWork(work.album) : undefined;
 
+  // The description in the visitor's site language, when we have one; English (the base field) otherwise
+  const description = work.descriptionTranslations?.[locale as 'en' | 'de' | 'es' | 'sv' | 'fi'] ?? work.description;
+
   return (
     <main className="min-h-screen" style={{ background: 'var(--page-solid)', color: 'var(--color-ink-primary)' }}>
 
@@ -184,9 +187,9 @@ export default async function WorkPage({
           </div>
 
           {/* ── Description ── */}
-          {work.description && (
+          {description && (
             <div style={{ paddingBottom: '4rem' }}>
-              {work.description.split('\n\n').map((para, i) => (
+              {description.split('\n\n').map((para, i) => (
                 <p key={i} style={{
                   fontFamily:   'var(--font-inter)',
                   fontSize:     '0.9rem',
