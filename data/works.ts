@@ -30,11 +30,11 @@ export interface Work {
   audioUrl?: string;
   lyrics?: string;
   /** Translations of `lyrics`, keyed by site locale (the original language is not repeated here) */
-  lyricsTranslations?: Partial<Record<'en' | 'de' | 'es' | 'sv' | 'fi', string>>;
+  lyricsTranslations?: Partial<Record<'en' | 'de' | 'es' | 'sv' | 'fi' | 'fr' | 'it' | 'pt', string>>;
   story?: string;
   description?: string;
   /** Translations of `description`, keyed by site locale (the base `description` language is not repeated here) */
-  descriptionTranslations?: Partial<Record<'en' | 'de' | 'es' | 'sv' | 'fi', string>>;
+  descriptionTranslations?: Partial<Record<'en' | 'de' | 'es' | 'sv' | 'fi' | 'fr' | 'it' | 'pt', string>>;
   credits?: WorkCredit[];
   /** For albums/EPs: slugs of songs that appear on this release */
   tracks?: string[];

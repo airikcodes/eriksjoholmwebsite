@@ -8,18 +8,27 @@ const LANGUAGE_NAMES: Record<string, string> = {
   de: 'Deutsch',
   es: 'Español',
   fi: 'Suomi',
+  fr: 'Français',
+  it: 'Italiano',
+  pt: 'Português',
 };
 
-// The word "translation" in each site language, shown next to a translated lyric
+// The word "translation" in each site language, shown next to a translated lyric. Every code in
+// ORDER needs an entry here (not just the non-Swedish ones) — a song written in English (most of
+// them) has Swedish itself as a translation tab, not the original, so "sv" needs a label too.
 const TRANSLATION_WORD: Record<string, string> = {
   en: 'Translation',
+  sv: 'Översättning',
   de: 'Übersetzung',
   es: 'Traducción',
   fi: 'Käännös',
+  fr: 'Traduction',
+  it: 'Traduzione',
+  pt: 'Tradução',
 };
 
 // Languages we offer lyric translations in (the original language is always shown too)
-const ORDER = ['sv', 'en', 'de', 'es', 'fi'];
+const ORDER = ['sv', 'en', 'de', 'es', 'fi', 'fr', 'it', 'pt'];
 
 export default function LyricsTranslations({
   original,
