@@ -258,31 +258,6 @@ function moodHits(input: string): Track[] {
     .map((s) => s.track);
 }
 
-function matchFromText(input: string): Track[] {
-  const lower = input.toLowerCase();
-
-  const hits = moodHits(input);
-  if (hits.length > 0) return hits;
-
-  const by = (id: string) => catalog.find((t) => t.id === id)!;
-  if (/sad|melanchol|lone|dark|night|slow|quiet|still|late|broken|3am/.test(lower))
-    return [by("night"), by("ashes"), by("gone")];
-  if (/happ|joy|danc|energy|upbeat|fast|fun|wake|morn|motivat/.test(lower))
-    return [by("wake-up"), by("lycka"), by("ray-of-light")];
-  if (/love|roman|heart|tender|intimate/.test(lower))
-    return [by("origin-of-love"), by("magari"), by("one-last-waltz")];
-  if (/home|famil|belong|cozy|return|root/.test(lower))
-    return [by("välkommen"), by("barndomsåren"), by("langs-med-vagen")];
-  if (/travel|journey|road|wander|abroad/.test(lower))
-    return [by("matsawana"), by("langs-med-vagen"), by("la-latina")];
-  if (/hope|light|faith|inspir|bright/.test(lower))
-    return [by("ray-of-light"), by("if-you-believe"), by("wake-up")];
-  if (/loss|grief|miss|gone|end|over/.test(lower))
-    return [by("gone"), by("ashes"), by("night")];
-
-  return [by("lycka"), by("night"), by("magari")];
-}
-
 type Track = (typeof catalog)[0] & { matchedLine?: string };
 
 // ── Lyrics matching (server: /api/concierge, lib/lyrics-search.ts) ───────────
@@ -524,8 +499,12 @@ export default function SongConcierge({
     else if (hour >= 12 && hour < 17) slot = timeSlots.afternoon;
     else if (hour >= 17 && hour < 21) slot = timeSlots.evening;
     else                              slot = timeSlots.night;
+    // Deferred to the effect on purpose: the server's clock isn't the visitor's local
+    // time, so swapping in the time-of-day heading before hydration would mismatch the
+    // server-rendered markup.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (slot) setDisplayHeading(heading.replace(timeReplace, slot));
-  }, [heading, timeSlots]);
+  }, [heading, timeSlots, timeReplace]);
 
   const chips = [
     { label: chipLatest,     id: "latest" },
@@ -649,10 +628,26 @@ export default function SongConcierge({
         </button>
       </form>
 
+      {/* "or" divider between the free-text input and the chip picks below */}
+      <p
+        aria-hidden="true"
+        style={{
+          fontFamily:    "var(--font-inter)",
+          fontSize:      "0.62rem",
+          letterSpacing: "0.15em",
+          textTransform: "uppercase",
+          textAlign:     "center",
+          color:         "var(--color-ink-meta)",
+          margin:        "1.4rem 0 0",
+        }}
+      >
+        {orLabel}
+      </p>
+
       {/* Chips — full width of the input box, three equal columns.
           Margin set inline: a sitewide `* { margin: 0 }` reset in globals.css
           sits outside Tailwind's layers and silently beats mt-* utilities. */}
-      <div style={{ marginTop: "3rem" }}>
+      <div style={{ marginTop: "1rem" }}>
         <div className="flex gap-2">
           {chips.map((chip) => (
             <button
