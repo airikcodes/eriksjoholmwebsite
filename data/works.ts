@@ -249,6 +249,111 @@ Onni tulee, onni menee
 Missä elämässä sitten seisommekin
 Olemme siellä toisiamme varten
 Olemme siellä`,
+      fr:
+`On s'appelle régulièrement
+Elle me demande toujours comment je vais
+Et c'est elle qui sait me comprendre
+
+Toujours le calme dans ma tempête
+À travers la joie, à travers la peine
+
+Si petit j'étais alors
+Sans défense dans ta main
+Maintenant je suis là
+Pour toi
+
+Il sent le pouls
+Fait confiance au ressenti
+Que le chemin mène toujours à la maison
+
+Si petit j'étais alors
+Sans défense dans ta main
+Maintenant je suis là
+Pour toi
+
+Ta volonté forte
+Ça peut être difficile pour moi
+D'accepter nos limites
+
+Si petite tu étais alors
+Sans défense dans ma main
+Maintenant nous sommes là
+Pour toi
+
+Le bonheur vient, le bonheur s'en va
+Où que nous en soyons dans la vie
+Nous sommes là l'un pour l'autre
+Nous sommes là`,
+      it:
+`Ci sentiamo regolarmente
+Lei mi chiede sempre come sto
+Ed è lei che sa capirmi
+
+Sempre la calma nella mia tempesta
+Attraverso la gioia, attraverso il dolore
+
+Così piccolo ero allora
+Indifeso nella tua mano
+Ora sono qui
+Per te
+
+Lui sente il polso
+Si fida della sensazione
+Che la strada porti sempre a casa
+
+Così piccolo ero allora
+Indifeso nella tua mano
+Ora sono qui
+Per te
+
+La tua forte volontà
+Può essere difficile per me
+Accettare i nostri confini
+
+Così piccola eri allora
+Indifesa nella mia mano
+Ora siamo qui
+Per te
+
+La felicità va, la felicità viene
+Ovunque siamo nella vita
+Ci siamo l'uno per l'altra
+Ci siamo`,
+      pt:
+`Ligamos um para o outro regularmente
+Ela pergunta sempre como estou
+E é ela quem me sabe compreender
+
+Sempre a calma na minha tempestade
+Através da alegria, através da tristeza
+
+Tão pequeno era eu então
+Indefeso na tua mão
+Agora estou aqui
+Por ti
+
+Ele sente o pulso
+Confia no sentimento
+De que o caminho leva sempre a casa
+
+Tão pequeno era eu então
+Indefeso na tua mão
+Agora estou aqui
+Por ti
+
+A tua vontade forte
+Pode ser difícil para mim
+Aceitar os nossos limites
+
+Tão pequena eras tu então
+Indefesa na minha mão
+Agora estamos aqui
+Por ti
+
+A felicidade vem, a felicidade vai
+Onde quer que estejamos na vida
+Estamos aqui um para o outro
+Estamos aqui`,
     },
     credits: [
       { name: 'Erik Sjøholm',      role: 'Lyrics, lead vocals, backing vocals' },
@@ -264,6 +369,15 @@ Olemme siellä`,
       { name: 'Maria Triana',      role: 'Mastering (Amsterdam)' },
     ],
     description:   'Written about Emil\'s family: his bond with his wife and daughter, and with his own parents. A cross-generational song about how people carry each other through life, joy or grief. "Lyckan kommer, lyckan går / var vi än i livet står / finns vi där för varandra."',
+    descriptionTranslations: {
+      de:   'Geschrieben über Emils Familie: seine Verbindung zu seiner Frau und seiner Tochter, und zu seinen eigenen Eltern. Ein generationenübergreifendes Lied darüber, wie Menschen einander durchs Leben tragen, durch Freude oder Trauer. „Lyckan kommer, lyckan går / var vi än i livet står / finns vi där för varandra.“',
+      sv:   'Skriven om Emils familj: hans band till sin fru och dotter, och till sina egna föräldrar. En generationsöverskridande låt om hur människor bär varandra genom livet, i glädje eller sorg. "Lyckan kommer, lyckan går / var vi än i livet står / finns vi där för varandra."',
+      es:   'Escrita sobre la familia de Emil: su vínculo con su esposa e hija, y con sus propios padres. Una canción intergeneracional sobre cómo las personas se sostienen unas a otras a lo largo de la vida, en la alegría o en el duelo. «Lyckan kommer, lyckan går / var vi än i livet står / finns vi där för varandra».',
+      fi:   'Kirjoitettu Emilin perheestä: hänen siteestään vaimoonsa ja tyttäreensä sekä omiin vanhempiinsa. Sukupolvien välinen laulu siitä, miten ihmiset kantavat toisiaan elämän läpi, ilossa tai surussa. ”Lyckan kommer, lyckan går / var vi än i livet står / finns vi där för varandra.”',
+      fr:   'Écrite sur la famille d\'Emil : son lien avec sa femme et sa fille, et avec ses propres parents. Une chanson intergénérationnelle sur la façon dont on se porte les uns les autres à travers la vie, dans la joie comme dans le deuil. « Lyckan kommer, lyckan går / var vi än i livet står / finns vi där för varandra. »',
+      it:   'Scritta sulla famiglia di Emil: il suo legame con la moglie e la figlia, e con i propri genitori. Una canzone tra generazioni su come le persone si sostengono a vicenda lungo la vita, nella gioia o nel lutto. «Lyckan kommer, lyckan går / var vi än i livet står / finns vi där för varandra».',
+      pt:   'Escrita sobre a família de Emil: o seu vínculo com a esposa e a filha, e com os próprios pais. Uma canção entre gerações sobre como as pessoas se amparam ao longo da vida, na alegria ou no luto. «Lyckan kommer, lyckan går / var vi än i livet står / finns vi där för varandra».',
+    },
   },
   {
     id:            'night-is-long',
@@ -403,6 +517,72 @@ och håll upp ett ljus i mörkret
 Jag ger min kärlek åt de ensamma
 Jag ger min kärlek åt det enda jag vill ägna min uppmärksamhet åt
 nämligen att få ditt hjärta att slå två gånger`,
+      fr:
+`J'aimerais parler de la société
+J'aimerais parler de paix
+J'aimerais parler d'humanité
+tout ce qu'on ferait par amour, tout ce qu'on ferait pour qu'on se souvienne de nous
+
+Brille comme le soleil de minuit
+et tiens une lumière dans le noir
+Je donnerai mon amour aux solitaires
+Je donnerai mon amour, la seule chose à laquelle je veux consacrer mon attention
+c'est de faire battre ton cœur deux fois
+
+J'aimerais me lever comme Mandela
+J'aimerais écrire une chanson comme celle de John Lennon
+J'aimerais parler comme Martin Luther King
+tout ce qu'on ferait par amour, tout ce qu'on ferait pour qu'on se souvienne de nous
+
+Brille comme le soleil de minuit
+et tiens une lumière dans le noir
+Je donnerai mon amour aux solitaires
+Je donnerai mon amour, la seule chose à laquelle je veux consacrer mon attention
+c'est de faire battre ton cœur deux fois`,
+      it:
+`Vorrei parlare della società
+Vorrei parlare di pace
+Vorrei parlare di umanità
+quanto faremmo per amore, quanto faremmo per essere ricordati
+
+Splendi come il sole di mezzanotte
+e tieni alta una luce nel buio
+Darò il mio amore ai solitari
+Darò il mio amore, l'unica cosa a cui voglio dedicare la mia attenzione
+è far battere il tuo cuore due volte
+
+Vorrei alzarmi in piedi come Mandela
+Vorrei scrivere una canzone come quella di John Lennon
+Vorrei parlare come Martin Luther King
+quanto faremmo per amore, quanto faremmo per essere ricordati
+
+Splendi come il sole di mezzanotte
+e tieni alta una luce nel buio
+Darò il mio amore ai solitari
+Darò il mio amore, l'unica cosa a cui voglio dedicare la mia attenzione
+è far battere il tuo cuore due volte`,
+      pt:
+`Gostaria de falar sobre a sociedade
+Gostaria de falar sobre paz
+Gostaria de falar sobre humanidade
+tanto que faríamos por amor, tanto que faríamos para sermos lembrados
+
+Brilha como o sol da meia-noite
+e ergue uma luz na escuridão
+Darei o meu amor aos solitários
+Darei o meu amor, a única coisa a que quero dar a minha atenção
+é fazer o teu coração bater duas vezes
+
+Gostaria de me levantar como Mandela
+Gostaria de escrever uma canção como a de John Lennon
+Gostaria de falar como Martin Luther King
+tanto que faríamos por amor, tanto que faríamos para sermos lembrados
+
+Brilha como o sol da meia-noite
+e ergue uma luz na escuridão
+Darei o meu amor aos solitários
+Darei o meu amor, a única coisa a que quero dar a minha atenção
+é fazer o teu coração bater duas vezes`,
     },
   },
 
@@ -571,6 +751,96 @@ Allt är bra
 
 Två följer den ene
 Och du följer geväret`,
+      fr:
+`Deux suivent le un
+Et toi tu suis le fusil
+
+Les pensées remplissent nos têtes
+Les esprits deviennent fous
+Capture une image
+Quand tu perds le contrôle
+En observant un instant
+
+Et quand plus rien n'a de sens
+Affiche juste un sourire
+
+Trouve une clé vers le soulagement
+Quand le temps l'enferme dehors
+Ralentis un mouvement
+Attrape le reflet du passé
+En cherchant une ligne vraie
+
+Et quand plus rien d'autre n'a de sens
+Du tout
+Affiche juste un sourire
+
+Regarde autour de toi
+Tout va bien
+Qu'est-ce qui ne va pas là maintenant
+Tout va bien
+
+Deux suivent le un
+Et toi tu suis le fusil`,
+      it:
+`Due seguono l'uno
+E tu segui il fucile
+
+I pensieri riempiono le nostre teste
+Le menti stanno impazzendo
+Cattura un'immagine
+Quando perdi il controllo
+Osservando un momento
+
+E quando niente ha più senso
+Metti solo un sorriso
+
+Trova una chiave per il sollievo
+Quando il tempo la tiene fuori
+Rallenta un movimento
+Cogli il riflesso del passato
+Cercando una linea vera
+
+E quando nient'altro ha senso
+Per niente
+Metti solo un sorriso
+
+Guardati intorno
+Va tutto bene
+Cosa c'è che non va adesso
+Va tutto bene
+
+Due seguono l'uno
+E tu segui il fucile`,
+      pt:
+`Dois seguem o um
+E tu segues a arma
+
+Pensamentos enchem as nossas cabeças
+As mentes estão a enlouquecer
+Captura uma imagem
+Quando perdes o controlo
+Observando um momento
+
+E quando nada faz sentido
+Basta pôr um sorriso
+
+Encontra uma chave para o alívio
+Quando o tempo a tranca lá fora
+Abranda um movimento
+Apanha o reflexo do passado
+Procurando uma linha verdadeira
+
+E quando mais nada faz sentido
+De todo
+Basta pôr um sorriso
+
+Olha à tua volta
+Está tudo bem
+O que está errado agora
+Está tudo bem
+
+Dois seguem o um
+E tu segues a arma`,
     },
   },
   {
@@ -697,6 +967,66 @@ Jag har en ljusstråle över mitt huvud på väg hem i natt
 en ljusstråle över mitt huvud på väg hem
 Jag har en ljusstråle över mitt huvud på väg hem i natt
 en ljusstråle över mitt huvud på väg hem`,
+      fr:
+`J'ai regardé le soleil se coucher, se coucher dans la mer
+Je te disais qu'on doit être libres, on doit être libres
+les gens disent qu'on doit avoir de l'espoir, tu dois avoir de l'espoir
+J'ai un rayon de lumière au-dessus de ma tête sur le chemin du retour
+
+J'ai un rayon de lumière au-dessus de ma tête sur le chemin du retour ce soir
+un rayon de lumière au-dessus de ma tête sur le chemin du retour
+J'ai un rayon de lumière au-dessus de ma tête sur le chemin du retour ce soir
+un rayon de lumière au-dessus de ma tête sur le chemin du retour
+
+et donc on écoute le son des vagues de l'océan qui rongent le rivage
+ouais, on écoute le souffle de la paix qui enveloppe tout
+on a besoin d'une pierre à aiguiser pour polir notre folie parfaite
+et donc on écoute le son de la réalité pour éclairer la route
+
+J'ai un rayon de lumière au-dessus de ma tête sur le chemin du retour ce soir
+un rayon de lumière au-dessus de ma tête sur le chemin du retour
+J'ai un rayon de lumière au-dessus de ma tête sur le chemin du retour ce soir
+un rayon de lumière au-dessus de ma tête sur le chemin du retour`,
+      it:
+`Ho guardato il sole tramontare, giù nel mare
+Ti dicevo che dobbiamo essere liberi, dobbiamo essere liberi
+la gente dice che dobbiamo avere speranza, devi avere speranza
+Ho un raggio di luce sopra la testa sulla strada di casa
+
+Ho un raggio di luce sopra la testa sulla strada di casa stanotte
+un raggio di luce sopra la testa sulla strada di casa
+Ho un raggio di luce sopra la testa sulla strada di casa stanotte
+un raggio di luce sopra la testa sulla strada di casa
+
+e così ascoltiamo il suono delle onde dell'oceano che consumano la riva
+sì, ascoltiamo il respiro della pace che avvolge tutto
+abbiamo bisogno di una pietra dura per smussare la nostra perfetta follia
+e così ascoltiamo il suono della realtà per illuminare la strada
+
+Ho un raggio di luce sopra la testa sulla strada di casa stanotte
+un raggio di luce sopra la testa sulla strada di casa
+Ho un raggio di luce sopra la testa sulla strada di casa stanotte
+un raggio di luce sopra la testa sulla strada di casa`,
+      pt:
+`Tenho observado o sol a pôr-se, lá no mar
+Tenho-te dito que temos de ser livres, temos de ser livres
+as pessoas dizem que temos de ter esperança, tens de ter esperança
+Tenho um raio de luz sobre a minha cabeça a caminho de casa
+
+Tenho um raio de luz sobre a minha cabeça a caminho de casa esta noite
+um raio de luz sobre a minha cabeça a caminho de casa
+Tenho um raio de luz sobre a minha cabeça a caminho de casa esta noite
+um raio de luz sobre a minha cabeça a caminho de casa
+
+e por isso ouvimos o som das ondas do oceano a comerem a costa
+sim, ouvimos a respiração da paz que envolve tudo
+precisamos de uma pedra áspera para aparar a nossa loucura perfeita
+e por isso ouvimos o som da realidade para iluminar o caminho
+
+Tenho um raio de luz sobre a minha cabeça a caminho de casa esta noite
+um raio de luz sobre a minha cabeça a caminho de casa
+Tenho um raio de luz sobre a minha cabeça a caminho de casa esta noite
+um raio de luz sobre a minha cabeça a caminho de casa`,
     },
   },
   {
@@ -976,6 +1306,165 @@ Askan av våra drömmar
 Ensamma nätter, ensamma nätter
 Allt gott
 Får ett slut`,
+      fr:
+`Je fouille dans les cendres d'un feu éteint
+Je retrouve les traces d'une part de ma vie
+Écrit autrefois en noir et blanc, un signe
+Toi et moi avions prévu une vie nouvelle
+
+Comme le feu, notre amour a brûlé si fort autrefois
+La flamme est morte, il n'y avait plus de lumière
+Plus d'étincelle
+Plus de braise
+Qui puisse à nouveau s'enflammer
+Maintenant il ne reste que des nuits solitaires
+
+Nuits solitaires, nuits solitaires
+Les cendres de nos rêves
+Nuits solitaires, nuits solitaires
+Toutes les bonnes choses
+Ont une fin
+
+C'était écrit dans les étoiles, notre amour brillait
+Nos âmes se sont rencontrées et ont dansé jusqu'à l'aube
+Notre amour s'est arrêté et tout était fini
+Effacé comme une brume sous le soleil du matin
+
+Comme le feu, notre amour a brûlé si fort autrefois
+La flamme est morte, il n'y avait plus de lumière
+Plus d'étincelle
+Plus de braise
+Qui puisse à nouveau s'enflammer
+Maintenant il ne reste que des nuits solitaires
+
+Nuits solitaires, nuits solitaires
+Les cendres de nos rêves
+Nuits solitaires, nuits solitaires
+Toutes les bonnes choses
+Ont une fin
+
+Je ne savais pas que ça finirait ainsi
+Trahi par le désir d'un baiser volé
+Tu préparais une autre vie sans moi
+Fuyant un avenir qui n'existera jamais
+
+Nuits solitaires, nuits solitaires
+Les cendres de notre amour
+Nuits solitaires, nuits solitaires
+Toutes les bonnes choses
+Ont une fin
+
+Nuits solitaires, nuits solitaires
+Les cendres de nos rêves
+Nuits solitaires, nuits solitaires
+Toutes les bonnes choses
+Ont une fin`,
+      it:
+`Frugo tra le ceneri di un fuoco spento
+Trovo le tracce di una parte della mia vita
+Scritto un tempo in bianco e nero, un segno
+Io e te avevamo progettato una vita nuova
+
+Come il fuoco, il nostro amore un tempo bruciava così forte
+La fiamma si è spenta, non c'era più luce
+Nessuna scintilla
+Nessuna brace
+Che potesse riaccendersi
+Ora tutto ciò che resta sono notti solitarie
+
+Notti solitarie, notti solitarie
+Le ceneri dei nostri sogni
+Notti solitarie, notti solitarie
+Tutte le cose belle
+Hanno una fine
+
+Era scritto nelle stelle, il nostro amore risplendeva
+Le nostre anime si sono incontrate e hanno danzato fino all'alba
+Il nostro amore si è fermato e tutto è finito
+Svanito come una nebbia nel sole del mattino
+
+Come il fuoco, il nostro amore un tempo bruciava così forte
+La fiamma si è spenta, non c'era più luce
+Nessuna scintilla
+Nessuna brace
+Che potesse riaccendersi
+Ora tutto ciò che resta sono notti solitarie
+
+Notti solitarie, notti solitarie
+Le ceneri dei nostri sogni
+Notti solitarie, notti solitarie
+Tutte le cose belle
+Hanno una fine
+
+Non sapevo che sarebbe finita così
+Tradito dal desiderio per un bacio rubato
+Stavi progettando un'altra vita senza di me
+In fuga da un futuro che non esisterà mai
+
+Notti solitarie, notti solitarie
+Le ceneri del nostro amore
+Notti solitarie, notti solitarie
+Tutte le cose belle
+Hanno una fine
+
+Notti solitarie, notti solitarie
+Le ceneri dei nostri sogni
+Notti solitarie, notti solitarie
+Tutte le cose belle
+Hanno una fine`,
+      pt:
+`Remexo nas cinzas de um fogo apagado
+Encontro os vestígios de uma parte da minha vida
+Escrito uma vez em preto e branco, um sinal
+Tu e eu tínhamos planeado uma vida nova
+
+Como o fogo, o nosso amor um dia ardeu tão forte
+A chama morreu, já não havia luz
+Nenhuma faísca
+Nenhuma brasa
+Que pudesse voltar a acender
+Agora tudo o que resta são noites solitárias
+
+Noites solitárias, noites solitárias
+As cinzas dos nossos sonhos
+Noites solitárias, noites solitárias
+Todas as coisas boas
+Chegam ao fim
+
+Estava escrito nas estrelas, o nosso amor brilhava
+As nossas almas encontraram-se e dançaram até à luz da manhã
+O nosso amor parou e tudo tinha terminado
+Desvanecido como uma névoa sob o sol da manhã
+
+Como o fogo, o nosso amor um dia ardeu tão forte
+A chama morreu, já não havia luz
+Nenhuma faísca
+Nenhuma brasa
+Que pudesse voltar a acender
+Agora tudo o que resta são noites solitárias
+
+Noites solitárias, noites solitárias
+As cinzas dos nossos sonhos
+Noites solitárias, noites solitárias
+Todas as coisas boas
+Chegam ao fim
+
+Mal sabia eu que chegaria a isto
+Traído pelo desejo de um beijo roubado
+Planeando outra vida sem mim
+Fugindo de um futuro que nunca existirá
+
+Noites solitárias, noites solitárias
+As cinzas do nosso amor
+Noites solitárias, noites solitárias
+Todas as coisas boas
+Chegam ao fim
+
+Noites solitárias, noites solitárias
+As cinzas dos nossos sonhos
+Noites solitárias, noites solitárias
+Todas as coisas boas
+Chegam ao fim`,
     },
   },
   {
@@ -1190,6 +1679,126 @@ En skuggvarg (kom till mig) om natten
 stirrade på mig i mörkret
 Jag såg bara reflexerna av två klara ögon
 och jag visste att det var detsamma som förr`,
+      fr:
+`sha boom sha boom shiriki boom owayo wee // 4x
+
+Matsawana est venue me voir
+elle a pris mon temple
+au milieu de la nuit
+elle a pris ma vie
+
+Matsawana, Matsawana
+
+sha boom sha boom shiriki boom owayo wee // 4x
+
+depuis le jour de ma naissance
+Matsawana-naa-na
+elle me tient dans ses bras
+Matsawana-naa-na
+elle me guide à travers la vie
+Matsawana-naa-na
+puis elle m'emmène au loin
+Matsawana-naa-na
+
+sha boom sha boom shiriki boom owayo wee // 4x
+
+Matsawana est venue me voir…
+
+Matsawana, Matsawana
+
+SOLO
+
+Away wue wue wue wue
+elle a pris mon temple
+Away wue wue wue wue
+elle a pris ma vie
+
+Matsawana, Matsawana
+
+Un loup d'ombre (est venu à moi) dans la nuit
+m'a fixé dans le noir
+je n'ai vu que le reflet de deux yeux brillants
+et j'ai su que c'était comme avant`,
+      it:
+`sha boom sha boom shiriki boom owayo wee // 4x
+
+Matsawana è venuta a trovarmi
+ha preso il mio tempio
+nel cuore della notte
+ha preso la mia vita
+
+Matsawana, Matsawana
+
+sha boom sha boom shiriki boom owayo wee // 4x
+
+dal giorno in cui sono nato
+Matsawana-naa-na
+mi tiene tra le sue braccia
+Matsawana-naa-na
+mi guida attraverso la vita
+Matsawana-naa-na
+poi mi porta via
+Matsawana-naa-na
+
+sha boom sha boom shiriki boom owayo wee // 4x
+
+Matsawana è venuta a trovarmi…
+
+Matsawana, Matsawana
+
+ASSOLO
+
+Away wue wue wue wue
+ha preso il mio tempio
+Away wue wue wue wue
+ha preso la mia vita
+
+Matsawana, Matsawana
+
+Un lupo d'ombra (è venuto da me) nella notte
+mi ha fissato nel buio
+ho visto solo il riflesso di due occhi luminosi
+e ho capito che era come prima`,
+      pt:
+`sha boom sha boom shiriki boom owayo wee // 4x
+
+Matsawana veio me ver
+ela tomou o meu templo
+no meio da noite
+ela tomou a minha vida
+
+Matsawana, Matsawana
+
+sha boom sha boom shiriki boom owayo wee // 4x
+
+desde o dia em que nasci
+Matsawana-naa-na
+ela segura-me nos seus braços
+Matsawana-naa-na
+ela guia-me pela vida
+Matsawana-naa-na
+depois ela leva-me embora
+Matsawana-naa-na
+
+sha boom sha boom shiriki boom owayo wee // 4x
+
+Matsawana veio me ver…
+
+Matsawana, Matsawana
+
+SOLO
+
+Away wue wue wue wue
+ela tomou o meu templo
+Away wue wue wue wue
+ela tomou a minha vida
+
+Matsawana, Matsawana
+
+Um lobo-sombra (veio até mim) à noite
+olhou fixamente para mim na escuridão
+só vi o reflexo de dois olhos brilhantes
+e soube que era como antes`,
     },
   },
   {
@@ -1372,6 +1981,96 @@ och du kompromissar
 så ansvarsfulla som vi nu är
 och du lär dig leva
 i förståelse för varandra`,
+      fr:
+`Tu veux te rapprocher vraiment
+tu veux du vrai ?
+Tu veux apprendre à connaître quelqu'un
+sans laisser personne te connaître
+
+tu vois, il y a un et deux
+partagé moitié-moitié
+tu donnes et tu reçois
+et elle donne et elle reçoit
+
+et tu fais des compromis
+aussi responsables que nous sommes
+et tu apprends à vivre
+en te comprenant l'un l'autre
+
+eh bien tu aimes ton propre rythme
+quand tu es seul
+et tu voudrais le garder pour toi
+quand tu regardes une vue magnifique
+
+mais il y a un et deux
+partagé moitié-moitié
+tu donnes et tu reçois
+et elle donne et elle reçoit
+
+et tu fais des compromis
+aussi responsables que nous sommes
+et tu apprends à vivre
+en te comprenant l'un l'autre`,
+      it:
+`Vuoi avvicinarti davvero
+vuoi qualcosa di vero?
+Vuoi conoscere qualcuno
+senza lasciare che nessuno ti conosca
+
+vedi, c'è uno e due
+diviso a metà ciascuno
+tu dai e prendi
+e lei dà e prende
+
+e fai un compromesso
+per quanto siamo responsabili
+e impari a vivere
+capendovi a vicenda
+
+be', ti piace il tuo ritmo
+quando sei per conto tuo
+e vorresti tenertelo stretto
+quando guardi una vista stupenda
+
+ma c'è uno e due
+diviso a metà ciascuno
+tu dai e prendi
+e lei dà e prende
+
+e fai un compromesso
+per quanto siamo responsabili
+e impari a vivere
+capendovi a vicenda`,
+      pt:
+`Queres chegar bem perto
+queres algo real?
+Queres conhecer alguém
+sem deixar que ninguém te conheça
+
+vês, há um e dois
+dividido meio a meio
+tu dás e recebes
+e ela dá e recebe
+
+e fazes um compromisso
+tão responsáveis quanto somos
+e aprendes a viver
+compreendendo-vos um ao outro
+
+bem, gostas do teu ritmo
+quando estás sozinho
+e gostarias de o guardar só para ti
+quando olhas para uma vista deslumbrante
+
+mas há um e dois
+dividido meio a meio
+tu dás e recebes
+e ela dá e recebe
+
+e fazes um compromisso
+tão responsáveis quanto somos
+e aprendes a viver
+compreendendo-vos um ao outro`,
     },
   },
   {
@@ -1553,6 +2252,105 @@ som en stjärnklar natt
 
 ta det lugnt
 ta det lugnt`,
+      fr:
+`Repose tes os
+jusqu'à ce que le sentiment grandisse
+repose ton cœur
+jusqu'à ce que l'étincelle vienne
+
+relâche
+relâche
+relâche
+relâche
+
+Ferme les yeux
+et prends une grande respiration
+suis ton corps
+une fois que tu le sens
+trouve un peu de paix
+trouve un peu de paix
+
+relâche
+relâche
+
+Je pourrais te tromper en faisant un geste
+plus rapide que ce que les yeux ou les oreilles peuvent saisir
+poursuis-tu quelque chose
+que tu ne peux pas atteindre
+
+fais attention à tout ce qui t'entoure
+laisse tes pieds prendre l'équilibre du sol
+soudain tu es net et clair
+comme une nuit étoilée
+
+relâche
+relâche`,
+      it:
+`Riposa le tue ossa
+finché la sensazione non cresce
+riposa il tuo cuore
+finché non trovi la scintilla
+
+lasciati andare
+lasciati andare
+lasciati andare
+lasciati andare
+
+Chiudi gli occhi
+e fai un respiro profondo
+segui il tuo corpo
+una volta che lo senti
+trova un po' di pace
+trova un po' di pace
+
+lasciati andare
+lasciati andare
+
+Potrei ingannarti con una mossa
+più veloce di quanto occhi o orecchie possano cogliere
+stai inseguendo qualcosa
+che non riesci a raggiungere
+
+fai attenzione a tutto ciò che ti circonda
+lascia che i tuoi piedi trovino l'equilibrio del suolo
+all'improvviso sei nitido e chiaro
+come una notte stellata
+
+lasciati andare
+lasciati andare`,
+      pt:
+`Descansa os teus ossos
+até a sensação crescer
+descansa o teu coração
+até sentires a faísca
+
+alivia
+alivia
+alivia
+alivia
+
+Fecha os olhos
+e respira fundo
+segue o teu corpo
+assim que o sentires
+encontra um pouco de paz
+encontra um pouco de paz
+
+alivia
+alivia
+
+Eu poderia enganar-te com um movimento
+mais rápido do que os olhos ou os ouvidos conseguem captar
+estás a seguir algo
+que não consegues alcançar
+
+repara em tudo ao teu redor
+deixa os teus pés equilibrarem-se no chão
+de repente estás nítido e claro
+como uma noite estrelada
+
+alivia
+alivia`,
     },
   },
   {
@@ -1694,6 +2492,81 @@ jag tänkte på frihet, skulle du låta någon komma nära dig?
 
 Skulle du låta mig nå dig?
 Skulle du låta mig nå dig?`,
+      fr:
+`Hier, j'étais assis seul
+j'ai regardé autour de moi, tout ce que tu as fait
+Hier, j'ai réalisé combien je t'aime
+
+Hier, j'ai pensé à toi
+à ce que tu fais et, comment tu le fais
+Hier, j'ai pensé à toi
+
+Me laisserais-tu t'atteindre ?
+Me laisserais-tu t'atteindre ?
+
+Hier, je me suis réveillé pour te voir
+je me suis réveillé pour t'entendre, je me suis réveillé pour te sentir
+Hier, j'ai réalisé, combien j'ai besoin de toi
+
+Me laisserais-tu t'atteindre ?
+Me laisserais-tu t'atteindre ?
+
+J'ai pensé au sentiment et, j'ai pensé à la foi
+j'ai pensé aux raisons pour lesquelles, les gens abandonnent
+j'ai pensé à la liberté, laisserais-tu, quelqu'un s'approcher de toi ?
+
+Me laisserais-tu t'atteindre ?
+Me laisserais-tu t'atteindre ?`,
+      it:
+`Ieri, sedevo da solo
+mi sono guardato intorno, a tutto quello che hai fatto
+Ieri, ho capito quanto ti amo
+
+Ieri, ho pensato a te
+a cosa stai facendo e, come lo fai
+Ieri, ho pensato a te
+
+Mi lasceresti raggiungerti?
+Mi lasceresti raggiungerti?
+
+Ieri, mi sono svegliato per vederti
+mi sono svegliato per sentirti, mi sono svegliato per percepirti
+Ieri, ho capito, quanto ho bisogno di te
+
+Mi lasceresti raggiungerti?
+Mi lasceresti raggiungerti?
+
+Ho pensato al sentimento e, ho pensato alla fede
+ho pensato ai motivi per cui, le persone si arrendono
+ho pensato alla libertà, lasceresti, che qualcuno ti si avvicini?
+
+Mi lasceresti raggiungerti?
+Mi lasceresti raggiungerti?`,
+      pt:
+`Ontem, sentei-me sozinho
+olhei à minha volta, para tudo o que fizeste
+Ontem, percebi o quanto te amo
+
+Ontem, pensei em ti
+no que estás a fazer e, como o fazes
+Ontem, pensei em ti
+
+Deixarias que eu te alcançasse?
+Deixarias que eu te alcançasse?
+
+Ontem, acordei para te ver
+acordei para te ouvir, acordei para te sentir
+Ontem, percebi, o quanto preciso de ti
+
+Deixarias que eu te alcançasse?
+Deixarias que eu te alcançasse?
+
+Pensei no sentimento e, pensei na fé
+pensei nas razões pelas quais, as pessoas desistem
+pensei na liberdade, deixarias, alguém se aproximar de ti?
+
+Deixarias que eu te alcançasse?
+Deixarias que eu te alcançasse?`,
     },
   },
   {
@@ -1865,6 +2738,99 @@ säg det, syster
 
 låt dina känslor komma ut
 låt ditt hjärta rinna över`,
+      fr:
+`partage tes soucis, laisse sortir tes soucis maintenant
+partage tes peines, laisse partir tes peines
+partage ton cœur maintenant, dis-moi ce que tu ressens à l'intérieur
+tout va bien, je suis là pour toi, je suis là pour toi
+on est là pour toi, on est là pour toi, on est là pour toi…
+
+parle, mon frère, dis-moi ce qu'il y a dans ton cœur
+oh ma sœur,
+parle, mon frère, dis-moi ce qu'il y a dans ton cœur
+oh ma sœur,
+
+quand je reste au fond, je te laisse partir
+je reste seul, et je deviens froid
+faute de paix à la maison
+dans mon âme, je vieillis, je m'alourdis
+et il n'y a pas d'amour pas d'amour pas d'amour tant que je ne sais pas
+
+parle, mon frère, dis-moi ce qu'il y a dans ton cœur
+oh ma sœur,
+parle, mon frère, dis-moi ce qu'il y a dans ton cœur
+oh ma sœur,
+
+les rêves deviennent réels en partageant ton cœur
+et on devient libres en partageant notre amour
+
+alors parle, mon frère
+parle, ma sœur
+
+laisse sortir tes sentiments
+laisse ton cœur se déverser`,
+      it:
+`condividi le tue preoccupazioni, lasciale uscire adesso
+condividi i tuoi affanni, lasciali andare
+condividi il tuo cuore adesso, dimmi cosa senti dentro
+va tutto bene, ci sono io per te, ci sono io per te
+ci siamo noi per te, ci siamo noi per te, ci siamo noi per te…
+
+parla, fratello, dimmi cosa hai nel cuore
+oh sorella,
+parla, fratello, dimmi cosa hai nel cuore
+oh sorella,
+
+quando resto giù, ti lascio andare
+resto solo, e mi raffreddo
+per mancanza di pace in casa
+nella mia anima, invecchio, divento pesante
+e non c'è amore non c'è amore non c'è amore finché non lo so
+
+parla, fratello, dimmi cosa hai nel cuore
+oh sorella,
+parla, fratello, dimmi cosa hai nel cuore
+oh sorella,
+
+i sogni diventano realtà condividendo il tuo cuore
+e diventiamo liberi condividendo il nostro amore
+
+quindi parla, fratello
+parla, sorella
+
+lascia uscire i tuoi sentimenti
+lascia che il tuo cuore si riversi`,
+      pt:
+`partilha as tuas preocupações, deixa-as sair agora
+partilha os teus problemas, deixa-os ir
+partilha o teu coração agora, diz-me como te sentes por dentro
+está tudo bem, eu estou aqui por ti, eu estou aqui por ti
+nós estamos aqui por ti, nós estamos aqui por ti, nós estamos aqui por ti…
+
+fala, irmão, diz-me o que tens no coração
+oh irmã,
+fala, irmão, diz-me o que tens no coração
+oh irmã,
+
+quando fico em baixo, deixo-te ir
+fico sozinho, e fico frio
+por falta de paz em casa
+na minha alma, envelheço, fico pesado
+e não há amor não há amor não há amor até eu saber
+
+fala, irmão, diz-me o que tens no coração
+oh irmã,
+fala, irmão, diz-me o que tens no coração
+oh irmã,
+
+os sonhos tornam-se reais ao partilhar o teu coração
+e ficamos livres ao partilhar o nosso amor
+
+por isso fala, irmão
+fala, irmã
+
+deixa sair os teus sentimentos
+deixa o teu coração transbordar`,
     },
   },
   {
@@ -1996,6 +2962,75 @@ Som ett hav förändras tiderna
 och vi seglar över vågorna
 Som vi cirklar runt solen
 ska vi återvända dit vi började`,
+      fr:
+`Je veux parler du temps
+tel que je le sens bouger
+Je veux parler de la ligne,
+que je vois chaque jour
+Je veux parler du temps
+Tout tourne en rond
+
+Comme un océan, les temps changent
+Et nous naviguons à travers les vagues
+Comme nous tournons autour du soleil
+Nous reviendrons là où tout a commencé
+
+Pour rester stable, pour rester capable
+Continuer à tourner, continuer à bouger
+c'est une question d'équilibre entre opposés
+ils restent aussi bas, aussi haut
+jusqu'à la fin des temps semble-t-il
+
+Comme un océan, les temps changent
+Et nous naviguons à travers les vagues
+Comme nous tournons autour du soleil
+Nous reviendrons là où tout a commencé`,
+      it:
+`Voglio parlare dei tempi
+mentre li sento muoversi
+Voglio parlare della linea,
+che vedo ogni giorno
+Voglio parlare dei tempi
+Tutto gira intorno
+
+Come un oceano, i tempi cambiano
+E navighiamo attraverso le onde
+Come giriamo intorno al sole
+Torneremo dove abbiamo iniziato
+
+Per restare stabili, per restare capaci
+Continuare a girare, continuare a muoversi
+è una questione di equilibrio tra opposti
+restano tanto in basso, quanto in alto
+fino alla fine dei tempi, sembra
+
+Come un oceano, i tempi cambiano
+E navighiamo attraverso le onde
+Come giriamo intorno al sole
+Torneremo dove abbiamo iniziato`,
+      pt:
+`Quero falar sobre os tempos
+como os sinto a mover-se
+Quero falar sobre a linha,
+que vejo todos os dias
+Quero falar sobre os tempos
+Tudo gira em torno
+
+Como um oceano, os tempos mudam
+E navegamos através das ondas
+Como giramos à volta do sol
+Voltaremos a onde começámos
+
+Para nos mantermos estáveis, para nos mantermos capazes
+Continuar a girar, continuar a mover
+é uma questão de equilíbrio entre opostos
+mantêm-se tão baixos, quanto altos
+até ao fim dos tempos, parece
+
+Como um oceano, os tempos mudam
+E navegamos através das ondas
+Como giramos à volta do sol
+Voltaremos a onde começámos`,
     },
   },
 
@@ -2270,6 +3305,120 @@ ja tee siitä totta
 
 tulevaisuudesta kahdelle, tähdet tuikkivat yössä
 niin suuresta rakkaudesta…`,
+      fr:
+`Bienvenue à la maison, entre dans le vestibule
+enlève tes chaussures, accroche ta veste
+petit devient grand, tu es bien plus vieux depuis que tu es parti
+
+viens t'asseoir, installe-toi sur le canapé
+raconte-moi tout, tout ce qui s'est passé
+tu as dit que tu avais rencontré quelqu'un qui se rapprochait de toi un peu plus chaque jour
+
+tu as dit que je savais sans doute qui il était…
+
+cours, cours, cours, il ne manque plus rien maintenant
+tombe, tombe, tombe dans les bras l'un de l'autre
+prends ma main et tiens-la toute la vie
+cours, cours, cours, des cœurs grands en flammes
+tombe, tombe, tombe ensemble dans un rêve
+et fais-en une réalité
+
+tu as vu ce qu'on a fait, on a tout rénové
+la cuisine est grande maintenant, il y a de la place pour bien plus
+ici on peut respirer, ici on peut vivre, dans le calme et la paix
+
+tu veux des petites crêpes ? on peut aussi les partager
+tu te souviens de la fois où on les a toutes brûlées
+je veux chanter toutes les chansons qu'on chantait
+elles parlent d'une journée ordinaire
+
+tous les souvenirs qu'on a…
+
+cours, cours, cours, il ne manque plus rien maintenant
+tombe, tombe, tombe dans les bras l'un de l'autre
+prends ma main et tiens-la toute la vie
+cours, cours, cours, des cœurs grands en flammes
+tombe, tombe, tombe ensemble dans un rêve
+et fais-en une réalité
+
+pour un avenir à deux, les étoiles scintillent dans la nuit
+d'un amour si grand…`,
+      it:
+`Bentornato a casa, entra nell'ingresso
+togliti le scarpe, appendi la giacca
+il piccolo diventa grande, sei molto più vecchio da quando sei partito
+
+vieni a sederti, siediti sul divano
+raccontami tutto, tutto quello che è successo
+hai detto che avevi conosciuto uno che ti si avvicinava un po' di più ogni giorno
+
+hai detto che di sicuro sapevo chi era…
+
+corri, corri, corri, ora non manca più niente
+cadi, cadi, cadi tra le braccia l'uno dell'altra
+prendi la mia mano e tienila per tutta la vita
+corri, corri, corri, cuori grandi in fiamme
+cadi, cadi, cadi insieme in un sogno
+e rendilo realtà
+
+hai visto cosa abbiamo fatto, abbiamo ristrutturato
+la cucina è grande adesso, ci sta molto di più
+qui possiamo respirare, qui possiamo vivere, in pace e tranquillità
+
+vuoi delle frittelle? possiamo anche dividerle
+ti ricordi quella volta che le abbiamo bruciate tutte
+voglio cantare tutte le canzoni che cantavamo
+parlano di un giorno qualunque
+
+tutti i ricordi che abbiamo…
+
+corri, corri, corri, ora non manca più niente
+cadi, cadi, cadi tra le braccia l'uno dell'altra
+prendi la mia mano e tienila per tutta la vita
+corri, corri, corri, cuori grandi in fiamme
+cadi, cadi, cadi insieme in un sogno
+e rendilo realtà
+
+per un futuro in due, le stelle scintillano nella notte
+di un amore così grande…`,
+      pt:
+`Bem-vindo a casa, entra no hall
+tira os teus sapatos, pendura o teu casaco
+o pequeno cresce, estás bem mais velho desde que partiste
+
+vem sentar-te, senta-te no sofá
+conta-me tudo, tudo o que aconteceu
+disseste que conheceste alguém que se aproximava mais de ti a cada dia
+
+disseste que eu decerto sabia quem ele era…
+
+corre, corre, corre, agora não falta nada
+cai, cai, cai nos braços um do outro
+pega na minha mão e segura-a por toda a vida
+corre, corre, corre, corações grandes em chamas
+cai, cai, cai juntos num sonho
+e torna-o realidade
+
+viste o que fizemos, renovámos
+a cozinha é grande agora, cabe muito mais
+aqui podemos respirar, aqui podemos viver, em paz e sossego
+
+queres panquecas? também podemos dividir
+lembras-te daquela vez em que as queimámos todas
+quero cantar todas as canções que cantávamos
+falam de um dia comum
+
+todas as memórias que temos…
+
+corre, corre, corre, agora não falta nada
+cai, cai, cai nos braços um do outro
+pega na minha mão e segura-a por toda a vida
+corre, corre, corre, corações grandes em chamas
+cai, cai, cai juntos num sonho
+e torna-o realidade
+
+por um futuro a dois, as estrelas cintilam na noite
+de um amor tão grande…`,
     },
   },
   {
@@ -2299,6 +3448,15 @@ niin suuresta rakkaudesta…`,
       { name: 'Maria Triana',      role: 'Mastering (Amsterdam)' },
     ],
     description:   'About Emil\'s childhood years in Pargas, growing up and starting to play music.',
+    descriptionTranslations: {
+      de:   'Über Emils Kindheitsjahre in Pargas – das Erwachsenwerden und die Anfänge seines Musizierens.',
+      sv:   'Om Emils barndomsår i Pargas, uppväxten och när han började spela musik.',
+      es:   'Sobre la infancia de Emil en Pargas, creciendo y empezando a tocar música.',
+      fi:   'Emilin lapsuusvuosista Paraisilla, kasvamisesta ja musiikin soittamisen aloittamisesta.',
+      fr:   'Sur les années d\'enfance d\'Emil à Pargas, sa croissance et ses débuts en musique.',
+      it:   'Sull\'infanzia di Emil a Pargas, sulla crescita e sui suoi primi passi nella musica.',
+      pt:   'Sobre a infância de Emil em Pargas, crescendo e começando a tocar música.',
+    },
   },
   {
     id:            'sanden-i-min-hand',
@@ -2561,6 +3719,153 @@ Kun elämä jota elämme
 Valuu loppuun
 
 Kuin hiekka kädessäni`,
+      fr:
+`C'est silencieux là-bas près du marais
+Lisse comme un miroir et froid
+Je rentre à la maison
+En pleine nuit, sans réponse
+
+Je marche vers le bas, vers l'eau
+Tandis que le brouillard s'installe
+Le cri du plongeon résonne
+Sur le lac
+
+Comme le sable dans ma main
+Mon temps s'écoule
+Comment doit-on vivre sa vie ?
+Qui prend mes décisions ?
+
+Comme le sable dans ma main
+Reste-t-il quelque chose ?
+Quand la vie qu'on vit
+S'écoule
+Comme le sable dans ma main
+
+Je reste assis, en bas sur la plage
+Dans un souffle intemporel
+Au-dessus
+Un satellite passe
+
+Je sens l'odeur de l'automne
+Comme quand la nuit devient jour
+Peut-on renaître
+À l'aube ?
+
+Comme le sable dans ma main
+Mon temps s'écoule
+Comment doit-on vivre sa vie ?
+Qui prend mes décisions ?
+
+Comme le sable dans ma main
+Reste-t-il quelque chose ?
+Quand la vie qu'on vit
+S'écoule
+Comme le sable dans ma main
+
+Comment doit-on vivre sa vie ?
+Qui prend mes décisions ?
+Quand la vie qu'on vit
+S'écoule
+
+Comme le sable dans ma main`,
+      it:
+`C'è silenzio giù vicino alla palude
+Liscia come uno specchio e fredda
+Torno a casa
+Nel cuore della notte, senza risposta
+
+Cammino giù, giù verso l'acqua
+Mentre la nebbia avvolge tutto
+Il grido dello strolaga riecheggia
+Sul lago
+
+Come la sabbia nella mia mano
+Il mio tempo scorre via
+Come si dovrebbe vivere la vita?
+Chi prende le mie decisioni?
+
+Come la sabbia nella mia mano
+Resta qualcosa?
+Quando la vita che viviamo
+Scorre via
+Come la sabbia nella mia mano
+
+Resto seduto, giù sulla spiaggia
+In un respiro senza tempo
+Sopra
+Passa un satellite
+
+Sento il profumo dell'autunno
+Come quando la notte diventa giorno
+Possiamo rinascere
+All'alba?
+
+Come la sabbia nella mia mano
+Il mio tempo scorre via
+Come si dovrebbe vivere la vita?
+Chi prende le mie decisioni?
+
+Come la sabbia nella mia mano
+Resta qualcosa?
+Quando la vita che viviamo
+Scorre via
+Come la sabbia nella mia mano
+
+Come si dovrebbe vivere la vita?
+Chi prende le mie decisioni?
+Quando la vita che viviamo
+Scorre via
+
+Come la sabbia nella mia mano`,
+      pt:
+`Está silencioso lá em baixo junto ao pântano
+Liso como um espelho e frio
+Volto para casa
+A meio da noite, sem resposta
+
+Caminho para baixo, para baixo até à água
+Enquanto a névoa se instala
+Ecoa o grito da mobelha
+Sobre o lago
+
+Como a areia na minha mão
+O meu tempo escoa-se
+Como se deve viver a vida?
+Quem toma as minhas decisões?
+
+Como a areia na minha mão
+Fica alguma coisa?
+Quando a vida que vivemos
+Se escoa
+Como a areia na minha mão
+
+Fico sentado, lá em baixo na praia
+Numa respiração intemporal
+Por cima
+Passa um satélite
+
+Sinto o cheiro do outono
+Como quando a noite se torna dia
+Podemos renascer
+Ao amanhecer?
+
+Como a areia na minha mão
+O meu tempo escoa-se
+Como se deve viver a vida?
+Quem toma as minhas decisões?
+
+Como a areia na minha mão
+Fica alguma coisa?
+Quando a vida que vivemos
+Se escoa
+Como a areia na minha mão
+
+Como se deve viver a vida?
+Quem toma as minhas decisões?
+Quando a vida que vivemos
+Se escoa
+
+Como a areia na minha mão`,
     },
     credits: [
       { name: 'Erik Sjøholm',      role: 'Lyrics, lead vocals, backing vocals, acoustic guitar' },
@@ -2574,6 +3879,15 @@ Kuin hiekka kädessäni`,
       { name: 'Maria Triana',      role: 'Mastering (Amsterdam)' },
     ],
     description:   'Inspired by Majors träsk in Malax, where Erik\'s father grew up and where Erik\'s sister now lives with her family. Written out of conversations with his father about the passing of time, mortality, and a melancholic attempt to accept death.',
+    descriptionTranslations: {
+      de:   'Inspiriert von Majors träsk in Malax, wo Eriks Vater aufgewachsen ist und wo Eriks Schwester heute mit ihrer Familie lebt. Entstanden aus Gesprächen mit seinem Vater über das Vergehen der Zeit, die Sterblichkeit, und einen melancholischen Versuch, den Tod anzunehmen.',
+      sv:   'Inspirerad av Majors träsk i Malax, där Eriks pappa växte upp och där Eriks syster nu bor med sin familj. Skriven utifrån samtal med hans pappa om tidens gång, dödligheten, och ett melankoliskt försök att acceptera döden.',
+      es:   'Inspirada en Majors träsk, en Malax, donde el padre de Erik creció y donde ahora vive la hermana de Erik con su familia. Escrita a partir de conversaciones con su padre sobre el paso del tiempo, la mortalidad, y un intento melancólico de aceptar la muerte.',
+      fi:   'Innoittajana Majors träsk Maalahdessa, jossa Erikin isä kasvoi ja jossa Erikin sisko nykyään asuu perheineen. Kirjoitettu keskusteluista isänsä kanssa ajan kulumisesta, kuolevaisuudesta ja haikeasta yrityksestä hyväksyä kuolema.',
+      fr:   'Inspirée par Majors träsk à Malax, où le père d\'Erik a grandi et où sa sœur vit aujourd\'hui avec sa famille. Née de conversations avec son père sur le passage du temps, la mortalité, et une tentative mélancolique d\'accepter la mort.',
+      it:   'Ispirata a Majors träsk, a Malax, dove è cresciuto il padre di Erik e dove oggi vive la sorella di Erik con la sua famiglia. Nata da conversazioni con suo padre sullo scorrere del tempo, la mortalità, e un malinconico tentativo di accettare la morte.',
+      pt:   'Inspirada em Majors träsk, em Malax, onde o pai de Erik cresceu e onde a irmã de Erik agora vive com a família. Escrita a partir de conversas com o pai sobre a passagem do tempo, a mortalidade, e uma tentativa melancólica de aceitar a morte.',
+    },
   },
   {
     id:            'langs-med-vagen',
@@ -2766,6 +4080,111 @@ että olen onnellinen täällä kanssasi, kaikissa hetkissä jotka saamme jakaa
 
 Tietä pitkin
 Tietä pitkin`,
+      fr:
+`Je suis passé prendre le Vasabladet et j'ai frappé à ta porte
+tu étais assis à manger ton porridge du matin comme d'habitude
+puis on a dirigé nos pas vers le centre du village
+parfois à travers la forêt, derrière la haie, par-dessus les tombes de guerre
+
+Quand les feuilles d'automne tombaient sur le sol de l'érablière
+on marchait là, en pensant à
+Quand le soleil d'hiver brillait sur les murs couverts de neige
+on était allongés là, à faire des anges dans la neige
+
+Le long du chemin
+
+Tu m'as emmené à Malax IF et tu as dit,
+passe-la à Robban ou à Basti, et puis j'ai marqué contre mon camp,
+en tant que défenseur on est plus près de son propre but...
+ils me l'ont sûrement raconté après,
+
+qu'on devait avancer, qu'on devait s'écouter l'un l'autre
+qu'on devait viser l'espace vide et courir aussi vite qu'on peut
+on peut gagner n'importe quoi,
+si on joue ensemble
+
+Le long du chemin
+
+On a construit des châteaux et des forteresses tout autour de la cour de Storm
+c'étaient des boucliers et des épées, c'étaient des héros et du drame,
+on défendait notre foyer contre une sombre fantaisie
+
+Qu'est-ce qu'il reste à expliquer, juste une poésie simple
+sur le fait d'être là, tout simplement, sur le fait de vivre comme un seul « nous »
+que je suis heureux ici avec toi, à chaque instant qu'on a la chance de partager
+
+Le long du chemin
+Le long du chemin`,
+      it:
+`Sono passato a prendere il Vasabladet e ho bussato alla tua porta
+eri seduto a mangiare la tua pappa d'avena del mattino come al solito
+poi abbiamo diretto i nostri passi verso il centro del paese
+a volte attraverso il bosco, dietro la siepe, oltre le tombe di guerra
+
+Quando le foglie d'autunno cadevano sul pavimento dell'acero
+camminavamo lì, pensando a
+Quando il sole d'inverno splendeva sui muri coperti di neve
+eravamo sdraiati lì, a fare angeli nella neve
+
+Lungo la strada
+
+Mi hai portato al Malax IF e hai detto,
+passala a Robban o a Basti, e poi ho fatto un autogol,
+da difensore si è più vicini alla propria porta...
+me l'hanno raccontato dopo, probabilmente,
+
+che dovevamo andare avanti, dovevamo ascoltarci a vicenda
+dovevamo puntare allo spazio vuoto e correre più veloce che potevamo
+possiamo vincere qualsiasi cosa,
+se giochiamo insieme
+
+Lungo la strada
+
+Abbiamo costruito castelli e fortezze tutto intorno al cortile di Storm
+erano scudi e spade, erano eroi e dramma,
+difendevamo la nostra casa da una fantasia oscura
+
+Cosa resta da spiegare, solo una semplice poesia
+sull'essere qui, semplicemente, sul vivere come un unico "noi"
+che sono felice qui con te, in ogni momento che possiamo condividere
+
+Lungo la strada
+Lungo la strada`,
+      pt:
+`Fui buscar o Vasabladet e bati à tua porta
+estavas sentado a comer a tua papa da manhã como sempre
+depois seguimos os nossos passos até ao centro da vila
+às vezes pela floresta, atrás da sebe, por cima das sepulturas de guerra
+
+Quando as folhas de outono caíam sobre o chão do bosque de bordos
+caminhávamos ali, a pensar em
+Quando o sol de inverno brilhava sobre os muros cobertos de neve
+deitávamo-nos ali, a fazer anjos na neve
+
+Ao longo do caminho
+
+Levaste-me ao Malax IF e disseste,
+passa a bola ao Robban ou ao Basti, e depois marquei um autogolo,
+como defesa estamos mais perto da nossa própria baliza...
+contaram-me isso depois, provavelmente,
+
+que devíamos avançar, devíamos ouvir-nos um ao outro
+devíamos apontar ao espaço vazio e correr o mais rápido que pudéssemos
+podemos vencer qualquer coisa,
+se jogarmos juntos
+
+Ao longo do caminho
+
+Construímos castelos e fortalezas por todo o pátio do Storm
+eram escudos e espadas, eram heróis e drama,
+defendíamos o nosso lar contra uma fantasia sombria
+
+O que resta para explicar, apenas uma poesia simples
+sobre estar aqui, simplesmente, sobre viver como um único "nós"
+que sou feliz aqui contigo, em cada momento que temos para partilhar
+
+Ao longo do caminho
+Ao longo do caminho`,
     },
     credits: [
       { name: 'Erik Sjøholm',      role: 'Lyrics, lead vocals, backing vocals, acoustic guitar' },
@@ -2777,6 +4196,15 @@ Tietä pitkin`,
       { name: 'Maria Triana',      role: 'Mastering (Amsterdam)' },
     ],
     description:   'The title track, about Erik\'s connection to his childhood best friend Viktor — the two have known each other since they were a few months old. The song began as the speech Erik gave at Viktor\'s wedding.',
+    descriptionTranslations: {
+      de:   'Der Titeltrack, über Eriks Verbindung zu seinem besten Kindheitsfreund Viktor – die beiden kennen sich, seit sie ein paar Monate alt waren. Das Lied begann als die Rede, die Erik bei Viktors Hochzeit hielt.',
+      sv:   'Titelspåret, om Eriks band till sin barndomsvän Viktor – de två har känt varandra sedan de var några månader gamla. Låten började som talet Erik höll på Viktors bröllop.',
+      es:   'El tema que da título al álbum, sobre el vínculo de Erik con su mejor amigo de la infancia, Viktor: se conocen desde que tenían apenas unos meses. La canción nació como el discurso que Erik dio en la boda de Viktor.',
+      fi:   'Levyn nimikappale, Erikin siteestä lapsuudenystäväänsä Viktoriin – he ovat tunteneet toisensa muutaman kuukauden ikäisestä lähtien. Laulu sai alkunsa puheesta, jonka Erik piti Viktorin häissä.',
+      fr:   'La chanson-titre, sur le lien d\'Erik avec son meilleur ami d\'enfance, Viktor — ils se connaissent depuis qu\'ils avaient quelques mois. La chanson est née du discours qu\'Erik a prononcé au mariage de Viktor.',
+      it:   'La title track, sul legame di Erik con il suo migliore amico d\'infanzia, Viktor: i due si conoscono da quando avevano pochi mesi. La canzone è nata dal discorso che Erik ha tenuto al matrimonio di Viktor.',
+      pt:   'A faixa-título, sobre a ligação de Erik com o seu melhor amigo de infância, Viktor — os dois se conhecem desde que tinham poucos meses de vida. A canção nasceu do discurso que Erik fez no casamento de Viktor.',
+    },
   },
   {
     id:            'fri-som-en-fagel',
@@ -3009,6 +4437,135 @@ Vapaa kuin tuuli
 Täällä maailmalla
 Olen vapaa, täällä olen vapaa
 Vapaa kuin lintu`,
+      fr:
+`Réserve un billet
+Faisons un petit voyage
+Vers des horizons ouverts
+J'ai une aventure qui m'attend
+
+On peut s'envoler pour le Népal
+Traverser la Russie en train
+Prendre un bateau en Nouvelle-Zélande
+Voler haut et plonger bas
+
+Libre comme un oiseau
+Libre comme le vent
+Ici dans le monde
+Je suis libre, libre
+Libre comme un oiseau
+
+Saute dans mon kayak
+On peut pagayer le long de la Haute Côte
+Rêver des hautes montagnes
+J'ai toujours envie de randonner
+
+Grimper au sommet du Kilimandjaro
+Reprendre son souffle à Zanzibar
+Faire trempette en Méditerranée
+Il reste tant de destinations
+
+Libre comme un oiseau
+Libre comme le vent
+Ici dans le monde
+Je suis libre, ici je suis libre
+Libre comme un oiseau
+
+Un voyage autour du monde
+Mon esprit est encore jeune
+Je vais voyager autour du monde avant de
+Prendre mon dernier souffle
+
+Libre comme un oiseau
+Libre comme le vent
+Ici dans le monde
+Je suis libre, ici je suis libre
+Libre comme un oiseau`,
+      it:
+`Prenota un biglietto
+Facciamo un piccolo viaggio
+Verso orizzonti aperti
+Ho un'avventura in programma
+
+Possiamo volare in Nepal
+Attraversare la Russia in treno
+Prendere una barca in Nuova Zelanda
+Volare alto e tuffarci in basso
+
+Libero come un uccello
+Libero come il vento
+Qui nel mondo
+Sono libero, libero
+Libero come un uccello
+
+Salta nel mio kayak
+Possiamo remare lungo l'Alta Costa
+Desiderare le alte montagne
+Sento sempre la voglia di camminare
+
+Salire in cima al Kilimangiaro
+Riprendere fiato a Zanzibar
+Fare un tuffo nel Mediterraneo
+Ci sono ancora così tante mete
+
+Libero come un uccello
+Libero come il vento
+Qui nel mondo
+Sono libero, qui sono libero
+Libero come un uccello
+
+Un viaggio intorno al mondo
+La mia mente è ancora giovane
+Viaggerò intorno al mondo prima di
+Fare il mio ultimo respiro
+
+Libero come un uccello
+Libero come il vento
+Qui nel mondo
+Sono libero, qui sono libero
+Libero come un uccello`,
+      pt:
+`Reserva um bilhete
+Vamos fazer uma pequena viagem
+Rumo a horizontes abertos
+Tenho uma aventura à espera
+
+Podemos voar para o Nepal
+Atravessar a Rússia de comboio
+Apanhar um barco na Nova Zelândia
+Voar alto e mergulhar fundo
+
+Livre como um pássaro
+Livre como o vento
+Aqui no mundo
+Estou livre, livre
+Livre como um pássaro
+
+Salta para o meu caiaque
+Podemos remar ao longo da Costa Alta
+Ansiar pelas montanhas altas
+Sinto sempre vontade de caminhar
+
+Subir ao topo do Kilimanjaro
+Recuperar o fôlego em Zanzibar
+Dar um mergulho no Mediterrâneo
+Ainda há tantos destinos por conhecer
+
+Livre como um pássaro
+Livre como o vento
+Aqui no mundo
+Estou livre, aqui estou livre
+Livre como um pássaro
+
+Uma viagem à volta do mundo
+A minha mente ainda é jovem
+Vou viajar à volta do mundo antes de
+Dar o meu último suspiro
+
+Livre como um pássaro
+Livre como o vento
+Aqui no mundo
+Estou livre, aqui estou livre
+Livre como um pássaro`,
     },
     credits: [
       { name: 'Erik Sjøholm',      role: 'Lyrics, lead vocals, backing vocals, acoustic guitar' },
@@ -3022,6 +4579,15 @@ Vapaa kuin lintu`,
       { name: 'Maria Triana',      role: 'Mastering (Amsterdam)' },
     ],
     description:   'About Erik\'s mother, for whom travel is freedom — kayak, hiking, train, bus, flight, bike, staying in motion by any means she can.',
+    descriptionTranslations: {
+      de:   'Über Eriks Mutter, für die Reisen Freiheit bedeutet – Kajak, Wandern, Zug, Bus, Flugzeug, Fahrrad, immer in Bewegung, mit welchem Mittel auch immer.',
+      sv:   'Om Eriks mamma, för vilken resande är frihet – kajak, vandring, tåg, buss, flyg, cykel, alltid i rörelse på vilket sätt hon än kan.',
+      es:   'Sobre la madre de Erik, para quien viajar es libertad: kayak, senderismo, tren, autobús, avión, bicicleta, siempre en movimiento por cualquier medio posible.',
+      fi:   'Erikin äidistä, jolle matkustaminen on vapautta – kajakki, vaellus, juna, bussi, lento, pyörä, aina liikkeessä millä tahansa keinolla.',
+      fr:   'Sur la mère d\'Erik, pour qui voyager est synonyme de liberté — kayak, randonnée, train, bus, avion, vélo, toujours en mouvement, par tous les moyens possibles.',
+      it:   'Sulla madre di Erik, per cui viaggiare è libertà: kayak, escursioni, treno, autobus, aereo, bicicletta, sempre in movimento con qualsiasi mezzo possibile.',
+      pt:   'Sobre a mãe de Erik, para quem viajar é liberdade — caiaque, caminhadas, trem, ônibus, avião, bicicleta, sempre em movimento, por qualquer meio possível.',
+    },
   },
   {
     id:            'stanna',
@@ -3079,6 +4645,30 @@ Mutta laulu ei jää siihen toiveeseen. Se kääntyy vaikeampaan kysymykseen: mi
 Minulle laulu syntyy elämäni ihmisistä: vanhemmistani, ihmissuhteistani, itseni eri versioista. Sijoitat niin paljon aikaa johonkuhun, ja sitten eräänä päivänä se versio hänestä on poissa. Joskus se on hidasta muutosta. Joskus se on sairaus, ja kaipaat sitä tervettä ihmistä, joka hän ennen oli. Sitä versiota ei saa takaisin, eikä omaansakaan. Stanna asuu siinä turhautumisessa, ja sen alla olevassa hellyydessä.
 
 Se on single albumilta Längs med vägen, kirjoitettu yhdessä kanssakirjoittajani kanssa.`,
+      fr:
+`Stanna parle de l'envie que le temps s'arrête. Dans le refrain, on souhaite pouvoir rester ici pour toujours, comme une statue de pierre dans la ville, inchangée et intacte au fil des années.
+
+Mais la chanson ne s'arrête pas à ce souhait. Elle se tourne vers une question plus difficile : qu'est-ce qui reste ? Un souvenir est-il tout ce qui subsiste de tout ce que nous étions, et de tout ce que nous avions ?
+
+Pour moi, cette chanson vient des gens de ma vie : mes parents, mes relations, les différentes versions de moi-même. On investit tellement de temps dans quelqu'un, et puis un jour cette version de lui disparaît. Parfois, c'est un changement lent. Parfois, c'est une maladie, et la personne en bonne santé qu'ils étaient nous manque. On ne peut pas retrouver cette version, ni la sienne propre. Stanna se tient dans cette frustration, et dans la tendresse qui se cache dessous.
+
+C'est un single de l'album Längs med vägen, écrit avec mon co-auteur.`,
+      it:
+`Stanna parla del desiderio che il tempo si fermi. Nel ritornello si vorrebbe restare qui per sempre, come una statua di pietra in città, immutata e intatta dagli anni.
+
+Ma la canzone non si ferma a quel desiderio. Si rivolge a una domanda più difficile: cos'è che resta? Un ricordo è tutto ciò che rimane di tutto quello che eravamo, e di tutto quello che avevamo?
+
+Per me, questa canzone nasce dalle persone della mia vita: i miei genitori, le mie relazioni, le diverse versioni di me stesso. Si investe così tanto tempo in qualcuno, e poi un giorno quella versione di loro non c'è più. A volte è un cambiamento lento. A volte è una malattia, e ti manca la persona sana che erano un tempo. Non puoi riavere quella versione, e non puoi riavere nemmeno la tua. Stanna resta in quella frustrazione, e nella tenerezza che si nasconde sotto.
+
+È un singolo dall'album Längs med vägen, scritto insieme al mio co-autore.`,
+      pt:
+`Stanna fala sobre querer que o tempo pare. No refrão, deseja-se poder ficar aqui para sempre, como uma estátua de pedra na cidade, inalterada e intocada pelos anos.
+
+Mas a canção não fica só nesse desejo. Ela se volta para uma pergunta mais difícil: o que é que permanece? Será que uma lembrança é tudo o que resta de tudo o que fomos, e de tudo o que tivemos?
+
+Para mim, a canção vem das pessoas da minha vida: meus pais, meus relacionamentos, as diferentes versões de mim mesmo. Investimos tanto tempo em alguém, e então um dia aquela versão dela desaparece. Às vezes é uma mudança lenta. Às vezes é uma doença, e sentimos falta da pessoa saudável que ela costumava ser. Não é possível recuperar aquela versão, nem a nossa própria. Stanna vive nessa frustração, e na ternura que existe por baixo dela.
+
+É um single do álbum Längs med vägen, escrito junto com meu co-autor.`,
     },
     credits: [
       { name: 'Erik Sjøholm',     role: 'Words and music, lead vocals, backing vocals' },
@@ -3290,6 +4880,126 @@ Mikä jää?
 Mikä jää jäljelle?
 Vain muisto kaikesta mitä olimme
 Onko se kaikki mitä meillä on?`,
+      fr:
+`Serre-moi fort, toi
+Tant que je suis encore là
+Serre-moi fort, toi
+Si tu tiens à moi
+Seras-tu là pour moi ?
+Même si je change
+Avec le temps, avec le temps
+
+Tu t'éloignes de moi
+Même si je ne le veux pas
+Bien sûr que je te comprends
+C'est juste comme ça que ça se passe
+Tout le monde change
+Avec le temps, avec le temps
+
+Si tu pouvais rester
+Si on pouvait rester
+Pour toujours, comme une statue de pierre en ville
+
+Qu'est-ce qui reste ?
+Qu'est-ce qui demeure ?
+Seulement un souvenir de tout ce qu'on était
+Est-ce tout ce qu'il nous reste ?
+
+Lâcher prise
+Oser dire oui
+Je me souviens encore du jour
+Des mots que tu as dits
+Te souviendras-tu de moi ?
+Même si on a changé
+
+Si tu pouvais rester
+Si on pouvait rester
+Pour toujours, comme une statue de pierre en ville
+
+Qu'est-ce qui reste ?
+Qu'est-ce qui demeure ?
+Seulement un souvenir de tout ce qu'on était
+Est-ce tout ce qu'il nous reste ?`,
+      it:
+`Tienimi stretto, tu
+Finché sono ancora qui
+Tienimi stretto, tu
+Se mi hai a cuore
+Ci sarai per me?
+Anche se cambio
+Con i tempi, con i tempi
+
+Ti stai allontanando da me
+Anche se non voglio
+Certo che ti capisco
+È solo così che vanno le cose
+Tutti cambiano
+Con i tempi, con i tempi
+
+Se tu potessi restare
+Se potessimo restare
+Per sempre, come una statua di pietra in città
+
+Cos'è che resta?
+Cos'è che rimane?
+Solo un ricordo di tutto quello che eravamo
+È tutto ciò che abbiamo?
+
+Lasciare andare
+Osare dire sì
+Ricordo ancora il giorno
+Le parole che hai detto
+Ti ricorderai di me?
+Anche se siamo cambiati
+
+Se tu potessi restare
+Se potessimo restare
+Per sempre, come una statua di pietra in città
+
+Cos'è che resta?
+Cos'è che rimane?
+Solo un ricordo di tutto quello che eravamo
+È tutto ciò che abbiamo?`,
+      pt:
+`Abraça-me com força, tu
+Enquanto ainda estou aqui
+Abraça-me com força, tu
+Se gostas de mim
+Estarás lá por mim?
+Mesmo que eu mude
+Com os tempos, com os tempos
+
+Estás a afastar-te de mim
+Mesmo que eu não queira
+Claro que te compreendo
+É assim que as coisas são
+Todos mudam
+Com os tempos, com os tempos
+
+Se pudesses ficar
+Se pudéssemos ficar
+Para sempre, como uma estátua de pedra na cidade
+
+O que é que fica?
+O que é que permanece?
+Apenas uma lembrança de tudo o que fomos
+É tudo o que temos?
+
+Deixar ir
+Ousar dizer sim
+Ainda me lembro do dia
+As palavras que disseste
+Vais lembrar-te de mim?
+Mesmo que tenhamos mudado
+
+Se pudesses ficar
+Se pudéssemos ficar
+Para sempre, como uma estátua de pedra na cidade
+
+O que é que fica?
+O que é que permanece?
+Apenas uma lembrança de tudo o que fomos
+É tudo o que temos?`,
     },
   },
   {
@@ -3571,6 +5281,150 @@ Den mörka hunden väntar
 Och det spelar egentligen ingen roll
 Om det är dag eller natt
 För den mörka hunden väntar`,
+      fr:
+`Il n'y a pas de rime
+Il n'y a pas de raison
+Quant à qui il mord
+Il fait ce qu'il veut
+Le chien sombre
+M'attend-il ?
+J'espère qu'on ne se rencontrera jamais
+
+Car le chien sombre attend
+Le chien sombre attend
+Et ça n'a vraiment pas d'importance
+Que ce soit le jour ou la nuit
+Car le chien sombre attend...
+M'attend-il ?
+
+Là où les ombres tombent
+À l'intérieur de mon esprit
+Un chasseur silencieux
+Attend son heure
+Quand il frappe
+Que faudra-t-il ?
+Le chien sombre
+Pourrait sceller ton destin
+
+Le chien sombre attend
+Le chien sombre attend
+Et ça n'a vraiment pas d'importance
+Que ce soit le jour ou la nuit
+Car le chien sombre attend...
+M'attend-il ?
+
+Tous mes souvenirs joyeux
+S'effacent douloureusement
+Tu es mon plus sombre ennemi
+M'attends-tu ?
+M'attends-tu ?
+
+Le chien sombre attend
+Le chien sombre attend
+Et ça n'a vraiment pas d'importance
+Que ce soit le jour ou la nuit
+Car le chien sombre attend
+Le chien sombre attend
+Le chien sombre attend
+Et ça n'a vraiment pas d'importance
+Que ce soit le jour ou la nuit
+Car le chien sombre attend`,
+      it:
+`Non c'è rima
+Non c'è ragione
+Su chi morde
+Fa quello che vuole
+Il cane oscuro
+Mi sta aspettando?
+Spero che non ci incontreremo mai
+
+Perché il cane oscuro aspetta
+Il cane oscuro aspetta
+E non importa davvero
+Se è giorno o notte
+Perché il cane oscuro aspetta...
+Mi sta aspettando?
+
+Dove cadono le ombre
+Dentro la mia mente
+Un cacciatore silenzioso
+Aspetta il suo momento
+Quando colpisce
+Cosa ci vorrà?
+Il cane oscuro
+Potrebbe sigillare il tuo destino
+
+Il cane oscuro aspetta
+Il cane oscuro aspetta
+E non importa davvero
+Se è giorno o notte
+Perché il cane oscuro aspetta...
+Mi sta aspettando?
+
+Tutti i miei ricordi gioiosi
+Stanno svanendo dolorosamente
+Sei il mio nemico più oscuro
+Mi stai aspettando?
+Mi stai aspettando?
+
+Il cane oscuro aspetta
+Il cane oscuro aspetta
+E non importa davvero
+Se è giorno o notte
+Perché il cane oscuro aspetta
+Il cane oscuro aspetta
+Il cane oscuro aspetta
+E non importa davvero
+Se è giorno o notte
+Perché il cane oscuro aspetta`,
+      pt:
+`Não há rima
+Não há razão
+Para quem ele morde
+Faz o que lhe apetece
+O cão sombrio
+Estará à minha espera?
+Espero que nunca nos encontremos
+
+Porque o cão sombrio está à espera
+O cão sombrio está à espera
+E não importa mesmo
+Se é dia ou noite
+Porque o cão sombrio está à espera...
+Estará à minha espera?
+
+Onde as sombras caem
+Dentro da minha mente
+Um caçador silencioso
+Aguarda a sua hora
+Quando atacar
+O que será preciso?
+O cão sombrio
+Pode selar o teu destino
+
+O cão sombrio está à espera
+O cão sombrio está à espera
+E não importa mesmo
+Se é dia ou noite
+Porque o cão sombrio está à espera...
+Estará à minha espera?
+
+Todas as minhas memórias felizes
+Estão a desvanecer-se dolorosamente
+Tu és o meu inimigo mais sombrio
+Estás à minha espera?
+Estás à minha espera?
+
+O cão sombrio está à espera
+O cão sombrio está à espera
+E não importa mesmo
+Se é dia ou noite
+Porque o cão sombrio está à espera
+O cão sombrio está à espera
+O cão sombrio está à espera
+E não importa mesmo
+Se é dia ou noite
+Porque o cão sombrio está à espera`,
     },
   },
   {
@@ -3791,6 +5645,129 @@ Jag är inte ledsen
 Jag ber inte om ursäkt
 Jag är arg
 Jag är trött`,
+      fr:
+`La maison du peuple
+Jadis fière, telle qu'elle se dressait
+Nous vivons dans un
+Désert de miroirs
+Où rien de ce que nous voyons
+N'est ce qu'il paraît être
+
+Les oiseaux ont cessé de chanter à Lafayette Park
+Quand un sombre oiseau de guerre a illuminé le parc
+
+Alors le gaz toxique
+A étouffé les voix de la paix
+Et la bible tenue bien haut
+Dans la main de la bête
+Les oiseaux ont cessé de chanter à Lafayette Park
+Quand l'oiseau de guerre a illuminé l'obscurité
+
+Le diable s'est avancé vers l'église
+Et a fièrement brandi
+Un livre qu'il disait être la bible
+Mais qui n'était que l'art du vol
+
+Alors le gaz toxique
+A fait monter les larmes aux yeux
+Les troupes de choc armées
+De matraques et de gaz
+Ont ouvert un chemin dans la foule
+Pour que le diable puisse passer
+Jusqu'aux marches de St. John's
+
+A étouffé les voix de la paix
+La bible tenue bien haut
+Dans la main du voleur
+
+Je ne veux pas de pitié
+Je veux du changement
+Je ne suis pas triste
+Je ne suis pas désolé
+Je suis en colère
+Je suis fatigué`,
+      it:
+`La casa del popolo
+Un tempo fiera, così come si ergeva
+Viviamo in un
+Deserto di specchi
+Dove niente di ciò che vediamo
+È ciò che sembra
+
+Gli uccelli hanno smesso di cantare a Lafayette Park
+Quando un uccello oscuro di guerra ha illuminato il parco
+
+Così il gas velenoso
+Ha soffocato le voci della pace
+E la bibbia tenuta alta
+Nella mano della bestia
+Gli uccelli hanno smesso di cantare a Lafayette Park
+Quando l'uccello di guerra ha illuminato il buio
+
+Il diavolo si è avvicinato alla chiesa
+E ha orgogliosamente sollevato
+Un libro che diceva essere la bibbia
+Ma che era solo l'arte del furto
+
+Così il gas velenoso
+Ha portato lacrime agli occhi
+Le truppe d'assalto armate
+Di manganelli e gas
+Hanno aperto un varco tra la folla
+Perché il diavolo potesse passare
+Fino ai gradini di St. John's
+
+Ha soffocato le voci della pace
+La bibbia tenuta alta
+Nella mano del ladro
+
+Non voglio pietà
+Voglio cambiamento
+Non sono triste
+Non mi dispiace
+Sono arrabbiato
+Sono stanco`,
+      pt:
+`A casa do povo
+Outrora orgulhosa, tal como se erguia
+Vivemos num
+Deserto de espelhos
+Onde nada do que vemos
+É o que parece
+
+Os pássaros pararam de cantar em Lafayette Park
+Quando um sombrio pássaro de guerra iluminou o parque
+
+Então o gás venenoso
+Sufocou as vozes da paz
+E a bíblia erguida bem alto
+Na mão da besta
+Os pássaros pararam de cantar em Lafayette Park
+Quando o pássaro de guerra iluminou a escuridão
+
+O diabo caminhou até à igreja
+E ergueu orgulhosamente
+Um livro que disse ser a bíblia
+Mas que era apenas a arte do roubo
+
+Então o gás venenoso
+Trouxe lágrimas aos olhos
+As tropas de choque armadas
+Com cassetetes e gás
+Abriram um caminho na multidão
+Para que o diabo pudesse passar
+Até aos degraus de St. John's
+
+Sufocou as vozes da paz
+A bíblia erguida bem alto
+Na mão do ladrão
+
+Não quero pena
+Quero mudança
+Não estou triste
+Não sinto pena
+Estou zangado
+Estou cansado`,
     },
   },
   {
@@ -4001,6 +5978,123 @@ Men ingen hörde deras rop
 Håll dem alla i mörker och
 I skuggornas mörker
 Fanns det ingenting där alls`,
+      fr:
+`J'ai entendu les pas des ombres ramper lentement le long du couloir
+J'ai entendu l'ombre silencieuse frapper si doucement à la porte
+Mon esprit m'a-t-il seulement trompé ?
+Ai-je entendu des voix crier ?
+Dans l'obscurité des ombres
+Il n'y avait rien du tout
+
+Quand ils veulent garder le pouvoir dans un jeu, ils gardent le ballon
+Pour conserver leur pouvoir et leur influence, ils se fichent du reste
+Mon esprit m'a-t-il seulement trompé ?
+Ai-je entendu les voix crier ?
+Dans l'obscurité des ombres
+Il n'y avait rien du tout
+
+Quand les enfants pauvres allaient à l'école, ils n'avaient pas de livres, juste des murs froids et humides
+Tandis que les enfants riches recevaient l'argent et plus encore pour construire leurs salles dorées
+Le gouvernement leur a-t-il dit d'arrêter cela ?
+As-tu entendu nos voix crier ?
+Dans l'obscurité des ombres
+Il n'y avait rien du tout
+
+Refusez-leur l'éducation, sont-ils stupides, ils ne savent rien
+Que la vérité n'est pas les mensonges que tu racontes, les faits que tu ne montres jamais
+La vérité est la clé de la liberté pour
+Que nos voix soient entendues
+Depuis l'obscurité des ombres
+Laissez-les entendre notre cri de liberté
+Depuis l'obscurité des ombres
+Laissez-les entendre notre cri de liberté
+
+Dans l'obscurité des ombres
+Il n'y avait rien du tout
+
+Ils criaient pour être guidés
+Mais personne n'entendit leurs cris
+Gardez-les tous dans l'obscurité et
+Dans l'obscurité des ombres
+Il n'y avait rien du tout`,
+      it:
+`Ho sentito i passi delle ombre strisciare lentamente lungo il corridoio
+Ho sentito l'ombra silenziosa bussare così delicatamente alla porta
+La mia mente mi ha solo ingannato?
+Ho sentito delle voci gridare?
+Nel buio delle ombre
+Non c'era proprio niente
+
+Quando vogliono mantenere il potere in un gioco, tengono la palla
+Per conservare il loro potere e la loro influenza, del resto non gliene importa niente
+La mia mente mi ha solo ingannato?
+Ho sentito le voci gridare?
+Nel buio delle ombre
+Non c'era proprio niente
+
+Quando i bambini poveri andavano a scuola non avevano libri, solo muri freddi e umidi
+Mentre i bambini ricchi ricevevano i soldi e ancora di più per costruire le loro sale dorate
+Il governo ha detto loro di smettere?
+Hai sentito le nostre voci gridare?
+Nel buio delle ombre
+Non c'era proprio niente
+
+Negategli l'istruzione, sono stupidi, non sanno niente
+Che la verità non sono le menzogne che racconti, i fatti che non mostri mai
+La verità è la chiave della libertà perché
+Le nostre voci vengano sentite
+Dal buio delle ombre
+Fateli sentire il nostro grido di libertà
+Dal buio delle ombre
+Fateli sentire il nostro grido di libertà
+
+Nel buio delle ombre
+Non c'era proprio niente
+
+Gridavano in cerca di una guida
+Ma nessuno sentì il loro grido
+Tenete tutti loro nel buio e
+Nel buio delle ombre
+Non c'era proprio niente`,
+      pt:
+`Ouvi os passos das sombras se arrastando lentamente pelo corredor
+Ouvi a sombra silenciosa bater tão delicadamente na porta
+Será que minha mente só me enganou?
+Ouvi vozes gritando?
+Na escuridão das sombras
+Não havia nada ali
+
+Quando querem manter o poder num jogo, eles guardam a bola
+Para manter seu poder e sua influência, não se importam nem um pouco com o resto
+Será que minha mente só me enganou?
+Ouvi as vozes gritando?
+Na escuridão das sombras
+Não havia nada ali
+
+Quando as crianças pobres iam à escola não tinham livros, só paredes frias e úmidas
+Enquanto as crianças ricas recebiam o dinheiro e mais ainda para construir seus salões dourados
+O governo disse a eles para parar com isso?
+Você ouviu nossas vozes gritando?
+Na escuridão das sombras
+Não havia nada ali
+
+Neguem-lhes a educação, são burros, não sabem nada
+Que a verdade não são as mentiras que você conta, os fatos que você nunca mostra
+A verdade é a chave da liberdade para
+Que nossas vozes sejam ouvidas
+Da escuridão das sombras
+Deixem-os ouvir nosso grito de liberdade
+Da escuridão das sombras
+Deixem-os ouvir nosso grito de liberdade
+
+Na escuridão das sombras
+Não havia nada ali
+
+Eles gritaram por orientação
+Mas ninguém ouviu seus gritos
+Mantenham todos eles na escuridão e
+Na escuridão das sombras
+Não havia nada ali`,
     },
   },
   {
@@ -4264,6 +6358,147 @@ Georgie
 Du kan öppna vilken dörr som helst
 Georgie
 Du kan öppna vilken dörr som helst`,
+      fr:
+`Bienvenue dans ce monde
+Tu es une beauté à contempler
+Ton voyage vient de commencer
+Tes histoires vont se dérouler
+
+Suis un chemin que tu choisis
+Découvre qui tu es
+Les erreurs ne doivent pas te définir mais
+Te rendre plus fort en apprenant
+
+Tu sais que c'est ton monde
+C'est ton moment d'explorer
+Tu peux réussir partout
+Tu sais que c'est ton monde
+C'est ton moment d'explorer
+Tu peux ouvrir n'importe quelle porte
+
+Ta vie est à toi de la vivre
+Alors fais le grand saut avec foi
+Trouve ce qui te rend heureux
+Le reste se mettra en place
+
+Notre amour t'aide à trouver ton chemin
+Un jour tu laisseras ta marque
+Alors continue à chercher le bonheur
+Suis tous tes rêves
+
+Tu sais que c'est ton monde
+C'est ton moment d'explorer
+Tu peux réussir partout
+Tu sais que c'est ton monde
+C'est ton moment d'explorer
+Tu peux ouvrir n'importe quelle porte
+
+Tu sais que c'est ton monde
+C'est ton moment d'explorer
+Tu peux réussir partout
+Tu sais que c'est ton monde
+C'est ton moment d'explorer
+Tu peux ouvrir n'importe quelle porte
+
+Georgie
+Georgie
+Tu peux ouvrir n'importe quelle porte
+Georgie
+Tu peux ouvrir n'importe quelle porte`,
+      it:
+`Benvenuto in questo mondo
+Sei una bellezza da guardare
+Il tuo viaggio è appena iniziato
+Le tue storie si sveleranno
+
+Segui una strada che scegli tu
+Scopri chi sei
+Gli errori non devono definirti ma
+Renderti più forte mentre impari
+
+Sai che questo è il tuo mondo
+È il tuo momento di esplorare
+Puoi farcela ovunque
+Sai che questo è il tuo mondo
+È il tuo momento di esplorare
+Puoi aprire qualsiasi porta
+
+La tua vita è tua da vivere
+Quindi fai il salto con fede
+Trova ciò che ti rende felice
+Il resto andrà al suo posto
+
+Il nostro amore ti aiuta a trovare la strada
+Un giorno lascerai il tuo segno
+Quindi continua a cercare la felicità
+Segui tutti i tuoi sogni
+
+Sai che questo è il tuo mondo
+È il tuo momento di esplorare
+Puoi farcela ovunque
+Sai che questo è il tuo mondo
+È il tuo momento di esplorare
+Puoi aprire qualsiasi porta
+
+Sai che questo è il tuo mondo
+È il tuo momento di esplorare
+Puoi farcela ovunque
+Sai che questo è il tuo mondo
+È il tuo momento di esplorare
+Puoi aprire qualsiasi porta
+
+Georgie
+Georgie
+Puoi aprire qualsiasi porta
+Georgie
+Puoi aprire qualsiasi porta`,
+      pt:
+`Bem-vindo a este mundo
+Você é uma beleza de se ver
+Sua jornada apenas começou
+Suas histórias vão se revelar
+
+Siga um caminho que você escolhe
+Descubra quem você é
+Os erros não devem te definir, mas
+Te tornar mais forte enquanto aprende
+
+Você sabe que este é o seu mundo
+É a sua hora de explorar
+Você pode se sair bem em qualquer lugar
+Você sabe que este é o seu mundo
+É a sua hora de explorar
+Você pode abrir qualquer porta
+
+Sua vida é sua para viver
+Então dê o salto com fé
+Encontre o que te traz alegria
+O resto se encaixa
+
+Nosso amor te ajuda a encontrar o caminho certo
+Um dia você deixará sua marca
+Então continue buscando a felicidade
+Siga todos os seus sonhos
+
+Você sabe que este é o seu mundo
+É a sua hora de explorar
+Você pode se sair bem em qualquer lugar
+Você sabe que este é o seu mundo
+É a sua hora de explorar
+Você pode abrir qualquer porta
+
+Você sabe que este é o seu mundo
+É a sua hora de explorar
+Você pode se sair bem em qualquer lugar
+Você sabe que este é o seu mundo
+É a sua hora de explorar
+Você pode abrir qualquer porta
+
+Georgie
+Georgie
+Você pode abrir qualquer porta
+Georgie
+Você pode abrir qualquer porta`,
     },
   },
   {
@@ -4559,6 +6794,174 @@ Allt du behöver göra är att
 Ta min hand
 Allt du behöver göra är att
 Ta min hand`,
+      fr:
+`Il y a une tristesse dans tes yeux
+Je vois les traces des larmes que tu pleures
+Ton masque souriant ne peut pas les cacher
+Peu importe comment tu essaies
+
+Tu étais assise seule sous les étoiles
+Tu souhaitais quelque chose sous la lune
+Un amour qui te ramènerait à la maison
+Il ne pouvait pas arriver assez vite
+
+L'hiver arrive
+Tu es dans le froid
+Tout ce que tu as à faire est
+Prendre ma main
+Il y a un feu à l'intérieur
+Pour te garder en sécurité et au chaud
+Il y a une promesse dans mon cœur
+Que je te donnerai tout mon amour
+Je peux seulement te promettre
+Que je te donne tout mon amour
+Et tout ce que je suis
+Et tout ce que je suis
+
+Quand nous sommes si loin l'un de l'autre
+Nous partageons deux cœurs aimants
+Nous regardons vers la lune de minuit
+Et souhaitons quelque chose sous les mêmes étoiles
+
+L'hiver arrive
+Tu es dans le froid
+Tout ce que tu as à faire est
+Prendre ma main
+Il y a un feu à l'intérieur
+Pour te garder en sécurité et au chaud
+Il y a une promesse dans mon cœur
+Que je te donnerai tout mon amour
+Je peux seulement te promettre
+Que je te donne tout mon amour
+Et tout ce que je suis
+Et tout ce que je suis
+
+Tout ce que tu as à faire est
+Prendre ma main
+
+Quand les choses deviennent difficiles pour toi
+Et qu'il n'y a plus de jeux à jouer
+Je suis toujours à tes côtés
+Même si je suis à mille lieues
+
+L'hiver arrive
+Tu es dans le froid
+Tout ce que tu as à faire est
+Prendre ma main
+Tout ce que tu as à faire est
+Prendre ma main`,
+      it:
+`C'è una tristezza nei tuoi occhi
+Vedo le tracce delle lacrime che piangi
+La tua maschera sorridente non può nasconderle
+Non importa come ci provi
+
+Sedevi da sola sotto le stelle
+Desideravi qualcosa sotto la luna
+Un amore che ti avrebbe portato a casa
+Non poteva arrivare abbastanza presto
+
+L'inverno sta arrivando
+Sei fuori al freddo
+Tutto quello che devi fare è
+Prendere la mia mano
+C'è un fuoco dentro
+Per tenerti al sicuro e al caldo
+C'è una promessa nel mio cuore
+Che ti darò tutto il mio amore
+Posso solo prometterti
+Che ti do tutto il mio amore
+E tutto ciò che sono
+E tutto ciò che sono
+
+Quando siamo così lontani l'uno dall'altro
+Condividiamo due cuori innamorati
+Guardiamo verso la luna di mezzanotte
+E desideriamo qualcosa sotto le stesse stelle
+
+L'inverno sta arrivando
+Sei fuori al freddo
+Tutto quello che devi fare è
+Prendere la mia mano
+C'è un fuoco dentro
+Per tenerti al sicuro e al caldo
+C'è una promessa nel mio cuore
+Che ti darò tutto il mio amore
+Posso solo prometterti
+Che ti do tutto il mio amore
+E tutto ciò che sono
+E tutto ciò che sono
+
+Tutto quello che devi fare è
+Prendere la mia mano
+
+Quando le cose si fanno difficili per te
+E non ci sono più giochi da giocare
+Sono sempre al tuo fianco
+Anche se sono a mille miglia di distanza
+
+L'inverno sta arrivando
+Sei fuori al freddo
+Tutto quello che devi fare è
+Prendere la mia mano
+Tutto quello che devi fare è
+Prendere la mia mano`,
+      pt:
+`Há uma tristeza em seus olhos
+Vejo os rastros das lágrimas que você chora
+Sua máscara sorridente não pode escondê-las
+Não importa como você tente
+
+Você estava sentada sozinha sob as estrelas
+Desejava algo sob a lua
+Um amor que te traria para casa
+Ele não podia chegar rápido o suficiente
+
+O inverno está chegando
+Você está no frio
+Tudo o que você precisa fazer é
+Segurar minha mão
+Há um fogo por dentro
+Para te manter segura e aquecida
+Há uma promessa no meu coração
+De que eu vou te dar todo o meu amor
+Só posso te prometer
+Que eu te dou todo o meu amor
+E tudo o que eu sou
+E tudo o que eu sou
+
+Quando estamos tão longe um do outro
+Compartilhamos dois corações amorosos
+Olhamos para a lua da meia-noite
+E desejamos algo sob as mesmas estrelas
+
+O inverno está chegando
+Você está no frio
+Tudo o que você precisa fazer é
+Segurar minha mão
+Há um fogo por dentro
+Para te manter segura e aquecida
+Há uma promessa no meu coração
+De que eu vou te dar todo o meu amor
+Só posso te prometer
+Que eu te dou todo o meu amor
+E tudo o que eu sou
+E tudo o que eu sou
+
+Tudo o que você precisa fazer é
+Segurar minha mão
+
+Quando as coisas ficam difíceis para você
+E não há mais brincadeiras para brincar
+Estou sempre ao seu lado
+Mesmo que eu esteja a mil milhas de distância
+
+O inverno está chegando
+Você está no frio
+Tudo o que você precisa fazer é
+Segurar minha mão
+Tudo o que você precisa fazer é
+Segurar minha mão`,
     },
   },
   {
@@ -4809,6 +7212,147 @@ Ja, det är julafton igen
 Med din kärlek är vi ett igen
 Håll mig nära, natten igenom
 Åh! det är julafton med dig`,
+      fr:
+`Quand la neige douce commence à tomber
+Oh ! toute cette beauté
+À la lueur douce du feu chaleureux
+Il n'y a aucun endroit où je préférerais être
+
+Je célèbre le réveillon de Noël avec toi
+Tandis que les étoiles les plus brillantes brillent à travers
+Dans tes bras, tout semble si juste
+Enveloppés d'amour, une nuit tout à fait spéciale
+Oh ! c'est Noël, le réveillon avec toi
+Chaque souhait et chaque rêve se réalisent
+Juste nous deux, notre amour renouvelé
+Oh, c'est le réveillon de Noël avec toi
+
+Les rues de la ville sont douces et blanches
+Des lumières scintillantes éclairent la nuit
+Chaque chant de Noël chanté lentement
+Me ramène à quand nous étions jeunes
+
+Je célèbre le réveillon de Noël avec toi
+Tandis que les étoiles les plus brillantes brillent à travers
+Dans tes bras, tout semble si juste
+Enveloppés d'amour, une nuit tout à fait spéciale
+Oh ! c'est Noël, le réveillon avec toi
+Chaque souhait et chaque rêve se réalisent
+Juste nous deux, notre amour renouvelé
+Oh, c'est le réveillon de Noël avec toi
+
+Laisse les cloches sonner, laisse-les résonner
+Pour cet amour qui est le tien et le mien
+Sous le gui
+Là où nos cœurs brillent
+
+Je célèbre le réveillon de Noël avec toi
+Tandis que les étoiles les plus brillantes brillent à travers
+Dans tes bras, tout semble si juste
+Enveloppés d'amour, une nuit tout à fait spéciale
+Oh ! c'est Noël, le réveillon avec toi
+Oh ! c'est Noël, le réveillon
+Juste nous deux, notre amour renouvelé
+Oh, c'est le réveillon de Noël avec toi
+
+Oui, c'est encore le réveillon de Noël
+Avec ton amour, nous sommes unis à nouveau
+Serre-moi près de toi, toute la nuit
+Oh ! c'est le réveillon de Noël avec toi`,
+      it:
+`Quando la neve soffice comincia a cadere
+Oh! tutta quella bellezza
+Al dolce chiarore del caldo focolare
+Non c'è nessun posto dove vorrei essere di più
+
+Festeggio la vigilia di Natale con te
+Mentre le stelle più luminose brillano attraverso
+Tra le tue braccia tutto sembra così giusto
+Avvolti nell'amore, una notte davvero speciale
+Oh! è Natale, la vigilia con te
+Ogni desiderio e ogni sogno si realizza
+Solo noi due, il nostro amore rinnovato
+Oh, è la vigilia di Natale con te
+
+Le strade della città sono soffici e bianche
+Luci scintillanti illuminano la notte
+Ogni canto di Natale cantato piano
+Mi riporta a quando eravamo giovani
+
+Festeggio la vigilia di Natale con te
+Mentre le stelle più luminose brillano attraverso
+Tra le tue braccia tutto sembra così giusto
+Avvolti nell'amore, una notte davvero speciale
+Oh! è Natale, la vigilia con te
+Ogni desiderio e ogni sogno si realizza
+Solo noi due, il nostro amore rinnovato
+Oh, è la vigilia di Natale con te
+
+Lascia che le campane suonino, lasciale risuonare
+Per questo amore che è tuo e mio
+Sotto il vischio
+Dove i nostri cuori ardono
+
+Festeggio la vigilia di Natale con te
+Mentre le stelle più luminose brillano attraverso
+Tra le tue braccia tutto sembra così giusto
+Avvolti nell'amore, una notte davvero speciale
+Oh! è Natale, la vigilia con te
+Oh! è Natale, la vigilia
+Solo noi due, il nostro amore rinnovato
+Oh, è la vigilia di Natale con te
+
+Sì, è di nuovo la vigilia di Natale
+Con il tuo amore siamo di nuovo uniti
+Tienimi vicino, per tutta la notte
+Oh! è la vigilia di Natale con te`,
+      pt:
+`Quando a neve suave começa a cair
+Ah! toda aquela beleza
+Junto ao brilho suave da lareira acesa
+Não há lugar onde eu preferiria estar
+
+Estou celebrando a véspera de Natal com você
+Enquanto as estrelas mais brilhantes brilham através
+Em seus braços tudo parece tão certo
+Envoltos em amor, uma noite muito especial
+Ah! é Natal, a véspera com você
+Cada desejo e cada sonho se realiza
+Só nós dois, nosso amor renovado
+Ah, é véspera de Natal com você
+
+As ruas da cidade estão suaves e brancas
+Luzes cintilantes iluminam a noite
+Cada canção de Natal cantada devagar
+Me leva de volta a quando éramos jovens
+
+Estou celebrando a véspera de Natal com você
+Enquanto as estrelas mais brilhantes brilham através
+Em seus braços tudo parece tão certo
+Envoltos em amor, uma noite muito especial
+Ah! é Natal, a véspera com você
+Cada desejo e cada sonho se realiza
+Só nós dois, nosso amor renovado
+Ah, é véspera de Natal com você
+
+Deixe os sinos tocarem, deixe-os ressoar
+Por este amor que é seu e meu
+Sob o visco
+Onde nossos corações brilham
+
+Estou celebrando a véspera de Natal com você
+Enquanto as estrelas mais brilhantes brilham através
+Em seus braços tudo parece tão certo
+Envoltos em amor, uma noite muito especial
+Ah! é Natal, a véspera com você
+Ah! é Natal, a véspera
+Só nós dois, nosso amor renovado
+Ah, é véspera de Natal com você
+
+Sim, é véspera de Natal outra vez
+Com seu amor estamos unidos de novo
+Me abrace, a noite toda
+Ah! é véspera de Natal com você`,
     },
   },
 ];
@@ -5016,6 +7560,96 @@ Allt är bra
 
 Två följer den ene
 Och du följer geväret`,
+      fr:
+`Deux suivent le un
+Et toi tu suis le fusil
+
+Les pensées remplissent nos têtes
+Les esprits deviennent fous
+Capture une image
+Quand tu perds le contrôle
+En observant un instant
+
+Et quand plus rien n'a de sens
+Affiche juste un sourire
+
+Trouve une clé vers le soulagement
+Quand le temps l'enferme dehors
+Ralentis un mouvement
+Attrape le reflet du passé
+En cherchant une ligne vraie
+
+Et quand plus rien d'autre n'a de sens
+Du tout
+Affiche juste un sourire
+
+Regarde autour de toi
+Tout va bien
+Qu'est-ce qui ne va pas là maintenant
+Tout va bien
+
+Deux suivent le un
+Et toi tu suis le fusil`,
+      it:
+`Due seguono l'uno
+E tu segui il fucile
+
+I pensieri riempiono le nostre teste
+Le menti stanno impazzendo
+Cattura un'immagine
+Quando perdi il controllo
+Osservando un momento
+
+E quando niente ha più senso
+Metti solo un sorriso
+
+Trova una chiave per il sollievo
+Quando il tempo la tiene fuori
+Rallenta un movimento
+Cogli il riflesso del passato
+Cercando una linea vera
+
+E quando nient'altro ha senso
+Per niente
+Metti solo un sorriso
+
+Guardati intorno
+Va tutto bene
+Cosa c'è che non va adesso
+Va tutto bene
+
+Due seguono l'uno
+E tu segui il fucile`,
+      pt:
+`Dois seguem o um
+E tu segues a arma
+
+Pensamentos enchem as nossas cabeças
+As mentes estão a enlouquecer
+Captura uma imagem
+Quando perdes o controlo
+Observando um momento
+
+E quando nada faz sentido
+Basta pôr um sorriso
+
+Encontra uma chave para o alívio
+Quando o tempo a tranca lá fora
+Abranda um movimento
+Apanha o reflexo do passado
+Procurando uma linha verdadeira
+
+E quando mais nada faz sentido
+De todo
+Basta pôr um sorriso
+
+Olha à tua volta
+Está tudo bem
+O que está errado agora
+Está tudo bem
+
+Dois seguem o um
+E tu segues a arma`,
     },
   },
   {
@@ -5111,6 +7745,50 @@ Och du följer geväret`,
 Erik and Emil met during their music studies in Jakobstad and have been playing together ever since — in bands, in orchestras, and now in this album. On record, the two roles split cleanly: Erik writes the lyrics and melodies and sings lead, working personal memory into something a listener with a different childhood can still recognize; Emil produces and arranges, building the soundscape each song sits inside.
 
 Recording ran through the summer of 2025 across a handful of specific rooms chosen for what they'd add to the sound: strings in Replot church, horns in Jakobstad, percussion in Vasa, and the core sessions at DeeKay Records Studios in Vaskiluoto. The promo and recording photography was shot at Midas Studio in Replot. The album was mixed by Emil Nordström, recorded by Stefan Backas, and mastered by Maria Triana in Amsterdam.`,
+    descriptionTranslations: {
+      de:
+`Längs med vägen – „entlang der Straße" – ist ein schwedischsprachiges Album von Erik Sjøholm und Emil Nordström: zwölf bis fünfzehn Lieder, geschrieben als ein Spaziergang entlang des Lebensweges – Kindheitserinnerungen am einen Ende, Gedanken übers Altwerden am anderen, und alles, was dazwischen geschieht. Die Lieder spielen an zwei Orten, die beide Songwriter geprägt haben – Österbotten, an der schwedischsprachigen Küste Finnlands, und Pargas, weiter südlich bei Åbo.
+
+Erik und Emil lernten sich während ihres Musikstudiums in Jakobstad kennen und spielen seither zusammen – in Bands, in Orchestern, und jetzt in diesem Album. Auf der Platte sind die beiden Rollen klar getrennt: Erik schreibt die Texte und Melodien und singt die Lead-Stimme, verarbeitet persönliche Erinnerungen zu etwas, das auch ein Hörer mit einer anderen Kindheit wiedererkennen kann; Emil produziert und arrangiert und baut die Klanglandschaft, in der jedes Lied lebt.
+
+Die Aufnahmen liefen über den Sommer 2025 in einer Handvoll ausgewählter Räume, je nachdem, was sie dem Klang hinzufügen konnten: Streicher in der Kirche von Replot, Blechbläser in Jakobstad, Percussion in Vasa, und die Kernaufnahmen in den DeeKay Records Studios in Vaskiluoto. Die Promo- und Aufnahmefotos entstanden im Midas Studio in Replot. Das Album wurde von Emil Nordström gemischt, von Stefan Backas aufgenommen und von Maria Triana in Amsterdam gemastert.`,
+      sv:
+`Längs med vägen är ett svenskspråkigt album av Erik Sjøholm och Emil Nordström, tolv till femton låtar skrivna som en vandring längs livets väg: barndomsminnen i ena änden, tankar om ålderdom i den andra, och allt som händer däremellan. Låtarna utspelar sig på två platser som format båda låtskrivarna – Österbotten, på den svenskspråkiga kusten i Finland, och Pargas, längre söderut nära Åbo.
+
+Erik och Emil träffades under sina musikstudier i Jakobstad och har spelat tillsammans sedan dess – i band, i orkestrar, och nu på det här albumet. På skivan är rollerna tydligt fördelade: Erik skriver texter och melodier och sjunger lead, och omvandlar personliga minnen till något en lyssnare med en annan barndom ändå kan känna igen sig i; Emil producerar och arrangerar, och bygger ljudlandskapet varje låt får leva i.
+
+Inspelningarna gjordes under sommaren 2025 i ett antal utvalda rum, beroende på vad de kunde tillföra ljudet: stråkar i Replot kyrka, blås i Jakobstad, slagverk i Vasa, och kärninspelningarna på DeeKay Records Studios i Vaskiluoto. Promo- och inspelningsfotona togs på Midas Studio i Replot. Albumet mixades av Emil Nordström, spelades in av Stefan Backas och mastrades av Maria Triana i Amsterdam.`,
+      es:
+`Längs med vägen —"a lo largo del camino"— es un álbum en sueco de Erik Sjøholm y Emil Nordström, doce a quince canciones escritas como un camino a lo largo de la vida: recuerdos de infancia en un extremo, reflexiones sobre la vejez en el otro, y todo lo que ocurre entre medio. Las canciones están ambientadas en dos lugares que marcaron a ambos autores: Österbotten, en la costa de habla sueca de Finlandia, y Pargas, más al sur, cerca de Turku.
+
+Erik y Emil se conocieron durante sus estudios de música en Jakobstad y han tocado juntos desde entonces: en bandas, en orquestas, y ahora en este álbum. En el disco, los dos roles se dividen con claridad: Erik escribe las letras y las melodías y canta la voz principal, transformando recuerdos personales en algo que un oyente con una infancia distinta aún puede reconocer; Emil produce y arregla, construyendo el paisaje sonoro en el que vive cada canción.
+
+La grabación se realizó durante el verano de 2025 en un puñado de espacios elegidos por lo que podían aportar al sonido: cuerdas en la iglesia de Replot, metales en Jakobstad, percusión en Vasa, y las sesiones principales en DeeKay Records Studios, en Vaskiluoto. Las fotografías promocionales y de grabación se hicieron en Midas Studio, en Replot. El álbum fue mezclado por Emil Nordström, grabado por Stefan Backas y masterizado por Maria Triana en Ámsterdam.`,
+      fi:
+`Längs med vägen on Erik Sjøholmin ja Emil Nordströmin ruotsinkielinen albumi, kaksitoista–viisitoista laulua, jotka on kirjoitettu kävelynä elämän tien varrella: lapsuusmuistoja toisessa päässä, vanhuuden pohdintoja toisessa, ja kaikkea siltä väliltä. Laulut sijoittuvat kahteen paikkaan, jotka ovat muovanneet molempia tekijöitä – Pohjanmaalle, Suomen ruotsinkieliselle rannikolle, ja Paraisille, etelämpänä lähellä Turkua.
+
+Erik ja Emil tapasivat musiikkiopinnoissaan Pietarsaaressa ja ovat soittaneet yhdessä siitä lähtien – bändeissä, orkestereissa, ja nyt tällä albumilla. Levyllä roolit jakautuvat selkeästi: Erik kirjoittaa sanat ja melodiat ja laulaa päääänen, muokaten henkilökohtaisia muistoja joksikin, minkä toisenlaisen lapsuuden kokenut kuulijakin voi silti tunnistaa; Emil tuottaa ja sovittaa, rakentaen äänimaiseman, jossa jokainen kappale elää.
+
+Äänitykset tehtiin kesällä 2025 muutamassa erikseen valitussa tilassa sen mukaan, mitä ne toisivat ääneen: jouset Replotin kirkossa, torvet Pietarsaaressa, lyömäsoittimet Vaasassa, ja pääsessiot DeeKay Records Studiosilla Vaskiluodossa. Promo- ja äänityskuvat otettiin Midas Studiolla Replotissa. Albumin miksasi Emil Nordström, äänitti Stefan Backas ja masteroi Maria Triana Amsterdamissa.`,
+      fr:
+`Längs med vägen — « le long du chemin » — est un album en suédois d'Erik Sjøholm et Emil Nordström, douze à quinze chansons écrites comme une marche le long du chemin de la vie : souvenirs d'enfance à une extrémité, réflexions sur la vieillesse à l'autre, et tout ce qui se passe entre les deux. Les chansons se situent dans deux endroits qui ont marqué les deux auteurs — l'Österbotten, sur la côte suédophone de la Finlande, et Pargas, plus au sud, près de Turku.
+
+Erik et Emil se sont rencontrés pendant leurs études de musique à Jakobstad et jouent ensemble depuis — en groupes, en orchestres, et maintenant sur cet album. Sur le disque, les deux rôles se répartissent clairement : Erik écrit les paroles et les mélodies et chante en voix principale, transformant des souvenirs personnels en quelque chose qu'un auditeur ayant eu une enfance différente peut tout de même reconnaître ; Emil produit et arrange, construisant le paysage sonore dans lequel vit chaque chanson.
+
+L'enregistrement s'est déroulé durant l'été 2025 dans une poignée de lieux choisis pour ce qu'ils pouvaient apporter au son : cordes dans l'église de Replot, cuivres à Jakobstad, percussions à Vasa, et les sessions principales aux DeeKay Records Studios à Vaskiluoto. Les photos promotionnelles et d'enregistrement ont été prises au Midas Studio à Replot. L'album a été mixé par Emil Nordström, enregistré par Stefan Backas et masterisé par Maria Triana à Amsterdam.`,
+      it:
+`Längs med vägen — "lungo la strada" — è un album in svedese di Erik Sjøholm ed Emil Nordström, da dodici a quindici canzoni scritte come una camminata lungo la strada della vita: ricordi d'infanzia a un'estremità, riflessioni sulla vecchiaia all'altra, e tutto ciò che accade nel mezzo. Le canzoni sono ambientate in due luoghi che hanno segnato entrambi gli autori: l'Österbotten, sulla costa svedese della Finlandia, e Pargas, più a sud, vicino a Turku.
+
+Erik ed Emil si sono conosciuti durante gli studi musicali a Jakobstad e suonano insieme da allora — in band, in orchestre, e ora in questo album. Sul disco, i due ruoli si dividono chiaramente: Erik scrive i testi e le melodie e canta la voce principale, trasformando ricordi personali in qualcosa che anche un ascoltatore con un'infanzia diversa può riconoscere; Emil produce e arrangia, costruendo il paesaggio sonoro in cui vive ogni canzone.
+
+Le registrazioni si sono svolte nell'estate del 2025 in una manciata di ambienti scelti per ciò che potevano aggiungere al suono: archi nella chiesa di Replot, ottoni a Jakobstad, percussioni a Vasa, e le sessioni principali ai DeeKay Records Studios a Vaskiluoto. Le foto promozionali e di registrazione sono state scattate al Midas Studio di Replot. L'album è stato mixato da Emil Nordström, registrato da Stefan Backas e masterizzato da Maria Triana ad Amsterdam.`,
+      pt:
+`Längs med vägen — "ao longo do caminho" — é um álbum em sueco de Erik Sjøholm e Emil Nordström, doze a quinze canções escritas como uma caminhada ao longo do caminho da vida: memórias de infância numa ponta, reflexões sobre a velhice na outra, e tudo o que acontece pelo meio. As canções situam-se em dois lugares que marcaram ambos os autores — Österbotten, na costa de língua sueca da Finlândia, e Pargas, mais a sul, perto de Turku.
+
+Erik e Emil conheceram-se durante os estudos de música em Jakobstad e tocam juntos desde então — em bandas, em orquestras, e agora neste álbum. No disco, os dois papéis dividem-se claramente: Erik escreve as letras e as melodias e canta a voz principal, transformando memórias pessoais em algo que um ouvinte com uma infância diferente ainda consegue reconhecer; Emil produz e arranja, construindo a paisagem sonora onde cada canção vive.
+
+As gravações decorreram durante o verão de 2025 num punhado de espaços escolhidos pelo que podiam acrescentar ao som: cordas na igreja de Replot, metais em Jakobstad, percussão em Vasa, e as sessões principais nos DeeKay Records Studios em Vaskiluoto. As fotografias promocionais e de gravação foram feitas no Midas Studio em Replot. O álbum foi mixado por Emil Nordström, gravado por Stefan Backas e masterizado por Maria Triana em Amsterdão.`,
+    },
     credits: [
       { name: 'Erik Sjøholm',     role: 'Lead vocals, backing vocals, some guitars' },
       { name: 'Emil Nordström',   role: 'Production, arrangement, mixing, guitar', url: 'https://emilnordstrom.com/portfolio' },
