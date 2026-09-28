@@ -520,6 +520,11 @@ a:hover .product-img {
 /* ── Funder logos ───────────────────────────────────────────────────────── */
 .funder-logo { opacity: 0.65; transition: opacity 200ms ease; display: inline-block; }
 .funder-logo:hover { opacity: 1; }
+.funder-logo img { transition: filter 200ms ease; }
+/* Funder marks (e.g. Svenska kulturfonden) are supplied as flat white PNGs, made for the dark
+   theme's near-black page — on the light theme's cream page they'd otherwise vanish, so invert
+   them there instead of needing a second asset per funder. */
+html[data-theme="light"] .funder-logo img { filter: invert(1); }
 
 /* ── Beehiiv post content ───────────────────────────────────────────────── */
 .notes-content {
@@ -1244,7 +1249,7 @@ html[data-tone="night"] .moon-svg { display: block; position: absolute; inset: 0
 html[data-tone="night"] .moon-lit   { fill: url(#moon-grad); stroke: none; }   /* a soft translucent glow, always a full circle, no outline */
 html[data-theme="light"]:not([data-tone="night"]) .sun-orb {
   display: block;
-  position: fixed; left: 0; top: 0; z-index: 56; pointer-events: none;   /* above the Index nav overlay (55) so the sun stays visible there too */
+  position: fixed; left: 0; top: 0; z-index: 40; pointer-events: none;
   border-radius: 50%;
   background: var(--color-sun);
   mix-blend-mode: multiply;
@@ -1343,8 +1348,7 @@ html[data-theme="light"][data-tone="night"] main,
 html[data-theme="light"][data-tone="night"] footer,
 html[data-theme="light"][data-tone="night"] .hero-section,
 html[data-theme="light"][data-tone="night"] .library-wrap,
-html[data-theme="light"][data-tone="night"] .mail-section,
-html[data-theme="light"][data-tone="night"] #nav-overlay { background: transparent !important; }   /* Index nav overlay too, so the moon shows through it like every other section */
+html[data-theme="light"][data-tone="night"] .mail-section { background: transparent !important; }
 html[data-theme="light"][data-tone="night"] .bg-slideshow,
 html[data-theme="light"][data-tone="night"] .bg-solid { display: none !important; }
 
@@ -1380,7 +1384,7 @@ main.min-h-screen { padding-bottom: max(var(--water-h, 96px), env(safe-area-inse
 html[data-theme="light"] .sun-reflect {
   display: block;
   position: fixed; left: 0; right: 0; bottom: 0; height: var(--water-h);
-  overflow: hidden; pointer-events: none; z-index: 56;   /* above the Index nav overlay (55), matching .sun-orb */
+  overflow: hidden; pointer-events: none; z-index: 4;
   -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 100%);
           mask-image: linear-gradient(to bottom, #000 0%, transparent 100%);
 }
