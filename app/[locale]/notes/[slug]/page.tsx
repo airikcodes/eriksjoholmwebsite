@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import Link from 'next/link';
 import BackNav from '@/components/BackNav';
 import KeepInTouch from '@/components/KeepInTouch';
 import { getNote, getNoteSlugs, formatNoteDate } from '@/lib/notes';
@@ -151,7 +152,7 @@ export default async function NotePost({
 
           {/* ── Back link ── */}
           <div style={{ paddingTop: '3rem', paddingBottom: '9rem' }}>
-            <a
+            <Link
               href="/notes"
               style={{
                 fontFamily:    'var(--font-inter)',
@@ -166,7 +167,7 @@ export default async function NotePost({
               className="hover:text-[color:var(--accent-ink)] hover:border-[#C8922A] transition-colors duration-200"
             >
               ← {n.backToNotes}
-            </a>
+            </Link>
           </div>
 
         </div>
