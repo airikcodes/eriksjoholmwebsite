@@ -58,7 +58,6 @@ export default async function Home({
           timeSlots={t.concierge.timeSlots}
           timeReplace={t.concierge.timeReplace}
           placeholder={t.concierge.placeholder}
-          orLabel={t.concierge.or}
           latest={getLatestRelease()}
           playPreview={t.concierge.playPreview}
           closePreview={t.concierge.closePreview}

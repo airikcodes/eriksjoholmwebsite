@@ -452,7 +452,6 @@ interface SongConciergeProps {
   timeSlots?:      TimeSlots;
   timeReplace?:    string;
   placeholder?:    string;
-  orLabel?:        string;
   chipLatest?:     string;
   chipMostPlayed?: string;
   chipUnexpected?: string;
@@ -471,7 +470,6 @@ export default function SongConcierge({
   timeSlots,
   timeReplace    = "right now",
   placeholder    = "Something quiet for late at night…",
-  orLabel        = "or",
   chipLatest     = "Latest Release",
   chipMostPlayed = "Most Played",
   chipUnexpected = "Unexpected",
@@ -628,26 +626,10 @@ export default function SongConcierge({
         </button>
       </form>
 
-      {/* "or" divider between the free-text input and the chip picks below */}
-      <p
-        aria-hidden="true"
-        style={{
-          fontFamily:    "var(--font-inter)",
-          fontSize:      "0.62rem",
-          letterSpacing: "0.15em",
-          textTransform: "uppercase",
-          textAlign:     "center",
-          color:         "var(--color-ink-meta)",
-          margin:        "1.4rem 0 0",
-        }}
-      >
-        {orLabel}
-      </p>
-
       {/* Chips — full width of the input box, three equal columns.
           Margin set inline: a sitewide `* { margin: 0 }` reset in globals.css
           sits outside Tailwind's layers and silently beats mt-* utilities. */}
-      <div style={{ marginTop: "1rem" }}>
+      <div style={{ marginTop: "3rem" }}>
         <div className="flex gap-2">
           {chips.map((chip) => (
             <button
