@@ -228,6 +228,7 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
           display:              'flex',
           flexDirection:        'column',
           justifyContent:       'center',
+          alignItems:           'center',
           padding:              'clamp(4rem, 8vh, 5rem) clamp(2.5rem, 8vw, 5rem)',
           opacity:              open ? 1 : 0,
           pointerEvents:        open ? 'auto' : 'none',

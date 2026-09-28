@@ -1249,7 +1249,7 @@ html[data-tone="night"] .moon-svg { display: block; position: absolute; inset: 0
 html[data-tone="night"] .moon-lit   { fill: url(#moon-grad); stroke: none; }   /* a soft translucent glow, always a full circle, no outline */
 html[data-theme="light"]:not([data-tone="night"]) .sun-orb {
   display: block;
-  position: fixed; left: 0; top: 0; z-index: 40; pointer-events: none;
+  position: fixed; left: 0; top: 0; z-index: 56; pointer-events: none;   /* above #nav-overlay's 55, so it never vanishes behind the Index menu */
   border-radius: 50%;
   background: var(--color-sun);
   mix-blend-mode: multiply;
@@ -1349,6 +1349,9 @@ html[data-theme="light"][data-tone="night"] footer,
 html[data-theme="light"][data-tone="night"] .hero-section,
 html[data-theme="light"][data-tone="night"] .library-wrap,
 html[data-theme="light"][data-tone="night"] .mail-section { background: transparent !important; }
+/* The moon sits *behind* the page at night (z-index -1, by design — see SunOrb.tsx), so the only way for it to
+   show through the full-screen Index menu is a lighter overlay background there, same trick as .mail-section above. */
+html[data-theme="light"][data-tone="night"] #nav-overlay { background: rgba(var(--page-rgb), 0.55) !important; }
 html[data-theme="light"][data-tone="night"] .bg-slideshow,
 html[data-theme="light"][data-tone="night"] .bg-solid { display: none !important; }
 
@@ -1384,7 +1387,7 @@ main.min-h-screen { padding-bottom: max(var(--water-h, 96px), env(safe-area-inse
 html[data-theme="light"] .sun-reflect {
   display: block;
   position: fixed; left: 0; right: 0; bottom: 0; height: var(--water-h);
-  overflow: hidden; pointer-events: none; z-index: 4;
+  overflow: hidden; pointer-events: none; z-index: 56;   /* matches .sun-orb: stays visible over #nav-overlay too */
   -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 100%);
           mask-image: linear-gradient(to bottom, #000 0%, transparent 100%);
 }
