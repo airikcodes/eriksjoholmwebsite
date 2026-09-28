@@ -170,28 +170,32 @@ export default function SunOrb() {
       const b = 2 * Math.PI * p * (laps * 0.7 + 0.3) + phase2;
       const drift = reduce ? 0 : 1;
       // A wide circuit on top of the scroll-driven wander — wide enough (relative to the viewport)
-      // that it reliably carries the disc past every edge in turn, left/right and up/down alike.
-      // Well under a minute per lap, on its own clock, so a visitor actually watches it exit one
-      // side and re-enter the other, rather than lingering near the middle of the screen.
-      const orbitA = t * 0.00014 + orbitPhase;   // ~45 s per lap
-      const orbitX = drift * vw * 0.68 * Math.cos(orbitA);
-      const orbitY = drift * vh * 0.64 * Math.sin(orbitA * 0.82 + orbitPhase2);
+      // that it reliably carries the disc past every edge in turn, left/right and up/down alike, but
+      // on a calmer clock than the first pass at this (which cycled every ~45s and, combined with the
+      // size breathing below on a similar timescale, made the disc feel like it was lurching around the
+      // page rather than drifting). About a minute and a half per lap keeps real exits/re-entries a
+      // visitor will actually notice, without the two cycles beating against each other.
+      const orbitA = t * 0.00007 + orbitPhase;   // ~90 s per lap
+      const orbitX = drift * vw * 0.64 * Math.cos(orbitA);
+      const orbitY = drift * vh * 0.6 * Math.sin(orbitA * 0.82 + orbitPhase2);
       const tx = vw * (0.5 + ampX * Math.cos(a)) + drift * vw * 0.03 * Math.sin(t * 0.00011 + phase) + orbitX;
       const ty = vh * (0.55 + ampY * Math.sin(b)) + drift * vh * 0.03 * Math.cos(t * 0.00009 + phase2) + orbitY;
       // Size breathes on its own, very slowly (about 80 s from smallest to largest and back), like a real moon
-      // rising and setting — it is not tied to how fast you scroll, so it never jumps.
+      // rising and setting — it is not tied to how fast you scroll, so it never jumps. Capped well short of
+      // its old max (which could swell past 3x — big enough to blanket half the page and swallow whatever
+      // was underneath, like a list row and its link) so the disc stays a presence, never a wall.
       const k = 0.5 - 0.5 * Math.cos((t / 80000) * 2 * Math.PI + phase2 + p * 1.2);
-      const tsc = 0.15 + 2.85 * k;
+      const tsc = 0.3 + 1.3 * k;
 
       if (reduce) {
         s.x = vw * 0.85; s.y = vh * 0.8; s.sc = 1;
       } else {
-        // Calm glide: ease toward the target — but fast enough to actually keep pace with the
-        // (now much shorter) grand orbit above, so the disc really clears every edge each lap
-        // instead of lagging behind and just wobbling near the centre of the screen.
+        // Calm glide: ease toward the target — fast enough to keep pace with the grand orbit above
+        // (so the disc actually clears every edge each lap) without the jumpy, overcorrecting motion
+        // the very high cap from the first pass at this produced.
         const step = (d: number, k: number, max: number) => Math.max(-max, Math.min(max, d * k));
-        s.x += step(tx - s.x, 0.006, 3.5);
-        s.y += step(ty - s.y, 0.006, 3.5);
+        s.x += step(tx - s.x, 0.004, 1.5);
+        s.y += step(ty - s.y, 0.004, 1.5);
         s.sc += step(tsc - s.sc, 0.004, 0.0012);
         // Free to roam past the edges (the grand orbit above means it actually does) — once the
         // whole disc has cleared one side, it reappears at the equivalent point on the opposite
@@ -201,7 +205,7 @@ export default function SunOrb() {
         else if (s.x > vw + wrap) s.x -= vw + wrap * 2;
         if (s.y < -wrap) s.y += vh + wrap * 2;
         else if (s.y > vh + wrap) s.y -= vh + wrap * 2;
-        s.sc = Math.min(3.3, Math.max(0.12, s.sc));
+        s.sc = Math.min(1.7, Math.max(0.25, s.sc));
       }
       el.style.width = el.style.height = `${size}px`;
       const ox = s.x - size / 2, oy = s.y - size / 2, c = size / 2;
