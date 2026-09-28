@@ -169,12 +169,13 @@ export default function SunOrb() {
       const a = 2 * Math.PI * p * laps + phase;
       const b = 2 * Math.PI * p * (laps * 0.7 + 0.3) + phase2;
       const drift = reduce ? 0 : 1;
-      // A slow, wide circuit on top of the scroll-driven wander — wide enough (relative to the
-      // viewport) that it regularly carries the disc past every edge in turn. It takes several
-      // minutes per lap, on its own clock, so it reads as a real orbit rather than a bounce.
-      const orbitA = t * 0.0000105 + orbitPhase;   // ~10 min per lap
-      const orbitX = drift * vw * 0.62 * Math.cos(orbitA);
-      const orbitY = drift * vh * 0.58 * Math.sin(orbitA * 0.82 + orbitPhase2);
+      // A wide circuit on top of the scroll-driven wander — wide enough (relative to the viewport)
+      // that it reliably carries the disc past every edge in turn, left/right and up/down alike.
+      // Well under a minute per lap, on its own clock, so a visitor actually watches it exit one
+      // side and re-enter the other, rather than lingering near the middle of the screen.
+      const orbitA = t * 0.00014 + orbitPhase;   // ~45 s per lap
+      const orbitX = drift * vw * 0.68 * Math.cos(orbitA);
+      const orbitY = drift * vh * 0.64 * Math.sin(orbitA * 0.82 + orbitPhase2);
       const tx = vw * (0.5 + ampX * Math.cos(a)) + drift * vw * 0.03 * Math.sin(t * 0.00011 + phase) + orbitX;
       const ty = vh * (0.55 + ampY * Math.sin(b)) + drift * vh * 0.03 * Math.cos(t * 0.00009 + phase2) + orbitY;
       // Size breathes on its own, very slowly (about 80 s from smallest to largest and back), like a real moon
@@ -185,10 +186,12 @@ export default function SunOrb() {
       if (reduce) {
         s.x = vw * 0.85; s.y = vh * 0.8; s.sc = 1;
       } else {
-        // Calm glide: ease toward the target, slower than before, and never move faster than a slow walk.
+        // Calm glide: ease toward the target — but fast enough to actually keep pace with the
+        // (now much shorter) grand orbit above, so the disc really clears every edge each lap
+        // instead of lagging behind and just wobbling near the centre of the screen.
         const step = (d: number, k: number, max: number) => Math.max(-max, Math.min(max, d * k));
-        s.x += step(tx - s.x, 0.0022, 0.4);
-        s.y += step(ty - s.y, 0.0022, 0.4);
+        s.x += step(tx - s.x, 0.006, 3.5);
+        s.y += step(ty - s.y, 0.006, 3.5);
         s.sc += step(tsc - s.sc, 0.004, 0.0012);
         // Free to roam past the edges (the grand orbit above means it actually does) — once the
         // whole disc has cleared one side, it reappears at the equivalent point on the opposite
