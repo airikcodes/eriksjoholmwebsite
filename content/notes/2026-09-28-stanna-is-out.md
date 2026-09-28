@@ -2,7 +2,7 @@
 title: Stanna is out
 date: 2026-09-28
 slug: stanna-is-out
-excerpt: The first single from Längs med vägen, out now.
+excerpt: The sixth single from Längs med vägen, out now.
 ---
 
 [Listen on Spotify](https://open.spotify.com/track/6BYAYynES64GQgdBpHXvii) · [Listen on Tidal](https://tidal.com/search?q=Stanna%20Sj%C3%B8holm%20Nordstr%C3%B6m%20Erik%20Sj%C3%B8holm)
@@ -11,7 +11,7 @@ excerpt: The first single from Längs med vägen, out now.
 
 I'm really happy to finally share this one — "Stanna" is out.
 
-It's the first single from *Längs med vägen*, the album I've been making together with my co-writer and friend Emil Nordström. We wrote it about wanting time to stand still — that wish to freeze someone, a moment, a version of a person, before anything has to change. In the chorus we imagine staying like that forever, like a stone statue in a city square, untouched by the years.
+It's the sixth single from *Längs med vägen*, the album I've been making together with my co-writer and friend Emil Nordström. We wrote it about wanting time to stand still — that wish to freeze someone, a moment, a version of a person, before anything has to change. In the chorus we imagine staying like that forever, like a stone statue in a city square, untouched by the years.
 
 But the song doesn't let you rest in that wish for long. It turns to a harder question underneath it: what actually stays? Is a memory all that's left of everything we had?
 
