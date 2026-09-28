@@ -42,6 +42,11 @@ function photoHoles(): Hole[] {
   const out: Hole[] = [];
   document.querySelectorAll<HTMLElement>(PHOTO_SELECTOR).forEach((el) => {
     if (el.closest(".sun-orb")) return;
+    // .water-mirror is a decorative, flipped *clone* of <main> (components/WaterReflection.tsx) built
+    // purely for the reflection band — its cloned <img> tags land at whatever position the scaleY(-1)
+    // transform happens to put them, which can be anywhere on screen. Treating those as real photos cut
+    // stray holes in the sun/moon that had nothing to do with anything actually visible there.
+    if (el.closest(".water-mirror")) return;
     const r = el.getBoundingClientRect();
     if (r.width < 48 || r.height < 48 || r.bottom < 0 || r.top > vh || r.right < 0 || r.left > vw) return;
     const banner = el.classList.contains("page-photo-wrap");
@@ -134,9 +139,13 @@ export default function SunOrb() {
     // Route parameters, re-rolled whenever scroll direction flips.
     let phase = rnd(0, Math.PI * 2);
     let phase2 = rnd(0, Math.PI * 2);
-    let laps = rnd(0.2, 0.45);
+    let laps = rnd(0.14, 0.3);
     let ampX = rnd(0.22, 0.32);
     let ampY = rnd(0.12, 0.2);
+    // The slow "grand orbit" below (wide enough to carry the disc off any edge) gets its own
+    // phases so it doesn't retrace the scroll-driven wander above.
+    let orbitPhase = rnd(0, Math.PI * 2);
+    let orbitPhase2 = rnd(0, Math.PI * 2);
 
     const vw0 = window.innerWidth, vh0 = window.innerHeight;
     const s = { x: vw0 * rnd(0.1, 0.9), y: vh0 * rnd(0.3, 0.9), vx: 0, vy: 0, sc: 1, vsc: 0 };
@@ -144,7 +153,8 @@ export default function SunOrb() {
 
     reroll.current = () => {
       phase = rnd(0, Math.PI * 2); phase2 = rnd(0, Math.PI * 2);
-      laps = rnd(0.2, 0.45); ampX = rnd(0.22, 0.32); ampY = rnd(0.12, 0.2);
+      laps = rnd(0.14, 0.3); ampX = rnd(0.22, 0.32); ampY = rnd(0.12, 0.2);
+      orbitPhase = rnd(0, Math.PI * 2); orbitPhase2 = rnd(0, Math.PI * 2);
     };
 
     // Scrolling only moves the sun's 'home' (below). No kicks, no jitter, no direction-flip jumps: it just glides.
@@ -159,8 +169,14 @@ export default function SunOrb() {
       const a = 2 * Math.PI * p * laps + phase;
       const b = 2 * Math.PI * p * (laps * 0.7 + 0.3) + phase2;
       const drift = reduce ? 0 : 1;
-      const tx = vw * (0.5 + ampX * Math.cos(a)) + drift * vw * 0.04 * Math.sin(t * 0.00018 + phase);
-      const ty = vh * (0.55 + ampY * Math.sin(b)) + drift * vh * 0.04 * Math.cos(t * 0.00015 + phase2);
+      // A slow, wide circuit on top of the scroll-driven wander — wide enough (relative to the
+      // viewport) that it regularly carries the disc past every edge in turn. It takes several
+      // minutes per lap, on its own clock, so it reads as a real orbit rather than a bounce.
+      const orbitA = t * 0.0000105 + orbitPhase;   // ~10 min per lap
+      const orbitX = drift * vw * 0.62 * Math.cos(orbitA);
+      const orbitY = drift * vh * 0.58 * Math.sin(orbitA * 0.82 + orbitPhase2);
+      const tx = vw * (0.5 + ampX * Math.cos(a)) + drift * vw * 0.03 * Math.sin(t * 0.00011 + phase) + orbitX;
+      const ty = vh * (0.55 + ampY * Math.sin(b)) + drift * vh * 0.03 * Math.cos(t * 0.00009 + phase2) + orbitY;
       // Size breathes on its own, very slowly (about 80 s from smallest to largest and back), like a real moon
       // rising and setting — it is not tied to how fast you scroll, so it never jumps.
       const k = 0.5 - 0.5 * Math.cos((t / 80000) * 2 * Math.PI + phase2 + p * 1.2);
@@ -169,17 +185,19 @@ export default function SunOrb() {
       if (reduce) {
         s.x = vw * 0.85; s.y = vh * 0.8; s.sc = 1;
       } else {
-        // Calm glide: ease toward the target and never move faster than a slow walk.
+        // Calm glide: ease toward the target, slower than before, and never move faster than a slow walk.
         const step = (d: number, k: number, max: number) => Math.max(-max, Math.min(max, d * k));
-        s.x += step(tx - s.x, 0.004, 0.7);
-        s.y += step(ty - s.y, 0.004, 0.7);
+        s.x += step(tx - s.x, 0.0022, 0.4);
+        s.y += step(ty - s.y, 0.0022, 0.4);
         s.sc += step(tsc - s.sc, 0.004, 0.0012);
-        // stay mostly on screen
-        const minX = -size * 0.15, maxX = vw + size * 0.15, minY = vh * 0.05, maxY = vh * 1.0;
-        if (s.x < minX) s.x = minX;
-        if (s.x > maxX) s.x = maxX;
-        if (s.y < minY) s.y = minY;
-        if (s.y > maxY) s.y = maxY;
+        // Free to roam past the edges (the grand orbit above means it actually does) — once the
+        // whole disc has cleared one side, it reappears at the equivalent point on the opposite
+        // side, same as it left: out left, in right; out above, rise from below.
+        const wrap = size * 0.6;
+        if (s.x < -wrap) s.x += vw + wrap * 2;
+        else if (s.x > vw + wrap) s.x -= vw + wrap * 2;
+        if (s.y < -wrap) s.y += vh + wrap * 2;
+        else if (s.y > vh + wrap) s.y -= vh + wrap * 2;
         s.sc = Math.min(3.3, Math.max(0.12, s.sc));
       }
       el.style.width = el.style.height = `${size}px`;
