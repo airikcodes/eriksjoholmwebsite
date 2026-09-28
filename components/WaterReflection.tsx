@@ -26,7 +26,6 @@ export default function WaterReflection() {
     const band = bandRef.current, mirror = mirrorRef.current;
     if (!band || !mirror) return;
     let raf = 0, timer = 0, mainTop = 0, mainLeft = 0;
-    let src: HTMLElement | null = null;
     let ro: ResizeObserver | null = null;
     let mo: MutationObserver | null = null;
 
@@ -40,7 +39,6 @@ export default function WaterReflection() {
 
     const rebuild = () => {
       const main = pageMain();
-      src = main;
       mirror.textContent = "";
       if (!main) return;
       const r = main.getBoundingClientRect();
@@ -86,7 +84,7 @@ export default function WaterReflection() {
     return () => {
       window.removeEventListener("scroll", onScroll); window.removeEventListener("resize", schedule);
       window.clearTimeout(timer); if (raf) cancelAnimationFrame(raf);
-      mo?.disconnect(); ro?.disconnect(); src = null;
+      mo?.disconnect(); ro?.disconnect();
     };
   }, [pathname]);
 

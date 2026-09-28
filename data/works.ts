@@ -48,7 +48,6 @@ export interface Work {
   funders?: Array<{ name: string; url: string; logo: string; logoAlt?: string }>;
 }
 
-const SPOTIFY_ARTIST = 'https://open.spotify.com/artist/1UpcgaCHBwic2IqUQ3hHdp';
 const TIDAL_ARTIST   = 'https://tidal.com/artist/47687355';
 
 function tidalSearch(q: string): string {

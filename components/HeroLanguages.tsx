@@ -44,6 +44,7 @@ export default function HeroLanguages() {
     let base = pathname;
     if (current !== DEFAULT_LOCALE) base = pathname.slice(current.length + 1) || '/';
     const target = next === DEFAULT_LOCALE ? base : `/${next}${base === '/' ? '' : base}`;
+    // eslint-disable-next-line react-hooks/immutability
     document.cookie = `NEXT_LOCALE=${next}; path=/; max-age=${365 * 24 * 60 * 60}; SameSite=Lax`;
     router.push(target);
   }

@@ -113,11 +113,15 @@ export default function PersistentBackground({ host = "" }: { host?: string }) {
   // Detect capabilities; kick off initial playback
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    // Deferred to the effect on purpose: matchMedia isn't available during SSR, and
+    // setting this eagerly would make the client's first render disagree with the
+    // server-rendered markup (hydration mismatch).
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setRM(mq.matches);
     const h = (e: MediaQueryListEvent) => setRM(e.matches);
     mq.addEventListener("change", h);
 
-    const conn    = (navigator as any).connection;
+    const conn    = (navigator as Navigator & { connection?: { saveData?: boolean; effectiveType?: string } }).connection;
     const isMobile = window.innerWidth < 768;
     const isSlow   = conn?.saveData || ['slow-2g', '2g'].includes(conn?.effectiveType ?? '');
 
@@ -152,7 +156,7 @@ export default function PersistentBackground({ host = "" }: { host?: string }) {
     }
 
     return () => mq.removeEventListener("change", h);
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []);
 
   // Cycling — swaps video slots and advances image index every 30 s
   useEffect(() => {

@@ -66,8 +66,7 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
     if (!open) return;
     function onKey(e: KeyboardEvent) {
       if (e.key === 'Escape') {
-        setOpen(false);
-        toggleRef.current?.focus();
+        close();
         return;
       }
       if (e.key === 'Tab' && overlayRef.current) {
@@ -98,14 +97,6 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
     return () => { document.body.style.overflow = ''; };
   }, [open]);
 
-  // Reset transient overlay state when overlay closes
-  useEffect(() => {
-    if (!open) {
-      setLangOpen(false);
-      setExpanded(new Set<number>());
-    }
-  }, [open]);
-
   // Focus first locale button when lang picker expands
   useEffect(() => {
     if (langOpen) {
@@ -118,7 +109,20 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
   function close() {
     setOpen(false);
     setHovered(null);
+    setLangOpen(false);
+    setExpanded(new Set<number>());
     toggleRef.current?.focus();
+  }
+
+  function toggleOverlay() {
+    setOpen((o) => {
+      const next = !o;
+      if (!next) {
+        setLangOpen(false);
+        setExpanded(new Set<number>());
+      }
+      return next;
+    });
   }
 
   function toggleExpand(i: number) {
@@ -136,7 +140,6 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
     }
     const target =
       next === DEFAULT_LOCALE ? base : `/${next}${base === '/' ? '' : base}`;
-    // eslint-disable-next-line react-hooks/immutability
     document.cookie = `NEXT_LOCALE=${next}; path=/; max-age=${365 * 24 * 60 * 60}; SameSite=Lax`;
     if (target === pathname) { router.refresh(); } else { router.push(target); }
     close();
@@ -179,7 +182,7 @@ export default function TopBar({ navItems }: { navItems: NavItem[] }) {
         <button
           ref={toggleRef}
           className="menu-toggle-btn"
-          onClick={() => setOpen((o) => !o)}
+          onClick={toggleOverlay}
           onMouseEnter={() => setMenuHover(true)}
           onMouseLeave={() => setMenuHover(false)}
           aria-label="Toggle navigation"

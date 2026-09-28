@@ -71,5 +71,5 @@ export function useBgColorMode(wrapperRef: RefObject<HTMLElement | null>): void 
 
     rafId = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(rafId);
-  }, []); // wrapperRef object is stable for the component's lifetime
+  }, [wrapperRef]); // wrapperRef object is stable for the component's lifetime
 }

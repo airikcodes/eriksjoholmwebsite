@@ -312,7 +312,8 @@ export default function SunOrb() {
       const v = videoRef.current, rv = reflVideoRef.current;
       if (v && rv && Math.abs(rv.currentTime - v.currentTime) > 0.25) rv.currentTime = v.currentTime;
     };
-    videoRef.current?.addEventListener("timeupdate", syncRefl);
+    const video = videoRef.current;
+    video?.addEventListener("timeupdate", syncRefl);
     const onClick = (e: MouseEvent) => {
       if (reduce || !onSun(e.clientX, e.clientY)) return;
       const on = el.dataset.mode !== "video";
@@ -323,13 +324,14 @@ export default function SunOrb() {
     };
     const onMove = (e: MouseEvent) => { mouse = { x: e.clientX, y: e.clientY }; };
     const onEnded = () => playNext();
-    videoRef.current?.addEventListener("ended", onEnded);
+    video?.addEventListener("ended", onEnded);
     window.addEventListener("click", onClick);
     window.addEventListener("mousemove", onMove, { passive: true });
     raf = requestAnimationFrame(tick);
     return () => {
       window.removeEventListener("click", onClick);
-      window.removeEventListener("mousemove", onMove); window.removeEventListener("bg-audio", onAudio); videoRef.current?.removeEventListener("ended", onEnded);
+      window.removeEventListener("mousemove", onMove); window.removeEventListener("bg-audio", onAudio);
+      video?.removeEventListener("ended", onEnded); video?.removeEventListener("timeupdate", syncRefl);
       document.documentElement.classList.remove("sun-hover"); cancelAnimationFrame(raf);
     };
   }, []);
