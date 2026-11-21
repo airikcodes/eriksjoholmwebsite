@@ -11,6 +11,7 @@ import SunOrb from "@/components/SunOrb";
 import WaterReflection from "@/components/WaterReflection";
 import ConsentPixel from "@/components/ConsentPixel";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { THEME_SCRIPT } from "@/lib/theme-script";
 import { SUN_VISIBILITY_SCRIPT } from "@/lib/sun-visibility-script";
 import "./globals.css";
@@ -149,6 +150,7 @@ export default async function RootLayout({
         {children}
         <ConsentPixel lang={lang} />
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
