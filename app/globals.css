@@ -1428,3 +1428,36 @@ html[data-theme="light"][data-tone="night"] .mail-inner {
   --accent-ink-hover: #F3C876;
   --color-ink-meta:   #ADA292;
 }
+
+/* Consent banner for the Meta Pixel: small corner card. */
+.consent {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 1000;
+  width: min(320px, calc(100vw - 32px));
+  padding: 14px 16px;
+  background: var(--page-solid);
+  color: var(--color-ink-body);
+  border: 1px solid rgba(var(--fg-rgb), 0.16);
+  border-radius: 10px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+  font-family: var(--font-body);
+}
+.consent__text { margin: 0 0 10px; font-size: 13px; line-height: 1.45; }
+.consent__actions { display: flex; gap: 8px; justify-content: flex-end; }
+.consent__btn {
+  font: inherit;
+  font-size: 13px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(var(--fg-rgb), 0.2);
+  background: transparent;
+  color: var(--color-ink-primary);
+  cursor: pointer;
+}
+.consent__btn--yes { background: var(--accent-ink); color: #14100C; border-color: var(--accent-ink); }
+@media (max-width: 600px) {
+  .consent { right: 12px; bottom: 12px; width: calc(100vw - 24px); }
+}
+@media print { .consent { display: none; } }
