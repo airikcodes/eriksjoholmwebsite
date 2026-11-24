@@ -6,7 +6,7 @@ import { StdioServerTransport } from '@modelcontextprotocol/server/stdio';
 import { registerSongTools } from '../lib/song-api/mcp-tools';
 
 async function main() {
-  const server = new McpServer({ name: 'song-concierge', version: '1.0.0' });
+  const server = new McpServer({ name: 'Erik Sjøholm Songs', version: '1.0.0' });
   registerSongTools(server, 'stdio');
   await server.connect(new StdioServerTransport());
 }
