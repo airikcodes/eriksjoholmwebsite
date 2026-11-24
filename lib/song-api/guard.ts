@@ -60,7 +60,7 @@ export function parseSearchParams(url: URL): { q: string; lang: Lang | undefined
 }
 
 export interface HandlerOut { body: unknown; qLen?: number; count?: number }
-export type Ctx = { params: Promise<Record<string, string>> };
+export type Ctx = { params: Promise<Record<string, string | string[] | undefined>> };
 
 const BASE_HEADERS: Record<string, string> = {
   'Access-Control-Allow-Origin': '*',

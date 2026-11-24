@@ -4,7 +4,7 @@ import { getSong, isValidId } from '@/lib/song-api/core';
 // GET /api/v1/songs/{id}
 // One song with metadata and links. No lyrics. Unknown ids and non-exposed works both return the same not_found.
 const handler = makeHandler('songs.get', async (_req, ctx) => {
-  const { id } = await ctx.params;
+  const id = String((await ctx.params).id ?? '');
   if (!isValidId(id)) throw new ApiError(400, 'invalid_id', 'The id format is not valid.');
   const song = getSong(id);
   if (!song) throw new ApiError(404, 'not_found', 'No song with that id.');
