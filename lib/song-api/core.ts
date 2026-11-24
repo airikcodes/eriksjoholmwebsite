@@ -12,20 +12,6 @@ export const SITE_BASE = 'https://eriksjoholm.com';
 export const LANGS = ['en', 'de', 'es', 'sv', 'fi', 'it', 'fr', 'pt'] as const;
 export type Lang = (typeof LANGS)[number];
 
-export const AUDIENCE_GUIDANCE =
-  "Part of the GLENN show: for 16 and older, not for primary schools or children's contexts. The schools programme is Märchen und Musik.";
-
-/** Works that belong to the GLENN show. Includes slugs that are not exposed today, so a later change cannot expose them unflagged. */
-export const GLENN_SLUGS: ReadonlySet<string> = new Set([
-  'glenn-ep',
-  'ashes',
-  'one-last-waltz',
-  'one-last-waltz-acoustic',
-  'one-last-waltz-alternative',
-  'one-last-waltz-pop',
-  'the-night-is-long',
-]);
-
 const bySlug = new Map<string, Work>(works.map((w) => [w.slug, w]));
 
 /** Same rule the live concierge uses for its catalogue: released and a Spotify track link. */
@@ -96,7 +82,6 @@ export interface SongResult {
   tags: string[];
   description: string | null;
   links: { page: string; spotify: string | null; tidal: string | null };
-  audience_guidance: string | null;
   match: { kind: MatchKind; score: number | null };
 }
 
@@ -111,7 +96,6 @@ function toResult(w: Work, kind: MatchKind, score: number | null, hit?: { line: 
     tags: [], // the data has no mood or theme tags
     description: w.description ? shorten(w.description) : null,
     links: { page: `${SITE_BASE}/works/${w.slug}`, spotify: w.spotifyUrl ?? null, tidal: w.tidalUrl ?? null },
-    audience_guidance: GLENN_SLUGS.has(w.slug) ? AUDIENCE_GUIDANCE : null,
     match: { kind, score },
   };
 }
@@ -167,10 +151,6 @@ export function listFilters() {
       original_languages: uniq(ex.map(originalLanguage)).sort(),
       years: uniq(ex.map((w) => w.year).filter((y): y is number => typeof y === 'number')).sort((a, b) => a - b),
       collaboration: { true: collab, false: ex.length - collab },
-      audience_guidance: {
-        text: AUDIENCE_GUIDANCE,
-        songs_with_guidance: ex.filter((w) => GLENN_SLUGS.has(w.slug)).length,
-      },
     },
     example_special_requests: ['something new', 'your most popular song', 'something in Swedish', 'something in English'],
   };
