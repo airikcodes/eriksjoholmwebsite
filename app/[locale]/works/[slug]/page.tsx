@@ -75,6 +75,7 @@ export default async function WorkPage({
 
   // The description in the visitor's site language, when we have one; English (the base field) otherwise
   const description = work.descriptionTranslations?.[locale as 'en' | 'de' | 'es' | 'sv' | 'fi' | 'fr' | 'it' | 'pt'] ?? work.description;
+  const descriptionHeading = work.descriptionHeading?.[locale as 'en' | 'de' | 'es' | 'sv' | 'fi' | 'fr' | 'it' | 'pt'] ?? work.descriptionHeading?.en;
 
   // ── Structured data (schema.org) ─────────────────────────────────────────
   // Releases (albums/EPs) get MusicAlbum; individual tracks get MusicRecording.
@@ -234,27 +235,9 @@ export default async function WorkPage({
             <span className="block" style={{ width: '2rem', height: '1px', background: '#C8922A', marginTop: '2.5rem' }} />
           </div>
 
-          {/* ── Description ── */}
-          {description && (
-            <div style={{ paddingBottom: '4rem' }}>
-              {description.split('\n\n').map((para, i) => (
-                <p key={i} style={{
-                  fontFamily:   'var(--font-inter)',
-                  fontSize:     '0.9rem',
-                  color:        'var(--color-ink-body)',
-                  lineHeight:   1.9,
-                  maxWidth:     '52ch',
-                  marginBottom: '1.25rem',
-                }}>
-                  {para}
-                </p>
-              ))}
-            </div>
-          )}
-
           {/* ── Listen (released only) ── */}
-          {!isUpcoming && (work.spotifyUrl || work.tidalUrl) && (
-            <div style={{ borderTop: '1px solid rgba(var(--fg-rgb),0.07)', paddingTop: '4rem', paddingBottom: '4rem' }}>
+          {!isUpcoming && (work.spotifyUrl || work.tidalUrl || work.appleMusicUrl || work.youtubeMusicUrl) && (
+            <div style={{ paddingBottom: '3rem' }}>
               <p style={{
                 fontFamily:    'var(--font-inter)',
                 fontSize:      '0.7rem',
@@ -304,7 +287,75 @@ export default async function WorkPage({
                     Tidal
                   </a>
                 )}
+                {work.appleMusicUrl && (
+                  <a
+                    href={work.appleMusicUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-[#FA243C] transition-colors duration-200"
+                    style={{
+                      fontFamily:    'var(--font-inter)',
+                      fontSize:      '0.7rem',
+                      letterSpacing: '0.2em',
+                      textTransform: 'uppercase',
+                      color:         'var(--color-ink-meta)',
+                      borderBottom:  '1px solid rgba(var(--meta-rgb),0.3)',
+                      paddingBottom: '2px',
+                    }}
+                  >
+                    Apple Music
+                  </a>
+                )}
+                {work.youtubeMusicUrl && (
+                  <a
+                    href={work.youtubeMusicUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-[#FF0000] transition-colors duration-200"
+                    style={{
+                      fontFamily:    'var(--font-inter)',
+                      fontSize:      '0.7rem',
+                      letterSpacing: '0.2em',
+                      textTransform: 'uppercase',
+                      color:         'var(--color-ink-meta)',
+                      borderBottom:  '1px solid rgba(var(--meta-rgb),0.3)',
+                      paddingBottom: '2px',
+                    }}
+                  >
+                    YouTube Music
+                  </a>
+                )}
               </div>
+            </div>
+          )}
+
+          {/* ── Description ── */}
+          {description && (
+            <div style={{ paddingBottom: '4rem' }}>
+              {descriptionHeading && (
+                <p style={{
+                  fontFamily:    'var(--font-inter)',
+                  fontSize:      '0.7rem',
+                  letterSpacing: '0.35em',
+                  textTransform: 'uppercase',
+                  color:         'var(--color-ink-meta)',
+                  marginBottom:  '2rem',
+                }}>
+                  {descriptionHeading}
+                </p>
+              )}
+              {description.split('\n\n').map((para, i) => (
+                <p key={i} style={{
+                  fontFamily:   'var(--font-inter)',
+                  fontSize:     '0.9rem',
+                  color:        'var(--color-ink-body)',
+                  lineHeight:   1.9,
+                  maxWidth:     '52ch',
+                  marginBottom: '1.25rem',
+                }}>
+                  {para}
+                </p>
+              ))}
             </div>
           )}
 

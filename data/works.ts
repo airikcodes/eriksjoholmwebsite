@@ -26,6 +26,8 @@ export interface Work {
   coverImage?: string;
   spotifyUrl?: string;
   tidalUrl?: string;
+  appleMusicUrl?: string;
+  youtubeMusicUrl?: string;
   /** Direct public URL to an R2-hosted audio file, for in-site playback via AudioPlayer */
   audioUrl?: string;
   lyrics?: string;
@@ -35,6 +37,8 @@ export interface Work {
   description?: string;
   /** Translations of `description`, keyed by site locale (the base `description` language is not repeated here) */
   descriptionTranslations?: Partial<Record<'en' | 'de' | 'es' | 'sv' | 'fi' | 'fr' | 'it' | 'pt', string>>;
+  /** Optional small heading above the description, keyed by site locale (falls back to en) */
+  descriptionHeading?: Partial<Record<'en' | 'de' | 'es' | 'sv' | 'fi' | 'fr' | 'it' | 'pt', string>>;
   credits?: WorkCredit[];
   /** For albums/EPs: slugs of songs that appear on this release */
   tracks?: string[];
@@ -5002,6 +5006,282 @@ Apenas uma lembrança de tudo o que fomos
     },
   },
   {
+    id:            'for-att-do-maste-vi-leva',
+    slug:          'for-att-do-maste-vi-leva',
+    title:         'För att dö, måste vi leva',
+    workType:      'collaboration',
+    year:          2026,
+    releaseDate:   '2026-11-26',
+    releaseStatus: 'released',
+    featured:      false,
+    language:      'Swedish',
+    meta:          '2026 · with Emil Nordström · Swedish',
+    // TODO: swap for a locally hosted cover in /public/images once the file is on hand (Landr's CDN copy is hotlinked for now)
+    coverImage:    'https://imagestore.ffm.to/link/6b09a5542b00003000f392bc/6b09a557410000a200c56459_4d0dafba322a28fb712a7c393359ab9b.png',
+    // TODO: add spotifyUrl once Spotify has indexed the release
+    tidalUrl:        'https://www.tidal.com/album/582767667',
+    appleMusicUrl:   'https://music.apple.com/us/album/fo-r-att-do-ma-ste-vi-leva-single/6839766146',
+    youtubeMusicUrl: 'https://music.youtube.com/playlist?list=OLAK5uy_lHTVjaboY3TlZcYMGEoNIpJcQbQzRSjOs',
+    album:         'langs-med-vagen-album',
+    credits: [
+      { name: 'Erik Sjøholm', role: 'Lead vocals, backing vocals, acoustic guitar' },
+      { name: 'Emil Nordström', role: 'Production, arrangement, mixing, electric guitar' },
+      { name: 'Johnny Nordström', role: 'Piano, organ' },
+      { name: 'Tuukka Aitoaho', role: 'Drums, percussion' },
+      { name: 'Stefan Lindblom', role: 'Bass' },
+      { name: 'Anders Sjölind', role: 'Trumpet, trombone' },
+      { name: 'Robin Käldström', role: 'Saxophone' },
+      { name: 'Stefan Backas', role: 'Recording engineering' },
+      { name: 'Maria Triana', role: 'Mastering (Amsterdam)' },
+    ],
+    description:`Life and death are closer neighbours than we like to admit. A child is born in the same season that someone older leaves us. A loss can bring relief and pain in the same breath. And in the quiet afterwards, if we let it, something starts to grow. This song stays with that moment. It isn't really about grief, but about what grief makes room for: acceptance, and the life that begins in the empty space. Giving up, in the way this song means it, is not surrender. It is an active choice to let go, and it takes courage.
+
+The song took its shape from a very old story. I'm a storyteller, and when I studied storytelling at Mezrab in Amsterdam, I began to notice how ancient stories keep working on us long after we've stopped telling them. They sit in the background of our lives and quietly shape what we think is possible. I went looking in the Finnish Kalevala and in the Norse myths, and one figure kept drawing me back: Odin.
+
+Odin is the chief of the Norse gods, lord of wisdom, poetry and the runes, and a restless seeker who is never satisfied with what he knows. He gave up an eye for a drink from the well of wisdom. Then he hung himself in Yggdrasil, the world tree, for nine nights, wounded by his own spear, “given to Odin, himself to himself.” No one offered him bread or drink. Only when he had nothing left to hold on to did the runes appear beneath him, the magic signs behind the art of words. He reached down, took them, and fell. He crossed the edge of death and came back with something new.
+
+I know that picture from my own writing. I've sat in front of a blank page, written a line, deleted it, written it again, and got nowhere. The harder I fought, the quieter the page became. The words arrived when I stopped trying to force them. Writing a song is a small version of Odin's tree: you hang there until you let go, and then something new has room to arrive.
+
+The song was born out of my storytelling show Myths Unplugged, which I performed at the Alden Biesen festival, and it belongs to the album Längs med vägen, which I made together with Emil Nordström.
+
+Emil and I met while studying music in Jakobstad, and we've been playing together ever since: in bands, in orchestras, and now on this album. He is a guitarist, a producer and a music teacher, and on this song he did most of what shapes the sound you hear. He produced it, wrote the arrangement, played the electric guitar and mixed it.
+
+We gathered the band at Midas Studio in Replot: Tuukka Aitoaho on drums and percussion, Stefan Lindblom on bass, Johnny Nordström on piano and organ, Emil on guitar, and me on vocals and acoustic guitar. Afterwards a horn section from Jakobstad joined in, with Anders Sjölind on trumpet and trombone and Robin Käldström on saxophone. Stefan Backas engineered the recording, and Maria Triana in the Netherlands mastered the song.
+
+Making it with so many hands felt fitting for a song about letting go.`,
+    descriptionTranslations: {
+      sv:`Liv och död är närmare grannar än vi vill erkänna. Ett barn föds under samma årstid som någon äldre lämnar oss. En förlust kan ge både lättnad och smärta i samma andetag. Och i tystnaden efteråt börjar något växa, om vi ger det plats. Den här låten stannar kvar i just det ögonblicket. Den handlar egentligen inte om sorgen, utan om vad sorgen skapar utrymme för: acceptans, och livet som börjar i tomrummet. Att ge upp, så som den här låten menar det, är ingen kapitulation. Det är ett aktivt val att släppa taget, och det tar mod.
+
+Låten fick sin form av en mycket gammal berättelse. Jag är berättare, och när jag studerade storytelling på Mezrab i Amsterdam började jag lägga märke till hur uråldriga berättelser fortsätter att verka på oss långt efter att vi slutat berätta dem. De ligger i bakgrunden av våra liv och formar i det tysta vad vi tror är möjligt. Jag gav mig ut i den finska Kalevala och i den nordiska mytologin, och en gestalt drog mig tillbaka gång på gång: Oden.
+
+Oden är de nordiska gådarnas hövding, visdomens, poesins och runornas herre, och en rastlös sökare som aldrig nöjer sig med det han vet. Han gav ett öga för en klunk ur visdomens källa. Sedan hängde han sig själv i världsträdet Yggdrasil i nio nätter, sårad av sitt eget spjöt, ”given åt Oden, av sig själv till sig själv”. Ingen bjöd honom bröd eller dryck. Först när han inte hade något kvar att hålla sig i dök runorna upp under honom, de magiska tecknen bakom ordkonsten. Han sträckte sig ner, tog dem och föll. Han gick över dödens gräns och kom tillbaka med något nytt.
+
+Den bilden känner jag igen från mitt eget skrivande. Jag har suttit framför en tom sida, skrivit en rad, raderat den, skrivit den igen och inte kommit någon vart. Ju hårdare jag kämpade, desto tystare blev sidan. Orden kom när jag slutade försöka tvinga fram dem. Att skriva en sång är en liten version av Odens träd: man hänger där tills man släpper taget, och då får något nytt plats att komma.
+
+Låten föddes ur min storytelling-show Myths Unplugged, som jag framförde på Alden Biesen-festivalen, och den hör till albumet Längs med vägen, som jag har gjort tillsammans med Emil Nordström.
+
+Emil och jag träffades under våra musikstudier i Jakobstad och har spelat tillsammans sedan dess: i band, i orkestrar och nu på det här albumet. Han är gitarrist, producent och musiklärare, och på den här låten gjorde han det mesta av det som formar ljudet du hör. Han producerade den, skrev arrangemanget, spelade elgitarr och mixade den.
+
+Vi samlade bandet i Midas Studio i Replot: Tuukka Aitoaho på trummor och slagverk, Stefan Lindblom på bas, Johnny Nordström på piano och orgel, Emil på gitarr och jag på sång och akustisk gitarr. Efteråt kom en blåssektion från Jakobstad in, med Anders Sjölind på trumpet och trombon och Robin Käldström på saxofon. Stefan Backas var inspelningstekniker, och Maria Triana i Nederländerna mastrade låten.
+
+Att göra den med så många händer kändes passande för en låt om att släppa taget.`,
+      de:`Leben und Tod sind engere Nachbarn, als wir zugeben mögen. Ein Kind wird in derselben Jahreszeit geboren, in der jemand Älteres von uns geht. Ein Verlust kann Erleichterung und Schmerz im selben Atemzug bringen. Und in der Stille danach beginnt etwas zu wachsen, wenn wir ihm Raum geben. Dieses Lied bleibt bei genau diesem Moment. Es geht eigentlich nicht um die Trauer, sondern darum, wofür die Trauer Raum schafft: Akzeptanz und das Leben, das in der Leere beginnt. Aufgeben ist, so wie dieses Lied es meint, keine Kapitulation. Es ist die aktive Entscheidung loszulassen, und sie braucht Mut.
+
+Seine Form bekam das Lied durch eine sehr alte Geschichte. Ich bin Geschichtenerzähler, und als ich an der Mezrab in Amsterdam Storytelling studierte, begann ich zu bemerken, wie uralte Geschichten auf uns wirken, lange nachdem wir aufgehört haben, sie zu erzählen. Sie sitzen im Hintergrund unseres Lebens und prägen leise, was wir für möglich halten. Ich bin im finnischen Kalevala und in der nordischen Mythologie auf die Suche gegangen, und eine Gestalt zog mich immer wieder an: Odin.
+
+Odin ist das Oberhaupt der nordischen Götter, Herr der Weisheit, der Dichtkunst und der Runen, und ein rastloser Suchender, der sich nie mit dem zufriedengibt, was er weiß. Er gab ein Auge für einen Schluck aus dem Brunnen der Weisheit. Dann hängte er sich neun Nächte lang in den Weltenbaum Yggdrasil, von seinem eigenen Speer verwundet, „Odin geweiht, er selbst sich selbst“. Niemand reichte ihm Brot oder Trank. Erst als er nichts mehr hatte, woran er sich halten konnte, erschienen unter ihm die Runen, die magischen Zeichen hinter der Kunst des Wortes. Er griff hinunter, nahm sie und fiel. Er überschritt die Grenze des Todes und kam mit etwas Neuem zurück.
+
+Dieses Bild kenne ich aus meinem eigenen Schreiben. Ich habe vor einer leeren Seite gesessen, eine Zeile geschrieben, sie gelöscht, wieder geschrieben und bin nicht weitergekommen. Je härter ich kämpfte, desto stiller wurde die Seite. Die Worte kamen, als ich aufhörte, sie erzwingen zu wollen. Ein Lied zu schreiben ist eine kleine Version von Odins Baum: Man hängt dort, bis man loslasst, und dann hat etwas Neues Platz anzukommen.
+
+Das Lied ist aus meiner Storytelling-Show Myths Unplugged entstanden, die ich beim Alden-Biesen-Festival aufgeführt habe, und es gehört zum Album Längs med vägen, das ich zusammen mit Emil Nordström gemacht habe.
+
+Emil und ich haben uns während des Musikstudiums in Jakobstad kennengelernt und spielen seither zusammen: in Bands, in Orchestern und jetzt auf diesem Album. Er ist Gitarrist, Produzent und Musiklehrer, und bei diesem Lied hat er das meiste von dem gemacht, was den Klang prägt. Er hat es produziert, das Arrangement geschrieben, die E-Gitarre gespielt und es gemischt.
+
+Die Band haben wir im Midas Studio in Replot versammelt: Tuukka Aitoaho am Schlagzeug und an der Percussion, Stefan Lindblom am Bass, Johnny Nordström an Klavier und Orgel, Emil an der Gitarre und ich mit Gesang und Akustikgitarre. Danach kam ein Bläsersatz aus Jakobstad dazu, mit Anders Sjölind an Trompete und Posaune und Robin Käldström am Saxofon. Stefan Backas war Aufnahmetechniker, und Maria Triana in den Niederlanden hat das Lied gemastert.
+
+Es mit so vielen Händen zu machen, fühlte sich passend an für ein Lied über das Loslassen.`,
+      es:`La vida y la muerte son vecinas más cercanas de lo que nos gusta admitir. Un niño nace en la misma estación en que alguien mayor nos deja. Una pérdida puede traer alivio y dolor en el mismo aliento. Y en el silencio posterior, si lo permitimos, algo empieza a crecer. Esta canción se queda en ese momento. En realidad no trata del duelo, sino de aquello para lo que el duelo hace sitio: la aceptación y la vida que empieza en el vacío. Rendirse, en el sentido en que lo entiende esta canción, no es capitular. Es una decisión activa de soltar, y requiere valor.
+
+La canción tomó forma a partir de una historia muy antigua. Soy narrador, y cuando estudié storytelling en Mezrab, en Ámsterdam, empecé a notar cómo las historias ancestrales siguen actuando sobre nosotros mucho después de que dejamos de contarlas. Están en el fondo de nuestras vidas y moldean en silencio lo que creemos posible. Busqué en el Kalevala finlandés y en la mitología nórdica, y una figura me atrajo una y otra vez: Odín.
+
+Odín es el jefe de los dioses nórdicos, señor de la sabiduría, la poesía y las runas, y un buscador inquieto que nunca se conforma con lo que sabe. Dio un ojo por un trago del pozo de la sabiduría. Luego se colgó nueve noches del árbol del mundo, Yggdrasil, herido por su propia lanza, «ofrecido a Odín, él mismo a sí mismo». Nadie le ofreció pan ni bebida. Solo cuando no le quedó nada a lo que agarrarse aparecieron las runas bajo él, los signos mágicos detrás del arte de la palabra. Se estiró hacia abajo, las tomó y cayó. Cruzó el límite de la muerte y volvió con algo nuevo.
+
+Esa imagen la conozco de mi propia escritura. Me he sentado ante una página en blanco, he escrito una línea, la he borrado, la he vuelto a escribir y no he llegado a ninguna parte. Cuanto más luchaba, más callada se volvía la página. Las palabras llegaron cuando dejé de intentar forzarlas. Escribir una canción es una versión pequeña del árbol de Odín: cuelgas ahí hasta que sueltas, y entonces algo nuevo tiene espacio para llegar.
+
+La canción nació de mi espectáculo de storytelling Myths Unplugged, que presenté en el festival Alden Biesen, y pertenece al álbum Längs med vägen, que hice junto a Emil Nordström.
+
+Emil y yo nos conocimos mientras estudábamos música en Jakobstad y desde entonces tocamos juntos: en bandas, en orquestas y ahora en este álbum. Es guitarrista, productor y profesor de música, y en esta canción hizo la mayor parte de lo que da forma al sonido que oyes. La produjo, escribió el arreglo, tocó la guitarra eléctrica y la mezcló.
+
+Reunimos a la banda en Midas Studio, en Replot: Tuukka Aitoaho a la batería y percusión, Stefan Lindblom al bajo, Johnny Nordström al piano y al órgano, Emil a la guitarra y yo con la voz y la guitarra acústica. Después se sumó una sección de metales de Jakobstad, con Anders Sjölind a la trompeta y el trombón y Robin Käldström al saxofón. Stefan Backas fue el técnico de grabación, y Maria Triana, en los Países Bajos, masterizó la canción.
+
+Hacerla con tantas manos nos pareció apropiado para una canción sobre soltar.`,
+      fi:`Elämä ja kuolema ovat läheisempiä naapureita kuin haluamme myöntää. Lapsi syntyy samaan vuodenaikaan, kun joku vanhempi jättää meidät. Menetys voi tuoda helpotusta ja tuskaa samalla hengenvedolla. Ja hiljaisuudessa sen jälkeen jokin alkaa kasvaa, jos annamme sille tilaa. Tämä laulu jää juuri siihen hetkeen. Se ei oikeastaan kerro surusta vaan siitä, mille suru tekee tilaa: hyväksymiselle ja elämälle, joka alkaa tyhjyydestä. Luovuttaminen, siinä mielessä kuin tämä laulu sen tarkoittaa, ei ole antautumista. Se on aktiivinen valinta päästää irti, ja se vaatii rohkeutta.
+
+Laulun muoto syntyi erittäin vanhasta tarinasta. Olen tarinankertoja, ja kun opiskelin storytellingia Mezrabissa Amsterdamissa, aloin huomata, miten ikiaikaiset tarinat vaikuttavat meihin vielä kauan sen jälkeen, kun olemme lakanneet kertomasta niitä. Ne ovat elämämme taustalla ja muokkaavat hiljaa sitä, mitä pidämme mahdollisena. Etsin Kalevalasta ja pohjoismaisesta mytologiasta, ja yksi hahmo veti minua puoleensa yhä uudelleen: Odin.
+
+Odin on pohjoismaisten jumalten päällikkö, viisauden, runouden ja riimujen herra sekä levoton etsijä, joka ei tyydy siihen, minkä jo tietää. Hän antoi silmänsä siemauksesta viisauden lähteestä. Sitten hän ripusti itsensä maailmanpuu Yggdrasiliin yhdeksäksi yöksi oman keihäänsä haavoittamana, ”annettuna Odinille, itse itselleen”. Kukaan ei tarjonnut hänelle leipää eikä juomaa. Vasta kun hänellä ei ollut enää mitään, mistä pitää kiinni, riimut ilmestyivät hänen alapuolelleen, sanataiteen takaiset taikamerkit. Hän kurottui alas, tarttui niihin ja putosi. Hän ylitti kuoleman rajan ja palasi mukanaan jotain uutta.
+
+Tuon kuvan tunnistan omasta kirjoittamisestani. Olen istunut tyhjän sivun edessä, kirjoittanut rivin, poistanut sen, kirjoittanut sen uudelleen enkä päässyt mihinkään. Mitä kovemmin kamppailin, sitä hiljaisemmaksi sivu muuttui. Sanat tulivat, kun lakkasin yrittämästä pakottaa niitä. Laulun kirjoittaminen on pieni versio Odinin puusta: siinä roikutaan, kunnes päästetään irti, ja silloin jollekin uudelle tulee tilaa.
+
+Laulu syntyi tarinankerrontaesityksestäni Myths Unplugged, jonka esitin Alden Biesenin festivaalilla, ja se kuuluu albumiin Längs med vägen, jonka tein yhdessä Emil Nordströmin kanssa.
+
+Emil ja minä tapasimme musiikkiopinnoissa Pietarsaaressa ja olemme soittaneet yhdessä siitä asti: bändeissä, orkestereissa ja nyt tällä albumilla. Hän on kitaristi, tuottaja ja musiikinopettaja, ja tässä laulussa hän teki suurimman osan siitä, mikä muotoilee kuulemasi äänen. Hän tuotti sen, kirjoitti sovituksen, soitti sähkökitaraa ja miksasi sen.
+
+Kokosimme bändin Midas Studiolle Replotiin: Tuukka Aitoaho rummuissa ja lyömäsoittimissa, Stefan Lindblom bassossa, Johnny Nordström pianossa ja uruissa, Emil kitarassa ja minä laulussa ja akustisessa kitarassa. Jälkeenpäin mukaan tuli puhallinosio Pietarsaaresta, Anders Sjölind trumpetissa ja pasuunassa ja Robin Käldström saksofonissa. Stefan Backas toimi äänittäjänä, ja Maria Triana Alankomaissa masteroi laulun.
+
+Tuntui sopivalta tehdä se näin monen käden voimin laulussa, joka kertoo irti päästämisestä.`,
+    },
+    descriptionHeading: {
+      en: "The story behind the song",
+      sv: "Berättelsen bakom låten",
+      de: "Die Geschichte hinter dem Lied",
+      es: "La historia detrás de la canción",
+      fi: "Laulun tarina",
+    },
+    lyrics:
+`Om du kan leva för evigt
+Varför väljer du att dö?
+Om du kan se till världens ände
+Varför sår du nya frön?
+
+För att dö
+Måste vi leva
+För att leva
+Måste vi dö
+
+Efter vinter, blir det vår
+Sånt du förstår, när du blir äldre
+Att dagar kommer, dagar går
+Tills våra dagar nått sin ände
+
+För att dö
+Måste vi leva
+För att leva
+Måste vi dö
+
+Varje historia
+Vi bär på tre delar
+Att födas, att leva och sen att förgöras
+Ödets tre systrar
+Jag kan existera
+För att du låter mig gå
+
+För att dö
+Måste vi leva
+För att leva
+Måste vi dö`,
+    lyricsTranslations: {
+      en:
+`If you can live forever
+Why do you choose to die?
+If you can see to the end of the world
+Why do you sow new seeds?
+
+To die
+We must live
+To live
+We must die
+
+After winter comes spring
+Something you understand as you grow older
+That days come, days go
+Until our days reach their end
+
+To die
+We must live
+To live
+We must die
+
+Every story
+We carry in three parts
+To be born, to live, and then to be undone
+The three sisters of fate
+I can exist
+Because you let me go
+
+To die
+We must live
+To live
+We must die`,
+      de:
+`Wenn du ewig leben kannst
+Warum wählst du den Tod?
+Wenn du bis ans Ende der Welt sehen kannst
+Warum säst du neue Samen?
+
+Um zu sterben
+Müssen wir leben
+Um zu leben
+Müssen wir sterben
+
+Nach dem Winter kommt der Frühling
+Das verstehst du, wenn du älter wirst
+Dass Tage kommen, Tage gehen
+Bis unsere Tage ihr Ende erreichen
+
+Um zu sterben
+Müssen wir leben
+Um zu leben
+Müssen wir sterben
+
+Jede Geschichte
+Tragen wir in drei Teilen
+Geboren werden, leben und dann vergehen
+Die drei Schwestern des Schicksals
+Ich kann existieren
+Weil du mich gehen lässt
+
+Um zu sterben
+Müssen wir leben
+Um zu leben
+Müssen wir sterben`,
+      es:
+`Si puedes vivir para siempre
+¿Por qué eliges morir?
+Si puedes ver hasta el fin del mundo
+¿Por qué siembras nuevas semillas?
+
+Para morir
+Debemos vivir
+Para vivir
+Debemos morir
+
+Después del invierno llega la primavera
+Algo que entiendes cuando te haces mayor
+Que los días vienen, los días van
+Hasta que nuestros días llegan a su fin
+
+Para morir
+Debemos vivir
+Para vivir
+Debemos morir
+
+Toda historia
+La llevamos en tres partes
+Nacer, vivir y luego deshacerse
+Las tres hermanas del destino
+Puedo existir
+Porque tú me dejas ir
+
+Para morir
+Debemos vivir
+Para vivir
+Debemos morir`,
+      fi:
+`Jos voit elää ikuisesti
+Miksi valitset kuolla?
+Jos voit nähdä maailman loppuun asti
+Miksi kylvät uusia siemeniä?
+
+Kuollaksemme
+Meidän täytyy elää
+Elääksemme
+Meidän täytyy kuolla
+
+Talven jälkeen tulee kevät
+Sen ymmärrät, kun vanhenet
+Että päivät tulevat, päivät menevät
+Kunnes päivämme tulevat päätökseensä
+
+Kuollaksemme
+Meidän täytyy elää
+Elääksemme
+Meidän täytyy kuolla
+
+Jokaisen tarinan
+Kannamme kolmessa osassa
+Syntyä, elää ja sitten tuhoutua
+Kohtalon kolme sisarta
+Voin olla olemassa
+Koska sinä päästät minut menemään
+
+Kuollaksemme
+Meidän täytyy elää
+Elääksemme
+Meidän täytyy kuolla`,
+    },
+  },
+  {
     id:            'silent-empire',
     slug:          'silent-empire',
     title:         'Silent Empire',
@@ -7812,6 +8092,7 @@ As gravações decorreram durante o verão de 2025 num punhado de espaços escol
       'sanden-i-min-hand',
       'fri-som-en-fagel',
       'stanna',
+      'for-att-do-maste-vi-leva',
     ],
     funders: [
       {

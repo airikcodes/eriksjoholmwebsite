@@ -29,6 +29,10 @@ const nextConfig: NextConfig = {
       { source: "/storyteller",                                destination: "https://storyteller.eriksjoholm.com", permanent: true },
       { source: "/:locale(de|es|sv|fi|it|fr|pt)/storyteller", destination: "https://storyteller.eriksjoholm.com", permanent: true },
 
+      // ── Release short-links ───────────────────────────────────────────────
+      { source: "/for-att-do",                                 destination: "/works/for-att-do-maste-vi-leva",             permanent: false },
+      { source: "/listen/for-att-do-maste-vi-leva",            destination: "/works/for-att-do-maste-vi-leva",             permanent: false },
+
       // ── Pre-existing short-links ──────────────────────────────────────────
       { source: "/work",                                       destination: "/works",                                     permanent: true },
       { source: "/resonators",                                 destination: "https://eriksjoholm-newsletter.beehiiv.com", permanent: true },
