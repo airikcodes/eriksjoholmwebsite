@@ -5018,7 +5018,7 @@ Apenas uma lembrança de tudo o que fomos
     meta:          '2026 · with Emil Nordström · Swedish',
     // TODO: swap for a locally hosted cover in /public/images once the file is on hand (Landr's CDN copy is hotlinked for now)
     coverImage:    'https://imagestore.ffm.to/link/6b09a5542b00003000f392bc/6b09a557410000a200c56459_4d0dafba322a28fb712a7c393359ab9b.png',
-    // TODO: add spotifyUrl once Spotify has indexed the release
+    spotifyUrl:      'https://open.spotify.com/track/10t8gOdq0w8lc3cIobpiAj',
     tidalUrl:        'https://www.tidal.com/album/582767667',
     appleMusicUrl:   'https://music.apple.com/us/album/fo-r-att-do-ma-ste-vi-leva-single/6839766146',
     youtubeMusicUrl: 'https://music.youtube.com/playlist?list=OLAK5uy_lHTVjaboY3TlZcYMGEoNIpJcQbQzRSjOs',
